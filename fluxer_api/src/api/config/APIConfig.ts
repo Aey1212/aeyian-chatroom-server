@@ -324,6 +324,8 @@ export interface APIConfig {
 			wordmarkUrl?: string;
 			faviconUrl?: string;
 			themeColor?: string;
+			statusPageUrl?: string;
+			statusPageIncidentHistoryUrl?: string;
 		};
 		setup: {
 			configured: boolean;
