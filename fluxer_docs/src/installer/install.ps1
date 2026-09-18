@@ -62,7 +62,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
-$FluxerRawBase = 'https://raw.githubusercontent.com/fluxerapp/fluxer'
+$FluxerRawBase = 'https://raw.githubusercontent.com/Aey1212/aeyian-chatroom-server'
 $FluxerStackPath = 'deploy/self-hosting'
 $FluxerHealthPath = '/_health'
 $FluxerInitService = 'seaweedfs-init'
