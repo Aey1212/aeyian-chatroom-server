@@ -9,6 +9,13 @@ on:
         type: string
         required: false
         default: ""
+  # Called by build-all so the whole image set shares one version.
+  workflow_call:
+    inputs:
+      build-version:
+        type: string
+        required: false
+        default: ""
 
 permissions:
   actions: read
@@ -20,7 +27,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  GHCR_OWNER: ${{ github.repository_owner }}
+  # ghcr.io rejects uppercase repository names, and github.repository_owner is "Aey1212".
+  GHCR_OWNER: aey1212
 
 jobs:
   approve:
@@ -67,7 +75,7 @@ jobs:
       contents: read
       packages: write
     env:
-      IMAGE_REPO: ghcr.io/${{ github.repository_owner }}/fluxer-app-proxy-self-hosted
+      IMAGE_REPO: ghcr.io/${{ env.GHCR_OWNER }}/fluxer-app-proxy-self-hosted
       BUILD_VERSION: ${{ needs.meta.outputs.build_version }}
       PUBLIC_ASSET_BASE_URL: ""
       BUNDLE_LOCAL_ASSETS: "true"
@@ -126,10 +134,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # amd64 only: the VPS is x86_64.
           - platform: amd64
             runner: ubuntu-24.04
-          - platform: arm64
-            runner: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         env:
@@ -186,48 +193,15 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: verify cross-architecture asset parity
-        env:
-          APP_PROXY_ASSETS_REF: ghcr.io/${{ env.GHCR_OWNER }}/fluxer-app-proxy-self-hosted:${{ needs.meta.outputs.build_version }}-assets
-          APP_PROXY_AMD64_REF: ghcr.io/${{ env.GHCR_OWNER }}/fluxer-app-proxy-self-hosted:${{ needs.meta.outputs.build_version }}-amd64
-          APP_PROXY_ARM64_REF: ghcr.io/${{ env.GHCR_OWNER }}/fluxer-app-proxy-self-hosted:${{ needs.meta.outputs.build_version }}-arm64
-        run: >-
-          tools/ci/run.sh build-app-proxy
-          --step verify_asset_parity
-
-      - name: create and push multi-arch manifest
+      - name: create and push manifest
         env:
           IMAGE: ghcr.io/${{ env.GHCR_OWNER }}/fluxer-app-proxy-self-hosted
           VERSION: ${{ needs.meta.outputs.build_version }}
         run: |
           set -euo pipefail
           docker buildx imagetools create -t "${IMAGE}:${VERSION}" \
-            "${IMAGE}:${VERSION}-amd64" \
-            "${IMAGE}:${VERSION}-arm64"
+            "${IMAGE}:${VERSION}-amd64"
           docker buildx imagetools inspect "${IMAGE}:${VERSION}"
-
-      - name: Create token
-        id: create-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1
-        with:
-          client-id: ${{ vars.FLUXER_CI_APP_ID }}
-          private-key: ${{ secrets.FLUXER_CI_APP_KEY }}
-          owner: fluxerapp
-          repositories: fluxer
-          permission-contents: write
-      - name: Publish GitHub release
-        env:
-          GH_TOKEN: ${{ steps.create-token.outputs.token }}
-          SOURCE_SHA: ${{ github.sha }}
-          VERSION: ${{ needs.meta.outputs.build_version }}
-          RELEASE_BASELINE_SHA: ${{ vars.RELEASE_BASELINE_SHA }}
-        run: >-
-          tools/ci/run.sh release
-          publish
-          --component fluxer-app-proxy-self-hosted
-          --build-version "${VERSION}"
-          --source-sha "${SOURCE_SHA}"
-          --previous-sha "${RELEASE_BASELINE_SHA}"
 
       - name: Advance moving image tags
         env:
