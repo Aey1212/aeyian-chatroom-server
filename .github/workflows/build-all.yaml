@@ -1,0 +1,93 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# Builds every image the self-hosted stack runs, from one commit, under one
+# version tag. The stack reads a single FLUXER_IMAGE_TAG for all Fluxer images,
+# so a deploy is only coherent when the whole set shares that tag.
+name: build all images
+
+on:
+  workflow_dispatch:
+    inputs:
+      build-version:
+        description: "Explicit CalVer (YYYY.MDD.MICRO). Empty allocates one from the UTC clock for the whole set."
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  actions: read
+  contents: write
+  packages: write
+
+concurrency:
+  group: build-all
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  version:
+    name: resolve shared version
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      build_version: ${{ steps.vars.outputs.build_version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        env:
+          GIT_CONFIG_GLOBAL: ${{ runner.temp }}/gitconfig
+      - name: Set up Rust toolchain (CI helpers)
+        uses: dtolnay/rust-toolchain@02cb101ec7c40f2c49e1d9714d64511d8e1b74de
+        with:
+          toolchain: "1.98.1"
+      - name: set variables
+        id: vars
+        env:
+          FLUXER_BUILD_VERSION: ${{ inputs['build-version'] }}
+        run: >-
+          tools/ci/run.sh resolve-calver
+          --github-output
+
+  images:
+    name: ${{ matrix.image }}
+    needs: version
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: fluxer-admin
+            dockerfile: fluxer_admin/Dockerfile
+          - image: fluxer-api
+            dockerfile: fluxer_api/Dockerfile
+          - image: fluxer-gateway
+            dockerfile: fluxer_gateway/Dockerfile
+          - image: fluxer-gifs
+            dockerfile: fluxer_gifs/Dockerfile
+          - image: fluxer-media-proxy
+            dockerfile: fluxer_media_proxy/Dockerfile
+          - image: fluxer-messages
+            dockerfile: fluxer_messages/Dockerfile
+          - image: fluxer-snowflakes
+            dockerfile: fluxer_snowflakes/Dockerfile
+          - image: fluxer-static
+            dockerfile: fluxer_static/Dockerfile
+          - image: fluxer-unfurl
+            dockerfile: fluxer_unfurl/Dockerfile
+          - image: fluxer-users
+            dockerfile: fluxer_users/Dockerfile
+    uses: ./.github/workflows/_build-image.yaml
+    with:
+      image: ${{ matrix.image }}
+      dockerfile: ${{ matrix.dockerfile }}
+      build-version: ${{ needs.version.outputs.build_version }}
+
+  app-proxy-self-hosted:
+    name: fluxer-app-proxy-self-hosted
+    needs: version
+    uses: ./.github/workflows/build-app-proxy-self-hosted.yaml
+    with:
+      build-version: ${{ needs.version.outputs.build_version }}
