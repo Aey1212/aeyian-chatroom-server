@@ -91,3 +91,23 @@ jobs:
     uses: ./.github/workflows/build-app-proxy-self-hosted.yaml
     with:
       build-version: ${{ needs.version.outputs.build_version }}
+
+  # install.sh derives the git ref of the stack files from a pinned
+  # FLUXER_IMAGE_TAG (a CalVer tag names the commit with the same name), so the
+  # commit gets the version as a tag once every image in the set is published.
+  tag:
+    name: tag the commit with the version
+    needs: [version, images, app-proxy-self-hosted]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: push git tag
+        env:
+          VERSION: ${{ needs.version.outputs.build_version }}
+        run: |
+          set -euo pipefail
+          git tag "${VERSION}" "${GITHUB_SHA}"
+          git push origin "refs/tags/${VERSION}"
