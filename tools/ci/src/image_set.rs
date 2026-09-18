@@ -23,7 +23,8 @@ const COMPOSE_IMAGE_PREFIX: &str =
 const OCI_INDEX_MEDIA_TYPE: &str = "application/vnd.oci.image.index.v1+json";
 const DOCKER_MANIFEST_LIST_MEDIA_TYPE: &str =
     "application/vnd.docker.distribution.manifest.list.v2+json";
-const REQUIRED_PLATFORMS: &[(&str, &str)] = &[("linux", "amd64"), ("linux", "arm64")];
+// The fork publishes amd64 only (the VPS is x86_64).
+const REQUIRED_PLATFORMS: &[(&str, &str)] = &[("linux", "amd64")];
 const ARCH_TAG_SUFFIXES: &[&str] = &["-amd64", "-arm64"];
 
 struct Component {
