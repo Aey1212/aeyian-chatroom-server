@@ -153,6 +153,11 @@ export const DELETED_USER_USERNAME = 'DeletedUser';
 export const DELETED_USER_GLOBAL_NAME = 'Deleted User';
 export const DELETED_USER_DISCRIMINATOR = 0;
 export const DELETED_USER_ID = 1n;
+// Every bot username ends in this suffix; human usernames cannot contain '-', so
+// no human name can ever take it. The base name leaves room for it in 32 chars.
+export const BOT_USERNAME_SUFFIX = '-BOT';
+export const USERNAME_MAX_LENGTH = 32;
+export const BOT_USERNAME_BASE_MAX_LENGTH = USERNAME_MAX_LENGTH - BOT_USERNAME_SUFFIX.length;
 export const PublicUserFlags = {
 	STAFF: Number(UserFlags.STAFF),
 	PARTNER: Number(UserFlags.PARTNER),

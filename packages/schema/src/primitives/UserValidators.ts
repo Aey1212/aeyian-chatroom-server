@@ -15,6 +15,9 @@ import {z} from 'zod';
 
 const EMAIL_LOCAL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+$/;
 const USERNAME_REGEX = /^[a-zA-Z0-9_]+$/;
+// Matches an existing account name for lookups: a human username, or a bot username
+// ending in -BOT. Case-insensitive, like username uniqueness.
+const USERNAME_LOOKUP_REGEX = /^[a-z0-9_]+(-bot)?$/i;
 export const PHONE_E164_REGEX = /^\+[1-9]\d{1,14}$/;
 
 function sanitizeUsername(value: string): string {
@@ -64,6 +67,14 @@ export const UsernameType = withOpenApiType(
 			return !lowerValue.includes('fluxer') && !lowerValue.includes('system message');
 		}, ValidationErrorCodes.USERNAME_CANNOT_CONTAIN_RESERVED_TERMS),
 	'UsernameType',
+);
+export const UsernameLookupType = withOpenApiType(
+	z
+		.string()
+		.trim()
+		.pipe(withStringLengthRangeValidation(z.string(), 1, 32, ValidationErrorCodes.USERNAME_LENGTH_INVALID))
+		.refine((value) => USERNAME_LOOKUP_REGEX.test(value), ValidationErrorCodes.USERNAME_INVALID_CHARACTERS),
+	'UsernameLookupType',
 );
 export const GlobalNameType = z
 	.string()
