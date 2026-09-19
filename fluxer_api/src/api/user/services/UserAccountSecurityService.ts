@@ -7,7 +7,6 @@ import {deriveSudoMethods, userHasMfa} from '@app/api/auth/services/SudoMethods'
 import type {SudoVerificationResult} from '@app/api/auth/services/SudoVerificationService';
 import {Config} from '@app/api/Config';
 import type {UserRow} from '@app/api/database/types/UserTypes';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {LimitConfigService} from '@app/api/limits/LimitConfigService';
 import {resolveLimitSafe} from '@app/api/limits/LimitConfigUtils';
 import {createLimitMatchContext} from '@app/api/limits/LimitMatchContextBuilder';
@@ -17,6 +16,7 @@ import type {User} from '@app/api/models/User';
 import {enforceFluxerTagChangeRateLimit} from '@app/api/user/FluxerTagChangeRateLimit';
 import type {IUserAccountRepository} from '@app/api/user/repositories/IUserAccountRepository';
 import {isProfileSubstringExempt} from '@app/api/user/UserHelpers';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {PremiumFlags, UserPremiumTypes} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {SudoModeRequiredError} from '@fluxer/errors/src/domains/auth/SudoModeRequiredError';
@@ -34,7 +34,7 @@ type UserFieldUpdates = Partial<UserRow>;
 interface UserAccountSecurityServiceDeps {
 	apiContext: ApiContext;
 	userAccountRepository: IUserAccountRepository;
-	discriminatorService: IDiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	rateLimitService: IRateLimitService;
 	limitConfigService: LimitConfigService;
 }
@@ -209,7 +209,7 @@ export class UserAccountSecurityService {
 					newDiscriminator: user.discriminator,
 				};
 			}
-			const discriminatorResult = await this.deps.discriminatorService.generateDiscriminator({
+			const discriminatorResult = await this.deps.usernameRegistry.generateDiscriminator({
 				username,
 				requestedDiscriminator: undefined,
 				user: undefined,
@@ -229,7 +229,7 @@ export class UserAccountSecurityService {
 		if (this.requiresVisionaryForDiscriminator0000(user, discriminatorToUse)) {
 			throw InputValidationError.fromCode('discriminator', ValidationErrorCodes.VISIONARY_REQUIRED_FOR_DISCRIMINATOR);
 		}
-		const discriminatorResult = await this.deps.discriminatorService.generateDiscriminator({
+		const discriminatorResult = await this.deps.usernameRegistry.generateDiscriminator({
 			username,
 			requestedDiscriminator: discriminatorToUse,
 			user,
@@ -265,7 +265,7 @@ export class UserAccountSecurityService {
 		if (this.requiresVisionaryForDiscriminator0000(user, discriminator)) {
 			throw InputValidationError.fromCode('discriminator', ValidationErrorCodes.VISIONARY_REQUIRED_FOR_DISCRIMINATOR);
 		}
-		const discriminatorResult = await this.deps.discriminatorService.generateDiscriminator({
+		const discriminatorResult = await this.deps.usernameRegistry.generateDiscriminator({
 			username: user.username,
 			requestedDiscriminator: discriminator,
 			user,

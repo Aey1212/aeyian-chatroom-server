@@ -6,7 +6,6 @@ import type {ChannelService} from '@app/api/channel/services/ChannelService';
 import type {IConnectionRepository} from '@app/api/connection/IConnectionRepository';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import type {GuildService} from '@app/api/guild/services/GuildService';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService} from '@app/api/infrastructure/EntityAssetService';
 import type {KVAccountDeletionQueueService} from '@app/api/infrastructure/KVAccountDeletionQueueService';
 import type {KVBulkMessageDeletionQueueService} from '@app/api/infrastructure/KVBulkMessageDeletionQueueService';
@@ -17,6 +16,7 @@ import {UserChannelService} from '@app/api/user/services/UserChannelService';
 import type {UserContactChangeLogService} from '@app/api/user/services/UserContactChangeLogService';
 import {UserContentService} from '@app/api/user/services/UserContentService';
 import {UserRelationshipService} from '@app/api/user/services/UserRelationshipService';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import type {UserPermissionUtils} from '@app/api/utils/UserPermissionUtils';
 
 export class UserService {
@@ -32,7 +32,7 @@ export class UserService {
 		channelRepository: IChannelRepository,
 		guildService: GuildService,
 		entityAssetService: EntityAssetService,
-		discriminatorService: IDiscriminatorService,
+		usernameRegistry: IUsernameRegistry,
 		guildRepository: IGuildRepositoryAggregate,
 		userPermissionUtils: UserPermissionUtils,
 		kvDeletionQueue: KVAccountDeletionQueueService,
@@ -47,7 +47,7 @@ export class UserService {
 			guildService,
 			entityAssetService,
 			guildRepository,
-			discriminatorService,
+			usernameRegistry,
 			kvDeletionQueue,
 			contactChangeLogService,
 			connectionRepository,

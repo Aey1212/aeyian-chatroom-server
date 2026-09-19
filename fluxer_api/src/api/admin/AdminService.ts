@@ -21,7 +21,6 @@ import type {IChannelRepository} from '@app/api/channel/IChannelRepository';
 import type {ChannelService} from '@app/api/channel/services/ChannelService';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import type {GuildService} from '@app/api/guild/services/GuildService';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService} from '@app/api/infrastructure/EntityAssetService';
 import type {IAssetDeletionQueue} from '@app/api/infrastructure/IAssetDeletionQueue';
 import type {IStorageService} from '@app/api/infrastructure/IStorageService';
@@ -40,6 +39,7 @@ import type {ReportService} from '@app/api/report/ReportService';
 import type {IRiskHistoryRepository} from '@app/api/risk/HistoricalOutcomeRepository';
 import type {ISuspiciousIpRepository} from '@app/api/risk/SuspiciousIpRepository';
 import type {UserService} from '@app/api/user/services/UserService';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import type {VoiceRepository} from '@app/api/voice/VoiceRepository';
 import type {SendSystemDmResponse} from '@fluxer/schema/src/domains/admin/AdminSchemas';
 import type {IpInfoService} from '@pkgs/geoip/src/IpInfoService';
@@ -68,7 +68,7 @@ export class AdminService {
 		private readonly channelRepository: IChannelRepository,
 		private readonly adminRepository: IAdminRepository,
 		private readonly inviteRepository: InviteRepository,
-		private readonly discriminatorService: IDiscriminatorService,
+		private readonly usernameRegistry: IUsernameRegistry,
 		private readonly guildService: GuildService,
 		private readonly userCacheService: UserCacheService,
 		private readonly channelService: ChannelService,
@@ -103,7 +103,7 @@ export class AdminService {
 			apiContext: this.apiContext,
 			guildRepository: this.guildRepository,
 			channelRepository: this.channelRepository,
-			discriminatorService: this.discriminatorService,
+			usernameRegistry: this.usernameRegistry,
 			entityAssetService: this.entityAssetService,
 			auditService: this.auditService,
 			userCacheService: this.userCacheService,

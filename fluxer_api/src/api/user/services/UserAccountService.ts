@@ -7,7 +7,6 @@ import type {IConnectionRepository} from '@app/api/connection/IConnectionReposit
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import type {GuildService} from '@app/api/guild/services/GuildService';
 import {GuildMemberSearchIndexService} from '@app/api/guild/services/member/GuildMemberSearchIndexService';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService} from '@app/api/infrastructure/EntityAssetService';
 import type {KVAccountDeletionQueueService} from '@app/api/infrastructure/KVAccountDeletionQueueService';
 import type {UserCacheService} from '@app/api/infrastructure/UserCacheService';
@@ -29,6 +28,7 @@ import {UserAccountUpdatePropagator} from '@app/api/user/services/UserAccountUpd
 import type {UserContactChangeLogService} from '@app/api/user/services/UserContactChangeLogService';
 import {createPremiumClearPatch} from '@app/api/user/UserHelpers';
 import {hasPartialUserFieldsChanged} from '@app/api/user/UserMappers';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {runAllInOrder} from '@app/api/utils/ConcurrencyUtils';
 import {PremiumFlags} from '@fluxer/constants/src/UserConstants';
 import type {UserUpdateRequest} from '@fluxer/schema/src/domains/user/UserRequestSchemas';
@@ -66,7 +66,7 @@ export class UserAccountService {
 		guildService: GuildService,
 		entityAssetService: EntityAssetService,
 		guildRepository: IGuildRepositoryAggregate,
-		discriminatorService: IDiscriminatorService,
+		usernameRegistry: IUsernameRegistry,
 		kvDeletionQueue: KVAccountDeletionQueueService,
 		private readonly contactChangeLogService: UserContactChangeLogService,
 		connectionRepository: IConnectionRepository,
@@ -95,7 +95,7 @@ export class UserAccountService {
 			userSettingsRepository: userAccountRepository,
 			guildRepository,
 			guildService,
-			discriminatorService,
+			usernameRegistry,
 			connectionRepository,
 		});
 		this.profileService = new UserAccountProfileService({
@@ -108,7 +108,7 @@ export class UserAccountService {
 		this.securityService = new UserAccountSecurityService({
 			apiContext: this.apiContext,
 			userAccountRepository,
-			discriminatorService,
+			usernameRegistry,
 			rateLimitService,
 			limitConfigService,
 		});

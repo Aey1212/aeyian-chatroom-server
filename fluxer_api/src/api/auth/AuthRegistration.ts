@@ -7,7 +7,6 @@ import * as AuthUtility from '@app/api/auth/AuthUtility';
 import type {IRegistrationRiskEvaluator} from '@app/api/auth/services/IRegistrationRiskEvaluator';
 import {createEmailVerificationToken, createInviteCode, createUserID, type UserID} from '@app/api/BrandedTypes';
 import type {APIConfig} from '@app/api/config/APIConfig';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {KVActivityTracker} from '@app/api/infrastructure/KVActivityTracker';
 import {
 	type InstanceConfigRepository,
@@ -32,6 +31,7 @@ import {deferPhoneFlagsUntilCommunityJoin} from '@app/api/risk/DeferredPhoneGate
 import type {IRiskHistoryRepository} from '@app/api/risk/HistoricalOutcomeRepository';
 import type {IRiskAssessmentRepository} from '@app/api/risk/RiskAssessmentRepository';
 import {deriveLatestRiskContext} from '@app/api/risk/RiskHistoryContext';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import * as AgeUtils from '@app/api/utils/AgeUtils';
 import {extractEmailDomain} from '@app/api/utils/EmailDomainUtils';
 import {lookupGeoip} from '@app/api/utils/IpUtils';
@@ -79,7 +79,7 @@ export interface RegistrationDependencies {
 	inviteService: InviteService | null;
 	instanceConfigRepository: InstanceConfigRepository;
 	singleCommunityService: SingleCommunityService;
-	discriminatorService: IDiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	kvActivityTracker: KVActivityTracker;
 	registrationRiskEvaluator: IRegistrationRiskEvaluator;
 	accountPolicyEvaluator: IAccountPolicyEvaluator;
@@ -116,7 +116,7 @@ export async function register(
 		inviteService,
 		instanceConfigRepository,
 		singleCommunityService,
-		discriminatorService,
+		usernameRegistry,
 		kvActivityTracker,
 		registrationRiskEvaluator,
 		accountPolicyEvaluator,
@@ -195,7 +195,7 @@ export async function register(
 		const derivedUsername = deriveUsernameFromDisplayName(data.global_name ?? '');
 		if (derivedUsername) {
 			try {
-				discriminator = await allocateDiscriminator(discriminatorService, derivedUsername);
+				discriminator = await allocateDiscriminator(usernameRegistry, derivedUsername);
 				usernameCandidate = derivedUsername;
 			} catch (error) {
 				if (!(error instanceof InputValidationError)) {
@@ -206,9 +206,9 @@ export async function register(
 	}
 	if (!usernameCandidate) {
 		usernameCandidate = generateRandomUsername();
-		discriminator = await allocateDiscriminator(discriminatorService, usernameCandidate);
+		discriminator = await allocateDiscriminator(usernameRegistry, usernameCandidate);
 	} else if (discriminator === null) {
-		discriminator = await allocateDiscriminator(discriminatorService, usernameCandidate);
+		discriminator = await allocateDiscriminator(usernameRegistry, usernameCandidate);
 	}
 	const username = usernameCandidate!;
 	const grantBootstrapAdmin =
@@ -565,8 +565,8 @@ async function enforceRegistrationRateLimits(
 	}
 }
 
-async function allocateDiscriminator(discriminatorService: IDiscriminatorService, username: string): Promise<number> {
-	const result = await discriminatorService.generateDiscriminator({username});
+async function allocateDiscriminator(usernameRegistry: IUsernameRegistry, username: string): Promise<number> {
+	const result = await usernameRegistry.generateDiscriminator({username});
 	if (!result.available || result.discriminator === -1) {
 		throw InputValidationError.fromCode('username', ValidationErrorCodes.TOO_MANY_USERS_WITH_THIS_USERNAME);
 	}

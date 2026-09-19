@@ -8,10 +8,10 @@ import {EMAIL_CLEARABLE_SUSPICIOUS_ACTIVITY_FLAGS} from '@app/api/auth/AuthEmail
 import {createUserID, type UserID} from '@app/api/BrandedTypes';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import {GuildMemberSearchIndexService} from '@app/api/guild/services/member/GuildMemberSearchIndexService';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService, PreparedAssetUpload} from '@app/api/infrastructure/EntityAssetService';
 import {Logger} from '@app/api/Logger';
 import type {User} from '@app/api/models/User';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {AccessDeniedError} from '@fluxer/errors/src/domains/core/AccessDeniedError';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
@@ -30,7 +30,7 @@ import {types} from 'cassandra-driver';
 
 interface AdminUserProfileServiceDeps {
 	apiContext: ApiContext;
-	discriminatorService: IDiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	entityAssetService: EntityAssetService;
 	auditService: AdminAuditService;
 	updatePropagator: AdminUserUpdatePropagator;
@@ -228,13 +228,13 @@ export class AdminUserProfileService {
 			cache: cacheService,
 			contactChangeLog: contactChangeLogService,
 		} = this.deps.apiContext.services;
-		const {discriminatorService, auditService, updatePropagator} = this.deps;
+		const {usernameRegistry, auditService, updatePropagator} = this.deps;
 		const userId = createUserID(data.user_id);
 		const user = await userRepository.findUnique(userId);
 		if (!user) {
 			throw new UnknownUserError();
 		}
-		const discriminatorResult = await discriminatorService.generateDiscriminator({
+		const discriminatorResult = await usernameRegistry.generateDiscriminator({
 			username: data.username,
 			requestedDiscriminator: data.discriminator,
 			user,

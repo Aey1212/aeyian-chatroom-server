@@ -13,7 +13,6 @@ import {AdminUserUpdatePropagator} from '@app/api/admin/services/AdminUserUpdate
 import {createChannelID, createUserID, type UserID} from '@app/api/BrandedTypes';
 import type {IChannelRepository} from '@app/api/channel/IChannelRepository';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService} from '@app/api/infrastructure/EntityAssetService';
 import type {KVAccountDeletionQueueService} from '@app/api/infrastructure/KVAccountDeletionQueueService';
 import type {KVBulkMessageDeletionQueueService} from '@app/api/infrastructure/KVBulkMessageDeletionQueueService';
@@ -23,6 +22,7 @@ import type {ReportService} from '@app/api/report/ReportService';
 import type {IRiskHistoryRepository} from '@app/api/risk/HistoricalOutcomeRepository';
 import type {IUserRepository} from '@app/api/user/IUserRepository';
 import type {UserContactChangeLogService} from '@app/api/user/services/UserContactChangeLogService';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {AdminACLs} from '@fluxer/constants/src/AdminACLs';
 import {UnknownUserError} from '@fluxer/errors/src/domains/user/UnknownUserError';
 import type {
@@ -38,7 +38,7 @@ interface AdminUserServiceDeps {
 	apiContext: ApiContext;
 	guildRepository: IGuildRepositoryAggregate;
 	channelRepository: IChannelRepository;
-	discriminatorService: IDiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	entityAssetService: EntityAssetService;
 	auditService: AdminAuditService;
 	userCacheService: UserCacheService;
@@ -84,7 +84,7 @@ export class AdminUserService {
 		});
 		this.profileService = new AdminUserProfileService({
 			apiContext: deps.apiContext,
-			discriminatorService: deps.discriminatorService,
+			usernameRegistry: deps.usernameRegistry,
 			entityAssetService: deps.entityAssetService,
 			auditService: deps.auditService,
 			updatePropagator: this.updatePropagator,

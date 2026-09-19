@@ -4,7 +4,6 @@ import type {ApiContext} from '@app/api/ApiContext';
 import type {SudoVerificationBody} from '@app/api/auth/services/SudoVerificationService';
 import {requireSudoMode} from '@app/api/auth/services/SudoVerificationService';
 import {createApplicationID, type UserID} from '@app/api/BrandedTypes';
-import {UsernameNotAvailableError} from '@app/api/infrastructure/DiscriminatorService';
 import type {Application} from '@app/api/models/Application';
 import type {User} from '@app/api/models/User';
 import type {ApplicationService} from '@app/api/oauth/ApplicationService';
@@ -17,6 +16,7 @@ import {BotUserNotFoundError} from '@fluxer/errors/src/domains/oauth/BotUserNotF
 import {InvalidClientError} from '@fluxer/errors/src/domains/oauth/InvalidClientError';
 import {MaxApplicationsError} from '@fluxer/errors/src/domains/oauth/MaxApplicationsError';
 import {UnknownApplicationError} from '@fluxer/errors/src/domains/oauth/UnknownApplicationError';
+import {UsernameNotAvailableError} from '@fluxer/errors/src/domains/user/UsernameNotAvailableError';
 import type {
 	ApplicationCreateRequest,
 	ApplicationUpdateRequest,

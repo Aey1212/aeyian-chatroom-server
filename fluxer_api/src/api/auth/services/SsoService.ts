@@ -11,7 +11,6 @@ import {
 } from '@app/api/auth/services/SsoUtils';
 import type {UserID} from '@app/api/BrandedTypes';
 import type {ILogger} from '@app/api/ILogger';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {KVActivityTracker} from '@app/api/infrastructure/KVActivityTracker';
 import {
 	type InstanceConfigRepository,
@@ -28,6 +27,7 @@ import {Logger} from '@app/api/Logger';
 import {profileSubstringBlocklistCache} from '@app/api/middleware/ProfileSubstringBlocklistCache';
 import type {User} from '@app/api/models/User';
 import {UserSettings} from '@app/api/models/UserSettings';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {EXTERNAL_RESPONSE_LIMITS} from '@app/api/utils/ExternalResponseLimits';
 import * as FetchUtils from '@app/api/utils/FetchUtils';
 import {isJsonRecord, parseJsonRecord, parseJsonWithGuard} from '@app/api/utils/JsonBoundaryUtils';
@@ -257,7 +257,7 @@ export class SsoService {
 	constructor(
 		private readonly apiContext: ApiContext,
 		private readonly instanceConfigRepository: InstanceConfigRepository,
-		private readonly discriminatorService: IDiscriminatorService,
+		private readonly usernameRegistry: IUsernameRegistry,
 		private readonly kvActivityTracker: KVActivityTracker,
 	) {}
 
@@ -454,7 +454,7 @@ export class SsoService {
 		const userId = (await snowflake.generate()) as UserID;
 		const baseName = claims.name?.trim() || claims.email.split('@')[0] || generateRandomUsername();
 		const username = deriveUsernameFromDisplayName(baseName) ?? generateRandomUsername();
-		const discriminatorResult = await this.discriminatorService.generateDiscriminator({username});
+		const discriminatorResult = await this.usernameRegistry.generateDiscriminator({username});
 		if (!discriminatorResult.available) {
 			throw InputValidationError.fromCode('username', ValidationErrorCodes.SSO_UNABLE_TO_ALLOCATE_DISCRIMINATOR);
 		}

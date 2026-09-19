@@ -5,7 +5,6 @@ import type {IConnectionRepository} from '@app/api/connection/IConnectionReposit
 import type {UserConnectionRow} from '@app/api/database/types/ConnectionTypes';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import type {GuildService} from '@app/api/guild/services/GuildService';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {RequestCache} from '@app/api/middleware/RequestCacheMiddleware';
 import type {GuildMember} from '@app/api/models/GuildMember';
 import type {User} from '@app/api/models/User';
@@ -14,6 +13,7 @@ import type {IUserChannelRepository} from '@app/api/user/repositories/IUserChann
 import type {IUserRelationshipRepository} from '@app/api/user/repositories/IUserRelationshipRepository';
 import type {IUserSettingsRepository} from '@app/api/user/repositories/IUserSettingsRepository';
 import {canUseProfileTimezone} from '@app/api/user/UserHelpers';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {ChannelTypes} from '@fluxer/constants/src/ChannelConstants';
 import {
 	PremiumFlags,
@@ -41,7 +41,7 @@ interface UserAccountLookupServiceDeps {
 	userSettingsRepository: IUserSettingsRepository;
 	guildRepository: IGuildRepositoryAggregate;
 	guildService: GuildService;
-	discriminatorService: IDiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	connectionRepository: IConnectionRepository;
 }
 
@@ -283,10 +283,7 @@ export class UserAccountLookupService {
 
 	async checkUsernameDiscriminatorAvailability(params: {username: string; discriminator: number}): Promise<boolean> {
 		const {username, discriminator} = params;
-		const isAvailable = await this.deps.discriminatorService.isDiscriminatorAvailableForUsername(
-			username,
-			discriminator,
-		);
+		const isAvailable = await this.deps.usernameRegistry.isDiscriminatorAvailableForUsername(username, discriminator);
 		return !isAvailable;
 	}
 

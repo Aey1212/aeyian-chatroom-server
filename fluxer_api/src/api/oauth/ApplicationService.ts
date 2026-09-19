@@ -7,7 +7,6 @@ import type {IChannelRepository} from '@app/api/channel/IChannelRepository';
 import type {ApplicationRow} from '@app/api/database/types/OAuth2Types';
 import type {UserRow} from '@app/api/database/types/UserTypes';
 import {contentModerationService} from '@app/api/infrastructure/ContentModerationService';
-import type {DiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService, PreparedAssetUpload} from '@app/api/infrastructure/EntityAssetService';
 import type {UserCacheService} from '@app/api/infrastructure/UserCacheService';
 import {Logger} from '@app/api/Logger';
@@ -20,6 +19,7 @@ import {generateOAuthTokenSecret} from '@app/api/oauth/OAuthTokenSecret';
 import type {IApplicationRepository} from '@app/api/oauth/repositories/IApplicationRepository';
 import {enforceFluxerTagChangeRateLimit} from '@app/api/user/FluxerTagChangeRateLimit';
 import {hasPartialUserFieldsChanged, mapUserToPrivateResponse} from '@app/api/user/UserMappers';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {runAllInOrder} from '@app/api/utils/ConcurrencyUtils';
 import {hashPassword} from '@app/api/utils/PasswordUtils';
 import {generateRandomUsername} from '@app/api/utils/UsernameGenerator';
@@ -42,7 +42,7 @@ import {UnknownApplicationError} from '@fluxer/errors/src/domains/oauth/UnknownA
 import type {BotProfileUpdateRequest} from '@fluxer/schema/src/domains/oauth/OAuthSchemas';
 
 interface ApplicationServiceDeps {
-	discriminatorService: DiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	channelRepository: IChannelRepository;
 	applicationRepository: IApplicationRepository;
 	botAuthService: BotAuthService;
@@ -81,7 +81,7 @@ export class ApplicationService {
 	}> {
 		const preferredUsername = deriveUsernameFromDisplayName(applicationName);
 		if (preferredUsername) {
-			const discResult = await this.deps.discriminatorService.generateDiscriminator({
+			const discResult = await this.deps.usernameRegistry.generateDiscriminator({
 				username: preferredUsername,
 			});
 			if (discResult.available && discResult.discriminator !== -1) {
@@ -94,7 +94,7 @@ export class ApplicationService {
 		);
 		for (let attempts = 0; attempts < 100; attempts++) {
 			const randomUsername = generateRandomUsername();
-			const randomDiscResult = await this.deps.discriminatorService.generateDiscriminator({
+			const randomDiscResult = await this.deps.usernameRegistry.generateDiscriminator({
 				username: randomUsername,
 			});
 			if (randomDiscResult.available && randomDiscResult.discriminator !== -1) {
@@ -470,7 +470,7 @@ export class ApplicationService {
 		const newUsername = args.username ?? botUser.username;
 		const usernameChanged = args.username !== undefined && args.username !== botUser.username;
 		if (usernameChanged) {
-			const result = await this.deps.discriminatorService.resolveUsernameChange({
+			const result = await this.deps.usernameRegistry.resolveUsernameChange({
 				currentUsername: botUser.username,
 				currentDiscriminator: botUser.discriminator,
 				newUsername,

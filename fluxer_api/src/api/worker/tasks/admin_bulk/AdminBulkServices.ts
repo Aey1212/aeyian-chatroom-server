@@ -12,10 +12,10 @@ import {
 	getSuspiciousIpRepository,
 } from '@app/api/middleware/ServiceMiddleware';
 import {
-	getDiscriminatorService,
 	getEntityAssetService,
 	getGuildDiscoveryRepository,
 	getInviteRepository,
+	getUsernameRegistry,
 } from '@app/api/middleware/ServiceSingletons';
 import type {WorkerDependencies} from '@app/api/worker/WorkerDependencies';
 
@@ -40,7 +40,7 @@ export function createAdminBulkServices(deps: WorkerDependencies): AdminBulkServ
 		apiContext,
 		guildRepository: deps.guildRepository,
 		channelRepository: deps.channelRepository,
-		discriminatorService: getDiscriminatorService(),
+		usernameRegistry: getUsernameRegistry(),
 		entityAssetService: getEntityAssetService(),
 		auditService,
 		userCacheService: deps.userCacheService,

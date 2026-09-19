@@ -33,7 +33,6 @@ import {AssetDeletionQueue} from '@app/api/infrastructure/AssetDeletionQueue';
 import {AvatarService} from '@app/api/infrastructure/AvatarService';
 import {CachePurgeQueue, type IPurgeQueue, NoopPurgeQueue} from '@app/api/infrastructure/CachePurgeQueue';
 import {DisabledVirusScanService} from '@app/api/infrastructure/DisabledVirusScanService';
-import {DiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import {EmailDnsValidationService} from '@app/api/infrastructure/EmailDnsValidationService';
 import {EmbedService} from '@app/api/infrastructure/EmbedService';
 import {EntityAssetService} from '@app/api/infrastructure/EntityAssetService';
@@ -86,6 +85,7 @@ import {UserRepository} from '@app/api/user/repositories/UserRepository';
 import {VisionarySlotRepository} from '@app/api/user/repositories/VisionarySlotRepository';
 import {UserActivityBuffer} from '@app/api/user/services/UserActivityBuffer';
 import {UserContactChangeLogService} from '@app/api/user/services/UserContactChangeLogService';
+import {UsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {awaitAll} from '@app/api/utils/ConcurrencyUtils';
 import {UserPermissionUtils} from '@app/api/utils/UserPermissionUtils';
 import {VoiceRepository} from '@app/api/voice/VoiceRepository';
@@ -414,9 +414,7 @@ export const getEmbedService = singleton(
 	() => new EmbedService(getChannelRepository(), getUnfurlerService(), getMediaService(), getWorkerService()),
 );
 export const getReadStateService = singleton(() => new ReadStateService(getReadStateRepository(), getGatewayService()));
-export const getDiscriminatorService = singleton(
-	() => new DiscriminatorService(getUserRepository(), getCacheService(), getLimitConfigService()),
-);
+export const getUsernameRegistry = singleton(() => new UsernameRegistry());
 export const getBotAuthService = singleton(() => new BotAuthService(getApplicationRepository()));
 export const getBotMfaMirrorService = singleton(
 	() => new BotMfaMirrorService(getApplicationRepository(), getUserRepository(), getGatewayService()),
