@@ -881,7 +881,6 @@ class RequestServices implements RequestScopedServices {
 			getReadStateService(),
 			this.context,
 			this.gatewayService,
-			getDiscriminatorService(),
 			getFavoriteMemeRepository(),
 			getBotAuthService(),
 			getInviteRepository(),
