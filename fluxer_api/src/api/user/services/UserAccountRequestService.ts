@@ -510,18 +510,6 @@ export class UserAccountRequestService {
 		};
 	}
 
-	checkTagAvailability(params: {currentUser: User; username: string; discriminator: number}): boolean {
-		const currentUser = params.currentUser;
-		const discriminator = params.discriminator;
-		if (
-			params.username.toLowerCase() === currentUser.username.toLowerCase() &&
-			discriminator === currentUser.discriminator
-		) {
-			return false;
-		}
-		return true;
-	}
-
 	private stripBearerSensitiveFields(response: UserPrivateResponse): void {
 		response.acls = [];
 		response.traits = [];

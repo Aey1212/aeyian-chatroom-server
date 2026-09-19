@@ -281,10 +281,8 @@ export class UserAccountLookupService {
 		}));
 	}
 
-	async checkUsernameDiscriminatorAvailability(params: {username: string; discriminator: number}): Promise<boolean> {
-		const {username, discriminator} = params;
-		const isAvailable = await this.deps.usernameRegistry.isDiscriminatorAvailableForUsername(username, discriminator);
-		return !isAvailable;
+	async isUsernameTaken(username: string): Promise<boolean> {
+		return (await this.deps.usernameRegistry.get(username)) !== null;
 	}
 
 	private async getVisibleConnections(

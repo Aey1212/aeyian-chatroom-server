@@ -30,15 +30,14 @@ import {CannotBlockSystemUserError} from '@fluxer/errors/src/domains/user/Cannot
 import {CannotSendFriendRequestToBlockedUserError} from '@fluxer/errors/src/domains/user/CannotSendFriendRequestToBlockedUserError';
 import {CannotSendFriendRequestToSelfError} from '@fluxer/errors/src/domains/user/CannotSendFriendRequestToSelfError';
 import {FriendRequestBlockedError} from '@fluxer/errors/src/domains/user/FriendRequestBlockedError';
-import {InvalidDiscriminatorError} from '@fluxer/errors/src/domains/user/InvalidDiscriminatorError';
 import {MaxRelationshipsError} from '@fluxer/errors/src/domains/user/MaxRelationshipsError';
-import {NoUsersWithFluxertagError} from '@fluxer/errors/src/domains/user/NoUsersWithFluxertagError';
+import {NoUserWithUsernameError} from '@fluxer/errors/src/domains/user/NoUserWithUsernameError';
 import {UnclaimedAccountCannotAcceptFriendRequestsError} from '@fluxer/errors/src/domains/user/UnclaimedAccountCannotAcceptFriendRequestsError';
 import {UnclaimedAccountCannotSendFriendRequestsError} from '@fluxer/errors/src/domains/user/UnclaimedAccountCannotSendFriendRequestsError';
 import {UnknownUserError} from '@fluxer/errors/src/domains/user/UnknownUserError';
 import type {
 	BulkIgnoreFriendRequestsRequest,
-	FriendRequestByTagRequest,
+	FriendRequestByUsernameRequest,
 } from '@fluxer/schema/src/domains/user/UserRequestSchemas';
 import {extractTimestamp} from '@fluxer/snowflake/src/SnowflakeUtils';
 
@@ -71,25 +70,20 @@ export class UserRelationshipService {
 		return await this.userRepository.listRelationships(userId);
 	}
 
-	async sendFriendRequestByTag({
+	async sendFriendRequestByUsername({
 		userId,
 		data,
 		userCacheService,
 		requestCache,
 	}: {
 		userId: UserID;
-		data: FriendRequestByTagRequest;
+		data: FriendRequestByUsernameRequest;
 		userCacheService: UserCacheService;
 		requestCache: RequestCache;
 	}): Promise<Relationship> {
-		const {username, discriminator} = data;
-		const discrimValue = discriminator;
-		if (!Number.isInteger(discrimValue) || discrimValue < 0 || discrimValue > 9999) {
-			throw new InvalidDiscriminatorError();
-		}
-		const targetUser = await this.userRepository.findByUsernameDiscriminator(username, discrimValue);
+		const targetUser = await this.userRepository.findByUsername(data.username);
 		if (!targetUser) {
-			throw new NoUsersWithFluxertagError();
+			throw new NoUserWithUsernameError();
 		}
 		if (this.isDeletedUser(targetUser)) {
 			throw new FriendRequestBlockedError();

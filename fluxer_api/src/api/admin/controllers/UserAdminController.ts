@@ -122,7 +122,7 @@ export function UserAdminController(app: HonoApp) {
 			security: 'adminApiKey',
 			tags: 'Admin',
 			description:
-				'Lists and searches users. Exactly one selector is honoured, in this precedence order: user_id, resolve, email, last_active_ip, then the indexed q search. The resolve selector takes one exact identifier, which may be a username#discriminator tag, a user ID, an email address, or a Stripe subscription ID. The email and user_id selectors ignore limit and offset. Requires USER_LOOKUP permission.',
+				'Lists and searches users. Exactly one selector is honoured, in this precedence order: user_id, resolve, email, last_active_ip, then the indexed q search. The resolve selector takes one exact identifier, which may be a username, a user ID, an email address, or a Stripe subscription ID. The email and user_id selectors ignore limit and offset. Requires USER_LOOKUP permission.',
 		}),
 		async (ctx) => {
 			const adminService = ctx.get('adminService');

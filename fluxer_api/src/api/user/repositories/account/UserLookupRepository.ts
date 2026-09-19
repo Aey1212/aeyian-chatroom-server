@@ -76,7 +76,7 @@ export class UserLookupRepository {
 		const result = await fetchOne<Pick<UsernameRow, 'user_id' | 'state'>>(
 			FETCH_USERNAME_OWNER_QUERY.bind({username_lower: username.trim().toLowerCase()}),
 		);
-		if (!result || result.state !== 'active') return null;
+		if (result?.state !== 'active') return null;
 		return await this.findUniqueUser(result.user_id);
 	}
 

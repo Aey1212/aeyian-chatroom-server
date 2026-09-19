@@ -49,9 +49,9 @@ import {
 	UnregisterMobileDeviceRequest,
 	UserGuildSettingsUpdateRequest,
 	UserNoteUpdateRequest,
+	UsernameCheckQueryRequest,
 	UserProfileQueryRequest,
 	UserSettingsUpdateRequest,
-	UserTagCheckQueryRequest,
 	UserUpdateWithVerificationRequest,
 	VoiceActivitySharingUpdateRequest,
 } from '@fluxer/schema/src/domains/user/UserRequestSchemas';
@@ -72,11 +72,11 @@ import {
 	UserGuildSettingsResponse,
 	UserNoteResponse,
 	UserNotesRecordResponse,
+	UsernameCheckResponse,
 	UserPartialResponse,
 	UserPrivateResponse,
 	UserProfileFullResponse,
 	UserSettingsResponse,
-	UserTagCheckResponse,
 } from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 import {uint8ArrayToBase64} from 'uint8array-extras';
 
@@ -490,30 +490,27 @@ export function UserAccountController(app: HonoApp) {
 		},
 	);
 	app.get(
-		'/users/check-tag',
-		RateLimitMiddleware(RateLimitConfigs.USER_CHECK_TAG),
+		'/users/check-username',
+		RateLimitMiddleware(RateLimitConfigs.USER_CHECK_USERNAME),
 		LoginRequired,
-		Validator('query', UserTagCheckQueryRequest),
+		Validator('query', UsernameCheckQueryRequest),
 		OpenAPI({
-			operationId: 'check_username_tag_availability',
-			summary: 'Check username tag availability',
-			responseSchema: UserTagCheckResponse,
+			operationId: 'check_username_availability',
+			summary: 'Check username availability',
+			responseSchema: UsernameCheckResponse,
 			statusCode: 200,
 			security: ['botToken', 'bearerToken', 'sessionToken'],
 			tags: ['Users'],
 			description:
-				'Checks if a username and discriminator combination is available for registration. Returns whether the tag is taken by another user.',
+				"Checks whether a username is taken. A name is taken when an account uses it, a deleted account left it locked, or a pending rename request holds it. The caller's own current name is not reported as taken.",
 		}),
 		async (ctx) => {
-			const {username, discriminator} = ctx.req.valid('query');
+			const {username} = ctx.req.valid('query');
 			const currentUser = ctx.get('user');
-			const userAccountRequestService = ctx.get('userAccountRequestService');
-			if (!userAccountRequestService.checkTagAvailability({currentUser, username, discriminator})) {
+			if (username.trim().toLowerCase() === currentUser.username.toLowerCase()) {
 				return ctx.json({taken: false});
 			}
-			const taken = await ctx
-				.get('userService')
-				.accountService.lookupService.checkUsernameDiscriminatorAvailability({username, discriminator});
+			const taken = await ctx.get('userService').accountService.lookupService.isUsernameTaken(username);
 			return ctx.json({taken});
 		},
 	);

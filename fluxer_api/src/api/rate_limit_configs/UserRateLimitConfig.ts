@@ -12,8 +12,8 @@ export const UserRateLimitConfigs = {
 		bucket: 'user:profile::target_id',
 		config: {limit: 100, windowMs: ms('10 seconds')},
 	} as RouteRateLimitConfig,
-	USER_CHECK_TAG: {
-		bucket: 'user:check_tag',
+	USER_CHECK_USERNAME: {
+		bucket: 'user:check_username',
 		config: {limit: 60, windowMs: ms('10 seconds')},
 	} as RouteRateLimitConfig,
 	USER_UPDATE_SELF: {
