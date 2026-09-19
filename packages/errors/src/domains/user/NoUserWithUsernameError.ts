@@ -3,10 +3,10 @@
 import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
 import {BadRequestError} from '@fluxer/errors/src/domains/core/BadRequestError';
 
-export class InvalidDiscriminatorError extends BadRequestError {
+export class NoUserWithUsernameError extends BadRequestError {
 	constructor() {
 		super({
-			code: APIErrorCodes.DISCRIMINATOR_REQUIRED,
+			code: APIErrorCodes.NO_USER_WITH_USERNAME_EXISTS,
 		});
 	}
 }
