@@ -33,10 +33,10 @@ const RegisterThemeType = createNamedStringLiteralUnion(
 );
 
 export const RegisterRequest = z.object({
-	email: EmailType.optional().describe('Email address for the new account'),
-	username: UsernameType.optional().describe('Username for the new account (1-32 characters)'),
+	email: EmailType.optional().describe('Optional email address for the new account'),
+	username: UsernameType.describe('Username for the new account (1-32 characters), unique on this instance and used to log in'),
 	global_name: GlobalNameType.optional().describe('Display name shown to other users'),
-	password: PasswordType.optional().describe('Password for the new account'),
+	password: PasswordType.describe('Password for the new account'),
 	date_of_birth: createStringType(10, 10)
 		.refine((value) => /^\d{4}-\d{2}-\d{2}$/.test(value), 'Invalid date format')
 		.optional()
@@ -58,7 +58,7 @@ export const UsernameSuggestionsRequest = z.object({
 export type UsernameSuggestionsRequest = z.infer<typeof UsernameSuggestionsRequest>;
 
 export const LoginRequest = z.object({
-	email: EmailType.describe('Email address for authentication'),
+	login: createStringType(1, 254).describe('Username or email address for authentication'),
 	password: PasswordType.describe('Account password'),
 	invite_code: createStringType(0, 256).nullish().describe('Guild invite code to join after login'),
 });
