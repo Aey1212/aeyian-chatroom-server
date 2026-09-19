@@ -95,10 +95,6 @@
 					"type": "text"
 				},
 				{
-					"name": "author_discriminator",
-					"type": "int"
-				},
-				{
 					"name": "author_avatar_hash",
 					"type": "text"
 				},
@@ -8435,10 +8431,6 @@
 					"type": "text"
 				},
 				{
-					"name": "discriminator",
-					"type": "int"
-				},
-				{
 					"name": "bot",
 					"type": "boolean"
 				},
@@ -8758,25 +8750,6 @@
 			"options": ""
 		},
 		{
-			"name": "users_by_username",
-			"columns": [
-				{
-					"name": "username",
-					"type": "text"
-				},
-				{
-					"name": "discriminator",
-					"type": "int"
-				},
-				{
-					"name": "user_id",
-					"type": "bigint"
-				}
-			],
-			"primary_key": "((username), discriminator, user_id)",
-			"options": ""
-		},
-		{
 			"name": "users_pending_deletion",
 			"columns": [
 				{
@@ -9066,6 +9039,102 @@
 			],
 			"primary_key": "((guild_id), webhook_id)",
 			"options": ""
+		},
+		{
+			"name": "usernames",
+			"columns": [
+				{
+					"name": "username_lower",
+					"type": "text"
+				},
+				{
+					"name": "user_id",
+					"type": "bigint"
+				},
+				{
+					"name": "state",
+					"type": "text"
+				},
+				{
+					"name": "updated_at",
+					"type": "timestamp"
+				}
+			],
+			"primary_key": "((username_lower))",
+			"options": ""
+		},
+		{
+			"name": "usernames_by_state",
+			"columns": [
+				{
+					"name": "state",
+					"type": "text"
+				},
+				{
+					"name": "username_lower",
+					"type": "text"
+				},
+				{
+					"name": "user_id",
+					"type": "bigint"
+				},
+				{
+					"name": "updated_at",
+					"type": "timestamp"
+				}
+			],
+			"primary_key": "((state), username_lower)",
+			"options": ""
+		},
+		{
+			"name": "username_change_requests",
+			"columns": [
+				{
+					"name": "user_id",
+					"type": "bigint"
+				},
+				{
+					"name": "requested_username",
+					"type": "text"
+				},
+				{
+					"name": "status",
+					"type": "text"
+				},
+				{
+					"name": "created_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "reviewed_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "reviewer_id",
+					"type": "bigint"
+				}
+			],
+			"primary_key": "((user_id))",
+			"options": ""
+		},
+		{
+			"name": "username_change_requests_by_status",
+			"columns": [
+				{
+					"name": "status",
+					"type": "text"
+				},
+				{
+					"name": "created_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "user_id",
+					"type": "bigint"
+				}
+			],
+			"primary_key": "((status), created_at, user_id)",
+			"options": "CLUSTERING ORDER BY (created_at ASC, user_id ASC)"
 		}
 	],
 	"indexes": [
