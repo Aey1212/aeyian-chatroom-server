@@ -24,13 +24,12 @@ import {
 	SnowflakeType,
 	withFieldDescription,
 } from '@fluxer/schema/src/primitives/SchemaPrimitives';
-import {DiscriminatorType, EmailType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
+import {EmailType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
 import {z} from 'zod';
 
 export const UserAdminResponseSchema = z.object({
 	id: SnowflakeStringType,
 	username: z.string(),
-	discriminator: Int32Type,
 	global_name: z.string().nullable(),
 	bot: z.boolean(),
 	system: z.boolean(),
@@ -160,7 +159,6 @@ export type ListUserDmChannelsRequest = z.infer<typeof ListUserDmChannelsRequest
 const AdminResolvedUserSchema = z.object({
 	id: SnowflakeStringType,
 	username: z.string(),
-	discriminator: z.string(),
 	global_name: z.string().nullable(),
 	avatar: z.string().nullable(),
 });
@@ -286,7 +284,6 @@ export type SendPasswordResetRequest = z.infer<typeof SendPasswordResetRequest>;
 export const ChangeUsernameRequest = z.object({
 	user_id: SnowflakeType.describe('ID of the user to change username for'),
 	username: UsernameType.describe('New username for the user'),
-	discriminator: DiscriminatorType.optional().describe('Legacy discriminator value'),
 });
 
 export type ChangeUsernameRequest = z.infer<typeof ChangeUsernameRequest>;
@@ -520,7 +517,7 @@ export const AdminUserListQuery = z.object({
 	resolve: createStringType(1, 1024)
 		.optional()
 		.describe(
-			'Resolve one exact identifier: a username#discriminator tag, a user ID, an email address, or a Stripe subscription ID',
+			'Resolve one exact identifier: a username, a user ID, an email address, or a Stripe subscription ID',
 		),
 	email: createStringType(1, 320).optional().describe('Restrict the results to the user with this exact email address'),
 	last_active_ip: createStringType(1, 64)

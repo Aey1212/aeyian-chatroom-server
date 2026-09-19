@@ -124,7 +124,6 @@ export const DiscoveryAdminPendingApplicationResponse = z.object({
 	guild_owner_id: SnowflakeStringType.describe('Guild owner user ID'),
 	guild_owner_username: z.string().nullable().describe('Guild owner username'),
 	guild_owner_global_name: z.string().nullable().describe('Guild owner display name'),
-	guild_owner_discriminator: z.string().nullable().describe('Guild owner discriminator'),
 	guild_member_count: z.number().describe('Approximate member count'),
 	guild_nsfw_level: NSFWLevelSchema.nullable().describe('NSFW level of the guild'),
 	guild_features: z.array(z.string()).describe('Guild feature flags'),

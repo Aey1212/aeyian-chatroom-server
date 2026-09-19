@@ -16,7 +16,7 @@ import {
 	withOpenApiType,
 } from '@fluxer/schema/src/primitives/SchemaPrimitives';
 import {UserAuthenticatorTypesSchema} from '@fluxer/schema/src/primitives/UserSettingsValidators';
-import {DiscriminatorType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
+import {UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
 import {z} from 'zod';
 
 const RedirectURIString = createStringType(1).refine((value) => {
@@ -131,7 +131,6 @@ const ApplicationBotResponse = z
 	.object({
 		id: SnowflakeStringType.describe('The unique identifier of the bot user'),
 		username: z.string().describe('The username of the bot'),
-		discriminator: z.string().describe('The discriminator of the bot'),
 		avatar: z.string().nullable().optional().describe('The avatar hash of the bot'),
 		banner: z.string().nullable().optional().describe('The banner hash of the bot'),
 		bio: z.string().nullable().describe('The bio or description of the bot'),
@@ -177,7 +176,6 @@ export type BotTokenResetResponse = z.infer<typeof BotTokenResetResponse>;
 export const BotProfileResponse = z.object({
 	id: SnowflakeStringType.describe('The unique identifier of the bot user'),
 	username: z.string().describe('The username of the bot'),
-	discriminator: z.string().describe('The discriminator of the bot'),
 	avatar: z.string().nullable().describe('The avatar hash of the bot'),
 	banner: z.string().nullable().describe('The banner hash of the bot'),
 	bio: z.string().nullable().describe('The bio or description of the bot'),
@@ -200,7 +198,6 @@ export const OAuth2UserInfoResponse = z.object({
 	sub: SnowflakeStringType.describe('The subject identifier of the user'),
 	id: SnowflakeStringType.describe('The unique identifier of the user'),
 	username: z.string().describe('The username of the user'),
-	discriminator: z.string().describe('The discriminator of the user'),
 	global_name: z.string().nullable().describe('The global display name of the user'),
 	avatar: z.string().nullable().describe('The avatar hash of the user'),
 	email: z.string().nullable().optional().describe('The email address of the user'),
@@ -252,7 +249,6 @@ export const OAuth2MeResponse = z.object({
 		.object({
 			id: SnowflakeStringType.describe('The unique identifier of the user'),
 			username: z.string().describe('The username of the user'),
-			discriminator: z.string().describe('The discriminator of the user'),
 			global_name: z.string().nullable().describe('The global display name of the user'),
 			avatar: z.string().nullable().describe('The avatar hash of the user'),
 			avatar_color: Int32Type.nullable().describe('The default avatar color of the user'),
@@ -413,7 +409,6 @@ export type ApplicationUpdateRequest = z.infer<typeof ApplicationUpdateRequest>;
 
 export const BotProfileUpdateRequest = z.object({
 	username: UsernameType.optional().describe('The username of the bot'),
-	discriminator: DiscriminatorType.optional().describe('The discriminator of the bot'),
 	avatar: createBase64StringType(1, base64LengthForBytes(AVATAR_MAX_SIZE))
 		.nullish()
 		.describe('The avatar image as base64'),
