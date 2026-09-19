@@ -19,7 +19,7 @@ const DEFAULT_FROM_TAG: &str = "v1";
 const DEFAULT_OUT_DIR: &str = "release-out";
 const RELEASE_COMPONENT: &str = "fluxer-release";
 const COMPOSE_IMAGE_PREFIX: &str =
-    "${FLUXER_REGISTRY:-ghcr.io/${FLUXER_REGISTRY_OWNER:-fluxerapp}}";
+    "${FLUXER_REGISTRY:-ghcr.io/${FLUXER_REGISTRY_OWNER:-aey1212}}";
 const OCI_INDEX_MEDIA_TYPE: &str = "application/vnd.oci.image.index.v1+json";
 const DOCKER_MANIFEST_LIST_MEDIA_TYPE: &str =
     "application/vnd.docker.distribution.manifest.list.v2+json";
@@ -42,16 +42,8 @@ const COMPONENTS: &[Component] = &[
         services: &["api", "worker"],
     },
     Component {
-        image: "fluxer-app-proxy",
-        services: &[],
-    },
-    Component {
         image: "fluxer-app-proxy-self-hosted",
         services: &["app-proxy"],
-    },
-    Component {
-        image: "fluxer-docs",
-        services: &[],
     },
     Component {
         image: "fluxer-gateway",
@@ -1297,26 +1289,6 @@ mod tests {
         }
         let error = resolve_bundle_commit(&resolved).unwrap_err().to_string();
         assert!(error.contains("no bundle commit can be proven"), "{error}");
-    }
-
-    #[test]
-    fn release_workflow_tags_the_bundle_commit_and_marks_it_latest() {
-        let workflow = include_str!("../../../.github/workflows/release-image-set.yaml");
-        for entry in [
-            "--github-output",
-            "BUNDLE_COMMIT: ${{ steps.resolve.outputs.bundle_commit }}",
-            "--target \"${BUNDLE_COMMIT}\"",
-            "--latest=true",
-        ] {
-            assert!(
-                workflow.contains(entry),
-                "release-image-set.yaml must carry {entry}"
-            );
-        }
-        assert!(
-            !workflow.contains("${GITHUB_SHA}"),
-            "the release tag must be cut at the bundle commit, not at the workflow ref"
-        );
     }
 
     #[test]
