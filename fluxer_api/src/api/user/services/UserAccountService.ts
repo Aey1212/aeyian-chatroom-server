@@ -108,9 +108,6 @@ export class UserAccountService {
 		this.securityService = new UserAccountSecurityService({
 			apiContext: this.apiContext,
 			userAccountRepository,
-			usernameRegistry,
-			rateLimitService,
-			limitConfigService,
 		});
 		this.settingsService = new UserAccountSettingsService({
 			userAccountRepository,

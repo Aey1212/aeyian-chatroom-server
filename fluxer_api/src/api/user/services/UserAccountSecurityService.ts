@@ -5,25 +5,17 @@ import * as AuthPassword from '@app/api/auth/AuthPassword';
 import * as AuthSession from '@app/api/auth/AuthSession';
 import {deriveSudoMethods, userHasMfa} from '@app/api/auth/services/SudoMethods';
 import type {SudoVerificationResult} from '@app/api/auth/services/SudoVerificationService';
-import {Config} from '@app/api/Config';
 import type {UserRow} from '@app/api/database/types/UserTypes';
-import type {LimitConfigService} from '@app/api/limits/LimitConfigService';
-import {resolveLimitSafe} from '@app/api/limits/LimitConfigUtils';
-import {createLimitMatchContext} from '@app/api/limits/LimitMatchContextBuilder';
 import {profileSubstringBlocklistCache} from '@app/api/middleware/ProfileSubstringBlocklistCache';
 import type {AuthSession as AuthSessionModel} from '@app/api/models/AuthSession';
 import type {User} from '@app/api/models/User';
-import {enforceFluxerTagChangeRateLimit} from '@app/api/user/FluxerTagChangeRateLimit';
 import type {IUserAccountRepository} from '@app/api/user/repositories/IUserAccountRepository';
 import {isProfileSubstringExempt} from '@app/api/user/UserHelpers';
-import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
-import {PremiumFlags, UserPremiumTypes} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {SudoModeRequiredError} from '@fluxer/errors/src/domains/auth/SudoModeRequiredError';
 import {ContentBlockedError} from '@fluxer/errors/src/domains/content/ContentBlockedError';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
 import type {UserUpdateRequest} from '@fluxer/schema/src/domains/user/UserRequestSchemas';
-import type {IRateLimitService} from '@pkgs/rate_limit/src/IRateLimitService';
 
 interface UserUpdateMetadata {
 	invalidateAuthSessions?: boolean;
@@ -34,9 +26,6 @@ type UserFieldUpdates = Partial<UserRow>;
 interface UserAccountSecurityServiceDeps {
 	apiContext: ApiContext;
 	userAccountRepository: IUserAccountRepository;
-	usernameRegistry: IUsernameRegistry;
-	rateLimitService: IRateLimitService;
-	limitConfigService: LimitConfigService;
 }
 
 export class UserAccountSecurityService {
@@ -54,7 +43,6 @@ export class UserAccountSecurityService {
 		const updates: UserFieldUpdates = {
 			password_hash: user.passwordHash,
 			username: user.username,
-			discriminator: user.discriminator,
 			global_name: user.isBot ? null : user.globalName,
 			email: user.email,
 		};
@@ -68,10 +56,7 @@ export class UserAccountSecurityService {
 		const rawEmail = data.email?.trim();
 		const normalizedEmail = rawEmail?.toLowerCase();
 		const hasPasswordRequiredChanges =
-			(data.username !== undefined && data.username !== user.username) ||
-			(data.discriminator !== undefined && data.discriminator !== user.discriminator) ||
-			(data.email !== undefined && normalizedEmail !== user.email?.toLowerCase()) ||
-			data.new_password !== undefined;
+			(data.email !== undefined && normalizedEmail !== user.email?.toLowerCase()) || data.new_password !== undefined;
 		const requiresVerification = hasPasswordRequiredChanges && !isUnclaimedAccount;
 		if (requiresVerification && !identityVerifiedViaSudo && !identityVerifiedViaPassword) {
 			throw new SudoModeRequiredError(hasMfa, deriveSudoMethods(user));
@@ -90,39 +75,6 @@ export class UserAccountSecurityService {
 			updates.password_hash = await this.hashNewPassword(data.new_password);
 			updates.password_last_changed_at = new Date();
 			metadata.invalidateAuthSessions = true;
-		}
-		if (data.username !== undefined) {
-			const {newUsername, newDiscriminator} = await this.updateUsername({
-				user,
-				username: data.username,
-				requestedDiscriminator: data.discriminator,
-			});
-			if (
-				!isProfileSubstringExempt(user) &&
-				profileSubstringBlocklistCache.containsBannedSubstring('username', newUsername)
-			) {
-				throw new ContentBlockedError();
-			}
-			updates.username = newUsername;
-			updates.discriminator = newDiscriminator;
-		} else if (data.discriminator !== undefined) {
-			updates.discriminator = await this.updateDiscriminator({user, discriminator: data.discriminator});
-		}
-		await this.enforceFluxerTagChangeRateLimit({
-			user,
-			nextUsername: updates.username ?? user.username,
-			nextDiscriminator: updates.discriminator ?? user.discriminator,
-			errorPath: data.discriminator !== undefined && data.username === undefined ? 'discriminator' : 'username',
-		});
-		const usernameRealChange =
-			data.username !== undefined && data.username.toLowerCase() !== user.username.toLowerCase();
-		const discriminatorChanged = updates.discriminator !== user.discriminator;
-		const shouldMarkPremiumDiscriminator =
-			(discriminatorChanged || usernameRealChange) &&
-			user.isPremium() &&
-			user.premiumType !== UserPremiumTypes.LIFETIME;
-		if (shouldMarkPremiumDiscriminator && (user.premiumFlags & PremiumFlags.DISCRIMINATOR) === 0) {
-			updates.premium_flags = user.premiumFlags | PremiumFlags.DISCRIMINATOR;
 		}
 		if (user.isBot) {
 			updates.global_name = null;
@@ -169,134 +121,5 @@ export class UserAccountSecurityService {
 			throw InputValidationError.fromCode('new_password', ValidationErrorCodes.PASSWORD_IS_TOO_COMMON);
 		}
 		return await AuthPassword.hashPassword(this.deps.apiContext, newPassword);
-	}
-
-	private async updateUsername({
-		user,
-		username,
-		requestedDiscriminator,
-	}: {
-		user: User;
-		username: string;
-		requestedDiscriminator?: number;
-	}): Promise<{
-		newUsername: string;
-		newDiscriminator: number;
-	}> {
-		const normalizedRequestedDiscriminator =
-			requestedDiscriminator == null ? undefined : Number(requestedDiscriminator);
-		if (
-			user.username.toLowerCase() === username.toLowerCase() &&
-			(normalizedRequestedDiscriminator === undefined || normalizedRequestedDiscriminator === user.discriminator)
-		) {
-			return {
-				newUsername: username,
-				newDiscriminator: user.discriminator,
-			};
-		}
-		const ctx = createLimitMatchContext({user});
-		const hasCustomDiscriminator = resolveLimitSafe(
-			this.deps.limitConfigService.getConfigSnapshot(),
-			ctx,
-			'feature_custom_discriminator',
-			0,
-		);
-		const isCaseOnlyChange = user.username.toLowerCase() === username.toLowerCase();
-		if (hasCustomDiscriminator === 0) {
-			if (isCaseOnlyChange) {
-				return {
-					newUsername: username,
-					newDiscriminator: user.discriminator,
-				};
-			}
-			const discriminatorResult = await this.deps.usernameRegistry.generateDiscriminator({
-				username,
-				requestedDiscriminator: undefined,
-				user: undefined,
-			});
-			if (!discriminatorResult.available || discriminatorResult.discriminator === -1) {
-				throw InputValidationError.fromCode(
-					'username',
-					ValidationErrorCodes.TOO_MANY_USERS_WITH_USERNAME_TRY_DIFFERENT,
-				);
-			}
-			return {
-				newUsername: username,
-				newDiscriminator: discriminatorResult.discriminator,
-			};
-		}
-		const discriminatorToUse = normalizedRequestedDiscriminator ?? user.discriminator;
-		if (this.requiresVisionaryForDiscriminator0000(user, discriminatorToUse)) {
-			throw InputValidationError.fromCode('discriminator', ValidationErrorCodes.VISIONARY_REQUIRED_FOR_DISCRIMINATOR);
-		}
-		const discriminatorResult = await this.deps.usernameRegistry.generateDiscriminator({
-			username,
-			requestedDiscriminator: discriminatorToUse,
-			user,
-		});
-		if (!discriminatorResult.available || discriminatorResult.discriminator === -1) {
-			throw InputValidationError.fromCode(
-				'username',
-				discriminatorToUse !== undefined
-					? ValidationErrorCodes.TAG_ALREADY_TAKEN
-					: ValidationErrorCodes.TOO_MANY_USERS_WITH_USERNAME_TRY_DIFFERENT,
-			);
-		}
-		return {
-			newUsername: username,
-			newDiscriminator: discriminatorResult.discriminator,
-		};
-	}
-
-	private async updateDiscriminator({user, discriminator}: {user: User; discriminator: number}): Promise<number> {
-		const ctx = createLimitMatchContext({user});
-		const hasCustomDiscriminator = resolveLimitSafe(
-			this.deps.limitConfigService.getConfigSnapshot(),
-			ctx,
-			'feature_custom_discriminator',
-			0,
-		);
-		if (hasCustomDiscriminator === 0) {
-			throw InputValidationError.fromCode(
-				'discriminator',
-				ValidationErrorCodes.CHANGING_DISCRIMINATOR_REQUIRES_PREMIUM,
-			);
-		}
-		if (this.requiresVisionaryForDiscriminator0000(user, discriminator)) {
-			throw InputValidationError.fromCode('discriminator', ValidationErrorCodes.VISIONARY_REQUIRED_FOR_DISCRIMINATOR);
-		}
-		const discriminatorResult = await this.deps.usernameRegistry.generateDiscriminator({
-			username: user.username,
-			requestedDiscriminator: discriminator,
-			user,
-		});
-		if (!discriminatorResult.available) {
-			throw InputValidationError.fromCode('discriminator', ValidationErrorCodes.TAG_ALREADY_TAKEN);
-		}
-		return discriminator;
-	}
-
-	private requiresVisionaryForDiscriminator0000(user: User, discriminator: number): boolean {
-		if (Config.instance.selfHosted) {
-			return false;
-		}
-		return discriminator === 0 && user.premiumType !== UserPremiumTypes.LIFETIME;
-	}
-
-	private async enforceFluxerTagChangeRateLimit(params: {
-		user: User;
-		nextUsername: string;
-		nextDiscriminator: number;
-		errorPath: 'username' | 'discriminator';
-	}): Promise<void> {
-		const {user, nextUsername, nextDiscriminator, errorPath} = params;
-		if (nextUsername === user.username && nextDiscriminator === user.discriminator) {
-			return;
-		}
-		await enforceFluxerTagChangeRateLimit({
-			rateLimitService: this.deps.rateLimitService,
-			userId: user.id,
-			errorPath,
-		});
 	}
 }

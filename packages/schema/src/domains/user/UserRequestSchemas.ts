@@ -49,17 +49,11 @@ import {
 	TimeFormatTypesSchema,
 	UserNotificationSettingsSchema,
 } from '@fluxer/schema/src/primitives/UserSettingsValidators';
-import {
-	EmailType,
-	GlobalNameType,
-	PasswordType,
-	UsernameType,
-} from '@fluxer/schema/src/primitives/UserValidators';
+import {EmailType, GlobalNameType, PasswordType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
 import {z} from 'zod';
 
 export const UserUpdateRequest = z
 	.object({
-		username: UsernameType.describe('The username for the account (1-32 characters)'),
 		global_name: GlobalNameType.nullish().describe('The display name shown to other users'),
 		email: EmailType.describe('The email address for the account'),
 		new_password: PasswordType.describe('The new password to set'),
