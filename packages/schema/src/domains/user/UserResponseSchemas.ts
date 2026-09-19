@@ -49,8 +49,7 @@ import {z} from 'zod';
 
 export const UserPartialResponse = z.object({
 	id: SnowflakeStringType.describe('The unique identifier (snowflake) for this user'),
-	username: z.string().describe('The username of the user, not unique across the platform'),
-	discriminator: z.string().describe('The four-digit discriminator tag of the user'),
+	username: z.string().describe('The username of the user, unique across the instance (case-insensitive)'),
 	global_name: z.string().nullable().describe('The display name of the user, if set'),
 	avatar: z.string().nullable().describe('The hash of the user avatar image'),
 	avatar_color: Int32Type.nullable().describe('The dominant avatar color of the user as an integer'),
@@ -125,11 +124,6 @@ export const UserPrivateResponse = UserPartialResponse.extend({
 		.nullable()
 		.describe(
 			'ISO8601 timestamp at which the post-cancel grace period ends. Set when the subscription is fully canceled in Stripe; perks remain active and the original premium_since is restored on resubscribe until this timestamp passes. Null when not in grace.',
-		),
-	premium_discriminator: z
-		.boolean()
-		.describe(
-			'Whether the user selected a premium-only discriminator that will be rerolled when non-lifetime premium access ends',
 		),
 	premium_badge_hidden: z.boolean().describe('Whether the premium badge is hidden on the profile'),
 	premium_badge_masked: z.boolean().describe('Whether the premium badge shows a masked appearance'),
@@ -444,7 +438,6 @@ export type UserProfile = Readonly<UserProfileResponse>;
 export interface UserPartial {
 	readonly id: string;
 	readonly username: string;
-	readonly discriminator: string;
 	readonly global_name: string | null;
 	readonly avatar: string | null;
 	readonly avatar_color: number | null;
@@ -470,7 +463,6 @@ export interface UserPrivate extends UserPartial, UserProfile {
 	readonly premium_billing_cycle: string | null;
 	readonly premium_lifetime_sequence: number | null;
 	readonly premium_grace_ends_at: string | null;
-	readonly premium_discriminator: boolean;
 	readonly premium_badge_hidden: boolean;
 	readonly premium_badge_masked: boolean;
 	readonly premium_badge_timestamp_hidden: boolean;
@@ -534,11 +526,11 @@ export const EmailTokenResponse = z.object({
 
 export type EmailTokenResponse = z.infer<typeof EmailTokenResponse>;
 
-export const UserTagCheckResponse = z.object({
-	taken: z.boolean().describe('Whether the username/discriminator combination is already taken'),
+export const UsernameCheckResponse = z.object({
+	taken: z.boolean().describe('Whether the username is already taken'),
 });
 
-export type UserTagCheckResponse = z.infer<typeof UserTagCheckResponse>;
+export type UsernameCheckResponse = z.infer<typeof UsernameCheckResponse>;
 
 const UserProfileDataResponse = z.object({
 	bio: z.string().nullable().describe('User biography text'),
