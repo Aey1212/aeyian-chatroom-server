@@ -114,12 +114,8 @@ export class UserAccountRepository implements IUserAccountRepository {
 		return this.lookupRepo.listUserIdsByLastActiveIp(lastActiveIp, limit, offset);
 	}
 
-	async findByUsernameDiscriminator(username: string, discriminator: number): Promise<User | null> {
-		return this.lookupRepo.findByUsernameDiscriminator(username, discriminator);
-	}
-
-	async findDiscriminatorsByUsername(username: string): Promise<Set<number>> {
-		return this.lookupRepo.findDiscriminatorsByUsername(username);
+	async findByUsername(username: string): Promise<User | null> {
+		return this.lookupRepo.findByUsername(username);
 	}
 
 	async getActivityTracking(userId: UserID): Promise<{
