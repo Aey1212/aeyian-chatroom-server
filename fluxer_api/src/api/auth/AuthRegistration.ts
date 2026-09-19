@@ -36,8 +36,6 @@ import * as AgeUtils from '@app/api/utils/AgeUtils';
 import {extractEmailDomain} from '@app/api/utils/EmailDomainUtils';
 import {lookupGeoip} from '@app/api/utils/IpUtils';
 import {createRateLimitError} from '@app/api/utils/RateLimitUtils';
-import {generateRandomUsername} from '@app/api/utils/UsernameGenerator';
-import {deriveUsernameFromDisplayName} from '@app/api/utils/UsernameSuggestionUtils';
 import {AdminACLs} from '@fluxer/constants/src/AdminACLs';
 import {ProfileFieldPrivacyFlags, UserFlags} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
@@ -189,28 +187,7 @@ export async function register(
 		const emailTaken = await users.findByEmail(rawEmail);
 		if (emailTaken) throw InputValidationError.fromCode('email', ValidationErrorCodes.EMAIL_ALREADY_IN_USE);
 	}
-	let usernameCandidate: string | undefined = data.username ?? undefined;
-	let discriminator: number | null = null;
-	if (!usernameCandidate) {
-		const derivedUsername = deriveUsernameFromDisplayName(data.global_name ?? '');
-		if (derivedUsername) {
-			try {
-				discriminator = await allocateDiscriminator(usernameRegistry, derivedUsername);
-				usernameCandidate = derivedUsername;
-			} catch (error) {
-				if (!(error instanceof InputValidationError)) {
-					throw error;
-				}
-			}
-		}
-	}
-	if (!usernameCandidate) {
-		usernameCandidate = generateRandomUsername();
-		discriminator = await allocateDiscriminator(usernameRegistry, usernameCandidate);
-	} else if (discriminator === null) {
-		discriminator = await allocateDiscriminator(usernameRegistry, usernameCandidate);
-	}
-	const username = usernameCandidate!;
+	const username = data.username;
 	const grantBootstrapAdmin =
 		shouldAttemptBootstrapAdminGrant(config, {
 			rawEmail,
@@ -224,70 +201,79 @@ export async function register(
 		throw new ContentBlockedError();
 	}
 	const userId = createUserID(await snowflake.generate());
+	// The username is the login ID: claim it before the account exists, give it back if
+	// the account cannot be written.
+	if (!(await usernameRegistry.claim(username, userId))) {
+		throw InputValidationError.fromCode('username', ValidationErrorCodes.USERNAME_ALREADY_TAKEN);
+	}
 	const acceptLanguage = request.headers.get('accept-language');
 	const userLocale = parseAcceptLanguage(acceptLanguage);
 	const passwordHash = data.password ? await AuthPassword.hashPassword(ctx, data.password) : null;
 	const flags = config.nodeEnv === 'development' ? UserFlags.STAFF : 0n;
-	let user = await users.create({
-		user_id: userId,
-		username,
-		discriminator,
-		global_name: data.global_name || null,
-		bot: false,
-		system: false,
-		email: rawEmail,
-		email_verified: !emailEnabled,
-		email_bounced: false,
-		password_hash: passwordHash,
-		password_last_changed_at: passwordHash ? now : null,
-		totp_secret: null,
-		authenticator_types: new Set(),
-		avatar_hash: null,
-		avatar_color: null,
-		banner_hash: null,
-		banner_color: null,
-		bio: null,
-		pronouns: null,
-		accent_color: null,
-		timezone: null,
-		timezone_privacy_flags: ProfileFieldPrivacyFlags.EVERYONE,
-		date_of_birth: dateOfBirth,
-		locale: userLocale,
-		flags,
-		premium_type: null,
-		premium_since: null,
-		premium_until: null,
-		premium_gift_extension_ends_at: null,
-		premium_will_cancel: null,
-		premium_billing_cycle: null,
-		premium_lifetime_sequence: null,
-		premium_grace_ends_at: null,
-		stripe_subscription_id: null,
-		stripe_customer_id: null,
-		has_ever_purchased: null,
-		suspicious_activity_flags: null,
-		terms_agreed_at: requiresTermsConsent ? now : null,
-		privacy_agreed_at: requiresPrivacyConsent ? now : null,
-		last_active_at: now,
-		last_active_ip: clientIp,
-		temp_banned_until: null,
-		pending_deletion_at: null,
-		pending_bulk_message_deletion_at: null,
-		pending_bulk_message_deletion_channel_count: null,
-		pending_bulk_message_deletion_message_count: null,
-		deletion_reason_code: null,
-		deletion_public_reason: null,
-		deletion_audit_log_reason: null,
-		acls: grantBootstrapAdmin ? new Set([AdminACLs.WILDCARD]) : null,
-		traits: registrationAccess.pendingApproval ? new Set([REGISTRATION_PENDING_APPROVAL_TRAIT]) : null,
-		first_refund_at: null,
-		gift_inventory_server_seq: null,
-		gift_inventory_client_seq: null,
-		premium_onboarding_dismissed_at: null,
-		mention_flags: null,
-		last_voice_activity_sharing_change_at: null,
-		version: 1,
-	});
+	let user = await users
+		.create({
+			user_id: userId,
+			username,
+			global_name: data.global_name || null,
+			bot: false,
+			system: false,
+			email: rawEmail,
+			email_verified: !emailEnabled,
+			email_bounced: false,
+			password_hash: passwordHash,
+			password_last_changed_at: passwordHash ? now : null,
+			totp_secret: null,
+			authenticator_types: new Set(),
+			avatar_hash: null,
+			avatar_color: null,
+			banner_hash: null,
+			banner_color: null,
+			bio: null,
+			pronouns: null,
+			accent_color: null,
+			timezone: null,
+			timezone_privacy_flags: ProfileFieldPrivacyFlags.EVERYONE,
+			date_of_birth: dateOfBirth,
+			locale: userLocale,
+			flags,
+			premium_type: null,
+			premium_since: null,
+			premium_until: null,
+			premium_gift_extension_ends_at: null,
+			premium_will_cancel: null,
+			premium_billing_cycle: null,
+			premium_lifetime_sequence: null,
+			premium_grace_ends_at: null,
+			stripe_subscription_id: null,
+			stripe_customer_id: null,
+			has_ever_purchased: null,
+			suspicious_activity_flags: null,
+			terms_agreed_at: requiresTermsConsent ? now : null,
+			privacy_agreed_at: requiresPrivacyConsent ? now : null,
+			last_active_at: now,
+			last_active_ip: clientIp,
+			temp_banned_until: null,
+			pending_deletion_at: null,
+			pending_bulk_message_deletion_at: null,
+			pending_bulk_message_deletion_channel_count: null,
+			pending_bulk_message_deletion_message_count: null,
+			deletion_reason_code: null,
+			deletion_public_reason: null,
+			deletion_audit_log_reason: null,
+			acls: grantBootstrapAdmin ? new Set([AdminACLs.WILDCARD]) : null,
+			traits: registrationAccess.pendingApproval ? new Set([REGISTRATION_PENDING_APPROVAL_TRAIT]) : null,
+			first_refund_at: null,
+			gift_inventory_server_seq: null,
+			gift_inventory_client_seq: null,
+			premium_onboarding_dismissed_at: null,
+			mention_flags: null,
+			last_voice_activity_sharing_change_at: null,
+			version: 1,
+		})
+		.catch(async (error: unknown) => {
+			await usernameRegistry.release(username, userId);
+			throw error;
+		});
 	await users.upsertSettings(
 		UserSettings.getDefaultUserSettings({
 			userId,
@@ -408,7 +394,6 @@ export async function register(
 		await instanceConfigRepository.addPendingRegistration({
 			user_id: user.id.toString(),
 			username: user.username,
-			discriminator: user.discriminator,
 			global_name: user.globalName,
 			email: rawEmail,
 			requested_at: now.toISOString(),
@@ -563,12 +548,4 @@ async function enforceRegistrationRateLimits(
 		});
 		if (!subnetRateLimit.allowed) throw createRateLimitError(subnetRateLimit);
 	}
-}
-
-async function allocateDiscriminator(usernameRegistry: IUsernameRegistry, username: string): Promise<number> {
-	const result = await usernameRegistry.generateDiscriminator({username});
-	if (!result.available || result.discriminator === -1) {
-		throw InputValidationError.fromCode('username', ValidationErrorCodes.TOO_MANY_USERS_WITH_THIS_USERNAME);
-	}
-	return result.discriminator;
 }
