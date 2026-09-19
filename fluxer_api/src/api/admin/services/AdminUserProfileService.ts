@@ -11,11 +11,12 @@ import {GuildMemberSearchIndexService} from '@app/api/guild/services/member/Guil
 import type {EntityAssetService, PreparedAssetUpload} from '@app/api/infrastructure/EntityAssetService';
 import {Logger} from '@app/api/Logger';
 import type {User} from '@app/api/models/User';
+import {applyUsernameChange} from '@app/api/user/UsernameChange';
 import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
+import {BOT_USERNAME_BASE_MAX_LENGTH, BOT_USERNAME_SUFFIX} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {AccessDeniedError} from '@fluxer/errors/src/domains/core/AccessDeniedError';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
-import {TagAlreadyTakenError} from '@fluxer/errors/src/domains/user/TagAlreadyTakenError';
 import {UnknownUserError} from '@fluxer/errors/src/domains/user/UnknownUserError';
 import type {
 	ChangeDobRequest,
@@ -234,22 +235,12 @@ export class AdminUserProfileService {
 		if (!user) {
 			throw new UnknownUserError();
 		}
-		const discriminatorResult = await usernameRegistry.generateDiscriminator({
-			username: data.username,
-			requestedDiscriminator: data.discriminator,
-			user,
-		});
-		if (!discriminatorResult.available || discriminatorResult.discriminator === -1) {
-			throw new TagAlreadyTakenError();
+		// A bot keeps its -BOT suffix; the admin names the part before it.
+		if (user.isBot && data.username.length > BOT_USERNAME_BASE_MAX_LENGTH) {
+			throw InputValidationError.fromCode('username', ValidationErrorCodes.USERNAME_LENGTH_INVALID);
 		}
-		const updatedUser = await userRepository.patchUpsert(
-			userId,
-			{
-				username: data.username,
-				discriminator: discriminatorResult.discriminator,
-			},
-			user.toRow(),
-		);
+		const newUsername = user.isBot ? `${data.username}${BOT_USERNAME_SUFFIX}` : data.username;
+		const updatedUser = await applyUsernameChange({usernameRegistry, userRepository}, user, newUsername);
 		await updatePropagator.propagateUserUpdate({userId, oldUser: user, updatedUser: updatedUser});
 		await contactChangeLogService.recordDiff({
 			oldUser: user,
@@ -265,8 +256,7 @@ export class AdminUserProfileService {
 			auditLogReason,
 			metadata: new Map([
 				['old_username', user.username],
-				['new_username', data.username],
-				['discriminator', discriminatorResult.discriminator.toString()],
+				['new_username', newUsername],
 			]),
 		});
 		void this.reindexGuildMembersForUser(updatedUser);
