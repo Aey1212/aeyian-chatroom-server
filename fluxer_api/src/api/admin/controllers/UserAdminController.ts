@@ -16,6 +16,8 @@ import {ListUserGuildsResponse} from '@fluxer/schema/src/domains/admin/AdminGuil
 import {SearchUsersResponse} from '@fluxer/schema/src/domains/admin/AdminSchemas';
 import {
 	AdminAclListResponse,
+	AdminLockedUsernamesResponse,
+	AdminReleaseUsernameResponse,
 	AdminUserAclsRequest,
 	AdminUserBanRequest,
 	AdminUserBotStatusRequest,
@@ -29,6 +31,7 @@ import {
 	AdminUserFlagsUpdateRequest,
 	AdminUserGuildListQuery,
 	AdminUserListQuery,
+	AdminUsernameParam,
 	AdminUserPhoneVerificationRequest,
 	AdminUserPremiumFlagsUpdateRequest,
 	AdminUserRelationshipCategoryQuery,
@@ -690,6 +693,59 @@ export function UserAdminController(app: HonoApp) {
 					adminUserId,
 					auditLogReason,
 					adminUserAcls,
+				),
+			);
+		},
+	);
+	app.get(
+		'/admin/usernames/locked',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_LOOKUP),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		OpenAPI({
+			operationId: 'list_admin_locked_usernames',
+			summary: 'List locked usernames',
+			responseSchema: AdminLockedUsernamesResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'List the usernames of deleted accounts. A deleted account keeps its name locked so nobody can register it until an admin releases it. Requires USER_UPDATE_USERNAME permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const response = await adminService.usernameService.listLockedUsernames();
+			await recordAdminRead(ctx, {
+				targetType: 'username',
+				targetId: 0n,
+				action: AdminAuditReadActions.LIST_LOCKED_USERNAMES,
+				metadata: {entry_count: response.usernames.length},
+			});
+			return ctx.json(response);
+		},
+	);
+	app.post(
+		'/admin/usernames/locked/:username/release',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		Validator('param', AdminUsernameParam),
+		OpenAPI({
+			operationId: 'release_admin_locked_username',
+			summary: 'Release a locked username',
+			responseSchema: AdminReleaseUsernameResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				"Make a deleted account's locked username available to register again. Returns released false when the name is not locked. Creates audit log entry. Requires USER_UPDATE_USERNAME permission.",
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const {username} = ctx.req.valid('param');
+			return ctx.json(
+				await adminService.usernameService.releaseLockedUsername(
+					username,
+					ctx.get('adminUserId'),
+					ctx.get('auditLogReason'),
 				),
 			);
 		},

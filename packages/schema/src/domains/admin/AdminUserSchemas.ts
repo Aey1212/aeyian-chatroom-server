@@ -24,7 +24,7 @@ import {
 	SnowflakeType,
 	withFieldDescription,
 } from '@fluxer/schema/src/primitives/SchemaPrimitives';
-import {EmailType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
+import {EmailType, UsernameLookupType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
 import {z} from 'zod';
 
 export const UserAdminResponseSchema = z.object({
@@ -516,9 +516,7 @@ export const AdminUserListQuery = z.object({
 		.describe('Restrict the results to these users. Repeat the parameter to pass more than one.'),
 	resolve: createStringType(1, 1024)
 		.optional()
-		.describe(
-			'Resolve one exact identifier: a username, a user ID, an email address, or a Stripe subscription ID',
-		),
+		.describe('Resolve one exact identifier: a username, a user ID, an email address, or a Stripe subscription ID'),
 	email: createStringType(1, 320).optional().describe('Restrict the results to the user with this exact email address'),
 	last_active_ip: createStringType(1, 64)
 		.optional()
@@ -661,3 +659,27 @@ export type AdminUserSuspiciousDisableRequest = z.infer<typeof AdminUserSuspicio
 export const AdminUserDmChannelListResponse = z.union([ListUserDmChannelsResponse, ListUserGroupDmChannelsResponse]);
 
 export type AdminUserDmChannelListResponse = z.infer<typeof AdminUserDmChannelListResponse>;
+
+export const AdminUsernameParam = z.object({
+	username: UsernameLookupType.describe('A username, compared case-insensitively'),
+});
+
+export type AdminUsernameParam = z.infer<typeof AdminUsernameParam>;
+
+export const AdminLockedUsernameSchema = z.object({
+	username: z.string().describe('The locked username, lowercase'),
+	user_id: SnowflakeStringType.describe('The deleted account that held the name'),
+	locked_at: z.string().describe('ISO 8601 timestamp of when the name was locked'),
+});
+
+export const AdminLockedUsernamesResponse = z.object({
+	usernames: z.array(AdminLockedUsernameSchema).describe('Usernames of deleted accounts that nobody can register'),
+});
+
+export type AdminLockedUsernamesResponse = z.infer<typeof AdminLockedUsernamesResponse>;
+
+export const AdminReleaseUsernameResponse = z.object({
+	released: z.boolean().describe('Whether the name was locked and is now free to register'),
+});
+
+export type AdminReleaseUsernameResponse = z.infer<typeof AdminReleaseUsernameResponse>;

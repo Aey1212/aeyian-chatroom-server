@@ -13,6 +13,7 @@ import {AdminMessageService} from '@app/api/admin/services/AdminMessageService';
 import {AdminMessageShredService} from '@app/api/admin/services/AdminMessageShredService';
 import {AdminReportService} from '@app/api/admin/services/AdminReportService';
 import {AdminSearchService} from '@app/api/admin/services/AdminSearchService';
+import {AdminUsernameService} from '@app/api/admin/services/AdminUsernameService';
 import {AdminUserRelationshipService} from '@app/api/admin/services/AdminUserRelationshipService';
 import {AdminUserService} from '@app/api/admin/services/AdminUserService';
 import {AdminVoiceService} from '@app/api/admin/services/AdminVoiceService';
@@ -61,6 +62,7 @@ export class AdminService {
 	readonly applicationService: AdminApplicationService;
 	readonly jobAdminService: JobAdminService;
 	readonly relationshipService: AdminUserRelationshipService;
+	readonly usernameService: AdminUsernameService;
 
 	constructor(
 		private readonly apiContext: ApiContext,
@@ -179,6 +181,10 @@ export class AdminService {
 		this.jobAdminService = new JobAdminService(this.jobLedger, worker);
 		this.relationshipService = new AdminUserRelationshipService({
 			apiContext: this.apiContext,
+			auditService: this.auditService,
+		});
+		this.usernameService = new AdminUsernameService({
+			usernameRegistry: this.usernameRegistry,
 			auditService: this.auditService,
 		});
 	}
