@@ -199,7 +199,6 @@ presence_data(UserId, FriendIds) ->
         user_data => #{
             <<"id">> => integer_to_binary(UserId),
             <<"username">> => <<"test">>,
-            <<"discriminator">> => <<"0001">>,
             <<"avatar">> => null,
             <<"flags">> => 0
         },
@@ -259,7 +258,6 @@ terminate_probe_state(Sessions) ->
         user_data => #{
             <<"id">> => <<"1">>,
             <<"username">> => <<"test">>,
-            <<"discriminator">> => <<"0001">>,
             <<"avatar">> => null,
             <<"flags">> => 0
         },

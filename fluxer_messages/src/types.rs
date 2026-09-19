@@ -210,7 +210,6 @@ pub struct Message {
 pub struct ApiUserPartialResponse {
     pub id: String,
     pub username: String,
-    pub discriminator: String,
     pub global_name: Option<String>,
     pub avatar: Option<String>,
     pub avatar_color: Option<i32>,
@@ -756,7 +755,6 @@ mod tests {
         let author = ApiUserPartialResponse {
             id: "1".to_string(),
             username: "user".to_string(),
-            discriminator: "0001".to_string(),
             global_name: None,
             avatar: None,
             avatar_color: None,

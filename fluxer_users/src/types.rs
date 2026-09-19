@@ -45,7 +45,6 @@ pub enum UserResponse {
 pub struct User {
     pub user_id: i64,
     pub username: String,
-    pub discriminator: i32,
     pub bot: Option<bool>,
     pub system: Option<bool>,
     pub email: Option<String>,
@@ -107,7 +106,6 @@ pub struct User {
 pub struct UserPartial {
     pub user_id: i64,
     pub username: String,
-    pub discriminator: i32,
     pub global_name: Option<String>,
     pub avatar_hash: Option<String>,
     pub bot: Option<bool>,
@@ -124,7 +122,6 @@ pub struct UserPartial {
 pub struct ApiUserPartial {
     pub id: String,
     pub username: String,
-    pub discriminator: String,
     pub global_name: Option<String>,
     pub avatar: Option<String>,
     pub avatar_color: Option<i32>,
@@ -139,14 +136,12 @@ pub struct ApiUserPartial {
 
 const FLUXER_SYSTEM_USER_ID: i64 = 0;
 const FLUXER_SYSTEM_USERNAME: &str = "Fluxer";
-const FLUXER_SYSTEM_DISCRIMINATOR: &str = "0000";
 
 impl User {
     pub fn to_partial(&self) -> UserPartial {
         UserPartial {
             user_id: self.user_id,
             username: self.username.clone(),
-            discriminator: self.discriminator,
             global_name: self.global_name.clone(),
             avatar_hash: self.avatar_hash.clone(),
             bot: self.bot,
@@ -169,7 +164,6 @@ impl UserPartial {
         ApiUserPartial {
             id: self.user_id.to_string(),
             username: self.username.clone(),
-            discriminator: format!("{:04}", self.discriminator),
             global_name: self.global_name.clone(),
             avatar: self.avatar_hash.clone(),
             avatar_color: self.avatar_color,
@@ -185,7 +179,6 @@ fn fluxer_system_user() -> ApiUserPartial {
     ApiUserPartial {
         id: FLUXER_SYSTEM_USER_ID.to_string(),
         username: FLUXER_SYSTEM_USERNAME.to_owned(),
-        discriminator: FLUXER_SYSTEM_DISCRIMINATOR.to_owned(),
         global_name: None,
         avatar: None,
         avatar_color: None,
@@ -224,7 +217,6 @@ mod tests {
         UserPartial {
             user_id,
             username: "Ada".to_owned(),
-            discriminator: 7,
             global_name: Some("Ada Lovelace".to_owned()),
             avatar_hash: Some("avatar_hash".to_owned()),
             bot: Some(false),
@@ -242,7 +234,6 @@ mod tests {
         User {
             user_id,
             username: "Ada".to_owned(),
-            discriminator: 7,
             bot: Some(false),
             system: Some(false),
             email: Some("ada@example.com".to_owned()),
@@ -309,7 +300,6 @@ mod tests {
 
         assert_eq!(api_partial.id, "123");
         assert_eq!(api_partial.username, "Ada");
-        assert_eq!(api_partial.discriminator, "0007");
         assert_eq!(api_partial.global_name, Some("Ada Lovelace".to_owned()));
         assert_eq!(api_partial.avatar, Some("avatar_hash".to_owned()));
         assert_eq!(api_partial.avatar_color, Some(0x336699));
@@ -369,7 +359,6 @@ mod tests {
                 "FoundApiPartials": [{
                     "id": "123",
                     "username": "Ada",
-                    "discriminator": "0007",
                     "global_name": "Ada Lovelace",
                     "avatar": "avatar_hash",
                     "avatar_color": 0x336699,

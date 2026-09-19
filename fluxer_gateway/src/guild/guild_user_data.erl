@@ -181,7 +181,6 @@ message_create_equivalent_author_data_does_not_dispatch_member_update_test() ->
     Author = #{
         <<"id">> => <<"100">>,
         <<"username">> => <<"alice">>,
-        <<"discriminator">> => <<"0001">>,
         <<"global_name">> => null,
         <<"avatar">> => null,
         <<"avatar_color">> => null,
@@ -216,7 +215,6 @@ normalized_test_state() ->
                 <<"user">> => #{
                     <<"id">> => <<"100">>,
                     <<"username">> => <<"alice">>,
-                    <<"discriminator">> => <<"0001">>,
                     <<"global_name">> => null,
                     <<"avatar">> => null,
                     <<"avatar_color">> => null,

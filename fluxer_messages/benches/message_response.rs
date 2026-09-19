@@ -31,7 +31,6 @@ fn sample_user(id: u64) -> ApiUserPartialResponse {
     ApiUserPartialResponse {
         id: id.to_string(),
         username: format!("user{id}"),
-        discriminator: "0000".to_owned(),
         global_name: Some(format!("User {id}")),
         avatar: Some(format!("avatar-{id}")),
         avatar_color: Some(0x336699),

@@ -26,7 +26,6 @@ bot_identify_data(GuildCount) ->
         <<"user">> => #{
             <<"id">> => <<"123">>,
             <<"username">> => <<"bot">>,
-            <<"discriminator">> => <<"0001">>,
             <<"avatar">> => null,
             <<"flags">> => 0,
             <<"bot">> => true

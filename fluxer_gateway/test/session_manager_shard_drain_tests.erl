@@ -213,7 +213,6 @@ build_session_data_normalizes_current_user_for_ready_test() ->
     UserDataMap = #{
         <<"id">> => <<"123">>,
         <<"username">> => <<"tester">>,
-        <<"discriminator">> => <<"0001">>,
         <<"avatar">> => null,
         <<"avatar_color">> => null,
         <<"flags">> => 0,
@@ -236,7 +235,6 @@ build_session_data_filters_guilds_for_identify_shard_test() ->
     UserDataMap = #{
         <<"id">> => <<"123">>,
         <<"username">> => <<"tester">>,
-        <<"discriminator">> => <<"0001">>,
         <<"avatar">> => null,
         <<"avatar_color">> => null,
         <<"flags">> => 0,

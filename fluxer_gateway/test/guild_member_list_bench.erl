@@ -496,7 +496,6 @@ sample_member(U) ->
             <<"username">> => <<"user_", UB/binary>>,
             <<"global_name">> => <<"User ", UB/binary>>,
             <<"avatar">> => <<"abcd1234efgh5678">>,
-            <<"discriminator">> => <<"0001">>,
             <<"flags">> => 0
         },
         <<"nick">> => null,
