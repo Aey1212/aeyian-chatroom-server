@@ -312,7 +312,6 @@ import {
 	USER_BY_LAST_ACTIVE_IP_TRUST_KEY_COLUMNS,
 	USER_BY_STRIPE_CUSTOMER_ID_COLUMNS,
 	USER_BY_STRIPE_SUBSCRIPTION_ID_COLUMNS,
-	USER_BY_USERNAME_COLUMNS,
 	USER_COLUMNS,
 	USER_CONTACT_CHANGE_LOG_COLUMNS,
 	USER_DM_HISTORY_COLUMNS,
@@ -322,13 +321,16 @@ import {
 	USER_GUILD_SETTINGS_COLUMNS,
 	USER_HARVEST_COLUMNS,
 	USER_SETTINGS_COLUMNS,
+	USERNAME_BY_STATE_COLUMNS,
+	USERNAME_CHANGE_REQUEST_BY_STATUS_COLUMNS,
+	USERNAME_CHANGE_REQUEST_COLUMNS,
+	USERNAME_COLUMNS,
 	USERS_PENDING_DELETION_COLUMNS,
 	type UserByEmailRow,
 	type UserByLastActiveIpRow,
 	type UserByLastActiveIpTrustKeyRow,
 	type UserByStripeCustomerIdRow,
 	type UserByStripeSubscriptionIdRow,
-	type UserByUsernameRow,
 	type UserContactChangeLogRow,
 	type UserDmHistoryRow,
 	type UserEmailOwnerRow,
@@ -336,6 +338,10 @@ import {
 	type UserEntranceSoundSelectionRow,
 	type UserGuildSettingsRow,
 	type UserHarvestRow,
+	type UsernameByStateRow,
+	type UsernameChangeRequestByStatusRow,
+	type UsernameChangeRequestRow,
+	type UsernameRow,
 	type UserRow,
 	type UserSettingsRow,
 	type UsersPendingDeletionRow,
@@ -360,10 +366,31 @@ export const UserDmHistory = defineTable<UserDmHistoryRow, 'user_id' | 'channel_
 	columns: USER_DM_HISTORY_COLUMNS,
 	primaryKey: ['user_id', 'channel_id'],
 });
-export const UserByUsername = defineTable<UserByUsernameRow, 'username' | 'discriminator' | 'user_id'>({
-	name: 'users_by_username',
-	columns: USER_BY_USERNAME_COLUMNS,
-	primaryKey: ['username', 'discriminator', 'user_id'],
+export const Usernames = defineTable<UsernameRow, 'username_lower'>({
+	name: 'usernames',
+	columns: USERNAME_COLUMNS,
+	primaryKey: ['username_lower'],
+});
+export const UsernamesByState = defineTable<UsernameByStateRow, 'state' | 'username_lower', 'state'>({
+	name: 'usernames_by_state',
+	columns: USERNAME_BY_STATE_COLUMNS,
+	primaryKey: ['state', 'username_lower'],
+	partitionKey: ['state'],
+});
+export const UsernameChangeRequests = defineTable<UsernameChangeRequestRow, 'user_id'>({
+	name: 'username_change_requests',
+	columns: USERNAME_CHANGE_REQUEST_COLUMNS,
+	primaryKey: ['user_id'],
+});
+export const UsernameChangeRequestsByStatus = defineTable<
+	UsernameChangeRequestByStatusRow,
+	'status' | 'created_at' | 'user_id',
+	'status'
+>({
+	name: 'username_change_requests_by_status',
+	columns: USERNAME_CHANGE_REQUEST_BY_STATUS_COLUMNS,
+	primaryKey: ['status', 'created_at', 'user_id'],
+	partitionKey: ['status'],
 });
 export const UserByEmail = defineTable<UserByEmailRow, 'email_lower' | 'user_id'>({
 	name: 'users_by_email',
