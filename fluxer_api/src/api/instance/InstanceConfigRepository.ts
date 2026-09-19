@@ -790,7 +790,6 @@ const StoredRegistrationUrlSchema = RegistrationUrlSchema.extend({
 }) satisfies z.ZodType<InstanceRegistrationUrl>;
 const StoredPendingRegistrationSchema = PendingRegistrationSchema.extend({
 	user_id: StoredSnowflakeStringSchema,
-	discriminator: PendingRegistrationSchema.shape.discriminator.default(0),
 	global_name: StoredNullableStringSchema,
 	email: StoredNullableStringSchema,
 	requested_at: StoredRegistrationTimestampSchema,

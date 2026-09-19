@@ -184,7 +184,6 @@ export class AdminUserService {
 			{
 				id: string;
 				username: string;
-				discriminator: string;
 				global_name: string | null;
 				avatar: string | null;
 			}
@@ -195,7 +194,6 @@ export class AdminUserService {
 			{
 				id: string;
 				username: string;
-				discriminator: string;
 				global_name: string | null;
 				avatar: string | null;
 			}
@@ -207,7 +205,6 @@ export class AdminUserService {
 				results.set(userIds[i], {
 					id: user.id.toString(),
 					username: user.username,
-					discriminator: String(user.discriminator).padStart(4, '0'),
 					global_name: user.globalName,
 					avatar: user.avatarHash,
 				});

@@ -213,7 +213,6 @@ export class ReportRepository implements IReportRepository {
 			authorId: createUserID(msg.author_id),
 			channelId: msg.channel_id ? createChannelID(msg.channel_id) : null,
 			authorUsername: msg.author_username,
-			authorDiscriminator: msg.author_discriminator,
 			authorAvatarHash: msg.author_avatar_hash,
 			content: msg.content,
 			timestamp: msg.timestamp,

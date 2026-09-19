@@ -60,7 +60,7 @@ export class ElasticsearchGuildMemberAdapter extends ElasticsearchIndexAdapter<
 		super({
 			client: options.client,
 			index: ELASTICSEARCH_INDEX_DEFINITIONS.guild_members,
-			searchableFields: ['username', 'usernameSearch', 'discriminator', 'globalName', 'nickname', 'userId'],
+			searchableFields: ['username', 'usernameSearch', 'globalName', 'nickname', 'userId'],
 			searchType: 'bool_prefix',
 			buildFilters: buildGuildMemberFilters,
 			buildSort: buildGuildMemberSort,

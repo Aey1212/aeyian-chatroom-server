@@ -197,10 +197,7 @@ export class UserAccountService {
 				}
 			},
 			async () => {
-				const nameChanged =
-					user.username !== updatedUser.username ||
-					user.discriminator !== updatedUser.discriminator ||
-					user.globalName !== updatedUser.globalName;
+				const nameChanged = user.username !== updatedUser.username || user.globalName !== updatedUser.globalName;
 				if (nameChanged) {
 					void this.reindexGuildMembersForUser(updatedUser);
 				}

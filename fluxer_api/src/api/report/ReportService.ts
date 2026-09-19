@@ -881,7 +881,6 @@ export class ReportService {
 				channel_id: channelId,
 				author_id: message.authorId!,
 				author_username: author.username,
-				author_discriminator: author.discriminator,
 				author_avatar_hash: author.avatarHash || null,
 				content: message.content || null,
 				timestamp: snowflakeToDate(message.id),

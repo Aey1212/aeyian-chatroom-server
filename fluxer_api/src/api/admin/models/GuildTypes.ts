@@ -8,15 +8,13 @@ import type {GuildAdminResponse, ListUserGuildsResponse} from '@fluxer/schema/sr
 function formatOwnerFields(ownerUser: User | null): {
 	owner_username: string | null;
 	owner_global_name: string | null;
-	owner_discriminator: string | null;
 } {
 	if (!ownerUser) {
-		return {owner_username: null, owner_global_name: null, owner_discriminator: null};
+		return {owner_username: null, owner_global_name: null};
 	}
 	return {
 		owner_username: ownerUser.username,
 		owner_global_name: ownerUser.globalName ?? null,
-		owner_discriminator: String(ownerUser.discriminator).padStart(4, '0'),
 	};
 }
 

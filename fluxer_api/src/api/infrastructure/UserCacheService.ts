@@ -6,11 +6,7 @@ import {Logger} from '@app/api/Logger';
 import type {RequestCache} from '@app/api/middleware/RequestCacheMiddleware';
 import type {User} from '@app/api/models/User';
 import {mapUserToPartialResponse} from '@app/api/user/UserMappers';
-import {
-	DELETED_USER_DISCRIMINATOR,
-	DELETED_USER_GLOBAL_NAME,
-	DELETED_USER_USERNAME,
-} from '@fluxer/constants/src/UserConstants';
+import {DELETED_USER_GLOBAL_NAME, DELETED_USER_USERNAME} from '@fluxer/constants/src/UserConstants';
 import type {UserPartialResponse} from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 
 type UserPartialResponseTimingRecorder = <T>(name: string, operation: () => Promise<T>) => Promise<T>;
@@ -104,7 +100,6 @@ export class UserCacheService {
 		return {
 			id: userId.toString(),
 			username: DELETED_USER_USERNAME,
-			discriminator: DELETED_USER_DISCRIMINATOR.toString().padStart(4, '0'),
 			global_name: DELETED_USER_GLOBAL_NAME,
 			avatar: null,
 			avatar_color: null,

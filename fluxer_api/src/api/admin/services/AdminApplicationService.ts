@@ -26,7 +26,6 @@ interface AdminApplicationServiceDeps {
 interface UserDisplay {
 	username: string | null;
 	global_name: string | null;
-	discriminator: string | null;
 }
 
 export class AdminApplicationService {
@@ -55,7 +54,6 @@ export class AdminApplicationService {
 		const ownerDisplay: UserDisplay = {
 			username: owner.username,
 			global_name: owner.globalName ?? null,
-			discriminator: String(owner.discriminator).padStart(4, '0'),
 		};
 		const botUserIds = applications.map((app) => app.botUserId).filter((id): id is UserID => id !== null);
 		const botDisplays = await this.loadUserDisplays(botUserIds);
@@ -153,14 +151,13 @@ export class AdminApplicationService {
 			map.set(id.toString(), {
 				username: user.username,
 				global_name: user.globalName ?? null,
-				discriminator: String(user.discriminator).padStart(4, '0'),
 			});
 		}
 		return map;
 	}
 
 	private toResponse(application: Application, userDisplays: Map<string, UserDisplay>): ApplicationAdminResponse {
-		const emptyDisplay: UserDisplay = {username: null, global_name: null, discriminator: null};
+		const emptyDisplay: UserDisplay = {username: null, global_name: null};
 		const ownerDisplay = userDisplays.get(application.ownerUserId.toString()) ?? emptyDisplay;
 		const botDisplay = application.botUserId
 			? (userDisplays.get(application.botUserId.toString()) ?? emptyDisplay)
@@ -171,11 +168,9 @@ export class AdminApplicationService {
 			owner_user_id: application.ownerUserId.toString(),
 			owner_username: ownerDisplay.username,
 			owner_global_name: ownerDisplay.global_name,
-			owner_discriminator: ownerDisplay.discriminator,
 			bot_user_id: application.botUserId?.toString() ?? null,
 			bot_username: botDisplay.username,
 			bot_global_name: botDisplay.global_name,
-			bot_discriminator: botDisplay.discriminator,
 			bot_is_public: application.botIsPublic,
 			bot_require_code_grant: application.botRequireCodeGrant,
 			oauth2_redirect_uris: Array.from(application.oauth2RedirectUris),

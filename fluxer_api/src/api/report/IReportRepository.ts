@@ -36,7 +36,6 @@ export interface IARMessageContext {
 	channelId: ChannelID | null;
 	authorId: UserID;
 	authorUsername: string;
-	authorDiscriminator: number;
 	authorAvatarHash: string | null;
 	content: string | null;
 	timestamp: Date;
