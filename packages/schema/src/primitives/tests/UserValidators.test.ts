@@ -2,7 +2,6 @@
 
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {
-	DiscriminatorType,
 	EmailType,
 	GlobalNameType,
 	PasswordType,
@@ -45,40 +44,6 @@ describe('EmailType', () => {
 	it('trims emails with leading/trailing whitespace', () => {
 		const result = EmailType.parse('  user@example.com  ');
 		expect(result).toBe('user@example.com');
-	});
-});
-
-describe('DiscriminatorType', () => {
-	it('accepts valid single digit discriminators', () => {
-		const result = DiscriminatorType.parse('1');
-		expect(result).toBe(1);
-	});
-	it('accepts valid four digit discriminators', () => {
-		const result = DiscriminatorType.parse('1234');
-		expect(result).toBe(1234);
-	});
-	it('accepts zero as discriminator', () => {
-		const result = DiscriminatorType.parse('0');
-		expect(result).toBe(0);
-	});
-	it('accepts discriminators with leading zeros', () => {
-		const result = DiscriminatorType.parse('0001');
-		expect(result).toBe(1);
-	});
-	it('rejects discriminators with more than 4 digits', () => {
-		const result = DiscriminatorType.safeParse('12345');
-		expect(result.success).toBe(false);
-		if (!result.success) {
-			expect(result.error.issues[0].message).toBe(ValidationErrorCodes.DISCRIMINATOR_INVALID_FORMAT);
-		}
-	});
-	it('rejects non-numeric discriminators', () => {
-		const result = DiscriminatorType.safeParse('abc');
-		expect(result.success).toBe(false);
-	});
-	it('rejects negative discriminators', () => {
-		const result = DiscriminatorType.safeParse('-1');
-		expect(result.success).toBe(false);
 	});
 });
 

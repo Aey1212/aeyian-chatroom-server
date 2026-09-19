@@ -14,8 +14,7 @@ import {
 import {z} from 'zod';
 
 const EMAIL_LOCAL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+$/;
-const DISCRIMINATOR_REGEX = /^\d{1,4}$/;
-const FLUXER_TAG_REGEX = /^[a-zA-Z0-9_]+$/;
+const USERNAME_REGEX = /^[a-zA-Z0-9_]+$/;
 export const PHONE_E164_REGEX = /^\+[1-9]\d{1,14}$/;
 
 function sanitizeUsername(value: string): string {
@@ -50,22 +49,12 @@ export const EmailType = withOpenApiType(
 		}, ValidationErrorCodes.INVALID_EMAIL_LOCAL_PART),
 	'EmailType',
 );
-export const DiscriminatorType = withOpenApiType(
-	z
-		.union([z.string(), z.number()])
-		.transform((value) => String(value))
-		.pipe(z.string().regex(DISCRIMINATOR_REGEX, ValidationErrorCodes.DISCRIMINATOR_INVALID_FORMAT))
-		.transform((value) => {
-			return Number.parseInt(value, 10);
-		}),
-	'DiscriminatorType',
-);
 export const UsernameType = withOpenApiType(
 	z
 		.string()
 		.trim()
 		.pipe(withStringLengthRangeValidation(z.string(), 1, 32, ValidationErrorCodes.USERNAME_LENGTH_INVALID))
-		.refine((value) => FLUXER_TAG_REGEX.test(value), ValidationErrorCodes.USERNAME_INVALID_CHARACTERS)
+		.refine((value) => USERNAME_REGEX.test(value), ValidationErrorCodes.USERNAME_INVALID_CHARACTERS)
 		.refine((value) => {
 			const lowerValue = value.toLowerCase();
 			return lowerValue !== 'everyone' && lowerValue !== 'here';
