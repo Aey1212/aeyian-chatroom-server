@@ -39,6 +39,7 @@ import type {
 	LoginRequest,
 	LogoutAuthSessionsRequest,
 	MfaTicketRequest,
+	OpenedPasswordResetRequest,
 	RegisterRequest,
 	ResetPasswordRequest,
 	SsoCompleteRequest,
@@ -216,6 +217,11 @@ export class AuthRequestService {
 
 	async resetPassword({data, request}: AuthResetPasswordRequest): Promise<AuthLoginResponse> {
 		const result = await AuthPassword.resetPassword(this.apiContext, {data, request});
+		return await this.toAuthLoginResponse(result);
+	}
+
+	async resetOpenedPassword(params: {data: OpenedPasswordResetRequest; request: Request}): Promise<AuthLoginResponse> {
+		const result = await AuthPassword.resetOpenedPassword(this.apiContext, params);
 		return await this.toAuthLoginResponse(result);
 	}
 

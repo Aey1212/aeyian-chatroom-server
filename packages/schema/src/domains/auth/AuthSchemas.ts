@@ -519,3 +519,10 @@ export const InboundSmsChallengeStartResponse = z.object({
 export type InboundSmsChallengeStartResponse = z.infer<typeof InboundSmsChallengeStartResponse>;
 
 export const LogoutAuthSessionsWithVerificationRequest = LogoutAuthSessionsRequest.extend(SudoVerificationSchema.shape);
+
+export const OpenedPasswordResetRequest = z.object({
+	login: createStringType(1, 254).describe('Username or email address of the account'),
+	password: PasswordType.describe('The new password'),
+});
+
+export type OpenedPasswordResetRequest = z.infer<typeof OpenedPasswordResetRequest>;

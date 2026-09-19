@@ -14,12 +14,17 @@ import type {User} from '@app/api/models/User';
 import {applyUsernameChange} from '@app/api/user/UsernameChange';
 import {UsernameChangeRequestRepository} from '@app/api/user/UsernameChangeRequestRepository';
 import {type IUsernameRegistry, normalizeUsername} from '@app/api/user/UsernameRegistry';
-import {BOT_USERNAME_BASE_MAX_LENGTH, BOT_USERNAME_SUFFIX} from '@fluxer/constants/src/UserConstants';
+import {
+	BOT_USERNAME_BASE_MAX_LENGTH,
+	BOT_USERNAME_SUFFIX,
+	PASSWORD_RESET_OPEN_TRAIT,
+} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {AccessDeniedError} from '@fluxer/errors/src/domains/core/AccessDeniedError';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
 import {UnknownUserError} from '@fluxer/errors/src/domains/user/UnknownUserError';
 import type {
+	AdminPasswordResetModeResponse,
 	AdminUsernameChangeDecisionResponse,
 	AdminUsernameChangeRequestsResponse,
 	ChangeDobRequest,
@@ -323,6 +328,35 @@ export class AdminUserProfileService {
 			metadata: new Map([['requested_username', request.requested_username]]),
 		});
 		return {applied: true};
+	}
+
+	async setPasswordResetOpen(
+		userId: UserID,
+		open: boolean,
+		adminUserId: UserID,
+		auditLogReason: string | null,
+	): Promise<AdminPasswordResetModeResponse> {
+		const {users: userRepository} = this.deps.apiContext.services;
+		const user = await userRepository.findUnique(userId);
+		if (!user) {
+			throw new UnknownUserError();
+		}
+		const traits = user.traits;
+		if (open) {
+			traits.add(PASSWORD_RESET_OPEN_TRAIT);
+		} else {
+			traits.delete(PASSWORD_RESET_OPEN_TRAIT);
+		}
+		await userRepository.patchUpsert(userId, {traits: traits.size > 0 ? traits : null}, user.toRow());
+		await this.deps.auditService.createAuditLog({
+			adminUserId,
+			targetType: 'user',
+			targetId: BigInt(userId),
+			action: open ? 'open_password_reset' : 'close_password_reset',
+			auditLogReason,
+			metadata: new Map(),
+		});
+		return {open};
 	}
 
 	private async afterUsernameChange(

@@ -12,12 +12,16 @@ import * as FetchUtils from '@app/api/utils/FetchUtils';
 import {hashPassword as hashPasswordUtil, verifyPassword as verifyPasswordUtil} from '@app/api/utils/PasswordUtils';
 import {createRateLimitError} from '@app/api/utils/RateLimitUtils';
 import {FLUXER_USER_AGENT} from '@fluxer/constants/src/Core';
-import {UserAuthenticatorTypes, UserFlags} from '@fluxer/constants/src/UserConstants';
+import {PASSWORD_RESET_OPEN_TRAIT, UserAuthenticatorTypes, UserFlags} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
 import {requireClientIp} from '@fluxer/ip_utils/src/ClientIp';
 import {getSameIpDecisionKey} from '@fluxer/ip_utils/src/IpAddress';
-import type {ForgotPasswordRequest, ResetPasswordRequest} from '@fluxer/schema/src/domains/auth/AuthSchemas';
+import type {
+	ForgotPasswordRequest,
+	OpenedPasswordResetRequest,
+	ResetPasswordRequest,
+} from '@fluxer/schema/src/domains/auth/AuthSchemas';
 import {ms, seconds} from 'itty-time';
 
 const PWNED_PASSWORDS_TIMEOUT_MS = ms('5 seconds');
@@ -313,4 +317,51 @@ async function createMfaTicketResponse(
 		totp: hasTotp,
 		webauthn: hasWebauthn,
 	};
+}
+
+interface OpenedPasswordResetParams {
+	data: OpenedPasswordResetRequest;
+	request: Request;
+}
+
+// Resets without email: only possible after an admin opened a reset for the account, and
+// the reset closes as soon as it is used.
+export async function resetOpenedPassword(
+	ctx: ApiContext,
+	{data, request}: OpenedPasswordResetParams,
+): Promise<ResetPasswordResult> {
+	const {users} = ctx.services;
+	const login = data.login.trim();
+	const user = login.includes('@') ? await users.findByEmail(login) : await users.findByUsername(login);
+	if (!user || user.flags & UserFlags.DELETED || !user.traits.has(PASSWORD_RESET_OPEN_TRAIT)) {
+		throw InputValidationError.fromCode('login', ValidationErrorCodes.INVALID_OR_EXPIRED_RESET_TOKEN);
+	}
+	AuthUtility.assertNonBotUser(ctx, user);
+	await AuthUtility.handleBanStatus(ctx, user);
+	if (await isPasswordPwned(ctx, data.password)) {
+		throw InputValidationError.fromCode('password', ValidationErrorCodes.PASSWORD_IS_TOO_COMMON);
+	}
+	const traits = user.traits;
+	traits.delete(PASSWORD_RESET_OPEN_TRAIT);
+	const updatedUser = await users.patchUpsert(
+		user.id,
+		{
+			password_hash: await hashPassword(ctx, data.password),
+			password_last_changed_at: new Date(),
+			traits: traits.size > 0 ? traits : null,
+		},
+		user.toRow(),
+	);
+	await AuthSession.terminateAllUserSessions(ctx, user.id);
+	const hasMfa =
+		updatedUser.authenticatorTypes.has(UserAuthenticatorTypes.TOTP) ||
+		updatedUser.authenticatorTypes.has(UserAuthenticatorTypes.WEBAUTHN);
+	if (hasMfa) {
+		return await createMfaTicketResponse(ctx, updatedUser);
+	}
+	const [token] = await AuthSession.createAuthSession(ctx, {
+		user: updatedUser,
+		origin: AuthSession.resolveSessionOrigin(ctx, request),
+	});
+	return {user_id: updatedUser.id.toString(), token};
 }

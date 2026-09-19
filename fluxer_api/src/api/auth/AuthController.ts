@@ -33,6 +33,7 @@ import {
 	LogoutAuthSessionsWithVerificationRequest,
 	MfaTicketRequest,
 	MfaTotpRequest,
+	OpenedPasswordResetRequest,
 	RegisterRequest,
 	ResetPasswordRequest,
 	ResetPasswordTokenParam,
@@ -298,6 +299,29 @@ export function AuthController(app: HonoApp) {
 		}),
 		async (ctx) => {
 			const result = await ctx.get('authRequestService').resetPassword({
+				data: ctx.req.valid('json'),
+				request: ctx.req.raw,
+			});
+			return ctx.json(result);
+		},
+	);
+	app.post(
+		'/auth/password-reset',
+		LocalAuthMiddleware,
+		RateLimitMiddleware(RateLimitConfigs.AUTH_RESET_PASSWORD),
+		Validator('json', OpenedPasswordResetRequest),
+		OpenAPI({
+			operationId: 'reset_opened_password',
+			summary: 'Choose a new password after an admin opened a reset',
+			responseSchema: AuthLoginResponse,
+			statusCode: 200,
+			security: [],
+			tags: ['Auth'],
+			description:
+				'Sets a new password without email, but only for an account an admin has opened a password reset for. The reset closes when used, other sessions end, and the response logs the account in. Fails with INVALID_OR_EXPIRED_RESET_TOKEN when no reset is open.',
+		}),
+		async (ctx) => {
+			const result = await ctx.get('authRequestService').resetOpenedPassword({
 				data: ctx.req.valid('json'),
 				request: ctx.req.raw,
 			});

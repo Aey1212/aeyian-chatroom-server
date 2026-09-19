@@ -702,3 +702,15 @@ export const AdminUsernameChangeDecisionResponse = z.object({
 });
 
 export type AdminUsernameChangeDecisionResponse = z.infer<typeof AdminUsernameChangeDecisionResponse>;
+
+export const AdminPasswordResetModeRequest = z.object({
+	open: z.boolean().describe('Whether the account owner may choose a new password without email'),
+});
+
+export type AdminPasswordResetModeRequest = z.infer<typeof AdminPasswordResetModeRequest>;
+
+export const AdminPasswordResetModeResponse = z.object({
+	open: z.boolean().describe('Whether a password reset is open for the account'),
+});
+
+export type AdminPasswordResetModeResponse = z.infer<typeof AdminPasswordResetModeResponse>;

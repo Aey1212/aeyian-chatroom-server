@@ -17,6 +17,8 @@ import {SearchUsersResponse} from '@fluxer/schema/src/domains/admin/AdminSchemas
 import {
 	AdminAclListResponse,
 	AdminLockedUsernamesResponse,
+	AdminPasswordResetModeRequest,
+	AdminPasswordResetModeResponse,
 	AdminReleaseUsernameResponse,
 	AdminUserAclsRequest,
 	AdminUserBanRequest,
@@ -695,6 +697,36 @@ export function UserAdminController(app: HonoApp) {
 					adminUserId,
 					auditLogReason,
 					adminUserAcls,
+				),
+			);
+		},
+	);
+	app.put(
+		'/admin/users/:user_id/password-reset-mode',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
+		requireAdminACL(AdminACLs.USER_UPDATE_EMAIL),
+		Validator('param', UserIdParam),
+		Validator('json', AdminPasswordResetModeRequest),
+		OpenAPI({
+			operationId: 'set_admin_user_password_reset_mode',
+			summary: 'Open or close a password reset',
+			responseSchema: AdminPasswordResetModeResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'Open a password reset for an account so its owner can choose a new password without email (it closes when used), or close it again. Creates audit log entry. Requires USER_UPDATE_EMAIL permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const {user_id: userId} = ctx.req.valid('param');
+			const {open} = ctx.req.valid('json');
+			return ctx.json(
+				await adminService.userService.profileService.setPasswordResetOpen(
+					createUserID(userId),
+					open,
+					ctx.get('adminUserId'),
+					ctx.get('auditLogReason'),
 				),
 			);
 		},

@@ -153,6 +153,9 @@ export const DELETED_USER_ID = 1n;
 // Every bot username ends in this suffix; human usernames cannot contain '-', so
 // no human name can ever take it. The base name leaves room for it in 32 chars.
 export const BOT_USERNAME_SUFFIX = '-BOT';
+// Set by an admin on an account whose owner may choose a new password without email.
+// The first reset clears it.
+export const PASSWORD_RESET_OPEN_TRAIT = 'password_reset_open';
 export const USERNAME_MAX_LENGTH = 32;
 export const BOT_USERNAME_BASE_MAX_LENGTH = USERNAME_MAX_LENGTH - BOT_USERNAME_SUFFIX.length;
 export const PublicUserFlags = {
