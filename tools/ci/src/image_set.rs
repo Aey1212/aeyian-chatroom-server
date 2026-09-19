@@ -18,8 +18,7 @@ const DEFAULT_MOVING_TAGS: &str = "v1,latest";
 const DEFAULT_FROM_TAG: &str = "v1";
 const DEFAULT_OUT_DIR: &str = "release-out";
 const RELEASE_COMPONENT: &str = "fluxer-release";
-const COMPOSE_IMAGE_PREFIX: &str =
-    "${FLUXER_REGISTRY:-ghcr.io/${FLUXER_REGISTRY_OWNER:-aey1212}}";
+const COMPOSE_IMAGE_PREFIX: &str = "${FLUXER_REGISTRY:-ghcr.io/${FLUXER_REGISTRY_OWNER:-aey1212}}";
 const OCI_INDEX_MEDIA_TYPE: &str = "application/vnd.oci.image.index.v1+json";
 const DOCKER_MANIFEST_LIST_MEDIA_TYPE: &str =
     "application/vnd.docker.distribution.manifest.list.v2+json";
