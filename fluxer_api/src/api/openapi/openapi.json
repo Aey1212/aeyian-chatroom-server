@@ -948,6 +948,54 @@
 				"security": [{"botToken": []}, {"sessionToken": []}]
 			}
 		},
+		"/auth/password-reset": {
+			"post": {
+				"operationId": "reset_opened_password",
+				"summary": "Choose a new password after an admin opened a reset",
+				"tags": ["Auth"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/AuthLoginResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Sets a new password without email, but only for an account an admin has opened a password reset for. The reset closes when used, other sessions end, and the response logs the account in. Fails with INVALID_OR_EXPIRED_RESET_TOKEN when no reset is open.",
+				"requestBody": {
+					"required": true,
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/OpenedPasswordResetRequest"}}}
+				}
+			}
+		},
 		"/auth/register": {
 			"post": {
 				"operationId": "register_account",
@@ -28902,6 +28950,14 @@
 					},
 					{"$ref": "#/components/schemas/AuthRegistrationPendingApprovalResponse"}
 				]
+			},
+			"OpenedPasswordResetRequest": {
+				"type": "object",
+				"properties": {
+					"login": {"description": "Username or email address of the account", "type": "string"},
+					"password": {"description": "The new password", "$ref": "#/components/schemas/PasswordType"}
+				},
+				"required": ["login", "password"]
 			},
 			"MfaTicketRequest": {
 				"type": "object",

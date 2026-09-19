@@ -36,3 +36,12 @@ pub struct LockedUsernamesResponse {
 pub struct ReleaseUsernameResponse {
     pub released: bool,
 }
+
+/// User trait set while a password reset is open for the account (see the API's
+/// PASSWORD_RESET_OPEN_TRAIT).
+pub const PASSWORD_RESET_OPEN_TRAIT: &str = "password_reset_open";
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct PasswordResetModeResponse {
+    pub open: bool,
+}

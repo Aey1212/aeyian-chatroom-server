@@ -4,8 +4,8 @@ use crate::api::generated::{snowflake, types as generated_types};
 
 use super::client::{AdminApiClient, ApiResult};
 use super::types::{
-    LockedUsernamesResponse, ReleaseUsernameResponse, UsernameChangeRequestsResponse,
-    UsernameDecisionResponse,
+    LockedUsernamesResponse, PasswordResetModeResponse, ReleaseUsernameResponse,
+    UsernameChangeRequestsResponse, UsernameDecisionResponse,
 };
 
 impl AdminApiClient {
@@ -59,6 +59,20 @@ impl AdminApiClient {
         let response = self
             .generated()
             .release_admin_locked_username(&username)
+            .await
+            .map_err(|e| self.generated_error(e))?;
+        self.generated_value(response.into_inner())
+    }
+
+    pub async fn set_password_reset_mode(
+        &self,
+        user_id: &str,
+        open: bool,
+    ) -> ApiResult<PasswordResetModeResponse> {
+        let body = generated_types::AdminPasswordResetModeRequest { open };
+        let response = self
+            .generated()
+            .set_admin_user_password_reset_mode(&snowflake(user_id), &body)
             .await
             .map_err(|e| self.generated_error(e))?;
         self.generated_value(response.into_inner())

@@ -7420,6 +7420,72 @@
 				]
 			}
 		},
+		"/admin/users/{user_id}/password-reset-mode": {
+			"put": {
+				"operationId": "set_admin_user_password_reset_mode",
+				"summary": "Open or close a password reset",
+				"tags": ["Admin"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/AdminPasswordResetModeResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Open a password reset for an account so its owner can choose a new password without email (it closes when used), or close it again. Creates audit log entry. Requires USER_UPDATE_EMAIL permission.",
+				"security": [{"adminApiKey": []}],
+				"parameters": [
+					{
+						"name": "user_id",
+						"in": "path",
+						"required": true,
+						"schema": {"description": "The ID of the user", "allOf": [{"$ref": "#/components/schemas/SnowflakeType"}]},
+						"description": "The ID of the user"
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/AdminPasswordResetModeRequest"}}}
+				}
+			}
+		},
 		"/admin/users/{user_id}/phone-verification": {
 			"put": {
 				"operationId": "update_admin_user_phone_verification",
@@ -9779,6 +9845,22 @@
 					}
 				},
 				"required": ["has_verified_phone"]
+			},
+			"AdminPasswordResetModeRequest": {
+				"type": "object",
+				"properties": {
+					"open": {
+						"type": "boolean",
+						"description": "Whether the account owner may choose a new password without email"
+					}
+				},
+				"required": ["open"]
+			},
+			"AdminPasswordResetModeResponse": {
+				"type": "object",
+				"properties": {"open": {"type": "boolean", "description": "Whether a password reset is open for the account"}},
+				"required": ["open"],
+				"additionalProperties": false
 			},
 			"DeleteAllUserMessagesResponse": {
 				"type": "object",

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 use crate::{
-    api::types::{AdminUser, UserSession, WebAuthnCredential},
+    api::types::{AdminUser, PASSWORD_RESET_OPEN_TRAIT, UserSession, WebAuthnCredential},
     config::AdminConfig,
     templates::components::{
         form::{checkbox, csrf_input, form_actions, submit_button},
@@ -28,6 +28,7 @@ pub fn account_tab(
     html! {
         div class="space-y-6" {
             (edit_account_card(base, user, csrf_token))
+            (password_reset_card(base, user, csrf_token))
             (sessions_card(config, sessions))
             (quick_actions_card(base, user, csrf_token))
             (clear_fields_card(base, user, csrf_token))
@@ -69,6 +70,34 @@ fn edit_account_card(base: &str, user: &AdminUser, csrf_token: &str) -> Markup {
                     (form_actions(html! {
                         (submit_button("Change Date of Birth"))
                     }))
+                }, csrf_token))
+            }
+        }))
+    }
+}
+
+fn password_reset_card(base: &str, user: &AdminUser, csrf_token: &str) -> Markup {
+    let open = user
+        .traits
+        .iter()
+        .any(|trait_name| trait_name == PASSWORD_RESET_OPEN_TRAIT);
+    html! {
+        (card_with_header("Password Reset", html! {
+            @if open {
+                p class="text-sm text-amber-700" {
+                    "A password reset is open. The owner can choose a new password on the login page                      with their username; the reset closes when used."
+                }
+                (post_form(base, &user.id, "close_password_reset", "account",
+                    "Close the open password reset?", html! {
+                    (form_actions(html! { (submit_button("Close Password Reset")) }))
+                }, csrf_token))
+            } @else {
+                p class="text-sm text-neutral-600" {
+                    "Open a reset when the owner has forgotten their password. They then choose a new                      password on the login page with their username, no email needed."
+                }
+                (post_form(base, &user.id, "open_password_reset", "account",
+                    "Open a password reset for this account?", html! {
+                    (form_actions(html! { (submit_button("Open Password Reset")) }))
                 }, csrf_token))
             }
         }))

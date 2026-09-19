@@ -223,6 +223,18 @@ pub async fn dispatch(
                 "Failed to change username",
             )
         }
+        "open_password_reset" | "close_password_reset" => {
+            let open = action == "open_password_reset";
+            DispatchOutcome::from_result(
+                client.set_password_reset_mode(user_id, open).await,
+                if open {
+                    "Password reset opened: the owner can now choose a new password with their username"
+                } else {
+                    "Password reset closed"
+                },
+                "Failed to change the password reset",
+            )
+        }
         "change_email" => {
             let Some(email) = get("email") else {
                 return DispatchOutcome::error("Email is required");
