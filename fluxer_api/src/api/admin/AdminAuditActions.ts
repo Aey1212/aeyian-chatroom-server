@@ -41,6 +41,7 @@ export const AdminAuditReadActions = {
 	LIST_LOCKED_USERNAMES: 'list_locked_usernames',
 	LIST_USER_APPLICATIONS: 'list_user_applications',
 	LIST_USER_CHANGE_LOG: 'list_user_change_log',
+	LIST_USERNAME_CHANGE_REQUESTS: 'list_username_change_requests',
 	LIST_USER_DM_CHANNELS: 'list_user_dm_channels',
 	LIST_USER_GUILDS: 'list_user_guilds',
 	LIST_USER_RELATIONSHIPS: 'list_user_relationships',

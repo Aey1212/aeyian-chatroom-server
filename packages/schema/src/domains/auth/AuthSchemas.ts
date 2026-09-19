@@ -34,7 +34,9 @@ const RegisterThemeType = createNamedStringLiteralUnion(
 
 export const RegisterRequest = z.object({
 	email: EmailType.optional().describe('Optional email address for the new account'),
-	username: UsernameType.describe('Username for the new account (1-32 characters), unique on this instance and used to log in'),
+	username: UsernameType.describe(
+		'Username for the new account (1-32 characters), unique on this instance and used to log in',
+	),
 	global_name: GlobalNameType.optional().describe('Display name shown to other users'),
 	password: PasswordType.describe('Password for the new account'),
 	date_of_birth: createStringType(10, 10)

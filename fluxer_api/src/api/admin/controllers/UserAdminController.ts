@@ -31,6 +31,8 @@ import {
 	AdminUserFlagsUpdateRequest,
 	AdminUserGuildListQuery,
 	AdminUserListQuery,
+	AdminUsernameChangeDecisionResponse,
+	AdminUsernameChangeRequestsResponse,
 	AdminUsernameParam,
 	AdminUserPhoneVerificationRequest,
 	AdminUserPremiumFlagsUpdateRequest,
@@ -693,6 +695,86 @@ export function UserAdminController(app: HonoApp) {
 					adminUserId,
 					auditLogReason,
 					adminUserAcls,
+				),
+			);
+		},
+	);
+	app.get(
+		'/admin/username-change-requests',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_LOOKUP),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		OpenAPI({
+			operationId: 'list_admin_username_change_requests',
+			summary: 'List pending rename requests',
+			responseSchema: AdminUsernameChangeRequestsResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'List pending rename requests, oldest first. Each requested name is held until the request is approved or rejected. Requires USER_UPDATE_USERNAME permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const response = await adminService.userService.profileService.listUsernameChangeRequests();
+			await recordAdminRead(ctx, {
+				targetType: 'username',
+				targetId: 0n,
+				action: AdminAuditReadActions.LIST_USERNAME_CHANGE_REQUESTS,
+				metadata: {entry_count: response.requests.length},
+			});
+			return ctx.json(response);
+		},
+	);
+	app.post(
+		'/admin/username-change-requests/:user_id/approve',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		Validator('param', UserIdParam),
+		OpenAPI({
+			operationId: 'approve_admin_username_change_request',
+			summary: 'Approve a rename request',
+			responseSchema: AdminUsernameChangeDecisionResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'Approve the pending rename request of a user: the held name becomes their username. Returns applied false when no request is pending. Creates audit log entry. Requires USER_UPDATE_USERNAME permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const {user_id: userId} = ctx.req.valid('param');
+			return ctx.json(
+				await adminService.userService.profileService.approveUsernameChangeRequest(
+					createUserID(userId),
+					ctx.get('adminUserId'),
+					ctx.get('auditLogReason'),
+				),
+			);
+		},
+	);
+	app.post(
+		'/admin/username-change-requests/:user_id/reject',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		Validator('param', UserIdParam),
+		OpenAPI({
+			operationId: 'reject_admin_username_change_request',
+			summary: 'Reject a rename request',
+			responseSchema: AdminUsernameChangeDecisionResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'Reject the pending rename request of a user and give the held name back. Returns applied false when no request is pending. Creates audit log entry. Requires USER_UPDATE_USERNAME permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const {user_id: userId} = ctx.req.valid('param');
+			return ctx.json(
+				await adminService.userService.profileService.rejectUsernameChangeRequest(
+					createUserID(userId),
+					ctx.get('adminUserId'),
+					ctx.get('auditLogReason'),
 				),
 			);
 		},

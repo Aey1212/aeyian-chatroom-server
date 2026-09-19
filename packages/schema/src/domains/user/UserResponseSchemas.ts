@@ -661,3 +661,21 @@ export const PhoneGateEscapePreviewResponse = z.object({
 export type PhoneGateEscapePreviewResponse = z.infer<typeof PhoneGateEscapePreviewResponse>;
 
 export const RelationshipListResponse = z.array(RelationshipResponse);
+
+export const UsernameChangeRequestStatus = z
+	.enum(['pending', 'approved', 'rejected', 'cancelled'])
+	.describe('Where the rename request stands');
+
+export const UsernameChangeRequestResponse = z.object({
+	request: z
+		.object({
+			requested_username: z.string().describe('The username asked for'),
+			status: UsernameChangeRequestStatus,
+			created_at: z.string().describe('ISO 8601 timestamp of the request'),
+			reviewed_at: z.string().nullable().describe('ISO 8601 timestamp of the admin decision, if any'),
+		})
+		.nullable()
+		.describe("The user's latest rename request, or null when there has never been one"),
+});
+
+export type UsernameChangeRequestResponse = z.infer<typeof UsernameChangeRequestResponse>;

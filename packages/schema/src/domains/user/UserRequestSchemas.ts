@@ -745,3 +745,9 @@ export const VoiceActivitySharingUpdateRequest = z
 	);
 
 export type VoiceActivitySharingUpdateRequest = z.infer<typeof VoiceActivitySharingUpdateRequest>;
+
+export const UsernameChangeRequestSubmitRequest = z.object({
+	username: UsernameType.describe('The username to ask for; an admin approves or rejects the request'),
+});
+
+export type UsernameChangeRequestSubmitRequest = z.infer<typeof UsernameChangeRequestSubmitRequest>;

@@ -683,3 +683,22 @@ export const AdminReleaseUsernameResponse = z.object({
 });
 
 export type AdminReleaseUsernameResponse = z.infer<typeof AdminReleaseUsernameResponse>;
+
+export const AdminUsernameChangeRequestSchema = z.object({
+	user_id: SnowflakeStringType.describe('The account asking for a new name'),
+	current_username: z.string().nullable().describe("The account's current username, null if the account is gone"),
+	requested_username: z.string().describe('The username asked for, held until the request is decided'),
+	created_at: z.string().describe('ISO 8601 timestamp of the request'),
+});
+
+export const AdminUsernameChangeRequestsResponse = z.object({
+	requests: z.array(AdminUsernameChangeRequestSchema).describe('Pending rename requests, oldest first'),
+});
+
+export type AdminUsernameChangeRequestsResponse = z.infer<typeof AdminUsernameChangeRequestsResponse>;
+
+export const AdminUsernameChangeDecisionResponse = z.object({
+	applied: z.boolean().describe('Whether a pending request existed and the decision was applied'),
+});
+
+export type AdminUsernameChangeDecisionResponse = z.infer<typeof AdminUsernameChangeDecisionResponse>;
