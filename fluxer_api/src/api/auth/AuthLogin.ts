@@ -188,13 +188,15 @@ export async function login(
 	const {users, cache, rateLimit, email, config} = ctx.services;
 	const {inviteService, kvDeletionQueue} = deps;
 	const skipRateLimits = config.dev.testModeEnabled || config.dev.disableRateLimits;
-	const emailRateLimit = await rateLimit.checkLimit({
-		identifier: `login:email:${data.email.toLowerCase()}`,
+	// The login field takes a username or an email address; only email addresses contain '@'.
+	const loginId = data.login.trim();
+	const loginRateLimit = await rateLimit.checkLimit({
+		identifier: `login:id:${loginId.toLowerCase()}`,
 		maxAttempts: 5,
 		windowMs: ms('15 minutes'),
 	});
-	if (!emailRateLimit.allowed && !skipRateLimits) {
-		throw createRateLimitError(emailRateLimit);
+	if (!loginRateLimit.allowed && !skipRateLimits) {
+		throw createRateLimitError(loginRateLimit);
 	}
 	const clientIp = requireClientIp(request, {
 		trustClientIpHeader: config.proxy.trust_client_ip_header,
@@ -208,10 +210,10 @@ export async function login(
 	if (!ipRateLimit.allowed && !skipRateLimits) {
 		throw createRateLimitError(ipRateLimit);
 	}
-	const user = await users.findByEmail(data.email);
+	const user = loginId.includes('@') ? await users.findByEmail(loginId) : await users.findByUsername(loginId);
 	if (!user) {
 		throw InputValidationError.fromCodes([
-			{path: 'email', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
+			{path: 'login', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
 			{path: 'password', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
 		]);
 	}
@@ -219,7 +221,7 @@ export async function login(
 	if (!user.passwordHash) {
 		await AuthPassword.verifyPassword(ctx, {password: data.password, passwordHash: DUMMY_ARGON2_HASH});
 		throw InputValidationError.fromCodes([
-			{path: 'email', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
+			{path: 'login', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
 			{path: 'password', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
 		]);
 	}
@@ -229,7 +231,7 @@ export async function login(
 	});
 	if (!isMatch) {
 		throw InputValidationError.fromCodes([
-			{path: 'email', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
+			{path: 'login', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
 			{path: 'password', code: ValidationErrorCodes.INVALID_EMAIL_OR_PASSWORD},
 		]);
 	}
@@ -279,7 +281,12 @@ export async function login(
 				instanceConfigRepository.getInstanceIntegrationsConfig(),
 				instanceConfigRepository.getEffectiveEmailConfig(),
 			]);
-			if (integrationsConfig.email.disable_new_ip_authorization || !effectiveEmailConfig.enabled) {
+			// An account without an email has no channel to confirm a new IP through.
+			if (
+				integrationsConfig.email.disable_new_ip_authorization ||
+				!effectiveEmailConfig.enabled ||
+				!currentUser.email
+			) {
 				await users.createAuthorizedIp(currentUser.id, clientIp);
 			} else {
 				const ticket = createIpAuthorizationTicket(await AuthUtility.generateSecureToken(ctx));
