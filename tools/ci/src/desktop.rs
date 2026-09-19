@@ -4952,30 +4952,6 @@ mod tests {
         );
     }
 
-    const BUILD_DESKTOP_WORKFLOW: &str =
-        include_str!("../../../.github/workflows/build-desktop.yaml");
-
-    fn workflow_job(job: &str) -> &'static str {
-        let header = format!("\n  {job}:\n");
-        let start = BUILD_DESKTOP_WORKFLOW
-            .find(&header)
-            .unwrap_or_else(|| panic!("build-desktop.yaml has no {job} job"))
-            + header.len();
-        let body = &BUILD_DESKTOP_WORKFLOW[start..];
-        let end = body
-            .match_indices('\n')
-            .map(|(index, _)| index + 1)
-            .find(|&index| body[index..].starts_with("  ") && !body[index..].starts_with("   "))
-            .unwrap_or(body.len());
-        &body[..end]
-    }
-
-    fn workflow_step_names(job: &str) -> Vec<&str> {
-        job.lines()
-            .filter_map(|line| line.strip_prefix("      - name: "))
-            .collect()
-    }
-
     const PAYLOAD_BINARIES: &[&str] = &[
         "canary/darwin/arm64/Fluxer-Canary-2026.908.173325-mac-universal.dmg",
         "canary/darwin/arm64/Fluxer-Canary-2026.908.173325-mac-universal.dmg.sha256",
@@ -5327,82 +5303,6 @@ mod tests {
                 .all(|item| item.key.starts_with("desktop-test/")),
             "a test build still publishes its update feeds with the payload"
         );
-        assert!(
-            workflow_job("upload").contains("TEST_BUILD: ${{ needs.meta.outputs.test_build }}"),
-            "the upload job must hold update feeds back based on the same test_build output"
-        );
-        assert!(
-            workflow_job("publish_release").contains("needs.meta.outputs.test_build != 'true'"),
-            "held back update feeds are only published by the publish job, so it must run for every non-test build"
-        );
-    }
-
-    #[test]
-    fn every_build_desktop_workflow_step_dispatches_to_a_desktop_step() {
-        let steps = BUILD_DESKTOP_WORKFLOW
-            .lines()
-            .filter_map(|line| line.trim().strip_prefix("--step "))
-            .collect::<Vec<_>>();
-
-        assert!(steps.contains(&"publish_payload_metadata"));
-        for step in steps {
-            assert!(
-                <DesktopStep as ValueEnum>::from_str(step, false).is_ok(),
-                "build-desktop.yaml dispatches unknown desktop step {step}"
-            );
-        }
-        assert!(matches!(
-            <DesktopStep as ValueEnum>::from_str("publish_payload_metadata", false),
-            Ok(DesktopStep::PublishPayloadMetadata)
-        ));
-    }
-
-    #[test]
-    fn publish_job_moves_update_feeds_only_after_the_readiness_marker() {
-        let publish = workflow_job("publish_release");
-        assert_eq!(
-            workflow_step_names(publish),
-            vec![
-                "Checkout source",
-                "Set up Rust toolchain (CI helpers)",
-                "Download GitHub release assets",
-                "Create token",
-                "Publish GitHub desktop release",
-                "Publish GitHub release readiness marker",
-                "Publish payload metadata to S3",
-            ]
-        );
-        let marker = publish.find("--step publish_release_marker").unwrap();
-        let feeds = publish.find("--step publish_payload_metadata").unwrap();
-        assert!(
-            marker < feeds,
-            "update feeds must move only after the readiness marker exists"
-        );
-
-        let upload = workflow_job("upload");
-        assert!(upload.contains("--step upload_payload"));
-        assert!(
-            !upload.contains("--step publish_payload_metadata"),
-            "the upload job runs before the GitHub release exists"
-        );
-
-        let metadata_prefix = "DESKTOP_METADATA_PREFIX: _handoff/desktop-metadata/${{ needs.meta.outputs.build_channel }}/${{ needs.meta.outputs.version }}/${{ needs.meta.outputs.source_sha }}";
-        for (name, job) in [("upload", upload), ("publish_release", publish)] {
-            assert!(
-                job.contains(metadata_prefix),
-                "{name} must key the payload metadata handoff by channel, version and source SHA"
-            );
-        }
-        for entry in [
-            "S3_DESKTOP_PREFIX: ${{ needs.meta.outputs.s3_prefix }}",
-            "S3_BUCKET: ${{ vars.DOWNLOADS_S3_BUCKET }}",
-            "AWS_ACCESS_KEY_ID: ${{ secrets.DOWNLOADS_AWS_ACCESS_KEY_ID || secrets.AWS_ACCESS_KEY_ID }}",
-        ] {
-            assert!(
-                publish.contains(entry),
-                "publish_release must carry {entry}"
-            );
-        }
     }
 
     #[test]

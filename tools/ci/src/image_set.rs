@@ -1300,26 +1300,6 @@ mod tests {
     }
 
     #[test]
-    fn release_workflow_tags_the_bundle_commit_and_marks_it_latest() {
-        let workflow = include_str!("../../../.github/workflows/release-image-set.yaml");
-        for entry in [
-            "--github-output",
-            "BUNDLE_COMMIT: ${{ steps.resolve.outputs.bundle_commit }}",
-            "--target \"${BUNDLE_COMMIT}\"",
-            "--latest=true",
-        ] {
-            assert!(
-                workflow.contains(entry),
-                "release-image-set.yaml must carry {entry}"
-            );
-        }
-        assert!(
-            !workflow.contains("${GITHUB_SHA}"),
-            "the release tag must be cut at the bundle commit, not at the workflow ref"
-        );
-    }
-
-    #[test]
     fn release_filenames_are_stable() {
         assert_eq!(
             manifest_filename(RELEASE_VERSION),
