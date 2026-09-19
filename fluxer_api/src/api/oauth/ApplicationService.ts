@@ -17,9 +17,9 @@ import {remapAuthorMessagesToDeletedUser} from '@app/api/oauth/ApplicationMessag
 import type {BotAuthService} from '@app/api/oauth/BotAuthService';
 import {generateOAuthTokenSecret} from '@app/api/oauth/OAuthTokenSecret';
 import type {IApplicationRepository} from '@app/api/oauth/repositories/IApplicationRepository';
-import {botUsernameCandidate} from '@app/api/user/BotUsernames';
 import {enforceFluxerTagChangeRateLimit} from '@app/api/user/FluxerTagChangeRateLimit';
 import {hasPartialUserFieldsChanged, mapUserToPrivateResponse} from '@app/api/user/UserMappers';
+import {botUsernameCandidate} from '@app/api/user/UsernameCandidates';
 import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {runAllInOrder} from '@app/api/utils/ConcurrencyUtils';
 import {hashPassword} from '@app/api/utils/PasswordUtils';

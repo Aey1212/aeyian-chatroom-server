@@ -27,6 +27,7 @@ import {Logger} from '@app/api/Logger';
 import {profileSubstringBlocklistCache} from '@app/api/middleware/ProfileSubstringBlocklistCache';
 import type {User} from '@app/api/models/User';
 import {UserSettings} from '@app/api/models/UserSettings';
+import {usernameCandidate} from '@app/api/user/UsernameCandidates';
 import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {EXTERNAL_RESPONSE_LIMITS} from '@app/api/utils/ExternalResponseLimits';
 import * as FetchUtils from '@app/api/utils/FetchUtils';
@@ -390,7 +391,6 @@ export class SsoService {
 			await this.instanceConfigRepository.addPendingRegistration({
 				user_id: user.id.toString(),
 				username: user.username,
-				discriminator: user.discriminator,
 				global_name: user.globalName,
 				email: user.email,
 				requested_at: new Date().toISOString(),
@@ -443,6 +443,19 @@ export class SsoService {
 		return users.patchUpsert(user.id, {traits}, user.toRow());
 	}
 
+	private static readonly SSO_USERNAME_ATTEMPTS = 100;
+
+	// SSO accounts get their name from the identity provider: base, then base2, base3, ...
+	private async claimSsoUsername(base: string, userId: UserID): Promise<string> {
+		for (let attempt = 1; attempt <= SsoService.SSO_USERNAME_ATTEMPTS; attempt++) {
+			const candidate = usernameCandidate(base, attempt);
+			if (await this.usernameRegistry.claim(candidate, userId)) {
+				return candidate;
+			}
+		}
+		throw InputValidationError.fromCode('username', ValidationErrorCodes.SSO_UNABLE_TO_ALLOCATE_USERNAME);
+	}
+
 	private async provisionUserFromClaims(
 		claims: ResolvedSsoClaims,
 		config: ResolvedSsoConfig,
@@ -453,11 +466,10 @@ export class SsoService {
 		const {users, snowflake} = this.apiContext.services;
 		const userId = (await snowflake.generate()) as UserID;
 		const baseName = claims.name?.trim() || claims.email.split('@')[0] || generateRandomUsername();
-		const username = deriveUsernameFromDisplayName(baseName) ?? generateRandomUsername();
-		const discriminatorResult = await this.usernameRegistry.generateDiscriminator({username});
-		if (!discriminatorResult.available) {
-			throw InputValidationError.fromCode('username', ValidationErrorCodes.SSO_UNABLE_TO_ALLOCATE_DISCRIMINATOR);
-		}
+		const username = await this.claimSsoUsername(
+			deriveUsernameFromDisplayName(baseName) ?? generateRandomUsername(),
+			userId,
+		);
 		const now = new Date();
 		const traits = new Set<string>([
 			'sso',
@@ -473,12 +485,12 @@ export class SsoService {
 			profileSubstringBlocklistCache.containsBannedSubstring('username', username) ||
 			profileSubstringBlocklistCache.containsBannedSubstring('global_name', globalName)
 		) {
+			await this.usernameRegistry.release(username, userId);
 			throw new ContentBlockedError();
 		}
 		const userRow = {
 			user_id: userId,
 			username,
-			discriminator: discriminatorResult.discriminator,
 			global_name: globalName,
 			bot: false,
 			system: false,
@@ -554,6 +566,9 @@ export class SsoService {
 			return user;
 		} catch (error) {
 			if (!userCreated) {
+				await this.usernameRegistry.release(username, userId).catch((releaseError) => {
+					getLogger().error({releaseError}, 'Failed to release SSO username after user provisioning failed');
+				});
 				await this.ssoIdentityRepository.releaseIdentity(config.providerId, claims.sub).catch((releaseError) => {
 					getLogger().error({releaseError}, 'Failed to release SSO identity after user provisioning failed');
 				});
