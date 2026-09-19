@@ -7,11 +7,11 @@ import type {
 	PushSubscribeResponse,
 	PushSubscriptionsListResponse,
 	RegisterMobileDeviceResponse,
+	UsernameCheckResponse,
 	UserPartialResponse,
 	UserPrivateResponse,
 	UserProfileFullResponse,
 	UserSettingsResponse,
-	UserTagCheckResponse,
 } from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 
 export async function fetchUserMe(
@@ -122,17 +122,16 @@ export async function fetchUserSettings(
 	return {response, json};
 }
 
-export async function checkUsernameDiscriminatorAvailability(
+export async function checkUsernameAvailability(
 	harness: ApiTestHarness,
 	username: string,
-	discriminator: string,
 	token: string,
 ): Promise<{
 	response: Response;
-	json: UserTagCheckResponse;
+	json: UsernameCheckResponse;
 }> {
-	const {response, json} = await createBuilder<UserTagCheckResponse>(harness, token)
-		.get(`/users/check-tag?username=${encodeURIComponent(username)}&discriminator=${encodeURIComponent(discriminator)}`)
+	const {response, json} = await createBuilder<UsernameCheckResponse>(harness, token)
+		.get(`/users/check-username?username=${encodeURIComponent(username)}`)
 		.executeWithResponse();
 	if (response.status !== 200) {
 		throw new Error(`Expected 200, got ${response.status}`);

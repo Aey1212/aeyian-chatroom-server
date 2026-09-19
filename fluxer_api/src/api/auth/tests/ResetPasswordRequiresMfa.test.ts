@@ -79,7 +79,7 @@ describe('Auth reset password requires MFA', () => {
 		expect(mfaResp.token).toBeDefined();
 		const login = await createBuilderWithoutAuth<MfaRequiredResponse>(harness)
 			.post('/auth/login')
-			.body({email: account.email, password: newPassword})
+			.body({login: account.email, password: newPassword})
 			.execute();
 		expect(login.mfa).toBe(true);
 		expect(login.ticket).toBeDefined();

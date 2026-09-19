@@ -28,27 +28,27 @@ describe('Auth login and sessions', () => {
 		const account = await createTestAccount(harness);
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email: account.email, password: 'WrongPassword123!'})
+			.body({login: account.email, password: 'WrongPassword123!'})
 			.expect(400)
 			.execute();
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email: 'nonexistent@example.com', password: 'SomePassword123!'})
+			.body({login: 'nonexistent@example.com', password: 'SomePassword123!'})
 			.expect(400)
 			.execute();
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email: 'not-an-email', password: 'SomePassword123!'})
+			.body({login: 'not-an-email', password: 'SomePassword123!'})
 			.expect(400)
 			.execute();
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email: 'test@example.com', password: ''})
+			.body({login: 'test@example.com', password: ''})
 			.expect(400)
 			.execute();
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email: '', password: 'SomePassword123!'})
+			.body({login: '', password: 'SomePassword123!'})
 			.expect(400)
 			.execute();
 	});

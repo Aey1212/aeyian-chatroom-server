@@ -86,7 +86,7 @@ describe('Auth registration policy', () => {
 		expect(registration.user_id.length).toBeGreaterThan(0);
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email: body.email, password: body.password})
+			.body({login: body.email, password: body.password})
 			.expect(403, APIErrorCodes.REGISTRATION_PENDING_APPROVAL)
 			.execute();
 	});

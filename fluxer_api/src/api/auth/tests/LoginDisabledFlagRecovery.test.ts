@@ -36,7 +36,7 @@ describe('Auth login disabled flag recovery', () => {
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
 			.body({
-				email: account.email,
+				login: account.email,
 				password: account.password,
 			})
 			.expect(200)

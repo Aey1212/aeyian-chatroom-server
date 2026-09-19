@@ -64,7 +64,6 @@ describe('Account Delete Message Pagination', () => {
 		for (const message of anonymizedMessages) {
 			expect(message.author.id).not.toBe(account.userId);
 			expect(message.author.username).toBe('DeletedUser');
-			expect(message.author.discriminator).toBe('0000');
 		}
 		const countJson = await createBuilderWithoutAuth<{
 			count: number;

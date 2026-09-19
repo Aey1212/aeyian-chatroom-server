@@ -67,7 +67,6 @@ describe('NatsUsersServiceClient', () => {
 		const partial: UserPartialResponse = {
 			id: userId.toString(),
 			username: 'Ada',
-			discriminator: '0007',
 			global_name: 'Ada Lovelace',
 			avatar: 'avatar_hash',
 			avatar_color: 0x336699,
@@ -117,7 +116,6 @@ describe('NatsUsersServiceClient', () => {
 		const partial: UserPartialResponse = {
 			id: userId.toString(),
 			username: 'Cached',
-			discriminator: '0001',
 			global_name: null,
 			avatar: null,
 			avatar_color: null,

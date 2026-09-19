@@ -39,7 +39,7 @@ describe('Auth IP Authorization Multiple IPs', () => {
 		const firstNewIP = '10.11.12.13';
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', firstNewIP)
 			.expect(403)
 			.execute();
@@ -58,7 +58,7 @@ describe('Auth IP Authorization Multiple IPs', () => {
 		const secondNewIP = '10.22.33.44';
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', secondNewIP)
 			.expect(403)
 			.execute();
@@ -75,12 +75,12 @@ describe('Auth IP Authorization Multiple IPs', () => {
 			.execute();
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', firstNewIP)
 			.execute();
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', secondNewIP)
 			.execute();
 	});

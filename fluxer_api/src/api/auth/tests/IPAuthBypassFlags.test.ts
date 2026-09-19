@@ -63,7 +63,7 @@ describe('Auth IP Authorization Bypass Flags', () => {
 				user_id?: string;
 			}>(harness)
 				.post('/auth/login')
-				.body({email, password})
+				.body({login: email, password})
 				.header('x-forwarded-for', newIP)
 				.execute();
 			expect(loginResp.token).toBeTruthy();
@@ -92,7 +92,7 @@ describe('Auth IP Authorization Bypass Flags', () => {
 			ip_authorization_required?: boolean;
 		}>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.expect(403)
 			.execute();
@@ -118,7 +118,7 @@ describe('Auth IP Authorization Bypass Flags', () => {
 		const newIP = '10.100.110.120';
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.execute();
 		await createBuilderWithoutAuth(harness)
@@ -132,7 +132,7 @@ describe('Auth IP Authorization Bypass Flags', () => {
 			ip_authorization_required?: boolean;
 		}>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', anotherNewIP)
 			.expect(403)
 			.execute();
@@ -152,7 +152,7 @@ describe('Auth IP Authorization Bypass Flags', () => {
 		const newIP = '10.80.90.100';
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.expect(403)
 			.execute();
@@ -166,7 +166,7 @@ describe('Auth IP Authorization Bypass Flags', () => {
 			token?: string;
 		}>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.execute();
 		expect(loginResp.token).toBeTruthy();
@@ -185,7 +185,7 @@ describe('Auth IP Authorization Bypass Flags', () => {
 		const differentIP = '10.88.77.66';
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', differentIP)
 			.expect(403)
 			.execute();

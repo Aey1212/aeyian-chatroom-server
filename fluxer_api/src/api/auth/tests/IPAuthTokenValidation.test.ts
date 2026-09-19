@@ -46,7 +46,7 @@ describe('Auth IP Authorization Token Validation', () => {
 		const newIP = '10.100.101.102';
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.expect(403)
 			.execute();
@@ -83,7 +83,7 @@ describe('Auth IP Authorization Token Validation', () => {
 		const firstNewIP = '10.110.120.130';
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', firstNewIP)
 			.expect(403)
 			.execute();
@@ -115,7 +115,7 @@ describe('Auth IP Authorization Token Validation', () => {
 		const newIP = '10.40.50.60';
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.expect(403)
 			.execute();
@@ -136,7 +136,7 @@ describe('Auth IP Authorization Token Validation', () => {
 			.execute();
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.expect(403)
 			.execute();

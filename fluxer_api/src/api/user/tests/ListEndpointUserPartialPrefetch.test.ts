@@ -41,7 +41,6 @@ function createPartial(userId: UserID, username: string): UserPartialResponse {
 	return {
 		id: userId.toString(),
 		username,
-		discriminator: '0001',
 		global_name: null,
 		avatar: null,
 		avatar_color: null,

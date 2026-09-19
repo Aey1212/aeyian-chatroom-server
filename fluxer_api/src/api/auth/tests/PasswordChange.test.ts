@@ -51,7 +51,7 @@ describe('Password change invalidates sessions', () => {
 		await createBuilder(harness, account.token).get('/users/@me').expect(401).execute();
 		await createBuilder(harness, session2.token).get('/users/@me').expect(401).execute();
 		await createBuilder(harness, session3.token).get('/users/@me').expect(401).execute();
-		const login = await loginUser(harness, {email: account.email, password: newPassword});
+		const login = await loginUser(harness, {login: account.email, password: newPassword});
 		if ('mfa' in login && login.mfa) {
 			throw new Error('Expected non-MFA login');
 		}
@@ -62,7 +62,7 @@ describe('Password change invalidates sessions', () => {
 		expect(nonMfaLogin.token.length).toBeGreaterThan(0);
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email: account.email, password: account.password})
+			.body({login: account.email, password: account.password})
 			.expect(400)
 			.execute();
 	});
@@ -89,7 +89,7 @@ describe('Password change invalidates sessions', () => {
 		await createBuilderWithoutAuth(harness).post('/auth/reset').body({token, password: newPassword}).execute();
 		await createBuilder(harness, account.token).get('/users/@me').expect(401).execute();
 		await createBuilder(harness, session2.token).get('/users/@me').expect(401).execute();
-		const login = await loginUser(harness, {email: account.email, password: newPassword});
+		const login = await loginUser(harness, {login: account.email, password: newPassword});
 		if ('mfa' in login && login.mfa) {
 			throw new Error('Expected non-MFA login');
 		}

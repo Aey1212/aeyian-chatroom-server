@@ -43,7 +43,7 @@ describe('Password reset flow', () => {
 			.body({token, password: newPassword})
 			.execute();
 		expect(resetResp.token.length).toBeGreaterThan(0);
-		const login = await loginUser(harness, {email: account.email, password: newPassword});
+		const login = await loginUser(harness, {login: account.email, password: newPassword});
 		if ('mfa' in login && login.mfa) {
 			throw new Error('Expected non-MFA login');
 		}
@@ -54,7 +54,7 @@ describe('Password reset flow', () => {
 		expect(nonMfaLogin.token.length).toBeGreaterThan(0);
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
-			.body({email: account.email, password: account.password})
+			.body({login: account.email, password: account.password})
 			.expect(HTTP_STATUS.BAD_REQUEST)
 			.execute();
 		await createBuilder(harness, account.token).get('/users/@me').expect(HTTP_STATUS.UNAUTHORIZED).execute();

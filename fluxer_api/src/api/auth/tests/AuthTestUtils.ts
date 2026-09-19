@@ -146,7 +146,7 @@ export async function createTestAccount(
 export async function loginUser(
 	harness: ApiTestHarness,
 	body: {
-		email: string;
+		login: string;
 		password: string;
 		invite_code?: string | null;
 	},
@@ -164,7 +164,7 @@ export async function loginUser(
 export async function loginAccount(harness: ApiTestHarness, account: TestAccount): Promise<TestAccount> {
 	const login = await loginUser(
 		harness,
-		{email: account.email, password: account.password},
+		{login: account.email, password: account.password},
 		{ipAddress: account.ipAddress},
 	);
 	if ('mfa' in login) {
@@ -351,7 +351,7 @@ export async function disableSso(harness: ApiTestHarness, token: string): Promis
 }
 
 export async function createSessionFromLogin(harness: ApiTestHarness, account: TestAccount): Promise<string> {
-	const login = await loginUser(harness, {email: account.email, password: account.password});
+	const login = await loginUser(harness, {login: account.email, password: account.password});
 	if ('mfa' in login && login.mfa) {
 		throw new Error('Expected non-MFA login for test account');
 	}

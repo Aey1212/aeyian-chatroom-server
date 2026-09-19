@@ -197,24 +197,18 @@ describe('Registration validation', () => {
 			.execute();
 		expect(me.global_name).toBe(globalName);
 	});
-	it('derives username from global name when username is not provided', async () => {
-		const reg = await createBuilderWithoutAuth<{
-			token: string;
-		}>(harness)
+	it('rejects a registration without a username', async () => {
+		const json = await createBuilderWithoutAuth<ValidationErrorResponse>(harness)
 			.post('/auth/register')
 			.body({
-				email: createUniqueEmail('derived'),
+				email: createUniqueEmail('nousername'),
 				global_name: 'Magic Tester',
 				password: 'a-strong-password',
 				date_of_birth: '2000-01-01',
 				consent: true,
 			})
+			.expect(400, 'INVALID_FORM_BODY')
 			.execute();
-		const me = await createBuilder<{
-			username: string;
-		}>(harness, reg.token)
-			.get('/users/@me')
-			.execute();
-		expect(me.username).toBe('Magic_Tester');
+		expect(json.errors?.some((e) => e.path === 'username')).toBe(true);
 	});
 });

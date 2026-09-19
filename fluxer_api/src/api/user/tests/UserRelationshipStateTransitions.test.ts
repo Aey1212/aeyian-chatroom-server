@@ -13,7 +13,7 @@ import {
 	listRelationships,
 	removeRelationship,
 	sendFriendRequest,
-	sendFriendRequestByTag,
+	sendFriendRequestByUsername,
 } from '@app/api/user/tests/RelationshipTestUtils';
 import {fetchUserMe} from '@app/api/user/tests/UserTestUtils';
 import {RelationshipTypes, UserFlags} from '@fluxer/constants/src/UserConstants';
@@ -105,12 +105,7 @@ describe('UserRelationshipStateTransitions', () => {
 			const alice = await createTestAccount(harness);
 			const bob = await createTestAccount(harness);
 			const {json: bobProfile} = await fetchUserMe(harness, bob.token);
-			const {json: rel} = await sendFriendRequestByTag(
-				harness,
-				alice.token,
-				bobProfile.username,
-				bobProfile.discriminator,
-			);
+			const {json: rel} = await sendFriendRequestByUsername(harness, alice.token, bobProfile.username);
 			assertRelationshipType(rel, RelationshipTypes.OUTGOING_REQUEST);
 			expect(rel.user.id).toBe(bob.userId);
 		});
@@ -311,10 +306,7 @@ describe('UserRelationshipStateTransitions', () => {
 			await markUserDeleted(harness, bob.userId);
 			await createBuilder(harness, alice.token)
 				.post('/users/@me/relationships')
-				.body({
-					username: bobProfile.username,
-					discriminator: Number.parseInt(bobProfile.discriminator, 10),
-				})
+				.body({username: bobProfile.username})
 				.expect(HTTP_STATUS.BAD_REQUEST, 'FRIEND_REQUEST_BLOCKED')
 				.execute();
 		});
@@ -403,7 +395,7 @@ describe('UserRelationshipStateTransitions', () => {
 			const {json: bobProfile} = await fetchUserMe(harness, bob.token);
 			await createBuilder(harness, alice.token)
 				.post('/users/@me/relationships')
-				.body({username: bobProfile.username, discriminator: parseInt(bobProfile.discriminator, 10)})
+				.body({username: bobProfile.username})
 				.expect(HTTP_STATUS.BAD_REQUEST, 'ALREADY_FRIENDS')
 				.execute();
 		});

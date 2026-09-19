@@ -89,7 +89,7 @@ describe('Auth MFA TOTP without secret', () => {
 			webauthn: boolean;
 		}>(harness)
 			.post('/auth/login')
-			.body({email: account.email, password: account.password})
+			.body({login: account.email, password: account.password})
 			.execute();
 		expect(login.mfa).toBe(true);
 		expect(login.totp).toBe(false);

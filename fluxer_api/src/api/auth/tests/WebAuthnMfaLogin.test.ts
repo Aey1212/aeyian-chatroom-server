@@ -57,7 +57,7 @@ describe('WebAuthn MFA login', () => {
 			})
 			.expect(204)
 			.execute();
-		const loginResp = await loginUser(harness, {email: account.email, password: account.password});
+		const loginResp = await loginUser(harness, {login: account.email, password: account.password});
 		expect('mfa' in loginResp && loginResp.mfa).toBe(true);
 		const loginMfaResp = loginResp as LoginMfaResponse;
 		expect(loginMfaResp.ticket).toBeTruthy();

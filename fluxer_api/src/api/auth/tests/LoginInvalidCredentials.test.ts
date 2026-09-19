@@ -21,7 +21,7 @@ describe('Auth login invalid credentials', () => {
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
 			.body({
-				email: account.email,
+				login: account.email,
 				password: 'WrongPassword123!',
 			})
 			.expect(400)
@@ -31,7 +31,7 @@ describe('Auth login invalid credentials', () => {
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
 			.body({
-				email: 'nonexistent@example.com',
+				login: 'nonexistent@example.com',
 				password: 'SomePassword123!',
 			})
 			.expect(400)
@@ -41,7 +41,7 @@ describe('Auth login invalid credentials', () => {
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
 			.body({
-				email: 'not-an-email',
+				login: 'not-an-email',
 				password: 'SomePassword123!',
 			})
 			.expect(400)
@@ -51,7 +51,7 @@ describe('Auth login invalid credentials', () => {
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
 			.body({
-				email: 'test@example.com',
+				login: 'test@example.com',
 				password: '',
 			})
 			.expect(400)
@@ -61,7 +61,7 @@ describe('Auth login invalid credentials', () => {
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
 			.body({
-				email: '',
+				login: '',
 				password: 'SomePassword123!',
 			})
 			.expect(400)

@@ -85,7 +85,7 @@ describe('Bearer token scope filtering on /users/@me', () => {
 			.execute();
 		expect(json.id).toBe(account.userId);
 		expect(json.username).toBe(account.username);
-		expect(json.discriminator).toBeDefined();
+		expect('discriminator' in json).toBe(false);
 		expect(typeof json.flags).toBe('number');
 		expect(typeof json.verified).toBe('boolean');
 		expect(typeof json.is_staff).toBe('boolean');

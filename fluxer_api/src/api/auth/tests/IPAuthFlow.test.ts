@@ -47,7 +47,7 @@ describe('Auth IP Authorization Flow', () => {
 			message?: string;
 		}>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.expect(403)
 			.execute();
@@ -70,7 +70,7 @@ describe('Auth IP Authorization Flow', () => {
 			user_id?: string;
 		}>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.execute();
 		expect(loginResp.token).toBeTruthy();
@@ -92,7 +92,7 @@ describe('Auth IP Authorization Flow', () => {
 			user_id?: string;
 		}>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.execute();
 		expect(loginResp.token).toBeTruthy();
 		expect(loginResp.user_id).toBe(reg.user_id);
