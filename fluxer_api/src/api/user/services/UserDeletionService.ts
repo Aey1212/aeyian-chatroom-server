@@ -24,7 +24,6 @@ import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import type {WorkerTaskName} from '@app/api/worker/WorkerLaneConfig';
 import {ChannelTypes, MessageTypes} from '@fluxer/constants/src/ChannelConstants';
 import {
-	DELETED_USER_DISCRIMINATOR,
 	DELETED_USER_GLOBAL_NAME,
 	DELETED_USER_USERNAME,
 	ProfileFieldPrivacyFlags,
@@ -76,6 +75,7 @@ export async function processUserDeletion(
 		applicationRepository,
 		workerService,
 		connectionRepository,
+		usernameRegistry,
 	} = deps;
 	Logger.debug({userId, deletionReasonCode}, 'Starting user account deletion');
 	const scheduledUser = await userRepository.findUnique(userId);
@@ -159,7 +159,6 @@ export async function processUserDeletion(
 	await userRepository.create({
 		user_id: deletedUserId,
 		username: DELETED_USER_USERNAME,
-		discriminator: DELETED_USER_DISCRIMINATOR,
 		global_name: DELETED_USER_GLOBAL_NAME,
 		bot: false,
 		system: false,
@@ -449,10 +448,11 @@ export async function processUserDeletion(
 	]);
 	await userRepository.deleteUserSecondaryIndices(userId);
 	const userForAnonymization = await userRepository.findUniqueAssert(userId);
+	// The account's name stays locked after deletion until an admin releases it.
+	await usernameRegistry.lock(userForAnonymization.username, userId);
 	Logger.debug({userId}, 'Anonymizing user record');
 	const anonymisedUser = await userRepository.anonymizeForDeletion(userForAnonymization, {
 		username: DELETED_USER_USERNAME,
-		discriminator: DELETED_USER_DISCRIMINATOR,
 		global_name: DELETED_USER_GLOBAL_NAME,
 		email: null,
 		email_verified: false,
