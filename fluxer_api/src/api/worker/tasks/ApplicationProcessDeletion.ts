@@ -7,12 +7,7 @@ import {createRequestCache} from '@app/api/middleware/RequestCacheMiddleware';
 import {remapAuthorMessagesToDeletedUser} from '@app/api/oauth/ApplicationMessageAuthorAnonymization';
 import {chunkArray} from '@app/api/utils/ArrayUtils';
 import {getWorkerDependencies} from '@app/api/worker/WorkerContext';
-import {
-	DELETED_USER_DISCRIMINATOR,
-	DELETED_USER_GLOBAL_NAME,
-	DELETED_USER_USERNAME,
-	UserFlags,
-} from '@fluxer/constants/src/UserConstants';
+import {DELETED_USER_GLOBAL_NAME, DELETED_USER_USERNAME, UserFlags} from '@fluxer/constants/src/UserConstants';
 import type {WorkerTaskHandler} from '@pkgs/worker/src/contracts/WorkerTask';
 import {z} from 'zod';
 
@@ -33,6 +28,7 @@ const applicationProcessDeletion: WorkerTaskHandler = async (payload, helpers) =
 		userCacheService,
 		gatewayService,
 		snowflakeService,
+		usernameRegistry,
 	} = getWorkerDependencies();
 	Logger.debug({applicationId, botUserId}, 'Starting application deletion');
 	try {
@@ -60,12 +56,13 @@ const applicationProcessDeletion: WorkerTaskHandler = async (payload, helpers) =
 			await applicationRepository.deleteApplication(applicationId);
 			return;
 		}
+		// A deleted bot's name stays locked, like any deleted account's, until an admin releases it.
+		await usernameRegistry.lock(botUser.username, botUserId);
 		const updatedBotUser = await userRepository.patchUpsert(
 			botUserId,
 			{
 				username: DELETED_USER_USERNAME,
 				global_name: DELETED_USER_GLOBAL_NAME,
-				discriminator: DELETED_USER_DISCRIMINATOR,
 				flags: botUser.flags | UserFlags.DELETED,
 			},
 			botUser.toRow(),

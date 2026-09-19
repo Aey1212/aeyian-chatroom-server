@@ -194,7 +194,7 @@ describe('Email revert flow', () => {
 		expect(user.authenticator_types?.length ?? 0).toBe(0);
 		expect(user.has_verified_phone).toBe(false);
 		expect(user.password_last_changed_at).toBeDefined();
-		const login = await loginUser(harness, {email: account.email, password: newPassword});
+		const login = await loginUser(harness, {login: account.email, password: newPassword});
 		expect('mfa' in login).toBe(false);
 		const nonMfaLogin = login as {
 			user_id: string;
@@ -204,7 +204,7 @@ describe('Email revert flow', () => {
 		await createBuilderWithoutAuth(harness)
 			.post('/auth/login')
 			.body({
-				email: account.email,
+				login: account.email,
 				password: account.password,
 			})
 			.expect(400)

@@ -13,6 +13,7 @@ import {AdminMessageService} from '@app/api/admin/services/AdminMessageService';
 import {AdminMessageShredService} from '@app/api/admin/services/AdminMessageShredService';
 import {AdminReportService} from '@app/api/admin/services/AdminReportService';
 import {AdminSearchService} from '@app/api/admin/services/AdminSearchService';
+import {AdminUsernameService} from '@app/api/admin/services/AdminUsernameService';
 import {AdminUserRelationshipService} from '@app/api/admin/services/AdminUserRelationshipService';
 import {AdminUserService} from '@app/api/admin/services/AdminUserService';
 import {AdminVoiceService} from '@app/api/admin/services/AdminVoiceService';
@@ -21,7 +22,6 @@ import type {IChannelRepository} from '@app/api/channel/IChannelRepository';
 import type {ChannelService} from '@app/api/channel/services/ChannelService';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import type {GuildService} from '@app/api/guild/services/GuildService';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService} from '@app/api/infrastructure/EntityAssetService';
 import type {IAssetDeletionQueue} from '@app/api/infrastructure/IAssetDeletionQueue';
 import type {IStorageService} from '@app/api/infrastructure/IStorageService';
@@ -40,6 +40,7 @@ import type {ReportService} from '@app/api/report/ReportService';
 import type {IRiskHistoryRepository} from '@app/api/risk/HistoricalOutcomeRepository';
 import type {ISuspiciousIpRepository} from '@app/api/risk/SuspiciousIpRepository';
 import type {UserService} from '@app/api/user/services/UserService';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import type {VoiceRepository} from '@app/api/voice/VoiceRepository';
 import type {SendSystemDmResponse} from '@fluxer/schema/src/domains/admin/AdminSchemas';
 import type {IpInfoService} from '@pkgs/geoip/src/IpInfoService';
@@ -61,6 +62,7 @@ export class AdminService {
 	readonly applicationService: AdminApplicationService;
 	readonly jobAdminService: JobAdminService;
 	readonly relationshipService: AdminUserRelationshipService;
+	readonly usernameService: AdminUsernameService;
 
 	constructor(
 		private readonly apiContext: ApiContext,
@@ -68,7 +70,7 @@ export class AdminService {
 		private readonly channelRepository: IChannelRepository,
 		private readonly adminRepository: IAdminRepository,
 		private readonly inviteRepository: InviteRepository,
-		private readonly discriminatorService: IDiscriminatorService,
+		private readonly usernameRegistry: IUsernameRegistry,
 		private readonly guildService: GuildService,
 		private readonly userCacheService: UserCacheService,
 		private readonly channelService: ChannelService,
@@ -103,7 +105,7 @@ export class AdminService {
 			apiContext: this.apiContext,
 			guildRepository: this.guildRepository,
 			channelRepository: this.channelRepository,
-			discriminatorService: this.discriminatorService,
+			usernameRegistry: this.usernameRegistry,
 			entityAssetService: this.entityAssetService,
 			auditService: this.auditService,
 			userCacheService: this.userCacheService,
@@ -179,6 +181,10 @@ export class AdminService {
 		this.jobAdminService = new JobAdminService(this.jobLedger, worker);
 		this.relationshipService = new AdminUserRelationshipService({
 			apiContext: this.apiContext,
+			auditService: this.auditService,
+		});
+		this.usernameService = new AdminUsernameService({
+			usernameRegistry: this.usernameRegistry,
 			auditService: this.auditService,
 		});
 	}

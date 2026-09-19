@@ -466,7 +466,6 @@ export type RegistrationUrlResponse = z.infer<typeof RegistrationUrlResponse>;
 const PendingRegistrationResponse = z.object({
 	user_id: SnowflakeStringType,
 	username: z.string(),
-	discriminator: z.number().int().min(0).max(9999),
 	global_name: z.string().nullable(),
 	email: z.string().nullable(),
 	requested_at: z.iso.datetime(),
@@ -1026,7 +1025,6 @@ export type PurgeGuildAssetsResponse = z.infer<typeof PurgeGuildAssetsResponseSc
 const AdminAuditLogUserSummarySchema = z.object({
 	id: SnowflakeStringType,
 	username: z.string(),
-	discriminator: z.string(),
 	global_name: z.string().nullable(),
 });
 export type AdminAuditLogUserSummary = z.infer<typeof AdminAuditLogUserSummarySchema>;
@@ -1242,7 +1240,6 @@ const AdminLookupGuildSchema = z.object({
 	owner_id: SnowflakeStringType,
 	owner_username: z.string().nullable(),
 	owner_global_name: z.string().nullable(),
-	owner_discriminator: z.string().nullable(),
 	name: createStringType(1, 100),
 	vanity_url_code: createStringType(1, 256).nullable(),
 	icon: createStringType(1, 256).nullable(),
@@ -1336,7 +1333,6 @@ export const AdminMessageSchema = z.object({
 	author_id: SnowflakeStringType,
 	author_username: createStringType(1, 100),
 	author_global_name: z.string().nullable(),
-	author_discriminator: createStringType(1, 10),
 	author_avatar: z.string().nullable(),
 	content: createStringType(0, 4000),
 	timestamp: z.string(),
@@ -1393,17 +1389,14 @@ const ReportMessageContextSchema = z.object({
 	author_id: SnowflakeStringType,
 	author_username: z.string(),
 	author_global_name: z.string().nullable(),
-	author_discriminator: z.string(),
 	author_avatar: z.string().nullable(),
 	user_prior_ncmec_report_ids: z.array(createStringType(1, 256)).max(100).optional(),
 });
 export const ReportAdminResponseSchema = z.object({
 	report_id: SnowflakeStringType,
 	reporter_id: SnowflakeStringType.nullable(),
-	reporter_tag: z.string().nullable(),
 	reporter_username: z.string().nullable(),
 	reporter_global_name: z.string().nullable(),
-	reporter_discriminator: z.string().nullable(),
 	reporter_email: z.string().nullable(),
 	reporter_full_legal_name: z.string().nullable(),
 	reporter_country_of_residence: z.string().nullable(),
@@ -1413,10 +1406,8 @@ export const ReportAdminResponseSchema = z.object({
 	category: z.string().nullable(),
 	additional_info: z.string().nullable(),
 	reported_user_id: SnowflakeStringType.nullable(),
-	reported_user_tag: z.string().nullable(),
 	reported_user_username: z.string().nullable(),
 	reported_user_global_name: z.string().nullable(),
-	reported_user_discriminator: z.string().nullable(),
 	reported_user_avatar_hash: z.string().nullable(),
 	reported_guild_id: SnowflakeStringType.nullable(),
 	reported_guild_name: z.string().nullable(),

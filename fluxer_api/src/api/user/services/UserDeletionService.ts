@@ -9,7 +9,6 @@ import type {IConnectionRepository} from '@app/api/connection/IConnectionReposit
 import type {FavoriteMemeRepository} from '@app/api/favorite_meme/FavoriteMemeRepository';
 import type {GuildRepository} from '@app/api/guild/repositories/GuildRepository';
 import type {IPurgeQueue} from '@app/api/infrastructure/CachePurgeQueue';
-import type {DiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {IGatewayService} from '@app/api/infrastructure/IGatewayService';
 import type {ISnowflakeService} from '@app/api/infrastructure/ISnowflakeService';
 import type {IStorageService} from '@app/api/infrastructure/IStorageService';
@@ -21,10 +20,10 @@ import type {ApplicationRepository} from '@app/api/oauth/repositories/Applicatio
 import type {OAuth2TokenRepository} from '@app/api/oauth/repositories/OAuth2TokenRepository';
 import type {UserRepository} from '@app/api/user/repositories/UserRepository';
 import {isPendingDeletionBlocked} from '@app/api/user/services/PendingDeletionCoordinator';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import type {WorkerTaskName} from '@app/api/worker/WorkerLaneConfig';
 import {ChannelTypes, MessageTypes} from '@fluxer/constants/src/ChannelConstants';
 import {
-	DELETED_USER_DISCRIMINATOR,
 	DELETED_USER_GLOBAL_NAME,
 	DELETED_USER_USERNAME,
 	ProfileFieldPrivacyFlags,
@@ -48,7 +47,7 @@ interface UserDeletionDependencies {
 	userCacheService: UserCacheService;
 	gatewayService: IGatewayService;
 	snowflakeService: ISnowflakeService;
-	discriminatorService: DiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	stripe: Stripe | null;
 	applicationRepository: ApplicationRepository;
 	workerService: IWorkerService<WorkerTaskName>;
@@ -76,6 +75,7 @@ export async function processUserDeletion(
 		applicationRepository,
 		workerService,
 		connectionRepository,
+		usernameRegistry,
 	} = deps;
 	Logger.debug({userId, deletionReasonCode}, 'Starting user account deletion');
 	const scheduledUser = await userRepository.findUnique(userId);
@@ -159,7 +159,6 @@ export async function processUserDeletion(
 	await userRepository.create({
 		user_id: deletedUserId,
 		username: DELETED_USER_USERNAME,
-		discriminator: DELETED_USER_DISCRIMINATOR,
 		global_name: DELETED_USER_GLOBAL_NAME,
 		bot: false,
 		system: false,
@@ -449,10 +448,11 @@ export async function processUserDeletion(
 	]);
 	await userRepository.deleteUserSecondaryIndices(userId);
 	const userForAnonymization = await userRepository.findUniqueAssert(userId);
+	// The account's name stays locked after deletion until an admin releases it.
+	await usernameRegistry.lock(userForAnonymization.username, userId);
 	Logger.debug({userId}, 'Anonymizing user record');
 	const anonymisedUser = await userRepository.anonymizeForDeletion(userForAnonymization, {
 		username: DELETED_USER_USERNAME,
-		discriminator: DELETED_USER_DISCRIMINATOR,
 		global_name: DELETED_USER_GLOBAL_NAME,
 		email: null,
 		email_verified: false,

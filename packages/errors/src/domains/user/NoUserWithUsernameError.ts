@@ -3,10 +3,10 @@
 import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
 import {BadRequestError} from '@fluxer/errors/src/domains/core/BadRequestError';
 
-export class TagAlreadyTakenError extends BadRequestError {
+export class NoUserWithUsernameError extends BadRequestError {
 	constructor() {
 		super({
-			code: APIErrorCodes.TAG_ALREADY_TAKEN,
+			code: APIErrorCodes.NO_USER_WITH_USERNAME_EXISTS,
 		});
 	}
 }

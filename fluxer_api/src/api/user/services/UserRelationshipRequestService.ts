@@ -11,7 +11,7 @@ import {mapRelationshipToResponse} from '@app/api/user/UserMappers';
 import {RelationshipTypes} from '@fluxer/constants/src/UserConstants';
 import type {
 	BulkIgnoreFriendRequestsRequest,
-	FriendRequestByTagRequest,
+	FriendRequestByUsernameRequest,
 	FriendRequestCreateRequest,
 	RelationshipNicknameUpdateRequest,
 	RelationshipTypePutRequest,
@@ -26,9 +26,9 @@ interface RelationshipListParams {
 	requestCache: RequestCache;
 }
 
-interface RelationshipSendByTagParams {
+interface RelationshipSendByUsernameParams {
 	userId: UserID;
-	data: FriendRequestByTagRequest;
+	data: FriendRequestByUsernameRequest;
 	requestCache: RequestCache;
 }
 
@@ -81,9 +81,9 @@ export class UserRelationshipRequestService {
 		);
 	}
 
-	async sendFriendRequestByTag(params: RelationshipSendByTagParams): Promise<RelationshipResponse> {
+	async sendFriendRequestByUsername(params: RelationshipSendByUsernameParams): Promise<RelationshipResponse> {
 		const userPartialResolver = this.createUserPartialResolver(params.requestCache);
-		const relationship = await this.userRelationshipService.sendFriendRequestByTag({
+		const relationship = await this.userRelationshipService.sendFriendRequestByUsername({
 			userId: params.userId,
 			data: params.data,
 			userCacheService: this.userCacheService,

@@ -47,7 +47,7 @@ describe('Auth IP Authorization Resend', () => {
 	async function triggerIpAuthorization(email: string, password: string, ip: string): Promise<IpAuthorizationResponse> {
 		const ipAuthResp = await createBuilderWithoutAuth<IpAuthorizationResponse>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', ip)
 			.expect(HTTP_STATUS.FORBIDDEN)
 			.execute();

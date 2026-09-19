@@ -301,7 +301,6 @@ export class AdminMessageService {
 			author_id: message.author.id,
 			author_username: message.author.username,
 			author_global_name: message.author.global_name ?? null,
-			author_discriminator: message.author.discriminator,
 			author_avatar: message.author.avatar,
 			content: message.content ?? '',
 			timestamp: message.timestamp,

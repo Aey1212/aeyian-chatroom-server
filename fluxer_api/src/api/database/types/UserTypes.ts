@@ -20,7 +20,6 @@ export type PushSubscriptionPlatform = 'web_push' | 'android_fcm' | 'ios_apns' |
 export interface UserRow {
 	user_id: UserID;
 	username: string;
-	discriminator: number;
 	global_name: Nullish<string>;
 	bot: Nullish<boolean>;
 	system: Nullish<boolean>;
@@ -84,7 +83,6 @@ export interface UserRow {
 export const USER_COLUMNS = [
 	'user_id',
 	'username',
-	'discriminator',
 	'global_name',
 	'bot',
 	'system',
@@ -147,7 +145,6 @@ export const USER_COLUMNS = [
 export const EMPTY_USER_ROW: UserRow = {
 	user_id: -1n as UserID,
 	username: '',
-	discriminator: 0,
 	global_name: null,
 	bot: null,
 	system: null,
@@ -541,9 +538,42 @@ export const USER_CONTACT_CHANGE_LOG_COLUMNS = [
 	'event_at',
 ] as const satisfies ReadonlyArray<keyof UserContactChangeLogRow>;
 
-export interface UserByUsernameRow {
-	username: string;
-	discriminator: number;
+// A username is unique per instance, compared case-insensitively. The registry row is
+// the claim: `active` belongs to a live account, `locked` is a deleted account's name that
+// only an admin can release, `held` is reserved for a pending rename request.
+export type UsernameState = 'active' | 'locked' | 'held';
+
+export interface UsernameRow {
+	username_lower: string;
+	user_id: UserID;
+	state: UsernameState;
+	updated_at: Date;
+}
+
+// Only locked and held names are listed here (the admin panel pages); active names are not.
+export interface UsernameByStateRow {
+	state: UsernameState;
+	username_lower: string;
+	user_id: UserID;
+	updated_at: Date;
+}
+
+export type UsernameChangeRequestStatus = 'pending' | 'approved' | 'rejected' | 'cancelled';
+
+// One row per user: their latest rename request.
+export interface UsernameChangeRequestRow {
+	user_id: UserID;
+	requested_username: string;
+	status: UsernameChangeRequestStatus;
+	created_at: Date;
+	reviewed_at: Nullish<Date>;
+	reviewer_id: Nullish<UserID>;
+}
+
+// Only pending requests are listed here (the admin review queue).
+export interface UsernameChangeRequestByStatusRow {
+	status: UsernameChangeRequestStatus;
+	created_at: Date;
 	user_id: UserID;
 }
 
@@ -581,9 +611,28 @@ export interface UserByLastActiveIpTrustKeyRow {
 	last_active_at: Date | null;
 }
 
-export const USER_BY_USERNAME_COLUMNS = ['username', 'discriminator', 'user_id'] as const satisfies ReadonlyArray<
-	keyof UserByUsernameRow
+export const USERNAME_COLUMNS = ['username_lower', 'user_id', 'state', 'updated_at'] as const satisfies ReadonlyArray<
+	keyof UsernameRow
 >;
+export const USERNAME_BY_STATE_COLUMNS = [
+	'state',
+	'username_lower',
+	'user_id',
+	'updated_at',
+] as const satisfies ReadonlyArray<keyof UsernameByStateRow>;
+export const USERNAME_CHANGE_REQUEST_COLUMNS = [
+	'user_id',
+	'requested_username',
+	'status',
+	'created_at',
+	'reviewed_at',
+	'reviewer_id',
+] as const satisfies ReadonlyArray<keyof UsernameChangeRequestRow>;
+export const USERNAME_CHANGE_REQUEST_BY_STATUS_COLUMNS = [
+	'status',
+	'created_at',
+	'user_id',
+] as const satisfies ReadonlyArray<keyof UsernameChangeRequestByStatusRow>;
 export const USER_BY_EMAIL_COLUMNS = ['email_lower', 'user_id'] as const satisfies ReadonlyArray<keyof UserByEmailRow>;
 export const USER_EMAIL_OWNER_COLUMNS = [
 	'email_lower',

@@ -105,7 +105,7 @@ export const MEILISEARCH_INDEX_DEFINITIONS: Record<FluxerSearchIndexName, Meilis
 	guild_members: {
 		uid: 'guild_members',
 		primaryKey: 'id',
-		searchableAttributes: ['username', 'usernameSearch', 'discriminator', 'globalName', 'nickname', 'userId'],
+		searchableAttributes: ['username', 'usernameSearch', 'globalName', 'nickname', 'userId'],
 		filterableAttributes: [
 			'guildId',
 			'roleIds',

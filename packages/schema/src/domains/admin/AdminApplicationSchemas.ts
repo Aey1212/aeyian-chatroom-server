@@ -15,11 +15,9 @@ export const ApplicationAdminResponse = z.object({
 	owner_user_id: SnowflakeStringType.describe('The user ID that owns this application'),
 	owner_username: z.string().nullable().describe('The username of the owner, if resolvable'),
 	owner_global_name: z.string().nullable().describe('The display name of the owner, if set'),
-	owner_discriminator: z.string().nullable().describe('The discriminator of the owner, if resolvable'),
 	bot_user_id: SnowflakeStringType.nullable().describe('The user ID of the associated bot user, if any'),
 	bot_username: z.string().nullable().describe('The username of the bot user, if any'),
 	bot_global_name: z.string().nullable().describe('The display name of the bot user, if set'),
-	bot_discriminator: z.string().nullable().describe('The discriminator of the bot user, if any'),
 	bot_is_public: z.boolean().describe('Whether the bot is publicly joinable'),
 	bot_require_code_grant: z.boolean().describe('Whether an OAuth2 code grant is required for this bot'),
 	oauth2_redirect_uris: z

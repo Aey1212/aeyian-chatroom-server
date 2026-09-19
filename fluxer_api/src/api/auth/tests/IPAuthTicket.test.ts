@@ -42,7 +42,7 @@ describe('Auth IP Authorization Ticket', () => {
 			message?: string;
 		}>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', otherIP)
 			.expect(403)
 			.execute();
@@ -72,7 +72,7 @@ describe('Auth IP Authorization Ticket', () => {
 			ticket?: string;
 		}>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.header('x-forwarded-for', newIP)
 			.expect(403)
 			.execute();

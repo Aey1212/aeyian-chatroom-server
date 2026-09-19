@@ -643,7 +643,7 @@ function matchesGuildMemberFilters(doc: SearchableGuildMember, filters: GuildMem
 }
 
 function collectGuildMemberText(doc: SearchableGuildMember): Array<string | null> {
-	return [doc.id, doc.userId, doc.username, doc.usernameSearch, doc.discriminator, doc.globalName, doc.nickname];
+	return [doc.id, doc.userId, doc.username, doc.usernameSearch, doc.globalName, doc.nickname];
 }
 
 function sortGuildMemberDocs(

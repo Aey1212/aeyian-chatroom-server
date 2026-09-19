@@ -18,7 +18,6 @@ import type {GuildRepository} from '@app/api/guild/repositories/GuildRepository'
 import type {GuildService} from '@app/api/guild/services/GuildService';
 import type {AvatarService} from '@app/api/infrastructure/AvatarService';
 import type {IPurgeQueue} from '@app/api/infrastructure/CachePurgeQueue';
-import type {DiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EmbedService} from '@app/api/infrastructure/EmbedService';
 import type {IAssetDeletionQueue} from '@app/api/infrastructure/IAssetDeletionQueue';
 import type {IGatewayService} from '@app/api/infrastructure/IGatewayService';
@@ -63,7 +62,6 @@ import {
 	getChannelRepository,
 	getConnectionRepository,
 	getContactChangeLogService,
-	getDiscriminatorService,
 	getEmailService,
 	getEmbedService,
 	getEntityAssetService,
@@ -86,6 +84,7 @@ import {
 	getReportRepository,
 	getStorageService,
 	getUnfurlerService,
+	getUsernameRegistry,
 	getUserPermissionUtils,
 	getUserRepository,
 	getVirusScanServiceInstance,
@@ -103,6 +102,7 @@ import type {UserRepository} from '@app/api/user/repositories/UserRepository';
 import type {UserContactChangeLogService} from '@app/api/user/services/UserContactChangeLogService';
 import {UserDeletionEligibilityService} from '@app/api/user/services/UserDeletionEligibilityService';
 import {UserHarvestRepository} from '@app/api/user/UserHarvestRepository';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import type {UserPermissionUtils} from '@app/api/utils/UserPermissionUtils';
 import type {VoiceRepository} from '@app/api/voice/VoiceRepository';
 import type {VoiceTopology} from '@app/api/voice/VoiceTopology';
@@ -141,7 +141,7 @@ export interface WorkerDependencies {
 	purgeQueue: IPurgeQueue;
 	gatewayService: IGatewayService;
 	mediaService: IMediaService;
-	discriminatorService: DiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	avatarService: AvatarService;
 	virusScanService: IVirusScanService;
 	rateLimitService: RateLimitService;
@@ -201,7 +201,7 @@ export async function initializeWorkerDependencies(snowflakeService: ISnowflakeS
 	const gatewayService = getGatewayService();
 	const connectionService = new ConnectionService(connectionRepository, gatewayService);
 	const mediaService = getMediaService();
-	const discriminatorService = getDiscriminatorService();
+	const usernameRegistry = getUsernameRegistry();
 	const ncmecSubmissionService = getNcmecSubmissionService();
 	const avatarService = getAvatarService();
 	const entityAssetService = getEntityAssetService();
@@ -298,7 +298,7 @@ export async function initializeWorkerDependencies(snowflakeService: ISnowflakeS
 		purgeQueue,
 		gatewayService,
 		mediaService,
-		discriminatorService,
+		usernameRegistry,
 		avatarService,
 		virusScanService,
 		rateLimitService,

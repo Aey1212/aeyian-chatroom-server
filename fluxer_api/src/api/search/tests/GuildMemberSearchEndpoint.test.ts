@@ -33,7 +33,7 @@ async function elevateGuildMfaLevel(harness: ApiTestHarness, owner: TestAccount,
 		ticket: string;
 	}>(harness)
 		.post('/auth/login')
-		.body({email: owner.email, password: owner.password})
+		.body({login: owner.email, password: owner.password})
 		.expect(HTTP_STATUS.OK)
 		.execute();
 	const mfaResp = await createBuilderWithoutAuth<{

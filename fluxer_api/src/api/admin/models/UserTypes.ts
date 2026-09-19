@@ -35,7 +35,6 @@ export async function mapUserToAdminResponse(
 	return {
 		id: user.id.toString(),
 		username: user.username,
-		discriminator: user.discriminator,
 		global_name: user.globalName,
 		bot: user.isBot,
 		system: user.isSystem,

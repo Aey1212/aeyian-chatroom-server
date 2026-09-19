@@ -9,7 +9,6 @@ export interface IARMessageContextRow {
 	channel_id: bigint | null;
 	author_id: bigint;
 	author_username: string;
-	author_discriminator: number;
 	author_avatar_hash: string | null;
 	content: string | null;
 	timestamp: Date;

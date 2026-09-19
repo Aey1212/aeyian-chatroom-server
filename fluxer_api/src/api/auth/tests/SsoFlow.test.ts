@@ -67,7 +67,7 @@ describe('Auth SSO flow', () => {
 			await createBuilderWithoutAuth(harness)
 				.post('/auth/login')
 				.body({
-					email: 'someone@example.com',
+					login: 'someone@example.com',
 					password: 'password123',
 				})
 				.expect(403)
@@ -81,7 +81,7 @@ describe('Auth SSO flow', () => {
 			}>(harness)
 				.post('/auth/login')
 				.body({
-					email: admin.email,
+					login: admin.email,
 					password: admin.password,
 				})
 				.execute();

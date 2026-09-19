@@ -440,9 +440,9 @@ export class ReportService {
 		if (message.authorId == null) {
 			throw new UnknownUserError();
 		}
-		if (report.reported_user_tag) {
-			const tagged = await this.findUserByTag(report.reported_user_tag);
-			if (tagged.id !== message.authorId) {
+		if (report.reported_user_username) {
+			const named = await this.findUserByUsername(report.reported_user_username);
+			if (named.id !== message.authorId) {
 				throw new InvalidDsaReportTargetError();
 			}
 		}
@@ -493,7 +493,7 @@ export class ReportService {
 		>,
 		reporter: ReporterMetadata,
 	): Promise<IARSubmissionRow> {
-		const target = await this.resolveDsaUser(report.user_id ?? undefined, report.user_tag ?? undefined);
+		const target = await this.resolveDsaUser(report.user_id ?? undefined, report.username ?? undefined);
 		const contentWarningSnapshot = await this.buildContentWarningSnapshot(null, null);
 		return {
 			report_id: reportId,
@@ -685,32 +685,28 @@ export class ReportService {
 		};
 	}
 
-	private async resolveDsaUser(userId?: bigint, userTag?: string | null): Promise<User> {
+	private async resolveDsaUser(userId?: bigint, username?: string | null): Promise<User> {
 		if (userId != null) {
 			const user = await this.userRepository.findUnique(createUserID(userId));
 			if (!user) {
 				throw new UnknownUserError();
 			}
-			if (userTag) {
-				const taggedUser = await this.findUserByTag(userTag);
-				if (taggedUser.id !== user.id) {
+			if (username) {
+				const namedUser = await this.findUserByUsername(username);
+				if (namedUser.id !== user.id) {
 					throw new InvalidDsaReportTargetError();
 				}
 			}
 			return user;
 		}
-		if (userTag) {
-			return this.findUserByTag(userTag);
+		if (username) {
+			return this.findUserByUsername(username);
 		}
 		throw new InvalidDsaReportTargetError();
 	}
 
-	private async findUserByTag(tag: string): Promise<User> {
-		const parsed = this.parseFluxerTag(tag);
-		if (!parsed) {
-			throw new InvalidDsaReportTargetError();
-		}
-		const user = await this.userRepository.findByUsernameDiscriminator(parsed.username, parsed.discriminator);
+	private async findUserByUsername(username: string): Promise<User> {
+		const user = await this.userRepository.findByUsername(username);
 		if (!user) {
 			throw new UnknownUserError();
 		}
@@ -743,19 +739,6 @@ export class ReportService {
 
 	private normalizeEmail(email: string): string {
 		return email.trim().toLowerCase();
-	}
-
-	private parseFluxerTag(tag: string): {
-		username: string;
-		discriminator: number;
-	} | null {
-		const trimmed = tag.trim();
-		const match = /^(.+)#(\d{4})$/.exec(trimmed);
-		if (!match) return null;
-		return {
-			username: match[1],
-			discriminator: Number.parseInt(match[2], 10),
-		};
 	}
 
 	private extractChannelAndMessageFromLink(link: string): {
@@ -898,7 +881,6 @@ export class ReportService {
 				channel_id: channelId,
 				author_id: message.authorId!,
 				author_username: author.username,
-				author_discriminator: author.discriminator,
 				author_avatar_hash: author.avatarHash || null,
 				content: message.content || null,
 				timestamp: snowflakeToDate(message.id),

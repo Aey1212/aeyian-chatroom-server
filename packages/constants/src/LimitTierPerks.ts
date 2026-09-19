@@ -48,14 +48,6 @@ export function isTextTierPerk(perk: LimitTierPerk): perk is TextTierPerk {
 
 export const LIMIT_TIER_PERKS: ReadonlyArray<LimitTierPerk> = [
 	{
-		id: 'custom_discriminator',
-		type: 'boolean',
-		status: 'available',
-		i18nKey: 'custom_4_digit_username_tag',
-		restrictedValue: false,
-		stockValue: true,
-	},
-	{
 		id: 'per_guild_profiles',
 		type: 'boolean',
 		status: 'available',

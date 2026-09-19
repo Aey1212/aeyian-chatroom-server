@@ -292,7 +292,7 @@ describe('Auth registration', () => {
 		});
 		const login = await createBuilderWithoutAuth<LoginSuccessResponse>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.execute();
 		expect('mfa' in login).toBe(false);
 		expect(login.token.length).toBeGreaterThan(0);
@@ -332,7 +332,7 @@ describe('Auth registration', () => {
 		for (const email of loginEmails) {
 			const login = await createBuilderWithoutAuth<LoginSuccessResponse>(harness)
 				.post('/auth/login')
-				.body({email, password})
+				.body({login: email, password})
 				.execute();
 			expect(login.token.length).toBeGreaterThan(0);
 		}

@@ -37,7 +37,6 @@ export const GuildAdminResponse = z.object({
 	owner_id: SnowflakeStringType.describe('The ID of the guild owner'),
 	owner_username: z.string().nullable().describe('The username of the guild owner'),
 	owner_global_name: z.string().nullable().describe('The display name of the guild owner, if set'),
-	owner_discriminator: z.string().nullable().describe('The discriminator of the guild owner'),
 	icon: z.string().nullable().describe('The hash of the guild icon'),
 	banner: z.string().nullable().describe('The hash of the guild banner'),
 	member_count: Int32Type.describe('The number of members in the guild'),

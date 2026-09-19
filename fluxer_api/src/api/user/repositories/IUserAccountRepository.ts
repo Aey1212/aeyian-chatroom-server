@@ -24,8 +24,7 @@ export interface IUserAccountRepository {
 	completeDeletion(user: User): Promise<void>;
 	findUnique(userId: UserID): Promise<User | null>;
 	findUniqueAssert(userId: UserID): Promise<User>;
-	findByUsernameDiscriminator(username: string, discriminator: number): Promise<User | null>;
-	findDiscriminatorsByUsername(username: string): Promise<Set<number>>;
+	findByUsername(username: string): Promise<User | null>;
 	findByEmail(email: string): Promise<User | null>;
 	findByStripeSubscriptionId(stripeSubscriptionId: string): Promise<User | null>;
 	findByStripeCustomerId(stripeCustomerId: string): Promise<User | null>;

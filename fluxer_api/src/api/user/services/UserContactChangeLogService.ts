@@ -9,7 +9,7 @@ import {awaitAll} from '@app/api/utils/ConcurrencyUtils';
 type ContactChangeReason = 'user_requested' | 'admin_action';
 
 interface ContactChange {
-	field: 'email' | 'has_verified_phone' | 'fluxer_tag';
+	field: 'email' | 'has_verified_phone' | 'username';
 	oldValue: string | null;
 	newValue: string | null;
 }
@@ -47,9 +47,9 @@ export class UserContactChangeLogService {
 				newValue: String(newUser.hasVerifiedPhone),
 			},
 			{
-				field: 'fluxer_tag',
-				oldValue: this.buildFluxerTag(oldUser),
-				newValue: this.buildFluxerTag(newUser),
+				field: 'username',
+				oldValue: oldUser?.username || null,
+				newValue: newUser?.username || null,
 			},
 		];
 		await awaitAll(
@@ -72,15 +72,5 @@ export class UserContactChangeLogService {
 		const {userId, beforeEventId} = params;
 		const limit = params.limit ?? this.DEFAULT_LIMIT;
 		return this.repo.listLogs({userId, limit, beforeEventId});
-	}
-
-	private buildFluxerTag(user: User | null): string | null {
-		if (!user) return null;
-		const discriminator = user.discriminator?.toString() ?? '';
-		if (!user.username || discriminator === '') {
-			return null;
-		}
-		const paddedDiscriminator = discriminator.padStart(4, '0');
-		return `${user.username}#${paddedDiscriminator}`;
 	}
 }

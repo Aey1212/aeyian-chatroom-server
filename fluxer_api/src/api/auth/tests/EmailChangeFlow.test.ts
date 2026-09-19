@@ -379,7 +379,7 @@ describe('Email change flow', () => {
 			})
 			.expect(200)
 			.execute();
-		const login = await loginUser(harness, {email: account.email, password: account.password});
+		const login = await loginUser(harness, {login: account.email, password: account.password});
 		if ('mfa' in login) {
 			throw new Error('Expected non-MFA login');
 		}
@@ -585,7 +585,7 @@ describe('Email change flow', () => {
 			})
 			.expect(200)
 			.execute();
-		const login = await loginUser(harness, {email: account.email, password: account.password});
+		const login = await loginUser(harness, {login: account.email, password: account.password});
 		if (!('mfa' in login)) {
 			throw new Error('Expected MFA login challenge after enabling TOTP');
 		}
@@ -673,7 +673,7 @@ describe('Email change flow', () => {
 			})
 			.expect(200)
 			.execute();
-		const login = await loginUser(harness, {email: account.email, password: account.password});
+		const login = await loginUser(harness, {login: account.email, password: account.password});
 		if (!('mfa' in login)) {
 			throw new Error('Expected MFA login challenge after enabling TOTP');
 		}
@@ -845,7 +845,7 @@ describe('Email change flow', () => {
 			})
 			.expect(200)
 			.execute();
-		const login = await loginUser(harness, {email: account.email, password: account.password});
+		const login = await loginUser(harness, {login: account.email, password: account.password});
 		if (!('mfa' in login)) {
 			throw new Error('Expected MFA login challenge after enabling TOTP');
 		}

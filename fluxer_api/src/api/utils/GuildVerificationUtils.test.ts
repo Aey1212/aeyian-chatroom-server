@@ -19,7 +19,6 @@ function createUser(params?: {emailVerified?: boolean; hasVerifiedPhone?: boolea
 	return new User({
 		user_id: TEST_USER_ID,
 		username: 'member',
-		discriminator: 1,
 		global_name: null,
 		bot: false,
 		system: false,

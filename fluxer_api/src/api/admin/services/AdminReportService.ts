@@ -281,8 +281,8 @@ export class AdminReportService {
 		acls: ReadonlySet<string>,
 		reportNsfwLookupCache: ReportNsfwLookupCache,
 	) {
-		const reporterInfo = await this.buildUserTag(report.reporterId, requestCache);
-		const reportedUserInfo = await this.buildUserTag(report.reportedUserId, requestCache);
+		const reporterInfo = await this.buildUserSummary(report.reporterId, requestCache);
+		const reportedUserInfo = await this.buildUserSummary(report.reportedUserId, requestCache);
 		const canViewReporterPii = acls.has(AdminACLs.REPORT_VIEW_REPORTER_PII) || acls.has(AdminACLs.WILDCARD);
 		const reportedGuildNsfwLevel =
 			report.reportedGuildNsfw !== null
@@ -301,10 +301,8 @@ export class AdminReportService {
 		const baseResponse = {
 			report_id: report.reportId.toString(),
 			reporter_id: report.reporterId?.toString() ?? null,
-			reporter_tag: reporterInfo?.tag ?? null,
 			reporter_username: reporterInfo?.username ?? null,
 			reporter_global_name: reporterInfo?.global_name ?? null,
-			reporter_discriminator: reporterInfo?.discriminator ?? null,
 			reporter_email: canViewReporterPii ? report.reporterEmail : null,
 			reporter_full_legal_name: canViewReporterPii ? report.reporterFullLegalName : null,
 			reporter_country_of_residence: canViewReporterPii ? report.reporterCountryOfResidence : null,
@@ -314,10 +312,8 @@ export class AdminReportService {
 			category: report.category,
 			additional_info: report.additionalInfo,
 			reported_user_id: report.reportedUserId?.toString() ?? null,
-			reported_user_tag: reportedUserInfo?.tag ?? null,
 			reported_user_username: reportedUserInfo?.username ?? null,
 			reported_user_global_name: reportedUserInfo?.global_name ?? null,
-			reported_user_discriminator: reportedUserInfo?.discriminator ?? null,
 			reported_user_avatar_hash: report.reportedUserAvatarHash,
 			reported_guild_id: report.reportedGuildId?.toString() ?? null,
 			reported_guild_name: report.reportedGuildName,
@@ -471,7 +467,6 @@ export class AdminReportService {
 			author_id: message.authorId.toString(),
 			author_username: message.authorUsername,
 			author_global_name: null,
-			author_discriminator: message.authorDiscriminator.toString().padStart(4, '0'),
 			author_avatar: message.authorAvatarHash,
 			user_prior_ncmec_report_ids: priorReportsByAuthor.get(message.authorId.toString()) ?? [],
 		};
@@ -599,29 +594,24 @@ export class AdminReportService {
 		return this.deps.ncmecSubmissionService.getAttachmentStatuses(attachmentIds);
 	}
 
-	private async buildUserTag(userId: UserID | null, requestCache: RequestCache): Promise<UserTagInfo | null> {
+	private async buildUserSummary(userId: UserID | null, requestCache: RequestCache): Promise<ReportUserSummary | null> {
 		if (!userId) {
 			return null;
 		}
 		try {
 			const user = await this.deps.userCacheService.getUserPartialResponse(userId, requestCache);
-			const discriminator = user.discriminator?.padStart(4, '0') ?? '0000';
 			return {
-				tag: `${user.username}#${discriminator}`,
 				username: user.username,
 				global_name: user.global_name ?? null,
-				discriminator,
 			};
 		} catch (error) {
-			Logger.warn({userId: userId.toString(), error}, 'Failed to resolve user tag for report');
+			Logger.warn({userId: userId.toString(), error}, 'Failed to resolve user summary for report');
 			return null;
 		}
 	}
 }
 
-interface UserTagInfo {
-	tag: string;
+interface ReportUserSummary {
 	username: string;
 	global_name: string | null;
-	discriminator: string;
 }

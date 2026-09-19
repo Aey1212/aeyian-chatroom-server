@@ -6,7 +6,7 @@ import {HTTP_STATUS, TEST_IDS} from '@app/api/test/TestConstants';
 import {createBuilder} from '@app/api/test/TestRequestBuilder';
 import {sendFriendRequest} from '@app/api/user/tests/RelationshipTestUtils';
 import {
-	checkUsernameDiscriminatorAvailability,
+	checkUsernameAvailability,
 	fetchUser,
 	fetchUserProfile,
 	preloadMessages,
@@ -34,13 +34,8 @@ describe('User Account And Settings', () => {
 		});
 		expect(updated.json.global_name).toBe(newGlobal);
 		expect(updated.json.bio).toBe(newBio);
-		const checkTagResult = await checkUsernameDiscriminatorAvailability(
-			harness,
-			updated.json.username,
-			updated.json.discriminator,
-			account.token,
-		);
-		expect(checkTagResult.json.taken).toBe(false);
+		const ownNameResult = await checkUsernameAvailability(harness, updated.json.username, account.token);
+		expect(ownNameResult.json.taken).toBe(false);
 		const user = await fetchUser(harness, account.userId, account.token);
 		expect(user.json.id).toBe(account.userId);
 		const profile = await fetchUserProfile(harness, account.userId, account.token);
@@ -82,25 +77,17 @@ describe('User Account And Settings', () => {
 		const profile = await fetchUserProfile(harness, target.userId, requester.token);
 		expect(profile.json.user.id).toBe(target.userId);
 	});
-	test('check-tag with missing username returns 400', async () => {
+	test('check-username with missing username returns 400', async () => {
 		const account = await createTestAccount(harness);
-		await createBuilder(harness, account.token)
-			.get('/users/check-tag?discriminator=1234')
-			.expect(HTTP_STATUS.BAD_REQUEST)
-			.execute();
+		await createBuilder(harness, account.token).get('/users/check-username').expect(HTTP_STATUS.BAD_REQUEST).execute();
 	});
-	test('check-tag with missing discriminator returns 400', async () => {
+	test("check-username reports another account's name as taken and a free one as not", async () => {
 		const account = await createTestAccount(harness);
-		await createBuilder(harness, account.token)
-			.get('/users/check-tag?username=testuser')
-			.expect(HTTP_STATUS.BAD_REQUEST)
-			.execute();
-	});
-	test('check-tag with invalid discriminator returns 400', async () => {
-		const account = await createTestAccount(harness);
-		await createBuilder(harness, account.token)
-			.get('/users/check-tag?username=test&discriminator=invalid')
-			.expect(HTTP_STATUS.BAD_REQUEST)
-			.execute();
+		const other = await createTestAccount(harness);
+		const otherName = other.username!;
+		const taken = await checkUsernameAvailability(harness, otherName.toUpperCase(), account.token);
+		expect(taken.json.taken).toBe(true);
+		const free = await checkUsernameAvailability(harness, `free_${otherName}`.slice(0, 32), account.token);
+		expect(free.json.taken).toBe(false);
 	});
 });
