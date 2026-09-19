@@ -35,7 +35,6 @@ pub struct AuditLogEntry {
 pub struct AuditLogUserSummary {
     pub id: String,
     pub username: String,
-    pub discriminator: String,
     pub global_name: Option<String>,
 }
 

@@ -2,21 +2,6 @@
 
 use serde::{Deserialize, Deserializer, Serialize};
 
-pub fn deserialize_discriminator<'de, D: Deserializer<'de>>(d: D) -> Result<String, D::Error> {
-    let v: serde_json::Value = Deserialize::deserialize(d)?;
-    match v {
-        serde_json::Value::String(s) => Ok(format!("{:0>4}", s)),
-        serde_json::Value::Number(n) => n
-            .as_u64()
-            .map(|value| format!("{value:04}"))
-            .ok_or_else(|| serde::de::Error::custom("expected an unsigned integer discriminator")),
-        serde_json::Value::Null => Ok("0000".to_owned()),
-        _ => Err(serde::de::Error::custom(
-            "expected string or unsigned integer discriminator",
-        )),
-    }
-}
-
 pub fn deserialize_string_or_u64<'de, D: Deserializer<'de>>(d: D) -> Result<u64, D::Error> {
     let v: serde_json::Value = Deserialize::deserialize(d)?;
     match v {
@@ -75,8 +60,6 @@ pub struct ListUserGuildsResponse {
 pub struct AdminUser {
     pub id: String,
     pub username: String,
-    #[serde(deserialize_with = "deserialize_discriminator")]
-    pub discriminator: String,
     pub avatar: Option<String>,
     pub banner: Option<String>,
     pub email: Option<String>,
@@ -137,7 +120,6 @@ pub struct GuildInfo {
     pub owner_id: String,
     pub owner_username: Option<String>,
     pub owner_global_name: Option<String>,
-    pub owner_discriminator: Option<String>,
     #[serde(default)]
     pub member_count: u64,
     #[serde(default)]
@@ -156,7 +138,6 @@ pub struct GuildDetailInfo {
     pub owner_id: String,
     pub owner_username: Option<String>,
     pub owner_global_name: Option<String>,
-    pub owner_discriminator: Option<String>,
     pub name: String,
     pub vanity_url_code: Option<String>,
     pub icon: Option<String>,
@@ -198,7 +179,6 @@ impl From<GuildDetailInfo> for GuildInfo {
             owner_id: d.owner_id,
             owner_username: d.owner_username,
             owner_global_name: d.owner_global_name,
-            owner_discriminator: d.owner_discriminator,
             member_count: d.member_count,
             features: d.features,
             nsfw_level: d.nsfw_level,

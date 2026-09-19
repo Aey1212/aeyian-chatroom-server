@@ -269,7 +269,6 @@ fn admin_user() -> Value {
     json!({
         "id": "1500000000000000000",
         "username": "AdminUser",
-        "discriminator": 1,
         "avatar": null,
         "banner": null,
         "email": "admin@example.com",

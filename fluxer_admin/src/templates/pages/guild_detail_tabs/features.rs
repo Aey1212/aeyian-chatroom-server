@@ -195,7 +195,6 @@ mod tests {
             "owner_id": "1500000000000000001",
             "owner_username": null,
             "owner_global_name": null,
-            "owner_discriminator": null,
             "features": features,
             "nsfw_level": null,
             "nsfw": null,

@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-use super::common::deserialize_discriminator;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -25,8 +24,6 @@ pub struct ListUserSessionsResponse {
 pub struct AdminResolvedUser {
     pub id: String,
     pub username: String,
-    #[serde(deserialize_with = "deserialize_discriminator")]
-    pub discriminator: String,
     pub global_name: Option<String>,
     pub avatar: Option<String>,
 }
@@ -80,10 +77,8 @@ pub struct ListUserGroupDmChannelsResponse {
 pub struct ReportEntry {
     pub report_id: String,
     pub reporter_id: Option<String>,
-    pub reporter_tag: Option<String>,
     pub reporter_username: Option<String>,
     pub reporter_global_name: Option<String>,
-    pub reporter_discriminator: Option<String>,
     pub reporter_email: Option<String>,
     pub reporter_full_legal_name: Option<String>,
     pub reporter_country_of_residence: Option<String>,
@@ -93,10 +88,8 @@ pub struct ReportEntry {
     pub category: Option<String>,
     pub additional_info: Option<String>,
     pub reported_user_id: Option<String>,
-    pub reported_user_tag: Option<String>,
     pub reported_user_username: Option<String>,
     pub reported_user_global_name: Option<String>,
-    pub reported_user_discriminator: Option<String>,
     pub reported_user_avatar_hash: Option<String>,
     pub reported_guild_id: Option<String>,
     pub reported_guild_name: Option<String>,
@@ -167,7 +160,6 @@ pub struct GuildAuditLogUser {
     pub id: String,
     pub username: String,
     pub global_name: Option<String>,
-    pub discriminator: Option<String>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -181,8 +173,6 @@ pub struct GuildAuditLogResponse {
 pub struct GuildMemberUser {
     pub id: String,
     pub username: String,
-    #[serde(deserialize_with = "deserialize_discriminator")]
-    pub discriminator: String,
     pub global_name: Option<String>,
     pub avatar: Option<String>,
     #[serde(default)]

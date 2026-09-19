@@ -9,11 +9,9 @@ pub struct Application {
     pub owner_user_id: String,
     pub owner_username: Option<String>,
     pub owner_global_name: Option<String>,
-    pub owner_discriminator: Option<String>,
     pub bot_user_id: Option<String>,
     pub bot_username: Option<String>,
     pub bot_global_name: Option<String>,
-    pub bot_discriminator: Option<String>,
     #[serde(default)]
     pub bot_is_public: bool,
     #[serde(default)]

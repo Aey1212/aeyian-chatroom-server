@@ -9,7 +9,7 @@ use crate::{
         form::{checkbox, csrf_input, form_actions, submit_button},
         page_container::{card_with_header, detail_row},
     },
-    utils::{bigint::format_discriminator, timestamps::snowflake_creation_date},
+    utils::timestamps::snowflake_creation_date,
 };
 use maud::{Markup, html};
 
@@ -99,7 +99,7 @@ fn render_overview_tab(
                         (snowflake_creation_date(&user.id))
                     }))
                     (detail_row("Username", html! {
-                        (user.username) "#" (format_discriminator(&user.discriminator))
+                        (user.username)
                     }))
                     (detail_row("Display Name", html! {
                         @if let Some(ref name) = user.global_name {

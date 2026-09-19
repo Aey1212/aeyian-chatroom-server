@@ -188,19 +188,14 @@ fn format_category(category: Option<&str>) -> String {
 
 fn reporter_label(report: &ReportEntry) -> String {
     if let Some(username) = &report.reporter_username {
-        let discriminator = report.reporter_discriminator.as_deref().unwrap_or("0000");
-        let tag = format!("{username}#{discriminator}");
         if let Some(display) = report
             .reporter_global_name
             .as_ref()
             .filter(|v| !v.trim().is_empty())
         {
-            return format!("{display} ({tag})");
+            return format!("{display} ({username})");
         }
-        return tag;
-    }
-    if let Some(tag) = &report.reporter_tag {
-        return tag.to_owned();
+        return username.to_owned();
     }
     if let Some(email) = &report.reporter_email {
         return email.to_owned();
@@ -210,22 +205,14 @@ fn reporter_label(report: &ReportEntry) -> String {
 
 fn reported_user_label(report: &ReportEntry) -> String {
     if let Some(username) = &report.reported_user_username {
-        let discriminator = report
-            .reported_user_discriminator
-            .as_deref()
-            .unwrap_or("0000");
-        let tag = format!("{username}#{discriminator}");
         if let Some(display) = report
             .reported_user_global_name
             .as_ref()
             .filter(|v| !v.trim().is_empty())
         {
-            return format!("{display} ({tag})");
+            return format!("{display} ({username})");
         }
-        return tag;
-    }
-    if let Some(tag) = &report.reported_user_tag {
-        return tag.to_owned();
+        return username.to_owned();
     }
     format!(
         "User {}",

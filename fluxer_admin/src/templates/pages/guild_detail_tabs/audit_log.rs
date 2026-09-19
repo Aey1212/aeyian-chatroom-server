@@ -4,7 +4,7 @@ use crate::{
     api::types::{GuildAuditLogEntry, GuildAuditLogUser, GuildInfo},
     config::AdminConfig,
     templates::components::{page_container::card_with_header, table::data_table},
-    utils::{bigint::format_discriminator, timestamps::snowflake_creation_date},
+    utils::timestamps::snowflake_creation_date,
 };
 use maud::{Markup, html};
 
@@ -118,9 +118,7 @@ fn format_user(user: Option<&GuildAuditLogUser>) -> String {
     let Some(u) = user else {
         return "Unknown".to_string();
     };
-    let disc = u.discriminator.as_deref().unwrap_or("0000");
-    let disc = format_discriminator(disc);
-    let tag = format!("{}#{}", u.username, disc);
+    let tag = u.username.clone();
     match &u.global_name {
         Some(gn) if !gn.trim().is_empty() => format!("{} ({})", gn, tag),
         _ => tag,

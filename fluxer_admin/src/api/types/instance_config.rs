@@ -630,7 +630,6 @@ pub struct RegistrationUrlResponse {
 pub struct PendingRegistrationResponse {
     pub user_id: String,
     pub username: String,
-    pub discriminator: u16,
     pub global_name: Option<String>,
     pub email: Option<String>,
     pub requested_at: String,

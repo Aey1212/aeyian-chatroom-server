@@ -92,18 +92,13 @@ fn format_status(status: i32) -> &'static str {
 
 fn format_reporter(report: &ReportEntry) -> String {
     if let Some(ref username) = report.reporter_username {
-        let disc = report.reporter_discriminator.as_deref().unwrap_or("0000");
-        let tag = format!("{username}#{disc}");
         if let Some(ref gn) = report.reporter_global_name {
             let trimmed = gn.trim();
             if !trimmed.is_empty() {
-                return format!("{trimmed} ({tag})");
+                return format!("{trimmed} ({username})");
             }
         }
-        return tag;
-    }
-    if let Some(ref tag) = report.reporter_tag {
-        return tag.clone();
+        return username.clone();
     }
     if let Some(ref email) = report.reporter_email {
         return email.clone();

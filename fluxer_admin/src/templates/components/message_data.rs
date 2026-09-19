@@ -25,7 +25,6 @@ pub struct Message {
     pub author_id: String,
     pub author_username: String,
     pub author_global_name: Option<String>,
-    pub author_discriminator: String,
     pub author_avatar: Option<String>,
     pub channel_id: String,
     pub channel_nsfw: Option<bool>,
@@ -58,8 +57,6 @@ fn message_from_value(value: &Value) -> Message {
             .unwrap_or("Unknown")
             .to_owned(),
         author_global_name: value["author_global_name"].as_str().map(ToOwned::to_owned),
-        author_discriminator: value_id(&value["author_discriminator"])
-            .unwrap_or_else(|| "0000".to_owned()),
         author_avatar: value["author_avatar"].as_str().map(ToOwned::to_owned),
         channel_id: value_id(&value["channel_id"]).unwrap_or_default(),
         channel_nsfw: value["channel_nsfw"].as_bool(),
@@ -155,7 +152,6 @@ mod tests {
                 author_id: "42".into(),
                 author_username: "alice".into(),
                 author_global_name: Some("Alice".into()),
-                author_discriminator: "1234".into(),
                 author_avatar: Some("avatar-hash".into()),
                 channel_id: "100".into(),
                 channel_nsfw: Some(false),
@@ -184,7 +180,6 @@ mod tests {
         let message = message_from_value(&json!({"attachments": [{}]}));
 
         assert_eq!(message.author_username, "Unknown");
-        assert_eq!(message.author_discriminator, "0000");
         assert_eq!(message.content, "");
         assert_eq!(message.author_global_name, None);
         assert_eq!(message.channel_nsfw, None);

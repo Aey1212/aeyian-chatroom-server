@@ -9,7 +9,6 @@ use crate::{
         media::user_avatar_url,
         page_container::card_with_header,
     },
-    utils::bigint::format_discriminator,
 };
 use maud::{Markup, html};
 
@@ -103,12 +102,9 @@ fn member_card(
     member: &GuildMember,
     csrf_token: &str,
 ) -> Markup {
-    let disc = format_discriminator(&member.user.discriminator);
     let display = match &member.user.global_name {
-        Some(gn) if !gn.trim().is_empty() => {
-            format!("{} ({}#{})", gn, member.user.username, disc)
-        }
-        _ => format!("{}#{}", member.user.username, disc),
+        Some(gn) if !gn.trim().is_empty() => format!("{} ({})", gn, member.user.username),
+        _ => member.user.username.clone(),
     };
     let user_url = format!("{base}/users/{}", member.user.id);
     let avatar_url = user_avatar_url(

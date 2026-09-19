@@ -71,7 +71,6 @@ mod tests {
             "user": {
                 "id": "123456789012345678",
                 "username": "testadmin",
-                "discriminator": 1,
                 "global_name": "Test Admin",
                 "bot": false,
                 "system": false,
@@ -136,7 +135,6 @@ mod tests {
                     "owner_id": "123456789012345678",
                     "owner_username": "guildowner",
                     "owner_global_name": "Guild Owner",
-                    "owner_discriminator": "0001",
                     "member_count": 42,
                     "features": ["COMMUNITY", "NEWS"]
                 }

@@ -267,18 +267,14 @@ fn owner_display(guild: &GuildInfo) -> String {
     let Some(username) = guild.owner_username.as_deref() else {
         return guild.owner_id.clone();
     };
-    let Some(discriminator) = guild.owner_discriminator.as_deref() else {
-        return guild.owner_id.clone();
-    };
-    let tag = format!("{username}#{discriminator}");
     if let Some(global_name) = guild
         .owner_global_name
         .as_deref()
         .filter(|name| !name.trim().is_empty())
     {
-        format!("{global_name} ({tag})")
+        format!("{global_name} ({username})")
     } else {
-        tag
+        username.to_owned()
     }
 }
 

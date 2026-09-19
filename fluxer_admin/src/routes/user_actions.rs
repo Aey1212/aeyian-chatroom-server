@@ -217,11 +217,8 @@ pub async fn dispatch(
             let Some(username) = get("username") else {
                 return DispatchOutcome::error("Username is required");
             };
-            let discriminator = get("discriminator");
             DispatchOutcome::from_result(
-                client
-                    .change_username(user_id, &username, discriminator.as_deref())
-                    .await,
+                client.change_username(user_id, &username).await,
                 "Username changed successfully",
                 "Failed to change username",
             )

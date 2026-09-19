@@ -16,7 +16,6 @@ pub struct TokenResponse {
 pub struct UserInfo {
     pub id: String,
     pub username: String,
-    pub discriminator: String,
     pub avatar: Option<String>,
     pub email: Option<String>,
     pub global_name: Option<String>,
