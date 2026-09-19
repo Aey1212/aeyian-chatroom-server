@@ -17,7 +17,7 @@ import {remapAuthorMessagesToDeletedUser} from '@app/api/oauth/ApplicationMessag
 import type {BotAuthService} from '@app/api/oauth/BotAuthService';
 import {generateOAuthTokenSecret} from '@app/api/oauth/OAuthTokenSecret';
 import type {IApplicationRepository} from '@app/api/oauth/repositories/IApplicationRepository';
-import {enforceFluxerTagChangeRateLimit} from '@app/api/user/FluxerTagChangeRateLimit';
+import {UsernameChangeRequestService} from '@app/api/user/services/UsernameChangeRequestService';
 import {hasPartialUserFieldsChanged, mapUserToPrivateResponse} from '@app/api/user/UserMappers';
 import {botUsernameCandidate} from '@app/api/user/UsernameCandidates';
 import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
@@ -27,6 +27,8 @@ import {generateRandomUsername} from '@app/api/utils/UsernameGenerator';
 import {deriveUsernameFromDisplayName} from '@app/api/utils/UsernameSuggestionUtils';
 import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
 import {
+	BOT_USERNAME_BASE_MAX_LENGTH,
+	BOT_USERNAME_SUFFIX,
 	DELETED_USER_GLOBAL_NAME,
 	DELETED_USER_USERNAME,
 	ProfileFieldPrivacyFlags,
@@ -457,33 +459,19 @@ export class ApplicationService {
 			messageId: null,
 			surface: 'profile_field',
 		});
-		if (args.discriminator !== undefined && args.discriminator !== botUser.discriminator) {
-			throw InputValidationError.fromCode('discriminator', ValidationErrorCodes.BOT_DISCRIMINATOR_CANNOT_BE_CHANGED);
-		}
 		const updates: Partial<UserRow> = {};
-		const newUsername = args.username ?? botUser.username;
-		const usernameChanged = args.username !== undefined && args.username !== botUser.username;
-		if (usernameChanged) {
-			const result = await this.deps.usernameRegistry.resolveUsernameChange({
-				currentUsername: botUser.username,
-				currentDiscriminator: botUser.discriminator,
-				newUsername,
-			});
-			if (result.username !== botUser.username) {
-				updates.username = result.username;
-			}
-			if (result.discriminator !== botUser.discriminator) {
-				updates.discriminator = result.discriminator;
-			}
-			if (profileSubstringBlocklistCache.containsBannedSubstring('username', result.username)) {
-				throw new ContentBlockedError();
-			}
-			if (result.username !== botUser.username || result.discriminator !== botUser.discriminator) {
-				await enforceFluxerTagChangeRateLimit({
-					rateLimitService: this.apiContext.services.rateLimit,
-					userId: botUserId,
-					errorPath: 'username',
-				});
+		// Bot renames follow the same rule as everyone's: the owner asks for the name before
+		// -BOT, the name is held, and an admin approves or rejects the request.
+		if (args.username !== undefined) {
+			const requestedUsername = `${args.username}${BOT_USERNAME_SUFFIX}`;
+			if (requestedUsername !== botUser.username) {
+				if (args.username.length > BOT_USERNAME_BASE_MAX_LENGTH) {
+					throw InputValidationError.fromCode('username', ValidationErrorCodes.USERNAME_LENGTH_INVALID);
+				}
+				await new UsernameChangeRequestService({usernameRegistry: this.deps.usernameRegistry}).submit(
+					botUser,
+					requestedUsername,
+				);
 			}
 		}
 		updates.global_name = null;
