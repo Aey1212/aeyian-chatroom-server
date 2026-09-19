@@ -19,7 +19,7 @@ const DEFAULT_FROM_TAG: &str = "v1";
 const DEFAULT_OUT_DIR: &str = "release-out";
 const RELEASE_COMPONENT: &str = "fluxer-release";
 const COMPOSE_IMAGE_PREFIX: &str =
-    "${FLUXER_REGISTRY:-ghcr.io/${FLUXER_REGISTRY_OWNER:-fluxerapp}}";
+    "${FLUXER_REGISTRY:-ghcr.io/${FLUXER_REGISTRY_OWNER:-aey1212}}";
 const OCI_INDEX_MEDIA_TYPE: &str = "application/vnd.oci.image.index.v1+json";
 const DOCKER_MANIFEST_LIST_MEDIA_TYPE: &str =
     "application/vnd.docker.distribution.manifest.list.v2+json";
@@ -42,16 +42,8 @@ const COMPONENTS: &[Component] = &[
         services: &["api", "worker"],
     },
     Component {
-        image: "fluxer-app-proxy",
-        services: &[],
-    },
-    Component {
         image: "fluxer-app-proxy-self-hosted",
         services: &["app-proxy"],
-    },
-    Component {
-        image: "fluxer-docs",
-        services: &[],
     },
     Component {
         image: "fluxer-gateway",
