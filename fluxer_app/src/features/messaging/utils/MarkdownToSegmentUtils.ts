@@ -38,7 +38,7 @@ export function convertMarkdownToSegments(markdown: string, guildId?: string | n
 			if (prefix === '@') {
 				const user = Users.getUser(id);
 				if (user) {
-					segmentDisplayText = `@${NicknameUtils.formatUserTagForStreamerMode(user)}`;
+					segmentDisplayText = `@${NicknameUtils.formatUserNameForStreamerMode(user)}`;
 					segmentType = 'user';
 					segmentId = id;
 				}

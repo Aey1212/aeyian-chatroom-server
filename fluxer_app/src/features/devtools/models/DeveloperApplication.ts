@@ -3,7 +3,6 @@
 export interface DeveloperApplicationBot {
 	id: string;
 	username: string;
-	discriminator: string;
 	avatar: string | null;
 	bio?: string | null;
 	token?: string;
@@ -45,7 +44,6 @@ export class DeveloperApplication {
 			this.bot = {
 				id: application.bot.id,
 				username: application.bot.username,
-				discriminator: application.bot.discriminator,
 				avatar: application.bot.avatar,
 				bio: application.bot.bio ?? null,
 				token: application.bot.token,

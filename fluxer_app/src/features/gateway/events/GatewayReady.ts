@@ -138,7 +138,6 @@ function handleReadyInternal(data: ReadyPayload, context: GatewayHandlerContext)
 	if (user.id) {
 		const userData = {
 			username: user.username,
-			discriminator: user.discriminator,
 			globalName: user.global_name,
 			email: user.email ?? undefined,
 			avatar: user.avatar ?? undefined,

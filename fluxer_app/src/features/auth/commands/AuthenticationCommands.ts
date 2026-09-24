@@ -82,7 +82,6 @@ export function authResponseUserToUserData(user?: AuthResponseUser | null): User
 	}
 	const userData: UserData = {
 		username: user.username,
-		discriminator: user.discriminator,
 		globalName: user.global_name,
 		avatar: user.avatar,
 	};
@@ -139,7 +138,7 @@ export interface DesktopHandoffInfoResponse {
 }
 
 interface LoginParams {
-	email: string;
+	login: string;
 	password: string;
 	captchaToken?: string;
 	inviteCode?: string;
@@ -165,12 +164,12 @@ function withInviteCode<T extends object>(body: T, inviteCode?: string): T & {in
 	return inviteCode ? {...body, invite_code: inviteCode} : body;
 }
 
-function loginBody({email, password, inviteCode}: Pick<LoginParams, 'email' | 'password' | 'inviteCode'>): {
-	email: string;
+function loginBody({login, password, inviteCode}: Pick<LoginParams, 'login' | 'password' | 'inviteCode'>): {
+	login: string;
 	password: string;
 	invite_code?: string;
 } {
-	return withInviteCode({email, password}, inviteCode);
+	return withInviteCode({login, password}, inviteCode);
 }
 
 function mfaTotpBody(
@@ -247,7 +246,7 @@ function verificationResultFromError(
 }
 
 export async function login({
-	email,
+	login,
 	password,
 	captchaToken,
 	inviteCode,
@@ -255,7 +254,7 @@ export async function login({
 }: LoginParams): Promise<LoginResponse | IpAuthorizationRequiredResponse> {
 	try {
 		const response = await http.post<LoginResponse>(Endpoints.AUTH_LOGIN, {
-			body: loginBody({email, password, inviteCode}),
+			body: loginBody({login, password, inviteCode}),
 			headers: withAuthLocaleHeader(captchaHeaders({captchaToken, captchaType})),
 		});
 		logger.debug('Login successful', {mfa: response.body?.mfa});
@@ -264,7 +263,7 @@ export async function login({
 		if (error instanceof HttpError) {
 			const ipAuthorization = loginIpAuthorizationResponse(error);
 			if (ipAuthorization) {
-				logger.info('Login requires IP authorization', {email});
+				logger.info('Login requires IP authorization', {login});
 				return ipAuthorization;
 			}
 		}
@@ -431,6 +430,21 @@ export async function resetPassword(token: string, password: string): Promise<Re
 		return responseBody;
 	} catch (error) {
 		logger.error('Password reset failed', error);
+		throw error;
+	}
+}
+
+// Sets a new password for an account an admin has opened a password reset for.
+export async function resetOpenedPassword(login: string, password: string): Promise<ResetPasswordResponse> {
+	try {
+		const response = await http.post<ResetPasswordResponse>(Endpoints.AUTH_OPENED_PASSWORD_RESET, {
+			body: {login, password},
+			headers: withAuthLocaleHeader(),
+		});
+		logger.info('Opened password reset successful');
+		return response.body;
+	} catch (error) {
+		logger.error('Opened password reset failed', error);
 		throw error;
 	}
 }

@@ -38,7 +38,6 @@ function userPartialFromCurrentUser(currentUser: User): UserPartial {
 	return {
 		id: currentUser.id,
 		username: currentUser.username,
-		discriminator: currentUser.discriminator,
 		global_name: currentUser.globalName,
 		avatar: currentUser.avatar ?? null,
 		avatar_color: currentUser.avatarColor ?? null,
@@ -50,7 +49,6 @@ function mockUserPartial(id: string, globalName: string): UserPartial {
 	return {
 		id,
 		username: globalName.toLowerCase(),
-		discriminator: '0',
 		global_name: globalName,
 		avatar: null,
 		avatar_color: null,

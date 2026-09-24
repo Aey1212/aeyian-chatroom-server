@@ -83,7 +83,7 @@ export function buildChannelCandidate(
 			const user = Users.getUser(recipientId);
 			if (!user) return null;
 			const title = ChannelUtils.getDMDisplayName(channel);
-			const subtitle = NicknameUtils.formatUserTagForStreamerMode(user);
+			const subtitle = NicknameUtils.formatUserNameForStreamerMode(user);
 			const searchValues = [title, subtitle, user.username, user.id].filter(Boolean);
 			const baseWeight = getChannelRecency(channel);
 			const sortWeight = getChannelSortWeight(channel.id, baseWeight);
@@ -230,7 +230,7 @@ export function buildCandidateSets(i18n: I18n): CandidateSets {
 			const user = relationship.user;
 			if (!userCandidates.has(user.id)) {
 				const title = NicknameUtils.getNickname(user, null);
-				const subtitle = NicknameUtils.formatUserTagForStreamerMode(user);
+				const subtitle = NicknameUtils.formatUserNameForStreamerMode(user);
 				const searchValues = [title, subtitle, user.username, user.id].filter(Boolean);
 				userCandidates.set(user.id, {
 					type: QuickSwitcherResultTypes.USER,
@@ -248,7 +248,7 @@ export function buildCandidateSets(i18n: I18n): CandidateSets {
 			if (user.id === currentUserId) continue;
 			if (!userCandidates.has(user.id)) {
 				const title = NicknameUtils.getNickname(user, null);
-				const subtitle = NicknameUtils.formatUserTagForStreamerMode(user);
+				const subtitle = NicknameUtils.formatUserNameForStreamerMode(user);
 				const searchValues = [title, subtitle, user.username, user.id].filter(Boolean);
 				userCandidates.set(user.id, {
 					type: QuickSwitcherResultTypes.USER,
@@ -271,7 +271,7 @@ export function buildCandidateSets(i18n: I18n): CandidateSets {
 					const title = member.nick
 						? NicknameUtils.formatNicknameForStreamerMode(member.nick)
 						: NicknameUtils.getNickname(member.user, member.guildId);
-					const subtitle = NicknameUtils.formatUserTagForStreamerMode(member.user);
+					const subtitle = NicknameUtils.formatUserNameForStreamerMode(member.user);
 					const searchValues = [title, subtitle, member.user.username, member.user.id, member.nick].filter(
 						Boolean,
 					) as Array<string>;

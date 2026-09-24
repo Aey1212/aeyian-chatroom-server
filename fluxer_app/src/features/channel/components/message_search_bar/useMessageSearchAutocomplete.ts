@@ -777,7 +777,7 @@ export function useMessageSearchAutocomplete({
 			case 'users': {
 				const user = option as User;
 				const filter = requireCurrentFilter();
-				const tag = NicknameUtils.formatUserTagForStreamerMode(user);
+				const tag = NicknameUtils.formatUserNameForStreamerMode(user);
 				replacement = replaceSearchTokenAtCursor({
 					value,
 					cursorPosition,
@@ -866,7 +866,7 @@ export function useMessageSearchAutocomplete({
 					break;
 				}
 				if (row.kind === 'user-suggestion') {
-					const tag = NicknameUtils.formatUserTagForStreamerMode(row.user);
+					const tag = NicknameUtils.formatUserNameForStreamerMode(row.user);
 					replacement = replaceSearchTokenAtCursor({
 						value,
 						cursorPosition,

@@ -27,7 +27,7 @@ import {useEffect, useRef} from 'react';
 
 const FROM_DESCRIPTOR = msg({
 	message: 'From {creatorTag}',
-	comment: 'Sender label on a gift code embed. creatorTag is the FluxerTag of the gift creator.',
+	comment: 'Sender label on a gift code embed. creatorTag is the username of the gift creator.',
 });
 const ALREADY_REDEEMED_DESCRIPTOR = msg({
 	message: 'Already redeemed',

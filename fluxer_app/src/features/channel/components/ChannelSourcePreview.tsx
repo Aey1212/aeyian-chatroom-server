@@ -148,7 +148,7 @@ function renderChannelAvatar(
 		const recipient = recipientId ? Users.getUser(recipientId) : null;
 		if (recipient) {
 			const url = AvatarUtils.getUserAvatarURL({id: recipient.id, avatar: recipient.avatar}, false);
-			return renderAvatarImage({url, label: recipient.tag, size});
+			return renderAvatarImage({url, label: recipient.username, size});
 		}
 		return renderAvatarFallback({
 			label: fallbackLabels.directMessage,

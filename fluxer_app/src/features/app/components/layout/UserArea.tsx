@@ -290,7 +290,7 @@ const UserAreaInner = observer(
 											data-flx="app.user-area.user-area-inner.hover-roll"
 										>
 											<div className={styles.hovered} data-flx="app.user-area.user-area-inner.hovered">
-												{NicknameUtils.formatTagForStreamerMode(user.tag)}
+												{NicknameUtils.formatUsernameForStreamerMode(user.username)}
 											</div>
 											<div className={styles.defaultState} data-flx="app.user-area.user-area-inner.default-state">
 												{customStatus ? (

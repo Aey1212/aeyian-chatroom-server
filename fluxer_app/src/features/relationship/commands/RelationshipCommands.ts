@@ -13,7 +13,7 @@ export interface SendFriendRequestOptions {
 
 type RelationshipCommand =
 	| {kind: 'send'; userId: string; options: SendFriendRequestOptions}
-	| {kind: 'send-by-tag'; username: string; discriminator: string}
+	| {kind: 'send-by-username'; username: string}
 	| {kind: 'accept'; userId: string}
 	| {kind: 'remove'; userId: string}
 	| {kind: 'block'; userId: string}
@@ -40,10 +40,8 @@ async function dispatchRelationshipCommand(command: RelationshipCommand): Promis
 		case 'send':
 			await http.post(Endpoints.USER_RELATIONSHIP(command.userId), {body: friendRequestBody(command.options)});
 			return;
-		case 'send-by-tag':
-			await http.post(Endpoints.USER_RELATIONSHIPS, {
-				body: {username: command.username, discriminator: command.discriminator},
-			});
+		case 'send-by-username':
+			await http.post(Endpoints.USER_RELATIONSHIPS, {body: {username: command.username}});
 			return;
 		case 'accept':
 			await http.put(Endpoints.USER_RELATIONSHIP(command.userId));
@@ -73,11 +71,11 @@ export async function sendFriendRequest(userId: string, options: SendFriendReque
 	}
 }
 
-export async function sendFriendRequestByTag(username: string, discriminator: string) {
+export async function sendFriendRequestByUsername(username: string) {
 	try {
-		await dispatchRelationshipCommand({kind: 'send-by-tag', username, discriminator});
+		await dispatchRelationshipCommand({kind: 'send-by-username', username});
 	} catch (error) {
-		rethrowRelationshipFailure('Failed to send friend request by tag:', error);
+		rethrowRelationshipFailure('Failed to send friend request by username:', error);
 	}
 }
 

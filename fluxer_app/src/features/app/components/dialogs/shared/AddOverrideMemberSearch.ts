@@ -7,8 +7,6 @@ import {matchSorter} from 'match-sorter';
 
 export interface ParsedOverrideMemberQuery {
 	usernameQuery: string;
-	tagQuery: string | null;
-	hasTagSeparator: boolean;
 }
 
 export interface OverrideMemberSelection {
@@ -22,15 +20,7 @@ export interface OverrideMemberSelection {
 }
 
 export function parseOverrideMemberQuery(query: string): ParsedOverrideMemberQuery {
-	const hashIndex = query.indexOf('#');
-	if (hashIndex === -1) {
-		return {usernameQuery: query, tagQuery: null, hasTagSeparator: false};
-	}
-	return {
-		usernameQuery: query.slice(0, hashIndex),
-		tagQuery: query.slice(hashIndex + 1),
-		hasTagSeparator: true,
-	};
+	return {usernameQuery: query};
 }
 
 export function getOverrideMemberLabel(member: GuildMember, guildId: string): string {
@@ -48,24 +38,12 @@ function matchOverrideMembers(
 	guildId: string,
 	parsed: ParsedOverrideMemberQuery,
 ): Array<GuildMember> {
-	if (parsed.hasTagSeparator) {
-		const usernameLower = parsed.usernameQuery.toLowerCase();
-		const tagLower = parsed.tagQuery?.toLowerCase() ?? '';
-		return members.filter((member) => {
-			const nick = member.nick?.toLowerCase() ?? '';
-			const username = member.user.username.toLowerCase();
-			const matchesUsername =
-				usernameLower.length === 0 || username.startsWith(usernameLower) || nick.startsWith(usernameLower);
-			const matchesTag = tagLower.length === 0 || member.user.discriminator.startsWith(tagLower);
-			return matchesUsername && matchesTag;
-		});
-	}
 	const trimmed = parsed.usernameQuery.trim();
 	if (trimmed.length === 0) {
 		return [...members];
 	}
 	return matchSorter([...members], trimmed, {
-		keys: [(member: GuildMember) => getOverrideMemberLabel(member, guildId), 'nick', 'user.username', 'user.tag'],
+		keys: [(member: GuildMember) => getOverrideMemberLabel(member, guildId), 'nick', 'user.username'],
 	});
 }
 

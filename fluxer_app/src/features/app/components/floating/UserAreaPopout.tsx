@@ -300,8 +300,8 @@ const SwitchAccountsMenu = observer(
 						const avatarUrl = getAccountAvatarUrl(account);
 						const displayName = getAccountDisplayName(account, '???');
 						const userData = account.userData;
-						const accountTag = userData
-							? NicknameUtils.formatTagForStreamerMode(`${userData.username}#${userData.discriminator}`)
+						const accountUsername = userData
+							? NicknameUtils.formatUsernameForStreamerMode(`${userData.username}`)
 							: displayName;
 						return (
 							<FocusRing
@@ -341,12 +341,14 @@ const SwitchAccountsMenu = observer(
 											data-flx="app.floating.user-area-popout.switch-accounts-menu.account-menu-tag"
 										>
 											{displayName}
-											<span
-												className={styles.accountMenuDiscriminator}
-												data-flx="app.floating.user-area-popout.switch-accounts-menu.account-menu-discriminator"
-											>
-												{accountTag}
-											</span>
+											{accountUsername !== displayName && (
+												<span
+													className={styles.accountMenuHandle}
+													data-flx="app.floating.user-area-popout.switch-accounts-menu.account-menu-handle"
+												>
+													{accountUsername}
+												</span>
+											)}
 										</span>
 										{isCurrent && (
 											<span
@@ -466,7 +468,7 @@ export const UserAreaPopout = observer(() => {
 		if (!currentUser) {
 			return;
 		}
-		TextCopyCommands.copy(i18n, currentUser.tag);
+		TextCopyCommands.copy(i18n, currentUser.username);
 	}, [currentUser, i18n]);
 	const openManageAccounts = useCallback(() => {
 		ModalCommands.push(

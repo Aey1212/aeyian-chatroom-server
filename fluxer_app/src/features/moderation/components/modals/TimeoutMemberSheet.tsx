@@ -58,7 +58,7 @@ export const TimeoutMemberSheet: React.FC<TimeoutMemberSheetProps> = observer(
 		const timeoutOptions = useMemo(() => getTimeoutDurationOptions(i18n), [i18n.locale]);
 		const [timeoutDuration, setTimeoutDuration] = useState<number>(timeoutOptions[3].value);
 		const [isSubmitting, setIsSubmitting] = useState(false);
-		const targetUserTag = DisplayNameUtils.formatTagForStreamerMode(targetUser.tag);
+		const targetUserTag = DisplayNameUtils.formatUsernameForStreamerMode(targetUser.username);
 		const handleTimeout = useCallback(async () => {
 			setIsSubmitting(true);
 			try {

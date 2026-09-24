@@ -267,7 +267,7 @@ export const MemberTableRow: React.FC<MemberTableRowProps> = observer(
 			[topRole],
 		);
 		const displayName = NicknameUtils.formatNicknameForStreamerMode(member?.nick || data.nickname || data.displayName);
-		const tag = user?.tag ?? data.tag;
+		const tag = user?.username ?? data.username;
 		return (
 			<div
 				className={styles.row}

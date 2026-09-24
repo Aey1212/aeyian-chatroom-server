@@ -37,12 +37,6 @@ const RegisterPageContent = observer(function RegisterPageContent() {
 			</h1>
 			<div className={sharedStyles.container} data-flx="auth.register-page.register-page-content.div">
 				<AuthRegisterFormCore
-					fields={{
-						showEmail: true,
-						showPassword: true,
-						showPasswordConfirmation: true,
-						showUsernameValidation: true,
-					}}
 					submitLabel={<Trans>Create account</Trans>}
 					redirectPath={redirectTo}
 					data-flx="auth.register-page.register-page-content.auth-register-form-core"

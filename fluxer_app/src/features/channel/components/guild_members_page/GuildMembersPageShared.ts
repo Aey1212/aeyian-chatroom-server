@@ -30,7 +30,6 @@ export interface SearchableGuildMember {
 	guild_id: string;
 	user_id: string;
 	username: string;
-	discriminator: string;
 	global_name: string | null;
 	nickname: string | null;
 	role_ids: Array<string>;
@@ -65,9 +64,7 @@ export interface SearchParams {
 export interface MemberDisplayData {
 	userId: string;
 	displayName: string;
-	tag: string;
 	username: string;
-	discriminator: string;
 	nickname: string | null;
 	roleIds: Array<string>;
 	joinedAt: Date;

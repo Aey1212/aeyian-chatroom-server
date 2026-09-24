@@ -123,7 +123,6 @@ const MessagesPreview: React.FC = observer(() => {
 	const author = currentUser?.toJSON() || {
 		id: '1000000000000000030',
 		username: 'PreviewUser',
-		discriminator: '0000',
 		global_name: 'Preview User',
 		avatar: null,
 		avatar_color: null,

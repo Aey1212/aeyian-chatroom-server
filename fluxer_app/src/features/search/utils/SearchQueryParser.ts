@@ -363,7 +363,7 @@ export function resolveSearchChannelDisplayName(channel: {
 	if (channel.isDM()) {
 		const recipientId = channel.getRecipientId();
 		if (recipientId == null) return '';
-		return Users.getUser(recipientId)?.tag ?? '';
+		return Users.getUser(recipientId)?.username ?? '';
 	}
 	return channel.name?.trim() ?? '';
 }

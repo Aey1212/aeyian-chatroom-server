@@ -41,16 +41,16 @@ function toLoginSuccessPayload(response: AuthenticationCommands.AuthTokenRespons
 }
 
 export async function loginWithPassword({
-	email,
+	login,
 	password,
 	inviteCode,
 }: {
-	email: string;
+	login: string;
 	password: string;
 	inviteCode?: string;
 }): Promise<LoginResult> {
 	const response = await AuthenticationCommands.login({
-		email,
+		login,
 		password,
 		inviteCode,
 	});
@@ -212,9 +212,9 @@ export async function registerAccount({
 	giftCode,
 	registrationUrlCode,
 }: {
-	email: string;
+	email?: string;
 	globalName?: string;
-	username?: string;
+	username: string;
 	password: string;
 	dateOfBirth: string;
 	consent: boolean;
@@ -253,7 +253,14 @@ export type PasswordResetResult =
 	| {type: 'mfa'; challenge: MfaChallenge};
 
 export async function resetPassword(token: string, password: string): Promise<PasswordResetResult> {
-	const response = await AuthenticationCommands.resetPassword(token, password);
+	return toPasswordResetResult(await AuthenticationCommands.resetPassword(token, password));
+}
+
+export async function resetOpenedPassword(login: string, password: string): Promise<PasswordResetResult> {
+	return toPasswordResetResult(await AuthenticationCommands.resetOpenedPassword(login, password));
+}
+
+function toPasswordResetResult(response: AuthenticationCommands.ResetPasswordResponse): PasswordResetResult {
 	if ('token' in response) {
 		return {
 			type: 'success',

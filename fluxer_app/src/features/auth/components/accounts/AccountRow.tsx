@@ -54,8 +54,8 @@ export const AccountRow = observer(
 		const avatarUrl = getAccountAvatarUrl(account);
 		const displayName = getAccountDisplayName(account, '???');
 		const userData = account.userData;
-		const accountTag = userData
-			? NicknameUtils.formatTagForStreamerMode(`${userData.username}#${userData.discriminator}`)
+		const accountUsername = userData
+			? NicknameUtils.formatUsernameForStreamerMode(`${userData.username}`)
 			: displayName;
 		const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 		const isContextMenuOpen = useContextMenuHoverState(menuButtonRef, Boolean(onMenuClick));
@@ -99,9 +99,11 @@ export const AccountRow = observer(
 									data-flx="auth.accounts.account-row.user-text"
 								>
 									{displayName}
-									<span className={styles.discriminator} data-flx="auth.accounts.account-row.discriminator">
-										{accountTag}
-									</span>
+									{accountUsername !== displayName && (
+										<span className={styles.handle} data-flx="auth.accounts.account-row.handle">
+											{accountUsername}
+										</span>
+									)}
 								</span>
 							</div>
 						) : (
@@ -113,9 +115,11 @@ export const AccountRow = observer(
 											data-flx="auth.accounts.account-row.user-text--2"
 										>
 											{displayName}
-											<span className={styles.discriminator} data-flx="auth.accounts.account-row.discriminator--2">
-												{accountTag}
-											</span>
+											{accountUsername !== displayName && (
+												<span className={styles.handle} data-flx="auth.accounts.account-row.handle--2">
+													{accountUsername}
+												</span>
+											)}
 										</span>
 									) : (
 										<span
@@ -128,7 +132,7 @@ export const AccountRow = observer(
 								</div>
 								{variant !== 'manage' ? (
 									<span className={clsx('user-text', styles.tag)} data-flx="auth.accounts.account-row.user-text--4">
-										{accountTag}
+										{accountUsername}
 									</span>
 								) : null}
 								{variant === 'manage' && isCurrent ? (

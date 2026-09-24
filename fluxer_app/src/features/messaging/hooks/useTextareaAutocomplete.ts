@@ -743,13 +743,13 @@ export function useTextareaAutocomplete({
 			let segmentId = '';
 			if (isMentionMember(option)) {
 				const user = option.member.user;
-				displayText = `@${NicknameUtils.formatUserTagForStreamerMode(user)}`;
+				displayText = `@${NicknameUtils.formatUserNameForStreamerMode(user)}`;
 				actualText = `<@${user.id}>`;
 				segmentType = 'user';
 				segmentId = user.id;
 				MentionFrecency.recordMention(channel?.guildId ?? null, user.id);
 			} else if (isMentionUser(option)) {
-				displayText = `@${NicknameUtils.formatUserTagForStreamerMode(option.user)}`;
+				displayText = `@${NicknameUtils.formatUserNameForStreamerMode(option.user)}`;
 				actualText = `<@${option.user.id}>`;
 				segmentType = 'user';
 				segmentId = option.user.id;

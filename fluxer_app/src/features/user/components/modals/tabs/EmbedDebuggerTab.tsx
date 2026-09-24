@@ -120,7 +120,6 @@ function createPreviewMessage(url: string, embeds: ReadonlyArray<MessageEmbedRes
 			author: {
 				id: '0',
 				username: 'Embed Debugger',
-				discriminator: '0000',
 				global_name: 'Embed Debugger',
 				avatar: null,
 				avatar_color: null,

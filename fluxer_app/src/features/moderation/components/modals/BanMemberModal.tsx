@@ -108,7 +108,7 @@ export const BanMemberModal: React.FC<{guildId: string; targetUser: User}> = obs
 	const [banDuration, setBanDuration] = useState<number>(0);
 	const [isBanDurationCustom, setIsBanDurationCustom] = useState(false);
 	const [isBanning, setIsBanning] = useState(false);
-	const targetUserTag = DisplayNameUtils.formatTagForStreamerMode(targetUser.tag);
+	const targetUserTag = DisplayNameUtils.formatUsernameForStreamerMode(targetUser.username);
 	const getBanDurationOptions = useCallback(
 		(): ReadonlyArray<ComboboxOption> => [
 			{value: 0, label: i18n._(PERMANENT_DESCRIPTOR)},

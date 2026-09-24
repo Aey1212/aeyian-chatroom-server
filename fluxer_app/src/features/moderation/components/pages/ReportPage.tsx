@@ -159,11 +159,11 @@ export const ReportPage = observer(() => {
 					category: 'category',
 					reporter_full_legal_name: 'reporterFullName',
 					reporter_country_of_residence: 'reporterCountry',
-					reporter_fluxer_tag: 'reporterFluxerTag',
+					reporter_username: 'reporterUsername',
 					message_link: 'messageLink',
-					reported_user_tag: 'messageUserTag',
+					reported_user_username: 'messageUsername',
 					user_id: 'userId',
-					user_tag: 'userTag',
+					username: 'username',
 					guild_id: 'guildId',
 					invite_code: 'inviteCode',
 					additional_info: 'additionalInfo',
@@ -336,7 +336,7 @@ export const ReportPage = observer(() => {
 		dispatch({type: 'CLEAR_FIELD_ERRORS'});
 		const reporterFullName = state.formValues.reporterFullName.trim();
 		const reporterCountry = state.formValues.reporterCountry;
-		const reporterFluxerTag = state.formValues.reporterFluxerTag.trim();
+		const reporterUsername = state.formValues.reporterUsername.trim();
 		const additionalInfo = state.formValues.additionalInfo.trim();
 		if (!state.formValues.category) {
 			dispatch({type: 'SET_ERROR', message: i18n._(SELECT_A_VIOLATION_CATEGORY_DESCRIPTOR)});
@@ -357,7 +357,7 @@ export const ReportPage = observer(() => {
 			reporter_full_legal_name: reporterFullName,
 			reporter_country_of_residence: reporterCountry,
 		};
-		if (reporterFluxerTag) payload.reporter_fluxer_tag = reporterFluxerTag;
+		if (reporterUsername) payload.reporter_username = reporterUsername;
 		if (additionalInfo) payload.additional_info = additionalInfo;
 		switch (state.selectedType) {
 			case 'message': {
@@ -372,14 +372,14 @@ export const ReportPage = observer(() => {
 					return;
 				}
 				payload.message_link = normalized;
-				const reportedUserTag = state.formValues.messageUserTag.trim();
-				if (reportedUserTag) payload.reported_user_tag = reportedUserTag;
+				const reportedUsername = state.formValues.messageUsername.trim();
+				if (reportedUsername) payload.reported_user_username = reportedUsername;
 				break;
 			}
 			case 'user': {
 				const userId = state.formValues.userId.trim();
-				const userTag = state.formValues.userTag.trim();
-				if (!userId && !userTag) {
+				const username = state.formValues.username.trim();
+				if (!userId && !username) {
 					dispatch({
 						type: 'SET_ERROR',
 						message: i18n._(PROVIDE_EITHER_A_USER_ID_OR_A_USERNAME_DESCRIPTOR),
@@ -387,7 +387,7 @@ export const ReportPage = observer(() => {
 					return;
 				}
 				if (userId) payload.user_id = userId;
-				if (userTag) payload.user_tag = userTag;
+				if (username) payload.username = username;
 				break;
 			}
 			case 'guild': {
@@ -426,7 +426,7 @@ export const ReportPage = observer(() => {
 	const messageLinkNormalized = normalizeLikelyUrl(state.formValues.messageLink);
 	const messageLinkOk = state.selectedType !== 'message' ? true : isValidHttpUrl(messageLinkNormalized);
 	const userTargetOk =
-		state.selectedType !== 'user' ? true : Boolean(state.formValues.userId.trim() || state.formValues.userTag.trim());
+		state.selectedType !== 'user' ? true : Boolean(state.formValues.userId.trim() || state.formValues.username.trim());
 	const guildTargetOk = state.selectedType !== 'guild' ? true : Boolean(state.formValues.guildId.trim());
 	const canSubmit =
 		Boolean(category) &&

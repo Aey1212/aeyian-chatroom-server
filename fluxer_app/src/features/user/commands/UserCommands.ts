@@ -15,6 +15,7 @@ import type {HarvestStatusResponse} from '@fluxer/schema/src/domains/user/UserHa
 import type {
 	PasswordChangeCompleteResponse,
 	PhoneGateEscapePreviewResponse,
+	UsernameChangeRequestResponse,
 	UserPrivate,
 } from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 import type {PublicKeyCredentialCreationOptionsJSON, RegistrationResponseJSON} from '@simplewebauthn/browser';
@@ -36,7 +37,7 @@ export type HarvestDataFilter = BulkDeleteMyMessagesFilter;
 
 const logger = new Logger('User');
 
-interface FluxerTagAvailabilityResponse {
+interface UsernameAvailabilityResponse {
 	taken: boolean;
 }
 
@@ -264,21 +265,45 @@ export async function update(user: UserUpdatePayload): Promise<UserUpdateRespons
 	}
 }
 
-export async function checkFluxerTagAvailability({
-	username,
-	discriminator,
-}: {
-	username: string;
-	discriminator: string;
-}): Promise<boolean> {
+export async function checkUsernameAvailability(username: string): Promise<boolean> {
 	try {
-		logger.debug(`Checking availability for FluxerTag ${username}#${discriminator}`);
-		const response = await http.get<FluxerTagAvailabilityResponse>(Endpoints.USER_CHECK_TAG, {
-			query: {username, discriminator},
+		const response = await http.get<UsernameAvailabilityResponse>(Endpoints.USER_CHECK_USERNAME, {
+			query: {username},
 		});
 		return response.body.taken;
 	} catch (error) {
-		logger.error('Failed to check FluxerTag availability:', error);
+		logger.error('Failed to check username availability:', error);
+		throw error;
+	}
+}
+
+export async function getUsernameChangeRequest(): Promise<UsernameChangeRequestResponse['request']> {
+	try {
+		const response = await http.get<UsernameChangeRequestResponse>(Endpoints.USER_USERNAME_CHANGE_REQUEST);
+		return response.body.request;
+	} catch (error) {
+		logger.error('Failed to fetch rename request:', error);
+		throw error;
+	}
+}
+
+export async function submitUsernameChangeRequest(username: string): Promise<UsernameChangeRequestResponse['request']> {
+	try {
+		const response = await http.put<UsernameChangeRequestResponse>(Endpoints.USER_USERNAME_CHANGE_REQUEST, {
+			body: {username},
+		});
+		return response.body.request;
+	} catch (error) {
+		logger.error('Failed to submit rename request:', error);
+		throw error;
+	}
+}
+
+export async function cancelUsernameChangeRequest(): Promise<void> {
+	try {
+		await http.delete(Endpoints.USER_USERNAME_CHANGE_REQUEST);
+	} catch (error) {
+		logger.error('Failed to cancel rename request:', error);
 		throw error;
 	}
 }

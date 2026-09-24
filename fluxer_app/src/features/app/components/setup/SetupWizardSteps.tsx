@@ -576,12 +576,6 @@ export const AdminAccountStep = observer(({theme}: {theme: ThemeType}) => {
 		<section className={styles.step} data-flx="app.self-hosted-setup-wizard-gate.admin-account-step">
 			<div className={styles.accountSetupForm} data-flx="app.self-hosted-setup-wizard-gate.admin-form">
 				<AuthRegisterFormCore
-					fields={{
-						showEmail: true,
-						showPassword: true,
-						showPasswordConfirmation: true,
-						showUsernameValidation: true,
-					}}
 					submitLabel={i18n._(CREATE_ADMIN_ACCOUNT_DESCRIPTOR)}
 					redirectPath=""
 					theme={theme}

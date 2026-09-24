@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import FormField from '@app/features/auth/flow/AuthFormField';
-import {EMAIL_DESCRIPTOR, PASSWORD_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
+import {PASSWORD_DESCRIPTOR, USERNAME_OR_EMAIL_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
 import {Button} from '@app/features/ui/button/Button';
 import {useLingui} from '@lingui/react/macro';
 import type React from 'react';
@@ -45,7 +45,7 @@ export default function AuthLoginEmailPasswordForm({
 	disableSubmit,
 }: Props) {
 	const {i18n} = useLingui();
-	const emailId = useId();
+	const loginId = useId();
 	const passwordId = useId();
 	const isSubmitting = Boolean(form.isSubmitting);
 	const submitDisabled = isLoading || isSubmitting || Boolean(disableSubmit);
@@ -58,9 +58,9 @@ export default function AuthLoginEmailPasswordForm({
 			data-flx="auth.flow.auth-login-core.auth-login-email-password-form.form.submit"
 		>
 			<FormField
-				id={emailId}
-				name="email"
-				type="email"
+				id={loginId}
+				name="login"
+				type="text"
 				autoComplete="username"
 				autoCapitalize="none"
 				autoCorrect="off"
@@ -68,11 +68,11 @@ export default function AuthLoginEmailPasswordForm({
 				spellCheck={false}
 				data-step-focus="true"
 				required
-				label={i18n._(EMAIL_DESCRIPTOR)}
-				value={form.getValue('email')}
-				onChange={(value) => form.setValue('email', value)}
-				error={form.getError('email') || fieldErrors?.get('email')}
-				data-flx="auth.flow.auth-login-core.auth-login-email-password-form.form-field.set-value.email"
+				label={i18n._(USERNAME_OR_EMAIL_DESCRIPTOR)}
+				value={form.getValue('login')}
+				onChange={(value) => form.setValue('login', value)}
+				error={form.getError('login') || fieldErrors?.get('login')}
+				data-flx="auth.flow.auth-login-core.auth-login-email-password-form.form-field.set-value.login"
 			/>
 			<FormField
 				id={passwordId}

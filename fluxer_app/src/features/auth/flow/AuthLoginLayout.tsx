@@ -137,7 +137,7 @@ export const AuthLoginLayout = observer(function AuthLoginLayout({
 	const showLoginFormForAccount = useCallback((account: Account, message?: string | null) => {
 		setShowAccountSelector(false);
 		setSwitchError(message ?? null);
-		setPrefillEmail(account.userData?.email ?? null);
+		setPrefillEmail(account.userData?.email ?? account.userData?.username ?? null);
 	}, []);
 	const handleLoginSuccess = useCallback(
 		async (payload: LoginSuccessPayload) => {
@@ -182,7 +182,7 @@ export const AuthLoginLayout = observer(function AuthLoginLayout({
 	}, [initialEmail]);
 	useEffect(() => {
 		if (prefillEmail !== null) {
-			form.setValue('email', prefillEmail);
+			form.setValue('login', prefillEmail);
 		}
 	}, [form.setValue, prefillEmail]);
 	const handleSelectExistingAccount = useCallback(

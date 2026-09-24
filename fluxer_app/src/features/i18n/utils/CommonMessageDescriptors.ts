@@ -568,6 +568,10 @@ export const USERNAME_DESCRIPTOR = msg({
 	message: 'Username',
 	comment: 'Generic form-field label for a username.',
 });
+export const USERNAME_OR_EMAIL_DESCRIPTOR = msg({
+	message: 'Username or email',
+	comment: 'Label of the sign-in field that accepts either a username or an email address.',
+});
 export const USER_DEBUG_DESCRIPTOR = msg({
 	message: 'User debug',
 	comment: 'Title of the developer-mode user debug modal.',

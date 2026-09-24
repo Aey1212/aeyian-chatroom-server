@@ -153,7 +153,7 @@ export const AddOverridePopout: React.FC<AddOverridePopoutProps> = observer(func
 			return {
 				id: `member-${member.user.id}`,
 				ariaLabel: displayName,
-				searchValues: [displayName, member.user.username, member.user.tag, member.user.id],
+				searchValues: [displayName, member.user.username, member.user.username, member.user.id],
 				onSelect: () => {
 					onSelect(member.user.id, 1, displayName);
 					onClose();

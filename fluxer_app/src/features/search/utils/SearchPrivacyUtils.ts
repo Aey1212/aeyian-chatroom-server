@@ -31,7 +31,7 @@ export function formatSearchHistoryEntryForStreamerMode(entry: SearchHistoryEntr
 	let query = entry.query;
 	const nextUsersByTag: Record<string, string> = {...usersByTag};
 	for (const [tag, userId] of Object.entries(usersByTag)) {
-		const formattedTag = NicknameUtils.formatTagForStreamerMode(tag);
+		const formattedTag = NicknameUtils.formatUsernameForStreamerMode(tag);
 		if (formattedTag === tag) {
 			continue;
 		}

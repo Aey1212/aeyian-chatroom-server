@@ -34,7 +34,6 @@ function toUserPartial(user: UserPartial): UserPartial {
 	return {
 		id: user.id,
 		username: user.username,
-		discriminator: user.discriminator,
 		global_name: user.global_name ?? null,
 		avatar: user.avatar ?? null,
 		avatar_color: user.avatar_color ?? null,

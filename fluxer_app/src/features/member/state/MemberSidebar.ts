@@ -146,7 +146,6 @@ function areMemberUsersEqual(left: UserPartialResponse, right: UserPartialRespon
 		left === right ||
 		(left.id === right.id &&
 			left.username === right.username &&
-			left.discriminator === right.discriminator &&
 			left.global_name === right.global_name &&
 			left.avatar === right.avatar &&
 			left.avatar_color === right.avatar_color &&

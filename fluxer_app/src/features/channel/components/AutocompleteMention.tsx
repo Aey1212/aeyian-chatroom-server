@@ -101,7 +101,7 @@ export const AutocompleteMention = observer(function AutocompleteMention({
 				/>
 			}
 			name={DisplayNameUtils.getGuildMemberNickname(option.member)}
-			description={DisplayNameUtils.formatUserTagForStreamerMode(option.member.user)}
+			description={DisplayNameUtils.formatUserNameForStreamerMode(option.member.user)}
 			isKeyboardSelected={index === keyboardFocusIndex}
 			isHovered={index === hoverIndex}
 			onSelect={() => onSelect(option)}
@@ -125,7 +125,7 @@ export const AutocompleteMention = observer(function AutocompleteMention({
 					/>
 				}
 				name={DisplayNameUtils.getNickname(option.user, nicknameGuildId)}
-				description={DisplayNameUtils.formatUserTagForStreamerMode(option.user)}
+				description={DisplayNameUtils.formatUserNameForStreamerMode(option.user)}
 				isKeyboardSelected={currentIndex === keyboardFocusIndex}
 				isHovered={currentIndex === hoverIndex}
 				onSelect={() => onSelect(option)}

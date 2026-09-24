@@ -17,11 +17,11 @@ import {
 	EMPTY_AUTH_REGISTER_FORM_DRAFT,
 	useAuthRegisterDraftContext,
 } from '@app/features/auth/state/AuthRegisterDraftContext';
-import {EMAIL_DESCRIPTOR, PASSWORD_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
+import {PASSWORD_DESCRIPTOR, USERNAME_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
 import {useLocation} from '@app/features/platform/components/router/RouterReact';
 import {Button} from '@app/features/ui/button/Button';
 import {useUsernameSuggestions} from '@app/features/user/hooks/useUsernameSuggestions';
-import type {ThemeType} from '@fluxer/constants/src/UserConstants';
+import {type ThemeType, USERNAME_MAX_LENGTH} from '@fluxer/constants/src/UserConstants';
 import {msg} from '@lingui/core/macro';
 import {Trans, useLingui} from '@lingui/react/macro';
 import {AnimatePresence, motion} from 'framer-motion';
@@ -56,25 +56,16 @@ const WHAT_SHOULD_PEOPLE_CALL_YOU_DESCRIPTOR = msg({
 	message: 'What should people call you?',
 	comment: 'Question prompt in the authentication auth register form core. Keep the tone plain and specific.',
 });
-const USERNAME_OPTIONAL_DESCRIPTOR = msg({
-	message: 'Username (optional)',
-	comment: 'Short label in the authentication auth register form core. Keep the tone plain and specific.',
+const YOU_SIGN_IN_WITH_IT_DESCRIPTOR = msg({
+	message: 'You sign in with it',
+	comment: 'Placeholder of the required username field on the sign-up form. The username is the login ID.',
 });
-const LEAVE_BLANK_FOR_A_RANDOM_USERNAME_DESCRIPTOR = msg({
-	message: 'Leave blank for a random username',
-	comment: 'Short label in the authentication auth register form core. Keep the tone plain and specific.',
+const EMAIL_OPTIONAL_DESCRIPTOR = msg({
+	message: 'Email (optional)',
+	comment: 'Label of the optional email field on the sign-up form.',
 });
-const MAX_USERNAME_LENGTH = 32;
-
-interface FieldConfig {
-	showEmail?: boolean;
-	showPassword?: boolean;
-	showPasswordConfirmation?: boolean;
-	showUsernameValidation?: boolean;
-}
 
 interface AuthRegisterFormCoreProps {
-	fields?: FieldConfig;
 	submitLabel: React.ReactNode;
 	redirectPath: string;
 	onRegister?: (response: AuthenticationCommands.TokenResponse) => Promise<void>;
@@ -85,7 +76,6 @@ interface AuthRegisterFormCoreProps {
 }
 
 export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
-	fields = {},
 	submitLabel,
 	redirectPath,
 	onRegister,
@@ -95,12 +85,6 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 	theme,
 }: AuthRegisterFormCoreProps) {
 	const {i18n} = useLingui();
-	const {
-		showEmail = false,
-		showPassword = false,
-		showPasswordConfirmation = false,
-		showUsernameValidation = false,
-	} = fields;
 	const location = useLocation();
 	const draftKey = `register:${location.pathname}${location.search}`;
 	const registrationUrlCode = useMemo(() => {
@@ -140,11 +124,9 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 		global_name: initialDraft.formValues.global_name ?? '',
 		username: initialDraft.formValues.username ?? '',
 	};
-	if (showEmail) initialValues.email = initialDraft.formValues.email ?? '';
-	if (showPassword) initialValues.password = initialDraft.formValues.password ?? '';
-	if (showPassword && showPasswordConfirmation) {
-		initialValues.confirm_password = initialDraft.formValues.confirm_password ?? '';
-	}
+	initialValues.email = initialDraft.formValues.email ?? '';
+	initialValues.password = initialDraft.formValues.password ?? '';
+	initialValues.confirm_password = initialDraft.formValues.confirm_password ?? '';
 	const persistDraft = useCallback(
 		(partialDraft: Partial<AuthRegisterFormDraft>) => {
 			const currentDraft = draftRef.current;
@@ -187,7 +169,7 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 		[persistDraft],
 	);
 	const handleRegisterSubmit = async (values: Record<string, string>) => {
-		if (showPasswordConfirmation && showPassword && values.password !== values.confirm_password) {
+		if (values.password !== values.confirm_password) {
 			form.setError('confirm_password', i18n._(PASSWORDS_DO_NOT_MATCH_DESCRIPTOR));
 			return false;
 		}
@@ -201,9 +183,9 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 				: undefined;
 		const response = await AuthenticationCommands.register({
 			global_name: values.global_name || undefined,
-			username: values.username || undefined,
-			email: showEmail ? values.email : undefined,
-			password: showPassword ? values.password : undefined,
+			username: values.username.trim(),
+			email: values.email?.trim() || undefined,
+			password: values.password,
 			date_of_birth: dateOfBirth,
 			consent: effectiveConsent,
 			invite_code: inviteCode,
@@ -232,7 +214,7 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 		initialValues,
 		onSubmit: handleRegisterSubmit,
 		redirectPath,
-		firstFieldName: showEmail ? 'email' : 'global_name',
+		firstFieldName: 'username',
 	});
 	const setDraftedFormValue = useCallback(
 		(fieldName: string, value: string) => {
@@ -251,39 +233,29 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 	});
 	const missingFields = useMemo(() => {
 		const missing: Array<MissingField> = [];
-		if (showEmail && !form.getValue('email')) {
-			missing.push({key: 'email', label: i18n._(EMAIL_DESCRIPTOR)});
+		if (!form.getValue('username')?.trim()) {
+			missing.push({key: 'username', label: i18n._(USERNAME_DESCRIPTOR)});
 		}
-		if (showPassword && !form.getValue('password')) {
+		if (!form.getValue('password')) {
 			missing.push({key: 'password', label: i18n._(PASSWORD_DESCRIPTOR)});
 		}
-		if (showPassword && showPasswordConfirmation && !form.getValue('confirm_password')) {
+		if (!form.getValue('confirm_password')) {
 			missing.push({key: 'confirm_password', label: i18n._(CONFIRM_PASSWORD_DESCRIPTOR)});
 		}
 		if (collectDateOfBirth && (!selectedMonth || !selectedDay || !selectedYear)) {
 			missing.push({key: 'date_of_birth', label: i18n._(DATE_OF_BIRTH_DESCRIPTOR)});
 		}
 		return missing;
-	}, [
-		form,
-		selectedMonth,
-		selectedDay,
-		selectedYear,
-		showEmail,
-		showPassword,
-		showPasswordConfirmation,
-		collectDateOfBirth,
-		i18n.locale,
-	]);
+	}, [form, selectedMonth, selectedDay, selectedYear, collectDateOfBirth, i18n.locale]);
 	type HelperTextState = {type: 'error'; message: string} | {type: 'suggestion'; username: string} | null;
 	const usernameValue = form.getValue('username');
 	const helperTextState = useMemo<HelperTextState>(() => {
 		const trimmed = usernameValue?.trim() || '';
-		if (showUsernameValidation && trimmed.length > 0) {
-			if (trimmed.length > MAX_USERNAME_LENGTH) {
+		if (trimmed.length > 0) {
+			if (trimmed.length > USERNAME_MAX_LENGTH) {
 				return {
 					type: 'error',
-					message: i18n._(USERNAME_MUST_BE_CHARACTERS_OR_LESS_DESCRIPTOR, {maxUsernameLength: MAX_USERNAME_LENGTH}),
+					message: i18n._(USERNAME_MUST_BE_CHARACTERS_OR_LESS_DESCRIPTOR, {maxUsernameLength: USERNAME_MAX_LENGTH}),
 				};
 			}
 			if (!/^[a-zA-Z0-9_]+$/.test(trimmed)) {
@@ -294,7 +266,7 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 			return {type: 'suggestion', username: suggestions[0]};
 		}
 		return null;
-	}, [usernameValue, suggestions, showUsernameValidation, i18n.locale]);
+	}, [usernameValue, suggestions, i18n.locale]);
 	const submitDisabled =
 		isLoading ||
 		form.isSubmitting ||
@@ -321,39 +293,15 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 					<Trans>Your account request is pending approval. You can sign in after an admin approves it.</Trans>
 				</div>
 			) : null}
-			{showEmail && (
-				<FormField
-					id={emailId}
-					name="email"
-					type="email"
-					autoComplete="email"
-					required
-					label={i18n._(EMAIL_DESCRIPTOR)}
-					value={form.getValue('email')}
-					onChange={(value) => setDraftedFormValue('email', value)}
-					error={form.getError('email') || fieldErrors?.get('email')}
-					data-flx="auth.flow.auth-register-form-core.form-field.set-drafted-form-value.email"
-				/>
-			)}
-			<FormField
-				id={globalNameId}
-				name="global_name"
-				type="text"
-				label={i18n._(DISPLAY_NAME_OPTIONAL_DESCRIPTOR)}
-				placeholder={i18n._(WHAT_SHOULD_PEOPLE_CALL_YOU_DESCRIPTOR)}
-				value={form.getValue('global_name')}
-				onChange={(value) => setDraftedFormValue('global_name', value)}
-				error={form.getError('global_name') || fieldErrors?.get('global_name')}
-				data-flx="auth.flow.auth-register-form-core.form-field.set-drafted-form-value.text"
-			/>
 			<div data-flx="auth.flow.auth-register-form-core.div">
 				<FormField
 					id={usernameId}
 					name="username"
 					type="text"
 					autoComplete="username"
-					label={i18n._(USERNAME_OPTIONAL_DESCRIPTOR)}
-					placeholder={i18n._(LEAVE_BLANK_FOR_A_RANDOM_USERNAME_DESCRIPTOR)}
+					required
+					label={i18n._(USERNAME_DESCRIPTOR)}
+					placeholder={i18n._(YOU_SIGN_IN_WITH_IT_DESCRIPTOR)}
 					value={usernameValue}
 					onChange={(value) => setDraftedFormValue('username', value)}
 					error={form.getError('username') || fieldErrors?.get('username')}
@@ -396,34 +344,52 @@ export const AuthRegisterFormCore = observer(function AuthRegisterFormCore({
 					)}
 				</AnimatePresence>
 			</div>
-			{showPassword && (
-				<FormField
-					id={passwordId}
-					name="password"
-					type="password"
-					autoComplete="new-password"
-					required
-					label={i18n._(PASSWORD_DESCRIPTOR)}
-					value={form.getValue('password')}
-					onChange={(value) => setDraftedFormValue('password', value)}
-					error={form.getError('password') || fieldErrors?.get('password')}
-					data-flx="auth.flow.auth-register-form-core.form-field.set-drafted-form-value.password"
-				/>
-			)}
-			{showPassword && showPasswordConfirmation && (
-				<FormField
-					id={confirmPasswordId}
-					name="confirm_password"
-					type="password"
-					autoComplete="new-password"
-					required
-					label={i18n._(CONFIRM_PASSWORD_DESCRIPTOR)}
-					value={form.getValue('confirm_password')}
-					onChange={(value) => setDraftedFormValue('confirm_password', value)}
-					error={form.getError('confirm_password')}
-					data-flx="auth.flow.auth-register-form-core.form-field.set-drafted-form-value.password--2"
-				/>
-			)}
+			<FormField
+				id={globalNameId}
+				name="global_name"
+				type="text"
+				label={i18n._(DISPLAY_NAME_OPTIONAL_DESCRIPTOR)}
+				placeholder={i18n._(WHAT_SHOULD_PEOPLE_CALL_YOU_DESCRIPTOR)}
+				value={form.getValue('global_name')}
+				onChange={(value) => setDraftedFormValue('global_name', value)}
+				error={form.getError('global_name') || fieldErrors?.get('global_name')}
+				data-flx="auth.flow.auth-register-form-core.form-field.set-drafted-form-value.text"
+			/>
+			<FormField
+				id={passwordId}
+				name="password"
+				type="password"
+				autoComplete="new-password"
+				required
+				label={i18n._(PASSWORD_DESCRIPTOR)}
+				value={form.getValue('password')}
+				onChange={(value) => setDraftedFormValue('password', value)}
+				error={form.getError('password') || fieldErrors?.get('password')}
+				data-flx="auth.flow.auth-register-form-core.form-field.set-drafted-form-value.password"
+			/>
+			<FormField
+				id={confirmPasswordId}
+				name="confirm_password"
+				type="password"
+				autoComplete="new-password"
+				required
+				label={i18n._(CONFIRM_PASSWORD_DESCRIPTOR)}
+				value={form.getValue('confirm_password')}
+				onChange={(value) => setDraftedFormValue('confirm_password', value)}
+				error={form.getError('confirm_password')}
+				data-flx="auth.flow.auth-register-form-core.form-field.set-drafted-form-value.password--2"
+			/>
+			<FormField
+				id={emailId}
+				name="email"
+				type="email"
+				autoComplete="email"
+				label={i18n._(EMAIL_OPTIONAL_DESCRIPTOR)}
+				value={form.getValue('email')}
+				onChange={(value) => setDraftedFormValue('email', value)}
+				error={form.getError('email') || fieldErrors?.get('email')}
+				data-flx="auth.flow.auth-register-form-core.form-field.set-drafted-form-value.email"
+			/>
 			{collectDateOfBirth ? (
 				<DateOfBirthField
 					selectedMonth={selectedMonth}

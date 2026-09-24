@@ -55,7 +55,6 @@ export interface SignedInView {
 	userId: string;
 	displayName: string;
 	username: string;
-	discriminator: string;
 	avatarUrl: string | undefined;
 }
 

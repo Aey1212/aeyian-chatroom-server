@@ -127,13 +127,6 @@
 	overflow-wrap: break-word;
 }
 
-.discriminator {
-	font-weight: 500;
-	font-size: 1.5rem;
-	line-height: 2rem;
-	color: var(--text-tertiary);
-}
-
 .fullTag {
 	font-weight: 500;
 	color: var(--text-tertiary);

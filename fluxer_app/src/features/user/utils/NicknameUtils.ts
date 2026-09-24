@@ -25,12 +25,12 @@ export function formatNameForStreamerMode(name: string): string {
 	return StreamerMode.shouldTruncateUsernames ? truncateStreamerModeName(name) : name;
 }
 
-export function formatTagForStreamerMode(tag: string): string {
-	return StreamerMode.shouldTruncateUsernames ? truncateStreamerModeName(tag) : tag;
+export function formatUsernameForStreamerMode(username: string): string {
+	return StreamerMode.shouldTruncateUsernames ? truncateStreamerModeName(username) : username;
 }
 
-export function formatUserTagForStreamerMode(user: Pick<User, 'tag' | 'username' | 'discriminator'>): string {
-	return formatTagForStreamerMode(user.tag || `${user.username}#${user.discriminator}`);
+export function formatUserNameForStreamerMode(user: Pick<User, 'username'>): string {
+	return formatUsernameForStreamerMode(user.username);
 }
 
 export function formatNicknameForStreamerMode(nickname: string): string {

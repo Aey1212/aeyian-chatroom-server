@@ -32,7 +32,7 @@ export const UserIdentityRow = observer(
 						{displayName}
 					</span>
 					<span className={styles.tag} data-flx="user.user-identity-row.tag">
-						{user.tag}
+						{user.username}
 					</span>
 				</flx-user-identity-row-info>
 			</>

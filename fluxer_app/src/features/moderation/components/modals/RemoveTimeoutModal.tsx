@@ -25,7 +25,7 @@ interface RemoveTimeoutModalProps {
 export const RemoveTimeoutModal: React.FC<RemoveTimeoutModalProps> = observer(({guildId, targetUser}) => {
 	const {i18n} = useLingui();
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const targetUserTag = DisplayNameUtils.formatTagForStreamerMode(targetUser.tag);
+	const targetUserTag = DisplayNameUtils.formatUsernameForStreamerMode(targetUser.username);
 	const handleRemove = async () => {
 		setIsSubmitting(true);
 		try {

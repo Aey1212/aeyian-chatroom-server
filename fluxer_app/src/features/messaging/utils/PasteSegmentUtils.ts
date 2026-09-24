@@ -53,7 +53,7 @@ export function detectPastedSegments(
 			type = 'user';
 			const user = lookups.userById(id);
 			if (user) {
-				displayText = `@${NicknameUtils.formatTagForStreamerMode(user.tag)}`;
+				displayText = `@${NicknameUtils.formatUsernameForStreamerMode(user.tag)}`;
 			}
 		} else if (prefix === '#') {
 			type = 'channel';

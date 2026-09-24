@@ -93,7 +93,7 @@
 	white-space: nowrap;
 }
 
-.discriminator {
+.handle {
 	flex-shrink: 0;
 	font-weight: 400;
 	color: color-mix(in srgb, var(--text-primary) 50%, transparent);

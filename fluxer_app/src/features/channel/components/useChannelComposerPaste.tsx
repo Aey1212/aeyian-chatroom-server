@@ -127,7 +127,7 @@ export function useChannelComposerPaste({
 			const lookups: LookupFunctions = {
 				userById: (id: string) => {
 					const user = Users.getUser(id);
-					return user ? {id: user.id, tag: user.tag} : null;
+					return user ? {id: user.id, tag: user.username} : null;
 				},
 				channelById: (id: string) => {
 					const foundChannel = Channels.getChannel(id);
