@@ -6,9 +6,8 @@ import {type IUsernameRegistry, normalizeUsername} from '@app/api/user/UsernameR
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
 
-// What a rename does to the name it leaves behind.
-// PROVISIONAL, pending Aey's decision (asked 2026-09-19): 'locked' keeps the old name reserved
-// like a deleted account's, until an admin releases it; 'free' releases it immediately.
+// What a rename does to the name it leaves behind: 'locked' keeps the old name reserved like a
+// deleted account's, until an admin releases it; 'free' releases it immediately.
 export const OLD_USERNAME_AFTER_RENAME: 'locked' | 'free' = 'locked';
 
 interface UsernameChangeDeps {
