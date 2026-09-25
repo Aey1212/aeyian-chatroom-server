@@ -21,7 +21,6 @@ export const GuildSidebar = observer(({header, content, roundTopLeft = true}: Gu
 		mobileLayout.enabled &&
 		(location.pathname === Routes.ME ||
 			location.pathname === Routes.FAVORITES ||
-			Routes.isDiscoverRoute(location.pathname) ||
 			location.pathname === Routes.NOTIFICATIONS ||
 			location.pathname === Routes.YOU ||
 			(Routes.isGuildChannelRoute(location.pathname) && location.pathname.split('/').length === 3));

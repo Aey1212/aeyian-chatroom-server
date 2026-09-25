@@ -5,7 +5,6 @@ import {GuildChannelRouter} from '@app/app/router/components/GuildChannelRouter'
 import {rootRoute} from '@app/app/router/routes/RootRoutes';
 import {AppBadge} from '@app/features/app/components/AppNotificationBadge';
 import {AppLayout} from '@app/features/app/components/layout/AppLayout';
-import {DiscoveryLayout} from '@app/features/app/components/layout/DiscoveryLayout';
 import {FavoritesLayout} from '@app/features/app/components/layout/FavoritesLayout';
 import {GuildsLayout} from '@app/features/app/components/layout/GuildsLayout';
 import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
@@ -17,7 +16,7 @@ import Channels from '@app/features/channel/state/Channels';
 import {setPathQueryParams} from '@app/features/messaging/utils/MessagingUrlUtils';
 import SelectedChannel from '@app/features/navigation/state/SelectedChannel';
 import {navigateToLinkedUserProfile} from '@app/features/navigation/utils/DeepLinkUtils';
-import {getDirectMessagesFallbackPath} from '@app/features/navigation/utils/DefaultLandingUtils';
+import {getDefaultLandingPath, getDirectMessagesFallbackPath} from '@app/features/navigation/utils/DefaultLandingUtils';
 import {
 	createDefaultLoadableComponent,
 	createNamedLoadableComponent,
@@ -204,11 +203,12 @@ const meRoute = createRoute({
 		return <DMLayout data-flx="app.router.app-routes.dm-layout--3" />;
 	}),
 });
+// Explore (guild discovery) was removed; old links land on the default page.
 const discoverRoute = createRoute({
 	getParentRoute: () => guildsLayoutRoute,
 	id: 'discover',
 	path: '/channels/@discover',
-	component: () => <DiscoveryLayout data-flx="app.router.app-routes.discovery-layout" />,
+	onEnter: () => new Redirect(getDefaultLandingPath()),
 });
 const userProfileRoute = createRoute({
 	getParentRoute: () => appLayoutRoute,

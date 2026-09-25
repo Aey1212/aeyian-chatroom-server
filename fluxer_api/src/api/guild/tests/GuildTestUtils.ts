@@ -31,10 +31,6 @@ export async function leaveGuild(harness: ApiTestHarness, token: string, guildId
 	await createBuilder(harness, token).delete(`/users/@me/guilds/${guildId}`).expect(204).execute();
 }
 
-export async function getUserGuilds(harness: ApiTestHarness, token: string): Promise<Array<GuildResponse>> {
-	return createBuilder<Array<GuildResponse>>(harness, token).get('/users/@me/guilds').execute();
-}
-
 export async function createChannel(
 	harness: ApiTestHarness,
 	token: string,

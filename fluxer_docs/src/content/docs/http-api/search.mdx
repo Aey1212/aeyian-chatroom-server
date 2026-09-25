@@ -6,7 +6,7 @@ description: Global message search, its scope resolution, filter vocabulary, and
 
 import RouteHeader from '@/components/RouteHeader.astro';
 
-Message search matches indexed messages against a text query and a filter set. One request covers a single channel, one guild, the caller's private channels, or several of those at once. The [Guild member search resource](/http-api/guild-member-search/) defines guild member search, and the [Discovery resource](/http-api/discovery/) defines discoverable guild search.
+Message search matches indexed messages against a text query and a filter set. One request covers a single channel, one guild, the caller's private channels, or several of those at once. The [Guild member search resource](/http-api/guild-member-search/) defines guild member search.
 
 Fluxer resolves the requested scope to the set of channels the caller may search, then runs the query over that set. A private channel search covers the authenticated account alone, and the set holds a guild channel only while the caller can read its history.
 

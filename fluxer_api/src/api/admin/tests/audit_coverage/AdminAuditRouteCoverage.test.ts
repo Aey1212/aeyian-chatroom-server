@@ -10,7 +10,6 @@ import {AuditLogAdminAuditCases} from '@app/api/admin/tests/audit_coverage/Audit
 import {BanAdminAuditCases} from '@app/api/admin/tests/audit_coverage/BanAdminAuditCases';
 import {BulkAdminAuditCases} from '@app/api/admin/tests/audit_coverage/BulkAdminAuditCases';
 import {CodesAdminAuditCases} from '@app/api/admin/tests/audit_coverage/CodesAdminAuditCases';
-import {DiscoveryAdminAuditCases} from '@app/api/admin/tests/audit_coverage/DiscoveryAdminAuditCases';
 import {GatewayAdminAuditCases} from '@app/api/admin/tests/audit_coverage/GatewayAdminAuditCases';
 import {GuildAdminAuditCases} from '@app/api/admin/tests/audit_coverage/GuildAdminAuditCases';
 import {InstanceConfigAdminAuditCases} from '@app/api/admin/tests/audit_coverage/InstanceConfigAdminAuditCases';
@@ -36,7 +35,6 @@ const ALL_CASES = [
 	...BanAdminAuditCases,
 	...BulkAdminAuditCases,
 	...CodesAdminAuditCases,
-	...DiscoveryAdminAuditCases,
 	...GatewayAdminAuditCases,
 	...GuildAdminAuditCases,
 	...InstanceConfigAdminAuditCases,

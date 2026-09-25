@@ -26,9 +26,7 @@ import {GatewayRequestService} from '@app/api/gateway/GatewayRequestService';
 import {GifService} from '@app/api/gif/GifService';
 import {createNatsGifProvider} from '@app/api/gif/NatsGifProvider';
 import {GuildAuditLogService} from '@app/api/guild/GuildAuditLogService';
-import {GuildDiscoveryRepository} from '@app/api/guild/repositories/GuildDiscoveryRepository';
 import {GuildRepository} from '@app/api/guild/repositories/GuildRepository';
-import {GuildDiscoveryService} from '@app/api/guild/services/GuildDiscoveryService';
 import {AssetDeletionQueue} from '@app/api/infrastructure/AssetDeletionQueue';
 import {AvatarService} from '@app/api/infrastructure/AvatarService';
 import {CachePurgeQueue, type IPurgeQueue, NoopPurgeQueue} from '@app/api/infrastructure/CachePurgeQueue';
@@ -73,7 +71,6 @@ import {ReadStateRepository} from '@app/api/read_state/ReadStateRepository';
 import {ReadStateRequestService} from '@app/api/read_state/ReadStateRequestService';
 import {ReadStateService} from '@app/api/read_state/ReadStateService';
 import {ReportRepository} from '@app/api/report/ReportRepository';
-import {getGuildSearchService} from '@app/api/SearchFactory';
 import {ThemeService} from '@app/api/theme/ThemeService';
 import {EntranceSoundPlayService} from '@app/api/user/entrance_sound/EntranceSoundPlayService';
 import {EntranceSoundRepository} from '@app/api/user/entrance_sound/EntranceSoundRepository';
@@ -121,7 +118,6 @@ export const getAdminArchiveRepository = singleton(() => new AdminArchiveReposit
 export const getVoiceRepository = singleton(() => new VoiceRepository());
 export const getApplicationRepository = singleton(() => new ApplicationRepository());
 export const getOAuth2TokenRepository = singleton(() => new OAuth2TokenRepository());
-export const getGuildDiscoveryRepository = singleton(() => new GuildDiscoveryRepository());
 export const getEmailChangeRepository = singleton(() => new EmailChangeRepository());
 export const getPasswordChangeRepository = singleton(() => new PasswordChangeRepository());
 const getUserContactChangeLogRepository = singleton(() => new UserContactChangeLogRepository());
@@ -469,15 +465,6 @@ export const getEntranceSoundPlayService = singleton(
 	() => new EntranceSoundPlayService(getEntranceSoundService(), getGatewayService(), getChannelRepository()),
 );
 export const getGatewayRequestService = singleton(() => new GatewayRequestService(getBotAuthService()));
-export const getGuildDiscoveryService = singleton(
-	() =>
-		new GuildDiscoveryService(
-			getGuildDiscoveryRepository(),
-			getGuildRepository(),
-			getGatewayService(),
-			getGuildSearchService(),
-		),
-);
 export const getReadStateRequestService = singleton(() => new ReadStateRequestService(getReadStateService()));
 export const getUserCacheService = singleton(() => createUserCacheService());
 

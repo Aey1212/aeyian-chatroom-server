@@ -300,7 +300,6 @@ Fluxer produces at most one entry for each distinct pair of `path` and `code`, s
 | [Expressions](/http-api/expressions/) | Emoji and sticker metadata reads across both |
 | [Guild audit logs](/http-api/guild-audit-logs/) | Audit entries, typed targets, contexts, changes, filters, the audit reason contract |
 | [Roles and permissions](/http-api/permissions/) | Permission flags, computation order, role objects and lifecycle |
-| [Discovery](/http-api/discovery/) | Public guild listings, categories, the listing application lifecycle, joining without an invite |
 | [Invites](/http-api/invites/) | Invite lookup, creation, acceptance, deletion, code generation |
 | [Webhooks](/http-api/webhooks/) | Webhook management, message execution, GitHub, Slack, and Instatus callbacks |
 | [Search](/http-api/search/) | Authenticated global message search |

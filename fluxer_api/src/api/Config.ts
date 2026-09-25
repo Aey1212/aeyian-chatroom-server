@@ -505,10 +505,6 @@ export function buildAPIConfigFromMaster(master: MasterConfig): APIConfig {
 		domain: {
 			baseDomain: master.domain.base_domain,
 		},
-		discovery: {
-			enabled: master.discovery.enabled,
-			minMemberCount: master.discovery.min_member_count,
-		},
 		dev: {
 			relaxRegistrationRateLimits: master.dev.relax_registration_rate_limits,
 			disableRateLimits: master.dev.disable_rate_limits,

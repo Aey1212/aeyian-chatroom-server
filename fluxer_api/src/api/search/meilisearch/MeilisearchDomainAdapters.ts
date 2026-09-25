@@ -143,14 +143,6 @@ function buildGuildFilters(filters: GuildSearchFilters): Array<MeilisearchFilter
 	if (filters.nsfwLevel !== undefined) clauses.push(meiliTermFilter('nsfwLevel', filters.nsfwLevel));
 	if (filters.hasFeature && filters.hasFeature.length > 0)
 		clauses.push(...meiliAndTerms('features', filters.hasFeature));
-	if (filters.isDiscoverable !== undefined) clauses.push(meiliTermFilter('isDiscoverable', filters.isDiscoverable));
-	if (filters.discoveryCategory !== undefined)
-		clauses.push(meiliTermFilter('discoveryCategory', filters.discoveryCategory));
-	if (filters.discoveryPrimaryLanguage !== undefined)
-		clauses.push(meiliTermFilter('discoveryPrimaryLanguage', filters.discoveryPrimaryLanguage));
-	if (filters.discoveryTag !== undefined && filters.discoveryTag.length > 0) {
-		clauses.push(meiliTermFilter('discoveryTags', filters.discoveryTag.toLowerCase()));
-	}
 	return compactMeiliFilters(clauses);
 }
 

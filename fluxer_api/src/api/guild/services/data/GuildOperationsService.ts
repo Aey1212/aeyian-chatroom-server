@@ -9,7 +9,6 @@ import {BatchBuilder} from '@app/api/database/CassandraQueryExecution';
 import type {PermissionOverwrite} from '@app/api/database/types/ChannelTypes';
 import type {GuildRow} from '@app/api/database/types/GuildTypes';
 import {mapGuildToGuildResponse, mapGuildToPartialResponse} from '@app/api/guild/GuildModel';
-import type {IGuildDiscoveryRepository} from '@app/api/guild/repositories/GuildDiscoveryRepository';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import type {GuildDataHelpers} from '@app/api/guild/services/data/GuildDataHelpers';
 import {contentModerationService} from '@app/api/infrastructure/ContentModerationService';
@@ -25,7 +24,6 @@ import type {RequestCache} from '@app/api/middleware/RequestCacheMiddleware';
 import {Guild} from '@app/api/models/Guild';
 import type {User} from '@app/api/models/User';
 import {getGuildSearchService} from '@app/api/SearchFactory';
-import type {GuildDiscoveryContext} from '@app/api/search/guild/GuildSearchSerializer';
 import {deleteChannelMessageSearchDocuments} from '@app/api/search/MessageSearchIndexCleanup';
 import {Channels, ChannelsByGuild, GuildMembers, GuildMembersByUserId, GuildRoles, Guilds} from '@app/api/Tables';
 import type {IUserRepository} from '@app/api/user/IUserRepository';
@@ -34,7 +32,6 @@ import {addGuildToUncategorizedFolder, removeGuildFromUserFolders} from '@app/ap
 import type {IWebhookRepository} from '@app/api/webhook/IWebhookRepository';
 import {AuditLogActionType} from '@fluxer/constants/src/AuditLogActionType';
 import {ALL_PERMISSIONS, ChannelTypes, DEFAULT_PERMISSIONS, Permissions} from '@fluxer/constants/src/ChannelConstants';
-import {DiscoveryApplicationStatus} from '@fluxer/constants/src/DiscoveryConstants';
 import {
 	ContentWarningLevel,
 	GuildFeatures,
@@ -178,7 +175,6 @@ export class GuildOperationsService {
 		private readonly webhookRepository: IWebhookRepository,
 		private readonly helpers: GuildDataHelpers,
 		private readonly limitConfigService: LimitConfigService,
-		private readonly discoveryRepository: IGuildDiscoveryRepository,
 	) {}
 
 	async getGuild({userId, guildId}: {userId: UserID; guildId: GuildID}): Promise<GuildResponse> {
@@ -619,19 +615,7 @@ export class GuildOperationsService {
 		await this.helpers.dispatchGuildUpdate(updatedGuild);
 		const guildSearchService = getGuildSearchService();
 		if (guildSearchService) {
-			let discoveryContext: GuildDiscoveryContext | undefined;
-			if (updatedGuild.features.has(GuildFeatures.DISCOVERABLE)) {
-				const discoveryRow = await this.discoveryRepository.findByGuildId(updatedGuild.id).catch(() => null);
-				if (discoveryRow?.status === DiscoveryApplicationStatus.APPROVED) {
-					discoveryContext = {
-						description: discoveryRow.description,
-						categoryId: discoveryRow.category_type,
-						primaryLanguage: discoveryRow.primary_language ?? null,
-						tags: discoveryRow.custom_tags ?? [],
-					};
-				}
-			}
-			await guildSearchService.updateGuild(updatedGuild, discoveryContext).catch((error) => {
+			await guildSearchService.updateGuild(updatedGuild).catch((error) => {
 				Logger.error({guildId: updatedGuild.id, error}, 'Failed to update guild in search');
 			});
 		}
@@ -782,10 +766,6 @@ export class GuildOperationsService {
 			channels.map((channel) => deleteChannelMessageSearchDocuments(channel.id, {context: {source: 'guild_delete'}})),
 		);
 		await Promise.all(channels.map((channel) => this.channelService.attachments.purgeChannelAttachments(channel)));
-		const discoveryRow = await this.discoveryRepository.findByGuildId(guildId);
-		if (discoveryRow) {
-			await this.discoveryRepository.deleteByGuildId(guildId, discoveryRow.status, discoveryRow.applied_at);
-		}
 		await this.guildRepository.delete(guildId, guild.ownerId);
 		await this.gatewayService.stopGuild(guildId);
 		const guildSearchService = getGuildSearchService();

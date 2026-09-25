@@ -2,7 +2,6 @@
 
 import type {GuildID} from '@app/api/BrandedTypes';
 import type {Guild} from '@app/api/models/Guild';
-import type {GuildDiscoveryContext} from '@app/api/search/guild/GuildSearchSerializer';
 import type {
 	ISearchAdapter as SchemaISearchAdapter,
 	SearchOptions as SchemaSearchOptions,
@@ -11,9 +10,9 @@ import type {
 import type {GuildSearchFilters, SearchableGuild} from '@fluxer/schema/src/contracts/search/SearchDocumentTypes';
 
 export interface IGuildSearchService extends SchemaISearchAdapter<GuildSearchFilters, SearchableGuild> {
-	indexGuild(guild: Guild, discovery?: GuildDiscoveryContext): Promise<void>;
+	indexGuild(guild: Guild): Promise<void>;
 	indexGuilds(guilds: Array<Guild>): Promise<void>;
-	updateGuild(guild: Guild, discovery?: GuildDiscoveryContext): Promise<void>;
+	updateGuild(guild: Guild): Promise<void>;
 	deleteGuild(guildId: GuildID): Promise<void>;
 	deleteGuilds(guildIds: Array<GuildID>): Promise<void>;
 	searchGuilds(

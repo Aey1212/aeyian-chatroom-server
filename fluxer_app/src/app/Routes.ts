@@ -65,7 +65,6 @@ export const Routes = {
 		pathname === Routes.YOU,
 	isDMRoute: (pathname: string) => pathname.startsWith('/channels/@me'),
 	isFavoritesRoute: (pathname: string) => pathname.startsWith('/channels/@favorites'),
-	isDiscoverRoute: (pathname: string) => pathname.startsWith('/channels/@discover'),
 	isChannelRoute: (pathname: string) => pathname.startsWith('/channels/'),
 	isGuildChannelRoute: (pathname: string) =>
 		pathname.startsWith('/channels/') &&

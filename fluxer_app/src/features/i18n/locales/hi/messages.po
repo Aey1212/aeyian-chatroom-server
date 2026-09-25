@@ -41,11 +41,6 @@ msgstr "(असाइन नहीं किया गया)"
 msgid "(you)"
 msgstr "(आप)"
 
-#. placeholder {0}: guild.member_count
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:184
-msgid "{0, plural, one {# member} other {# members}}"
-msgstr "{0, plural, one {# सदस्य} other {# सदस्य}}"
-
 #. Screen reader announcement in the composer when two people are typing. {a} and {b} are their display names.
 #: src/features/typing/rolling/RollingTypingText.tsx:19
 #: src/features/typing/rolling/RollingTypingText.tsx:54
@@ -834,11 +829,6 @@ msgstr "{authorNickname} चाहते हैं कि जवाब में
 msgid "{backgroundCount} / {maxBackgroundImages} {backgroundCount, plural, one {custom background} other {custom backgrounds}}"
 msgstr "{backgroundCount} / {maxBackgroundImages} {backgroundCount, plural, one {कस्टम बैकग्राउंड} other {कस्टम बैकग्राउंड}}"
 
-#. Accessible label for a category row in the Discovery search sidebar. {categoryLabel} is the category name and {count} is how many communities match the current search in it. Both are inserted by code.
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:37
-msgid "{categoryLabel}, {count, plural, one {# community} other {# communities}}"
-msgstr "{categoryLabel}, {count, plural, one {# कम्युनिटी} other {# कम्युनिटी}}"
-
 #. Short label in the unread channels content. Preserve placeholders {channelHeading}, {mentionCount}; they are inserted by code.
 #: src/features/app/components/floating/UnreadChannelsContent.tsx:59
 msgid "{channelHeading}, {mentionCount, plural, one {# mention} other {# mentions}}"
@@ -933,12 +923,7 @@ msgstr "{count, plural, one {# अटैचमेंट} other {# अटैच�
 msgid "{count, plural, one {# blocked message} other {# blocked messages}}"
 msgstr "{count, plural, one {# ब्लॉक किया गया मैसेज} other {# ब्लॉक किए गए मैसेज}}"
 
-#. Screen-reader status text in Discovery. {count} is the total number of matching communities.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:34
-msgid "{count, plural, one {# community found} other {# communities found}}"
-msgstr "{count, plural, one {# कम्युनिटी मिली} other {# कम्युनिटी मिलीं}}"
-
-#: src/features/app/components/layout/GuildsLayout.tsx:1921
+#: src/features/app/components/layout/GuildsLayout.tsx:1906
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# कम्युनिटी फ्लक्स कैपेसिटर में खराबी के कारण अस्थायी रूप से अनुपलब्ध है।} other {# कम्युनिटी फ्लक्स कैपेसिटर में खराबी के कारण अस्थायी रूप से अनुपलब्ध हैं।}}"
 
@@ -1283,16 +1268,6 @@ msgstr "{emojiName}: {reactionCountText}"
 msgid "{emojiName}: {reactionCountText}, {actionText}"
 msgstr "{emojiName}: {reactionCountText}, {actionText}"
 
-#. Reason shown in the confirmation before joining a community from an emoji info card. It explains that the emoji the viewer opened belongs to this community. {expressionName} is the emoji name, written with colons around it.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:99
-msgid "{expressionName} is a custom emoji from this community. Members can use it here."
-msgstr "{expressionName} इस समुदाय का एक कस्टम इमोजी है। सदस्य इसे यहाँ इस्तेमाल कर सकते हैं।"
-
-#. Reason shown in the confirmation before joining a community from a sticker info card. It explains that the sticker the viewer opened belongs to this community. {expressionName} is the sticker name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:104
-msgid "{expressionName} is a custom sticker from this community. Members can use it here."
-msgstr "{expressionName} इस समुदाय का एक कस्टम स्टिकर है। सदस्य इसे यहाँ इस्तेमाल कर सकते हैं।"
-
 #. Time window preset label shown as a standalone duration in option lists. The number is interpolated.
 #: src/features/app/config/TimeWindowPresets.ts:10
 msgid "{fifteenMinutes} minutes"
@@ -1387,11 +1362,6 @@ msgstr "{hours, plural, one {आपका इनवाइट लिंक # घ�
 #: src/features/messaging/components/modals/ForwardMessagePreview.tsx:45
 msgid "{imageCount, plural, one {# image} other {# images}}, {videoCount, plural, one {# video} other {# videos}}"
 msgstr "{imageCount, plural, one {# इमेज} other {# इमेज}}, {videoCount, plural, one {# वीडियो} other {# वीडियो}}"
-
-#. Accessible label for a disabled Discovery sidebar navigation item. {itemLabel} is the section name.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:31
-msgid "{itemLabel}, coming soon"
-msgstr "{itemLabel}, जल्द आ रहा है"
 
 #. Voice channel bitrate option label. kbps means kilobits per second.
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/VoiceSettings.tsx:38
@@ -1524,9 +1494,7 @@ msgid "{oneMinute} minute"
 msgstr "{oneMinute} मिनट"
 
 #. Community tooltip stat showing how many members are currently online.
-#. Short label in the discovery guild card. Keep it concise. Preserve {onlineCount}; it is inserted by code.
 #: src/features/app/components/layout/sidebar_nav/GuildListItemTooltip.tsx:28
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:27
 msgid "{onlineCount} online"
 msgstr "{onlineCount} ऑनलाइन"
 
@@ -2380,27 +2348,27 @@ msgid "a channel"
 msgstr "एक चैनल"
 
 #. Shown under the "This emoji is from" or "This sticker is from" label in the expression info card when the source community is private to the viewer or cannot be reached.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:84
+#: src/features/expressions/components/ExpressionInfoCard.tsx:74
 msgid "A community that is either invite-only or unavailable."
 msgstr "एक ऐसी कम्युनिटी जो या तो इनवाइट-ओनली है या अनुपलब्ध है।"
 
 #. Description of a custom emoji in the emoji info card when the viewer can use it outside the community. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:37
+#: src/features/expressions/components/ExpressionInfoCard.tsx:27
 msgid "A custom emoji from this community. You can use it anywhere on {productName}."
 msgstr "इस समुदाय का एक कस्टम इमोजी। आप इसे {productName} पर कहीं भी इस्तेमाल कर सकते हैं।"
 
 #. Description of a custom emoji in the emoji info card when the viewer can only use it inside the community.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:49
+#: src/features/expressions/components/ExpressionInfoCard.tsx:39
 msgid "A custom emoji from this community. You can use it in this community."
 msgstr "इस समुदाय का एक कस्टम इमोजी। आप इसे इस समुदाय में इस्तेमाल कर सकते हैं।"
 
 #. Description of a custom sticker in the sticker info card when the viewer can use it outside the community. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:42
+#: src/features/expressions/components/ExpressionInfoCard.tsx:32
 msgid "A custom sticker from this community. You can use it anywhere on {productName}."
 msgstr "इस समुदाय का एक कस्टम स्टिकर। आप इसे {productName} पर कहीं भी इस्तेमाल कर सकते हैं।"
 
 #. Description of a custom sticker in the sticker info card when the viewer can only use it inside the community.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:54
+#: src/features/expressions/components/ExpressionInfoCard.tsx:44
 msgid "A custom sticker from this community. You can use it in this community."
 msgstr "इस समुदाय का एक कस्टम स्टिकर। आप इसे इस समुदाय में इस्तेमाल कर सकते हैं।"
 
@@ -2410,14 +2378,9 @@ msgid "a date or date range"
 msgstr "कोई तारीख या तारीखों की रेंज"
 
 #. Description of a built-in unicode emoji in the emoji info card. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:32
+#: src/features/expressions/components/ExpressionInfoCard.tsx:22
 msgid "A default emoji. You can use it anywhere on {productName}."
 msgstr "एक डिफ़ॉल्ट इमोजी। आप इसे {productName} पर कहीं भी इस्तेमाल कर सकते हैं।"
-
-#. Inline validation error on the Discovery application form when the description field is empty.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:114
-msgid "A description is required."
-msgstr "विवरण ज़रूरी है।"
 
 #. Duration label component for a very short elapsed call.
 #: src/features/channel/components/CallMessage.tsx:63
@@ -2825,7 +2788,7 @@ msgid "Activity log"
 msgstr "गतिविधि लॉग"
 
 #. Community settings tab showing activity log entries and moderation history.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:61
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:59
 msgctxt "community-settings-tab"
 msgid "Activity log"
 msgstr "गतिविधि लॉग"
@@ -2855,7 +2818,6 @@ msgstr "वास्तविक आकार"
 #: src/features/expressions/components/modals/AddFavoriteChannelModal.tsx:56
 #: src/features/expressions/components/modals/meme_form/MemeFormFields.tsx:52
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:53
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:599
 #: src/features/relationship/components/modals/AddFriendsToGroupModal.tsx:79
 #: src/features/user/components/modals/tabs/chat_settings_tab/AddCustomSearchEngineModal.tsx:100
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:586
@@ -2907,11 +2869,6 @@ msgstr "शॉर्टकट जोड़ें"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:44
 msgid "Add a tag"
 msgstr "टैग जोड़ें"
-
-#. Placeholder in the tag input on the Discovery application form. "Enter" refers to the Enter/Return key.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:137
-msgid "Add a tag and press Enter"
-msgstr "एक टैग जोड़ें और Enter दबाएँ"
 
 #. Placeholder inside the empty channel topic input in channel settings.
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/ChannelOverviewTopicEditor.tsx:40
@@ -3443,10 +3400,7 @@ msgstr "अलाइनमेंट कंट्रोल केवल चौड
 #. Audit log target-type filter option. Shows entries for every target type.
 #. Column header in the notification overrides table. Short label for the All messages option. Standalone word; refers to "all messages".
 #. Date-range filter option meaning no time window is applied. Used on the community members page.
-#. Label for the all-categories tab in the Discovery page.
-#. Label for the all-categories tab in the Discovery page.
 #. Short label in the channel and chat memes picker header. Keep it concise.
-#. Short label in the discovery category bottom sheet. Keep it concise.
 #. Tab label in the DM friends view showing all friends.
 #. Tab label in the mobile memes (saved media) picker. Shows all saved media regardless of type.
 #: src/features/app/config/AuditLogConstants.ts:143
@@ -3454,9 +3408,6 @@ msgstr "अलाइनमेंट कंट्रोल केवल चौड
 #: src/features/channel/components/guild_members_page/GuildMembersPageDescriptors.ts:10
 #: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
-#: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:11
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:21
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:25
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:131
 msgid "All"
 msgstr "सभी"
@@ -3531,13 +3482,6 @@ msgstr "सभी दोस्त"
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:179
 msgid "All inputs are fully interactive, so type away."
 msgstr "सभी इनपुट पूरी तरह से इंटरैक्टिव हैं, तो टाइप करना शुरू करें।"
-
-#. Option in the discovery language filter that clears the filter. Keep it concise.
-#. Short label in the discovery page. Keep it concise.
-#: src/features/discovery/discovery/DiscoveryLanguageDropdown.tsx:14
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:29
-msgid "All languages"
-msgstr "सभी भाषाएँ"
 
 #. Activity log value for the default notification setting of a community where members are notified about every message.
 #. Notification level option. Sends a push for every message in the channel or community. Paired with "Only mentions" and "Nothing".
@@ -4135,11 +4079,6 @@ msgstr "एनिमेशन"
 msgid "Animations while unfocused"
 msgstr "ऐप फ़ोकस में न होने पर एनिमेशन"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:101
-msgid "Anime & manga"
-msgstr "एनीमे और मांगा"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:119
 msgid "Announce"
@@ -4402,18 +4341,8 @@ msgstr "मंज़ूरी ज़रूरी"
 msgid "Approve"
 msgstr "स्वीकृत करें"
 
-#. Discovery application status badge in the community Discovery settings tab. The community has been approved and is listed.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:45
-msgid "Approved"
-msgstr "स्वीकृत"
-
-#. Short label in the Discovery page sidebar. Keep it concise.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:19
-msgid "Apps"
-msgstr "ऐप्स"
-
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:12
+#: src/features/user/utils/LocaleUtils.ts:10
 msgid "Arabic"
 msgstr "अरबी"
 
@@ -5455,7 +5384,7 @@ msgid "Banner preview"
 msgstr "बैनर का प्रीव्यू"
 
 #. Community settings tab for banned users.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:91
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:84
 msgctxt "community-settings-tab"
 msgid "Bans"
 msgstr "बैन"
@@ -6043,7 +5972,7 @@ msgid "Bulgaria"
 msgstr "बुल्गारिया"
 
 #. Accessible label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:16
+#: src/features/user/utils/LocaleUtils.ts:14
 msgid "Bulgarian"
 msgstr "बुल्गारियाई"
 
@@ -6518,13 +6447,6 @@ msgstr "कार्ड योग्य नहीं है"
 msgid "Card verification was canceled. You can close this tab and return to the app."
 msgstr "कार्ड वेरिफ़िकेशन रद्द कर दिया गया है। आप इस टैब को बंद करके ऐप पर वापस जा सकते हैं।"
 
-#. Heading above the category filter list in the Discovery search sidebar.
-#. Short label in the discovery category bottom sheet. Keep it concise.
-#: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:15
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:21
-msgid "Categories"
-msgstr "श्रेणियाँ"
-
 #. Lowercase channel type label used inside channel-list accessible text.
 #: src/features/app/components/layout/ChannelItem.tsx:84
 msgid "category"
@@ -6532,7 +6454,6 @@ msgstr "श्रेणी"
 
 #. Channel type chip label for a community category container.
 #: src/features/channel/utils/ChannelUtils.tsx:35
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:465
 msgid "Category"
 msgstr "श्रेणी"
 
@@ -7268,11 +7189,6 @@ msgstr "मेरी कस्टम थीम देखें!"
 msgid "Check your connection and try again."
 msgstr "अपना कनेक्शन जाँचें और फिर से कोशिश करें।"
 
-#. Empty-state hint in Discovery shown under the heading when the request for communities failed.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:32
-msgid "Check your connection, then try again."
-msgstr "अपना कनेक्शन जाँचें, फिर दोबारा कोशिश करें।"
-
 #. Required-action modal carousel step title for existing-email verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:240
 #: src/features/auth/flow/IpAuthorizationScreen.tsx:120
@@ -7335,12 +7251,12 @@ msgid "Child safety or mature content"
 msgstr "बच्चों की सुरक्षा या वयस्क सामग्री"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:140
+#: src/features/user/utils/LocaleUtils.ts:138
 msgid "Chinese (simplified)"
 msgstr "चीनी (सरलीकृत)"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:144
+#: src/features/user/utils/LocaleUtils.ts:142
 msgid "Chinese (traditional)"
 msgstr "चीनी (पारंपरिक)"
 
@@ -7520,10 +7436,6 @@ msgstr "भुगतान का तरीका चुनें"
 #: src/features/voice/components/modals/ScreenSharePickerModal.tsx:220
 msgid "Choose something to share"
 msgstr "शेयर करने के लिए कुछ चुनें"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:483
-msgid "Choose the category that best describes your community. You can change this any time."
-msgstr "वह श्रेणी चुनें जो आपकी कम्युनिटी के लिए सबसे सही हो। आप इसे कभी भी बदल सकते हैं।"
 
 #. Setup wizard premium model step title.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:303
@@ -8366,11 +8278,6 @@ msgstr "आरामदायक"
 msgid "Comfy layout"
 msgstr "आरामदायक लेआउट"
 
-#. Small badge on disabled Discovery sidebar navigation items for sections not available yet.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:27
-msgid "Coming soon"
-msgstr "जल्द आ रहा है"
-
 #. Short label in the theme studio library section. Keep it concise.
 #: src/features/theme_studio/sections/LibrarySection.tsx:121
 msgid "comma, separated"
@@ -8431,14 +8338,14 @@ msgid "Communities with over 250 people are forced onto the \"mentions only\" se
 msgstr "250 से ज़्यादा लोगों वाली कम्युनिटी पर \"सिर्फ़ मेंशन\" सेटिंग लागू कर दी जाती है। आपकी मूल सेटिंग सुरक्षित रहती है और कम्युनिटी के सदस्य 250 से कम होने पर वह वापस लागू कर दी जाएगी।"
 
 #. Audit log target-type filter label. Filters entries to community-level actions.
-#. Community settings sidebar category grouping discovery and the vanity URL.
+#. Community settings sidebar category grouping the vanity URL settings.
 #. Developer / debug surface — keep terse and technical. Fallback label used in the IAR preview tool when no community context is supplied.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short option type label in the OAuth bot invite destination selector.
 #: src/features/app/config/AuditLogConstants.ts:147
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:48
 #: src/features/moderation/components/report_modal/IARModalPreview.tsx:16
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:253
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:236
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:140
 msgid "Community"
 msgstr "कम्युनिटी"
@@ -8603,11 +8510,6 @@ msgstr "कम्युनिटी मालिक का क्राउन"
 msgid "Community owners and users with the <0>{administratorPermissionLabel}</0> permission always have all permissions, including <1>{readMessageHistoryPermissionLabel}</1>, so they aren't affected by this setting."
 msgstr "कम्युनिटी के मालिक और <0>{administratorPermissionLabel}</0> की अनुमति वाले यूज़र के पास हमेशा सभी अनुमतियां होती हैं, जिसमें <1>{readMessageHistoryPermissionLabel}</1> भी शामिल है, इसलिए वे इस सेटिंग से प्रभावित नहीं होते हैं।"
 
-#. Accessible title of the modal that previews a Discovery community before joining it.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:22
-msgid "Community preview"
-msgstr "कम्युनिटी पूर्वावलोकन"
-
 #. Submenu label that groups privacy options for the community.
 #: src/features/ui/action_menu/items/BulkSettingsMenuItems.tsx:69
 msgid "Community privacy settings"
@@ -8629,7 +8531,7 @@ msgid "Community record"
 msgstr "कम्युनिटी रिकॉर्ड"
 
 #. Root label for community settings modal and settings search paths.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:227
 msgid "Community settings"
 msgstr "कम्युनिटी सेटिंग्स"
 
@@ -9088,11 +8990,6 @@ msgstr "सहायता से संपर्क करें"
 #: src/features/auth/components/ContentBlockedHandler.tsx:10
 msgid "Content blocked"
 msgstr "कंटेंट ब्लॉक किया गया"
-
-#. Discovery category dropdown option in the community Discovery settings tab. Communities run by an individual creator.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:96
-msgid "Content creator"
-msgstr "कंटेंट क्रिएटर"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:204
@@ -9651,11 +9548,6 @@ msgstr "फ्रेंड रिक्वेस्ट स्वीकार न
 msgid "Couldn't accept the friend request. Try again."
 msgstr "फ्रेंड रिक्वेस्ट स्वीकार नहीं की जा सकी। फिर से कोशिश करें।"
 
-#. Error modal title shown when a custom Discovery tag cannot be added.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:72
-msgid "Couldn't add tag"
-msgstr "टैग नहीं जोड़ा जा सका"
-
 #. Body of the generic fallback error modal shown when adding a friend to a group DM fails.
 #: src/features/channel/components/alerts/GroupDmRecipientErrorModalUtils.tsx:23
 msgid "Couldn't add this friend to the group. Please try again."
@@ -9848,11 +9740,6 @@ msgstr "फ्रेंड रिक्वेस्ट को अनदेखा
 msgid "Couldn't join community"
 msgstr "कम्युनिटी में शामिल नहीं हो सके"
 
-#. Title of the generic fallback error modal shown when joining a discovery community fails.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:14
-msgid "Couldn't join this community"
-msgstr "इस कम्युनिटी में शामिल नहीं हो सके"
-
 #. Error modal title shown when leaving a group DM fails.
 #: src/features/guild/components/alerts/GroupLeaveFailedModal.tsx:9
 msgid "Couldn't leave group"
@@ -9872,11 +9759,6 @@ msgstr "अधिकृत ऐप्स लोड नहीं हो सके"
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:40
 msgid "Couldn't load bans"
 msgstr "बैन लोड नहीं किए जा सके"
-
-#. Empty-state heading in Discovery shown when the request for communities failed.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:28
-msgid "Couldn't load communities"
-msgstr "कम्युनिटी लोड नहीं हो सकीं"
 
 #. Error modal title shown when fetching invites fails.
 #: src/features/invite/components/alerts/InvitesLoadFailedModal.tsx:9
@@ -10162,11 +10044,6 @@ msgstr "कनेक्शन सत्यापित नहीं किया
 msgid "Couldn't verify with passkey. Try again."
 msgstr "पासकी से पुष्टि नहीं हो पाई। फिर से कोशिश करें।"
 
-#. Error modal title shown when withdrawing a community Discovery application fails.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:68
-msgid "Couldn't withdraw application"
-msgstr "आवेदन वापस नहीं लिया जा सका"
-
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #: src/features/channel/components/channel_header_components/developer_tools/MockingMenu.tsx:40
 msgid "Countdown timer"
@@ -10433,7 +10310,7 @@ msgid "Croatia"
 msgstr "क्रोएशिया"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:68
+#: src/features/user/utils/LocaleUtils.ts:66
 msgid "Croatian"
 msgstr "क्रोएशियाई"
 
@@ -10728,10 +10605,6 @@ msgstr "कस्टम स्टेटस"
 msgid "Custom status: "
 msgstr "कस्टम स्टेटस: "
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:511
-msgid "Custom tags"
-msgstr "कस्टम टैग"
-
 #. Feature comparison table perk label. Shown as the row name comparing restricted vs stock limits.
 #: src/features/app/components/dialogs/components/FeatureComparisonTable.tsx:79
 msgid "Custom themes"
@@ -10852,7 +10725,7 @@ msgid "Cyprus"
 msgstr "साइप्रस"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:20
+#: src/features/user/utils/LocaleUtils.ts:18
 msgid "Czech"
 msgstr "चेक"
 
@@ -10888,7 +10761,7 @@ msgid "Danger zone"
 msgstr "खतरे का क्षेत्र"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:24
+#: src/features/user/utils/LocaleUtils.ts:22
 msgid "Danish"
 msgstr "डेनिश"
 
@@ -11618,14 +11491,8 @@ msgstr "स्क्रीन रीडर के लिए इस मीडि�
 msgid "Describe what makes the content illegal"
 msgstr "बताएं कि यह सामग्री क्यों अवैध है"
 
-#. Placeholder in the description textarea on the Discovery application form.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:128
-msgid "Describe what your community is about"
-msgstr "बताएं कि आपकी कम्युनिटी किस बारे में है"
-
 #. Generic form-field label for a free-form description.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:422
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:498
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:137
 msgid "Description"
@@ -11635,16 +11502,6 @@ msgstr "विवरण"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:36
 msgid "Description must be 500 characters or fewer"
 msgstr "विवरण 500 वर्णों या उससे कम का होना चाहिए"
-
-#. Inline validation error on the Discovery application form when the description is too short. {discoveryDescriptionMinLength} is an integer.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:118
-msgid "Description must be at least {discoveryDescriptionMinLength} characters."
-msgstr "विवरण कम से कम {discoveryDescriptionMinLength} वर्णों का होना चाहिए।"
-
-#. Inline validation error on the Discovery application form when the description is too long. {discoveryDescriptionMaxLength} is an integer.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:123
-msgid "Description must be no more than {discoveryDescriptionMaxLength} characters."
-msgstr "विवरण {discoveryDescriptionMaxLength} वर्णों से अधिक नहीं होना चाहिए।"
 
 #. Developer settings tab showing UI component examples.
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:148
@@ -12224,47 +12081,8 @@ msgstr "डिस्कवरेबल कम्युनिटी"
 
 #. Join source label on the community members page. Shown when the member found the community via the Discovery surface.
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:56
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:328
 msgid "Discovery"
 msgstr "डिस्कवरी"
-
-#. Community settings tab for public community discovery/listing.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:76
-msgctxt "community-settings-tab"
-msgid "Discovery"
-msgstr "डिस्कवरी"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:285
-msgid "Discovery application sent"
-msgstr "डिस्कवरी आवेदन भेजा गया"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:304
-msgid "Discovery application withdrawn"
-msgstr "डिस्कवरी आवेदन वापस ले लिया गया"
-
-#. Accessible label for the category tabs in the Discovery page.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:25
-msgid "Discovery categories"
-msgstr "डिस्कवरी श्रेणियां"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:277
-msgid "Discovery listing updated"
-msgstr "डिस्कवरी लिस्टिंग अपडेट की गई"
-
-#. Accessible label for the section navigation in the Discovery page sidebar.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:15
-msgid "Discovery navigation"
-msgstr "डिस्कवरी नेविगेशन"
-
-#. Accessible label for the Discovery community results region.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:30
-msgid "Discovery results"
-msgstr "डिस्कवरी के नतीजे"
-
-#. Accessible label for the search form in the Discovery navigation bar.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:33
-msgid "Discovery search"
-msgstr "डिस्कवरी सर्च"
 
 #. Generic button label that dismisses a banner, modal, sheet, or prompt without taking the primary action.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:310
@@ -12468,11 +12286,6 @@ msgstr "क्या आप अपनी मौजूदा कम्युन�
 #: src/features/user/components/modals/tabs/privacy_safety_tab/ConnectionsTab.tsx:52
 msgid "Do you also want to block direct messages from members of your existing communities?"
 msgstr "क्या आप अपनी मौजूदा कम्युनिटी के सदस्यों के डायरेक्ट मैसेज भी ब्लॉक करना चाहते हैं?"
-
-#. Body of the confirmation shown before joining a discoverable community from an expression info card. {communityName} is the community name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:110
-msgid "Do you want to join {communityName}?"
-msgstr "क्या आप {communityName} में शामिल होना चाहते हैं?"
 
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
@@ -12859,7 +12672,7 @@ msgid "Duration:"
 msgstr "अवधि:"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:96
+#: src/features/user/utils/LocaleUtils.ts:94
 msgid "Dutch"
 msgstr "डच"
 
@@ -13124,11 +12937,6 @@ msgstr "एडिटिंग अस्थायी रूप से अनु�
 msgid "Editing message"
 msgstr "मैसेज एडिट कर रहे हैं"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:88
-msgid "Education"
-msgstr "शिक्षा"
-
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:184
 msgid "Eligible for a refund until {windowEndsOn}."
 msgstr "{windowEndsOn} तक रिफंड के लिए पात्र हैं।"
@@ -13307,7 +13115,7 @@ msgid "Emoji"
 msgstr "इमोजी"
 
 #. Community settings tab for managing custom emoji uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:36
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:34
 msgctxt "community-settings-tab"
 msgid "Emoji"
 msgstr "इमोजी"
@@ -13780,12 +13588,12 @@ msgid "Endpoint:"
 msgstr "एंडपॉइंट:"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:36
+#: src/features/user/utils/LocaleUtils.ts:34
 msgid "English"
 msgstr "अंग्रेज़ी"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:40
+#: src/features/user/utils/LocaleUtils.ts:38
 msgid "English (US)"
 msgstr "अंग्रेज़ी (यूएस)"
 
@@ -14029,11 +13837,6 @@ msgstr "अपना पासवर्ड डालें।"
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:392
 msgid "Enter your phone number"
 msgstr "अपना फ़ोन नंबर डालें"
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:84
-msgid "Entertainment"
-msgstr "मनोरंजन"
 
 #. Tab label in the screen-share picker. Lists shareable monitors / displays.
 #: src/features/voice/components/modals/ScreenSharePickerModal.tsx:187
@@ -14407,16 +14210,6 @@ msgstr "समाप्ति:"
 msgid "Explicit content filter setting"
 msgstr "अश्लील सामग्री फ़िल्टर सेटिंग"
 
-#. Short label in the app layout discovery guild header.
-#: src/features/app/components/layout/DiscoveryGuildHeader.tsx:9
-msgid "Explore"
-msgstr "एक्सप्लोर करें"
-
-#. Short label in the sidebar navigation discovery button.
-#: src/features/app/components/layout/sidebar_nav/DiscoveryButton.tsx:21
-msgid "Explore communities"
-msgstr "कम्युनिटी एक्सप्लोर करें"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/theme_studio/sections/LibrarySection.tsx:494
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:208
@@ -14467,7 +14260,7 @@ msgstr "एक्सप्रेशन पिकर श्रेणियाँ"
 
 #. Community settings sidebar category grouping the emoji and stickers tabs.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:249
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:232
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:137
 msgid "Expressions"
 msgstr "एक्सप्रेशन"
@@ -15061,13 +14854,6 @@ msgstr "कंटेंट के अनुसार फ़िल्टर क�
 msgid "Filter by join method"
 msgstr "शामिल होने के तरीके से फ़िल्टर करें"
 
-#. Label for the discovery language filter button. Keep it concise.
-#. Short label in the discovery page. Keep it concise.
-#: src/features/discovery/discovery/DiscoveryLanguageButton.tsx:16
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:33
-msgid "Filter by language"
-msgstr "भाषा के अनुसार फ़िल्टर करें"
-
 #. Accessible label for the join-date filter chip on the community members page.
 #: src/features/channel/components/guild_members_page/MembersTableHeaderRow.tsx:13
 msgid "Filter by member since"
@@ -15108,11 +14894,6 @@ msgstr "मेंशन फ़िल्टर करें"
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:192
 msgid "Filtering"
 msgstr "फ़िल्टरिंग"
-
-#. Label for the discovery language filter button once a language is chosen. Preserve {language}; it is inserted by code.
-#: src/features/discovery/discovery/DiscoveryLanguageButton.tsx:20
-msgid "Filtering by {language}"
-msgstr "{language} के अनुसार फ़िल्टर किया जा रहा है"
 
 #: src/features/voice/components/modals/CameraPreviewModal.tsx:788
 msgid "Finalizing camera..."
@@ -15170,7 +14951,7 @@ msgid "Finland"
 msgstr "फ़िनलैंड"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:52
+#: src/features/user/utils/LocaleUtils.ts:50
 msgid "Finnish"
 msgstr "फ़िनिश"
 
@@ -15600,7 +15381,7 @@ msgid "Free vs {premiumProductName}"
 msgstr "मुफ़्त बनाम {premiumProductName}"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:56
+#: src/features/user/utils/LocaleUtils.ts:54
 msgid "French"
 msgstr "फ़्रेंच"
 
@@ -15882,10 +15663,8 @@ msgctxt "gamepad-button-name"
 msgid "Gamepad Y / Triangle"
 msgstr "गेमपैड Y / ट्राएंगल"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
 #. Footer summary label for the gaming screen-share quality preset.
 #. Streaming preset label in the stream settings menu. Higher frame rate, optimized for video games.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:76
 #: src/features/voice/components/modals/ScreenSharePickerModal.tsx:228
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:70
 msgid "Gaming"
@@ -15945,7 +15724,7 @@ msgid "Georgia"
 msgstr "जॉर्जिया"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:28
+#: src/features/user/utils/LocaleUtils.ts:26
 msgid "German"
 msgstr "जर्मन"
 
@@ -16239,7 +16018,7 @@ msgid "Go back and enter a valid email."
 msgstr "वापस जाएं और मान्य ईमेल पता दर्ज करें।"
 
 #. Accessible label for the community row of an expression info card, which opens a community the viewer is already a member of. {communityName} is the community name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:89
+#: src/features/expressions/components/ExpressionInfoCard.tsx:79
 msgid "Go to {communityName}"
 msgstr "{communityName} पर जाएं"
 
@@ -16402,7 +16181,7 @@ msgid "Greece"
 msgstr "ग्रीस"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:32
+#: src/features/user/utils/LocaleUtils.ts:30
 msgid "Greek"
 msgstr "यूनानी"
 
@@ -16730,7 +16509,7 @@ msgid "Heart"
 msgstr "दिल"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:60
+#: src/features/user/utils/LocaleUtils.ts:58
 msgid "Hebrew"
 msgstr "हिब्रू"
 
@@ -17011,7 +16790,7 @@ msgid "Higher values remove more noise but can affect speech texture."
 msgstr "उच्च मान अधिक शोर हटाते हैं, लेकिन इससे बोलने की बनावट प्रभावित हो सकती है।"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:64
+#: src/features/user/utils/LocaleUtils.ts:62
 msgid "Hindi"
 msgstr "हिंदी"
 
@@ -17125,7 +16904,7 @@ msgid "How this works"
 msgstr "यह कैसे काम करता है"
 
 #. Accessible label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:72
+#: src/features/user/utils/LocaleUtils.ts:70
 msgid "Hungarian"
 msgstr "हंगेरियन"
 
@@ -17824,7 +17603,7 @@ msgid "Indicators & status"
 msgstr "इंडिकेटर और स्टेटस"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:76
+#: src/features/user/utils/LocaleUtils.ts:74
 msgid "Indonesian"
 msgstr "इंडोनेशियाई"
 
@@ -18004,7 +17783,7 @@ msgstr "पूर्णांक"
 
 #. Community settings sidebar category grouping webhooks.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:257
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:240
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:26
 msgid "Integrations"
 msgstr "इंटीग्रेशन"
@@ -18290,7 +18069,7 @@ msgid "Invite unavailable"
 msgstr "इनवाइट उपलब्ध नहीं है"
 
 #. Subtitle for a community that can only be joined with an invite.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:80
+#: src/features/expressions/components/ExpressionInfoCard.tsx:70
 msgid "Invite-only community"
 msgstr "आमंत्रण-मात्र समुदाय"
 
@@ -18321,7 +18100,7 @@ msgid "Invites"
 msgstr "इनवाइट"
 
 #. Community settings tab for invite link management.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:86
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:79
 msgctxt "community-settings-tab"
 msgid "Invites"
 msgstr "इनवाइट"
@@ -18420,18 +18199,13 @@ msgstr "हो सकता है कि इसे क्लोन किए �
 msgid "It may have been deleted. The name was reverted to what it was before."
 msgstr "हो सकता है इसे हटा दिया गया हो। नाम को पहले जैसा कर दिया गया है।"
 
-#. Body of the error modal shown when a discovery community is no longer joinable (delisted, invites off, or discovery disabled).
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:51
-msgid "It may have left discovery or turned off new joins. Refresh the page and you won't see it again."
-msgstr "हो सकता है कि यह डिस्कवरी से हट गई हो या इसने नए लोगों का शामिल होना बंद कर दिया हो। पेज रीफ़्रेश करें और यह आपको दोबारा नहीं दिखेगी।"
-
 #. Label in the channel and chat active now sidebar.
 #: src/features/channel/components/active_now/ActiveNowSidebar.tsx:17
 msgid "It's quiet for now..."
 msgstr "अभी सन्नाटा है..."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:80
+#: src/features/user/utils/LocaleUtils.ts:78
 msgid "Italian"
 msgstr "इतालवी"
 
@@ -18446,7 +18220,7 @@ msgid "Italy"
 msgstr "इटली"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:84
+#: src/features/user/utils/LocaleUtils.ts:82
 msgid "Japanese"
 msgstr "जापानी"
 
@@ -18467,10 +18241,8 @@ msgstr "जिटर:"
 msgid "Join"
 msgstr "शामिल हों"
 
-#. Accessible label of a button that joins a community. {communityName} is the community name.
 #. Nagbar button label that opens the official product community invite. communityName is the community name.
 #: src/features/app/components/layout/app_layout/nagbars/GuildMembershipCtaNagbar.tsx:29
-#: src/features/expressions/components/ExpressionInfoCard.tsx:94
 msgid "Join {communityName}"
 msgstr "{communityName} से जुड़ें"
 
@@ -18860,7 +18632,7 @@ msgid "Klipy GIFs"
 msgstr "Klipy GIF"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:88
+#: src/features/user/utils/LocaleUtils.ts:86
 msgid "Korean"
 msgstr "कोरियाई"
 
@@ -19381,10 +19153,6 @@ msgstr "लिनक्स डिफ़ॉल्ट"
 msgid "Linux package"
 msgstr "लिनक्स पैकेज"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:331
-msgid "List your community in Discovery so others can find and join it."
-msgstr "अपनी कम्युनिटी को डिस्कवरी में लिस्ट करें ताकि दूसरे उसे ढूंढकर जॉइन कर सकें।"
-
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:33
 msgid "Lists"
@@ -19401,7 +19169,7 @@ msgid "Lithuania"
 msgstr "लिथुआनिया"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:92
+#: src/features/user/utils/LocaleUtils.ts:90
 msgid "Lithuanian"
 msgstr "लिथुआनियाई"
 
@@ -19424,11 +19192,6 @@ msgstr "लोड हो रहा है"
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:164
 msgid "Loading banned users"
 msgstr "बैन किए गए यूज़र लोड हो रहे हैं"
-
-#. Screen-reader status text shown while Discovery communities are loading.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:38
-msgid "Loading communities"
-msgstr "कम्युनिटी लोड हो रही हैं"
 
 #. OAuth bot invite destination selector placeholder while eligible destinations load.
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:40
@@ -20359,7 +20122,7 @@ msgid "Members"
 msgstr "सदस्य"
 
 #. Community settings tab for managing community members.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:81
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:74
 msgctxt "community-settings-tab"
 msgid "Members"
 msgstr "सदस्य"
@@ -21084,7 +20847,7 @@ msgid "Moderation"
 msgstr "मॉडरेशन"
 
 #. Community settings tab for moderation and safety controls.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:56
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:54
 msgctxt "community-settings-tab"
 msgid "Moderation"
 msgstr "मॉडरेशन"
@@ -21346,11 +21109,6 @@ msgstr "सदस्य सूची में रोल को ऊपर ले
 msgid "Moved the role up in the role list"
 msgstr "रोल को रोल सूची में ऊपर ले जाया गया"
 
-#. Discovery category dropdown option in the community Discovery settings tab. "TV" is the abbreviation for television.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:105
-msgid "Movies & TV"
-msgstr "फ़िल्में और टीवी"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:212
 msgid "MP3"
@@ -21370,11 +21128,6 @@ msgstr "बहु-पंक्ति"
 #: src/features/typing/rolling/RollingTypingText.tsx:29
 msgid "Multiple people are typing..."
 msgstr "कई लोग टाइप कर रहे हैं..."
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:80
-msgid "Music"
-msgstr "संगीत"
 
 #. Folder icon option in the community-folder settings modal: a music note shape.
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:65
@@ -21945,7 +21698,7 @@ msgid "New"
 msgstr "नया"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:132
+#: src/features/app/components/layout/GuildsLayout.tsx:131
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "नया"
@@ -22306,16 +22059,6 @@ msgstr "कोई चैनल उपलब्ध नहीं है"
 msgid "No channels found"
 msgstr "कोई चैनल नहीं मिला"
 
-#. Empty-state hint in Discovery shown under the heading when no communities are listed at all.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:24
-msgid "No communities are listed right now. Check back a little later."
-msgstr "अभी कोई कम्युनिटी सूचीबद्ध नहीं है। थोड़ी देर बाद फिर देखें।"
-
-#. Empty-state text in the discovery page.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:12
-msgid "No communities match."
-msgstr "कोई कम्युनिटी मेल नहीं खाती।"
-
 #. OAuth bot invite empty state shown when the user has no communities or group DMs where they can invite a bot.
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:30
 msgid "No communities or group DMs available for this bot."
@@ -22336,13 +22079,6 @@ msgstr "कोई कस्टम शॉर्टकट इस खोज से 
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindsList.tsx:180
 msgid "No custom shortcuts yet."
 msgstr "अभी तक कोई कस्टम शॉर्टकट नहीं है।"
-
-#. Empty-state text in the discovery guild card.
-#. Empty-state text shown in the Discovery community preview modal when a community has no description.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:30
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:23
-msgid "No description."
-msgstr "कोई विवरण नहीं।"
 
 #. Desktop updater modal body when no installed version string is available.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:49
@@ -22833,7 +22569,7 @@ msgid "North Dakota"
 msgstr "नॉर्थ डकोटा"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:100
+#: src/features/user/utils/LocaleUtils.ts:98
 msgid "Norwegian"
 msgstr "नॉर्वेजियन"
 
@@ -22861,10 +22597,6 @@ msgstr "उपलब्ध नहीं है"
 #: src/features/app/constants/AppConstants.ts:57
 msgid "Not connected"
 msgstr "कनेक्ट नहीं है"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:346
-msgid "Not enough members"
-msgstr "पर्याप्त सदस्य नहीं हैं"
 
 #: src/features/expressions/components/FavoritesWelcomeSection.tsx:38
 msgid "Not for you? Turn it off anytime."
@@ -22932,11 +22664,6 @@ msgstr "कुछ नहीं"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:591
 msgid "Nothing matches"
 msgstr "कुछ भी मेल नहीं खाता"
-
-#. Empty-state heading in Discovery shown when no communities are listed at all.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:20
-msgid "Nothing to explore yet"
-msgstr "अभी एक्सप्लोर करने के लिए कुछ नहीं है"
 
 #. Title of the error modal shown when there is no refundable purchase on the account.
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:55
@@ -23468,11 +23195,6 @@ msgstr "अकाउंट क्लेम मॉडल खोलें"
 msgid "Open color picker"
 msgstr "कलर पिकर खोलें"
 
-#. Button label in the Discovery community preview modal shown when the user is already a member.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:26
-msgid "Open community"
-msgstr "कम्युनिटी खोलें"
-
 #. Short label in the app layout guild header. Preserve {guildName}; it is inserted by code.
 #: src/features/app/components/layout/GuildHeader.tsx:33
 msgid "Open community menu for {guildName}"
@@ -23930,10 +23652,8 @@ msgstr "{user} द्वारा {date} को मूल रूप से ब�
 msgid "Originally banned on {date}"
 msgstr "मूल रूप से {date} को बैन किया गया था"
 
-#. Catch-all Discovery category dropdown option in the community Discovery settings tab.
 #. Collapsible group heading in the Theme Studio tokens list, for tokens that fit no other group.
 #. Report category label for a reason that does not match any predefined category.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:110
 #: src/features/moderation/components/report/OptionDescriptors.ts:70
 #: src/features/theme_studio/sections/TokenGroups.ts:118
 msgid "Other"
@@ -24057,7 +23777,7 @@ msgid "Overview"
 msgstr "अवलोकन"
 
 #. Community settings tab for basic server/community details.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:46
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:44
 msgctxt "community-settings-tab"
 msgid "Overview"
 msgstr "अवलोकन"
@@ -24363,10 +24083,8 @@ msgstr "भुगतान अस्थायी रूप से अनुप�
 msgid "Payments are unavailable"
 msgstr "भुगतान अनुपलब्ध हैं"
 
-#. Discovery application status badge in the community Discovery settings tab. The application is awaiting staff review.
 #. Tab label in the DM friends view showing pending friend requests.
 #: src/features/channel/components/direct_message/DMFriendsView.tsx:45
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:40
 msgid "Pending"
 msgstr "लंबित"
 
@@ -24388,7 +24106,7 @@ msgstr "पेंसिल्वेनिया"
 #: src/features/expressions/utils/UnicodeEmojis.ts:21
 #: src/features/search/state/QuickSwitcherResultConverters.ts:22
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:53
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:261
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
 msgid "People"
 msgstr "लोग"
 
@@ -24883,10 +24601,8 @@ msgid "Playing despite reduced motion."
 msgstr "कम गति के बावजूद चल रहा है।"
 
 #. Body of the error modal shown when an action is rate limited.
-#. Body of the error modal shown when joining a discovery community is rate limited.
 #. Body of the error modal shown when sharing or sending a theme link is rate limited.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:13
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:60
 #: src/features/theme/components/modals/ShareThemeModal.tsx:67
 msgid "Please wait a moment and try again."
 msgstr "कृपया कुछ देर प्रतीक्षा करें और फिर से कोशिश करें।"
@@ -24914,7 +24630,7 @@ msgid "Poland"
 msgstr "पोलैंड"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:104
+#: src/features/user/utils/LocaleUtils.ts:102
 msgid "Polish"
 msgstr "पोलिश"
 
@@ -24966,7 +24682,7 @@ msgid "Portugal"
 msgstr "पुर्तगाल"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:108
+#: src/features/user/utils/LocaleUtils.ts:106
 msgid "Portuguese (Brazil)"
 msgstr "पुर्तगाली (ब्राज़ील)"
 
@@ -25153,11 +24869,6 @@ msgstr "सदस्यों को एक तय समय के लिए �
 msgid "Preview"
 msgstr "प्रीव्यू"
 
-#. Accessible label for a Discovery community card, which opens a preview of the community. {communityName} is the public community name.
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:31
-msgid "Preview {communityName}"
-msgstr "{communityName} का प्रीव्यू"
-
 #. Short label in the accessibility tab. Keep it concise.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:41
 msgid "Preview button"
@@ -25287,10 +24998,6 @@ msgstr "मुख्य कार्रवाई"
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:33
 msgid "Primary button clicked."
 msgstr "प्राथमिक बटन पर क्लिक किया गया।"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:488
-msgid "Primary language"
-msgstr "प्राथमिक भाषा"
 
 #. ARIA landmark label for the main app navigation area.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:139
@@ -25587,11 +25294,6 @@ msgstr "PTT"
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:44
 msgid "Public bot"
 msgstr "सार्वजनिक बॉट"
-
-#. Line shown above the community name in the Discovery community preview modal. The user found this community in the public directory rather than being invited to it.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:34
-msgid "Public community"
-msgstr "सार्वजनिक कम्युनिटी"
 
 #. Description for the closed registration mode.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:175
@@ -25991,11 +25693,6 @@ msgstr "वजह (वैकल्पिक)"
 msgid "Reason (optional)."
 msgstr "वजह (वैकल्पिक)।"
 
-#. placeholder {0}: application.removal_reason ?? application.review_reason
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:374
-msgid "Reason: {0}"
-msgstr "वजह: {0}"
-
 #. Column header for opening a billing receipt or invoice.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/components/dialogs/components/plutonium/InvoiceList.tsx:129
@@ -26297,11 +25994,6 @@ msgstr "सामान्य बटन पर क्लिक किया ग�
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:96
 msgid "Reject"
 msgstr "अस्वीकार करें"
-
-#. Discovery application status badge in the community Discovery settings tab. The application was declined by staff.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:50
-msgid "Rejected"
-msgstr "खारिज किया गया"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:129
@@ -26619,11 +26311,6 @@ msgstr "स्पॉइलर हटाएँ"
 msgid "Remove sticker"
 msgstr "स्टिकर हटाएँ"
 
-#. Accessible label for the per-tag X button in the Discovery tag list. {tag} is the tag text. Used by screen readers.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:132
-msgid "Remove tag {tag}"
-msgstr "{tag} टैग हटाएँ"
-
 #. Error message in the linked accounts tab. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:63
 msgid "Remove this connection? Can't be undone."
@@ -26649,11 +26336,6 @@ msgstr "अपने बैज से हटाएँ कि आपने {premi
 #: src/features/user/components/modals/tabs/my_profile_tab/PremiumBadgeSettings.tsx:53
 msgid "Remove your Visionary ID badge"
 msgstr "अपना विजनरी आईडी बैज हटाएँ"
-
-#. Discovery application status badge in the community Discovery settings tab. The community was delisted from Discovery.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:55
-msgid "Removed"
-msgstr "हटाया गया"
 
 #. Button or menu action label in the messaging commands. Keep it concise. Keep the tone plain and specific.
 #: src/features/messaging/commands/SavedMessageCommands.tsx:24
@@ -27972,7 +27654,7 @@ msgid "Roles"
 msgstr "रोल"
 
 #. Community settings tab for role hierarchy and permission rules.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:51
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:49
 msgctxt "community-settings-tab"
 msgid "Roles"
 msgstr "रोल"
@@ -27992,7 +27674,7 @@ msgid "Romania"
 msgstr "रोमानिया"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:112
+#: src/features/user/utils/LocaleUtils.ts:110
 msgid "Romanian"
 msgstr "रोमानियाई"
 
@@ -28046,7 +27728,7 @@ msgid "Runtime utilities"
 msgstr "रनटाइम यूटिलिटीज़"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:116
+#: src/features/user/utils/LocaleUtils.ts:114
 msgid "Russian"
 msgstr "रूसी"
 
@@ -28085,7 +27767,6 @@ msgstr "सैचुरेशन"
 #: src/features/expressions/components/modals/AddFavoriteMemeModal.tsx:118
 #: src/features/expressions/components/modals/EditFavoriteMemeModal.tsx:94
 #: src/features/expressions/components/modals/EditGuildStickerModal.tsx:123
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:631
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:279
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:91
 #: src/features/messaging/components/modals/AttachmentEditModal.tsx:136
@@ -28211,11 +27892,6 @@ msgstr "अपने ऑथेंटिकेटर ऐप से क्यू�
 #: src/features/devtools/components/NagbarControls.ts:17
 msgid "Scheduled maintenance nagbar"
 msgstr "शेड्यूल किया गया रखरखाव नागबार"
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:92
-msgid "Science & technology"
-msgstr "विज्ञान और तकनीक"
 
 #. Filter category label in the mobile channel search sheet for the search scope selector.
 #. Summary row label on the confirm step showing the user-picked scope.
@@ -28521,11 +28197,6 @@ msgstr "यूज़रनेम या आईडी से खोजें"
 msgid "Search channels"
 msgstr "चैनल खोजें"
 
-#. Accessible label and placeholder for the community search field in the Discovery page.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:29
-msgid "Search communities"
-msgstr "कम्युनिटी खोजें"
-
 #. Button or menu action label in the phone add modal. Keep it concise.
 #: src/features/user/components/modals/PhoneAddModal.tsx:62
 msgid "Search countries..."
@@ -28551,14 +28222,12 @@ msgstr "सर्च इंजन"
 msgid "Search engines"
 msgstr "सर्च इंजन"
 
-#. Accessible label for the filter sidebar shown beside the Discovery search results.
 #. Section header in the message search popout listing available filter operators.
 #. Section header in the message search popout listing available filter operators.
 #. Section header in the message search popout listing available filter operators.
 #: src/features/channel/components/message_search_bar/FilterOption.tsx:14
 #: src/features/channel/components/message_search_bar/HistorySection.tsx:16
 #: src/features/channel/components/message_search_bar/PlaintextSection.tsx:18
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:17
 msgid "Search filters"
 msgstr "खोज फ़िल्टर"
 
@@ -28650,11 +28319,6 @@ msgstr "अनुमतियाँ खोजें…"
 #: src/features/channel/components/channel_search_results/ChannelSearchResultsShared.tsx:53
 msgid "Search results"
 msgstr "खोज के नतीजे"
-
-#. Heading in the Discovery navigation bar when a search is active. {query} is the text the user searched for.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:37
-msgid "Search results for “{query}”"
-msgstr "“{query}” के लिए खोज के नतीजे"
 
 #. Short label in the settings dialog add override popout.
 #: src/features/app/components/dialogs/shared/AddOverridePopout.tsx:32
@@ -31051,10 +30715,8 @@ msgstr "कुछ गड़बड़ हो गई।"
 #. Body of the error modal shown when ringing or stopping a ring fails.
 #. Body of the generic fallback error modal shown when deleting a custom emoji fails.
 #. Body of the generic fallback error modal shown when generating a shareable theme link fails.
-#. Body of the generic fallback error modal shown when joining a discovery community fails.
 #. Generic fallback body shown in an error modal when an action fails for an unexpected reason.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:5
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:18
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:129
 #: src/features/theme/components/modals/ShareThemeModal.tsx:51
 #: src/features/ui/action_menu/items/CallMenuItems.tsx:45
@@ -31226,12 +30888,12 @@ msgid "Spam, scams, or phishing"
 msgstr "स्पैम, स्कैम या फ़िशिंग"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:48
+#: src/features/user/utils/LocaleUtils.ts:46
 msgid "Spanish (Latin America)"
 msgstr "स्पैनिश (लैटिन अमेरिका)"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:44
+#: src/features/user/utils/LocaleUtils.ts:42
 msgid "Spanish (Spain)"
 msgstr "स्पैनिश (स्पेन)"
 
@@ -31595,10 +31257,6 @@ msgstr "स्टेटस इंडिकेटर"
 msgid "Status slate"
 msgstr "स्टेटस स्लेट"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:368
-msgid "Status:"
-msgstr "स्थिति:"
-
 #. Label in the motion tab.
 #. Settings search entry label. Names the settings search entry in the settings UI.
 #. Short label for an advanced app interaction toggle.
@@ -31733,7 +31391,7 @@ msgid "Stickers"
 msgstr "स्टिकर"
 
 #. Community settings tab for managing custom stickers uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:41
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:39
 msgctxt "community-settings-tab"
 msgid "Stickers"
 msgstr "स्टिकर"
@@ -32048,10 +31706,6 @@ msgstr "स्टाइल"
 msgid "Submenu"
 msgstr "सबमेनू"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:631
-msgid "Submit application"
-msgstr "आवेदन जमा करें"
-
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:445
 msgid "Submitting"
 msgstr "सबमिट किया जा रहा है"
@@ -32187,7 +31841,7 @@ msgid "Sweden"
 msgstr "स्वीडन"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:120
+#: src/features/user/utils/LocaleUtils.ts:118
 msgid "Swedish"
 msgstr "स्वीडिश"
 
@@ -32558,11 +32212,6 @@ msgstr "टैग"
 msgid "Tags ({tagCount}/{tagLimit})"
 msgstr "टैग ({tagCount}/{tagLimit})"
 
-#. Discovery custom-tag validation error. maxLength is the maximum allowed tag length.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:60
-msgid "Tags must be 2 to {maxLength} characters and alphanumeric."
-msgstr "टैग 2 से {maxLength} वर्ण के होने चाहिए और उनमें सिर्फ़ अक्षर और अंक हो सकते हैं।"
-
 #: src/features/app/components/dialogs/components/plutonium/SubscriptionCard.tsx:291
 msgid "Takes effect at your next renewal. We'll apply a {creditLabel} credit from your current monthly payment, so your first yearly charge will be <0>{firstRenewalPriceLabel}</0>. Future yearly renewals will be {renewalPrice}/year."
 msgstr "यह आपके अगले रिन्यूअल पर लागू होगा। हम आपके मौजूदा मासिक भुगतान से {creditLabel} क्रेडिट लागू करेंगे, इसलिए आपका पहला वार्षिक शुल्क <0>{firstRenewalPriceLabel}</0> होगा। भविष्य के वार्षिक रिन्यूअल {renewalPrice}/वर्ष होंगे।"
@@ -32839,7 +32488,7 @@ msgid "Text-to-speech notifications"
 msgstr "टेक्स्ट-टू-स्पीच सूचनाएं"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:124
+#: src/features/user/utils/LocaleUtils.ts:122
 msgid "Thai"
 msgstr "थाई"
 
@@ -33050,10 +32699,6 @@ msgstr "इनवाइट को अस्थायी सदस्यता �
 msgid "The invite was set to never expire"
 msgstr "इनवाइट को कभी समाप्त न होने के लिए सेट किया गया था"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:506
-msgid "The language most of your community speaks. Used to filter Discovery results."
-msgstr "आपकी कम्युनिटी के ज़्यादातर लोग जिस भाषा में बात करते हैं। डिस्कवरी के नतीजों को फ़िल्टर करने के लिए इस्तेमाल किया जाता है।"
-
 #. Error modal body shown when revoking an invite fails; warns the user that the link may still be live.
 #: src/features/invite/components/alerts/InviteRevokeFailedModal.tsx:12
 msgid "The link may still work. Try again in a moment."
@@ -33255,11 +32900,6 @@ msgstr "थीम टोकन"
 #: src/features/channel/components/ThemeEmbed.tsx:33
 msgid "Theme unavailable"
 msgstr "थीम उपलब्ध नहीं है"
-
-#. Short label in the Discovery page sidebar. Keep it concise.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:23
-msgid "Themes"
-msgstr "थीम"
 
 #: src/features/invite/components/modals/InviteModal.tsx:194
 msgid "There are no channels available to create an invite for."
@@ -33490,31 +33130,16 @@ msgstr "इस कम्युनिटी ने इनवाइट रोक �
 msgid "This community has reached its maximum member limit and is not accepting new members at this time."
 msgstr "यह कम्युनिटी अपनी अधिकतम सदस्य संख्या तक पहुँच गई है और अभी नए सदस्यों को स्वीकार नहीं कर रही है।"
 
-#. Body of the error modal shown when a discovery community has reached its member limit.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:26
-msgid "This community has reached its member limit, so you can't join right now."
-msgstr "इस कम्युनिटी में सदस्यों की संख्या पूरी हो चुकी है, इसलिए आप अभी इसमें शामिल नहीं हो सकते हैं।"
-
 #. Title of the error modal shown when a non-Visionary user tries to rejoin a gated Plutonium community.
 #: src/features/app/components/dialogs/components/plutonium/hooks/useCommunityActions.tsx:18
 msgid "This community is for Visionary members"
 msgstr "यह कम्युनिटी विजनरी सदस्यों के लिए है"
-
-#. Title of the error modal shown when a discovery community has reached its member limit.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:22
-msgid "This community is full"
-msgstr "यह कम्युनिटी भरी हुई है"
 
 #. Body in the channel gate modal for a mature community when no custom warning is set.
 #: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "यह कम्युनिटी वयस्क सामग्री के लिए चिह्नित है और इसमें ऐसी सामग्री हो सकती है जो कुछ यूज़र के लिए अनुपयुक्त हो सकती है।"
-
-#. Title of the error modal shown when a discovery community is no longer joinable (delisted, invites off, or discovery disabled).
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:46
-msgid "This community is no longer available"
-msgstr "यह कम्युनिटी अब उपलब्ध नहीं है"
 
 #. Description text in the linked accounts tab.
 #. Description text in the user profile shared popout.
@@ -33569,7 +33194,7 @@ msgid "This emoji could not be prepared. Try another file or try again in a mome
 msgstr "यह इमोजी तैयार नहीं किया जा सका। कोई दूसरी फ़ाइल आज़माएँ या कुछ देर बाद फिर से कोशिश करें।"
 
 #. Label above the community an emoji comes from in the emoji info card.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:71
+#: src/features/expressions/components/ExpressionInfoCard.tsx:61
 msgid "This emoji is from"
 msgstr "यह इमोजी इससे है"
 
@@ -33680,12 +33305,12 @@ msgid "This invite may have expired or been deleted."
 msgstr "हो सकता है कि यह इनवाइट समाप्त हो गया हो या हटा दिया गया हो।"
 
 #. Description of a custom emoji from a community the viewer is not a member of.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:61
+#: src/features/expressions/components/ExpressionInfoCard.tsx:51
 msgid "This is a custom emoji from a community."
 msgstr "यह किसी कम्युनिटी का कस्टम इमोजी है।"
 
 #. Description of a custom sticker from a community the viewer is not a member of.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:65
+#: src/features/expressions/components/ExpressionInfoCard.tsx:55
 msgid "This is a custom sticker from a community."
 msgstr "यह एक कस्टम स्टिकर है जो एक समुदाय से है।"
 
@@ -33922,7 +33547,7 @@ msgid "This shows how links appear: {linkPreviewExampleUrl}"
 msgstr "यह दिखाता है कि लिंक कैसे दिखते हैं: {linkPreviewExampleUrl}"
 
 #. Label above the community a sticker comes from in the sticker info card.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:75
+#: src/features/expressions/components/ExpressionInfoCard.tsx:65
 msgid "This sticker is from"
 msgstr "यह स्टिकर इससे है"
 
@@ -34709,11 +34334,6 @@ msgstr "कोई दूसरा नाम आज़माएँ या अप�
 msgid "Try another search term"
 msgstr "कोई दूसरा सर्च टर्म आज़माएं"
 
-#. Empty-state hint in Discovery shown under the heading when a search returns no communities.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:16
-msgid "Try another search term, or pick a different category or language."
-msgstr "कोई दूसरा सर्च टर्म आज़माएं, या अलग श्रेणी या भाषा चुनें।"
-
 #. Helper text on an unknown invite embed suggesting the user request a fresh invite.
 #: src/features/channel/components/InviteEmbed.tsx:100
 msgid "Try asking for a new invite."
@@ -34772,7 +34392,7 @@ msgid "Tune the processing yourself."
 msgstr "प्रोसेसिंग को खुद ट्यून करें।"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:128
+#: src/features/user/utils/LocaleUtils.ts:126
 msgid "Turkish"
 msgstr "तुर्की"
 
@@ -35055,7 +34675,7 @@ msgid "UK law requires a mature content check. To continue, you'll complete a ze
 msgstr "यूके के कानून के तहत वयस्क सामग्री की जाँच ज़रूरी है। आगे बढ़ने के लिए आप Stripe के ज़रिए शून्य राशि का क्रेडिट कार्ड ऑथराइज़ेशन पूरा करेंगे। आपके कार्ड से कोई शुल्क नहीं लिया जाएगा।"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:132
+#: src/features/user/utils/LocaleUtils.ts:130
 msgid "Ukrainian"
 msgstr "यूक्रेनी"
 
@@ -35843,10 +35463,6 @@ msgstr "गलत जगह पर अवांछित आचरण या व
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:209
 msgid "Unwanted mature conduct, comments, or requests."
 msgstr "अवांछित वयस्क आचरण, टिप्पणियाँ या अनुरोध।"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:608
-msgid "Up to {DISCOVERY_MAX_TAGS} tags help people find your community. They show up in Discovery search."
-msgstr "ज़्यादा से ज़्यादा {DISCOVERY_MAX_TAGS} टैग लोगों को आपकी कम्युनिटी ढूंढने में मदद करते हैं। वे डिस्कवरी सर्च में दिखते हैं।"
 
 #. Feature comparison table value label. Shown in the restricted or stock column for a text-valued perk. Format includes a resolution token (4K) and a framerate token that should not be translated.
 #: src/features/app/components/dialogs/components/FeatureComparisonTable.tsx:83
@@ -36749,7 +36365,7 @@ msgid "Vanity URL"
 msgstr "वैनिटी यूआरएल"
 
 #. Community settings tab for the community vanity/custom invite link.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:71
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:69
 msgctxt "community-settings-tab"
 msgid "Vanity URL"
 msgstr "वैनिटी यूआरएल"
@@ -37154,7 +36770,7 @@ msgid "Videos"
 msgstr "वीडियो"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:136
+#: src/features/user/utils/LocaleUtils.ts:134
 msgid "Vietnamese"
 msgstr "वियतनामी"
 
@@ -38154,7 +37770,7 @@ msgid "Webhooks"
 msgstr "वेबहुक"
 
 #. Community settings tab for configuring webhooks.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:66
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:64
 msgctxt "community-settings-tab"
 msgid "Webhooks"
 msgstr "वेबहुक"
@@ -38527,10 +38143,6 @@ msgstr "गड़बड़ी के साथ"
 msgid "With reduced motion on, stickers only animate on interaction. Choose \"Always animate\" to override."
 msgstr "कम गति चालू होने पर स्टिकर सिर्फ़ इंटरैक्शन पर एनिमेट होते हैं। इसे बदलने के लिए “हमेशा ऐनिमेट करें” चुनें।"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:622
-msgid "Withdraw"
-msgstr "आवेदन वापस लें"
-
 #. Permission description in the channel-scoped permissions editor for the Use Voice Activity permission. Explains the inverse: without it, the user must use push-to-talk in this voice channel.
 #: src/features/permissions/utils/PermissionLabelDescriptors.ts:297
 msgid "Without this permission, push-to-talk is required in this channel."
@@ -38732,11 +38344,6 @@ msgstr "आप इस मोडल को बंद कर सकते है�
 msgid "You can now close this tab and return to the app."
 msgstr "अब आप यह टैब बंद करके ऐप पर वापस जा सकते हैं।"
 
-#. Discovery custom-tag validation error. maxTags is the maximum number of custom tags.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:64
-msgid "You can only add up to {maxTags} tags."
-msgstr "आप केवल {maxTags} टैग तक जोड़ सकते हैं।"
-
 #: src/features/theme/components/modals/BackgroundImageGalleryModal.tsx:581
 msgid "You can only have one custom background on the free tier. Picking a new one will replace your existing background."
 msgstr "मुफ़्त टियर पर आप सिर्फ़ एक कस्टम बैकग्राउंड रख सकते हैं। नया चुनने पर आपका मौजूदा बैकग्राउंड बदल जाएगा।"
@@ -38816,11 +38423,6 @@ msgstr "आप इस मैसेज को एडिट नहीं कर �
 #: src/features/channel/components/modals/channel_tabs/ChannelPermissionsTab.tsx:54
 msgid "You can't grant a permission you don't have in this channel."
 msgstr "आप ऐसी अनुमति नहीं दे सकते जो आपके पास इस चैनल में नहीं है।"
-
-#. Title of the error modal shown when the user is banned from a discovery community.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:38
-msgid "You can't join this community"
-msgstr "आप इस कम्युनिटी से नहीं जुड़ सकते"
 
 #. Label in the user settings voice activity card. Keep the tone plain and specific.
 #: src/features/user/components/profile/VoiceActivityCard.tsx:59
@@ -39005,11 +38607,6 @@ msgstr "आपके पास इस वॉइस चैनल से जुड
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:73
 msgid "You don't have permission to rename this emoji. The name was reverted to what it was before."
 msgstr "आपके पास इस इमोजी का नाम बदलने की अनुमति नहीं है। नाम को पहले जैसा कर दिया गया है।"
-
-#. Body of the error modal shown when the user is banned from a discovery community.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:42
-msgid "You have been banned from this community."
-msgstr "आपको इस कम्युनिटी से बैन कर दिया गया है।"
 
 #: src/features/channel/components/barriers/BarrierComponents.tsx:362
 msgid "You have blocked {username}. Unblock them to send messages."
@@ -39325,13 +38922,11 @@ msgstr "आप बहुत तेज़ी से मैसेज एडिट 
 
 #. Title of the error modal shown when an action is rate limited.
 #. Title of the error modal shown when deleting a custom emoji is rate limited.
-#. Title of the error modal shown when joining a discovery community is rate limited.
 #. Title of the error modal shown when renaming a custom emoji is rate limited.
 #. Title of the error modal shown when resending a verification email is rate-limited.
 #. Title of the error modal shown when sharing or sending a theme link is rate limited.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:9
 #: src/features/app/components/dialogs/components/EmailVerificationAlert.tsx:23
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:56
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:77
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:149
 #: src/features/theme/components/modals/ShareThemeModal.tsx:63
@@ -39356,11 +38951,6 @@ msgstr "आप प्रीव्यू मोड में हैं"
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:114
 msgid "You're in the call"
 msgstr "आप कॉल में हैं"
-
-#. Body of the error modal shown when the user is already in the maximum number of communities.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:34
-msgid "You're in the maximum number of communities. Leave one and try again."
-msgstr "आप अधिकतम कम्युनिटी की सीमा तक पहुँच गए हैं। किसी एक को छोड़ें और फिर से कोशिश करें।"
 
 #. Subtitle below the connected-to-voice header confirming the user is in the channel.
 #: src/features/voice/components/bottomsheets/VoiceLobbyBottomSheet.tsx:82
@@ -39427,11 +39017,6 @@ msgstr "आपको एक ग्रुप DM में शामिल हो�
 #: src/features/theme/components/pages/ThemeRegisterPage.tsx:28
 msgid "You've got CSS!"
 msgstr "आपको CSS मिल गया!"
-
-#. Title of the error modal shown when the user is already in the maximum number of communities.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:30
-msgid "You've reached the community limit"
-msgstr "आप कम्युनिटी की अधिकतम सीमा तक पहुँच गए हैं"
 
 #. Label in the message list page.
 #. Label in the saved messages content popout.
@@ -39540,10 +39125,6 @@ msgstr "आपका अकाउंट तुरंत फिर से सा�
 msgid "Your action could not be completed because it was flagged by our safety systems. If you believe this is a mistake, please contact support."
 msgstr "आपकी कार्रवाई पूरी नहीं हो पाई क्योंकि इसे हमारे सुरक्षा सिस्टम ने फ़्लैग किया है। अगर आपको लगता है कि यह गलती से हुआ है, तो कृपया सहायता टीम से संपर्क करें।"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:409
-msgid "Your application is pending review. You can still update your listing details or withdraw the application."
-msgstr "आपका आवेदन समीक्षा के लिए लंबित है। आप अभी भी अपनी लिस्टिंग का विवरण अपडेट कर सकते हैं या आवेदन वापस ले सकते हैं।"
-
 #. Body of the browser-audio-required modal explaining why the user must click before audio can play.
 #: src/features/voice/components/modals/AudioPlaybackPermissionModal.tsx:12
 msgid "Your browser requires user interaction before audio can be played. Click the button below to enable voice chat."
@@ -39569,15 +39150,6 @@ msgstr "आपका कोड"
 #: src/features/auth/flow/HandoffCodeDisplay.tsx:121
 msgid "Your code is ready"
 msgstr "आपका कोड तैयार है"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:390
-msgid "Your community is listed in Discovery. You can update your listing details below or withdraw to remove it."
-msgstr "आपकी कम्युनिटी डिस्कवरी में लिस्ट की गई है। आप नीचे अपनी लिस्टिंग की जानकारी अपडेट कर सकते हैं या इसे हटाने के लिए वापस ले सकते हैं।"
-
-#. Warning in the community Discovery settings tab when the community is below the minimum size. The plural count is the minimum number of members required to be listed.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:349
-msgid "Your community needs at least {minMemberCount, plural, one {# member} other {# members}} before it can be listed in Discovery."
-msgstr "डिस्कवरी में लिस्ट होने के लिए आपकी कम्युनिटी में कम से कम {minMemberCount, plural, one {# सदस्य} other {# सदस्य}} होने चाहिए।"
 
 #. Tooltip on the passive badge on your own screen-share tile when the encoder is limited by CPU.
 #: src/features/voice/components/voice_participant_tile/shared.ts:85

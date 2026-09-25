@@ -1721,56 +1721,6 @@ export class GatewayService {
 		return this.call<boolean>('call.delete', {channel_id: channelId.toString()});
 	}
 
-	async getDiscoveryOnlineCounts(guildIds: Array<GuildID>): Promise<Map<GuildID, number>> {
-		const result = await this.call<{
-			online_counts: Array<{
-				guild_id: string;
-				online_count: number;
-			}>;
-		}>('guild.get_online_counts_batch', {
-			guild_ids: guildIds.map(String),
-		});
-		const counts = new Map<GuildID, number>();
-		for (const entry of result.online_counts) {
-			counts.set(BigInt(entry.guild_id) as GuildID, entry.online_count);
-		}
-		return counts;
-	}
-
-	async getDiscoveryGuildCounts(guildIds: Array<GuildID>): Promise<
-		Map<
-			GuildID,
-			{
-				memberCount: number;
-				onlineCount: number;
-			}
-		>
-	> {
-		const result = await this.call<{
-			online_counts: Array<{
-				guild_id: string;
-				member_count: number;
-				online_count: number;
-			}>;
-		}>('guild.get_online_counts_batch', {
-			guild_ids: guildIds.map(String),
-		});
-		const counts = new Map<
-			GuildID,
-			{
-				memberCount: number;
-				onlineCount: number;
-			}
-		>();
-		for (const entry of result.online_counts) {
-			counts.set(BigInt(entry.guild_id) as GuildID, {
-				memberCount: entry.member_count,
-				onlineCount: entry.online_count,
-			});
-		}
-		return counts;
-	}
-
 	async getNodeStats(): Promise<GatewayNodeStats> {
 		return this.call<GatewayNodeStats>('process.node_stats', {});
 	}

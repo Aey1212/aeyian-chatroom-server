@@ -11,12 +11,7 @@ import {
 	getReportServiceInstance,
 	getSuspiciousIpRepository,
 } from '@app/api/middleware/ServiceMiddleware';
-import {
-	getEntityAssetService,
-	getGuildDiscoveryRepository,
-	getInviteRepository,
-	getUsernameRegistry,
-} from '@app/api/middleware/ServiceSingletons';
+import {getEntityAssetService, getInviteRepository, getUsernameRegistry} from '@app/api/middleware/ServiceSingletons';
 import type {WorkerDependencies} from '@app/api/worker/WorkerDependencies';
 
 interface AdminBulkServices {
@@ -60,7 +55,6 @@ export function createAdminBulkServices(deps: WorkerDependencies): AdminBulkServ
 		gatewayService: deps.gatewayService,
 		entityAssetService: getEntityAssetService(),
 		auditService,
-		discoveryRepository: getGuildDiscoveryRepository(),
 	});
 	return {auditService, banManagementService, userService, guildService};
 }

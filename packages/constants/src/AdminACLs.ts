@@ -49,8 +49,6 @@ export const AdminACLs = {
 	BULK_UPDATE_SUSPICIOUS_ACTIVITY: 'bulk:update:suspicious_activity',
 	BULK_UPDATE_USER_FLAGS: 'bulk:update:user_flags',
 	CSAM_SUBMIT_NCMEC: 'csam:submit_ncmec',
-	DISCOVERY_REMOVE: 'discovery:remove',
-	DISCOVERY_REVIEW: 'discovery:review',
 	GATEWAY_MEMORY_STATS: 'gateway:memory_stats',
 	GATEWAY_RELOAD_ALL: 'gateway:reload_all',
 	GIFT_CODES_GENERATE: 'gift_codes:generate',

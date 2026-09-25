@@ -45,18 +45,8 @@ export const MEILISEARCH_INDEX_DEFINITIONS: Record<FluxerSearchIndexName, Meilis
 	guilds: {
 		uid: 'guilds',
 		primaryKey: 'id',
-		searchableAttributes: ['name', 'discoveryTags', 'vanityUrlCode', 'discoveryDescription'],
-		filterableAttributes: [
-			'ownerId',
-			'verificationLevel',
-			'mfaLevel',
-			'nsfwLevel',
-			'features',
-			'isDiscoverable',
-			'discoveryCategory',
-			'discoveryPrimaryLanguage',
-			'discoveryTags',
-		],
+		searchableAttributes: ['name', 'vanityUrlCode'],
+		filterableAttributes: ['ownerId', 'verificationLevel', 'mfaLevel', 'nsfwLevel', 'features'],
 		sortableAttributes: ['createdAt', 'memberCount', 'id'],
 	},
 	users: {

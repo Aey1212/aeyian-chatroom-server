@@ -61,7 +61,7 @@ describe('WorkerLaneConfig', () => {
 		expect(embedLane[0]!.name).toBe('unfurl');
 		expect(embedLane[0]!.taskTypes).toEqual(['extractEmbeds']);
 	});
-	it('keeps the retired scheduled message subject on the lifecycle lane only', () => {
+	it('keeps each retired subject on the lane that used to run it', () => {
 		const lanes = resolveWorkerLanes({
 			mode: 'all_lanes',
 			laneConcurrencyOverrides: {},
@@ -69,7 +69,10 @@ describe('WorkerLaneConfig', () => {
 		const lifecycleLane = lanes.find((lane) => lane.name === 'lifecycle');
 		expect(lifecycleLane?.retiredTaskTypes).toEqual(['sendScheduledMessage']);
 		expect(lifecycleLane?.taskTypes).not.toContain('sendScheduledMessage');
-		for (const lane of lanes.filter((lane) => lane.name !== 'lifecycle')) {
+		const batchLane = lanes.find((lane) => lane.name === 'batch');
+		expect(batchLane?.retiredTaskTypes).toEqual(['syncDiscoveryIndex']);
+		expect(batchLane?.taskTypes).not.toContain('syncDiscoveryIndex');
+		for (const lane of lanes.filter((lane) => lane.name !== 'lifecycle' && lane.name !== 'batch')) {
 			expect(lane.retiredTaskTypes).toEqual([]);
 		}
 	});

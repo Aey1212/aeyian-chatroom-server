@@ -19,13 +19,6 @@ function buildGuildFilters(filters: GuildSearchFilters): Array<ElasticsearchFilt
 	if (filters.hasFeature && filters.hasFeature.length > 0) {
 		clauses.push(...esAndTerms('features', filters.hasFeature));
 	}
-	if (filters.isDiscoverable !== undefined) clauses.push(esTermFilter('isDiscoverable', filters.isDiscoverable));
-	if (filters.discoveryCategory !== undefined)
-		clauses.push(esTermFilter('discoveryCategory', filters.discoveryCategory));
-	if (filters.discoveryPrimaryLanguage !== undefined)
-		clauses.push(esTermFilter('discoveryPrimaryLanguage', filters.discoveryPrimaryLanguage));
-	if (filters.discoveryTag !== undefined && filters.discoveryTag.length > 0)
-		clauses.push(esTermFilter('discoveryTags.keyword', filters.discoveryTag.toLowerCase()));
 	return compactFilters(clauses);
 }
 
@@ -46,7 +39,7 @@ export class ElasticsearchGuildAdapter extends ElasticsearchIndexAdapter<GuildSe
 		super({
 			client: options.client,
 			index: ELASTICSEARCH_INDEX_DEFINITIONS.guilds,
-			searchableFields: ['name^10', 'discoveryTags^5', 'vanityUrlCode^3', 'discoveryDescription'],
+			searchableFields: ['name^10', 'vanityUrlCode^3'],
 			searchType: 'bool_prefix',
 			buildFilters: buildGuildFilters,
 			buildSort: buildGuildSort,

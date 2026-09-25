@@ -41,11 +41,6 @@ msgstr "(määrittämätön)"
 msgid "(you)"
 msgstr "(sinä)"
 
-#. placeholder {0}: guild.member_count
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:184
-msgid "{0, plural, one {# member} other {# members}}"
-msgstr "{0, plural, one {# jäsen} other {# jäsentä}}"
-
 #. Screen reader announcement in the composer when two people are typing. {a} and {b} are their display names.
 #: src/features/typing/rolling/RollingTypingText.tsx:19
 #: src/features/typing/rolling/RollingTypingText.tsx:54
@@ -834,11 +829,6 @@ msgstr "{authorNickname} haluaa, että hänet mainitaan vastauksissa. Lähetetä
 msgid "{backgroundCount} / {maxBackgroundImages} {backgroundCount, plural, one {custom background} other {custom backgrounds}}"
 msgstr "{backgroundCount} / {maxBackgroundImages} {backgroundCount, plural, one {mukautettu tausta} other {mukautettua taustaa}}"
 
-#. Accessible label for a category row in the Discovery search sidebar. {categoryLabel} is the category name and {count} is how many communities match the current search in it. Both are inserted by code.
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:37
-msgid "{categoryLabel}, {count, plural, one {# community} other {# communities}}"
-msgstr "{categoryLabel}, {count, plural, one {# yhteisö} other {# yhteisöä}}"
-
 #. Short label in the unread channels content. Preserve placeholders {channelHeading}, {mentionCount}; they are inserted by code.
 #: src/features/app/components/floating/UnreadChannelsContent.tsx:59
 msgid "{channelHeading}, {mentionCount, plural, one {# mention} other {# mentions}}"
@@ -933,12 +923,7 @@ msgstr "{count, plural, one {# liite} other {# liitettä}}"
 msgid "{count, plural, one {# blocked message} other {# blocked messages}}"
 msgstr "{count, plural, one {# estetty viesti} other {# estettyä viestiä}}"
 
-#. Screen-reader status text in Discovery. {count} is the total number of matching communities.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:34
-msgid "{count, plural, one {# community found} other {# communities found}}"
-msgstr "{count, plural, one {# yhteisö löytyi} other {# yhteisöä löytyi}}"
-
-#: src/features/app/components/layout/GuildsLayout.tsx:1921
+#: src/features/app/components/layout/GuildsLayout.tsx:1906
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# yhteisö on tilapäisesti pois käytöstä toimintahäiriön vuoksi.} other {# yhteisöä on tilapäisesti pois käytöstä toimintahäiriön vuoksi.}}"
 
@@ -1283,16 +1268,6 @@ msgstr "{emojiName}: {reactionCountText}"
 msgid "{emojiName}: {reactionCountText}, {actionText}"
 msgstr "{emojiName}: {reactionCountText}, {actionText}"
 
-#. Reason shown in the confirmation before joining a community from an emoji info card. It explains that the emoji the viewer opened belongs to this community. {expressionName} is the emoji name, written with colons around it.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:99
-msgid "{expressionName} is a custom emoji from this community. Members can use it here."
-msgstr "{expressionName} on tämän yhteisön mukautettu emoji. Jäsenet voivat käyttää sitä täällä."
-
-#. Reason shown in the confirmation before joining a community from a sticker info card. It explains that the sticker the viewer opened belongs to this community. {expressionName} is the sticker name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:104
-msgid "{expressionName} is a custom sticker from this community. Members can use it here."
-msgstr "{expressionName} on mukautettu tarra tästä yhteisöstä. Jäsenet voivat käyttää sitä täällä."
-
 #. Time window preset label shown as a standalone duration in option lists. The number is interpolated.
 #: src/features/app/config/TimeWindowPresets.ts:10
 msgid "{fifteenMinutes} minutes"
@@ -1387,11 +1362,6 @@ msgstr "{hours, plural, one {Kutsulinkkisi vanhenee # tunnin kuluttua.} other {K
 #: src/features/messaging/components/modals/ForwardMessagePreview.tsx:45
 msgid "{imageCount, plural, one {# image} other {# images}}, {videoCount, plural, one {# video} other {# videos}}"
 msgstr "{imageCount, plural, one {# kuva} other {# kuvaa}}, {videoCount, plural, one {# video} other {# videota}}"
-
-#. Accessible label for a disabled Discovery sidebar navigation item. {itemLabel} is the section name.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:31
-msgid "{itemLabel}, coming soon"
-msgstr "{itemLabel}, tulossa pian"
 
 #. Voice channel bitrate option label. kbps means kilobits per second.
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/VoiceSettings.tsx:38
@@ -1524,9 +1494,7 @@ msgid "{oneMinute} minute"
 msgstr "{oneMinute} minuutti"
 
 #. Community tooltip stat showing how many members are currently online.
-#. Short label in the discovery guild card. Keep it concise. Preserve {onlineCount}; it is inserted by code.
 #: src/features/app/components/layout/sidebar_nav/GuildListItemTooltip.tsx:28
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:27
 msgid "{onlineCount} online"
 msgstr "{onlineCount} paikalla"
 
@@ -2380,27 +2348,27 @@ msgid "a channel"
 msgstr "kanava"
 
 #. Shown under the "This emoji is from" or "This sticker is from" label in the expression info card when the source community is private to the viewer or cannot be reached.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:84
+#: src/features/expressions/components/ExpressionInfoCard.tsx:74
 msgid "A community that is either invite-only or unavailable."
 msgstr "Yhteisö, johon pääsy vaatii kutsun tai joka ei ole käytettävissä."
 
 #. Description of a custom emoji in the emoji info card when the viewer can use it outside the community. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:37
+#: src/features/expressions/components/ExpressionInfoCard.tsx:27
 msgid "A custom emoji from this community. You can use it anywhere on {productName}."
 msgstr "Mukautettu emoji tästä yhteisöstä. Voit käyttää sitä missä tahansa palvelussa {productName}."
 
 #. Description of a custom emoji in the emoji info card when the viewer can only use it inside the community.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:49
+#: src/features/expressions/components/ExpressionInfoCard.tsx:39
 msgid "A custom emoji from this community. You can use it in this community."
 msgstr "Mukautettu emoji tästä yhteisöstä. Voit käyttää sitä tässä yhteisössä."
 
 #. Description of a custom sticker in the sticker info card when the viewer can use it outside the community. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:42
+#: src/features/expressions/components/ExpressionInfoCard.tsx:32
 msgid "A custom sticker from this community. You can use it anywhere on {productName}."
 msgstr "Mukautettu tarra tästä yhteisöstä. Voit käyttää sitä missä tahansa {productName}."
 
 #. Description of a custom sticker in the sticker info card when the viewer can only use it inside the community.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:54
+#: src/features/expressions/components/ExpressionInfoCard.tsx:44
 msgid "A custom sticker from this community. You can use it in this community."
 msgstr "Mukautettu tarra tästä yhteisöstä. Voit käyttää sitä tässä yhteisössä."
 
@@ -2410,14 +2378,9 @@ msgid "a date or date range"
 msgstr "päivämäärä tai aikaväli"
 
 #. Description of a built-in unicode emoji in the emoji info card. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:32
+#: src/features/expressions/components/ExpressionInfoCard.tsx:22
 msgid "A default emoji. You can use it anywhere on {productName}."
 msgstr "Oletusemoji. Voit käyttää sitä missä tahansa {productName}-palvelussa."
-
-#. Inline validation error on the Discovery application form when the description field is empty.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:114
-msgid "A description is required."
-msgstr "Kuvaus tarvitaan."
 
 #. Duration label component for a very short elapsed call.
 #: src/features/channel/components/CallMessage.tsx:63
@@ -2825,7 +2788,7 @@ msgid "Activity log"
 msgstr "Aktiviteettiloki"
 
 #. Community settings tab showing activity log entries and moderation history.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:61
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:59
 msgctxt "community-settings-tab"
 msgid "Activity log"
 msgstr "Aktiviteettiloki"
@@ -2855,7 +2818,6 @@ msgstr "Todellinen koko"
 #: src/features/expressions/components/modals/AddFavoriteChannelModal.tsx:56
 #: src/features/expressions/components/modals/meme_form/MemeFormFields.tsx:52
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:53
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:599
 #: src/features/relationship/components/modals/AddFriendsToGroupModal.tsx:79
 #: src/features/user/components/modals/tabs/chat_settings_tab/AddCustomSearchEngineModal.tsx:100
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:586
@@ -2907,11 +2869,6 @@ msgstr "Lisää pikanäppäin"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:44
 msgid "Add a tag"
 msgstr "Lisää tunniste"
-
-#. Placeholder in the tag input on the Discovery application form. "Enter" refers to the Enter/Return key.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:137
-msgid "Add a tag and press Enter"
-msgstr "Lisää tunniste ja paina Enter"
 
 #. Placeholder inside the empty channel topic input in channel settings.
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/ChannelOverviewTopicEditor.tsx:40
@@ -3443,10 +3400,7 @@ msgstr "Kohdistussäätimet ovat käytettävissä vain leveämmillä näytöill�
 #. Audit log target-type filter option. Shows entries for every target type.
 #. Column header in the notification overrides table. Short label for the All messages option. Standalone word; refers to "all messages".
 #. Date-range filter option meaning no time window is applied. Used on the community members page.
-#. Label for the all-categories tab in the Discovery page.
-#. Label for the all-categories tab in the Discovery page.
 #. Short label in the channel and chat memes picker header. Keep it concise.
-#. Short label in the discovery category bottom sheet. Keep it concise.
 #. Tab label in the DM friends view showing all friends.
 #. Tab label in the mobile memes (saved media) picker. Shows all saved media regardless of type.
 #: src/features/app/config/AuditLogConstants.ts:143
@@ -3454,9 +3408,6 @@ msgstr "Kohdistussäätimet ovat käytettävissä vain leveämmillä näytöill�
 #: src/features/channel/components/guild_members_page/GuildMembersPageDescriptors.ts:10
 #: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
-#: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:11
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:21
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:25
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:131
 msgid "All"
 msgstr "Kaikki"
@@ -3531,13 +3482,6 @@ msgstr "Kaikki kaverit"
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:179
 msgid "All inputs are fully interactive, so type away."
 msgstr "Kaikki kentät ovat täysin interaktiivisia, joten voit kirjoittaa niihin vapaasti."
-
-#. Option in the discovery language filter that clears the filter. Keep it concise.
-#. Short label in the discovery page. Keep it concise.
-#: src/features/discovery/discovery/DiscoveryLanguageDropdown.tsx:14
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:29
-msgid "All languages"
-msgstr "Kaikki kielet"
 
 #. Activity log value for the default notification setting of a community where members are notified about every message.
 #. Notification level option. Sends a push for every message in the channel or community. Paired with "Only mentions" and "Nothing".
@@ -4135,11 +4079,6 @@ msgstr "Animaatiot"
 msgid "Animations while unfocused"
 msgstr "Animaatiot, kun sovellus ei ole aktiivinen"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:101
-msgid "Anime & manga"
-msgstr "Anime ja manga"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:119
 msgid "Announce"
@@ -4402,18 +4341,8 @@ msgstr "Hyväksyntä vaaditaan"
 msgid "Approve"
 msgstr "Hyväksy"
 
-#. Discovery application status badge in the community Discovery settings tab. The community has been approved and is listed.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:45
-msgid "Approved"
-msgstr "Hyväksytty"
-
-#. Short label in the Discovery page sidebar. Keep it concise.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:19
-msgid "Apps"
-msgstr "Sovellukset"
-
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:12
+#: src/features/user/utils/LocaleUtils.ts:10
 msgid "Arabic"
 msgstr "arabia"
 
@@ -5455,7 +5384,7 @@ msgid "Banner preview"
 msgstr "Bannerin esikatselu"
 
 #. Community settings tab for banned users.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:91
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:84
 msgctxt "community-settings-tab"
 msgid "Bans"
 msgstr "Porttikiellot"
@@ -6043,7 +5972,7 @@ msgid "Bulgaria"
 msgstr "Bulgaria"
 
 #. Accessible label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:16
+#: src/features/user/utils/LocaleUtils.ts:14
 msgid "Bulgarian"
 msgstr "bulgaria"
 
@@ -6518,13 +6447,6 @@ msgstr "Kortti ei kelpaa"
 msgid "Card verification was canceled. You can close this tab and return to the app."
 msgstr "Kortin vahvistus peruutettiin. Voit sulkea tämän välilehden ja palata takaisin sovellukseen."
 
-#. Heading above the category filter list in the Discovery search sidebar.
-#. Short label in the discovery category bottom sheet. Keep it concise.
-#: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:15
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:21
-msgid "Categories"
-msgstr "Kategoriat"
-
 #. Lowercase channel type label used inside channel-list accessible text.
 #: src/features/app/components/layout/ChannelItem.tsx:84
 msgid "category"
@@ -6532,7 +6454,6 @@ msgstr "kategoria"
 
 #. Channel type chip label for a community category container.
 #: src/features/channel/utils/ChannelUtils.tsx:35
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:465
 msgid "Category"
 msgstr "Kategoria"
 
@@ -7268,11 +7189,6 @@ msgstr "Katso mukautettu teemani!"
 msgid "Check your connection and try again."
 msgstr "Tarkista verkkoyhteytesi ja yritä uudelleen."
 
-#. Empty-state hint in Discovery shown under the heading when the request for communities failed.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:32
-msgid "Check your connection, then try again."
-msgstr "Tarkista yhteytesi ja yritä uudelleen."
-
 #. Required-action modal carousel step title for existing-email verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:240
 #: src/features/auth/flow/IpAuthorizationScreen.tsx:120
@@ -7335,12 +7251,12 @@ msgid "Child safety or mature content"
 msgstr "Lasten turvallisuus tai aikuisille tarkoitettu sisältö"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:140
+#: src/features/user/utils/LocaleUtils.ts:138
 msgid "Chinese (simplified)"
 msgstr "kiina (yksinkertaistettu)"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:144
+#: src/features/user/utils/LocaleUtils.ts:142
 msgid "Chinese (traditional)"
 msgstr "kiina (perinteinen)"
 
@@ -7520,10 +7436,6 @@ msgstr "Valitse maksutapa"
 #: src/features/voice/components/modals/ScreenSharePickerModal.tsx:220
 msgid "Choose something to share"
 msgstr "Valitse jaettava sisältö"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:483
-msgid "Choose the category that best describes your community. You can change this any time."
-msgstr "Valitse kategoria, joka kuvaa yhteisöäsi parhaiten. Voit muuttaa tätä milloin tahansa."
 
 #. Setup wizard premium model step title.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:303
@@ -8366,11 +8278,6 @@ msgstr "Väljä"
 msgid "Comfy layout"
 msgstr "Väljä asettelu"
 
-#. Small badge on disabled Discovery sidebar navigation items for sections not available yet.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:27
-msgid "Coming soon"
-msgstr "Tulossa pian"
-
 #. Short label in the theme studio library section. Keep it concise.
 #: src/features/theme_studio/sections/LibrarySection.tsx:121
 msgid "comma, separated"
@@ -8431,14 +8338,14 @@ msgid "Communities with over 250 people are forced onto the \"mentions only\" se
 msgstr "Yli 250 hengen yhteisöissä ilmoitusasetukseksi pakotetaan \"vain maininnat\". Alkuperäinen asetuksesi säilytetään ja palautetaan, jos yhteisön jäsenmäärä laskee alle 250:n."
 
 #. Audit log target-type filter label. Filters entries to community-level actions.
-#. Community settings sidebar category grouping discovery and the vanity URL.
+#. Community settings sidebar category grouping the vanity URL settings.
 #. Developer / debug surface — keep terse and technical. Fallback label used in the IAR preview tool when no community context is supplied.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short option type label in the OAuth bot invite destination selector.
 #: src/features/app/config/AuditLogConstants.ts:147
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:48
 #: src/features/moderation/components/report_modal/IARModalPreview.tsx:16
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:253
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:236
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:140
 msgid "Community"
 msgstr "Yhteisö"
@@ -8603,11 +8510,6 @@ msgstr "Yhteisön omistajan kruunu"
 msgid "Community owners and users with the <0>{administratorPermissionLabel}</0> permission always have all permissions, including <1>{readMessageHistoryPermissionLabel}</1>, so they aren't affected by this setting."
 msgstr "Yhteisön omistajilla ja käyttäjillä, joilla on <0>{administratorPermissionLabel}</0>-käyttöoikeus, on aina kaikki käyttöoikeudet, mukaan lukien <1>{readMessageHistoryPermissionLabel}</1>, joten tämä asetus ei vaikuta heihin."
 
-#. Accessible title of the modal that previews a Discovery community before joining it.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:22
-msgid "Community preview"
-msgstr "Yhteisön esikatselu"
-
 #. Submenu label that groups privacy options for the community.
 #: src/features/ui/action_menu/items/BulkSettingsMenuItems.tsx:69
 msgid "Community privacy settings"
@@ -8629,7 +8531,7 @@ msgid "Community record"
 msgstr "Yhteisötietue"
 
 #. Root label for community settings modal and settings search paths.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:227
 msgid "Community settings"
 msgstr "Yhteisön asetukset"
 
@@ -9088,11 +8990,6 @@ msgstr "Ota yhteyttä tukeen"
 #: src/features/auth/components/ContentBlockedHandler.tsx:10
 msgid "Content blocked"
 msgstr "Sisältö estetty"
-
-#. Discovery category dropdown option in the community Discovery settings tab. Communities run by an individual creator.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:96
-msgid "Content creator"
-msgstr "Sisällöntuottaja"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:204
@@ -9651,11 +9548,6 @@ msgstr "Kaveripyyntöä ei voitu hyväksyä"
 msgid "Couldn't accept the friend request. Try again."
 msgstr "Kaveripyyntöä ei voitu hyväksyä. Yritä uudelleen."
 
-#. Error modal title shown when a custom Discovery tag cannot be added.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:72
-msgid "Couldn't add tag"
-msgstr "Tunnisteen lisääminen epäonnistui"
-
 #. Body of the generic fallback error modal shown when adding a friend to a group DM fails.
 #: src/features/channel/components/alerts/GroupDmRecipientErrorModalUtils.tsx:23
 msgid "Couldn't add this friend to the group. Please try again."
@@ -9848,11 +9740,6 @@ msgstr "Kaveripyyntöä ei voitu ohittaa. Yritä uudelleen."
 msgid "Couldn't join community"
 msgstr "Yhteisöön liittyminen epäonnistui"
 
-#. Title of the generic fallback error modal shown when joining a discovery community fails.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:14
-msgid "Couldn't join this community"
-msgstr "Yhteisöön liittyminen epäonnistui"
-
 #. Error modal title shown when leaving a group DM fails.
 #: src/features/guild/components/alerts/GroupLeaveFailedModal.tsx:9
 msgid "Couldn't leave group"
@@ -9872,11 +9759,6 @@ msgstr "Valtuutettuja sovelluksia ei voitu ladata"
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:40
 msgid "Couldn't load bans"
 msgstr "Porttikieltoja ei voitu ladata"
-
-#. Empty-state heading in Discovery shown when the request for communities failed.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:28
-msgid "Couldn't load communities"
-msgstr "Yhteisöjä ei voitu ladata"
 
 #. Error modal title shown when fetching invites fails.
 #: src/features/invite/components/alerts/InvitesLoadFailedModal.tsx:9
@@ -10162,11 +10044,6 @@ msgstr "Yhteyden vahvistaminen epäonnistui"
 msgid "Couldn't verify with passkey. Try again."
 msgstr "Pääsyavaimella varmentaminen epäonnistui. Yritä uudelleen."
 
-#. Error modal title shown when withdrawing a community Discovery application fails.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:68
-msgid "Couldn't withdraw application"
-msgstr "Hakemuksen peruminen epäonnistui"
-
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #: src/features/channel/components/channel_header_components/developer_tools/MockingMenu.tsx:40
 msgid "Countdown timer"
@@ -10433,7 +10310,7 @@ msgid "Croatia"
 msgstr "Kroatia"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:68
+#: src/features/user/utils/LocaleUtils.ts:66
 msgid "Croatian"
 msgstr "kroatia"
 
@@ -10728,10 +10605,6 @@ msgstr "Mukautettu tila"
 msgid "Custom status: "
 msgstr "Mukautettu tila: "
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:511
-msgid "Custom tags"
-msgstr "Mukautetut tunnisteet"
-
 #. Feature comparison table perk label. Shown as the row name comparing restricted vs stock limits.
 #: src/features/app/components/dialogs/components/FeatureComparisonTable.tsx:79
 msgid "Custom themes"
@@ -10852,7 +10725,7 @@ msgid "Cyprus"
 msgstr "Kypros"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:20
+#: src/features/user/utils/LocaleUtils.ts:18
 msgid "Czech"
 msgstr "tšekki"
 
@@ -10888,7 +10761,7 @@ msgid "Danger zone"
 msgstr "Vaaravyöhyke"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:24
+#: src/features/user/utils/LocaleUtils.ts:22
 msgid "Danish"
 msgstr "tanska"
 
@@ -11618,14 +11491,8 @@ msgstr "Kuvaile tätä mediaa ruudunlukijoille"
 msgid "Describe what makes the content illegal"
 msgstr "Kuvaile, mikä tekee sisällöstä laitonta"
 
-#. Placeholder in the description textarea on the Discovery application form.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:128
-msgid "Describe what your community is about"
-msgstr "Kuvaile, mistä yhteisössäsi on kyse"
-
 #. Generic form-field label for a free-form description.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:422
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:498
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:137
 msgid "Description"
@@ -11635,16 +11502,6 @@ msgstr "Kuvaus"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:36
 msgid "Description must be 500 characters or fewer"
 msgstr "Kuvauksen on oltava enintään 500 merkkiä pitkä"
-
-#. Inline validation error on the Discovery application form when the description is too short. {discoveryDescriptionMinLength} is an integer.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:118
-msgid "Description must be at least {discoveryDescriptionMinLength} characters."
-msgstr "Kuvauksen on oltava vähintään {discoveryDescriptionMinLength} merkkiä pitkä."
-
-#. Inline validation error on the Discovery application form when the description is too long. {discoveryDescriptionMaxLength} is an integer.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:123
-msgid "Description must be no more than {discoveryDescriptionMaxLength} characters."
-msgstr "Kuvauksen enimmäispituus on {discoveryDescriptionMaxLength} merkkiä."
 
 #. Developer settings tab showing UI component examples.
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:148
@@ -12224,47 +12081,8 @@ msgstr "Löydettävissä oleva yhteisö"
 
 #. Join source label on the community members page. Shown when the member found the community via the Discovery surface.
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:56
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:328
 msgid "Discovery"
 msgstr "Löydä"
-
-#. Community settings tab for public community discovery/listing.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:76
-msgctxt "community-settings-tab"
-msgid "Discovery"
-msgstr "Löydettävyys"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:285
-msgid "Discovery application sent"
-msgstr "Löydä-hakemus lähetetty"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:304
-msgid "Discovery application withdrawn"
-msgstr "Löydä-hakemus peruutettu"
-
-#. Accessible label for the category tabs in the Discovery page.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:25
-msgid "Discovery categories"
-msgstr "Löydä-kategoriat"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:277
-msgid "Discovery listing updated"
-msgstr "Löydä-listaus päivitetty"
-
-#. Accessible label for the section navigation in the Discovery page sidebar.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:15
-msgid "Discovery navigation"
-msgstr "Löydä-osion navigointi"
-
-#. Accessible label for the Discovery community results region.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:30
-msgid "Discovery results"
-msgstr "Löydä-osion tulokset"
-
-#. Accessible label for the search form in the Discovery navigation bar.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:33
-msgid "Discovery search"
-msgstr "Löydä-haku"
 
 #. Generic button label that dismisses a banner, modal, sheet, or prompt without taking the primary action.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:310
@@ -12468,11 +12286,6 @@ msgstr "Haluatko estää myös yksityisviestit nykyisten yhteisöjesi boteilta?"
 #: src/features/user/components/modals/tabs/privacy_safety_tab/ConnectionsTab.tsx:52
 msgid "Do you also want to block direct messages from members of your existing communities?"
 msgstr "Haluatko estää myös yksityisviestit nykyisten yhteisöjesi jäseniltä?"
-
-#. Body of the confirmation shown before joining a discoverable community from an expression info card. {communityName} is the community name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:110
-msgid "Do you want to join {communityName}?"
-msgstr "Haluatko liittyä yhteisöön {communityName}?"
 
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
@@ -12859,7 +12672,7 @@ msgid "Duration:"
 msgstr "Kesto:"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:96
+#: src/features/user/utils/LocaleUtils.ts:94
 msgid "Dutch"
 msgstr "hollanti"
 
@@ -13124,11 +12937,6 @@ msgstr "Muokkaus on tilapäisesti poissa käytöstä. Yritä myöhemmin uudellee
 msgid "Editing message"
 msgstr "Muokataan viestiä"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:88
-msgid "Education"
-msgstr "Koulutus"
-
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:184
 msgid "Eligible for a refund until {windowEndsOn}."
 msgstr "Oikeutettu hyvitykseen {windowEndsOn} asti."
@@ -13307,7 +13115,7 @@ msgid "Emoji"
 msgstr "Emoji"
 
 #. Community settings tab for managing custom emoji uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:36
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:34
 msgctxt "community-settings-tab"
 msgid "Emoji"
 msgstr "Emojit"
@@ -13780,12 +13588,12 @@ msgid "Endpoint:"
 msgstr "Päätepiste:"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:36
+#: src/features/user/utils/LocaleUtils.ts:34
 msgid "English"
 msgstr "englanti"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:40
+#: src/features/user/utils/LocaleUtils.ts:38
 msgid "English (US)"
 msgstr "englanti (Yhdysvallat)"
 
@@ -14029,11 +13837,6 @@ msgstr "Anna salasanasi."
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:392
 msgid "Enter your phone number"
 msgstr "Anna puhelinnumerosi"
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:84
-msgid "Entertainment"
-msgstr "Viihde"
 
 #. Tab label in the screen-share picker. Lists shareable monitors / displays.
 #: src/features/voice/components/modals/ScreenSharePickerModal.tsx:187
@@ -14407,16 +14210,6 @@ msgstr "Vanhenee:"
 msgid "Explicit content filter setting"
 msgstr "Arkaluonteisen sisällön suodattimen asetus"
 
-#. Short label in the app layout discovery guild header.
-#: src/features/app/components/layout/DiscoveryGuildHeader.tsx:9
-msgid "Explore"
-msgstr "Tutustu"
-
-#. Short label in the sidebar navigation discovery button.
-#: src/features/app/components/layout/sidebar_nav/DiscoveryButton.tsx:21
-msgid "Explore communities"
-msgstr "Tutustu yhteisöihin"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/theme_studio/sections/LibrarySection.tsx:494
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:208
@@ -14467,7 +14260,7 @@ msgstr "Ilmevalitsimen kategoriat"
 
 #. Community settings sidebar category grouping the emoji and stickers tabs.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:249
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:232
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:137
 msgid "Expressions"
 msgstr "Ilmaisut"
@@ -15061,13 +14854,6 @@ msgstr "Suodata sisällön mukaan"
 msgid "Filter by join method"
 msgstr "Suodata liittymistavan mukaan"
 
-#. Label for the discovery language filter button. Keep it concise.
-#. Short label in the discovery page. Keep it concise.
-#: src/features/discovery/discovery/DiscoveryLanguageButton.tsx:16
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:33
-msgid "Filter by language"
-msgstr "Suodata kielen mukaan"
-
 #. Accessible label for the join-date filter chip on the community members page.
 #: src/features/channel/components/guild_members_page/MembersTableHeaderRow.tsx:13
 msgid "Filter by member since"
@@ -15108,11 +14894,6 @@ msgstr "Suodata mainintoja"
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:192
 msgid "Filtering"
 msgstr "Suodatus"
-
-#. Label for the discovery language filter button once a language is chosen. Preserve {language}; it is inserted by code.
-#: src/features/discovery/discovery/DiscoveryLanguageButton.tsx:20
-msgid "Filtering by {language}"
-msgstr "Suodatus kielen mukaan: {language}"
 
 #: src/features/voice/components/modals/CameraPreviewModal.tsx:788
 msgid "Finalizing camera..."
@@ -15170,7 +14951,7 @@ msgid "Finland"
 msgstr "Suomi"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:52
+#: src/features/user/utils/LocaleUtils.ts:50
 msgid "Finnish"
 msgstr "suomi"
 
@@ -15600,7 +15381,7 @@ msgid "Free vs {premiumProductName}"
 msgstr "Ilmainen vs. {premiumProductName}"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:56
+#: src/features/user/utils/LocaleUtils.ts:54
 msgid "French"
 msgstr "ranska"
 
@@ -15882,10 +15663,8 @@ msgctxt "gamepad-button-name"
 msgid "Gamepad Y / Triangle"
 msgstr "Ohjaimen Y / kolmio"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
 #. Footer summary label for the gaming screen-share quality preset.
 #. Streaming preset label in the stream settings menu. Higher frame rate, optimized for video games.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:76
 #: src/features/voice/components/modals/ScreenSharePickerModal.tsx:228
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:70
 msgid "Gaming"
@@ -15945,7 +15724,7 @@ msgid "Georgia"
 msgstr "Georgia"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:28
+#: src/features/user/utils/LocaleUtils.ts:26
 msgid "German"
 msgstr "saksa"
 
@@ -16239,7 +16018,7 @@ msgid "Go back and enter a valid email."
 msgstr "Palaa ja anna kelvollinen sähköpostiosoite."
 
 #. Accessible label for the community row of an expression info card, which opens a community the viewer is already a member of. {communityName} is the community name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:89
+#: src/features/expressions/components/ExpressionInfoCard.tsx:79
 msgid "Go to {communityName}"
 msgstr "Siirry kohtaan {communityName}"
 
@@ -16402,7 +16181,7 @@ msgid "Greece"
 msgstr "Kreikka"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:32
+#: src/features/user/utils/LocaleUtils.ts:30
 msgid "Greek"
 msgstr "kreikka"
 
@@ -16730,7 +16509,7 @@ msgid "Heart"
 msgstr "Sydän"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:60
+#: src/features/user/utils/LocaleUtils.ts:58
 msgid "Hebrew"
 msgstr "heprea"
 
@@ -17011,7 +16790,7 @@ msgid "Higher values remove more noise but can affect speech texture."
 msgstr "Suuremmat arvot poistavat enemmän taustamelua, mutta voivat vaikuttaa puheen luonnollisuuteen."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:64
+#: src/features/user/utils/LocaleUtils.ts:62
 msgid "Hindi"
 msgstr "hindi"
 
@@ -17125,7 +16904,7 @@ msgid "How this works"
 msgstr "Näin se toimii"
 
 #. Accessible label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:72
+#: src/features/user/utils/LocaleUtils.ts:70
 msgid "Hungarian"
 msgstr "unkari"
 
@@ -17824,7 +17603,7 @@ msgid "Indicators & status"
 msgstr "Ilmaisimet ja tila"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:76
+#: src/features/user/utils/LocaleUtils.ts:74
 msgid "Indonesian"
 msgstr "indonesia"
 
@@ -18004,7 +17783,7 @@ msgstr "Kokonaisluku"
 
 #. Community settings sidebar category grouping webhooks.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:257
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:240
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:26
 msgid "Integrations"
 msgstr "Integraatiot"
@@ -18290,7 +18069,7 @@ msgid "Invite unavailable"
 msgstr "Kutsu ei ole käytettävissä"
 
 #. Subtitle for a community that can only be joined with an invite.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:80
+#: src/features/expressions/components/ExpressionInfoCard.tsx:70
 msgid "Invite-only community"
 msgstr "Vain kutsulla liittyvä yhteisö"
 
@@ -18321,7 +18100,7 @@ msgid "Invites"
 msgstr "Kutsut"
 
 #. Community settings tab for invite link management.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:86
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:79
 msgctxt "community-settings-tab"
 msgid "Invites"
 msgstr "Kutsut"
@@ -18420,18 +18199,13 @@ msgstr "Se on ehkä poistettu, ennen kuin se ehdittiin kloonata."
 msgid "It may have been deleted. The name was reverted to what it was before."
 msgstr "Se on ehkä poistettu. Nimi palautettiin entiselleen."
 
-#. Body of the error modal shown when a discovery community is no longer joinable (delisted, invites off, or discovery disabled).
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:51
-msgid "It may have left discovery or turned off new joins. Refresh the page and you won't see it again."
-msgstr "Se on ehkä poistunut Löydä-osiosta tai estänyt uudet liittymiset. Päivitä sivu, niin et näe sitä enää."
-
 #. Label in the channel and chat active now sidebar.
 #: src/features/channel/components/active_now/ActiveNowSidebar.tsx:17
 msgid "It's quiet for now..."
 msgstr "Hiljaista toistaiseksi..."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:80
+#: src/features/user/utils/LocaleUtils.ts:78
 msgid "Italian"
 msgstr "italia"
 
@@ -18446,7 +18220,7 @@ msgid "Italy"
 msgstr "Italia"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:84
+#: src/features/user/utils/LocaleUtils.ts:82
 msgid "Japanese"
 msgstr "japani"
 
@@ -18467,10 +18241,8 @@ msgstr "Viiveen vaihtelu:"
 msgid "Join"
 msgstr "Liity"
 
-#. Accessible label of a button that joins a community. {communityName} is the community name.
 #. Nagbar button label that opens the official product community invite. communityName is the community name.
 #: src/features/app/components/layout/app_layout/nagbars/GuildMembershipCtaNagbar.tsx:29
-#: src/features/expressions/components/ExpressionInfoCard.tsx:94
 msgid "Join {communityName}"
 msgstr "Liity yhteisöön {communityName}"
 
@@ -18860,7 +18632,7 @@ msgid "Klipy GIFs"
 msgstr "Klipy-GIFit"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:88
+#: src/features/user/utils/LocaleUtils.ts:86
 msgid "Korean"
 msgstr "korea"
 
@@ -19381,10 +19153,6 @@ msgstr "Linuxin oletusarvo"
 msgid "Linux package"
 msgstr "Linux-paketti"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:331
-msgid "List your community in Discovery so others can find and join it."
-msgstr "Listaa yhteisösi Löydä-osiossa, jotta muut voivat löytää sen ja liittyä siihen."
-
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:33
 msgid "Lists"
@@ -19401,7 +19169,7 @@ msgid "Lithuania"
 msgstr "Liettua"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:92
+#: src/features/user/utils/LocaleUtils.ts:90
 msgid "Lithuanian"
 msgstr "liettua"
 
@@ -19424,11 +19192,6 @@ msgstr "Ladataan"
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:164
 msgid "Loading banned users"
 msgstr "Ladataan porttikiellettyjä käyttäjiä"
-
-#. Screen-reader status text shown while Discovery communities are loading.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:38
-msgid "Loading communities"
-msgstr "Ladataan yhteisöjä"
 
 #. OAuth bot invite destination selector placeholder while eligible destinations load.
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:40
@@ -20359,7 +20122,7 @@ msgid "Members"
 msgstr "Jäsenet"
 
 #. Community settings tab for managing community members.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:81
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:74
 msgctxt "community-settings-tab"
 msgid "Members"
 msgstr "Jäsenet"
@@ -21084,7 +20847,7 @@ msgid "Moderation"
 msgstr "Moderointi"
 
 #. Community settings tab for moderation and safety controls.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:56
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:54
 msgctxt "community-settings-tab"
 msgid "Moderation"
 msgstr "Moderointi"
@@ -21346,11 +21109,6 @@ msgstr "Siirrettiin rooli ylemmäs jäsenlistassa"
 msgid "Moved the role up in the role list"
 msgstr "Siirrettiin rooli ylemmäs rooliluettelossa"
 
-#. Discovery category dropdown option in the community Discovery settings tab. "TV" is the abbreviation for television.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:105
-msgid "Movies & TV"
-msgstr "Elokuvat ja TV"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:212
 msgid "MP3"
@@ -21370,11 +21128,6 @@ msgstr "Useita rivejä"
 #: src/features/typing/rolling/RollingTypingText.tsx:29
 msgid "Multiple people are typing..."
 msgstr "Useat henkilöt kirjoittavat..."
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:80
-msgid "Music"
-msgstr "Musiikki"
 
 #. Folder icon option in the community-folder settings modal: a music note shape.
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:65
@@ -21945,7 +21698,7 @@ msgid "New"
 msgstr "Uudet"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:132
+#: src/features/app/components/layout/GuildsLayout.tsx:131
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Uusi"
@@ -22306,16 +22059,6 @@ msgstr "Ei kanavia saatavilla"
 msgid "No channels found"
 msgstr "Kanavia ei löytynyt"
 
-#. Empty-state hint in Discovery shown under the heading when no communities are listed at all.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:24
-msgid "No communities are listed right now. Check back a little later."
-msgstr "Yhteisöjä ei ole listattuna juuri nyt. Käy katsomassa myöhemmin uudelleen."
-
-#. Empty-state text in the discovery page.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:12
-msgid "No communities match."
-msgstr "Yhteisöjä ei löytynyt."
-
 #. OAuth bot invite empty state shown when the user has no communities or group DMs where they can invite a bot.
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:30
 msgid "No communities or group DMs available for this bot."
@@ -22336,13 +22079,6 @@ msgstr "Hakua vastaavia mukautettuja pikanäppäimiä ei löytynyt."
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindsList.tsx:180
 msgid "No custom shortcuts yet."
 msgstr "Ei vielä mukautettuja pikanäppäimiä."
-
-#. Empty-state text in the discovery guild card.
-#. Empty-state text shown in the Discovery community preview modal when a community has no description.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:30
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:23
-msgid "No description."
-msgstr "Ei kuvausta."
 
 #. Desktop updater modal body when no installed version string is available.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:49
@@ -22833,7 +22569,7 @@ msgid "North Dakota"
 msgstr "Pohjois-Dakota"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:100
+#: src/features/user/utils/LocaleUtils.ts:98
 msgid "Norwegian"
 msgstr "norja"
 
@@ -22861,10 +22597,6 @@ msgstr "Ei saatavilla"
 #: src/features/app/constants/AppConstants.ts:57
 msgid "Not connected"
 msgstr "Ei yhteyttä"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:346
-msgid "Not enough members"
-msgstr "Liian vähän jäseniä"
 
 #: src/features/expressions/components/FavoritesWelcomeSection.tsx:38
 msgid "Not for you? Turn it off anytime."
@@ -22932,11 +22664,6 @@ msgstr "Ei mitään"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:591
 msgid "Nothing matches"
 msgstr "Ei osumia"
-
-#. Empty-state heading in Discovery shown when no communities are listed at all.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:20
-msgid "Nothing to explore yet"
-msgstr "Ei vielä mitään tutkittavaa"
 
 #. Title of the error modal shown when there is no refundable purchase on the account.
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:55
@@ -23468,11 +23195,6 @@ msgstr "Avaa tilin viimeistelyikkuna"
 msgid "Open color picker"
 msgstr "Avaa värivalitsin"
 
-#. Button label in the Discovery community preview modal shown when the user is already a member.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:26
-msgid "Open community"
-msgstr "Avaa yhteisö"
-
 #. Short label in the app layout guild header. Preserve {guildName}; it is inserted by code.
 #: src/features/app/components/layout/GuildHeader.tsx:33
 msgid "Open community menu for {guildName}"
@@ -23930,10 +23652,8 @@ msgstr "Porttikiellon antoi alun perin {user} {date}"
 msgid "Originally banned on {date}"
 msgstr "Porttikielto annettiin alun perin {date}"
 
-#. Catch-all Discovery category dropdown option in the community Discovery settings tab.
 #. Collapsible group heading in the Theme Studio tokens list, for tokens that fit no other group.
 #. Report category label for a reason that does not match any predefined category.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:110
 #: src/features/moderation/components/report/OptionDescriptors.ts:70
 #: src/features/theme_studio/sections/TokenGroups.ts:118
 msgid "Other"
@@ -24057,7 +23777,7 @@ msgid "Overview"
 msgstr "Yleiskatsaus"
 
 #. Community settings tab for basic server/community details.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:46
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:44
 msgctxt "community-settings-tab"
 msgid "Overview"
 msgstr "Yleiskatsaus"
@@ -24363,10 +24083,8 @@ msgstr "Maksut ovat tilapäisesti poissa käytöstä. Yritä uudelleen hetken ku
 msgid "Payments are unavailable"
 msgstr "Maksut eivät ole käytettävissä"
 
-#. Discovery application status badge in the community Discovery settings tab. The application is awaiting staff review.
 #. Tab label in the DM friends view showing pending friend requests.
 #: src/features/channel/components/direct_message/DMFriendsView.tsx:45
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:40
 msgid "Pending"
 msgstr "Odottaa"
 
@@ -24388,7 +24106,7 @@ msgstr "Pennsylvania"
 #: src/features/expressions/utils/UnicodeEmojis.ts:21
 #: src/features/search/state/QuickSwitcherResultConverters.ts:22
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:53
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:261
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
 msgid "People"
 msgstr "Ihmiset"
 
@@ -24883,10 +24601,8 @@ msgid "Playing despite reduced motion."
 msgstr "Toistetaan, vaikka vähennetty liike on käytössä."
 
 #. Body of the error modal shown when an action is rate limited.
-#. Body of the error modal shown when joining a discovery community is rate limited.
 #. Body of the error modal shown when sharing or sending a theme link is rate limited.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:13
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:60
 #: src/features/theme/components/modals/ShareThemeModal.tsx:67
 msgid "Please wait a moment and try again."
 msgstr "Odota hetki ja yritä uudelleen."
@@ -24914,7 +24630,7 @@ msgid "Poland"
 msgstr "Puola"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:104
+#: src/features/user/utils/LocaleUtils.ts:102
 msgid "Polish"
 msgstr "puola"
 
@@ -24966,7 +24682,7 @@ msgid "Portugal"
 msgstr "Portugali"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:108
+#: src/features/user/utils/LocaleUtils.ts:106
 msgid "Portuguese (Brazil)"
 msgstr "portugali (Brasilia)"
 
@@ -25153,11 +24869,6 @@ msgstr "Estä jäseniä lähettämästä viestejä, reagoimasta ja liittymästä
 msgid "Preview"
 msgstr "Esikatselu"
 
-#. Accessible label for a Discovery community card, which opens a preview of the community. {communityName} is the public community name.
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:31
-msgid "Preview {communityName}"
-msgstr "Esikatsele {communityName}"
-
 #. Short label in the accessibility tab. Keep it concise.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:41
 msgid "Preview button"
@@ -25287,10 +24998,6 @@ msgstr "Ensisijainen toiminto"
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:33
 msgid "Primary button clicked."
 msgstr "Ensisijaista painiketta napsautettu."
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:488
-msgid "Primary language"
-msgstr "Ensisijainen kieli"
 
 #. ARIA landmark label for the main app navigation area.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:139
@@ -25587,11 +25294,6 @@ msgstr "PTT"
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:44
 msgid "Public bot"
 msgstr "Julkinen botti"
-
-#. Line shown above the community name in the Discovery community preview modal. The user found this community in the public directory rather than being invited to it.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:34
-msgid "Public community"
-msgstr "Julkinen yhteisö"
 
 #. Description for the closed registration mode.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:175
@@ -25991,11 +25693,6 @@ msgstr "Syy (valinnainen)"
 msgid "Reason (optional)."
 msgstr "Syy (valinnainen)."
 
-#. placeholder {0}: application.removal_reason ?? application.review_reason
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:374
-msgid "Reason: {0}"
-msgstr "Syy: {0}"
-
 #. Column header for opening a billing receipt or invoice.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/components/dialogs/components/plutonium/InvoiceList.tsx:129
@@ -26297,11 +25994,6 @@ msgstr "Tavallista painiketta napsautettu."
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:96
 msgid "Reject"
 msgstr "Hylkää"
-
-#. Discovery application status badge in the community Discovery settings tab. The application was declined by staff.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:50
-msgid "Rejected"
-msgstr "Hylätty"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:129
@@ -26619,11 +26311,6 @@ msgstr "Poista spoileri"
 msgid "Remove sticker"
 msgstr "Poista tarra"
 
-#. Accessible label for the per-tag X button in the Discovery tag list. {tag} is the tag text. Used by screen readers.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:132
-msgid "Remove tag {tag}"
-msgstr "Poista tunniste {tag}"
-
 #. Error message in the linked accounts tab. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:63
 msgid "Remove this connection? Can't be undone."
@@ -26649,11 +26336,6 @@ msgstr "Poista merkistäsi tieto siitä, milloin ostit {premiumProductName}-tila
 #: src/features/user/components/modals/tabs/my_profile_tab/PremiumBadgeSettings.tsx:53
 msgid "Remove your Visionary ID badge"
 msgstr "Poista Visionary ID -merkki"
-
-#. Discovery application status badge in the community Discovery settings tab. The community was delisted from Discovery.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:55
-msgid "Removed"
-msgstr "Poistettu"
 
 #. Button or menu action label in the messaging commands. Keep it concise. Keep the tone plain and specific.
 #: src/features/messaging/commands/SavedMessageCommands.tsx:24
@@ -27972,7 +27654,7 @@ msgid "Roles"
 msgstr "Roolit"
 
 #. Community settings tab for role hierarchy and permission rules.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:51
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:49
 msgctxt "community-settings-tab"
 msgid "Roles"
 msgstr "Roolit"
@@ -27992,7 +27674,7 @@ msgid "Romania"
 msgstr "Romania"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:112
+#: src/features/user/utils/LocaleUtils.ts:110
 msgid "Romanian"
 msgstr "romania"
 
@@ -28046,7 +27728,7 @@ msgid "Runtime utilities"
 msgstr "Ajoaikatyökalut"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:116
+#: src/features/user/utils/LocaleUtils.ts:114
 msgid "Russian"
 msgstr "venäjä"
 
@@ -28085,7 +27767,6 @@ msgstr "Kylläisyys"
 #: src/features/expressions/components/modals/AddFavoriteMemeModal.tsx:118
 #: src/features/expressions/components/modals/EditFavoriteMemeModal.tsx:94
 #: src/features/expressions/components/modals/EditGuildStickerModal.tsx:123
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:631
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:279
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:91
 #: src/features/messaging/components/modals/AttachmentEditModal.tsx:136
@@ -28211,11 +27892,6 @@ msgstr "Skannaa QR-koodi todennussovelluksellasi."
 #: src/features/devtools/components/NagbarControls.ts:17
 msgid "Scheduled maintenance nagbar"
 msgstr "Ajastetun huollon ilmoituspalkki"
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:92
-msgid "Science & technology"
-msgstr "Tiede ja teknologia"
 
 #. Filter category label in the mobile channel search sheet for the search scope selector.
 #. Summary row label on the confirm step showing the user-picked scope.
@@ -28521,11 +28197,6 @@ msgstr "Hae käyttäjänimellä tai tunnuksella"
 msgid "Search channels"
 msgstr "Hae kanavia"
 
-#. Accessible label and placeholder for the community search field in the Discovery page.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:29
-msgid "Search communities"
-msgstr "Hae yhteisöjä"
-
 #. Button or menu action label in the phone add modal. Keep it concise.
 #: src/features/user/components/modals/PhoneAddModal.tsx:62
 msgid "Search countries..."
@@ -28551,14 +28222,12 @@ msgstr "Hakukone"
 msgid "Search engines"
 msgstr "Hakukoneet"
 
-#. Accessible label for the filter sidebar shown beside the Discovery search results.
 #. Section header in the message search popout listing available filter operators.
 #. Section header in the message search popout listing available filter operators.
 #. Section header in the message search popout listing available filter operators.
 #: src/features/channel/components/message_search_bar/FilterOption.tsx:14
 #: src/features/channel/components/message_search_bar/HistorySection.tsx:16
 #: src/features/channel/components/message_search_bar/PlaintextSection.tsx:18
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:17
 msgid "Search filters"
 msgstr "Hakusuodattimet"
 
@@ -28650,11 +28319,6 @@ msgstr "Hae käyttöoikeuksia…"
 #: src/features/channel/components/channel_search_results/ChannelSearchResultsShared.tsx:53
 msgid "Search results"
 msgstr "Hakutulokset"
-
-#. Heading in the Discovery navigation bar when a search is active. {query} is the text the user searched for.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:37
-msgid "Search results for “{query}”"
-msgstr "Hakutulokset haulle ”{query}”"
 
 #. Short label in the settings dialog add override popout.
 #: src/features/app/components/dialogs/shared/AddOverridePopout.tsx:32
@@ -31051,10 +30715,8 @@ msgstr "Jokin meni pieleen."
 #. Body of the error modal shown when ringing or stopping a ring fails.
 #. Body of the generic fallback error modal shown when deleting a custom emoji fails.
 #. Body of the generic fallback error modal shown when generating a shareable theme link fails.
-#. Body of the generic fallback error modal shown when joining a discovery community fails.
 #. Generic fallback body shown in an error modal when an action fails for an unexpected reason.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:5
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:18
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:129
 #: src/features/theme/components/modals/ShareThemeModal.tsx:51
 #: src/features/ui/action_menu/items/CallMenuItems.tsx:45
@@ -31226,12 +30888,12 @@ msgid "Spam, scams, or phishing"
 msgstr "Roskaposti, huijaukset tai tietojenkalastelu"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:48
+#: src/features/user/utils/LocaleUtils.ts:46
 msgid "Spanish (Latin America)"
 msgstr "espanja (Latinalainen Amerikka)"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:44
+#: src/features/user/utils/LocaleUtils.ts:42
 msgid "Spanish (Spain)"
 msgstr "espanja (Espanja)"
 
@@ -31595,10 +31257,6 @@ msgstr "Tilan ilmaisimet"
 msgid "Status slate"
 msgstr "Tilapaneeli"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:368
-msgid "Status:"
-msgstr "Tila:"
-
 #. Label in the motion tab.
 #. Settings search entry label. Names the settings search entry in the settings UI.
 #. Short label for an advanced app interaction toggle.
@@ -31733,7 +31391,7 @@ msgid "Stickers"
 msgstr "Tarrat"
 
 #. Community settings tab for managing custom stickers uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:41
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:39
 msgctxt "community-settings-tab"
 msgid "Stickers"
 msgstr "Tarrat"
@@ -32048,10 +31706,6 @@ msgstr "Tyyli"
 msgid "Submenu"
 msgstr "Alivalikko"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:631
-msgid "Submit application"
-msgstr "Lähetä hakemus"
-
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:445
 msgid "Submitting"
 msgstr "Lähetetään"
@@ -32187,7 +31841,7 @@ msgid "Sweden"
 msgstr "Ruotsi"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:120
+#: src/features/user/utils/LocaleUtils.ts:118
 msgid "Swedish"
 msgstr "ruotsi"
 
@@ -32558,11 +32212,6 @@ msgstr "Tunnisteet"
 msgid "Tags ({tagCount}/{tagLimit})"
 msgstr "Tunnisteet ({tagCount}/{tagLimit})"
 
-#. Discovery custom-tag validation error. maxLength is the maximum allowed tag length.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:60
-msgid "Tags must be 2 to {maxLength} characters and alphanumeric."
-msgstr "Tunnisteen on oltava 2–{maxLength} merkkiä pitkä ja koostuttava kirjaimista ja numeroista."
-
 #: src/features/app/components/dialogs/components/plutonium/SubscriptionCard.tsx:291
 msgid "Takes effect at your next renewal. We'll apply a {creditLabel} credit from your current monthly payment, so your first yearly charge will be <0>{firstRenewalPriceLabel}</0>. Future yearly renewals will be {renewalPrice}/year."
 msgstr "Tulee voimaan seuraavan uusimisen yhteydessä. Hyvitämme {creditLabel} nykyisestä kuukausimaksustasi, joten ensimmäinen vuosimaksu on <0>{firstRenewalPriceLabel}</0>. Tulevat vuosittaiset uusinnat ovat {renewalPrice}/vuosi."
@@ -32839,7 +32488,7 @@ msgid "Text-to-speech notifications"
 msgstr "Tekstistä puheeksi -ilmoitukset"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:124
+#: src/features/user/utils/LocaleUtils.ts:122
 msgid "Thai"
 msgstr "thai"
 
@@ -33050,10 +32699,6 @@ msgstr "Kutsu asetettiin myöntämään väliaikainen jäsenyys"
 msgid "The invite was set to never expire"
 msgstr "Kutsu asetettiin kestämään ikuisesti"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:506
-msgid "The language most of your community speaks. Used to filter Discovery results."
-msgstr "Kieli, jota suurin osa yhteisöstäsi puhuu. Käytetään Löydä-osion tulosten suodattamiseen."
-
 #. Error modal body shown when revoking an invite fails; warns the user that the link may still be live.
 #: src/features/invite/components/alerts/InviteRevokeFailedModal.tsx:12
 msgid "The link may still work. Try again in a moment."
@@ -33255,11 +32900,6 @@ msgstr "Teeman tokenit"
 #: src/features/channel/components/ThemeEmbed.tsx:33
 msgid "Theme unavailable"
 msgstr "Teema ei ole saatavilla"
-
-#. Short label in the Discovery page sidebar. Keep it concise.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:23
-msgid "Themes"
-msgstr "Teemat"
 
 #: src/features/invite/components/modals/InviteModal.tsx:194
 msgid "There are no channels available to create an invite for."
@@ -33490,31 +33130,16 @@ msgstr "Yhteisö on keskeyttänyt kutsut. Voit yrittää myöhemmin uudelleen."
 msgid "This community has reached its maximum member limit and is not accepting new members at this time."
 msgstr "Yhteisö on saavuttanut jäsenrajan, eikä se hyväksy uusia jäseniä tällä hetkellä."
 
-#. Body of the error modal shown when a discovery community has reached its member limit.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:26
-msgid "This community has reached its member limit, so you can't join right now."
-msgstr "Tämä yhteisö on saavuttanut jäsenrajansa, joten et voi liittyä siihen juuri nyt."
-
 #. Title of the error modal shown when a non-Visionary user tries to rejoin a gated Plutonium community.
 #: src/features/app/components/dialogs/components/plutonium/hooks/useCommunityActions.tsx:18
 msgid "This community is for Visionary members"
 msgstr "Tämä yhteisö on tarkoitettu Visionary-jäsenille"
-
-#. Title of the error modal shown when a discovery community has reached its member limit.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:22
-msgid "This community is full"
-msgstr "Yhteisö on täynnä"
 
 #. Body in the channel gate modal for a mature community when no custom warning is set.
 #: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Tämä yhteisö on merkitty aikuisille tarkoitetuksi sisällöksi, ja se voi sisältää materiaalia, joka voi olla sopimatonta joillekin käyttäjille."
-
-#. Title of the error modal shown when a discovery community is no longer joinable (delisted, invites off, or discovery disabled).
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:46
-msgid "This community is no longer available"
-msgstr "Tämä yhteisö ei ole enää saatavilla"
 
 #. Description text in the linked accounts tab.
 #. Description text in the user profile shared popout.
@@ -33569,7 +33194,7 @@ msgid "This emoji could not be prepared. Try another file or try again in a mome
 msgstr "Emojia ei voitu valmistella. Kokeile toista tiedostoa tai yritä hetken kuluttua uudelleen."
 
 #. Label above the community an emoji comes from in the emoji info card.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:71
+#: src/features/expressions/components/ExpressionInfoCard.tsx:61
 msgid "This emoji is from"
 msgstr "Tämä emoji on peräisin"
 
@@ -33680,12 +33305,12 @@ msgid "This invite may have expired or been deleted."
 msgstr "Tämä kutsu on ehkä vanhentunut tai poistettu."
 
 #. Description of a custom emoji from a community the viewer is not a member of.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:61
+#: src/features/expressions/components/ExpressionInfoCard.tsx:51
 msgid "This is a custom emoji from a community."
 msgstr "Tämä on yhteisön mukautettu emoji."
 
 #. Description of a custom sticker from a community the viewer is not a member of.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:65
+#: src/features/expressions/components/ExpressionInfoCard.tsx:55
 msgid "This is a custom sticker from a community."
 msgstr "Tämä on mukautettu tarra yhteisöstä."
 
@@ -33922,7 +33547,7 @@ msgid "This shows how links appear: {linkPreviewExampleUrl}"
 msgstr "Näin linkit näkyvät: {linkPreviewExampleUrl}"
 
 #. Label above the community a sticker comes from in the sticker info card.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:75
+#: src/features/expressions/components/ExpressionInfoCard.tsx:65
 msgid "This sticker is from"
 msgstr "Tämä tarra on peräisin"
 
@@ -34709,11 +34334,6 @@ msgstr "Kokeile toista nimeä tai tarkista kirjoitusasu."
 msgid "Try another search term"
 msgstr "Kokeile toista hakusanaa"
 
-#. Empty-state hint in Discovery shown under the heading when a search returns no communities.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:16
-msgid "Try another search term, or pick a different category or language."
-msgstr "Kokeile toista hakusanaa tai valitse toinen kategoria tai kieli."
-
 #. Helper text on an unknown invite embed suggesting the user request a fresh invite.
 #: src/features/channel/components/InviteEmbed.tsx:100
 msgid "Try asking for a new invite."
@@ -34772,7 +34392,7 @@ msgid "Tune the processing yourself."
 msgstr "Säädä käsittelyä itse."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:128
+#: src/features/user/utils/LocaleUtils.ts:126
 msgid "Turkish"
 msgstr "Turkki"
 
@@ -35055,7 +34675,7 @@ msgid "UK law requires a mature content check. To continue, you'll complete a ze
 msgstr "Ison-Britannian laki edellyttää aikuisille tarkoitetun sisällön tarkistusta. Jatkaaksesi teet Stripen kautta nollasummaisen luottokorttivarmennuksen. Korttiasi ei veloiteta."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:132
+#: src/features/user/utils/LocaleUtils.ts:130
 msgid "Ukrainian"
 msgstr "ukraina"
 
@@ -35843,10 +35463,6 @@ msgstr "Ei-toivottu käytös tai aikuisille tarkoitettu sisältö väärässä p
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:209
 msgid "Unwanted mature conduct, comments, or requests."
 msgstr "Ei-toivottu aikuisille tarkoitettu käytös, kommentit tai pyynnöt."
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:608
-msgid "Up to {DISCOVERY_MAX_TAGS} tags help people find your community. They show up in Discovery search."
-msgstr "Enintään {DISCOVERY_MAX_TAGS} tunnistetta auttaa ihmisiä löytämään yhteisösi. Ne näkyvät Löydä-haussa."
 
 #. Feature comparison table value label. Shown in the restricted or stock column for a text-valued perk. Format includes a resolution token (4K) and a framerate token that should not be translated.
 #: src/features/app/components/dialogs/components/FeatureComparisonTable.tsx:83
@@ -36749,7 +36365,7 @@ msgid "Vanity URL"
 msgstr "Mukautettu URL-osoite"
 
 #. Community settings tab for the community vanity/custom invite link.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:71
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:69
 msgctxt "community-settings-tab"
 msgid "Vanity URL"
 msgstr "Mukautettu URL-osoite"
@@ -37154,7 +36770,7 @@ msgid "Videos"
 msgstr "Videot"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:136
+#: src/features/user/utils/LocaleUtils.ts:134
 msgid "Vietnamese"
 msgstr "vietnami"
 
@@ -38154,7 +37770,7 @@ msgid "Webhooks"
 msgstr "Webhookit"
 
 #. Community settings tab for configuring webhooks.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:66
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:64
 msgctxt "community-settings-tab"
 msgid "Webhooks"
 msgstr "Webhookit"
@@ -38527,10 +38143,6 @@ msgstr "Virheellinen"
 msgid "With reduced motion on, stickers only animate on interaction. Choose \"Always animate\" to override."
 msgstr "Kun vähennetty liike on käytössä, tarrat animoituvat vain, kun niitä käsitellään. Valitse ”Animoi aina”, jos haluat ohittaa tämän."
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:622
-msgid "Withdraw"
-msgstr "Peru hakemus"
-
 #. Permission description in the channel-scoped permissions editor for the Use Voice Activity permission. Explains the inverse: without it, the user must use push-to-talk in this voice channel.
 #: src/features/permissions/utils/PermissionLabelDescriptors.ts:297
 msgid "Without this permission, push-to-talk is required in this channel."
@@ -38732,11 +38344,6 @@ msgstr "Voit sulkea tämän ikkunan. Tuonti jatkuu taustalla."
 msgid "You can now close this tab and return to the app."
 msgstr "Voit nyt sulkea tämän välilehden ja palata takaisin sovellukseen."
 
-#. Discovery custom-tag validation error. maxTags is the maximum number of custom tags.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:64
-msgid "You can only add up to {maxTags} tags."
-msgstr "Voit lisätä enintään {maxTags} tunnistetta."
-
 #: src/features/theme/components/modals/BackgroundImageGalleryModal.tsx:581
 msgid "You can only have one custom background on the free tier. Picking a new one will replace your existing background."
 msgstr "Voit käyttää vain yhtä mukautettua taustaa ilmaisversiossa. Uuden valitseminen korvaa nykyisen taustasi."
@@ -38816,11 +38423,6 @@ msgstr "Et voi muokata tätä viestiä."
 #: src/features/channel/components/modals/channel_tabs/ChannelPermissionsTab.tsx:54
 msgid "You can't grant a permission you don't have in this channel."
 msgstr "Et voi myöntää käyttöoikeutta, jota sinulla ei ole tällä kanavalla."
-
-#. Title of the error modal shown when the user is banned from a discovery community.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:38
-msgid "You can't join this community"
-msgstr "Et voi liittyä tähän yhteisöön"
 
 #. Label in the user settings voice activity card. Keep the tone plain and specific.
 #: src/features/user/components/profile/VoiceActivityCard.tsx:59
@@ -39005,11 +38607,6 @@ msgstr "Sinulla ei ole oikeutta liittyä tälle äänikanavalle"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:73
 msgid "You don't have permission to rename this emoji. The name was reverted to what it was before."
 msgstr "Sinulla ei ole oikeutta nimetä tätä emojia uudelleen. Nimi palautettiin entiselleen."
-
-#. Body of the error modal shown when the user is banned from a discovery community.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:42
-msgid "You have been banned from this community."
-msgstr "Sinut on porttikielletty tästä yhteisöstä."
 
 #: src/features/channel/components/barriers/BarrierComponents.tsx:362
 msgid "You have blocked {username}. Unblock them to send messages."
@@ -39325,13 +38922,11 @@ msgstr "Muokkaat viestejä liian nopeasti"
 
 #. Title of the error modal shown when an action is rate limited.
 #. Title of the error modal shown when deleting a custom emoji is rate limited.
-#. Title of the error modal shown when joining a discovery community is rate limited.
 #. Title of the error modal shown when renaming a custom emoji is rate limited.
 #. Title of the error modal shown when resending a verification email is rate-limited.
 #. Title of the error modal shown when sharing or sending a theme link is rate limited.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:9
 #: src/features/app/components/dialogs/components/EmailVerificationAlert.tsx:23
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:56
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:77
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:149
 #: src/features/theme/components/modals/ShareThemeModal.tsx:63
@@ -39356,11 +38951,6 @@ msgstr "Esikatselutila käytössä"
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:114
 msgid "You're in the call"
 msgstr "Olet puhelussa"
-
-#. Body of the error modal shown when the user is already in the maximum number of communities.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:34
-msgid "You're in the maximum number of communities. Leave one and try again."
-msgstr "Kuulut jo suurimpaan sallittuun määrään yhteisöjä. Poistu jostakin ja yritä uudelleen."
 
 #. Subtitle below the connected-to-voice header confirming the user is in the channel.
 #: src/features/voice/components/bottomsheets/VoiceLobbyBottomSheet.tsx:82
@@ -39427,11 +39017,6 @@ msgstr "Sinut on kutsunut ryhmäkeskusteluun käyttäjä"
 #: src/features/theme/components/pages/ThemeRegisterPage.tsx:28
 msgid "You've got CSS!"
 msgstr "Sinulle on CSS:ää!"
-
-#. Title of the error modal shown when the user is already in the maximum number of communities.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:30
-msgid "You've reached the community limit"
-msgstr "Olet saavuttanut yhteisöjen enimmäismäärän"
 
 #. Label in the message list page.
 #. Label in the saved messages content popout.
@@ -39540,10 +39125,6 @@ msgstr "Tilisi toimii taas normaalisti heti, eikä mitään poisteta. Voimme pyy
 msgid "Your action could not be completed because it was flagged by our safety systems. If you believe this is a mistake, please contact support."
 msgstr "Toimintoasi ei voitu suorittaa, koska turvajärjestelmämme merkitsivät sen. Jos uskot tämän olevan virhe, ota yhteyttä tukeen."
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:409
-msgid "Your application is pending review. You can still update your listing details or withdraw the application."
-msgstr "Hakemuksesi odottaa tarkistusta. Voit edelleen päivittää listauksesi tietoja tai peruuttaa hakemuksen."
-
 #. Body of the browser-audio-required modal explaining why the user must click before audio can play.
 #: src/features/voice/components/modals/AudioPlaybackPermissionModal.tsx:12
 msgid "Your browser requires user interaction before audio can be played. Click the button below to enable voice chat."
@@ -39569,15 +39150,6 @@ msgstr "Koodisi"
 #: src/features/auth/flow/HandoffCodeDisplay.tsx:121
 msgid "Your code is ready"
 msgstr "Koodisi on valmis"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:390
-msgid "Your community is listed in Discovery. You can update your listing details below or withdraw to remove it."
-msgstr "Yhteisösi näkyy Löydä-osiossa. Voit päivittää listauksesi tietoja alta tai poistaa listauksen."
-
-#. Warning in the community Discovery settings tab when the community is below the minimum size. The plural count is the minimum number of members required to be listed.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:349
-msgid "Your community needs at least {minMemberCount, plural, one {# member} other {# members}} before it can be listed in Discovery."
-msgstr "Yhteisössäsi on oltava vähintään {minMemberCount, plural, one {# jäsen} other {# jäsentä}}, ennen kuin se voidaan listata Löydä-osioon."
 
 #. Tooltip on the passive badge on your own screen-share tile when the encoder is limited by CPU.
 #: src/features/voice/components/voice_participant_tile/shared.ts:85

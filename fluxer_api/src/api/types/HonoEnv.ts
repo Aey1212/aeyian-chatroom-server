@@ -24,7 +24,6 @@ import type {FavoriteMemeRequestService} from '@app/api/favorite_meme/FavoriteMe
 import type {FavoriteMemeService} from '@app/api/favorite_meme/FavoriteMemeService';
 import type {GatewayRequestService} from '@app/api/gateway/GatewayRequestService';
 import type {GifService} from '@app/api/gif/GifService';
-import type {IGuildDiscoveryService} from '@app/api/guild/services/GuildDiscoveryService';
 import type {GuildService} from '@app/api/guild/services/GuildService';
 import type {EmbedService} from '@app/api/infrastructure/EmbedService';
 import type {EntityAssetService} from '@app/api/infrastructure/EntityAssetService';
@@ -143,7 +142,6 @@ export interface HonoEnv {
 		favoriteMemeRequestService: FavoriteMemeRequestService;
 		gatewayService: IGatewayService;
 		gatewayRequestService: GatewayRequestService;
-		discoveryService: IGuildDiscoveryService;
 		guildService: GuildService;
 		inviteService: InviteService;
 		inviteRequestService: InviteRequestService;

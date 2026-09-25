@@ -232,7 +232,7 @@ export default defineConfig({
 				},
 				{
 					label: 'Discovery and content',
-					items: ['http-api/discovery', 'http-api/invites', 'http-api/search', 'http-api/unfurl'],
+					items: ['http-api/invites', 'http-api/search', 'http-api/unfurl'],
 				},
 				{
 					label: 'Commerce',
@@ -282,7 +282,6 @@ export default defineConfig({
 						'admin-api/reports',
 						'admin-api/messages',
 						'admin-api/blocklists',
-						'admin-api/discovery',
 						'admin-api/system-dms',
 						'admin-api/instance',
 						'admin-api/gift-codes',

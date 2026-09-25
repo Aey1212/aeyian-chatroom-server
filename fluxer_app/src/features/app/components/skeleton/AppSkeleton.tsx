@@ -5,7 +5,6 @@ import {ConnectionNagbar} from '@app/features/app/components/layout/app_layout/n
 import {OutlineFrame} from '@app/features/app/components/layout/OutlineFrame';
 import styles from '@app/features/app/components/skeleton/AppSkeleton.module.css';
 import {ChatSkeleton} from '@app/features/app/components/skeleton/ChatSkeleton';
-import {DiscoveryPageSkeleton, DiscoverySidebarSkeleton} from '@app/features/app/components/skeleton/DiscoverySkeleton';
 import {DMSidebarSkeleton} from '@app/features/app/components/skeleton/DMSidebarSkeleton';
 import {FriendsSkeleton} from '@app/features/app/components/skeleton/FriendsSkeleton';
 import {GuildRailSkeleton} from '@app/features/app/components/skeleton/GuildRailSkeleton';
@@ -65,10 +64,6 @@ function renderSidebar(sidebar: SkeletonSidebarVariant, guildId: string | null) 
 					data-flx="app.skeleton.app-skeleton.render-sidebar.guild-sidebar-skeleton"
 				/>
 			);
-		case SkeletonSidebarVariant.DISCOVERY:
-			return (
-				<DiscoverySidebarSkeleton data-flx="app.skeleton.app-skeleton.render-sidebar.discovery-sidebar-skeleton" />
-			);
 	}
 }
 
@@ -83,8 +78,6 @@ function renderContent(content: SkeletonContent, chatPresentation: ChatSkeletonP
 			);
 		case 'friends':
 			return <FriendsSkeleton data-flx="app.skeleton.app-skeleton.render-content.friends-skeleton" />;
-		case 'discovery':
-			return <DiscoveryPageSkeleton data-flx="app.skeleton.app-skeleton.render-content.discovery-page-skeleton" />;
 		case 'page':
 			return (
 				<SimplePageSkeleton
@@ -115,7 +108,6 @@ export const AppSkeleton = observer(({isExiting = false, onTransitionEnd, effect
 	const pathname = effectivePathname ?? location.pathname;
 	const isFluxerSelected = pathname.startsWith(Routes.ME) || Routes.isSpecialPage(pathname);
 	const isFavoritesSelected = pathname.startsWith(Routes.FAVORITES);
-	const isDiscoverySelected = Routes.isDiscoverRoute(pathname);
 	const isMobile = MobileLayout.enabled;
 	const isVoiceCallFullscreenActive = VoiceCallFullscreen.isActive;
 	const shell = resolveSkeletonShell(pathname);
@@ -202,7 +194,6 @@ export const AppSkeleton = observer(({isExiting = false, onTransitionEnd, effect
 				<GuildRailSkeleton
 					isFluxerSelected={isFluxerSelected}
 					isFavoritesSelected={isFavoritesSelected}
-					isDiscoverySelected={isDiscoverySelected}
 					data-flx="app.skeleton.app-skeleton.guild-rail-skeleton"
 				/>
 			)}

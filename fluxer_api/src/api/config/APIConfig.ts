@@ -350,10 +350,6 @@ export interface APIConfig {
 	domain: {
 		baseDomain: string;
 	};
-	discovery: {
-		enabled: boolean;
-		minMemberCount: number;
-	};
 	dev: {
 		relaxRegistrationRateLimits: boolean;
 		disableRateLimits: boolean;

@@ -26,7 +26,6 @@ function createServiceStoppingAtGuildCount(): GuildOperationsService {
 		unused,
 		unused,
 		unused,
-		unused,
 	);
 }
 

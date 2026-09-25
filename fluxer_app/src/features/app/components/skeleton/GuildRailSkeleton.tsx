@@ -18,7 +18,7 @@ import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
 import {getRemScaleForDocument} from '@app/features/theme/layout/RemFromPx';
 import Dimension from '@app/features/ui/state/Dimension';
 import {flxElementClassName} from '@app/lib/react';
-import {ChatCircleIcon, CompassIcon, type Icon, type IconWeight, PlusIcon, StarIcon} from '@phosphor-icons/react';
+import {ChatCircleIcon, type Icon, type IconWeight, PlusIcon, StarIcon} from '@phosphor-icons/react';
 import type React from 'react';
 import {useState} from 'react';
 
@@ -424,14 +424,9 @@ function renderOrganizedItem(
 interface GuildRailSkeletonProps {
 	readonly isFluxerSelected: boolean;
 	readonly isFavoritesSelected: boolean;
-	readonly isDiscoverySelected: boolean;
 }
 
-export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({
-	isFluxerSelected,
-	isFavoritesSelected,
-	isDiscoverySelected,
-}) => {
+export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({isFluxerSelected, isFavoritesSelected}) => {
 	const [mountState] = useState(() => {
 		const rememberedLayout = getRememberedSkeletonGuildRailLayout();
 		const remScale = getRemScaleForDocument(document);
@@ -458,20 +453,19 @@ export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({
 	const selectedItemIndex = rememberedLayout?.selectedItemIndex ?? SKELETON_NO_SELECTED_RAIL_ITEM_INDEX;
 	const fluxerVisible = rememberedLayout?.fluxerVisible ?? !RuntimeConfig.directMessagesDisabled;
 	const favoritesVisible = rememberedLayout?.favoritesVisible ?? true;
-	const discoveryVisible = rememberedLayout?.discoveryVisible ?? communityActionsAvailable;
 	const addGuildVisible = rememberedLayout?.addGuildVisible ?? communityActionsAvailable;
 	const hasGuildItems = outageVisible || organizedItems.length > 0;
 	const fluxerIsLastTopRow = fluxerVisible && !favoritesVisible && inlineDmRowCount === 0;
-	const hasBottomRailButtons = discoveryVisible || addGuildVisible;
+	const hasBottomRailButtons = addGuildVisible;
 	const itemsEndWithoutGap = outageVisible && organizedItems.length === 0 && hasBottomRailButtons;
 	let guildsSectionTrailingGap: boolean;
-	if (discoveryVisible || addGuildVisible) {
+	if (addGuildVisible) {
 		guildsSectionTrailingGap = true;
 	} else {
 		guildsSectionTrailingGap = organizedItems.length > 0;
 	}
 	const topRowCount = (fluxerVisible ? 1 : 0) + (favoritesVisible ? 1 : 0) + inlineDmRowCount;
-	const bottomButtonCount = (discoveryVisible ? 1 : 0) + (addGuildVisible ? 1 : 0);
+	const bottomButtonCount = addGuildVisible ? 1 : 0;
 	const scrollTop = resolveDrawableRailScrollTopPx({
 		bottomButtonCount,
 		organizedItems,
@@ -546,14 +540,6 @@ export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({
 								{outageVisible && <OutagePlaceholder data-flx="app.skeleton.guild-rail-skeleton.outage-placeholder" />}
 								{organizedItems.map((item, index) => renderOrganizedItem(item, index, selectedItemIndex))}
 							</flx-app-guild-rail-skeleton-items>
-						)}
-						{discoveryVisible && (
-							<RailActionButton
-								icon={CompassIcon}
-								weight="fill"
-								selected={isDiscoverySelected}
-								data-flx="app.skeleton.guild-rail-skeleton.rail-action-button"
-							/>
 						)}
 						{addGuildVisible && (
 							<RailActionButton icon={PlusIcon} data-flx="app.skeleton.guild-rail-skeleton.rail-action-button--2" />

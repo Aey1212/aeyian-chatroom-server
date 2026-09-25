@@ -5,10 +5,9 @@ import {createTestAccount, setUserACLs, type TestAccount} from '@app/api/auth/te
 import {createGuild} from '@app/api/guild/tests/GuildTestUtils';
 import {getAdminRepository} from '@app/api/middleware/ServiceSingletons';
 import {type ApiTestHarness, createApiTestHarness} from '@app/api/test/ApiTestHarness';
-import {HTTP_STATUS, TEST_IDS} from '@app/api/test/TestConstants';
+import {HTTP_STATUS} from '@app/api/test/TestConstants';
 import {createBuilder} from '@app/api/test/TestRequestBuilder';
 import {AdminACLs} from '@fluxer/constants/src/AdminACLs';
-import {DiscoveryCategories} from '@fluxer/constants/src/DiscoveryConstants';
 import {afterEach, beforeEach, describe, expect, test} from 'vitest';
 
 const AUDIT_REASON = 'Ticket 4471';
@@ -73,33 +72,6 @@ describe('Multi-item admin endpoint audit entries', () => {
 			count: '3',
 			duration_type: 'months',
 			duration_quantity: '1',
-		});
-	});
-
-	test('records a bulk discovery listing move with its failure count', async () => {
-		const admin = await createAdmin([AdminACLs.DISCOVERY_REVIEW]);
-
-		const result = await createBuilder<{
-			updated: number;
-			failed_guild_ids: Array<string>;
-		}>(harness, `${admin.token}`)
-			.patch('/admin/discovery/listings')
-			.header('X-Audit-Log-Reason', AUDIT_REASON)
-			.body({guild_ids: [TEST_IDS.NONEXISTENT_GUILD], category_type: DiscoveryCategories.EDUCATION})
-			.expect(HTTP_STATUS.OK)
-			.execute();
-
-		expect(result.failed_guild_ids).toEqual([TEST_IDS.NONEXISTENT_GUILD]);
-		const log = await findAuditLog('update_discovery_categories');
-		expect(log).toBeDefined();
-		expect(log?.adminUserId.toString()).toBe(admin.userId);
-		expect(log?.targetType).toBe('guild');
-		expect(log?.auditLogReason).toBe(AUDIT_REASON);
-		expect(Object.fromEntries(log!.metadata)).toEqual({
-			category_type: DiscoveryCategories.EDUCATION.toString(),
-			guild_count: '1',
-			updated: '0',
-			failed: '1',
 		});
 	});
 });

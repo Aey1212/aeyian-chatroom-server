@@ -30,7 +30,6 @@ import {
 import {OutlineFrame} from '@app/features/app/components/layout/OutlineFrame';
 import type {ScrollIndicatorSeverity} from '@app/features/app/components/layout/ScrollIndicatorStateMachine';
 import {AddGuildButton} from '@app/features/app/components/layout/sidebar_nav/AddGuildButton';
-import {DiscoveryButton} from '@app/features/app/components/layout/sidebar_nav/DiscoveryButton';
 import {FavoritesButton} from '@app/features/app/components/layout/sidebar_nav/FavoritesButton';
 import {FluxerButton} from '@app/features/app/components/layout/sidebar_nav/FluxerButton';
 import {GuildFolderItem} from '@app/features/app/components/layout/sidebar_nav/GuildFolderItem';
@@ -191,13 +190,11 @@ type GuildNavigationRow =
 	| (NavigationRow & {readonly kind: 'outage'})
 	| (NavigationRow & {readonly kind: 'organized-item'; readonly item: OrganizedItem})
 	| (NavigationRow & {readonly kind: 'bottom-drop-zone'})
-	| (NavigationRow & {readonly kind: 'discovery'})
 	| (NavigationRow & {readonly kind: 'add-guild'});
 
 interface GuildNavigationVisibility {
 	readonly fluxerVisible: boolean;
 	readonly favoritesVisible: boolean;
-	readonly discoveryVisible: boolean;
 	readonly addGuildVisible: boolean;
 }
 
@@ -210,7 +207,6 @@ function useGuildNavigationVisibility(): GuildNavigationVisibility {
 			Object.freeze({
 				fluxerVisible,
 				favoritesVisible,
-				discoveryVisible: communityActionsVisible,
 				addGuildVisible: communityActionsVisible,
 			}),
 		[communityActionsVisible, favoritesVisible, fluxerVisible],
@@ -302,14 +298,6 @@ function createGuildNavigationRows({
 			});
 		}
 	}
-	if (visibility.discoveryVisible) {
-		rows.push({
-			kind: 'discovery',
-			key: 'discovery',
-			focusable: true,
-			focusTargetIdentity: 'discovery',
-		});
-	}
 	if (visibility.addGuildVisible) {
 		rows.push({
 			kind: 'add-guild',
@@ -324,7 +312,6 @@ function createGuildNavigationRows({
 function hasGapAfterGuildNavigationRow(row: GuildNavigationRow, nextRow: GuildNavigationRow | null): boolean {
 	switch (row.kind) {
 		case 'fluxer':
-		case 'discovery':
 		case 'add-guild':
 			return true;
 		case 'favorites':
@@ -367,7 +354,6 @@ function resolveSelectedGuildNavigationKey({
 		}
 	}
 	if (visibility.favoritesVisible && pathname === Routes.FAVORITES) return 'favorites';
-	if (visibility.discoveryVisible && Routes.isDiscoverRoute(pathname)) return 'discovery';
 	if (visibility.fluxerVisible && pathname === Routes.ME) return 'fluxer';
 	return null;
 }
@@ -1460,7 +1446,6 @@ function createGuildRailSkeletonLayout({
 		outageVisible: hasUnavailableGuilds,
 		fluxerVisible: visibility.fluxerVisible,
 		favoritesVisible: visibility.favoritesVisible,
-		discoveryVisible: visibility.discoveryVisible,
 		addGuildVisible: visibility.addGuildVisible,
 		selectedItemIndex,
 		organizedItems: Object.freeze(projectedItems),
@@ -2014,8 +1999,6 @@ const GuildList = observer(() => {
 						/>
 					</flx-app-guild-list-drop-zone>
 				);
-			case 'discovery':
-				return <DiscoveryButton data-flx="app.guilds-layout.render-guild-navigation-row.discovery-button" />;
 			case 'add-guild':
 				return <AddGuildButton data-flx="app.guilds-layout.render-guild-navigation-row.add-guild-button" />;
 		}
@@ -2111,14 +2094,12 @@ export const GuildsLayout = observer(({children}: {children: React.ReactNode}) =
 		!isVoiceCallFullscreenActive &&
 		mobileLayout.enabled &&
 		(location.pathname === Routes.ME ||
-			Routes.isDiscoverRoute(location.pathname) ||
 			(Routes.isChannelRoute(location.pathname) && location.pathname.split('/').length === 3));
 	const showBottomNav =
 		!isVoiceCallFullscreenActive &&
 		mobileLayout.enabled &&
 		(location.pathname === Routes.ME ||
 			location.pathname === Routes.FAVORITES ||
-			Routes.isDiscoverRoute(location.pathname) ||
 			location.pathname === Routes.NOTIFICATIONS ||
 			location.pathname === Routes.YOU ||
 			(Routes.isGuildChannelRoute(location.pathname) && location.pathname.split('/').length === 3));

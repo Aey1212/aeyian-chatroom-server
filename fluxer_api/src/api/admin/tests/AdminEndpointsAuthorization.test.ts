@@ -87,10 +87,6 @@ const adminEndpoints: Array<AdminEndpointCase> = [
 	{method: 'GET', path: '/admin/blocklists', requiredACL: 'ban:ip:check'},
 	{method: 'GET', path: '/admin/blocklists/ip/entries', requiredACL: 'ban:ip:check'},
 	{method: 'POST', path: '/admin/blocklists/ip/entries', requiredACL: 'ban:ip:add', body: {ip: '198.51.100.9'}},
-	{method: 'GET', path: '/admin/discovery/applications', requiredACL: 'discovery:review'},
-	{method: 'GET', path: '/admin/discovery/listings', requiredACL: 'discovery:review'},
-	{method: 'PATCH', path: '/admin/discovery/listings/1', requiredACL: 'discovery:review'},
-	{method: 'DELETE', path: '/admin/discovery/listings/1', requiredACL: 'discovery:remove'},
 	{method: 'GET', path: '/admin/search/index-refreshes/1', requiredACL: 'guild:lookup'},
 	{
 		method: 'POST',

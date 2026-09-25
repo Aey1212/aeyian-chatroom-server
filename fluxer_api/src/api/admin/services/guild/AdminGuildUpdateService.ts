@@ -52,10 +52,7 @@ export class AdminGuildUpdateService {
 			newFeatures.delete(feature);
 		}
 		const updatedGuild = await guildRepository.upsertPartial(guildId, {features: newFeatures}, guild.toRow());
-		await updatePropagator.dispatchGuildUpdate(guildId, updatedGuild, {
-			adminUserId,
-			reconcileDiscoveryFeature: true,
-		});
+		await updatePropagator.dispatchGuildUpdate(guildId, updatedGuild);
 		await auditService.createAuditLog({
 			adminUserId,
 			targetType: 'guild',

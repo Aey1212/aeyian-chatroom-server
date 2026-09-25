@@ -377,10 +377,6 @@ export interface MasterConfig {
 		trust_client_ip_header: boolean;
 		client_ip_header: string;
 	};
-	discovery: {
-		enabled: boolean;
-		min_member_count: number;
-	};
 	attachment_decay_enabled: boolean;
 	deletion_grace_period_hours: number;
 	inactivity_deletion_threshold_days: number;
