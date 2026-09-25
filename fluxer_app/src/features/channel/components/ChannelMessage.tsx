@@ -703,6 +703,7 @@ export const Message: React.FC<MessageProps> = observer((props) => {
 				<div
 					role="article"
 					aria-label={messageAriaLabel}
+					data-name-animate-scope=""
 					id={`${idPrefix}-${channel.id}-${message.id}`}
 					data-message-id={message.id}
 					data-channel-id={channel.id}

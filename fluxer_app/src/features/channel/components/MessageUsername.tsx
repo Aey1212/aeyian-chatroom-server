@@ -11,6 +11,7 @@ import styles from '@app/features/theme/styles/Message.module.css';
 import FocusRing from '@app/features/ui/focus_ring/FocusRing';
 import KeyboardMode from '@app/features/ui/state/KeyboardMode';
 import type {User} from '@app/features/user/models/User';
+import {memberNamePaint} from '@app/features/user/name_style/NamePaint';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import {clsx} from 'clsx';
 import {observer} from 'mobx-react-lite';
@@ -39,7 +40,7 @@ export const MessageUsername = observer(
 		const usernameRef = useRef<HTMLSpanElement | null>(null);
 		const contextMenuOpen = useContextMenuHoverState(usernameRef);
 		const displayName = previewName || NicknameUtils.getNickname(user, guild?.id, message.channelId);
-		const color = previewColor || member?.getColorString();
+		const paint = memberNamePaint(user.nameStyle, member, {colorOverride: previewColor, text: displayName});
 		const onPopoutToggle = useMaybeMessageViewContext()?.onPopoutToggle;
 		const handlePopoutOpen = useCallback(() => onPopoutToggle?.(true), [onPopoutToggle]);
 		const handlePopoutClose = useCallback(() => onPopoutToggle?.(false), [onPopoutToggle]);
@@ -68,8 +69,9 @@ export const MessageUsername = observer(
 				<FocusRing data-flx="channel.message-username.focus-ring">
 					{/* biome-ignore lint/a11y/noStaticElementInteractions: the username span is only keyboard-interactive in keyboard mode (role="button"/tabIndex set conditionally); pointer/popout/context-menu interactions are handled by the wrapping PreloadableUserPopout. */}
 					<span
-						className={clsx(className, contextMenuOpen && styles.contextMenuUnderline)}
-						style={{color}}
+						className={clsx(className, contextMenuOpen && styles.contextMenuUnderline, paint.className)}
+						style={paint.style}
+						lang={paint.lang}
 						data-user-id={user.id}
 						data-guild-id={guild?.id}
 						tabIndex={keyboardModeEnabled ? 0 : undefined}

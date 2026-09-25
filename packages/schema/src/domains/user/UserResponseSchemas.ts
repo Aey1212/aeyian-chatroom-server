@@ -19,7 +19,7 @@ import {
 import {ConnectionResponse} from '@fluxer/schema/src/domains/connection/ConnectionSchemas';
 import {GuildMemberResponse} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
 import {MessageResponseSchema} from '@fluxer/schema/src/domains/message/MessageResponseSchemas';
-import {NameStyleSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {type NameStyle, NameStyleSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {LocaleSchema} from '@fluxer/schema/src/primitives/LocaleSchema';
 import {
 	createBitflagInt32Type,
@@ -449,6 +449,7 @@ export interface UserPartial {
 	readonly system?: boolean;
 	readonly flags: number;
 	readonly mention_flags?: MentionReplyPreference;
+	readonly name_style?: NameStyle;
 }
 
 export interface UserPrivate extends UserPartial, UserProfile {

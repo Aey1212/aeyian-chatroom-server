@@ -284,7 +284,15 @@ const GuildRolesTab: React.FC<{guildId: string}> = observer(({guildId}) => {
 			for (const [roleId, updates] of roleUpdates.entries()) {
 				const updateData: Record<string, unknown> = {};
 				if (updates.name !== undefined) updateData.name = updates.name;
-				if (updates.color !== undefined) updateData.color = updates.color;
+				const originalRole = guild.roles[roleId];
+				if (
+					originalRole &&
+					(updates.color !== undefined || updates.secondaryColor !== undefined || updates.tertiaryColor !== undefined)
+				) {
+					updateData.colors = applyRoleUpdate(originalRole, updates).colors;
+				} else if (updates.color !== undefined) {
+					updateData.color = updates.color;
+				}
 				if (updates.hoist !== undefined) updateData.hoist = updates.hoist;
 				if (updates.mentionable !== undefined) updateData.mentionable = updates.mentionable;
 				if (updates.permissions !== undefined) updateData.permissions = updates.permissions.toString();
@@ -334,6 +342,8 @@ const GuildRolesTab: React.FC<{guildId: string}> = observer(({guildId}) => {
 				const hasChanges =
 					(merged.name !== undefined && merged.name !== originalRole.name) ||
 					(merged.color !== undefined && merged.color !== originalRole.color) ||
+					(merged.secondaryColor !== undefined && merged.secondaryColor !== originalRole.secondaryColor) ||
+					(merged.tertiaryColor !== undefined && merged.tertiaryColor !== originalRole.tertiaryColor) ||
 					(merged.hoist !== undefined && merged.hoist !== originalRole.hoist) ||
 					(merged.mentionable !== undefined && merged.mentionable !== originalRole.mentionable) ||
 					(merged.permissions !== undefined && merged.permissions !== originalRole.permissions);
@@ -370,6 +380,7 @@ const GuildRolesTab: React.FC<{guildId: string}> = observer(({guildId}) => {
 			try {
 				const createdRole = await GuildCommands.createRole(guild.id, copyName, {
 					color: sourceRole.color,
+					colors: sourceRole.colors,
 					permissions: grantablePermissions,
 				});
 				const orderedRoleIds = roles.map((role: GuildRole) => role.id).filter((id) => id !== createdRole.id);

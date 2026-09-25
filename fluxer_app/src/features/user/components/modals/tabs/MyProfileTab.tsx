@@ -36,6 +36,7 @@ import {AvatarUploader} from '@app/features/user/components/modals/tabs/my_profi
 import {BannerUploader} from '@app/features/user/components/modals/tabs/my_profile_tab/BannerUploader';
 import {BIO_MARKDOWN_PARSER_FLAGS, BioEditor} from '@app/features/user/components/modals/tabs/my_profile_tab/BioEditor';
 import {UsernameSection} from '@app/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection';
+import {NameStyleSettings} from '@app/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings';
 import {PerGuildPremiumUpsell} from '@app/features/user/components/modals/tabs/my_profile_tab/PerGuildPremiumUpsell';
 import {PremiumBadgeSettings} from '@app/features/user/components/modals/tabs/my_profile_tab/PremiumBadgeSettings';
 import {
@@ -63,6 +64,7 @@ import {GuildMemberProfileFlags} from '@fluxer/constants/src/GuildConstants';
 import {ProfileFieldPrivacyFlags, UserPremiumTypes} from '@fluxer/constants/src/UserConstants';
 import {getCurrentTimeZoneOffsetMinutes} from '@fluxer/date_utils/src/TimeZoneUtils';
 import type {GuildMemberData} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
+import type {NameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import type {UserProfile} from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
@@ -187,6 +189,7 @@ interface FormInputs {
 	global_name: string | null;
 	pronouns: string | null;
 	accent_color: number | null;
+	name_style: NameStyle | null;
 	timezone: string | null;
 	timezone_privacy_flags: number;
 	nick?: string | null;
@@ -259,6 +262,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 			global_name: null,
 			pronouns: null,
 			accent_color: null,
+			name_style: user?.nameStyle ?? null,
 			timezone: user?.timezone ?? null,
 			timezone_privacy_flags: user?.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 			nick: null,
@@ -310,6 +314,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 	const profileRemoteValues: ProfileRemoteValues | null = (() => {
 		if (!user) return null;
 		const commonValues = {
+			name_style: user.nameStyle ?? null,
 			timezone: user.timezone ?? null,
 			timezone_privacy_flags: user.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 			premium_badge_hidden: user.premiumBadgeHidden ?? false,
@@ -517,6 +522,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 						global_name: null,
 						pronouns: data.pronouns,
 						accent_color: data.accent_color,
+						name_style: user.nameStyle ?? null,
 						timezone: user.timezone ?? null,
 						timezone_privacy_flags: user.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 						nick: data.nick,
@@ -534,6 +540,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 					global_name: data.global_name,
 					pronouns: data.pronouns,
 					accent_color: data.accent_color,
+					name_style: data.name_style,
 				};
 				assignProfileAssetUploadPatch(updateData, 'avatar', avatarAsset);
 				assignProfileAssetUploadPatch(updateData, 'banner', bannerAsset);
@@ -565,6 +572,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 						global_name: newUser.global_name || null,
 						pronouns: newUser.pronouns || null,
 						accent_color: typeof newUser.accent_color === 'number' ? newUser.accent_color : null,
+						name_style: newUser.name_style ?? null,
 						timezone: newUser.timezone ?? null,
 						timezone_privacy_flags: newUser.timezone_privacy_flags ?? ProfileFieldPrivacyFlags.EVERYONE,
 						nick: null,
@@ -933,6 +941,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 										previewBio={actualBio}
 										previewPronouns={form.watch('pronouns')}
 										previewAccentColor={form.watch('accent_color')}
+										previewNameStyle={!isPerGuildProfile ? form.watch('name_style') : undefined}
 										previewTimezoneOffset={previewTimezoneOffset}
 										previewGlobalName={!isPerGuildProfile ? form.watch('global_name') : undefined}
 										previewNick={isPerGuildProfile ? form.watch('nick') : undefined}
@@ -953,6 +962,14 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 							</div>
 						)}
 					</SettingsSection>
+					{!isPerGuildProfile && (
+						<NameStyleSettings
+							value={form.watch('name_style')}
+							onChange={(value) => form.setValue('name_style', value, {shouldDirty: true})}
+							displayName={form.watch('global_name') || user.username}
+							disabled={isProfileCustomizationLocked}
+						/>
+					)}
 					{hasPremium && !isPerGuildProfile && (
 						<PremiumBadgeSettings
 							premiumBadgeHidden={form.watch('premium_badge_hidden') ?? false}

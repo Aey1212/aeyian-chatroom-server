@@ -1,0 +1,105 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+/* A styled name never gets synthetic bold or italics: every name font declares the whole weight range. */
+.font {
+	font-synthesis: none;
+}
+
+.clipped {
+	color: var(--name-c1);
+	text-decoration-color: var(--name-c1);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+
+.gradient {
+	background-image: linear-gradient(90deg, var(--name-c1), var(--name-c2));
+}
+
+.holographic {
+	background-image: linear-gradient(110deg, var(--name-c1), var(--name-c2), var(--name-c3), var(--name-c1));
+	background-size: 200% 100%;
+	background-position: 0% 50%;
+}
+
+.shimmer {
+	background-image: linear-gradient(
+		100deg,
+		var(--name-c1) 0%,
+		var(--name-c1) 40%,
+		var(--name-c2) 50%,
+		var(--name-c1) 60%,
+		var(--name-c1) 100%
+	);
+	background-size: 250% 100%;
+	background-position: 100% 50%;
+}
+
+.glow {
+	filter: drop-shadow(0 0 0.2em var(--name-glow));
+}
+
+@keyframes nameHolographic {
+	from {
+		background-position: 0% 50%;
+	}
+	to {
+		background-position: 200% 50%;
+	}
+}
+
+@keyframes nameShimmer {
+	0% {
+		background-position: 100% 50%;
+	}
+	60%,
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes nameGlow {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 0.15em var(--name-glow));
+	}
+	50% {
+		filter: drop-shadow(0 0 0.45em var(--name-glow));
+	}
+}
+
+/* Effects play while the name, or the row that carries it, is hovered; the device setting keeps them playing. */
+.holographic:hover,
+:global([data-name-animate-scope]:hover) .holographic,
+:global(html.name-animations-always) .holographic {
+	animation: nameHolographic 3s linear infinite;
+}
+
+.shimmer:hover,
+:global([data-name-animate-scope]:hover) .shimmer,
+:global(html.name-animations-always) .shimmer {
+	animation: nameShimmer 2.2s ease-in-out infinite;
+}
+
+.glow:hover,
+:global([data-name-animate-scope]:hover) .glow,
+:global(html.name-animations-always) .glow {
+	animation: nameGlow 2s ease-in-out infinite;
+}
+
+:global(html.reduced-motion) .holographic,
+:global(html.reduced-motion) .shimmer,
+:global(html.reduced-motion) .glow {
+	animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.holographic,
+	.shimmer,
+	.glow {
+		animation: none !important;
+	}
+}

@@ -118,21 +118,19 @@ export class GuildMember {
 			});
 	}
 
-	getColorString(): string | undefined {
-		const sortedRoles = this.getSortedRoles();
-		for (const role of sortedRoles) {
+	getColorRole(): GuildRole | undefined {
+		for (const role of this.getSortedRoles()) {
 			if (role.color) {
-				return ColorUtils.int2rgb(role.color);
+				return role;
 			}
 		}
-		const guild = Guilds.getGuild(this.guildId);
-		if (guild) {
-			const everyoneRole = guild.roles[this.guildId];
-			if (everyoneRole?.color) {
-				return ColorUtils.int2rgb(everyoneRole.color);
-			}
-		}
-		return;
+		const everyoneRole = Guilds.getGuild(this.guildId)?.roles[this.guildId];
+		return everyoneRole?.color ? everyoneRole : undefined;
+	}
+
+	getColorString(): string | undefined {
+		const role = this.getColorRole();
+		return role ? ColorUtils.int2rgb(role.color) : undefined;
 	}
 
 	isCurrentUser(): boolean {

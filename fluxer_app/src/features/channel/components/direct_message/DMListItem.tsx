@@ -42,10 +42,12 @@ import MobileLayout from '@app/features/ui/state/MobileLayout';
 import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
 import {formatShortRelativeTime} from '@app/features/ui/utils/ShortRelativeTimeLabels';
 import type {User} from '@app/features/user/models/User';
+import {resolveNamePaint} from '@app/features/user/name_style/NamePaint';
 import UserGuildSettings from '@app/features/user/state/UserGuildSettings';
 import Users from '@app/features/user/state/Users';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import {ChannelTypes, MessageTypes} from '@fluxer/constants/src/ChannelConstants';
+import type {NameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {extractTimestamp} from '@fluxer/snowflake/src/SnowflakeUtils';
 import {msg, plural} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
@@ -97,14 +99,22 @@ interface ResolvedDMListItemProps extends DMListItemProps {
 
 interface DMListItemNameTextProps {
 	displayName: string;
+	nameStyle?: NameStyle | null;
 	dataFlx: string;
 }
 
-function DMListItemNameText({displayName, dataFlx}: DMListItemNameTextProps) {
+function DMListItemNameText({displayName, nameStyle, dataFlx}: DMListItemNameTextProps) {
 	const nameRef = useRef<HTMLSpanElement>(null);
 	const isNameOverflowing = useTextOverflow(nameRef, {content: displayName, measureTextRange: true});
+	const paint = resolveNamePaint({nameStyle, text: displayName});
 	const content = (
-		<span ref={nameRef} className={styles.dmItemNameText} data-flx={dataFlx}>
+		<span
+			ref={nameRef}
+			className={clsx(styles.dmItemNameText, paint.className)}
+			style={paint.style}
+			lang={paint.lang}
+			data-flx={dataFlx}
+		>
 			{displayName}
 		</span>
 	);
@@ -407,6 +417,7 @@ const ResolvedDMListItem = observer(function ResolvedDMListItem({
 									)}
 									<DMListItemNameText
 										displayName={displayName}
+										nameStyle={isGroupDM ? null : recipient?.nameStyle}
 										dataFlx="channel.direct-message.dm-list-item.dm-item-name-text"
 										data-flx="channel.direct-message.dm-list-item.resolved-dm-list-item.dm-list-item-name-text"
 									/>
@@ -571,6 +582,7 @@ const ResolvedDMListItem = observer(function ResolvedDMListItem({
 								)}
 								<DMListItemNameText
 									displayName={displayName}
+									nameStyle={isGroupDM ? null : recipient?.nameStyle}
 									dataFlx="channel.direct-message.dm-list-item.dm-item-name-text--2"
 									data-flx="channel.direct-message.dm-list-item.resolved-dm-list-item.dm-list-item-name-text--2"
 								/>

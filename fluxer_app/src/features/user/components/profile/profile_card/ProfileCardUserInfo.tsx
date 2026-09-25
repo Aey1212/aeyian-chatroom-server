@@ -6,6 +6,7 @@ import {useTextOverflow} from '@app/features/ui/hooks/useTextOverflow';
 import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
 import styles from '@app/features/user/components/profile/profile_card/ProfileCardUserInfo.module.css';
 import type {User} from '@app/features/user/models/User';
+import {resolveNamePaint} from '@app/features/user/name_style/NamePaint';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import {Trans} from '@lingui/react/macro';
 import {clsx} from 'clsx';
@@ -51,6 +52,7 @@ export const ProfileCardUserInfo: React.FC<ProfileCardUserInfoProps> = observer(
 		const displayNameStyle: DisplayNameStyle = {
 			'--profile-display-name-length': Math.max(Array.from(displayName).length, 1),
 		};
+		const paint = resolveNamePaint({nameStyle: user.nameStyle, text: displayName});
 		const displayNameButton = (
 			<button
 				ref={displayNameRef}
@@ -60,7 +62,18 @@ export const ProfileCardUserInfo: React.FC<ProfileCardUserInfoProps> = observer(
 				style={displayNameStyle}
 				data-flx="user.profile.profile-card.profile-card-user-info.name-button.display-name-click"
 			>
-				{displayName}
+				{paint.className || paint.style || paint.lang ? (
+					<span
+						className={paint.className}
+						style={paint.style}
+						lang={paint.lang}
+						data-flx="user.profile.profile-card.profile-card-user-info.styled-display-name"
+					>
+						{displayName}
+					</span>
+				) : (
+					displayName
+				)}
 			</button>
 		);
 		const displayNameContent = isDisplayNameOverflowing ? (
@@ -73,6 +86,7 @@ export const ProfileCardUserInfo: React.FC<ProfileCardUserInfoProps> = observer(
 		return (
 			<div
 				className={styles.userInfoContainer}
+				data-name-animate-scope=""
 				data-flx="user.profile.profile-card.profile-card-user-info.user-info-container"
 			>
 				<div className={styles.nameRow} data-flx="user.profile.profile-card.profile-card-user-info.name-row">

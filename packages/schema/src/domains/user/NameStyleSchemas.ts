@@ -80,6 +80,16 @@ export function parseStoredNameStyle(stored: string | null | undefined): NameSty
 	});
 }
 
+export function sameNameStyle(a: NameStyle | null | undefined, b: NameStyle | null | undefined): boolean {
+	if (!a || !b) return !a && !b;
+	return (
+		a.font === b.font &&
+		a.effect === b.effect &&
+		a.primary_color === b.primary_color &&
+		a.secondary_color === b.secondary_color
+	);
+}
+
 export function serializeNameStyle(style: NameStyle | null): string | null {
 	const normalized = normalizeNameStyle(style);
 	if (!normalized) return null;

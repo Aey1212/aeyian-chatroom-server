@@ -29,6 +29,7 @@ import type {CustomStatus} from '@app/features/user/state/CustomStatus';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import type {ProfilePreviewOverrides} from '@app/features/user/utils/ProfileDisplayUtils';
 import {type BadgeSettings, createMockProfile} from '@app/features/user/utils/ProfileUtils';
+import type {NameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import type {UserProfile} from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 import {msg} from '@lingui/core/macro';
 import {Trans, useLingui} from '@lingui/react/macro';
@@ -57,6 +58,7 @@ interface ProfilePreviewProps {
 	previewAccentColor?: number | null;
 	previewTimezoneOffset?: number | null;
 	previewGlobalName?: string | null;
+	previewNameStyle?: NameStyle | null;
 	previewNick?: string | null;
 	guildId?: string | null;
 	guildMember?: GuildMember | null;
@@ -82,6 +84,7 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		previewAccentColor,
 		previewTimezoneOffset,
 		previewGlobalName,
+		previewNameStyle,
 		previewNick,
 		guildId,
 		guildMember,
@@ -116,13 +119,14 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		const isCommunityProfile = Boolean(guildId && guildMemberProfile);
 		const previewUser = useMemo(() => {
 			const globalName = previewGlobalName !== undefined ? previewGlobalName : user.globalName;
+			const nameStyle = previewNameStyle !== undefined ? {name_style: previewNameStyle ?? undefined} : {};
 			if (isCommunityProfile) {
-				return user.withUpdates({global_name: globalName});
+				return user.withUpdates({global_name: globalName, ...nameStyle});
 			}
 			const bio = previewBio !== undefined ? previewBio : user.bio;
 			const pronouns = previewPronouns !== undefined ? previewPronouns : user.pronouns;
-			return user.withUpdates({bio, pronouns, global_name: globalName});
-		}, [user, previewBio, previewPronouns, previewGlobalName, isCommunityProfile]);
+			return user.withUpdates({bio, pronouns, global_name: globalName, ...nameStyle});
+		}, [user, previewBio, previewPronouns, previewGlobalName, previewNameStyle, isCommunityProfile]);
 		const mockProfile = useMemo(() => {
 			if (isCommunityProfile && guildId && guildMemberProfile) {
 				const globalProfile = createMockProfile(previewUser, {

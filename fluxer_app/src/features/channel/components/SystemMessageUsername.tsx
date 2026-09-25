@@ -7,6 +7,7 @@ import GuildMembers from '@app/features/member/state/GuildMembers';
 import type {Message} from '@app/features/messaging/models/MessagingMessage';
 import styles from '@app/features/theme/styles/Message.module.css';
 import type {User} from '@app/features/user/models/User';
+import {memberNamePaint} from '@app/features/user/name_style/NamePaint';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import {clsx} from 'clsx';
 import React, {useRef} from 'react';
@@ -22,6 +23,8 @@ export const SystemMessageUsername = React.forwardRef<
 	const usernameRef = useRef<HTMLSpanElement | null>(null);
 	const contextMenuOpen = useContextMenuHoverState(usernameRef);
 	const member = GuildMembers.getMember(guild?.id ?? '', author.id);
+	const name = NicknameUtils.getNickname(author, guild?.id);
+	const paint = memberNamePaint(author.nameStyle, member, {text: name});
 	return (
 		<PreloadableUserPopout
 			ref={ref}
@@ -35,14 +38,15 @@ export const SystemMessageUsername = React.forwardRef<
 			data-flx="channel.system-message-username.preloadable-user-popout"
 		>
 			<span
-				className={clsx(styles.systemMessageLink, contextMenuOpen && styles.contextMenuUnderline)}
-				style={{color: member?.getColorString()}}
+				className={clsx(styles.systemMessageLink, contextMenuOpen && styles.contextMenuUnderline, paint.className)}
+				style={paint.style}
+				lang={paint.lang}
 				data-user-id={author.id}
 				data-guild-id={guild?.id}
 				ref={usernameRef}
 				data-flx="channel.system-message-username.system-message-link"
 			>
-				{NicknameUtils.getNickname(author, guild?.id)}
+				{name}
 			</span>
 		</PreloadableUserPopout>
 	);

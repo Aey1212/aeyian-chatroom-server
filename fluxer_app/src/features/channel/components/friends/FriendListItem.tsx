@@ -33,6 +33,7 @@ import {StatusAwareAvatar} from '@app/features/ui/components/StatusAwareAvatar';
 import FocusRing from '@app/features/ui/focus_ring/FocusRing';
 import {useContextMenuTrigger} from '@app/features/ui/hooks/useContextMenuTrigger';
 import ContextMenu, {isContextMenuNodeTarget} from '@app/features/ui/state/ContextMenu';
+import {StyledNameText} from '@app/features/user/name_style/StyledNameText';
 import Users from '@app/features/user/state/Users';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import type {StatusType} from '@fluxer/constants/src/StatusConstants';
@@ -367,7 +368,7 @@ export const FriendListItem: React.FC<FriendListItemProps> = observer((props) =>
 					<div className={styles.friendDetails} data-flx="channel.friends.friend-list-item.friend-details">
 						<div className={styles.friendNameRow} data-flx="channel.friends.friend-list-item.friend-name-row">
 							<span className={styles.friendName} data-flx="channel.friends.friend-list-item.friend-name">
-								{NicknameUtils.getNickname(user, null)}
+								<StyledNameText nameStyle={user.nameStyle} text={NicknameUtils.getNickname(user, null)} />
 							</span>
 							<span className={styles.friendTag} data-flx="channel.friends.friend-list-item.friend-tag">
 								{NicknameUtils.formatUsernameForStreamerMode(user.username)}
