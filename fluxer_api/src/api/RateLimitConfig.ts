@@ -3,7 +3,6 @@
 import {AdminRateLimitConfigs} from '@app/api/rate_limit_configs/AdminRateLimitConfig';
 import {AuthRateLimitConfigs} from '@app/api/rate_limit_configs/AuthRateLimitConfig';
 import {ChannelRateLimitConfigs} from '@app/api/rate_limit_configs/ChannelRateLimitConfig';
-import {DiscoveryRateLimitConfigs} from '@app/api/rate_limit_configs/DiscoveryRateLimitConfig';
 import {DonationRateLimitConfigs} from '@app/api/rate_limit_configs/DonationRateLimitConfig';
 import {GuildRateLimitConfigs} from '@app/api/rate_limit_configs/GuildRateLimitConfig';
 import {IntegrationRateLimitConfigs} from '@app/api/rate_limit_configs/IntegrationRateLimitConfig';
@@ -20,7 +19,6 @@ const rateLimitSections = [
 	OAuthRateLimitConfigs,
 	UserRateLimitConfigs,
 	ChannelRateLimitConfigs,
-	DiscoveryRateLimitConfigs,
 	DonationRateLimitConfigs,
 	GuildRateLimitConfigs,
 	InviteRateLimitConfigs,

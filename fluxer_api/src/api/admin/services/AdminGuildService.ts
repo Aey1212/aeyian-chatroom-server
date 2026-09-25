@@ -9,7 +9,6 @@ import {AdminGuildUpdateService} from '@app/api/admin/services/guild/AdminGuildU
 import {AdminGuildVanityService} from '@app/api/admin/services/guild/AdminGuildVanityService';
 import {createGuildID, createUserID} from '@app/api/BrandedTypes';
 import type {IChannelRepository} from '@app/api/channel/IChannelRepository';
-import type {IGuildDiscoveryRepository} from '@app/api/guild/repositories/GuildDiscoveryRepository';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import type {GuildService} from '@app/api/guild/services/GuildService';
 import type {EntityAssetService} from '@app/api/infrastructure/EntityAssetService';
@@ -28,7 +27,6 @@ interface AdminGuildServiceDeps {
 	gatewayService: IGatewayService;
 	entityAssetService: EntityAssetService;
 	auditService: AdminAuditService;
-	discoveryRepository: IGuildDiscoveryRepository;
 }
 
 export class AdminGuildService {
@@ -42,10 +40,7 @@ export class AdminGuildService {
 
 	constructor(deps: AdminGuildServiceDeps) {
 		this.guildService = deps.guildService;
-		this.updatePropagator = new AdminGuildUpdatePropagator({
-			gatewayService: deps.gatewayService,
-			discoveryRepository: deps.discoveryRepository,
-		});
+		this.updatePropagator = new AdminGuildUpdatePropagator({gatewayService: deps.gatewayService});
 		this.lookupService = new AdminGuildLookupService({
 			guildRepository: deps.guildRepository,
 			userRepository: deps.userRepository,

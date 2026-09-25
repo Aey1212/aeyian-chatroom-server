@@ -41,8 +41,7 @@ export class MeilisearchSearchProvider implements ISearchProvider {
 	async initialize(): Promise<void> {
 		const client = new MeilisearchHttpClient(this.config);
 		this.messageService = new MeilisearchMessageSearchService(client);
-		const {GuildDiscoveryRepository} = await import('@app/api/guild/repositories/GuildDiscoveryRepository');
-		this.guildService = new MeilisearchGuildSearchService(client, new GuildDiscoveryRepository());
+		this.guildService = new MeilisearchGuildSearchService(client);
 		this.userService = new MeilisearchUserSearchService(client);
 		this.reportService = new MeilisearchReportSearchService(client);
 		this.auditLogService = new MeilisearchAuditLogSearchService(client);

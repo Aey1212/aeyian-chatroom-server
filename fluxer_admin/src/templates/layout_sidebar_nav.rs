@@ -43,12 +43,6 @@ pub const NAV_SECTIONS: &[NavSection] = &[
         items: &[
             item!("Reports", "/reports", "reports", [acl::REPORT_VIEW]),
             item!(
-                "Discovery Review",
-                "/discovery",
-                "discovery",
-                [acl::DISCOVERY_REVIEW]
-            ),
-            item!(
                 "Rename Requests",
                 "/username-requests",
                 "username-requests",

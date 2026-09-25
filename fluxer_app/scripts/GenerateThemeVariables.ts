@@ -507,11 +507,6 @@ const SKELETON_SURFACE_INVARIANTS: ReadonlyArray<SkeletonSurfaceInvariant> = [
 		forbids: ['scopeBadge', 'scope-badge', '@tanstack/react-virtual'],
 	},
 	{
-		file: 'src/features/app/components/skeleton/DiscoverySkeleton.module.css',
-		minimums: {[SKELETON_CHROME_BORDER_TOKEN]: 2},
-		forbidsPattern: ['border[a-z-]*:\\s*[^;]*var\\(--background-modifier-accent\\)'],
-	},
-	{
 		file: 'src/features/app/components/skeleton/FriendsSkeleton.module.css',
 		minimums: {[SKELETON_CHROME_BORDER_TOKEN]: 4},
 		forbidsPattern: ['border[a-z-]*:\\s*[^;]*var\\(--background-modifier-accent\\)'],
@@ -577,10 +572,6 @@ const SKELETON_SURFACE_INVARIANTS: ReadonlyArray<SkeletonSurfaceInvariant> = [
 		file: 'src/features/app/components/layout/GuildsLayout.tsx',
 		forbids: ['useListScrollAnchor', 'usePersistentScrollAnchor', '@tanstack/react-virtual'],
 		counts: {'scrollNode.scrollTop = ': 2},
-	},
-	{
-		file: 'src/features/discovery/discovery/DiscoveryPage.tsx',
-		counts: {"import {useVirtualizer} from '@tanstack/react-virtual';": 1},
 	},
 	{
 		file: 'src/features/app/components/LongPressable.ts',

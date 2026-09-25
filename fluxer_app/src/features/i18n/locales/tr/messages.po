@@ -41,11 +41,6 @@ msgstr "(atanmamış)"
 msgid "(you)"
 msgstr "(siz)"
 
-#. placeholder {0}: guild.member_count
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:184
-msgid "{0, plural, one {# member} other {# members}}"
-msgstr "{0, plural, one {# üye} other {# üye}}"
-
 #. Screen reader announcement in the composer when two people are typing. {a} and {b} are their display names.
 #: src/features/typing/rolling/RollingTypingText.tsx:19
 #: src/features/typing/rolling/RollingTypingText.tsx:54
@@ -834,11 +829,6 @@ msgstr "{authorNickname}, yanıtlarda @bahsedilmeyi tercih ediyor. Yine de bahse
 msgid "{backgroundCount} / {maxBackgroundImages} {backgroundCount, plural, one {custom background} other {custom backgrounds}}"
 msgstr "{backgroundCount} / {maxBackgroundImages} {backgroundCount, plural, one {özel arka plan} other {özel arka plan}}"
 
-#. Accessible label for a category row in the Discovery search sidebar. {categoryLabel} is the category name and {count} is how many communities match the current search in it. Both are inserted by code.
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:37
-msgid "{categoryLabel}, {count, plural, one {# community} other {# communities}}"
-msgstr "{categoryLabel}, {count, plural, one {# topluluk} other {# topluluk}}"
-
 #. Short label in the unread channels content. Preserve placeholders {channelHeading}, {mentionCount}; they are inserted by code.
 #: src/features/app/components/floating/UnreadChannelsContent.tsx:59
 msgid "{channelHeading}, {mentionCount, plural, one {# mention} other {# mentions}}"
@@ -933,12 +923,7 @@ msgstr "{count, plural, one {# ek} other {# ek}}"
 msgid "{count, plural, one {# blocked message} other {# blocked messages}}"
 msgstr "{count, plural, one {# engellenen mesaj} other {# engellenen mesaj}}"
 
-#. Screen-reader status text in Discovery. {count} is the total number of matching communities.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:34
-msgid "{count, plural, one {# community found} other {# communities found}}"
-msgstr "{count, plural, one {# topluluk bulundu} other {# topluluk bulundu}}"
-
-#: src/features/app/components/layout/GuildsLayout.tsx:1953
+#: src/features/app/components/layout/GuildsLayout.tsx:1906
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# topluluk, flux kapasitörü arızası nedeniyle geçici olarak kullanılamıyor.} other {# topluluk, flux kapasitörü arızası nedeniyle geçici olarak kullanılamıyor.}}"
 
@@ -1283,16 +1268,6 @@ msgstr "{emojiName}: {reactionCountText}"
 msgid "{emojiName}: {reactionCountText}, {actionText}"
 msgstr "{emojiName}: {reactionCountText}, {actionText}"
 
-#. Reason shown in the confirmation before joining a community from an emoji info card. It explains that the emoji the viewer opened belongs to this community. {expressionName} is the emoji name, written with colons around it.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:99
-msgid "{expressionName} is a custom emoji from this community. Members can use it here."
-msgstr "{expressionName} bu topluluğa özel bir ifade. Üyeler burada kullanabilir."
-
-#. Reason shown in the confirmation before joining a community from a sticker info card. It explains that the sticker the viewer opened belongs to this community. {expressionName} is the sticker name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:104
-msgid "{expressionName} is a custom sticker from this community. Members can use it here."
-msgstr "{expressionName} bu topluluğa özel bir çıkartmadır. Üyeler burada kullanabilir."
-
 #. Time window preset label shown as a standalone duration in option lists. The number is interpolated.
 #: src/features/app/config/TimeWindowPresets.ts:10
 msgid "{fifteenMinutes} minutes"
@@ -1340,7 +1315,7 @@ msgid "{fourHours} hours"
 msgstr "{fourHours} saat"
 
 #. Footer summary frame-rate label in the screen share picker. {fps} is the integer frame rate. FPS is a technical token.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:253
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:252
 msgid "{fps} FPS"
 msgstr "{fps} FPS"
 
@@ -1387,11 +1362,6 @@ msgstr "{hours, plural, one {Davet bağlantınız # saat içinde sona erecek.} o
 #: src/features/messaging/components/modals/ForwardMessagePreview.tsx:45
 msgid "{imageCount, plural, one {# image} other {# images}}, {videoCount, plural, one {# video} other {# videos}}"
 msgstr "{imageCount, plural, one {# resim} other {# resim}}, {videoCount, plural, one {# video} other {# video}}"
-
-#. Accessible label for a disabled Discovery sidebar navigation item. {itemLabel} is the section name.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:31
-msgid "{itemLabel}, coming soon"
-msgstr "{itemLabel}, yakında"
 
 #. Voice channel bitrate option label. kbps means kilobits per second.
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/VoiceSettings.tsx:38
@@ -1524,9 +1494,7 @@ msgid "{oneMinute} minute"
 msgstr "{oneMinute} dakika"
 
 #. Community tooltip stat showing how many members are currently online.
-#. Short label in the discovery guild card. Keep it concise. Preserve {onlineCount}; it is inserted by code.
 #: src/features/app/components/layout/sidebar_nav/GuildListItemTooltip.tsx:28
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:27
 msgid "{onlineCount} online"
 msgstr "{onlineCount} çevrimiçi"
 
@@ -1721,7 +1689,7 @@ msgid "{productName} needs camera access to list your devices."
 msgstr "{productName} uygulamasının cihazlarınızı listelemek için kamera erişimine ihtiyacı var."
 
 #. Voice settings notice shown when microphone permission has not been granted.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:138
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
 msgid "{productName} needs microphone access to list your devices."
 msgstr "{productName} uygulamasının cihazlarınızı listelemek için mikrofon erişimine ihtiyacı var."
 
@@ -2380,27 +2348,27 @@ msgid "a channel"
 msgstr "bir kanal"
 
 #. Shown under the "This emoji is from" or "This sticker is from" label in the expression info card when the source community is private to the viewer or cannot be reached.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:84
+#: src/features/expressions/components/ExpressionInfoCard.tsx:74
 msgid "A community that is either invite-only or unavailable."
 msgstr "Yalnızca davetle girilebilen veya kullanılamayan bir topluluk."
 
 #. Description of a custom emoji in the emoji info card when the viewer can use it outside the community. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:37
+#: src/features/expressions/components/ExpressionInfoCard.tsx:27
 msgid "A custom emoji from this community. You can use it anywhere on {productName}."
 msgstr "Bu topluluktan özel bir emoji. {productName} üzerinde istediğin yerde kullanabilirsin."
 
 #. Description of a custom emoji in the emoji info card when the viewer can only use it inside the community.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:49
+#: src/features/expressions/components/ExpressionInfoCard.tsx:39
 msgid "A custom emoji from this community. You can use it in this community."
 msgstr "Bu topluluğa özel bir emoji. Bu toplulukta kullanabilirsin."
 
 #. Description of a custom sticker in the sticker info card when the viewer can use it outside the community. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:42
+#: src/features/expressions/components/ExpressionInfoCard.tsx:32
 msgid "A custom sticker from this community. You can use it anywhere on {productName}."
 msgstr "Bu topluluğa özel bir çıkartma. {productName} üzerinde istediğin yerde kullanabilirsin."
 
 #. Description of a custom sticker in the sticker info card when the viewer can only use it inside the community.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:54
+#: src/features/expressions/components/ExpressionInfoCard.tsx:44
 msgid "A custom sticker from this community. You can use it in this community."
 msgstr "Bu topluluğa özel bir çıkartma. Bu toplulukta kullanabilirsin."
 
@@ -2410,14 +2378,9 @@ msgid "a date or date range"
 msgstr "bir tarih veya tarih aralığı"
 
 #. Description of a built-in unicode emoji in the emoji info card. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:32
+#: src/features/expressions/components/ExpressionInfoCard.tsx:22
 msgid "A default emoji. You can use it anywhere on {productName}."
 msgstr "Varsayılan bir emoji. Bunu {productName} üzerinde istediğin yerde kullanabilirsin."
-
-#. Inline validation error on the Discovery application form when the description field is empty.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:114
-msgid "A description is required."
-msgstr "Açıklama gerekli."
 
 #. Duration label component for a very short elapsed call.
 #: src/features/channel/components/CallMessage.tsx:63
@@ -2825,7 +2788,7 @@ msgid "Activity log"
 msgstr "Etkinlik günlüğü"
 
 #. Community settings tab showing activity log entries and moderation history.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:61
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:59
 msgctxt "community-settings-tab"
 msgid "Activity log"
 msgstr "Etkinlik günlüğü"
@@ -2838,7 +2801,7 @@ msgid "Activity sharing"
 msgstr "Etkinlik paylaşımı"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:465
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:444
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:102
 msgid "Activity threshold"
 msgstr "Etkinlik eşiği"
@@ -2855,7 +2818,6 @@ msgstr "Gerçek boyut"
 #: src/features/expressions/components/modals/AddFavoriteChannelModal.tsx:56
 #: src/features/expressions/components/modals/meme_form/MemeFormFields.tsx:52
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:53
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:599
 #: src/features/relationship/components/modals/AddFriendsToGroupModal.tsx:79
 #: src/features/user/components/modals/tabs/chat_settings_tab/AddCustomSearchEngineModal.tsx:100
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:586
@@ -2907,11 +2869,6 @@ msgstr "Kısayol ekle"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:44
 msgid "Add a tag"
 msgstr "Etiket ekle"
-
-#. Placeholder in the tag input on the Discovery application form. "Enter" refers to the Enter/Return key.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:137
-msgid "Add a tag and press Enter"
-msgstr "Bir etiket ekleyip Enter'a basın"
 
 #. Placeholder inside the empty channel topic input in channel settings.
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/ChannelOverviewTopicEditor.tsx:40
@@ -3311,7 +3268,7 @@ msgid "Adds H.264 for mixed clients. Requires more encoding."
 msgstr "Karışık istemciler için H.264 ekler. Daha fazla kodlama gerektirir."
 
 #. Description for the custom profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:96
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:94
 msgid "Adjust each setting yourself: noise suppression, echo cancellation, and gain."
 msgstr "Gürültü engelleme, yankı giderme ve kazanç ayarlarını kendiniz yapın."
 
@@ -3443,10 +3400,7 @@ msgstr "Hizalama kontrolleri yalnızca daha geniş ekranlarda kullanılabilir"
 #. Audit log target-type filter option. Shows entries for every target type.
 #. Column header in the notification overrides table. Short label for the All messages option. Standalone word; refers to "all messages".
 #. Date-range filter option meaning no time window is applied. Used on the community members page.
-#. Label for the all-categories tab in the Discovery page.
-#. Label for the all-categories tab in the Discovery page.
 #. Short label in the channel and chat memes picker header. Keep it concise.
-#. Short label in the discovery category bottom sheet. Keep it concise.
 #. Tab label in the DM friends view showing all friends.
 #. Tab label in the mobile memes (saved media) picker. Shows all saved media regardless of type.
 #: src/features/app/config/AuditLogConstants.ts:143
@@ -3454,9 +3408,6 @@ msgstr "Hizalama kontrolleri yalnızca daha geniş ekranlarda kullanılabilir"
 #: src/features/channel/components/guild_members_page/GuildMembersPageDescriptors.ts:10
 #: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
-#: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:11
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:21
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:25
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:131
 msgid "All"
 msgstr "Tümü"
@@ -3532,13 +3483,6 @@ msgstr "Tüm arkadaşlar"
 msgid "All inputs are fully interactive, so type away."
 msgstr "Tüm giriş alanları tamamen etkileşimli, dilediğiniz gibi yazın."
 
-#. Option in the discovery language filter that clears the filter. Keep it concise.
-#. Short label in the discovery page. Keep it concise.
-#: src/features/discovery/discovery/DiscoveryLanguageDropdown.tsx:14
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:29
-msgid "All languages"
-msgstr "Tüm diller"
-
 #. Activity log value for the default notification setting of a community where members are notified about every message.
 #. Notification level option. Sends a push for every message in the channel or community. Paired with "Only mentions" and "Nothing".
 #. Short label in the default notifications section. Keep it concise.
@@ -3580,11 +3524,11 @@ msgstr "{everyoneMention} ve {hereMention} etiketlerine izin ver"
 msgid "Allow {PRODUCT_NAME} to access your camera in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 msgstr "{PRODUCT_NAME} uygulamasının kameranıza erişmesine izin vermek için {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME} yolunu izleyin."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:533
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:512
 msgid "Allow {PRODUCT_NAME} to access your microphone in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 msgstr "{PRODUCT_NAME} uygulamasının mikrofonunuza erişmesine izin vermek için {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME} yolunu izleyin."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:538
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:517
 msgid "Allow {PRODUCT_NAME} to access your microphone. Check your browser's address bar or settings."
 msgstr "{PRODUCT_NAME} uygulamasının mikrofonunuza erişmesine izin verin. Tarayıcınızın adres çubuğunu veya ayarlarını kontrol edin."
 
@@ -3687,7 +3631,7 @@ msgstr "{readMessageHistoryPermissionLabel} izni olmayan üyelerin belirli bir t
 msgid "Allow mentions for this role"
 msgstr "Bu rolden bahsedilmesine izin ver"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:558
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:537
 msgid "Allow microphone"
 msgstr "Mikrofona izin ver"
 
@@ -4135,11 +4079,6 @@ msgstr "Animasyonlar"
 msgid "Animations while unfocused"
 msgstr "Odaklanılmadığında animasyonlar"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:101
-msgid "Anime & manga"
-msgstr "Anime ve manga"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:119
 msgid "Announce"
@@ -4269,7 +4208,7 @@ msgid "App state"
 msgstr "Uygulama durumu"
 
 #. Fallback label for an app window card in the screen-share picker when the OS does not give us a window title.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:141
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:140
 msgid "App window"
 msgstr "Uygulama penceresi"
 
@@ -4362,7 +4301,7 @@ msgstr "Uygulama başarıyla güncellendi"
 #: src/features/user/components/settings_utils/search_index/SharedDescriptors.ts:29
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:66
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:184
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:183
 msgid "Applications"
 msgstr "Uygulamalar"
 
@@ -4383,8 +4322,8 @@ msgstr "Uygula"
 
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:45
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:25
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:44
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:24
 msgid "Apply theme"
 msgstr "Temayı uygula"
 
@@ -4402,18 +4341,8 @@ msgstr "Onay gerekli"
 msgid "Approve"
 msgstr "Onayla"
 
-#. Discovery application status badge in the community Discovery settings tab. The community has been approved and is listed.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:45
-msgid "Approved"
-msgstr "Onaylandı"
-
-#. Short label in the Discovery page sidebar. Keep it concise.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:19
-msgid "Apps"
-msgstr "Uygulamalar"
-
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:12
+#: src/features/user/utils/LocaleUtils.ts:10
 msgid "Arabic"
 msgstr "Arapça"
 
@@ -4713,7 +4642,7 @@ msgid "Audio level"
 msgstr "Ses seviyesi"
 
 #. Footer summary status shown when capture-device audio is disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:258
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:257
 msgid "Audio muted"
 msgstr "Ses kapalı"
 
@@ -4953,8 +4882,8 @@ msgid "Auto-detect language"
 msgstr "Dili otomatik algıla"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:116
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:452
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:110
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:431
 msgid "Auto-set activity threshold"
 msgstr "Etkinlik eşiğini otomatik ayarla"
 
@@ -5455,7 +5384,7 @@ msgid "Banner preview"
 msgstr "Banner önizlemesi"
 
 #. Community settings tab for banned users.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:91
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:84
 msgctxt "community-settings-tab"
 msgid "Bans"
 msgstr "Yasaklamalar"
@@ -5503,11 +5432,6 @@ msgstr "Avantajlar"
 #: src/features/voice/utils/ScreenShareCodecPolicy.ts:9
 msgid "Best compression. Use it only when WebRTC exposes an encoder and the GPU report says it is hardware-backed."
 msgstr "En iyi sıkıştırma. Yalnızca WebRTC bir kodlayıcıyı kullanıma sunduğunda ve GPU raporu donanım destekli olduğunu belirttiğinde kullanın."
-
-#. CTA card title in the screen-share picker promoting the desktop app for richer screen sharing.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:12
-msgid "Best with the desktop app"
-msgstr "En iyisi masaüstü uygulamasında"
 
 #: src/features/ui/components/form/UsernameValidationRules.tsx:45
 msgid "Between 1 and {maxLength} characters"
@@ -5729,7 +5653,7 @@ msgstr "Yer işareti sınırına ulaşıldı"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:526
-#: src/features/input/state/input_keybind/shared.ts:265
+#: src/features/input/state/input_keybind/shared.ts:261
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:66
 msgid "Bookmark message"
 msgstr "Mesajı yer işaretlerine ekle"
@@ -6048,7 +5972,7 @@ msgid "Bulgaria"
 msgstr "Bulgaristan"
 
 #. Accessible label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:16
+#: src/features/user/utils/LocaleUtils.ts:14
 msgid "Bulgarian"
 msgstr "Bulgarca"
 
@@ -6216,12 +6140,12 @@ msgid "Camera"
 msgstr "Kamera"
 
 #. Title shown in the screen-share Devices tab before camera preview permission is granted.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:156
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:155
 msgid "Camera access is needed for device previews"
 msgstr "Cihaz önizlemeleri için kamera erişimi gerekiyor"
 
 #. Description shown after camera preview permission is denied or unavailable.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:164
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:163
 msgid "Camera access was not granted. Update camera permissions, then try again."
 msgstr "Kamera erişimi verilmedi. Kamera izinlerini güncelleyin, sonra tekrar deneyin."
 
@@ -6523,13 +6447,6 @@ msgstr "Kart uygun değil"
 msgid "Card verification was canceled. You can close this tab and return to the app."
 msgstr "Kart doğrulama iptal edildi. Bu sekmeyi kapatıp uygulamaya dönebilirsiniz."
 
-#. Heading above the category filter list in the Discovery search sidebar.
-#. Short label in the discovery category bottom sheet. Keep it concise.
-#: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:15
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:21
-msgid "Categories"
-msgstr "Kategoriler"
-
 #. Lowercase channel type label used inside channel-list accessible text.
 #: src/features/app/components/layout/ChannelItem.tsx:84
 msgid "category"
@@ -6537,12 +6454,11 @@ msgstr "kategori"
 
 #. Channel type chip label for a community category container.
 #: src/features/channel/utils/ChannelUtils.tsx:35
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:465
 msgid "Category"
 msgstr "Kategori"
 
 #. Title in a modal shown before opening a category with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:187
+#: src/features/channel/components/MatureContentChannelGate.tsx:160
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:39
 msgid "Category content warning"
 msgstr "Kategori içeriği uyarısı"
@@ -6742,7 +6658,7 @@ msgid "Change stream"
 msgstr "Yayını değiştir"
 
 #. Modal title for the screen-share picker when switching an ongoing stream to a new source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:217
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:216
 msgid "Change stream source"
 msgstr "Yayın kaynağını değiştir"
 
@@ -7049,7 +6965,7 @@ msgid "Channel badges"
 msgstr "Kanal rozetleri"
 
 #. Title in a modal shown before opening a channel with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:189
+#: src/features/channel/components/MatureContentChannelGate.tsx:162
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:43
 msgid "Channel content warning"
 msgstr "Kanal içeriği uyarısı"
@@ -7273,11 +7189,6 @@ msgstr "Özel temama göz at!"
 msgid "Check your connection and try again."
 msgstr "Bağlantınızı kontrol edin ve tekrar deneyin."
 
-#. Empty-state hint in Discovery shown under the heading when the request for communities failed.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:32
-msgid "Check your connection, then try again."
-msgstr "Bağlantınızı kontrol edin, ardından yeniden deneyin."
-
 #. Required-action modal carousel step title for existing-email verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:240
 #: src/features/auth/flow/IpAuthorizationScreen.tsx:120
@@ -7340,12 +7251,12 @@ msgid "Child safety or mature content"
 msgstr "Çocuk güvenliği veya yetişkinlere yönelik içerik"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:140
+#: src/features/user/utils/LocaleUtils.ts:138
 msgid "Chinese (simplified)"
 msgstr "Çince (basitleştirilmiş)"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:144
+#: src/features/user/utils/LocaleUtils.ts:142
 msgid "Chinese (traditional)"
 msgstr "Çince (geleneksel)"
 
@@ -7522,13 +7433,9 @@ msgid "Choose payment method"
 msgstr "Ödeme yöntemi seçin"
 
 #. Modal title for the screen-share picker when starting a new screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:221
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:220
 msgid "Choose something to share"
 msgstr "Paylaşmak için bir şey seçin"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:483
-msgid "Choose the category that best describes your community. You can change this any time."
-msgstr "Topluluğunuzu en iyi tanımlayan kategoriyi seçin. Bunu istediğiniz zaman değiştirebilirsiniz."
 
 #. Setup wizard premium model step title.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:303
@@ -7649,8 +7556,8 @@ msgstr "Kullanmak için hesabı sahiplen"
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:41
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:40
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:28
 msgid "Claim gift"
 msgstr "Hediyeyi al"
 
@@ -7898,7 +7805,7 @@ msgid "Clear trusted domains ({trustedDomainsCount})"
 msgstr "Güvenilen alan adlarını temizle ({trustedDomainsCount})"
 
 #. Footer summary description for the text-focused screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:245
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:244
 msgid "Clearer text"
 msgstr "Daha net metin"
 
@@ -8371,11 +8278,6 @@ msgstr "Rahat"
 msgid "Comfy layout"
 msgstr "Rahat düzen"
 
-#. Small badge on disabled Discovery sidebar navigation items for sections not available yet.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:27
-msgid "Coming soon"
-msgstr "Çok yakında"
-
 #. Short label in the theme studio library section. Keep it concise.
 #: src/features/theme_studio/sections/LibrarySection.tsx:121
 msgid "comma, separated"
@@ -8436,14 +8338,14 @@ msgid "Communities with over 250 people are forced onto the \"mentions only\" se
 msgstr "250'den fazla kişiye sahip topluluklar \"yalnızca bahsetmeler\" ayarına zorlanır. Orijinal ayarınız korunur ve topluluk 250 üyenin altına düşerse geri yüklenir."
 
 #. Audit log target-type filter label. Filters entries to community-level actions.
-#. Community settings sidebar category grouping discovery and the vanity URL.
+#. Community settings sidebar category grouping the vanity URL settings.
 #. Developer / debug surface — keep terse and technical. Fallback label used in the IAR preview tool when no community context is supplied.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short option type label in the OAuth bot invite destination selector.
 #: src/features/app/config/AuditLogConstants.ts:147
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:48
 #: src/features/moderation/components/report_modal/IARModalPreview.tsx:16
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:253
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:236
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:140
 msgid "Community"
 msgstr "Topluluk"
@@ -8459,7 +8361,7 @@ msgid "Community badges"
 msgstr "Topluluk rozetleri"
 
 #. Title in a modal shown before opening a community with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:185
+#: src/features/channel/components/MatureContentChannelGate.tsx:158
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:35
 msgid "Community content warning"
 msgstr "Topluluk içeriği uyarısı"
@@ -8543,7 +8445,7 @@ msgid "Community members"
 msgstr "Topluluk üyeleri"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the community-membership CTA banner.
-#: src/features/devtools/components/NagbarControls.ts:12
+#: src/features/devtools/components/NagbarControls.ts:7
 msgid "Community membership CTA nagbar"
 msgstr "Topluluk üyeliği CTA bildirim çubuğu"
 
@@ -8553,7 +8455,7 @@ msgid "Community message notifications"
 msgstr "Topluluk mesajı bildirimleri"
 
 #. Developer control label for the community MFA requirement banner.
-#: src/features/devtools/components/NagbarControls.ts:76
+#: src/features/devtools/components/NagbarControls.ts:71
 msgid "Community MFA requirement nagbar"
 msgstr "Topluluk MFA gereksinimi bildirim çubuğu"
 
@@ -8608,11 +8510,6 @@ msgstr "Topluluk sahibi tacı"
 msgid "Community owners and users with the <0>{administratorPermissionLabel}</0> permission always have all permissions, including <1>{readMessageHistoryPermissionLabel}</1>, so they aren't affected by this setting."
 msgstr "Topluluk sahipleri ve <0>{administratorPermissionLabel}</0> iznine sahip kullanıcılar, <1>{readMessageHistoryPermissionLabel}</1> dahil tüm izinlere her zaman sahip olduklarından bu ayardan etkilenmezler."
 
-#. Accessible title of the modal that previews a Discovery community before joining it.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:22
-msgid "Community preview"
-msgstr "Topluluk önizlemesi"
-
 #. Submenu label that groups privacy options for the community.
 #: src/features/ui/action_menu/items/BulkSettingsMenuItems.tsx:69
 msgid "Community privacy settings"
@@ -8634,7 +8531,7 @@ msgid "Community record"
 msgstr "Topluluk kaydı"
 
 #. Root label for community settings modal and settings search paths.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:227
 msgid "Community settings"
 msgstr "Topluluk ayarları"
 
@@ -8701,7 +8598,7 @@ msgstr "{productName} uygulamasını kullanmaya devam etmek için aşağıdaki d
 msgid "Complete payment"
 msgstr "Ödemeyi tamamla"
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:67
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:64
 msgid "Complete the mature content check to unlock mature media."
 msgstr "Yetişkinlere yönelik medyanın kilidini açmak için yetişkin içeriği kontrolünü tamamlayın."
 
@@ -8908,11 +8805,11 @@ msgstr "Bir kamera bağlayıp tekrar deneyin."
 msgid "Connect a camera or virtual capture device, then try again."
 msgstr "Bir kamera veya sanal yakalama cihazı bağlayın, ardından tekrar deneyin."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:133
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:132
 msgid "Connect a display, then try again."
 msgstr "Bir ekran bağlayın, sonra tekrar deneyin."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:543
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:522
 msgid "Connect a microphone and try again."
 msgstr "Mikrofon bağlayıp tekrar deneyin."
 
@@ -9093,11 +8990,6 @@ msgstr "Destekle iletişime geçin"
 #: src/features/auth/components/ContentBlockedHandler.tsx:10
 msgid "Content blocked"
 msgstr "İçerik engellendi"
-
-#. Discovery category dropdown option in the community Discovery settings tab. Communities run by an individual creator.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:96
-msgid "Content creator"
-msgstr "İçerik üreticisi"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:204
@@ -9504,7 +9396,7 @@ msgstr "Mesajı kopyala"
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:736
-#: src/features/input/state/input_keybind/shared.ts:277
+#: src/features/input/state/input_keybind/shared.ts:273
 msgid "Copy message ID"
 msgstr "Mesaj kimliğini kopyala"
 
@@ -9512,7 +9404,7 @@ msgstr "Mesaj kimliğini kopyala"
 #. IAR modal: quick-action card title.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:518
-#: src/features/input/state/input_keybind/shared.ts:273
+#: src/features/input/state/input_keybind/shared.ts:269
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:389
 msgid "Copy message link"
 msgstr "Mesaj bağlantısını kopyala"
@@ -9623,7 +9515,7 @@ msgid "Copying image..."
 msgstr "Görsel kopyalanıyor..."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the corrupted-installation banner.
-#: src/features/devtools/components/NagbarControls.ts:17
+#: src/features/devtools/components/NagbarControls.ts:12
 msgid "Corrupted installation nagbar"
 msgstr "Bozuk kurulum bildirim çubuğu"
 
@@ -9655,11 +9547,6 @@ msgstr "Arkadaşlık isteği kabul edilemedi"
 #: src/features/relationship/components/alerts/RelationshipErrorModalUtils.tsx:62
 msgid "Couldn't accept the friend request. Try again."
 msgstr "Arkadaşlık isteği kabul edilemedi. Tekrar deneyin."
-
-#. Error modal title shown when a custom Discovery tag cannot be added.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:72
-msgid "Couldn't add tag"
-msgstr "Etiket eklenemedi"
 
 #. Body of the generic fallback error modal shown when adding a friend to a group DM fails.
 #: src/features/channel/components/alerts/GroupDmRecipientErrorModalUtils.tsx:23
@@ -9853,11 +9740,6 @@ msgstr "Arkadaşlık isteği yok sayılamadı. Tekrar deneyin."
 msgid "Couldn't join community"
 msgstr "Topluluğa katılamadınız"
 
-#. Title of the generic fallback error modal shown when joining a discovery community fails.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:14
-msgid "Couldn't join this community"
-msgstr "Bu topluluğa katılamadınız"
-
 #. Error modal title shown when leaving a group DM fails.
 #: src/features/guild/components/alerts/GroupLeaveFailedModal.tsx:9
 msgid "Couldn't leave group"
@@ -9877,11 +9759,6 @@ msgstr "Yetkili uygulamalar yüklenemedi"
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:40
 msgid "Couldn't load bans"
 msgstr "Yasaklamalar yüklenemedi"
-
-#. Empty-state heading in Discovery shown when the request for communities failed.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:28
-msgid "Couldn't load communities"
-msgstr "Topluluklar yüklenemedi"
 
 #. Error modal title shown when fetching invites fails.
 #: src/features/invite/components/alerts/InvitesLoadFailedModal.tsx:9
@@ -10167,11 +10044,6 @@ msgstr "Bağlantı doğrulanamadı"
 msgid "Couldn't verify with passkey. Try again."
 msgstr "Geçiş anahtarıyla doğrulanamadı. Tekrar deneyin."
 
-#. Error modal title shown when withdrawing a community Discovery application fails.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:68
-msgid "Couldn't withdraw application"
-msgstr "Başvuru geri çekilemedi"
-
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #: src/features/channel/components/channel_header_components/developer_tools/MockingMenu.tsx:40
 msgid "Countdown timer"
@@ -10231,11 +10103,11 @@ msgstr "{userName} ile yeni bir grup oluştur"
 #: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:118
 msgid "Create account"
 msgstr "Hesap oluştur"
 
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:123
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:112
 msgid "Create account to claim gift"
 msgstr "Hediyeyi almak için hesap oluştur"
 
@@ -10438,7 +10310,7 @@ msgid "Croatia"
 msgstr "Hırvatistan"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:68
+#: src/features/user/utils/LocaleUtils.ts:66
 msgid "Croatian"
 msgstr "Hırvatça"
 
@@ -10562,12 +10434,12 @@ msgid "Current uses:"
 msgstr "Mevcut kullanım sayısı:"
 
 #. Developer nagbar status: the banner is dismissed in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:109
+#: src/features/devtools/components/NagbarControls.ts:104
 msgid "Currently dismissed"
 msgstr "Şu anda kapatıldı"
 
 #. Developer nagbar status: the banner is showing in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:113
+#: src/features/devtools/components/NagbarControls.ts:108
 msgid "Currently showing"
 msgstr "Şu anda gösteriliyor"
 
@@ -10582,7 +10454,7 @@ msgstr "Şu anda: {mutedText}"
 #: src/features/user/components/modals/tabs/notifications_tab/NotificationsTabSounds.tsx:186
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:94
 #: src/features/voice/components/bottomsheets/VoiceSettingsBottomSheets.tsx:45
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:237
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:236
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:97
 msgid "Custom"
 msgstr "Özel"
@@ -10596,7 +10468,7 @@ msgstr "Özel"
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:91
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:89
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:42
 #: src/features/voice/components/VoiceSettingsMenus.tsx:70
 msgctxt "voice-processing-profile"
@@ -10733,10 +10605,6 @@ msgstr "Özel durum"
 msgid "Custom status: "
 msgstr "Özel durum: "
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:511
-msgid "Custom tags"
-msgstr "Özel etiketler"
-
 #. Feature comparison table perk label. Shown as the row name comparing restricted vs stock limits.
 #: src/features/app/components/dialogs/components/FeatureComparisonTable.tsx:79
 msgid "Custom themes"
@@ -10857,7 +10725,7 @@ msgid "Cyprus"
 msgstr "Kıbrıs"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:20
+#: src/features/user/utils/LocaleUtils.ts:18
 msgid "Czech"
 msgstr "Çekçe"
 
@@ -10893,7 +10761,7 @@ msgid "Danger zone"
 msgstr "Tehlike bölgesi"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:24
+#: src/features/user/utils/LocaleUtils.ts:22
 msgid "Danish"
 msgstr "Danca"
 
@@ -11144,7 +11012,7 @@ msgid "Default"
 msgstr "Varsayılan"
 
 #. Fallback label for the system default camera in the screen-share devices tab.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:152
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:151
 msgid "Default camera"
 msgstr "Varsayılan kamera"
 
@@ -11623,14 +11491,8 @@ msgstr "Ekran okuyucular için bu medyayı tanımlayın"
 msgid "Describe what makes the content illegal"
 msgstr "İçeriğin neden yasa dışı olduğunu açıklayın"
 
-#. Placeholder in the description textarea on the Discovery application form.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:128
-msgid "Describe what your community is about"
-msgstr "Topluluğunuzun neyle ilgili olduğunu açıklayın"
-
 #. Generic form-field label for a free-form description.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:422
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:498
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:137
 msgid "Description"
@@ -11640,16 +11502,6 @@ msgstr "Açıklama"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:36
 msgid "Description must be 500 characters or fewer"
 msgstr "Açıklama 500 karakter veya daha az olmalı"
-
-#. Inline validation error on the Discovery application form when the description is too short. {discoveryDescriptionMinLength} is an integer.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:118
-msgid "Description must be at least {discoveryDescriptionMinLength} characters."
-msgstr "Açıklama en az {discoveryDescriptionMinLength} karakter olmalı."
-
-#. Inline validation error on the Discovery application form when the description is too long. {discoveryDescriptionMaxLength} is an integer.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:123
-msgid "Description must be no more than {discoveryDescriptionMaxLength} characters."
-msgstr "Açıklama en fazla {discoveryDescriptionMaxLength} karakter olmalı."
 
 #. Developer settings tab showing UI component examples.
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:148
@@ -11701,18 +11553,13 @@ msgstr "Masaüstü boşta"
 msgid "Desktop device"
 msgstr "Masaüstü cihaz"
 
-#. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the desktop-download banner.
-#: src/features/devtools/components/NagbarControls.ts:7
-msgid "Desktop download nagbar"
-msgstr "Masaüstü indirme bildirim çubuğu"
-
 #. Settings search entry description. One-line summary of what the settings search entry controls.
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:78
 msgid "Desktop inactivity before mobile push"
 msgstr "Mobil bildirimden önce masaüstü cihazında boşta kalma süresi"
 
 #. Developer control label for the desktop-notification banner.
-#: src/features/devtools/components/NagbarControls.ts:40
+#: src/features/devtools/components/NagbarControls.ts:35
 msgid "Desktop notification nagbar"
 msgstr "Masaüstü bildirimleri bildirim çubuğu"
 
@@ -11890,7 +11737,7 @@ msgstr "Cihaz:"
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:11
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:82
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:57
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:192
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:191
 msgid "Devices"
 msgstr "Cihazlar"
 
@@ -11998,7 +11845,7 @@ msgstr "Doğrudan yükleme etkin"
 #. Short footer action in the screen-share picker that disables screen-share preview frame uploads.
 #: src/features/user/components/modals/tabs/account_security_tab/SecurityTab.tsx:238
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:138
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:278
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:277
 msgid "Disable"
 msgstr "Devre dışı bırak"
 
@@ -12170,7 +12017,7 @@ msgid "Disabled value"
 msgstr "Devre dışı bırakılan değer"
 
 #. Explains what happens after disabling screen-share preview uploads. Refers to already-uploaded preview thumbnails.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:326
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:325
 msgid "Disabling previews stops future preview uploads. Existing preview images may remain visible until the stream ends or the preview refreshes."
 msgstr "Önizlemeleri devre dışı bırakmak, gelecekteki önizleme yüklemelerini durdurur. Mevcut önizleme resimleri, yayın sona erene veya önizleme yenilenene kadar görünür kalabilir."
 
@@ -12205,7 +12052,7 @@ msgstr "{channel} kanalından ayrıl"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Tray menu item. Leaves the current voice call when the channel name is unavailable.
-#: src/features/input/state/input_keybind/shared.ts:317
+#: src/features/input/state/input_keybind/shared.ts:313
 #: src/features/platform/utils/DesktopLocaleBridge.ts:220
 msgid "Disconnect from voice"
 msgstr "Sesten ayrıl"
@@ -12234,47 +12081,8 @@ msgstr "Keşfedilebilir topluluk"
 
 #. Join source label on the community members page. Shown when the member found the community via the Discovery surface.
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:56
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:328
 msgid "Discovery"
 msgstr "Keşfet"
-
-#. Community settings tab for public community discovery/listing.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:76
-msgctxt "community-settings-tab"
-msgid "Discovery"
-msgstr "Keşfet"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:285
-msgid "Discovery application sent"
-msgstr "Keşfet başvurusu gönderildi"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:304
-msgid "Discovery application withdrawn"
-msgstr "Keşfet başvurusu geri çekildi"
-
-#. Accessible label for the category tabs in the Discovery page.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:25
-msgid "Discovery categories"
-msgstr "Keşfet kategorileri"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:277
-msgid "Discovery listing updated"
-msgstr "Keşfet ilanı güncellendi"
-
-#. Accessible label for the section navigation in the Discovery page sidebar.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:15
-msgid "Discovery navigation"
-msgstr "Keşfet navigasyonu"
-
-#. Accessible label for the Discovery community results region.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:30
-msgid "Discovery results"
-msgstr "Keşfet sonuçları"
-
-#. Accessible label for the search form in the Discovery navigation bar.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:33
-msgid "Discovery search"
-msgstr "Keşfet araması"
 
 #. Generic button label that dismisses a banner, modal, sheet, or prompt without taking the primary action.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:310
@@ -12314,7 +12122,7 @@ msgid "Display"
 msgstr "Görüntüleme"
 
 #. Fallback label for a display / monitor card in the screen-share picker when the OS does not give us a display name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:146
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:145
 msgctxt "display-screen"
 msgid "Display"
 msgstr "Ekran"
@@ -12479,11 +12287,6 @@ msgstr "Mevcut topluluklarınızdaki botlardan gelen doğrudan mesajları da eng
 msgid "Do you also want to block direct messages from members of your existing communities?"
 msgstr "Mevcut topluluklarınızdaki üyelerden gelen doğrudan mesajları da engellemek ister misiniz?"
 
-#. Body of the confirmation shown before joining a discoverable community from an expression info card. {communityName} is the community name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:110
-msgid "Do you want to join {communityName}?"
-msgstr "{communityName} topluluğuna katılmak ister misin?"
-
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
@@ -12611,9 +12414,7 @@ msgid "Download"
 msgstr "İndir"
 
 #. Nagbar button label that downloads the desktop app. productName is the app name.
-#. Short label in the sidebar navigation download button. Preserve {productName}; it is inserted by code.
 #: src/features/app/components/layout/app_layout/nagbars/CorruptedInstallationNagbar.tsx:17
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:26
 msgid "Download {productName}"
 msgstr "{productName} uygulamasını indir"
 
@@ -12630,11 +12431,6 @@ msgstr "Sesi indir"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:91
 msgid "Download button"
 msgstr "İndir düğmesi"
-
-#. Button or menu action label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:104
-msgid "Download desktop app"
-msgstr "Masaüstü uygulamasını indir"
 
 #. Tooltip on the channel header updater icon prompting download of an update with no version or size info.
 #: src/features/channel/components/channel_header_components/UpdaterIcon.tsx:54
@@ -12831,11 +12627,11 @@ msgstr "Öğeyi bırak"
 msgid "Drop to upload background"
 msgstr "Arka planı yüklemek için bırakın"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:85
+#: src/features/channel/components/MatureContentChannelGate.tsx:82
 msgid "Due to mature content laws in {regionName}, mature content is blocked until you complete the mature content check."
 msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nedeniyle, yetişkinlere yönelik içerik kontrolünü tamamlayana kadar bu tür içerikler engellenir."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:95
+#: src/features/channel/components/MatureContentChannelGate.tsx:92
 msgid "Due to mature content laws in {regionName}, mature content is not available from here. Mature content checks are available only in the UK."
 msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nedeniyle, buradan yetişkinlere yönelik içeriklere erişilemiyor. Yetişkinlere yönelik içerik kontrolleri yalnızca Birleşik Krallık'ta mevcuttur."
 
@@ -12849,7 +12645,7 @@ msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nede
 msgid "Due to mature content laws in {regionName}, this content is not available from here. Mature content checks are available only in the UK."
 msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nedeniyle bu içerik buradan kullanılamaz. Yetişkinlere yönelik içerik kontrolleri yalnızca Birleşik Krallık'ta mevcuttur."
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:61
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:58
 msgid "Due to mature content laws in {regionName}, this media is not available from your current region."
 msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nedeniyle bu medya, bulunduğunuz bölgeden kullanılamıyor."
 
@@ -12876,7 +12672,7 @@ msgid "Duration:"
 msgstr "Süre:"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:96
+#: src/features/user/utils/LocaleUtils.ts:94
 msgid "Dutch"
 msgstr "Hollandaca"
 
@@ -13141,11 +12937,6 @@ msgstr "Düzenleme geçici olarak kullanılamıyor. Lütfen daha sonra tekrar de
 msgid "Editing message"
 msgstr "Mesaj düzenleniyor"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:88
-msgid "Education"
-msgstr "Eğitim"
-
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:184
 msgid "Eligible for a refund until {windowEndsOn}."
 msgstr "{windowEndsOn} tarihine kadar para iadesi için uygun."
@@ -13227,7 +13018,7 @@ msgid "Email us and a person will review your account. Tell us you cannot verify
 msgstr "E-posta gönderin, bir kişi hesabınızı inceleyecektir. SMS ile doğrulama yapamadığınızı bize bildirin, gerisini biz hallederiz. Yanıtlar e-posta ile gelir, bu nedenle anında değildir."
 
 #. Developer control label for the email-verification banner.
-#: src/features/devtools/components/NagbarControls.ts:36
+#: src/features/devtools/components/NagbarControls.ts:31
 msgid "Email verification nagbar"
 msgstr "E-posta doğrulama bildirim çubuğu"
 
@@ -13324,7 +13115,7 @@ msgid "Emoji"
 msgstr "Emoji"
 
 #. Community settings tab for managing custom emoji uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:36
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:34
 msgctxt "community-settings-tab"
 msgid "Emoji"
 msgstr "Emoji"
@@ -13443,7 +13234,7 @@ msgid "Enable"
 msgstr "Etkinleştir"
 
 #. Voice settings CTA label for opening a platform permission prompt.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:124
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:118
 msgid "Enable {permissionName} permission"
 msgstr "{permissionName} iznini etkinleştir"
 
@@ -13502,7 +13293,7 @@ msgid "Enable browser notifications"
 msgstr "Tarayıcı bildirimlerini etkinleştir"
 
 #. Description shown before the user explicitly requests camera preview permission.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:160
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:159
 msgid "Enable camera access to preview cameras and capture devices before choosing one to stream."
 msgstr "Yayınlamak üzere birini seçmeden önce kameraları ve yakalama aygıtlarını önizlemek için kamera erişimini etkinleştirin."
 
@@ -13618,7 +13409,7 @@ msgid "Enable or disable built-in translators. Enabled translators appear in the
 msgstr "Yerleşik çevirmenleri etkinleştirin veya devre dışı bırakın. Etkinleştirilen çevirmenler, metin seçildiğinde mesaj bağlam menüsünde görünür."
 
 #. Button that explicitly requests camera permission for device previews.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:168
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:167
 msgid "Enable previews"
 msgstr "Önizlemeleri etkinleştir"
 
@@ -13797,12 +13588,12 @@ msgid "Endpoint:"
 msgstr "Uç nokta:"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:36
+#: src/features/user/utils/LocaleUtils.ts:34
 msgid "English"
 msgstr "İngilizce"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:40
+#: src/features/user/utils/LocaleUtils.ts:38
 msgid "English (US)"
 msgstr "İngilizce (ABD)"
 
@@ -14047,13 +13838,8 @@ msgstr "Parolanızı girin."
 msgid "Enter your phone number"
 msgstr "Telefon numaranızı girin"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:84
-msgid "Entertainment"
-msgstr "Eğlence"
-
 #. Tab label in the screen-share picker. Lists shareable monitors / displays.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:188
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:187
 msgid "Entire screen"
 msgstr "Tüm ekran"
 
@@ -14072,7 +13858,7 @@ msgstr "Tüm sistem sesi"
 #. Voice menu submenu label that contains per-user entrance sound mute and volume controls.
 #: src/features/ui/action_menu/items/VoiceParticipantMenuData.tsx:181
 #: src/features/ui/action_menu/items/VoiceParticipantMenuItems.tsx:310
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:189
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:183
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:150
 msgid "Entrance sound"
 msgstr "Giriş sesi"
@@ -14182,7 +13968,7 @@ msgstr "Akşam"
 
 #. Description for the automatic gain control toggle in the voice processing settings.
 #. Description for the automatic gain control toggle in the voice processing settings.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:173
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:167
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "Mikrofon ses düzeyinizi dengeler, böylece sesiniz çok kısık çıkmaz."
@@ -14373,7 +14159,7 @@ msgid "Expired between {earliest} and {latest}"
 msgstr "{earliest} ile {latest} arasında sona erdi"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:15
+#: src/features/app/components/shared/ExpiryFootnote.tsx:12
 msgid "Expired on {date}"
 msgstr "{date} tarihinde sona erdi"
 
@@ -14406,7 +14192,7 @@ msgid "Expires in {remaining}s"
 msgstr "{remaining} sn içinde sona eriyor"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:19
+#: src/features/app/components/shared/ExpiryFootnote.tsx:16
 msgid "Expires on {date}"
 msgstr "{date} tarihinde sona eriyor"
 
@@ -14423,16 +14209,6 @@ msgstr "Sona eriyor:"
 #: src/features/guild/components/modals/guild_tabs/GuildModerationTab.tsx:127
 msgid "Explicit content filter setting"
 msgstr "Müstehcen içerik filtresi ayarı"
-
-#. Short label in the app layout discovery guild header.
-#: src/features/app/components/layout/DiscoveryGuildHeader.tsx:9
-msgid "Explore"
-msgstr "Keşfet"
-
-#. Short label in the sidebar navigation discovery button.
-#: src/features/app/components/layout/sidebar_nav/DiscoveryButton.tsx:21
-msgid "Explore communities"
-msgstr "Toplulukları keşfet"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/theme_studio/sections/LibrarySection.tsx:494
@@ -14484,7 +14260,7 @@ msgstr "İfade seçici kategorileri"
 
 #. Community settings sidebar category grouping the emoji and stickers tabs.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:249
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:232
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:137
 msgid "Expressions"
 msgstr "İfadeler"
@@ -14657,7 +14433,7 @@ msgid "Failed to load invites. Try again."
 msgstr "Davetler yüklenemedi. Tekrar deneyin."
 
 #. Error text shown in the screen-share picker when the list of shareable windows/displays fails to load.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:120
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:119
 msgid "Failed to load shareable sources."
 msgstr "Paylaşılabilir kaynaklar yüklenemedi."
 
@@ -15078,13 +14854,6 @@ msgstr "İçeriğe göre filtrele"
 msgid "Filter by join method"
 msgstr "Katılma yöntemine göre filtrele"
 
-#. Label for the discovery language filter button. Keep it concise.
-#. Short label in the discovery page. Keep it concise.
-#: src/features/discovery/discovery/DiscoveryLanguageButton.tsx:16
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:33
-msgid "Filter by language"
-msgstr "Dile göre filtrele"
-
 #. Accessible label for the join-date filter chip on the community members page.
 #: src/features/channel/components/guild_members_page/MembersTableHeaderRow.tsx:13
 msgid "Filter by member since"
@@ -15125,11 +14894,6 @@ msgstr "Bahsetmeleri filtrele"
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:192
 msgid "Filtering"
 msgstr "Filtreleme"
-
-#. Label for the discovery language filter button once a language is chosen. Preserve {language}; it is inserted by code.
-#: src/features/discovery/discovery/DiscoveryLanguageButton.tsx:20
-msgid "Filtering by {language}"
-msgstr "{language} diline göre filtreleniyor"
 
 #: src/features/voice/components/modals/CameraPreviewModal.tsx:788
 msgid "Finalizing camera..."
@@ -15187,7 +14951,7 @@ msgid "Finland"
 msgstr "Finlandiya"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:52
+#: src/features/user/utils/LocaleUtils.ts:50
 msgid "Finnish"
 msgstr "Fince"
 
@@ -15392,12 +15156,12 @@ msgid "For your security, please confirm it's you to continue."
 msgstr "Güvenliğiniz için devam etmeden önce lütfen siz olduğunuzu onaylayın."
 
 #. Developer nagbar override status: the banner is forced to hide.
-#: src/features/devtools/components/NagbarControls.ts:97
+#: src/features/devtools/components/NagbarControls.ts:92
 msgid "Force disabled"
 msgstr "Zorla devre dışı"
 
 #. Developer nagbar override status: the banner is forced to show.
-#: src/features/devtools/components/NagbarControls.ts:93
+#: src/features/devtools/components/NagbarControls.ts:88
 msgid "Force enabled"
 msgstr "Zorla etkin"
 
@@ -15617,7 +15381,7 @@ msgid "Free vs {premiumProductName}"
 msgstr "Ücretsiz sürüm ve {premiumProductName} karşılaştırması"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:56
+#: src/features/user/utils/LocaleUtils.ts:54
 msgid "French"
 msgstr "Fransızca"
 
@@ -15899,11 +15663,9 @@ msgctxt "gamepad-button-name"
 msgid "Gamepad Y / Triangle"
 msgstr "Oyun kumandası Y / Üçgen"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
 #. Footer summary label for the gaming screen-share quality preset.
 #. Streaming preset label in the stream settings menu. Higher frame rate, optimized for video games.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:76
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:229
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:228
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:70
 msgid "Gaming"
 msgstr "Oyun"
@@ -15962,7 +15724,7 @@ msgid "Georgia"
 msgstr "Georgia"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:28
+#: src/features/user/utils/LocaleUtils.ts:26
 msgid "German"
 msgstr "Almanca"
 
@@ -15996,16 +15758,6 @@ msgstr "Mesaj aldığınızda bildirim alın. Cihaz ayarlarınızda {productName
 #: src/features/user/components/modals/tabs/notifications_tab/Notifications.tsx:48
 msgid "Get notified when you receive messages. You may need to allow notifications in your browser settings. For per-channel/per-community controls, right-click a community icon and open notification settings."
 msgstr "Mesaj aldığınızda bildirim alın. Tarayıcı ayarlarınızda bildirimlere izin vermeniz gerekebilir. Kanal/topluluk bazında kontrol için bir topluluk simgesine sağ tıklayın ve bildirim ayarlarını açın."
-
-#. Nagbar body encouraging web users to download the desktop app. productName is the app name.
-#: src/features/app/components/layout/app_layout/nagbars/DesktopDownloadNagbar.tsx:17
-msgid "Get the {productName} desktop app for system-wide push-to-talk and a few other goodies."
-msgstr "Sistem genelinde bas konuş özelliğini ve diğer güzellikleri kullanmak için {productName} masaüstü uygulamasını edinin."
-
-#. CTA button label in the screen-share picker. Opens the desktop download page.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:20
-msgid "Get the desktop app"
-msgstr "Masaüstü uygulamasını edinin"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Type label for GIF media.
@@ -16126,7 +15878,7 @@ msgid "Gift inventory flow"
 msgstr "Hediye envanteri akışı"
 
 #. Developer control label for the gift-inventory banner.
-#: src/features/devtools/components/NagbarControls.ts:56
+#: src/features/devtools/components/NagbarControls.ts:51
 msgid "Gift inventory nagbar"
 msgstr "Hediye envanteri bildirim çubuğu"
 
@@ -16266,7 +16018,7 @@ msgid "Go back and enter a valid email."
 msgstr "Geri dönün ve geçerli bir e-posta adresi girin."
 
 #. Accessible label for the community row of an expression info card, which opens a community the viewer is already a member of. {communityName} is the community name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:89
+#: src/features/expressions/components/ExpressionInfoCard.tsx:79
 msgid "Go to {communityName}"
 msgstr "{communityName} topluluğuna git"
 
@@ -16429,7 +16181,7 @@ msgid "Greece"
 msgstr "Yunanistan"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:32
+#: src/features/user/utils/LocaleUtils.ts:30
 msgid "Greek"
 msgstr "Yunanca"
 
@@ -16757,7 +16509,7 @@ msgid "Heart"
 msgstr "Kalp"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:60
+#: src/features/user/utils/LocaleUtils.ts:58
 msgid "Hebrew"
 msgstr "İbranice"
 
@@ -16779,11 +16531,6 @@ msgstr "Merhaba, {username}! Aramıza hoş geldin."
 #: src/features/platform/utils/DesktopLocaleBridge.ts:142
 msgid "Help"
 msgstr "Yardım"
-
-#. Short label in the sidebar navigation help button.
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:27
-msgid "Help center"
-msgstr "Yardım merkezi"
 
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:348
 msgid "Help translate {PRODUCT_NAME} into your language on <0>{I18N_WEBLATE_DOMAIN}</0>."
@@ -16900,12 +16647,8 @@ msgstr "Sohbeti gizle"
 msgid "Hide community owner crown"
 msgstr "Topluluk sahibi tacını gizle"
 
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:62
-msgid "Hide download button"
-msgstr "İndirme düğmesini gizle"
-
 #. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:13
+#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
 msgstr "Süre sonu dipnotlarını gizle"
 
@@ -16913,10 +16656,6 @@ msgstr "Süre sonu dipnotlarını gizle"
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Favorileri gizle"
-
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:63
-msgid "Hide help center button"
-msgstr "Yardım merkezi düğmesini gizle"
 
 #. Short label in the system welcome section. Keep it concise.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:32
@@ -17051,7 +16790,7 @@ msgid "Higher values remove more noise but can affect speech texture."
 msgstr "Daha yüksek değerler daha fazla gürültü giderir ancak konuşma dokusunu etkileyebilir."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:64
+#: src/features/user/utils/LocaleUtils.ts:62
 msgid "Hindi"
 msgstr "Hintçe"
 
@@ -17165,7 +16904,7 @@ msgid "How this works"
 msgstr "Nasıl çalışır"
 
 #. Accessible label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:72
+#: src/features/user/utils/LocaleUtils.ts:70
 msgid "Hungarian"
 msgstr "Macarca"
 
@@ -17237,8 +16976,8 @@ msgid "I need another way"
 msgstr "Başka bir yola ihtiyacım var"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/channel/components/MatureContentChannelGate.tsx:207
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
+#: src/features/channel/components/MatureContentChannelGate.tsx:180
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:102
 msgid "I understand"
 msgstr "Anladım"
 
@@ -17662,10 +17401,6 @@ msgstr "İçinde"
 msgid "In \"Operating system\" mode, dictionaries listed above are advisory. {PRODUCT_NAME} will pass these language tags to your OS spellchecker when supported. Tags it doesn't recognize are ignored."
 msgstr "\"İşletim sistemi\" modunda, yukarıda listelenen sözlükler tavsiye niteliğindedir. {PRODUCT_NAME}, desteklendiğinde bu dil etiketlerini işletim sisteminizin yazım denetleyicisine iletecektir. Tanımadığı etiketler yok sayılır."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:310
-msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
-msgstr "Tarayıcıda bas-konuş özelliği yalnızca {PRODUCT_NAME} sekmesi odaklıyken çalışır. Sistem genelinde bas-konuş özelliğini kullanmak için masaüstü uygulamasını yükleyin."
-
 #: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "Aramada"
@@ -17868,7 +17603,7 @@ msgid "Indicators & status"
 msgstr "Göstergeler ve durum"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:76
+#: src/features/user/utils/LocaleUtils.ts:74
 msgid "Indonesian"
 msgstr "Endonezyaca"
 
@@ -17953,7 +17688,7 @@ msgid "Input access was changed. Fully quit and restart {productName} so system-
 msgstr "Giriş erişimi değiştirildi. Sistem genelindeki kısayolların kullanabilmesi için {productName} uygulamasını tamamen kapatıp yeniden başlatın."
 
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:177
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:171
 msgid "Input and output"
 msgstr "Giriş ve çıkış"
 
@@ -18011,11 +17746,6 @@ msgstr "Insert"
 msgid "Insert emoji"
 msgstr "Emoji ekle"
 
-#. CTA card body in the screen-share picker promoting the desktop app. {productName} is Fluxer.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:16
-msgid "Install {productName} for the full source picker and smoother screen-sharing controls."
-msgstr "Eksiksiz kaynak seçici ve daha akıcı ekran paylaşımı kontrolleri için {productName} uygulamasını yükleyin."
-
 #. Label for the installed desktop version in the Linux update modal.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:136
 msgid "Installed"
@@ -18053,7 +17783,7 @@ msgstr "Tam sayı"
 
 #. Community settings sidebar category grouping webhooks.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:257
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:240
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:26
 msgid "Integrations"
 msgstr "Entegrasyonlar"
@@ -18339,7 +18069,7 @@ msgid "Invite unavailable"
 msgstr "Davet kullanılamıyor"
 
 #. Subtitle for a community that can only be joined with an invite.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:80
+#: src/features/expressions/components/ExpressionInfoCard.tsx:70
 msgid "Invite-only community"
 msgstr "Davetle girilen topluluk"
 
@@ -18370,7 +18100,7 @@ msgid "Invites"
 msgstr "Davetler"
 
 #. Community settings tab for invite link management.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:86
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:79
 msgctxt "community-settings-tab"
 msgid "Invites"
 msgstr "Davetler"
@@ -18407,7 +18137,7 @@ msgid "Invites disabled"
 msgstr "Davetler devre dışı bırakıldı"
 
 #. Developer control label for the invites-disabled banner.
-#: src/features/devtools/components/NagbarControls.ts:72
+#: src/features/devtools/components/NagbarControls.ts:67
 msgid "Invites disabled nagbar"
 msgstr "Davetler devre dışı bırakıldı bildirim çubuğu"
 
@@ -18469,18 +18199,13 @@ msgstr "Kopyalanmadan önce silinmiş olabilir."
 msgid "It may have been deleted. The name was reverted to what it was before."
 msgstr "Silinmiş olabilir. Adı önceki haline döndürüldü."
 
-#. Body of the error modal shown when a discovery community is no longer joinable (delisted, invites off, or discovery disabled).
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:51
-msgid "It may have left discovery or turned off new joins. Refresh the page and you won't see it again."
-msgstr "Keşfet'ten kaldırılmış veya yeni katılımları kapatmış olabilir. Sayfayı yenilediğinizde bir daha görmezsiniz."
-
 #. Label in the channel and chat active now sidebar.
 #: src/features/channel/components/active_now/ActiveNowSidebar.tsx:17
 msgid "It's quiet for now..."
 msgstr "Şimdilik sessiz..."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:80
+#: src/features/user/utils/LocaleUtils.ts:78
 msgid "Italian"
 msgstr "İtalyanca"
 
@@ -18495,7 +18220,7 @@ msgid "Italy"
 msgstr "İtalya"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:84
+#: src/features/user/utils/LocaleUtils.ts:82
 msgid "Japanese"
 msgstr "Japonca"
 
@@ -18516,10 +18241,8 @@ msgstr "Titreşim:"
 msgid "Join"
 msgstr "Katıl"
 
-#. Accessible label of a button that joins a community. {communityName} is the community name.
 #. Nagbar button label that opens the official product community invite. communityName is the community name.
 #: src/features/app/components/layout/app_layout/nagbars/GuildMembershipCtaNagbar.tsx:29
-#: src/features/expressions/components/ExpressionInfoCard.tsx:94
 msgid "Join {communityName}"
 msgstr "{communityName} topluluğuna katıl"
 
@@ -18644,10 +18367,6 @@ msgstr "Okunmamış kanallar arasında geçiş yap"
 #: src/features/input/state/input_keybind/shared.ts:61
 msgid "Jump between unread channels with mentions"
 msgstr "Bahsedildiğiniz okunmamış kanallar arasında geçiş yap"
-
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:75
-msgid "Jump straight to the app to continue."
-msgstr "Devam etmek için doğrudan uygulamaya geçin."
 
 #. Tooltip / aria label on a button that jumps to the channel. {channelSourceLabel} is the channel or DM name.
 #: src/features/voice/components/voice_connection_status/VoiceConnectionStatusInner.tsx:87
@@ -18809,7 +18528,7 @@ msgid "Keep these safe. Regenerating will break existing integrations."
 msgstr "Bunları güvende tutun. Yeniden oluşturmak mevcut entegrasyonları bozacaktır."
 
 #. Description for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:79
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:77
 msgid "Keep transmitting briefly after release."
 msgstr "Tuşu bıraktıktan sonra kısa bir süre iletime devam et."
 
@@ -18913,7 +18632,7 @@ msgid "Klipy GIFs"
 msgstr "Klipy GIF'leri"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:88
+#: src/features/user/utils/LocaleUtils.ts:86
 msgid "Korean"
 msgstr "Korece"
 
@@ -19037,7 +18756,7 @@ msgid "Layout"
 msgstr "Yerleşim"
 
 #. Accessible label for the screen-share picker footer info button.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:282
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:281
 msgid "Learn about screen share previews"
 msgstr "Ekran paylaşımı önizlemeleri hakkında bilgi edinin"
 
@@ -19434,10 +19153,6 @@ msgstr "Linux varsayılanı"
 msgid "Linux package"
 msgstr "Linux paketi"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:331
-msgid "List your community in Discovery so others can find and join it."
-msgstr "Topluluğunuzu Keşfet'te listeleyin, böylece başkaları bulup katılabilsin."
-
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:33
 msgid "Lists"
@@ -19454,7 +19169,7 @@ msgid "Lithuania"
 msgstr "Litvanya"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:92
+#: src/features/user/utils/LocaleUtils.ts:90
 msgid "Lithuanian"
 msgstr "Litvanca"
 
@@ -19477,11 +19192,6 @@ msgstr "Yükleniyor"
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:164
 msgid "Loading banned users"
 msgstr "Yasaklı kullanıcılar yükleniyor"
-
-#. Screen-reader status text shown while Discovery communities are loading.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:38
-msgid "Loading communities"
-msgstr "Topluluklar yükleniyor"
 
 #. OAuth bot invite destination selector placeholder while eligible destinations load.
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:40
@@ -19626,7 +19336,7 @@ msgid "Look and feel"
 msgstr "Görünüm ve his"
 
 #. placeholder {0}: externalProcessor.name
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:652
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:631
 msgid "Looks like you're using {0}. Stacking {PRODUCT_NAME}'s processing on top can cause pumping or distortion. Direct input passes your audio through untouched."
 msgstr "{0} kullanıyor gibisiniz. Bunun üzerine bir de {PRODUCT_NAME} ses işlemesi eklemek ses dalgalanmasına veya bozulmaya neden olabilir. Doğrudan giriş, sesinizi olduğu gibi iletir."
 
@@ -20044,15 +19754,15 @@ msgstr "Massachusetts"
 msgid "Master volume"
 msgstr "Ana ses düzeyi"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:141
+#: src/features/channel/components/MatureContentChannelGate.tsx:130
 msgid "Mature category"
 msgstr "Yetişkinlere özel kategori"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:163
+#: src/features/channel/components/MatureContentChannelGate.tsx:144
 msgid "Mature channel"
 msgstr "Yetişkinlere özel kanal"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:118
+#: src/features/channel/components/MatureContentChannelGate.tsx:115
 msgid "Mature community"
 msgstr "Yetişkinlere özel topluluk"
 
@@ -20093,7 +19803,7 @@ msgstr "Yetişkin içeriği kontrolü gönderildi"
 
 #. Body copy in the mature content check modal when the check is unavailable.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:36
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:71
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:68
 msgid "Mature content checks are currently available only in the UK."
 msgstr "Yetişkinlere yönelik içerik kontrolleri şu anda yalnızca Birleşik Krallık'ta mevcuttur."
 
@@ -20134,7 +19844,7 @@ msgstr "Uygun kısıtlama olmadan yetişkinlere yönelik içerik."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the mature media gate details modal. Keep it concise.
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:26
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:23
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:184
 msgid "Mature media"
 msgstr "Yetişkinlere uygun medya"
@@ -20412,7 +20122,7 @@ msgid "Members"
 msgstr "Üyeler"
 
 #. Community settings tab for managing community members.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:81
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:74
 msgctxt "community-settings-tab"
 msgid "Members"
 msgstr "Üyeler"
@@ -20879,7 +20589,7 @@ msgstr "Mikrofon"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:185
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:179
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:142
 msgid "Mic test"
 msgstr "Mikrofon testi"
@@ -21137,7 +20847,7 @@ msgid "Moderation"
 msgstr "Moderasyon"
 
 #. Community settings tab for moderation and safety controls.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:56
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:54
 msgctxt "community-settings-tab"
 msgid "Moderation"
 msgstr "Moderasyon"
@@ -21399,11 +21109,6 @@ msgstr "Rolü üye listesinde yukarı taşıdı"
 msgid "Moved the role up in the role list"
 msgstr "Rolü rol listesinde yukarı taşıdı"
 
-#. Discovery category dropdown option in the community Discovery settings tab. "TV" is the abbreviation for television.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:105
-msgid "Movies & TV"
-msgstr "Filmler ve TV"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:212
 msgid "MP3"
@@ -21423,11 +21128,6 @@ msgstr "Çok satırlı"
 #: src/features/typing/rolling/RollingTypingText.tsx:29
 msgid "Multiple people are typing..."
 msgstr "Birden fazla kişi yazıyor..."
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:80
-msgid "Music"
-msgstr "Müzik"
 
 #. Folder icon option in the community-folder settings modal: a music note shape.
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:65
@@ -21998,7 +21698,7 @@ msgid "New"
 msgstr "Yeni"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:136
+#: src/features/app/components/layout/GuildsLayout.tsx:131
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Yeni"
@@ -22263,7 +21963,7 @@ msgstr "Gelişmiş ayar bulunamadı"
 msgid "No AFK channel"
 msgstr "AFK kanalı yok"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:124
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:123
 msgid "No application windows found"
 msgstr "Uygulama penceresi bulunamadı"
 
@@ -22359,16 +22059,6 @@ msgstr "Kanal yok"
 msgid "No channels found"
 msgstr "Kanal bulunamadı"
 
-#. Empty-state hint in Discovery shown under the heading when no communities are listed at all.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:24
-msgid "No communities are listed right now. Check back a little later."
-msgstr "Şu anda listelenen topluluk yok. Daha sonra tekrar kontrol edin."
-
-#. Empty-state text in the discovery page.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:12
-msgid "No communities match."
-msgstr "Hiçbir topluluk eşleşmiyor."
-
 #. OAuth bot invite empty state shown when the user has no communities or group DMs where they can invite a bot.
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:30
 msgid "No communities or group DMs available for this bot."
@@ -22390,19 +22080,12 @@ msgstr "Bu aramaya uyan özel kısayol yok."
 msgid "No custom shortcuts yet."
 msgstr "Henüz özel kısayol yok."
 
-#. Empty-state text in the discovery guild card.
-#. Empty-state text shown in the Discovery community preview modal when a community has no description.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:30
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:23
-msgid "No description."
-msgstr "Açıklama yok."
-
 #. Desktop updater modal body when no installed version string is available.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:49
 msgid "No desktop update is available."
 msgstr "Masaüstü güncellemesi mevcut değil."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:130
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:129
 msgid "No displays found"
 msgstr "Ekran bulunamadı"
 
@@ -22526,7 +22209,7 @@ msgstr "Eşleşme bulunamadı"
 msgid "No mentions yet"
 msgstr "Henüz bahsetme yok"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:528
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:507
 msgid "No microphone found"
 msgstr "Mikrofon bulunamadı"
 
@@ -22886,7 +22569,7 @@ msgid "North Dakota"
 msgstr "Kuzey Dakota"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:100
+#: src/features/user/utils/LocaleUtils.ts:98
 msgid "Norwegian"
 msgstr "Norveççe"
 
@@ -22914,10 +22597,6 @@ msgstr "Belirtilmemiş"
 #: src/features/app/constants/AppConstants.ts:57
 msgid "Not connected"
 msgstr "Bağlı değil"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:346
-msgid "Not enough members"
-msgstr "Yeterli üye yok"
 
 #: src/features/expressions/components/FavoritesWelcomeSection.tsx:38
 msgid "Not for you? Turn it off anytime."
@@ -22985,11 +22664,6 @@ msgstr "Hiçbiri"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:591
 msgid "Nothing matches"
 msgstr "Hiçbir eşleşme yok"
-
-#. Empty-state heading in Discovery shown when no communities are listed at all.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:20
-msgid "Nothing to explore yet"
-msgstr "Henüz keşfedilecek bir şey yok"
 
 #. Title of the error modal shown when there is no refundable purchase on the account.
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:55
@@ -23207,7 +22881,7 @@ msgstr "Uygulama ve kimlik bilgileri silindikten sonra kalıcı olarak kaldırı
 msgid "Once deletion is processed, you cannot recover access to your account"
 msgstr "Silme işlemi tamamlandığında hesabınıza tekrar erişemezsiniz"
 
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:134
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:123
 msgid "Once your account is created, we'll take you back to the theme so you can apply it."
 msgstr "Hesabınız oluşturulduğunda, temayı uygulayabilmeniz için sizi temaya geri yönlendireceğiz."
 
@@ -23407,11 +23081,6 @@ msgstr "{landmarkName} öğesini aç"
 msgid "Open {macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName}, then allow {productName}. If {productName2} is already enabled, fully quit and restart {productName3} so macOS applies the permission."
 msgstr "{macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName} yolunu açıp {productName} uygulamasına izin verin. {productName2} zaten etkinse, macOS'un izni uygulaması için {productName3} uygulamasını tamamen kapatıp yeniden başlatın."
 
-#. Button label that opens the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:27
-msgid "Open {productName}"
-msgstr "{productName} uygulamasını aç"
-
 #. Button or menu action label in the channel and chat gif picker grid item. Keep it concise. Preserve {title}; it is inserted by code.
 #: src/features/channel/components/pickers/gif/GifPickerGridItem.tsx:37
 msgid "Open {title}"
@@ -23427,7 +23096,7 @@ msgstr "@{displayName} adlı kişiyi aç"
 msgid "Open advanced media settings"
 msgstr "Gelişmiş medya ayarlarını aç"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:127
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:126
 msgid "Open an application window, then try again."
 msgstr "Bir uygulama penceresi açın, sonra tekrar deneyin."
 
@@ -23490,7 +23159,7 @@ msgid "Open browser"
 msgstr "Tarayıcıyı aç"
 
 #. Primary button in the screen-share picker on web. Hands off to the browser's native getDisplayMedia picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:208
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:207
 msgid "Open browser picker"
 msgstr "Tarayıcı seçiciyi aç"
 
@@ -23525,11 +23194,6 @@ msgstr "Hesap sahiplenme modalını aç"
 #: src/features/ui/components/form/ColorPickerField.tsx:23
 msgid "Open color picker"
 msgstr "Renk seçiciyi aç"
-
-#. Button label in the Discovery community preview modal shown when the user is already a member.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:26
-msgid "Open community"
-msgstr "Topluluğu aç"
 
 #. Short label in the app layout guild header. Preserve {guildName}; it is inserted by code.
 #: src/features/app/components/layout/GuildHeader.tsx:33
@@ -23618,11 +23282,6 @@ msgstr "GIF bağlantısını aç"
 msgid "Open group details for {groupDMName}"
 msgstr "{groupDMName} için grup ayrıntılarını aç"
 
-#. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:233
-msgid "Open help"
-msgstr "Yardımı aç"
-
 #. Action that opens the image URL in an external browser.
 #. Action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/ReverseImageSearchMenuItems.tsx:29
@@ -23647,11 +23306,6 @@ msgstr "Görseli tam görünümde aç"
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
 msgstr "Görsel bağlantısını aç"
-
-#. Title in a web prompt that opens the same flow in the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:23
-msgid "Open in {productName} for desktop"
-msgstr "{productName} masaüstü uygulamasında aç"
 
 #. Media viewer action that opens the current media in the system default browser.
 #: src/features/messaging/components/modals/media_modal/shared.ts:77
@@ -23758,7 +23412,7 @@ msgid "Open system DM"
 msgstr "Sistem DM'ini aç"
 
 #. Primary button in the screen-share picker on Linux/Wayland. Hands off to the OS xdg-desktop-portal picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:213
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:212
 msgid "Open system picker"
 msgstr "Sistem seçiciyi aç"
 
@@ -23772,7 +23426,7 @@ msgid "Open the ban dialog for this community."
 msgstr "Bu topluluk için yasaklama iletişim kutusunu açın."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:241
+#: src/features/input/state/input_keybind/shared.ts:237
 msgid "Open the context menu"
 msgstr "Bağlam menüsünü aç"
 
@@ -23795,7 +23449,7 @@ msgid "Open the verification email and use the link inside. This window updates 
 msgstr "Doğrulama e-postasını açın ve içindeki bağlantıyı kullanın. Bağlantı açıldıktan sonra bu pencere güncellenecektir."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:249
+#: src/features/input/state/input_keybind/shared.ts:245
 msgid "Open theme studio popout"
 msgstr "Tema stüdyosu açılır penceresini aç"
 
@@ -23853,7 +23507,7 @@ msgid "Open your phone's messaging app and start a new text message."
 msgstr "Telefonunuzun mesajlaşma uygulamasını açın ve yeni bir kısa mesaj başlatın."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:245
+#: src/features/input/state/input_keybind/shared.ts:241
 msgid "Open your settings"
 msgstr "Ayarları aç"
 
@@ -23998,10 +23652,8 @@ msgstr "{user} tarafından {date} tarihinde yasaklanmış"
 msgid "Originally banned on {date}"
 msgstr "Orijinal yasaklanma tarihi: {date}"
 
-#. Catch-all Discovery category dropdown option in the community Discovery settings tab.
 #. Collapsible group heading in the Theme Studio tokens list, for tokens that fit no other group.
 #. Report category label for a reason that does not match any predefined category.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:110
 #: src/features/moderation/components/report/OptionDescriptors.ts:70
 #: src/features/theme_studio/sections/TokenGroups.ts:118
 msgid "Other"
@@ -24125,7 +23777,7 @@ msgid "Overview"
 msgstr "Genel bakış"
 
 #. Community settings tab for basic server/community details.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:46
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:44
 msgctxt "community-settings-tab"
 msgid "Overview"
 msgstr "Genel bakış"
@@ -24431,10 +24083,8 @@ msgstr "Ödemeler geçici olarak kullanılamıyor. Lütfen bir süre sonra tekra
 msgid "Payments are unavailable"
 msgstr "Ödemeler kullanılamıyor"
 
-#. Discovery application status badge in the community Discovery settings tab. The application is awaiting staff review.
 #. Tab label in the DM friends view showing pending friend requests.
 #: src/features/channel/components/direct_message/DMFriendsView.tsx:45
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:40
 msgid "Pending"
 msgstr "Beklemede"
 
@@ -24456,7 +24106,7 @@ msgstr "Pensilvanya"
 #: src/features/expressions/utils/UnicodeEmojis.ts:21
 #: src/features/search/state/QuickSwitcherResultConverters.ts:22
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:53
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:261
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
 msgid "People"
 msgstr "Kişiler"
 
@@ -24951,10 +24601,8 @@ msgid "Playing despite reduced motion."
 msgstr "Azaltılmış harekete rağmen oynatılıyor."
 
 #. Body of the error modal shown when an action is rate limited.
-#. Body of the error modal shown when joining a discovery community is rate limited.
 #. Body of the error modal shown when sharing or sending a theme link is rate limited.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:13
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:60
 #: src/features/theme/components/modals/ShareThemeModal.tsx:67
 msgid "Please wait a moment and try again."
 msgstr "Lütfen bir süre bekleyip tekrar deneyin."
@@ -24982,7 +24630,7 @@ msgid "Poland"
 msgstr "Polonya"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:104
+#: src/features/user/utils/LocaleUtils.ts:102
 msgid "Polish"
 msgstr "Lehçe"
 
@@ -25034,7 +24682,7 @@ msgid "Portugal"
 msgstr "Portekiz"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:108
+#: src/features/user/utils/LocaleUtils.ts:106
 msgid "Portuguese (Brazil)"
 msgstr "Portekizce (Brezilya)"
 
@@ -25120,12 +24768,12 @@ msgid "Premium badge"
 msgstr "Premium rozeti"
 
 #. Developer control label for the premium-expired banner.
-#: src/features/devtools/components/NagbarControls.ts:48
+#: src/features/devtools/components/NagbarControls.ts:43
 msgid "Premium expired nagbar"
 msgstr "Premium süresi doldu bildirim çubuğu"
 
 #. Developer control label for the premium grace-period banner.
-#: src/features/devtools/components/NagbarControls.ts:44
+#: src/features/devtools/components/NagbarControls.ts:39
 msgid "Premium grace period nagbar"
 msgstr "Premium ödemesiz dönem bildirim çubuğu"
 
@@ -25135,7 +24783,7 @@ msgid "Premium model"
 msgstr "Premium model"
 
 #. Developer control label for the premium-onboarding banner.
-#: src/features/devtools/components/NagbarControls.ts:52
+#: src/features/devtools/components/NagbarControls.ts:47
 msgid "Premium onboarding nagbar"
 msgstr "Premium başlangıç bildirim çubuğu"
 
@@ -25221,11 +24869,6 @@ msgstr "Üyelerin belirli bir süre boyunca mesaj göndermesini, tepki vermesini
 msgid "Preview"
 msgstr "Önizleme"
 
-#. Accessible label for a Discovery community card, which opens a preview of the community. {communityName} is the public community name.
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:31
-msgid "Preview {communityName}"
-msgstr "{communityName} önizlemesi"
-
 #. Short label in the accessibility tab. Keep it concise.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:41
 msgid "Preview button"
@@ -25245,17 +24888,17 @@ msgid "Preview hidden"
 msgstr "Önizleme gizlendi"
 
 #. Privacy explanation for screen-share previews in a one-to-one DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:320
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:319
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. Disable previews if you do not want screen-share frames uploaded for thumbnails."
 msgstr "Önizleme görüntüleri geçici olarak {productName} tarafından saklanır ve uçtan uca şifrelenmez. Küçük resimler için ekran paylaşımı karelerinizin yüklenmesini istemiyorsanız önizlemeleri devre dışı bırakın."
 
 #. Privacy explanation for screen-share previews in a group DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:314
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:313
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People in this group DM do not need to be actively watching your stream to see the thumbnail."
 msgstr "Önizleme görüntüleri geçici olarak {productName} tarafından saklanır ve uçtan uca şifrelenmez. Bu grup DM'deki kişilerin küçük resmi görmesi için yayınınızı aktif olarak izlemesi gerekmez."
 
 #. Privacy explanation for screen-share previews in a guild voice channel. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:308
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:307
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People still need permission to connect, but they do not need to be actively watching your stream."
 msgstr "Önizleme görüntüleri geçici olarak {productName} tarafından saklanır ve uçtan uca şifrelenmez. İnsanların yine de bağlanmak için izni olması gerekir, ancak yayınınızı aktif olarak izlemeleri gerekmez."
 
@@ -25355,10 +24998,6 @@ msgstr "Birincil eylem"
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:33
 msgid "Primary button clicked."
 msgstr "Birincil düğmeye tıklandı."
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:488
-msgid "Primary language"
-msgstr "Birincil dil"
 
 #. ARIA landmark label for the main app navigation area.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:139
@@ -25656,11 +25295,6 @@ msgstr "PTT"
 msgid "Public bot"
 msgstr "Herkese açık bot"
 
-#. Line shown above the community name in the Discovery community preview modal. The user found this community in the public directory rather than being invited to it.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:34
-msgid "Public community"
-msgstr "Herkese açık topluluk"
-
 #. Description for the closed registration mode.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:175
 msgid "Public registration is closed."
@@ -25771,21 +25405,21 @@ msgid "Push timeout"
 msgstr "Anlık bildirim zaman aşımı"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:297
+#: src/features/input/state/input_keybind/shared.ts:293
 msgid "Push to mute"
 msgstr "Sesi kapatmak için basılı tut"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/input/state/input_keybind/shared.ts:289
+#: src/features/input/state/input_keybind/shared.ts:285
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:162
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:86
 msgid "Push to talk"
 msgstr "Bas konuş"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:293
+#: src/features/input/state/input_keybind/shared.ts:289
 msgid "Push to talk (priority)"
 msgstr "Bas konuş (öncelikli)"
 
@@ -25800,18 +25434,18 @@ msgid "Push to talk key"
 msgstr "Bas konuş tuşu"
 
 #. Switch label in the voice tab toggling push-to-talk mode. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:112
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:349
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:106
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:337
 #: src/features/voice/components/VoiceSettingsMenus.tsx:419
 msgid "Push-to-talk"
 msgstr "Bas konuş"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:100
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:98
 msgid "Push-to-talk (limited)"
 msgstr "Bas konuş (sınırlı)"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:674
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:653
 msgid "Push-to-talk is ignored in direct input. Switch to focused voice or custom to use it."
 msgstr "Bas konuş özelliği doğrudan girişte yok sayılır. Kullanmak için odaklanmış sese veya özel seçeneğine geçin."
 
@@ -25821,12 +25455,12 @@ msgid "Push-to-talk is on. Hold {pushToTalkHint} to speak."
 msgstr "Bas konuş açık. Konuşmak için {pushToTalkHint} tuşunu basılı tutun."
 
 #. Voice settings warning shown when macOS Input Monitoring is required for system-wide push-to-talk. {productName} is the app name and {permissionName} is the macOS permission name.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:126
 msgid "Push-to-talk only works while {productName} is focused until {permissionName} is enabled. After changing the permission, fully quit and restart {productName} so system-wide hotkeys can use it."
 msgstr "{permissionName} etkinleştirilene kadar bas-konuş özelliği yalnızca {productName} odaklıyken çalışır. İzni değiştirdikten sonra, sistem genelindeki kısayol tuşlarının kullanabilmesi için {productName} uygulamasını tamamen kapatıp yeniden başlatın."
 
 #. Voice settings warning shown when push-to-talk is enabled in a browser.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:128
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:122
 msgid "Push-to-talk only works while the browser tab is focused."
 msgstr "Bas konuş özelliği yalnızca tarayıcı sekmesi odaklıyken çalışır."
 
@@ -26059,11 +25693,6 @@ msgstr "Neden (isteğe bağlı)"
 msgid "Reason (optional)."
 msgstr "Neden (isteğe bağlı)."
 
-#. placeholder {0}: application.removal_reason ?? application.review_reason
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:374
-msgid "Reason: {0}"
-msgstr "Nedeni: {0}"
-
 #. Column header for opening a billing receipt or invoice.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/components/dialogs/components/plutonium/InvoiceList.tsx:129
@@ -26121,7 +25750,7 @@ msgid "Recommended"
 msgstr "Önerilen"
 
 #. Description for the focused voice profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:83
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:81
 msgid "Recommended. Cleans up your mic for clear speech."
 msgstr "Önerilen. Mikrofonunuzu temizleyerek net konuşma sağlar."
 
@@ -26366,11 +25995,6 @@ msgstr "Normal düğmeye tıklandı."
 msgid "Reject"
 msgstr "Reddet"
 
-#. Discovery application status badge in the community Discovery settings tab. The application was declined by staff.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:50
-msgid "Rejected"
-msgstr "Reddedildi"
-
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:129
 msgid "Relative"
@@ -26378,7 +26002,7 @@ msgstr "Göreceli"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:75
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:73
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:94
 msgid "Release delay"
 msgstr "Bırakma gecikmesi"
@@ -26687,11 +26311,6 @@ msgstr "Spoiler'ı kaldır"
 msgid "Remove sticker"
 msgstr "Çıkartmayı kaldır"
 
-#. Accessible label for the per-tag X button in the Discovery tag list. {tag} is the tag text. Used by screen readers.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:132
-msgid "Remove tag {tag}"
-msgstr "{tag} etiketini kaldır"
-
 #. Error message in the linked accounts tab. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:63
 msgid "Remove this connection? Can't be undone."
@@ -26717,11 +26336,6 @@ msgstr "{premiumProductName} satın alma tarihinizi rozetinizden kaldırın"
 #: src/features/user/components/modals/tabs/my_profile_tab/PremiumBadgeSettings.tsx:53
 msgid "Remove your Visionary ID badge"
 msgstr "Visionary kimlik rozetinizi kaldırın"
-
-#. Discovery application status badge in the community Discovery settings tab. The community was delisted from Discovery.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:55
-msgid "Removed"
-msgstr "Kaldırıldı"
 
 #. Button or menu action label in the messaging commands. Keep it concise. Keep the tone plain and specific.
 #: src/features/messaging/commands/SavedMessageCommands.tsx:24
@@ -27476,7 +27090,7 @@ msgstr "Varsayılanlara sıfırla"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Label for controls that reset app zoom to 100%, including the app zoom slider button.
-#: src/features/input/state/input_keybind/shared.ts:261
+#: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/user/components/modals/tabs/appearance_tab/ScalingTab.tsx:38
 msgid "Reset zoom"
 msgstr "Yakınlaştırmayı sıfırla"
@@ -28040,7 +27654,7 @@ msgid "Roles"
 msgstr "Roller"
 
 #. Community settings tab for role hierarchy and permission rules.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:51
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:49
 msgctxt "community-settings-tab"
 msgid "Roles"
 msgstr "Roller"
@@ -28060,7 +27674,7 @@ msgid "Romania"
 msgstr "Romanya"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:112
+#: src/features/user/utils/LocaleUtils.ts:110
 msgid "Romanian"
 msgstr "Romence"
 
@@ -28114,7 +27728,7 @@ msgid "Runtime utilities"
 msgstr "Çalışma zamanı araçları"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:116
+#: src/features/user/utils/LocaleUtils.ts:114
 msgid "Russian"
 msgstr "Rusça"
 
@@ -28153,7 +27767,6 @@ msgstr "Doygunluk"
 #: src/features/expressions/components/modals/AddFavoriteMemeModal.tsx:118
 #: src/features/expressions/components/modals/EditFavoriteMemeModal.tsx:94
 #: src/features/expressions/components/modals/EditGuildStickerModal.tsx:123
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:631
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:279
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:91
 #: src/features/messaging/components/modals/AttachmentEditModal.tsx:136
@@ -28276,14 +27889,9 @@ msgid "Scan the QR code with your authenticator app."
 msgstr "Kimlik doğrulama uygulamanızla QR kodunu tarayın."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the scheduled-maintenance banner.
-#: src/features/devtools/components/NagbarControls.ts:22
+#: src/features/devtools/components/NagbarControls.ts:17
 msgid "Scheduled maintenance nagbar"
 msgstr "Planlı bakım bildirim çubuğu"
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:92
-msgid "Science & technology"
-msgstr "Bilim ve teknoloji"
 
 #. Filter category label in the mobile channel search sheet for the search scope selector.
 #. Summary row label on the confirm step showing the user-picked scope.
@@ -28326,7 +27934,7 @@ msgstr "Ekran kaydı izni gerekli"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Streaming preset label in the stream settings menu. Optimized for sharp text in screen shares.
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:222
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:233
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:232
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:83
 msgid "Screen share"
 msgstr "Ekran paylaşımı"
@@ -28342,7 +27950,7 @@ msgid "Screen share audio boost"
 msgstr "Ekran paylaşımı ses yükseltme"
 
 #. Error modal title shown when the selected native screen-share audio route cannot start safely.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:176
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:175
 msgid "Screen share audio couldn't start"
 msgstr "Ekran paylaşımı sesi başlatılamadı"
 
@@ -28383,17 +27991,17 @@ msgid "Screen share preview behavior"
 msgstr "Ekran paylaşımı önizleme davranışı"
 
 #. Title of an informational modal explaining screen-share preview frame uploads.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:286
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:285
 msgid "Screen share previews"
 msgstr "Ekran paylaşımı önizlemeleri"
 
 #. Compact footer status in the screen-share picker when preview frame uploads are disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:274
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:273
 msgid "Screen share previews are disabled."
 msgstr "Ekran paylaşımı önizlemeleri devre dışı bırakıldı."
 
 #. Compact footer status in the screen-share picker when preview frame uploads are enabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:270
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:269
 msgid "Screen share previews are enabled."
 msgstr "Ekran paylaşımı önizlemeleri etkinleştirildi."
 
@@ -28589,11 +28197,6 @@ msgstr "Kullanıcı adına veya kimliğe göre ara"
 msgid "Search channels"
 msgstr "Kanallarda ara"
 
-#. Accessible label and placeholder for the community search field in the Discovery page.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:29
-msgid "Search communities"
-msgstr "Toplulukları ara"
-
 #. Button or menu action label in the phone add modal. Keep it concise.
 #: src/features/user/components/modals/PhoneAddModal.tsx:62
 msgid "Search countries..."
@@ -28619,14 +28222,12 @@ msgstr "Arama motoru"
 msgid "Search engines"
 msgstr "Arama motorları"
 
-#. Accessible label for the filter sidebar shown beside the Discovery search results.
 #. Section header in the message search popout listing available filter operators.
 #. Section header in the message search popout listing available filter operators.
 #. Section header in the message search popout listing available filter operators.
 #: src/features/channel/components/message_search_bar/FilterOption.tsx:14
 #: src/features/channel/components/message_search_bar/HistorySection.tsx:16
 #: src/features/channel/components/message_search_bar/PlaintextSection.tsx:18
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:17
 msgid "Search filters"
 msgstr "Arama filtreleri"
 
@@ -28678,7 +28279,7 @@ msgstr "Dilleri ara…"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:137
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:480
 #: src/features/channel/components/message_search_bar/MessageSearchBar.tsx:56
-#: src/features/input/state/input_keybind/shared.ts:237
+#: src/features/input/state/input_keybind/shared.ts:233
 msgid "Search messages"
 msgstr "Mesajları ara"
 
@@ -28718,11 +28319,6 @@ msgstr "İzinleri ara…"
 #: src/features/channel/components/channel_search_results/ChannelSearchResultsShared.tsx:53
 msgid "Search results"
 msgstr "Arama sonuçları"
-
-#. Heading in the Discovery navigation bar when a search is active. {query} is the text the user searched for.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:37
-msgid "Search results for “{query}”"
-msgstr "“{query}” için arama sonuçları"
 
 #. Short label in the settings dialog add override popout.
 #: src/features/app/components/dialogs/shared/AddOverridePopout.tsx:32
@@ -28955,7 +28551,7 @@ msgstr "Sarma önizlemesi"
 
 #. Hover action on a device card that selects the device without starting the stream.
 #: src/features/app/components/dialogs/components/PricingCard.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:200
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:199
 msgid "Select"
 msgstr "Seç"
 
@@ -29077,7 +28673,7 @@ msgid "Select the account you want to sign in with on the desktop app."
 msgstr "Masaüstü uygulamasında oturum açmak istediğiniz hesabı seçin."
 
 #. Aria label for the voice processing radio group in the voice settings tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:120
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:114
 msgid "Select voice processing mode"
 msgstr "Ses işleme modunu seçin"
 
@@ -29366,7 +28962,7 @@ msgstr "Doğrulama kodu gönder"
 #. Plus menu item that opens the desktop voice message composer to record and send a voice clip.
 #: src/features/channel/components/textarea/TextareaPlusMenu.tsx:35
 #: src/features/channel/components/VoiceMessageRecorder.tsx:69
-#: src/features/input/state/input_keybind/shared.ts:285
+#: src/features/input/state/input_keybind/shared.ts:281
 msgid "Send voice message"
 msgstr "Sesli mesaj gönder"
 
@@ -29405,7 +29001,7 @@ msgid "Sends raw mic audio with no processing."
 msgstr "Ham mikrofon sesini işlem yapmadan gönderir."
 
 #. Description for the direct input profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:87
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:85
 msgid "Sends your audio untouched. Best if you're using external audio software."
 msgstr "Sesinizi olduğu gibi gönderir. Harici ses yazılımı kullanıyorsanız en iyisidir."
 
@@ -29469,7 +29065,7 @@ msgid "Service error"
 msgstr "Hizmet hatası"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the service incident banner.
-#: src/features/devtools/components/NagbarControls.ts:27
+#: src/features/devtools/components/NagbarControls.ts:22
 msgid "Service incident nagbar"
 msgstr "Hizmet kesintisi bildirimi"
 
@@ -29782,7 +29378,7 @@ msgid "Share gift"
 msgstr "Hediye paylaş"
 
 #. Hover action on an application or display card that starts sharing that source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:196
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:195
 msgid "Share screen"
 msgstr "Ekran paylaş"
 
@@ -29846,8 +29442,8 @@ msgstr "Ses etkinliğinizi arkadaşlarınızla paylaşın"
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:25
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:41
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:33
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:40
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:32
 msgid "Shared theme"
 msgstr "Paylaşılan tema"
 
@@ -29920,7 +29516,7 @@ msgstr "Kısa kodlar"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindRow.tsx:121
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:364
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:352
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:38
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:110
 msgid "Shortcut"
@@ -30938,7 +30534,7 @@ msgid "Smooth scrolling"
 msgstr "Akıcı kaydırma"
 
 #. Footer summary description for the gaming screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:241
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:240
 msgid "Smoother video"
 msgstr "Daha akıcı video"
 
@@ -31119,10 +30715,8 @@ msgstr "Bir şeyler ters gitti."
 #. Body of the error modal shown when ringing or stopping a ring fails.
 #. Body of the generic fallback error modal shown when deleting a custom emoji fails.
 #. Body of the generic fallback error modal shown when generating a shareable theme link fails.
-#. Body of the generic fallback error modal shown when joining a discovery community fails.
 #. Generic fallback body shown in an error modal when an action fails for an unexpected reason.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:5
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:18
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:129
 #: src/features/theme/components/modals/ShareThemeModal.tsx:51
 #: src/features/ui/action_menu/items/CallMenuItems.tsx:45
@@ -31145,11 +30739,9 @@ msgid "Something went wrong. Try again later."
 msgstr "Bir sorun oluştu. Lütfen daha sonra tekrar deneyin."
 
 #. Generic required-action error fallback.
-#. Inline error in the web deep-link prompt when opening the desktop app fails.
 #. Toast error shown when the mature content check request fails unexpectedly.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:18
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:564
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:31
 msgid "Something went wrong. Try again."
 msgstr "Bir şeyler ters gitti. Tekrar deneyin."
 
@@ -31210,7 +30802,7 @@ msgstr "Sesler"
 #. Resolution option in the stream settings menu meaning the original source resolution (no downscale).
 #. Short label in the video tab for the native source resolution option. Keep it concise.
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:68
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:249
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:248
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:105
 msgid "Source"
 msgstr "Kaynak"
@@ -31296,12 +30888,12 @@ msgid "Spam, scams, or phishing"
 msgstr "Spam, dolandırıcılık veya kimlik avı"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:48
+#: src/features/user/utils/LocaleUtils.ts:46
 msgid "Spanish (Latin America)"
 msgstr "İspanyolca (Latin Amerika)"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:44
+#: src/features/user/utils/LocaleUtils.ts:42
 msgid "Spanish (Spain)"
 msgstr "İspanyolca (İspanya)"
 
@@ -31665,10 +31257,6 @@ msgstr "Durum göstergeleri"
 msgid "Status slate"
 msgstr "Durum paneli"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:368
-msgid "Status:"
-msgstr "Durum:"
-
 #. Label in the motion tab.
 #. Settings search entry label. Names the settings search entry in the settings UI.
 #. Short label for an advanced app interaction toggle.
@@ -31803,7 +31391,7 @@ msgid "Stickers"
 msgstr "Çıkartmalar"
 
 #. Community settings tab for managing custom stickers uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:41
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:39
 msgctxt "community-settings-tab"
 msgid "Stickers"
 msgstr "Çıkartmalar"
@@ -31976,7 +31564,7 @@ msgstr "Hoparlörlerinizin sesinin mikrofonunuza geri gitmesini engeller."
 #. Primary footer action that starts streaming the selected capture device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:236
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:204
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:203
 msgid "Stream"
 msgstr "Yayınla"
 
@@ -32015,7 +31603,7 @@ msgid "Stream quality"
 msgstr "Yayın kalitesi"
 
 #. Toolbar / menu button label in the screen-share picker. Opens the stream quality settings popover.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:225
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:224
 msgid "Stream settings"
 msgstr "Yayın ayarları"
 
@@ -32117,10 +31705,6 @@ msgstr "Stil"
 #: src/features/ui/action_menu/ContextMenu.tsx:27
 msgid "Submenu"
 msgstr "Alt menü"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:631
-msgid "Submit application"
-msgstr "Başvuruyu gönder"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:445
 msgid "Submitting"
@@ -32257,7 +31841,7 @@ msgid "Sweden"
 msgstr "İsveç"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:120
+#: src/features/user/utils/LocaleUtils.ts:118
 msgid "Swedish"
 msgstr "İsveççe"
 
@@ -32314,7 +31898,7 @@ msgstr "Rahat düzene geç"
 msgid "Switch to dense layout"
 msgstr "Yoğun düzene geç"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:647
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:626
 msgid "Switch to direct input"
 msgstr "Doğrudan girişe geç"
 
@@ -32405,7 +31989,7 @@ msgid "Switch to…"
 msgstr "Şuraya geç…"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:313
+#: src/features/input/state/input_keybind/shared.ts:309
 msgid "Switch voice channel"
 msgstr "Sesli kanalı değiştir"
 
@@ -32515,7 +32099,7 @@ msgstr "{productName} ekibinden sistem duyuruları. Buradan yanıt veremezsiniz.
 
 #. Audio device option label meaning the OS default audio input device.
 #. Footer summary fallback for the default capture-device audio input.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:262
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:261
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:137
 msgid "System default"
 msgstr "Sistem varsayılanı"
@@ -32627,11 +32211,6 @@ msgstr "Etiketler"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:49
 msgid "Tags ({tagCount}/{tagLimit})"
 msgstr "Etiketler ({tagCount}/{tagLimit})"
-
-#. Discovery custom-tag validation error. maxLength is the maximum allowed tag length.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:60
-msgid "Tags must be 2 to {maxLength} characters and alphanumeric."
-msgstr "Etiketler 2 ila {maxLength} karakter uzunluğunda ve alfanümerik olmalıdır."
 
 #: src/features/app/components/dialogs/components/plutonium/SubscriptionCard.tsx:291
 msgid "Takes effect at your next renewal. We'll apply a {creditLabel} credit from your current monthly payment, so your first yearly charge will be <0>{firstRenewalPriceLabel}</0>. Future yearly renewals will be {renewalPrice}/year."
@@ -32750,7 +32329,7 @@ msgid "Tennessee"
 msgstr "Tennessee"
 
 #. Developer control label for the terms-acceptance banner.
-#: src/features/devtools/components/NagbarControls.ts:64
+#: src/features/devtools/components/NagbarControls.ts:59
 msgid "Terms acceptance nagbar"
 msgstr "Şartlar kabulü bildirim çubuğu"
 
@@ -32909,7 +32488,7 @@ msgid "Text-to-speech notifications"
 msgstr "Metin okuma bildirimleri"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:124
+#: src/features/user/utils/LocaleUtils.ts:122
 msgid "Thai"
 msgstr "Tayca"
 
@@ -33024,7 +32603,7 @@ msgid "The bot has been added."
 msgstr "Bot eklendi."
 
 #. Status shown when a device preview has not released the camera before the bounded handoff deadline.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:172
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:171
 msgid "The camera preview is still stopping. Try streaming again in a moment."
 msgstr "Kamera önizlemesi hâlâ durduruluyor. Birazdan tekrar yayın yapmayı deneyin."
 
@@ -33119,10 +32698,6 @@ msgstr "Davet, geçici üyelik verecek şekilde ayarlandı"
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogInviteWebhookMessages.ts:15
 msgid "The invite was set to never expire"
 msgstr "Davet bağlantısı süresiz olarak ayarlandı"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:506
-msgid "The language most of your community speaks. Used to filter Discovery results."
-msgstr "Topluluğunuzdaki çoğu kişinin konuştuğu dil. Keşfet sonuçlarını filtrelemek için kullanılır."
 
 #. Error modal body shown when revoking an invite fails; warns the user that the link may still be live.
 #: src/features/invite/components/alerts/InviteRevokeFailedModal.tsx:12
@@ -33291,8 +32866,8 @@ msgstr "Tema dosyaları"
 msgid "Theme library"
 msgstr "Tema kütüphanesi"
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:175
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:169
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:69
 msgid "Theme not found"
 msgstr "Tema bulunamadı"
 
@@ -33325,11 +32900,6 @@ msgstr "Tema belirteçleri"
 #: src/features/channel/components/ThemeEmbed.tsx:33
 msgid "Theme unavailable"
 msgstr "Tema kullanılamıyor"
-
-#. Short label in the Discovery page sidebar. Keep it concise.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:23
-msgid "Themes"
-msgstr "Temalar"
 
 #: src/features/invite/components/modals/InviteModal.tsx:194
 msgid "There are no channels available to create an invite for."
@@ -33459,7 +33029,7 @@ msgid "This category already contains the maximum of {maxChannelsPerCategory} ch
 msgstr "Bu kategori zaten maksimum {maxChannelsPerCategory} kanal içeriyor."
 
 #. Body in the channel gate modal for a mature category when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:254
+#: src/features/channel/components/MatureContentChannelGate.tsx:227
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:76
 msgid "This category is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Bu kategori yetişkinlere yönelik içerik olarak işaretlenmiştir ve bazı kullanıcılar için uygunsuz olabilecek materyaller içerebilir."
@@ -33487,7 +33057,7 @@ msgid "This channel doesn't have any invite links yet. Create one to invite peop
 msgstr "Bu kanalın henüz davet bağlantısı yok. Bu kanala kişi davet etmek için bir tane oluşturun."
 
 #. Body in the channel gate modal for a mature text channel when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:282
+#: src/features/channel/components/MatureContentChannelGate.tsx:255
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:91
 msgid "This channel is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Bu kanal yetişkinlere yönelik içerik olarak işaretlenmiştir ve bazı kullanıcılar için uygunsuz olabilecek materyaller içerebilir."
@@ -33560,31 +33130,16 @@ msgstr "Bu topluluk davetleri duraklattı. Daha sonra tekrar deneyebilirsiniz."
 msgid "This community has reached its maximum member limit and is not accepting new members at this time."
 msgstr "Bu topluluk maksimum üye sınırına ulaştı ve şu anda yeni üye kabul etmiyor."
 
-#. Body of the error modal shown when a discovery community has reached its member limit.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:26
-msgid "This community has reached its member limit, so you can't join right now."
-msgstr "Bu topluluk üye sınırına ulaştı, bu yüzden şu anda katılamazsınız."
-
 #. Title of the error modal shown when a non-Visionary user tries to rejoin a gated Plutonium community.
 #: src/features/app/components/dialogs/components/plutonium/hooks/useCommunityActions.tsx:18
 msgid "This community is for Visionary members"
 msgstr "Bu topluluk yalnızca Visionary üyeler içindir"
 
-#. Title of the error modal shown when a discovery community has reached its member limit.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:22
-msgid "This community is full"
-msgstr "Bu topluluk dolu"
-
 #. Body in the channel gate modal for a mature community when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:225
+#: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Bu topluluk yetişkinlere yönelik içerik olarak işaretlenmiştir ve bazı kullanıcılar için uygunsuz olabilecek materyaller içerebilir."
-
-#. Title of the error modal shown when a discovery community is no longer joinable (delisted, invites off, or discovery disabled).
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:46
-msgid "This community is no longer available"
-msgstr "Bu topluluk artık kullanılamıyor"
 
 #. Description text in the linked accounts tab.
 #. Description text in the user profile shared popout.
@@ -33639,7 +33194,7 @@ msgid "This emoji could not be prepared. Try another file or try again in a mome
 msgstr "Bu emoji hazırlanamadı. Başka bir dosya deneyin veya birazdan tekrar deneyin."
 
 #. Label above the community an emoji comes from in the emoji info card.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:71
+#: src/features/expressions/components/ExpressionInfoCard.tsx:61
 msgid "This emoji is from"
 msgstr "Bu emoji şuradan"
 
@@ -33680,8 +33235,8 @@ msgstr "Bu dosya {fileSize} boyutunda ve {maxSize} sınırını aşıyor. Hareke
 msgid "This friends list needs more power"
 msgstr "Bu arkadaş listesi daha fazla güce ihtiyaç duyuyor"
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:177
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:84
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:170
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:83
 msgid "This gift code has already been claimed."
 msgstr "Bu hediye kodu zaten alınmış."
 
@@ -33692,8 +33247,8 @@ msgstr "Bu hediye kodu zaten alınmış."
 msgid "This gift code is invalid or already claimed."
 msgstr "Bu hediye kodu geçersiz veya zaten alınmış."
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:166
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:73
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:159
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:72
 msgid "This gift code may be invalid, expired, or already redeemed."
 msgstr "Bu hediye kodu geçersiz, süresi dolmuş veya zaten kullanılmış olabilir."
 
@@ -33750,12 +33305,12 @@ msgid "This invite may have expired or been deleted."
 msgstr "Bu davetin süresi dolmuş veya davet silinmiş olabilir."
 
 #. Description of a custom emoji from a community the viewer is not a member of.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:61
+#: src/features/expressions/components/ExpressionInfoCard.tsx:51
 msgid "This is a custom emoji from a community."
 msgstr "Bu, bir topluluktan özel bir emojidir."
 
 #. Description of a custom sticker from a community the viewer is not a member of.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:65
+#: src/features/expressions/components/ExpressionInfoCard.tsx:55
 msgid "This is a custom sticker from a community."
 msgstr "Bu, bir topluluğa ait özel bir çıkartmadır."
 
@@ -33844,35 +33399,26 @@ msgid "This link is not available for your account."
 msgstr "Bu bağlantı hesabınız için kullanılamıyor."
 
 #. Body in the channel gate modal when the current user cannot access a mature category.
+#: src/features/channel/components/MatureContentChannelGate.tsx:136
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:63
 msgid "This mature category is not available to your account."
 msgstr "Bu yetişkinlere özel kategori hesabınız için kullanılamıyor."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:147
-msgid "This mature category is not available to your account. <0>Learn more</0>"
-msgstr "Bu yetişkinlere özel kategori hesabınız için kullanılamıyor. <0>Daha fazla bilgi edinin</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature channel.
+#: src/features/channel/components/MatureContentChannelGate.tsx:150
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:67
 msgid "This mature channel is not available to your account."
 msgstr "Bu yetişkinlere özel kanal hesabınız için kullanılamıyor."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:169
-msgid "This mature channel is not available to your account. <0>Learn more</0>"
-msgstr "Bu yetişkinlere özel kanal hesabınız için kullanılamıyor. <0>Daha fazla bilgi edinin</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature community.
+#: src/features/channel/components/MatureContentChannelGate.tsx:121
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:59
 msgid "This mature community is not available to your account."
 msgstr "Bu yetişkinlere özel topluluk hesabınız için kullanılamıyor."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:124
-msgid "This mature community is not available to your account. <0>Learn more</0>"
-msgstr "Bu yetişkinlere özel topluluk hesabınız için kullanılamıyor. <0>Daha fazla bilgi edinin</0>"
-
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:106
-msgid "This mature media is not available to your account. <0>Learn more</0>"
-msgstr "Bu yetişkinlere özel medya hesabınız için kullanılamıyor. <0>Daha fazla bilgi edinin</0>"
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:103
+msgid "This mature media is not available to your account."
+msgstr "Bu yetişkinlere özel medya hesabınız için kullanılamıyor."
 
 #. Body of the error modal shown when a voice moderation action targets a member who no longer exists.
 #: src/features/app/components/alerts/VoiceMemberModerationFailedModal.tsx:33
@@ -33945,7 +33491,7 @@ msgid "This phone number has already been used. Try another number or contact su
 msgstr "Bu telefon numarası zaten kullanılmış. Başka bir numara deneyin veya destekle iletişime geçin."
 
 #. Empty state in the screen-share picker shown to web users. Explains that this advanced picker requires the desktop app.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:136
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:135
 msgid "This picker is only available in the desktop app."
 msgstr "Bu seçici yalnızca masaüstü uygulamasında kullanılabilir."
 
@@ -34001,7 +33547,7 @@ msgid "This shows how links appear: {linkPreviewExampleUrl}"
 msgstr "Bağlantılar şu şekilde görünür: {linkPreviewExampleUrl}"
 
 #. Label above the community a sticker comes from in the sticker info card.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:75
+#: src/features/expressions/components/ExpressionInfoCard.tsx:65
 msgid "This sticker is from"
 msgstr "Bu çıkartma şuradan"
 
@@ -34039,8 +33585,8 @@ msgstr "Bu tema paylaşılamayacak kadar büyük"
 msgid "This theme link is missing data."
 msgstr "Bu tema bağlantısında veri eksik."
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:176
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:71
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:170
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
 msgid "This theme may have been removed or the link is invalid."
 msgstr "Bu tema kaldırılmış veya bağlantı geçersiz olabilir."
 
@@ -34364,7 +33910,7 @@ msgid "Toggle between last community and DMs"
 msgstr "Son topluluk ve DM'ler arasında geçiş yap"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:309
+#: src/features/input/state/input_keybind/shared.ts:305
 msgid "Toggle camera"
 msgstr "Kamerayı aç/kapat"
 
@@ -34384,7 +33930,7 @@ msgid "Toggle developer tools"
 msgstr "Geliştirici araçlarını aç/kapat"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:269
+#: src/features/input/state/input_keybind/shared.ts:265
 msgid "Toggle embed suppression"
 msgstr "Gömülü içeriği gizle/göster"
 
@@ -34416,7 +33962,7 @@ msgid "Toggle quick switcher"
 msgstr "Hızlı geçişi aç/kapat"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:281
+#: src/features/input/state/input_keybind/shared.ts:277
 msgid "Toggle saved media"
 msgstr "Kayıtlı medyayı aç/kapat"
 
@@ -34460,7 +34006,7 @@ msgid "Toggle the sticker picker"
 msgstr "Çıkartma seçiciyi aç/kapat"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:305
+#: src/features/input/state/input_keybind/shared.ts:301
 msgid "Toggle voice activity"
 msgstr "Ses etkinliğini aç/kapat"
 
@@ -34788,11 +34334,6 @@ msgstr "Başka bir ad deneyin veya yazımınızı kontrol edin."
 msgid "Try another search term"
 msgstr "Başka bir arama terimi deneyin"
 
-#. Empty-state hint in Discovery shown under the heading when a search returns no communities.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:16
-msgid "Try another search term, or pick a different category or language."
-msgstr "Başka bir arama terimi deneyin veya farklı bir kategori ya da dil seçin."
-
 #. Helper text on an unknown invite embed suggesting the user request a fresh invite.
 #: src/features/channel/components/InviteEmbed.tsx:100
 msgid "Try asking for a new invite."
@@ -34851,7 +34392,7 @@ msgid "Tune the processing yourself."
 msgstr "İşlemeyi kendiniz ayarlayın."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:128
+#: src/features/user/utils/LocaleUtils.ts:126
 msgid "Turkish"
 msgstr "Türkçe"
 
@@ -34872,7 +34413,7 @@ msgid "Turn off anything you're not comfortable with. Some features may stop wor
 msgstr "Rahatsız olduğunuz her şeyi kapatın. Bazı özellikler çalışmayı durdurabilir."
 
 #. Error modal body shown after a native screen-share audio route fails to start.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:180
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:179
 msgid "Turn off audio sharing for this source or try again in a moment."
 msgstr "Bu kaynak için ses paylaşımını kapatın veya birazdan tekrar deneyin."
 
@@ -35134,7 +34675,7 @@ msgid "UK law requires a mature content check. To continue, you'll complete a ze
 msgstr "Birleşik Krallık yasaları yetişkin içeriği kontrolü zorunlu kılıyor. Devam etmek için Stripe üzerinden sıfır tutarlı bir kredi kartı doğrulaması yapacaksınız. Kartınızdan para çekilmeyecek."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:132
+#: src/features/user/utils/LocaleUtils.ts:130
 msgid "Ukrainian"
 msgstr "Ukraynaca"
 
@@ -35264,7 +34805,7 @@ msgid "Unclaimed account"
 msgstr "Sahiplenilmemiş hesap"
 
 #. Developer control label for the unclaimed-account banner.
-#: src/features/devtools/components/NagbarControls.ts:32
+#: src/features/devtools/components/NagbarControls.ts:27
 msgid "Unclaimed account nagbar"
 msgstr "Sahiplenilmemiş hesap uyarı çubuğu"
 
@@ -35709,7 +35250,7 @@ msgstr "Adsız grup"
 
 #. Fallback label for an audio input device whose name is not reported by the OS.
 #. Footer summary fallback for an audio input without a reported name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:266
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:265
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:141
 msgid "Unnamed input"
 msgstr "Adsız giriş"
@@ -35923,10 +35464,6 @@ msgstr "Yanlış yerde istenmeyen davranış veya yetişkinlere yönelik içerik
 msgid "Unwanted mature conduct, comments, or requests."
 msgstr "İstenmeyen yetişkin içerikli davranış, yorum veya istekler."
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:608
-msgid "Up to {DISCOVERY_MAX_TAGS} tags help people find your community. They show up in Discovery search."
-msgstr "En fazla {DISCOVERY_MAX_TAGS} etiket, insanların topluluğunuzu bulmasına yardımcı olur. Keşfet aramasında görünürler."
-
 #. Feature comparison table value label. Shown in the restricted or stock column for a text-valued perk. Format includes a resolution token (4K) and a framerate token that should not be translated.
 #: src/features/app/components/dialogs/components/FeatureComparisonTable.tsx:83
 msgid "Up to 4K/60fps"
@@ -36121,7 +35658,7 @@ msgid "Upload new emoji and stickers, and manage your own creations."
 msgstr "Yeni emoji ve çıkartmalar yükleyin, kendi oluşturduklarınızı yönetin."
 
 #. Description for the screen-share preview toggle in the informational modal.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:332
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:331
 msgid "Upload preview frames for screen shares."
 msgstr "Ekran paylaşımları için önizleme kareleri yükleyin."
 
@@ -36771,27 +36308,27 @@ msgid "Uses:"
 msgstr "Kullanım:"
 
 #. Developer nagbar status: banner follows real account state.
-#: src/features/devtools/components/NagbarControls.ts:101
+#: src/features/devtools/components/NagbarControls.ts:96
 msgid "Using actual account state"
 msgstr "Gerçek hesap durumu kullanılıyor"
 
 #. Developer nagbar status: banner follows real gift inventory state.
-#: src/features/devtools/components/NagbarControls.ts:121
+#: src/features/devtools/components/NagbarControls.ts:116
 msgid "Using actual gift inventory state"
 msgstr "Gerçek hediye envanteri durumu kullanılıyor"
 
 #. Developer nagbar status: banner follows real premium subscription state.
-#: src/features/devtools/components/NagbarControls.ts:117
+#: src/features/devtools/components/NagbarControls.ts:112
 msgid "Using actual premium state"
 msgstr "Gerçek premium durumu kullanılıyor"
 
 #. Developer nagbar status: banner follows the real app state.
-#: src/features/devtools/components/NagbarControls.ts:125
+#: src/features/devtools/components/NagbarControls.ts:120
 msgid "Using actual state"
 msgstr "Gerçek durum kullanılıyor"
 
 #. Developer nagbar status: banner follows real email verification state.
-#: src/features/devtools/components/NagbarControls.ts:105
+#: src/features/devtools/components/NagbarControls.ts:100
 msgid "Using actual verification state"
 msgstr "Gerçek doğrulama durumu kullanılıyor"
 
@@ -36828,7 +36365,7 @@ msgid "Vanity URL"
 msgstr "Özel URL"
 
 #. Community settings tab for the community vanity/custom invite link.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:71
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:69
 msgctxt "community-settings-tab"
 msgid "Vanity URL"
 msgstr "Özel URL"
@@ -37233,7 +36770,7 @@ msgid "Videos"
 msgstr "Videolar"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:136
+#: src/features/user/utils/LocaleUtils.ts:134
 msgid "Vietnamese"
 msgstr "Vietnamca"
 
@@ -37366,11 +36903,6 @@ msgstr "Hediyeleri görüntüle"
 #: src/features/user/components/modals/UserProfileModal.tsx:102
 msgid "View global profile"
 msgstr "Genel profili görüntüle"
-
-#. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:17
-msgid "View help article"
-msgstr "Yardım makalesini görüntüle"
 
 #. Button on the connection banner when an incident is ongoing. Opens that incident on the status page.
 #: src/features/app/hooks/useConnectionNotice.ts:48
@@ -37505,7 +37037,7 @@ msgid "Visionary (lifetime {premiumProductName})"
 msgstr "Visionary (ömür boyu {premiumProductName})"
 
 #. Developer control label for the Visionary two-factor-authentication banner.
-#: src/features/devtools/components/NagbarControls.ts:60
+#: src/features/devtools/components/NagbarControls.ts:55
 msgid "Visionary 2FA nagbar"
 msgstr "Visionary 2FA bildirim çubuğu"
 
@@ -37605,7 +37137,7 @@ msgid "Voice activity on active now"
 msgstr "Şu an aktif'te ses etkinliği"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:301
+#: src/features/input/state/input_keybind/shared.ts:297
 msgid "Voice activity priority"
 msgstr "Ses etkinliği önceliği"
 
@@ -37738,7 +37270,7 @@ msgid "Voice participants"
 msgstr "Sesli sohbete katılanlar"
 
 #. Voice settings radio group label for microphone processing profile.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:642
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:621
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:55
 msgid "Voice processing"
 msgstr "Ses işleme"
@@ -37763,7 +37295,7 @@ msgid "Voice region"
 msgstr "Ses bölgesi"
 
 #. Developer control label for the voice-session-restore banner.
-#: src/features/devtools/components/NagbarControls.ts:68
+#: src/features/devtools/components/NagbarControls.ts:63
 msgid "Voice session restore nagbar"
 msgstr "Ses oturumu geri yükleme bildirim çubuğu"
 
@@ -37794,7 +37326,7 @@ msgstr "İptal edildi"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:373
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:181
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:175
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:86
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:174
 msgid "Volume"
@@ -38238,7 +37770,7 @@ msgid "Webhooks"
 msgstr "Webhook'lar"
 
 #. Community settings tab for configuring webhooks.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:66
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:64
 msgctxt "community-settings-tab"
 msgid "Webhooks"
 msgstr "Webhook'lar"
@@ -38408,17 +37940,17 @@ msgid "When posted as links in chat"
 msgstr "Sohbete bağlantı olarak gönderildiğinde"
 
 #. Explanation of screen-share preview uploads in a group DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:296
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:295
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so other people in this group DM can see a thumbnail before they watch."
 msgstr "Önizlemeler etkinleştirildiğinde {productName}, ekran paylaşımınızdan ara sıra JPEG kareleri yükler. Böylece bu grup DM'deki diğer kişiler izlemeye başlamadan önce küçük resmi görebilir."
 
 #. Explanation of screen-share preview uploads in a guild voice channel. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:290
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:289
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so people with permission to connect to this voice channel can see a thumbnail before they watch."
 msgstr "Önizlemeler etkinleştirildiğinde {productName}, ekran paylaşımınızdan ara sıra JPEG kareleri yükler. Böylece bu sesli kanala bağlanma izni olan kişiler izlemeye başlamadan önce küçük resmi görebilir."
 
 #. Explanation of screen-share preview uploads in a one-to-one DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:302
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:301
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so the other person in this DM can see a thumbnail before they watch."
 msgstr "Önizlemeler etkinleştirildiğinde {productName}, ekran paylaşımınızdan ara sıra JPEG kareleri yükler. Böylece bu DM'deki diğer kişi izlemeye başlamadan önce küçük resmi görebilir."
 
@@ -38462,7 +37994,7 @@ msgstr "Hangi sohbetler"
 msgid "Which rule was broken?"
 msgstr "Hangi kural ihlal edildi?"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:358
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:346
 msgid "While push-to-talk is on, your shortcut controls your microphone, so the mute button is disabled."
 msgstr "Bas konuş açıkken kısayolunuz mikrofonunuzu kontrol eder, bu yüzden sesi kapatma düğmesi devre dışı olur."
 
@@ -38610,10 +38142,6 @@ msgstr "Hatalı"
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:93
 msgid "With reduced motion on, stickers only animate on interaction. Choose \"Always animate\" to override."
 msgstr "Azaltılmış hareket açıkken çıkartmalar yalnızca etkileşimde canlanır. Bunu geçersiz kılmak için \"Her zaman canlandır\" seçeneğini seçin."
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:622
-msgid "Withdraw"
-msgstr "Geri çek"
 
 #. Permission description in the channel-scoped permissions editor for the Use Voice Activity permission. Explains the inverse: without it, the user must use push-to-talk in this voice channel.
 #: src/features/permissions/utils/PermissionLabelDescriptors.ts:297
@@ -38816,11 +38344,6 @@ msgstr "Bu pencereyi kapatabilirsiniz. İçe aktarma işlemi arka planda devam e
 msgid "You can now close this tab and return to the app."
 msgstr "Bu sekmeyi kapatıp uygulamaya geri dönebilirsiniz."
 
-#. Discovery custom-tag validation error. maxTags is the maximum number of custom tags.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:64
-msgid "You can only add up to {maxTags} tags."
-msgstr "En fazla {maxTags} etiket ekleyebilirsiniz."
-
 #: src/features/theme/components/modals/BackgroundImageGalleryModal.tsx:581
 msgid "You can only have one custom background on the free tier. Picking a new one will replace your existing background."
 msgstr "Ücretsiz sürümde yalnızca bir özel arka plan kullanabilirsiniz. Yeni bir tane seçmek mevcut arka planınızın yerini alır."
@@ -38900,11 +38423,6 @@ msgstr "Bu mesajı düzenleyemezsiniz."
 #: src/features/channel/components/modals/channel_tabs/ChannelPermissionsTab.tsx:54
 msgid "You can't grant a permission you don't have in this channel."
 msgstr "Bu kanalda sahip olmadığınız bir izni veremezsiniz."
-
-#. Title of the error modal shown when the user is banned from a discovery community.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:38
-msgid "You can't join this community"
-msgstr "Bu topluluğa katılamazsınız"
 
 #. Label in the user settings voice activity card. Keep the tone plain and specific.
 #: src/features/user/components/profile/VoiceActivityCard.tsx:59
@@ -39089,11 +38607,6 @@ msgstr "Bu sesli kanala katılma izniniz yok"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:73
 msgid "You don't have permission to rename this emoji. The name was reverted to what it was before."
 msgstr "Bu emojiyi yeniden adlandırma izniniz yok. Ad önceki haline döndürüldü."
-
-#. Body of the error modal shown when the user is banned from a discovery community.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:42
-msgid "You have been banned from this community."
-msgstr "Bu topluluktan yasaklandınız."
 
 #: src/features/channel/components/barriers/BarrierComponents.tsx:362
 msgid "You have blocked {username}. Unblock them to send messages."
@@ -39409,13 +38922,11 @@ msgstr "Mesajları çok hızlı düzenliyorsunuz"
 
 #. Title of the error modal shown when an action is rate limited.
 #. Title of the error modal shown when deleting a custom emoji is rate limited.
-#. Title of the error modal shown when joining a discovery community is rate limited.
 #. Title of the error modal shown when renaming a custom emoji is rate limited.
 #. Title of the error modal shown when resending a verification email is rate-limited.
 #. Title of the error modal shown when sharing or sending a theme link is rate limited.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:9
 #: src/features/app/components/dialogs/components/EmailVerificationAlert.tsx:23
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:56
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:77
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:149
 #: src/features/theme/components/modals/ShareThemeModal.tsx:63
@@ -39440,11 +38951,6 @@ msgstr "Önizleme modundasınız"
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:114
 msgid "You're in the call"
 msgstr "Aramadasınız"
-
-#. Body of the error modal shown when the user is already in the maximum number of communities.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:34
-msgid "You're in the maximum number of communities. Leave one and try again."
-msgstr "Katılabileceğiniz en fazla topluluk sayısına ulaştınız. Birinden ayrılıp tekrar deneyin."
 
 #. Subtitle below the connected-to-voice header confirming the user is in the channel.
 #: src/features/voice/components/bottomsheets/VoiceLobbyBottomSheet.tsx:82
@@ -39507,15 +39013,10 @@ msgstr "Sizi bir grup DM'ine davet eden"
 #. Short label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Short label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:84
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:37
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:29
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:36
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:28
 msgid "You've got CSS!"
 msgstr "CSS'in var!"
-
-#. Title of the error modal shown when the user is already in the maximum number of communities.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:30
-msgid "You've reached the community limit"
-msgstr "Topluluk sınırına ulaştınız"
 
 #. Label in the message list page.
 #. Label in the saved messages content popout.
@@ -39624,10 +39125,6 @@ msgstr "Hesabınız hemen normal çalışmaya devam eder ve hiçbir şey kaldır
 msgid "Your action could not be completed because it was flagged by our safety systems. If you believe this is a mistake, please contact support."
 msgstr "İşleminiz güvenlik sistemlerimiz tarafından işaretlendiği için tamamlanamadı. Bunun bir hata olduğunu düşünüyorsanız lütfen destek ekibiyle iletişime geçin."
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:409
-msgid "Your application is pending review. You can still update your listing details or withdraw the application."
-msgstr "Başvurunuz incelenmeyi bekliyor. İlan ayrıntılarınızı yine de güncelleyebilir veya başvuruyu geri çekebilirsiniz."
-
 #. Body of the browser-audio-required modal explaining why the user must click before audio can play.
 #: src/features/voice/components/modals/AudioPlaybackPermissionModal.tsx:12
 msgid "Your browser requires user interaction before audio can be played. Click the button below to enable voice chat."
@@ -39653,15 +39150,6 @@ msgstr "Kodunuz"
 #: src/features/auth/flow/HandoffCodeDisplay.tsx:121
 msgid "Your code is ready"
 msgstr "Kodunuz hazır"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:390
-msgid "Your community is listed in Discovery. You can update your listing details below or withdraw to remove it."
-msgstr "Topluluğunuz Keşfet'te listeleniyor. Aşağıdan ilan ayrıntılarınızı güncelleyebilir veya kaldırmak için geri çekebilirsiniz."
-
-#. Warning in the community Discovery settings tab when the community is below the minimum size. The plural count is the minimum number of members required to be listed.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:349
-msgid "Your community needs at least {minMemberCount, plural, one {# member} other {# members}} before it can be listed in Discovery."
-msgstr "Topluluğunuzun Keşfet'te listelenebilmesi için en az {minMemberCount, plural, one {# üyesi} other {# üyesi}} olmalı."
 
 #. Tooltip on the passive badge on your own screen-share tile when the encoder is limited by CPU.
 #: src/features/voice/components/voice_participant_tile/shared.ts:85
@@ -40005,7 +39493,7 @@ msgstr "Büyüt"
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:627
-#: src/features/input/state/input_keybind/shared.ts:253
+#: src/features/input/state/input_keybind/shared.ts:249
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
 msgid "Zoom in"
@@ -40016,7 +39504,7 @@ msgstr "Yakınlaştır"
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:623
-#: src/features/input/state/input_keybind/shared.ts:257
+#: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86
 msgid "Zoom out"

@@ -22,7 +22,7 @@ import {resolvePriceAnnouncementCampaign} from '@app/features/premium/config/Pri
 import PremiumState from '@app/features/premium/state/PremiumState';
 import StreamerMode from '@app/features/streamer_mode/state/StreamerMode';
 import Nagbar from '@app/features/ui/state/Nagbar';
-import {hasUnavailableElectronNativeContext, isDesktop} from '@app/features/ui/utils/NativeUtils';
+import {hasUnavailableElectronNativeContext} from '@app/features/ui/utils/NativeUtils';
 import {isStandalonePwa} from '@app/features/ui/utils/PwaUtils';
 import StatusPage from '@app/features/user/state/StatusPage';
 import Users from '@app/features/user/state/Users';
@@ -174,15 +174,7 @@ export const useNagbarConditions = (): NagbarConditions => {
 		if (listPriceSwitch.effective_at == null || listPriceSwitch.billing_cycle == null) return false;
 		return !nagbarState.getLegacyPriceOptInDismissed(priceAnnouncementCampaign.campaign.id);
 	})();
-	const isNativeDesktop = isDesktop();
 	const hasBrokenElectronNativeContext = hasUnavailableElectronNativeContext();
-	const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-	const isDesktopBrowser = !isNativeDesktop && !hasBrokenElectronNativeContext && !isMobileDevice;
-	const canShowDesktopDownload = (() => {
-		if (nagbarState.forceHideDesktopDownload) return false;
-		if (nagbarState.forceDesktopDownload) return true;
-		return isDesktopBrowser && !nagbarState.desktopDownloadDismissed;
-	})();
 	const canShowVisionaryMfa = (() => {
 		if (isSelfHosted) return false;
 		if (nagbarState.forceHideVisionaryMfa) return false;
@@ -307,7 +299,6 @@ export const useNagbarConditions = (): NagbarConditions => {
 		canShowPriceAnnouncement,
 		canShowLegacyPriceOptIn,
 		canShowGiftInventory,
-		canShowDesktopDownload,
 		canShowGuildMembershipCta,
 		canShowVisionaryMfa,
 		canShowVoiceSessionRestore,
@@ -427,12 +418,6 @@ export const useActiveNagbars = (conditions: NagbarConditions): Array<NagbarStat
 				type: NagbarType.LINUX_INPUT_ACCESS,
 				priority: 8.5,
 				visible: conditions.canShowLinuxInputAccess,
-				dismissible: true,
-			},
-			{
-				type: NagbarType.DESKTOP_DOWNLOAD,
-				priority: 9,
-				visible: conditions.canShowDesktopDownload,
 				dismissible: true,
 			},
 			{

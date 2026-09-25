@@ -53,16 +53,6 @@ fn reindex_controls(base: &str, csrf_token: &str) -> Markup {
                 (reindex_button(base, csrf_token, "Audit Logs", "audit_logs"))
 
                 h3 class="text-sm font-semibold text-neutral-900 mt-6" {
-                    "Discovery Index"
-                }
-                p class="text-sm text-neutral-500 mb-3" {
-                    "Rebuilds the discovery search index for all approved discoverable \
-                     communities. This syncs guild metadata, descriptions, categories, \
-                     and online counts."
-                }
-                (reindex_button(base, csrf_token, "Discovery Index", "discovery"))
-
-                h3 class="text-sm font-semibold text-neutral-900 mt-6" {
                     "Guild-specific Search Indexes"
                 }
                 p class="text-sm text-neutral-500 mb-3" {

@@ -35,7 +35,6 @@ import prunePostgresKvTtl from '@app/api/worker/tasks/PrunePostgresKvTtl';
 import reconcileUserPayments from '@app/api/worker/tasks/ReconcileUserPayments';
 import refreshSearchIndex from '@app/api/worker/tasks/RefreshSearchIndex';
 import {sendSystemDm} from '@app/api/worker/tasks/SendSystemDm';
-import syncDiscoveryIndex from '@app/api/worker/tasks/SyncDiscoveryIndex';
 import syncDisposableEmailDomains from '@app/api/worker/tasks/SyncDisposableEmailDomains';
 import syncFileShaBlocklists from '@app/api/worker/tasks/SyncFileShaBlocklists';
 import syncUrlBlocklists from '@app/api/worker/tasks/SyncUrlBlocklists';
@@ -81,7 +80,6 @@ export const workerTasks: Record<WorkerTaskName, WorkerTaskHandler> = {
 	sendSystemDm,
 	syncFileShaBlocklists,
 	syncUrlBlocklists,
-	syncDiscoveryIndex,
 	syncDisposableEmailDomains,
 	flushUserActivityBuffer,
 	userProcessPendingDeletion,

@@ -1,7 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {ExternalLink} from '@app/features/app/components/shared/ExternalLink';
-import {HelpCenterArticleSlug} from '@app/features/app/config/HelpCenterConstants';
 import {MatureContentCheckModal} from '@app/features/auth/components/modals/MatureContentCheckModal';
 import styles from '@app/features/channel/components/MatureContentChannelGate.module.css';
 import * as GuildMatureContentCommands from '@app/features/guild/commands/GuildMatureContentCommands';
@@ -22,7 +20,6 @@ import {
 import {Button} from '@app/features/ui/button/Button';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {modal} from '@app/features/ui/commands/ModalCommands';
-import * as HelpCenterUtils from '@app/features/ui/utils/HelpCenterUtils';
 import {getRegionDisplayName} from '@app/features/user/utils/UserGeo';
 import {Trans, useLingui} from '@lingui/react/macro';
 import {observer} from 'mobx-react-lite';
@@ -121,15 +118,7 @@ export const MatureContentChannelGate = observer(({channelId, guildId, reason, s
 								className={styles.description}
 								data-flx="channel.mature-content-channel-gate.render-content.description--3"
 							>
-								<Trans>
-									This mature community is not available to your account.{' '}
-									<ExternalLink
-										href={HelpCenterUtils.getURL(HelpCenterArticleSlug.ChangeDateOfBirth)}
-										data-flx="channel.mature-content-channel-gate.render-content.external-link"
-									>
-										Learn more
-									</ExternalLink>
-								</Trans>
+								<Trans>This mature community is not available to your account.</Trans>
 							</p>
 						</>
 					);
@@ -144,15 +133,7 @@ export const MatureContentChannelGate = observer(({channelId, guildId, reason, s
 								className={styles.description}
 								data-flx="channel.mature-content-channel-gate.render-content.description--4"
 							>
-								<Trans>
-									This mature category is not available to your account.{' '}
-									<ExternalLink
-										href={HelpCenterUtils.getURL(HelpCenterArticleSlug.ChangeDateOfBirth)}
-										data-flx="channel.mature-content-channel-gate.render-content.external-link--2"
-									>
-										Learn more
-									</ExternalLink>
-								</Trans>
+								<Trans>This mature category is not available to your account.</Trans>
 							</p>
 						</>
 					);
@@ -166,15 +147,7 @@ export const MatureContentChannelGate = observer(({channelId, guildId, reason, s
 							className={styles.description}
 							data-flx="channel.mature-content-channel-gate.render-content.description--5"
 						>
-							<Trans>
-								This mature channel is not available to your account.{' '}
-								<ExternalLink
-									href={HelpCenterUtils.getURL(HelpCenterArticleSlug.ChangeDateOfBirth)}
-									data-flx="channel.mature-content-channel-gate.render-content.external-link--3"
-								>
-									Learn more
-								</ExternalLink>
-							</Trans>
+							<Trans>This mature channel is not available to your account.</Trans>
 						</p>
 					</>
 				);

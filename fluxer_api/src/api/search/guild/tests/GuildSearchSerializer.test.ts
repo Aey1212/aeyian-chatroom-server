@@ -4,7 +4,7 @@ import {createChannelID, createGuildID, createUserID} from '@app/api/BrandedType
 import type {GuildRow} from '@app/api/database/types/GuildTypes';
 import {Guild} from '@app/api/models/Guild';
 import {convertToSearchableGuild} from '@app/api/search/guild/GuildSearchSerializer';
-import {GuildFeatures} from '@fluxer/constants/src/GuildConstants';
+import {GuildFeatures, GuildVerificationLevel} from '@fluxer/constants/src/GuildConstants';
 import {describe, expect, it} from 'vitest';
 
 function guildRow(features: Set<string>): GuildRow {
@@ -48,34 +48,18 @@ function guildRow(features: Set<string>): GuildRow {
 }
 
 describe('GuildSearchSerializer', () => {
-	it('requires approved discovery context before indexing a guild as discoverable', () => {
-		const guild = new Guild(guildRow(new Set([GuildFeatures.DISCOVERABLE])));
-		const withoutContext = convertToSearchableGuild(guild);
-		expect(withoutContext.isDiscoverable).toBe(false);
-		expect(withoutContext.discoveryDescription).toBeNull();
-		expect(withoutContext.discoveryTags).toEqual([]);
-		const withContext = convertToSearchableGuild(guild, {
-			description: 'A community for finding other communities.',
-			categoryId: 8,
-			primaryLanguage: 'en-US',
-			tags: ['discover', 'community'],
-			memberCount: 1928,
-		});
-		expect(withContext.isDiscoverable).toBe(true);
-		expect(withContext.discoveryDescription).toBe('A community for finding other communities.');
-		expect(withContext.discoveryTags).toEqual(['discover', 'community']);
-		expect(withContext.memberCount).toBe(1928);
+	it('indexes the guild fields searches filter and sort on', () => {
+		const result = convertToSearchableGuild(new Guild(guildRow(new Set())));
+		expect(result.id).toBe('1472623911696138261');
+		expect(result.ownerId).toBe('1472623911696138262');
+		expect(result.name).toBe('FluxDiscover');
+		expect(result.memberCount).toBe(42);
+		expect(result.verificationLevel).toBe(0);
+		expect(result).not.toHaveProperty('isDiscoverable');
 	});
-	it('drops accidental discovery context when the guild feature is absent', () => {
-		const guild = new Guild(guildRow(new Set()));
-		const result = convertToSearchableGuild(guild, {
-			description: 'Stale discovery row.',
-			categoryId: 8,
-			primaryLanguage: 'en-US',
-			tags: ['stale'],
-		});
-		expect(result.isDiscoverable).toBe(false);
-		expect(result.discoveryDescription).toBeNull();
-		expect(result.discoveryTags).toEqual([]);
+	it('reports the raised verification level of a guild with the DISCOVERABLE feature', () => {
+		const result = convertToSearchableGuild(new Guild(guildRow(new Set([GuildFeatures.DISCOVERABLE]))));
+		expect(result.features).toContain(GuildFeatures.DISCOVERABLE);
+		expect(result.verificationLevel).toBe(GuildVerificationLevel.LOW);
 	});
 });

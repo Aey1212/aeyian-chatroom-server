@@ -15,27 +15,16 @@ import {
 import {SkeletonEmphasis, SkeletonRadius} from '@app/features/app/components/skeleton/SkeletonStyle';
 import {skeletonSurfaceVar} from '@app/features/app/components/skeleton/SkeletonSurfaceContract';
 import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
-import {Platform} from '@app/features/platform/types/Platform';
 import {getRemScaleForDocument} from '@app/features/theme/layout/RemFromPx';
 import Dimension from '@app/features/ui/state/Dimension';
 import {flxElementClassName} from '@app/lib/react';
-import {
-	ChatCircleIcon,
-	CompassIcon,
-	DownloadSimpleIcon,
-	type Icon,
-	type IconWeight,
-	PlusIcon,
-	QuestionMarkIcon,
-	StarIcon,
-} from '@phosphor-icons/react';
+import {ChatCircleIcon, type Icon, type IconWeight, PlusIcon, StarIcon} from '@phosphor-icons/react';
 import type React from 'react';
 import {useState} from 'react';
 
 const GUILD_ICON_SIZE = skeletonSurfaceVar('--guild-icon-size');
 const FOLDER_ICON_SIZE = skeletonSurfaceVar('--guild-list-item-box-size');
 const GUILD_PLACEHOLDER_COUNT = 6;
-const SHOWS_DOWNLOAD_ACTION = !Platform.isElectron && !Platform.isPWA;
 const FALLBACK_ORGANIZED_ITEMS: ReadonlyArray<RememberedSkeletonGuildRailItem> = Object.freeze(
 	Array.from({length: GUILD_PLACEHOLDER_COUNT}, () =>
 		Object.freeze({kind: SkeletonGuildRailItemKind.GUILD, indicator: SkeletonGuildRailItemIndicator.NONE} as const),
@@ -435,14 +424,9 @@ function renderOrganizedItem(
 interface GuildRailSkeletonProps {
 	readonly isFluxerSelected: boolean;
 	readonly isFavoritesSelected: boolean;
-	readonly isDiscoverySelected: boolean;
 }
 
-export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({
-	isFluxerSelected,
-	isFavoritesSelected,
-	isDiscoverySelected,
-}) => {
+export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({isFluxerSelected, isFavoritesSelected}) => {
 	const [mountState] = useState(() => {
 		const rememberedLayout = getRememberedSkeletonGuildRailLayout();
 		const remScale = getRemScaleForDocument(document);
@@ -469,25 +453,19 @@ export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({
 	const selectedItemIndex = rememberedLayout?.selectedItemIndex ?? SKELETON_NO_SELECTED_RAIL_ITEM_INDEX;
 	const fluxerVisible = rememberedLayout?.fluxerVisible ?? !RuntimeConfig.directMessagesDisabled;
 	const favoritesVisible = rememberedLayout?.favoritesVisible ?? true;
-	const discoveryVisible = rememberedLayout?.discoveryVisible ?? communityActionsAvailable;
 	const addGuildVisible = rememberedLayout?.addGuildVisible ?? communityActionsAvailable;
-	const downloadVisible = rememberedLayout?.downloadVisible ?? SHOWS_DOWNLOAD_ACTION;
-	const helpVisible = rememberedLayout?.helpVisible ?? true;
 	const hasGuildItems = outageVisible || organizedItems.length > 0;
 	const fluxerIsLastTopRow = fluxerVisible && !favoritesVisible && inlineDmRowCount === 0;
-	const hasBottomRailButtons = discoveryVisible || addGuildVisible || downloadVisible || helpVisible;
+	const hasBottomRailButtons = addGuildVisible;
 	const itemsEndWithoutGap = outageVisible && organizedItems.length === 0 && hasBottomRailButtons;
 	let guildsSectionTrailingGap: boolean;
-	if (helpVisible) {
-		guildsSectionTrailingGap = false;
-	} else if (discoveryVisible || addGuildVisible || downloadVisible) {
+	if (addGuildVisible) {
 		guildsSectionTrailingGap = true;
 	} else {
 		guildsSectionTrailingGap = organizedItems.length > 0;
 	}
 	const topRowCount = (fluxerVisible ? 1 : 0) + (favoritesVisible ? 1 : 0) + inlineDmRowCount;
-	const bottomButtonCount =
-		(discoveryVisible ? 1 : 0) + (addGuildVisible ? 1 : 0) + (downloadVisible ? 1 : 0) + (helpVisible ? 1 : 0);
+	const bottomButtonCount = addGuildVisible ? 1 : 0;
 	const scrollTop = resolveDrawableRailScrollTopPx({
 		bottomButtonCount,
 		organizedItems,
@@ -563,28 +541,8 @@ export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({
 								{organizedItems.map((item, index) => renderOrganizedItem(item, index, selectedItemIndex))}
 							</flx-app-guild-rail-skeleton-items>
 						)}
-						{discoveryVisible && (
-							<RailActionButton
-								icon={CompassIcon}
-								weight="fill"
-								selected={isDiscoverySelected}
-								data-flx="app.skeleton.guild-rail-skeleton.rail-action-button"
-							/>
-						)}
 						{addGuildVisible && (
 							<RailActionButton icon={PlusIcon} data-flx="app.skeleton.guild-rail-skeleton.rail-action-button--2" />
-						)}
-						{downloadVisible && (
-							<RailActionButton
-								icon={DownloadSimpleIcon}
-								data-flx="app.skeleton.guild-rail-skeleton.rail-action-button--3"
-							/>
-						)}
-						{helpVisible && (
-							<RailActionButton
-								icon={QuestionMarkIcon}
-								data-flx="app.skeleton.guild-rail-skeleton.rail-action-button--4"
-							/>
 						)}
 					</flx-app-guild-rail-skeleton-guilds-section>
 				</flx-app-guild-rail-skeleton-content>

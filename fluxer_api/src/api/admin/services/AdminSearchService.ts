@@ -14,15 +14,7 @@ import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidat
 import type {WorkerJobPayload} from '@pkgs/worker/src/contracts/WorkerTypes';
 
 interface RefreshSearchIndexJobPayload extends WorkerJobPayload {
-	index_type:
-		| 'guilds'
-		| 'users'
-		| 'reports'
-		| 'audit_logs'
-		| 'channel_messages'
-		| 'favorite_memes'
-		| 'guild_members'
-		| 'discovery';
+	index_type: 'guilds' | 'users' | 'reports' | 'audit_logs' | 'channel_messages' | 'favorite_memes' | 'guild_members';
 	admin_user_id: string;
 	audit_log_reason: string | null;
 	job_id: string;
@@ -161,8 +153,7 @@ export class AdminSearchService {
 				| 'audit_logs'
 				| 'channel_messages'
 				| 'guild_members'
-				| 'favorite_memes'
-				| 'discovery';
+				| 'favorite_memes';
 			guild_id?: bigint;
 			user_id?: bigint;
 		},

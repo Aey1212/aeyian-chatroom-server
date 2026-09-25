@@ -391,17 +391,5 @@ export abstract class IGatewayService {
 
 	abstract deleteCall(channelId: ChannelID): Promise<boolean>;
 
-	abstract getDiscoveryOnlineCounts(guildIds: Array<GuildID>): Promise<Map<GuildID, number>>;
-
-	abstract getDiscoveryGuildCounts(guildIds: Array<GuildID>): Promise<
-		Map<
-			GuildID,
-			{
-				memberCount: number;
-				onlineCount: number;
-			}
-		>
-	>;
-
 	abstract getNodeStats(): Promise<GatewayNodeStats>;
 }

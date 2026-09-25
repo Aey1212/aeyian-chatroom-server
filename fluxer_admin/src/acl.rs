@@ -48,8 +48,6 @@ pub const BULK_UPDATE_GUILD_FEATURES: &str = "bulk:update:guild_features";
 pub const BULK_UPDATE_SUSPICIOUS_ACTIVITY: &str = "bulk:update:suspicious_activity";
 pub const BULK_UPDATE_USER_FLAGS: &str = "bulk:update:user_flags";
 pub const CSAM_SUBMIT_NCMEC: &str = "csam:submit_ncmec";
-pub const DISCOVERY_REMOVE: &str = "discovery:remove";
-pub const DISCOVERY_REVIEW: &str = "discovery:review";
 pub const GATEWAY_MEMORY_STATS: &str = "gateway:memory_stats";
 pub const GATEWAY_RELOAD_ALL: &str = "gateway:reload_all";
 pub const GIFT_CODES_GENERATE: &str = "gift_codes:generate";
@@ -160,8 +158,6 @@ pub const ALL_ACLS: &[&str] = &[
     BULK_UPDATE_SUSPICIOUS_ACTIVITY,
     BULK_UPDATE_USER_FLAGS,
     CSAM_SUBMIT_NCMEC,
-    DISCOVERY_REMOVE,
-    DISCOVERY_REVIEW,
     GATEWAY_MEMORY_STATS,
     GATEWAY_RELOAD_ALL,
     GIFT_CODES_GENERATE,

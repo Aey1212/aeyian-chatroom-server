@@ -79,11 +79,6 @@ class Navigation {
 		this.applyNavigation(path, mode);
 	}
 
-	navigateToDiscover(mode: NavigationMode = 'push'): void {
-		logger.debug(`navigateToDiscover: ${Routes.DISCOVER} (${mode})`);
-		this.applyNavigation(Routes.DISCOVER, mode);
-	}
-
 	navigateToFavorites(channelId?: string, messageId?: string, mode: NavigationMode = 'push'): void {
 		const path = this.buildFavoritesPath(channelId, messageId);
 		logger.debug(`navigateToFavorites: ${path} (${mode})`);

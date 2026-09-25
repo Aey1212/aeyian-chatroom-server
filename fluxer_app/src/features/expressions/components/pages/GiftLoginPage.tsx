@@ -11,7 +11,6 @@ import {
 	isHandoffRequest,
 	useDesktopHandoffFlow,
 } from '@app/features/auth/flow/auth_login_core/useDesktopHandoffFlow';
-import {DesktopDeepLinkPrompt} from '@app/features/auth/flow/DesktopDeepLinkPrompt';
 import {GiftHeader} from '@app/features/auth/flow/GiftHeader';
 import {ConnectedHandoffApprovalFlow} from '@app/features/auth/flow/HandoffApprovalFlow';
 import MfaScreen from '@app/features/auth/flow/MfaScreen';
@@ -69,12 +68,6 @@ const GiftLoginPage = observer(function GiftLoginPage({code, gift}: GiftLoginPag
 			desktopHandoff={isHandoff}
 			extraTopContent={
 				<>
-					<DesktopDeepLinkPrompt
-						code={code}
-						kind="gift"
-						preferLogin={true}
-						data-flx="expressions.gift-login-page.desktop-deep-link-prompt"
-					/>
 					<GiftHeader gift={gift} variant="login" data-flx="expressions.gift-login-page.gift-header" />
 				</>
 			}

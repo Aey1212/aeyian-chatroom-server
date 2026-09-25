@@ -2,15 +2,13 @@
 
 import type {AdminAuditLog} from '@app/api/admin/IAdminRepository';
 import type {ChannelID, GuildID, MessageID, ReportID, UserID} from '@app/api/BrandedTypes';
-import type {IGuildDiscoveryRepository} from '@app/api/guild/repositories/GuildDiscoveryRepository';
 import type {Guild} from '@app/api/models/Guild';
 import type {GuildMember} from '@app/api/models/GuildMember';
 import type {Message} from '@app/api/models/Message';
 import type {User} from '@app/api/models/User';
 import type {IARSubmission} from '@app/api/report/IReportRepository';
 import {convertToSearchableAuditLog} from '@app/api/search/auditlog/AuditLogSearchSerializer';
-import {convertToSearchableGuild, type GuildDiscoveryContext} from '@app/api/search/guild/GuildSearchSerializer';
-import {resolveDiscoveryContextForIndexing} from '@app/api/search/guild/LazyDiscoveryMigration';
+import {convertToSearchableGuild} from '@app/api/search/guild/GuildSearchSerializer';
 import {convertToSearchableGuildMember} from '@app/api/search/guild_member/GuildMemberSearchSerializer';
 import type {IAuditLogSearchService} from '@app/api/search/IAuditLogSearchService';
 import type {IGuildMemberSearchService} from '@app/api/search/IGuildMemberSearchService';
@@ -136,34 +134,21 @@ export class MeilisearchGuildSearchService
 	extends SearchAdapterServiceBase<GuildSearchFilters, SearchableGuild, MeilisearchGuildAdapter>
 	implements IGuildSearchService
 {
-	private readonly discoveryRepository: IGuildDiscoveryRepository | undefined;
-
-	constructor(client: MeilisearchClient, discoveryRepository?: IGuildDiscoveryRepository) {
+	constructor(client: MeilisearchClient) {
 		super(new MeilisearchGuildAdapter({client}));
-		this.discoveryRepository = discoveryRepository;
 	}
 
-	async indexGuild(guild: Guild, discovery?: GuildDiscoveryContext): Promise<void> {
-		const context = await resolveDiscoveryContextForIndexing(guild, discovery, this.discoveryRepository);
-		await this.indexDocument(convertToSearchableGuild(guild, context));
+	async indexGuild(guild: Guild): Promise<void> {
+		await this.indexDocument(convertToSearchableGuild(guild));
 	}
 
 	async indexGuilds(guilds: Array<Guild>): Promise<void> {
 		if (guilds.length === 0) return;
-		const docs = await Promise.all(
-			guilds.map(async (guild) =>
-				convertToSearchableGuild(
-					guild,
-					await resolveDiscoveryContextForIndexing(guild, undefined, this.discoveryRepository),
-				),
-			),
-		);
-		await this.indexDocuments(docs);
+		await this.indexDocuments(guilds.map((guild) => convertToSearchableGuild(guild)));
 	}
 
-	async updateGuild(guild: Guild, discovery?: GuildDiscoveryContext): Promise<void> {
-		const context = await resolveDiscoveryContextForIndexing(guild, discovery, this.discoveryRepository);
-		await this.updateDocument(convertToSearchableGuild(guild, context));
+	async updateGuild(guild: Guild): Promise<void> {
+		await this.updateDocument(convertToSearchableGuild(guild));
 	}
 
 	async deleteGuild(guildId: GuildID): Promise<void> {

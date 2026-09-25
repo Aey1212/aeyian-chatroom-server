@@ -1,9 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {ConfirmModal} from '@app/features/app/components/dialogs/ConfirmModal';
 import {PRODUCT_NAME} from '@app/features/app/config/I18nDisplayConstants';
-import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
-import {joinDiscoveryGuild} from '@app/features/discovery/commands/DiscoveryJoinCommands';
 import type {ExpressionKind} from '@app/features/expressions/commands/ExpressionMetadataCommands';
 import styles from '@app/features/expressions/components/ExpressionInfoCard.module.css';
 import ExpressionSource from '@app/features/expressions/state/ExpressionSource';
@@ -13,15 +10,8 @@ import {GuildIcon} from '@app/features/guild/components/popouts/GuildIcon';
 import type {Guild} from '@app/features/guild/models/Guild';
 import GuildList from '@app/features/guild/state/GuildList';
 import Guilds from '@app/features/guild/state/Guilds';
-import {
-	DISCOVERABLE_COMMUNITY_DESCRIPTOR,
-	JOIN_COMMUNITY_DESCRIPTOR,
-} from '@app/features/i18n/utils/CommonMessageDescriptors';
 import * as NavigationCommands from '@app/features/navigation/commands/NavigationCommands';
-import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
-import {modal} from '@app/features/ui/commands/ModalCommands';
 import FocusRing from '@app/features/ui/focus_ring/FocusRing';
-import {GuildFeatures} from '@fluxer/constants/src/GuildConstants';
 import type {MessageDescriptor} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
@@ -91,30 +81,7 @@ const GO_TO_NAMED_COMMUNITY_DESCRIPTOR = msg({
 	comment:
 		'Accessible label for the community row of an expression info card, which opens a community the viewer is already a member of. {communityName} is the community name.',
 });
-const JOIN_NAMED_COMMUNITY_DESCRIPTOR = msg({
-	message: 'Join {communityName}',
-	comment: 'Accessible label of a button that joins a community. {communityName} is the community name.',
-});
-const JOIN_COMMUNITY_REASON_DESCRIPTORS: Record<ExpressionKind, MessageDescriptor> = {
-	emoji: msg({
-		message: '{expressionName} is a custom emoji from this community. Members can use it here.',
-		comment:
-			'Reason shown in the confirmation before joining a community from an emoji info card. It explains that the emoji the viewer opened belongs to this community. {expressionName} is the emoji name, written with colons around it.',
-	}),
-	sticker: msg({
-		message: '{expressionName} is a custom sticker from this community. Members can use it here.',
-		comment:
-			'Reason shown in the confirmation before joining a community from a sticker info card. It explains that the sticker the viewer opened belongs to this community. {expressionName} is the sticker name.',
-	}),
-};
-const JOIN_COMMUNITY_CONFIRMATION_DESCRIPTOR = msg({
-	message: 'Do you want to join {communityName}?',
-	comment:
-		'Body of the confirmation shown before joining a discoverable community from an expression info card. {communityName} is the community name.',
-});
-
 const GUILD_ICON_SIZE_PX = 40;
-const JOIN_CONFIRM_GUILD_ICON_SIZE_PX = 80;
 
 interface ExpressionSourceGuild {
 	id: string;
@@ -167,75 +134,9 @@ function useExpressionSourceGuild(
 	return {guild: null, isRemoteSource: sourceState != null, isUnavailable: sourceState?.status === 'unavailable'};
 }
 
-interface ExpressionJoinConfirmationProps {
-	kind: ExpressionKind;
-	guild: ExpressionSourceGuild;
-	expressionName: string;
-}
-
-const ExpressionJoinConfirmation = observer(function ExpressionJoinConfirmation({
-	kind,
-	guild,
-	expressionName,
-}: ExpressionJoinConfirmationProps) {
-	const {i18n} = useLingui();
-	return (
-		<div className={styles.joinConfirm} data-flx="expressions.expression-info-card.join-confirmation.join-confirm">
-			<GuildIcon
-				id={guild.id}
-				name={guild.name}
-				icon={guild.icon}
-				sizePx={JOIN_CONFIRM_GUILD_ICON_SIZE_PX}
-				data-flx="expressions.expression-info-card.join-confirmation.guild-icon"
-			/>
-			<div
-				className={styles.joinConfirmHeading}
-				data-flx="expressions.expression-info-card.join-confirmation.join-confirm-heading"
-			>
-				<span
-					className={styles.joinConfirmNameRow}
-					data-flx="expressions.expression-info-card.join-confirmation.join-confirm-name-row"
-				>
-					<span
-						className={styles.joinConfirmName}
-						data-flx="expressions.expression-info-card.join-confirmation.join-confirm-name"
-					>
-						{guild.name}
-					</span>
-					<GuildBadge
-						features={guild.features}
-						data-flx="expressions.expression-info-card.join-confirmation.guild-badge"
-					/>
-				</span>
-				<span
-					className={styles.joinConfirmSubtitle}
-					data-flx="expressions.expression-info-card.join-confirmation.join-confirm-subtitle"
-				>
-					{i18n._(DISCOVERABLE_COMMUNITY_DESCRIPTOR)}
-				</span>
-			</div>
-			<div
-				className={styles.joinConfirmText}
-				data-flx="expressions.expression-info-card.join-confirmation.join-confirm-text"
-			>
-				<span data-flx="expressions.expression-info-card.join-confirmation.join-confirm-reason">
-					{i18n._(JOIN_COMMUNITY_REASON_DESCRIPTORS[kind], {expressionName})}
-				</span>
-				<span
-					className={styles.joinConfirmQuestion}
-					data-flx="expressions.expression-info-card.join-confirmation.join-confirm-question"
-				>
-					{i18n._(JOIN_COMMUNITY_CONFIRMATION_DESCRIPTOR, {communityName: guild.name})}
-				</span>
-			</div>
-		</div>
-	);
-});
-
 interface ExpressionSourceGuildRowProps {
 	kind: ExpressionKind;
 	guild: ExpressionSourceGuild;
-	expressionName: string;
 	isMember: boolean;
 	onClose?: () => void;
 }
@@ -243,49 +144,16 @@ interface ExpressionSourceGuildRowProps {
 const ExpressionSourceGuildRow = observer(function ExpressionSourceGuildRow({
 	kind,
 	guild,
-	expressionName,
 	isMember,
 	onClose,
 }: ExpressionSourceGuildRowProps) {
 	const {i18n} = useLingui();
-	const isDiscoverable = guild.features.includes(GuildFeatures.DISCOVERABLE);
 	const handleJump = useCallback(() => {
 		NavigationCommands.selectGuild(guild.id);
 		onClose?.();
 	}, [guild.id, onClose]);
-	const handleJoin = useCallback(() => {
-		onClose?.();
-		const modalKey = `expression-source-guild-join-${guild.id}`;
-		ModalCommands.pushWithKey(
-			modal(() => (
-				<ConfirmModal
-					title={i18n._(JOIN_COMMUNITY_DESCRIPTOR)}
-					description={
-						<ExpressionJoinConfirmation
-							kind={kind}
-							guild={guild}
-							expressionName={expressionName}
-							data-flx="expressions.expression-info-card.handle-join.expression-join-confirmation"
-						/>
-					}
-					primaryText={i18n._(JOIN_COMMUNITY_DESCRIPTOR)}
-					disableAutoDismiss
-					onPrimary={async () => {
-						if (await joinDiscoveryGuild(guild.id)) {
-							ModalCommands.popWithKey(modalKey);
-						}
-					}}
-					data-flx="expressions.expression-info-card.handle-join.confirm-modal"
-				/>
-			)),
-			modalKey,
-		);
-	}, [guild, kind, expressionName, i18n, onClose]);
-	const canJoin = isDiscoverable && !RuntimeConfig.singleCommunityEnabled;
-	const activate = isMember ? handleJump : canJoin ? handleJoin : null;
-	const accessibleName = isMember
-		? i18n._(GO_TO_NAMED_COMMUNITY_DESCRIPTOR, {communityName: guild.name})
-		: i18n._(JOIN_NAMED_COMMUNITY_DESCRIPTOR, {communityName: guild.name});
+	const activate = isMember ? handleJump : null;
+	const accessibleName = i18n._(GO_TO_NAMED_COMMUNITY_DESCRIPTOR, {communityName: guild.name});
 	const rowBody = (
 		<>
 			<GuildIcon
@@ -313,7 +181,7 @@ const ExpressionSourceGuildRow = observer(function ExpressionSourceGuildRow({
 					className={styles.guildSubtitle}
 					data-flx="expressions.expression-info-card.source-guild-row.guild-subtitle"
 				>
-					{isDiscoverable ? i18n._(DISCOVERABLE_COMMUNITY_DESCRIPTOR) : i18n._(INVITE_ONLY_COMMUNITY_DESCRIPTOR)}
+					{i18n._(INVITE_ONLY_COMMUNITY_DESCRIPTOR)}
 				</span>
 			</span>
 		</>
@@ -441,7 +309,6 @@ export const ExpressionInfoCard = observer(function ExpressionInfoCard(props: Ex
 				<ExpressionSourceGuildRow
 					kind={kind}
 					guild={sourceGuild}
-					expressionName={displayName}
 					isMember={isMember}
 					onClose={onClose}
 					data-flx="expressions.expression-info-card.expression-source-guild-row"

@@ -7,32 +7,12 @@ import {
 	MIN_TEMP_BAN_DURATION_SECONDS,
 } from '@fluxer/constants/src/LimitConstants';
 import {
-	DiscoveryApplicationPatchRequest,
-	DiscoveryApplicationRequest,
-	DiscoverySearchQuery,
-} from '@fluxer/schema/src/domains/guild/GuildDiscoverySchemas';
-import {
 	GuildBanCreateRequest,
 	GuildMemberUpdateRequest,
 	GuildStickerCreateRequest,
 } from '@fluxer/schema/src/domains/guild/GuildRequestSchemas';
 import {TemplateChannel} from '@fluxer/schema/src/domains/guild/GuildTemplateSchemas';
 import {describe, expect, it} from 'vitest';
-
-describe.each([
-	{name: 'application', schema: DiscoveryApplicationRequest.shape.primary_language},
-	{name: 'application patch', schema: DiscoveryApplicationPatchRequest.shape.primary_language},
-	{name: 'search', schema: DiscoverySearchQuery.shape.language},
-])('discovery $name language', ({schema}) => {
-	it.each(['en-US', 'sv-SE', undefined])('preserves supported or omitted language %j', (language) => {
-		expect(schema.parse(language)).toBe(language);
-	});
-	it.each(['unsupported', 'EN-US', ' en-US '])('rejects unsupported language %j without normalization', (language) => {
-		expect(schema.safeParse(language).error?.issues).toEqual([
-			{code: 'custom', message: 'Unsupported language code', path: []},
-		]);
-	});
-});
 
 describe('GuildBanCreateRequest', () => {
 	it('accepts permanent bans and arbitrary temporary durations within range', () => {

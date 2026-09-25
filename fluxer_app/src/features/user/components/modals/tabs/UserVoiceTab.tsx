@@ -3,7 +3,6 @@
 import {ConfirmModal} from '@app/features/app/components/dialogs/ConfirmModal';
 import {SettingsTabSection} from '@app/features/app/components/dialogs/shared/SettingsTabLayout';
 import {
-	DESKTOP_DOWNLOAD_URL,
 	MACOS_INPUT_MONITORING_PERMISSION_NAME,
 	MACOS_MICROPHONE_PERMISSION_NAME,
 	MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME,
@@ -23,7 +22,6 @@ import {Switch} from '@app/features/ui/components/form/FormSwitch';
 import {RESET_SLIDER_TO_DEFAULT_VALUE_DESCRIPTOR, Slider} from '@app/features/ui/components/Slider';
 import {canResetSliderValue, SliderResetIconButton} from '@app/features/ui/components/slider/SliderResetIconButton';
 import {RadioGroup, type RadioOption} from '@app/features/ui/radio_group/RadioGroup';
-import {openExternalUrl} from '@app/features/ui/utils/NativeUtils';
 import {formatRoundedPercentage} from '@app/features/ui/utils/PercentageFormatting';
 import {WarningAlert} from '@app/features/ui/warning_alert/WarningAlert';
 import {CompactComboboxRow} from '@app/features/user/components/modals/tabs/components/CompactComboboxRow';
@@ -100,10 +98,6 @@ const CUSTOM_PROFILE_DESCRIPTION_DESCRIPTOR = msg({
 const PUSH_TO_TALK_LIMITED_DESCRIPTOR = msg({
 	message: 'Push-to-talk (limited)',
 	comment: 'Short label in the voice tab. Keep it concise.',
-});
-const DOWNLOAD_DESKTOP_APP_DESCRIPTOR = msg({
-	message: 'Download desktop app',
-	comment: 'Button or menu action label in the voice tab. Keep it concise.',
 });
 const I_UNDERSTAND_DESCRIPTOR = msg({
 	message: 'I understand',
@@ -307,19 +301,13 @@ export const VoiceTab: React.FC<VoiceTabProps> = observer(({voiceSettings, autoR
 						title={i18n._(PUSH_TO_TALK_LIMITED_DESCRIPTOR)}
 						description={
 							<p data-flx="user.voice-tab.set-push-to-talk-enabled.p">
-								<Trans>
-									In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app
-									for system-wide push-to-talk.
-								</Trans>
+								{i18n._(PUSH_TO_TALK_BROWSER_LIMITED_DESCRIPTION_DESCRIPTOR)}
 							</p>
 						}
-						primaryText={i18n._(DOWNLOAD_DESKTOP_APP_DESCRIPTOR)}
+						primaryText={i18n._(I_UNDERSTAND_DESCRIPTOR)}
 						primaryVariant="primary"
-						secondaryText={i18n._(I_UNDERSTAND_DESCRIPTOR)}
+						secondaryText={false}
 						onPrimary={() => {
-							void openExternalUrl(DESKTOP_DOWNLOAD_URL);
-						}}
-						onSecondary={() => {
 							Keybind.setTransmitMode(mode);
 							MediaEngine.handlePushToTalkModeChange();
 						}}
@@ -401,16 +389,7 @@ export const VoiceTab: React.FC<VoiceTabProps> = observer(({voiceSettings, autoR
 			{isPushToTalk && isPttLimited && (
 				<WarningAlert
 					actions={
-						!isNativeDesktop ? (
-							<Button
-								variant="primary"
-								small={true}
-								onClick={() => void openExternalUrl(DESKTOP_DOWNLOAD_URL)}
-								data-flx="user.voice-tab.render-ptt-controls.button.download-desktop-app"
-							>
-								{i18n._(DOWNLOAD_DESKTOP_APP_DESCRIPTOR)}
-							</Button>
-						) : (
+						isNativeDesktop ? (
 							<Button
 								variant="primary"
 								small={true}
@@ -421,7 +400,7 @@ export const VoiceTab: React.FC<VoiceTabProps> = observer(({voiceSettings, autoR
 									permissionName: MACOS_INPUT_MONITORING_PERMISSION_NAME,
 								})}
 							</Button>
-						)
+						) : undefined
 					}
 					data-flx="user.voice-tab.render-ptt-controls.warning-alert"
 				>

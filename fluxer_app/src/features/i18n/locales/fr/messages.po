@@ -41,11 +41,6 @@ msgstr "(non attribué)"
 msgid "(you)"
 msgstr "(vous)"
 
-#. placeholder {0}: guild.member_count
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:184
-msgid "{0, plural, one {# member} other {# members}}"
-msgstr "{0, plural, one {# membre} other {# membres}}"
-
 #. Screen reader announcement in the composer when two people are typing. {a} and {b} are their display names.
 #: src/features/typing/rolling/RollingTypingText.tsx:19
 #: src/features/typing/rolling/RollingTypingText.tsx:54
@@ -834,11 +829,6 @@ msgstr "{authorNickname} préfère être mentionné dans les réponses. Envoyer 
 msgid "{backgroundCount} / {maxBackgroundImages} {backgroundCount, plural, one {custom background} other {custom backgrounds}}"
 msgstr "{backgroundCount} / {maxBackgroundImages} {backgroundCount, plural, one {arrière-plan personnalisé} many {arrière-plans personnalisés} other {arrière-plans personnalisés}}"
 
-#. Accessible label for a category row in the Discovery search sidebar. {categoryLabel} is the category name and {count} is how many communities match the current search in it. Both are inserted by code.
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:37
-msgid "{categoryLabel}, {count, plural, one {# community} other {# communities}}"
-msgstr "{categoryLabel}, {count, plural, one {# communauté} many {# communautés} other {# communautés}}"
-
 #. Short label in the unread channels content. Preserve placeholders {channelHeading}, {mentionCount}; they are inserted by code.
 #: src/features/app/components/floating/UnreadChannelsContent.tsx:59
 msgid "{channelHeading}, {mentionCount, plural, one {# mention} other {# mentions}}"
@@ -933,12 +923,7 @@ msgstr "{count, plural, one {# pièce jointe} other {# pièces jointes}}"
 msgid "{count, plural, one {# blocked message} other {# blocked messages}}"
 msgstr "{count, plural, one {# message bloqué} other {# messages bloqués}}"
 
-#. Screen-reader status text in Discovery. {count} is the total number of matching communities.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:34
-msgid "{count, plural, one {# community found} other {# communities found}}"
-msgstr "{count, plural, one {# communauté trouvée} other {# communautés trouvées}}"
-
-#: src/features/app/components/layout/GuildsLayout.tsx:1953
+#: src/features/app/components/layout/GuildsLayout.tsx:1906
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# communauté est temporairement indisponible en raison d'un dysfonctionnement du condensateur de flux.} other {# communautés sont temporairement indisponibles en raison d'un dysfonctionnement du condensateur de flux.}}"
 
@@ -1283,16 +1268,6 @@ msgstr "{emojiName} : {reactionCountText}"
 msgid "{emojiName}: {reactionCountText}, {actionText}"
 msgstr "{emojiName} : {reactionCountText}, {actionText}"
 
-#. Reason shown in the confirmation before joining a community from an emoji info card. It explains that the emoji the viewer opened belongs to this community. {expressionName} is the emoji name, written with colons around it.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:99
-msgid "{expressionName} is a custom emoji from this community. Members can use it here."
-msgstr "{expressionName} est un emoji personnalisé de cette communauté. Les membres peuvent l'utiliser ici."
-
-#. Reason shown in the confirmation before joining a community from a sticker info card. It explains that the sticker the viewer opened belongs to this community. {expressionName} is the sticker name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:104
-msgid "{expressionName} is a custom sticker from this community. Members can use it here."
-msgstr "{expressionName} est un sticker personnalisé de cette communauté. Les membres peuvent l'utiliser ici."
-
 #. Time window preset label shown as a standalone duration in option lists. The number is interpolated.
 #: src/features/app/config/TimeWindowPresets.ts:10
 msgid "{fifteenMinutes} minutes"
@@ -1340,7 +1315,7 @@ msgid "{fourHours} hours"
 msgstr "{fourHours} heures"
 
 #. Footer summary frame-rate label in the screen share picker. {fps} is the integer frame rate. FPS is a technical token.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:253
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:252
 msgid "{fps} FPS"
 msgstr "{fps} FPS"
 
@@ -1387,11 +1362,6 @@ msgstr "{hours, plural, one {Votre lien d’invitation expire dans # heure.} oth
 #: src/features/messaging/components/modals/ForwardMessagePreview.tsx:45
 msgid "{imageCount, plural, one {# image} other {# images}}, {videoCount, plural, one {# video} other {# videos}}"
 msgstr "{imageCount, plural, one {# image} other {# images}}, {videoCount, plural, one {# vidéo} other {# vidéos}}"
-
-#. Accessible label for a disabled Discovery sidebar navigation item. {itemLabel} is the section name.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:31
-msgid "{itemLabel}, coming soon"
-msgstr "{itemLabel}, bientôt disponible"
 
 #. Voice channel bitrate option label. kbps means kilobits per second.
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/VoiceSettings.tsx:38
@@ -1524,9 +1494,7 @@ msgid "{oneMinute} minute"
 msgstr "{oneMinute} minute"
 
 #. Community tooltip stat showing how many members are currently online.
-#. Short label in the discovery guild card. Keep it concise. Preserve {onlineCount}; it is inserted by code.
 #: src/features/app/components/layout/sidebar_nav/GuildListItemTooltip.tsx:28
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:27
 msgid "{onlineCount} online"
 msgstr "{onlineCount} en ligne"
 
@@ -1721,7 +1689,7 @@ msgid "{productName} needs camera access to list your devices."
 msgstr "{productName} a besoin d'accéder à votre caméra pour afficher vos appareils."
 
 #. Voice settings notice shown when microphone permission has not been granted.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:138
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
 msgid "{productName} needs microphone access to list your devices."
 msgstr "{productName} a besoin d'accéder à votre microphone pour afficher vos appareils."
 
@@ -2380,27 +2348,27 @@ msgid "a channel"
 msgstr "un salon"
 
 #. Shown under the "This emoji is from" or "This sticker is from" label in the expression info card when the source community is private to the viewer or cannot be reached.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:84
+#: src/features/expressions/components/ExpressionInfoCard.tsx:74
 msgid "A community that is either invite-only or unavailable."
 msgstr "Une communauté qui est sur invitation uniquement ou indisponible."
 
 #. Description of a custom emoji in the emoji info card when the viewer can use it outside the community. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:37
+#: src/features/expressions/components/ExpressionInfoCard.tsx:27
 msgid "A custom emoji from this community. You can use it anywhere on {productName}."
 msgstr "Un emoji personnalisé de cette communauté. Vous pouvez l'utiliser n'importe où sur {productName}."
 
 #. Description of a custom emoji in the emoji info card when the viewer can only use it inside the community.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:49
+#: src/features/expressions/components/ExpressionInfoCard.tsx:39
 msgid "A custom emoji from this community. You can use it in this community."
 msgstr "Un emoji personnalisé de cette communauté. Vous pouvez l'utiliser dans cette communauté."
 
 #. Description of a custom sticker in the sticker info card when the viewer can use it outside the community. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:42
+#: src/features/expressions/components/ExpressionInfoCard.tsx:32
 msgid "A custom sticker from this community. You can use it anywhere on {productName}."
 msgstr "Un sticker personnalisé de cette communauté. Vous pouvez l'utiliser partout sur {productName}."
 
 #. Description of a custom sticker in the sticker info card when the viewer can only use it inside the community.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:54
+#: src/features/expressions/components/ExpressionInfoCard.tsx:44
 msgid "A custom sticker from this community. You can use it in this community."
 msgstr "Un sticker personnalisé de cette communauté. Vous pouvez l'utiliser dans cette communauté."
 
@@ -2410,14 +2378,9 @@ msgid "a date or date range"
 msgstr "une date ou une plage de dates"
 
 #. Description of a built-in unicode emoji in the emoji info card. productName is the Fluxer product name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:32
+#: src/features/expressions/components/ExpressionInfoCard.tsx:22
 msgid "A default emoji. You can use it anywhere on {productName}."
 msgstr "Un emoji par défaut. Vous pouvez l'utiliser n'importe où sur {productName}."
-
-#. Inline validation error on the Discovery application form when the description field is empty.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:114
-msgid "A description is required."
-msgstr "Une description est requise."
 
 #. Duration label component for a very short elapsed call.
 #: src/features/channel/components/CallMessage.tsx:63
@@ -2825,7 +2788,7 @@ msgid "Activity log"
 msgstr "Journal d’activité"
 
 #. Community settings tab showing activity log entries and moderation history.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:61
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:59
 msgctxt "community-settings-tab"
 msgid "Activity log"
 msgstr "Journal d’activité"
@@ -2838,7 +2801,7 @@ msgid "Activity sharing"
 msgstr "Partage d’activité"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:465
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:444
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:102
 msgid "Activity threshold"
 msgstr "Seuil d'activité"
@@ -2855,7 +2818,6 @@ msgstr "Taille réelle"
 #: src/features/expressions/components/modals/AddFavoriteChannelModal.tsx:56
 #: src/features/expressions/components/modals/meme_form/MemeFormFields.tsx:52
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:53
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:599
 #: src/features/relationship/components/modals/AddFriendsToGroupModal.tsx:79
 #: src/features/user/components/modals/tabs/chat_settings_tab/AddCustomSearchEngineModal.tsx:100
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:586
@@ -2907,11 +2869,6 @@ msgstr "Ajouter un raccourci"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:44
 msgid "Add a tag"
 msgstr "Ajouter une étiquette"
-
-#. Placeholder in the tag input on the Discovery application form. "Enter" refers to the Enter/Return key.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:137
-msgid "Add a tag and press Enter"
-msgstr "Ajoutez une étiquette et appuyez sur Entrée"
 
 #. Placeholder inside the empty channel topic input in channel settings.
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/ChannelOverviewTopicEditor.tsx:40
@@ -3311,7 +3268,7 @@ msgid "Adds H.264 for mixed clients. Requires more encoding."
 msgstr "Ajoute H.264 pour les appels utilisant différents clients. Nécessite un encodage supplémentaire."
 
 #. Description for the custom profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:96
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:94
 msgid "Adjust each setting yourself: noise suppression, echo cancellation, and gain."
 msgstr "Ajustez chaque paramètre vous-même : suppression du bruit, annulation de l'écho et gain."
 
@@ -3443,10 +3400,7 @@ msgstr "Les contrôles d'alignement ne sont disponibles que sur les écrans plus
 #. Audit log target-type filter option. Shows entries for every target type.
 #. Column header in the notification overrides table. Short label for the All messages option. Standalone word; refers to "all messages".
 #. Date-range filter option meaning no time window is applied. Used on the community members page.
-#. Label for the all-categories tab in the Discovery page.
-#. Label for the all-categories tab in the Discovery page.
 #. Short label in the channel and chat memes picker header. Keep it concise.
-#. Short label in the discovery category bottom sheet. Keep it concise.
 #. Tab label in the DM friends view showing all friends.
 #. Tab label in the mobile memes (saved media) picker. Shows all saved media regardless of type.
 #: src/features/app/config/AuditLogConstants.ts:143
@@ -3454,9 +3408,6 @@ msgstr "Les contrôles d'alignement ne sont disponibles que sur les écrans plus
 #: src/features/channel/components/guild_members_page/GuildMembersPageDescriptors.ts:10
 #: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
-#: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:11
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:21
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:25
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:131
 msgid "All"
 msgstr "Tout"
@@ -3532,13 +3483,6 @@ msgstr "Tous les amis"
 msgid "All inputs are fully interactive, so type away."
 msgstr "Tous les champs sont entièrement interactifs, alors n'hésitez pas à taper."
 
-#. Option in the discovery language filter that clears the filter. Keep it concise.
-#. Short label in the discovery page. Keep it concise.
-#: src/features/discovery/discovery/DiscoveryLanguageDropdown.tsx:14
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:29
-msgid "All languages"
-msgstr "Toutes les langues"
-
 #. Activity log value for the default notification setting of a community where members are notified about every message.
 #. Notification level option. Sends a push for every message in the channel or community. Paired with "Only mentions" and "Nothing".
 #. Short label in the default notifications section. Keep it concise.
@@ -3580,11 +3524,11 @@ msgstr "Autoriser {everyoneMention} et {hereMention}"
 msgid "Allow {PRODUCT_NAME} to access your camera in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 msgstr "Autorisez {PRODUCT_NAME} à accéder à votre caméra dans {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:533
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:512
 msgid "Allow {PRODUCT_NAME} to access your microphone in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 msgstr "Autorisez {PRODUCT_NAME} à accéder à votre micro dans {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:538
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:517
 msgid "Allow {PRODUCT_NAME} to access your microphone. Check your browser's address bar or settings."
 msgstr "Autorisez {PRODUCT_NAME} à accéder à votre microphone. Vérifiez la barre d'adresse ou les paramètres de votre navigateur."
 
@@ -3687,7 +3631,7 @@ msgstr "Autoriser les membres sans la permission {readMessageHistoryPermissionLa
 msgid "Allow mentions for this role"
 msgstr "Autoriser les mentions pour ce rôle"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:558
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:537
 msgid "Allow microphone"
 msgstr "Autoriser l’accès au micro"
 
@@ -4135,11 +4079,6 @@ msgstr "Animations"
 msgid "Animations while unfocused"
 msgstr "Animations lorsque l'application n'est pas active"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:101
-msgid "Anime & manga"
-msgstr "Anime et mangas"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:119
 msgid "Announce"
@@ -4269,7 +4208,7 @@ msgid "App state"
 msgstr "État de l’application"
 
 #. Fallback label for an app window card in the screen-share picker when the OS does not give us a window title.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:141
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:140
 msgid "App window"
 msgstr "Fenêtre d'application"
 
@@ -4362,7 +4301,7 @@ msgstr "Application mise à jour avec succès"
 #: src/features/user/components/settings_utils/search_index/SharedDescriptors.ts:29
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:66
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:184
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:183
 msgid "Applications"
 msgstr "Applications"
 
@@ -4383,8 +4322,8 @@ msgstr "Appliquer"
 
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:45
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:25
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:44
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:24
 msgid "Apply theme"
 msgstr "Appliquer le thème"
 
@@ -4402,18 +4341,8 @@ msgstr "Approbation requise"
 msgid "Approve"
 msgstr "Approuver"
 
-#. Discovery application status badge in the community Discovery settings tab. The community has been approved and is listed.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:45
-msgid "Approved"
-msgstr "Approuvé"
-
-#. Short label in the Discovery page sidebar. Keep it concise.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:19
-msgid "Apps"
-msgstr "Applications"
-
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:12
+#: src/features/user/utils/LocaleUtils.ts:10
 msgid "Arabic"
 msgstr "Arabe"
 
@@ -4713,7 +4642,7 @@ msgid "Audio level"
 msgstr "Niveau audio"
 
 #. Footer summary status shown when capture-device audio is disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:258
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:257
 msgid "Audio muted"
 msgstr "Audio coupé"
 
@@ -4953,8 +4882,8 @@ msgid "Auto-detect language"
 msgstr "Détection automatique de la langue"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:116
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:452
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:110
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:431
 msgid "Auto-set activity threshold"
 msgstr "Définir automatiquement le seuil d'activité"
 
@@ -5455,7 +5384,7 @@ msgid "Banner preview"
 msgstr "Aperçu de la bannière"
 
 #. Community settings tab for banned users.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:91
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:84
 msgctxt "community-settings-tab"
 msgid "Bans"
 msgstr "Bannissements"
@@ -5503,11 +5432,6 @@ msgstr "Avantages"
 #: src/features/voice/utils/ScreenShareCodecPolicy.ts:9
 msgid "Best compression. Use it only when WebRTC exposes an encoder and the GPU report says it is hardware-backed."
 msgstr "Meilleure compression. À utiliser uniquement lorsque WebRTC expose un encodeur et que le rapport GPU indique qu'il est pris en charge par le matériel."
-
-#. CTA card title in the screen-share picker promoting the desktop app for richer screen sharing.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:12
-msgid "Best with the desktop app"
-msgstr "Idéal avec l'appli de bureau"
 
 #: src/features/ui/components/form/UsernameValidationRules.tsx:45
 msgid "Between 1 and {maxLength} characters"
@@ -5729,7 +5653,7 @@ msgstr "Limite de messages enregistrés atteinte"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:526
-#: src/features/input/state/input_keybind/shared.ts:265
+#: src/features/input/state/input_keybind/shared.ts:261
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:66
 msgid "Bookmark message"
 msgstr "Enregistrer le message"
@@ -6048,7 +5972,7 @@ msgid "Bulgaria"
 msgstr "Bulgarie"
 
 #. Accessible label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:16
+#: src/features/user/utils/LocaleUtils.ts:14
 msgid "Bulgarian"
 msgstr "Bulgare"
 
@@ -6216,12 +6140,12 @@ msgid "Camera"
 msgstr "Caméra"
 
 #. Title shown in the screen-share Devices tab before camera preview permission is granted.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:156
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:155
 msgid "Camera access is needed for device previews"
 msgstr "L'accès à la caméra est nécessaire pour les aperçus de périphériques"
 
 #. Description shown after camera preview permission is denied or unavailable.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:164
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:163
 msgid "Camera access was not granted. Update camera permissions, then try again."
 msgstr "L'accès à la caméra n'a pas été accordé. Mettez à jour les autorisations de la caméra, puis réessayez."
 
@@ -6523,13 +6447,6 @@ msgstr "Carte non éligible"
 msgid "Card verification was canceled. You can close this tab and return to the app."
 msgstr "La vérification de la carte a été annulée. Vous pouvez fermer cet onglet et retourner à l'application."
 
-#. Heading above the category filter list in the Discovery search sidebar.
-#. Short label in the discovery category bottom sheet. Keep it concise.
-#: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:15
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:21
-msgid "Categories"
-msgstr "Catégories"
-
 #. Lowercase channel type label used inside channel-list accessible text.
 #: src/features/app/components/layout/ChannelItem.tsx:84
 msgid "category"
@@ -6537,12 +6454,11 @@ msgstr "catégorie"
 
 #. Channel type chip label for a community category container.
 #: src/features/channel/utils/ChannelUtils.tsx:35
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:465
 msgid "Category"
 msgstr "Catégorie"
 
 #. Title in a modal shown before opening a category with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:187
+#: src/features/channel/components/MatureContentChannelGate.tsx:160
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:39
 msgid "Category content warning"
 msgstr "Avertissement relatif au contenu de la catégorie"
@@ -6742,7 +6658,7 @@ msgid "Change stream"
 msgstr "Changer de diffusion"
 
 #. Modal title for the screen-share picker when switching an ongoing stream to a new source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:217
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:216
 msgid "Change stream source"
 msgstr "Changer la source de la diffusion"
 
@@ -7049,7 +6965,7 @@ msgid "Channel badges"
 msgstr "Badges de salon"
 
 #. Title in a modal shown before opening a channel with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:189
+#: src/features/channel/components/MatureContentChannelGate.tsx:162
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:43
 msgid "Channel content warning"
 msgstr "Avertissement sur le contenu du salon"
@@ -7273,11 +7189,6 @@ msgstr "Découvrez mon thème personnalisé !"
 msgid "Check your connection and try again."
 msgstr "Vérifiez votre connexion et réessayez."
 
-#. Empty-state hint in Discovery shown under the heading when the request for communities failed.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:32
-msgid "Check your connection, then try again."
-msgstr "Vérifiez votre connexion, puis réessayez."
-
 #. Required-action modal carousel step title for existing-email verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:240
 #: src/features/auth/flow/IpAuthorizationScreen.tsx:120
@@ -7340,12 +7251,12 @@ msgid "Child safety or mature content"
 msgstr "Sécurité des enfants ou contenu pour adultes"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:140
+#: src/features/user/utils/LocaleUtils.ts:138
 msgid "Chinese (simplified)"
 msgstr "Chinois (simplifié)"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:144
+#: src/features/user/utils/LocaleUtils.ts:142
 msgid "Chinese (traditional)"
 msgstr "Chinois (traditionnel)"
 
@@ -7522,13 +7433,9 @@ msgid "Choose payment method"
 msgstr "Choisir le mode de paiement"
 
 #. Modal title for the screen-share picker when starting a new screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:221
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:220
 msgid "Choose something to share"
 msgstr "Choisissez ce que vous voulez partager"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:483
-msgid "Choose the category that best describes your community. You can change this any time."
-msgstr "Choisissez la catégorie qui décrit le mieux votre communauté. Vous pourrez la modifier à tout moment."
 
 #. Setup wizard premium model step title.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:303
@@ -7649,8 +7556,8 @@ msgstr "Finaliser l’inscription pour récupérer le cadeau"
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:41
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:40
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:28
 msgid "Claim gift"
 msgstr "Récupérer le cadeau"
 
@@ -7898,7 +7805,7 @@ msgid "Clear trusted domains ({trustedDomainsCount})"
 msgstr "Effacer les domaines de confiance ({trustedDomainsCount})"
 
 #. Footer summary description for the text-focused screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:245
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:244
 msgid "Clearer text"
 msgstr "Texte plus clair"
 
@@ -8371,11 +8278,6 @@ msgstr "Confortable"
 msgid "Comfy layout"
 msgstr "Disposition confortable"
 
-#. Small badge on disabled Discovery sidebar navigation items for sections not available yet.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:27
-msgid "Coming soon"
-msgstr "Bientôt disponible"
-
 #. Short label in the theme studio library section. Keep it concise.
 #: src/features/theme_studio/sections/LibrarySection.tsx:121
 msgid "comma, separated"
@@ -8436,14 +8338,14 @@ msgid "Communities with over 250 people are forced onto the \"mentions only\" se
 msgstr "Les communautés de plus de 250 personnes sont automatiquement réglées sur \" Mentions seulement \". Votre réglage d'origine est conservé et sera restauré si la communauté compte moins de 250 membres."
 
 #. Audit log target-type filter label. Filters entries to community-level actions.
-#. Community settings sidebar category grouping discovery and the vanity URL.
+#. Community settings sidebar category grouping the vanity URL settings.
 #. Developer / debug surface — keep terse and technical. Fallback label used in the IAR preview tool when no community context is supplied.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short option type label in the OAuth bot invite destination selector.
 #: src/features/app/config/AuditLogConstants.ts:147
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:48
 #: src/features/moderation/components/report_modal/IARModalPreview.tsx:16
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:253
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:236
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:140
 msgid "Community"
 msgstr "Communauté"
@@ -8459,7 +8361,7 @@ msgid "Community badges"
 msgstr "Badges de communauté"
 
 #. Title in a modal shown before opening a community with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:185
+#: src/features/channel/components/MatureContentChannelGate.tsx:158
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:35
 msgid "Community content warning"
 msgstr "Avertissement concernant le contenu de la communauté"
@@ -8543,7 +8445,7 @@ msgid "Community members"
 msgstr "Membres de la communauté"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the community-membership CTA banner.
-#: src/features/devtools/components/NagbarControls.ts:12
+#: src/features/devtools/components/NagbarControls.ts:7
 msgid "Community membership CTA nagbar"
 msgstr "Barre de notification d'incitation à l'action pour l'adhésion à la communauté"
 
@@ -8553,7 +8455,7 @@ msgid "Community message notifications"
 msgstr "Notifications des messages de communauté"
 
 #. Developer control label for the community MFA requirement banner.
-#: src/features/devtools/components/NagbarControls.ts:76
+#: src/features/devtools/components/NagbarControls.ts:71
 msgid "Community MFA requirement nagbar"
 msgstr "Bannière d’exigence MFA de la communauté"
 
@@ -8608,11 +8510,6 @@ msgstr "Couronne du propriétaire de la communauté"
 msgid "Community owners and users with the <0>{administratorPermissionLabel}</0> permission always have all permissions, including <1>{readMessageHistoryPermissionLabel}</1>, so they aren't affected by this setting."
 msgstr "Les propriétaires de communauté et les utilisateurs disposant de la permission <0>{administratorPermissionLabel}</0> ont toujours toutes les permissions, y compris <1>{readMessageHistoryPermissionLabel}</1>, ils ne sont donc pas affectés par ce paramètre."
 
-#. Accessible title of the modal that previews a Discovery community before joining it.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:22
-msgid "Community preview"
-msgstr "Aperçu de la communauté"
-
 #. Submenu label that groups privacy options for the community.
 #: src/features/ui/action_menu/items/BulkSettingsMenuItems.tsx:69
 msgid "Community privacy settings"
@@ -8634,7 +8531,7 @@ msgid "Community record"
 msgstr "Données de la communauté"
 
 #. Root label for community settings modal and settings search paths.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:227
 msgid "Community settings"
 msgstr "Paramètres de la communauté"
 
@@ -8701,7 +8598,7 @@ msgstr "Pour continuer à utiliser {productName}, veuillez suivre l'une des mét
 msgid "Complete payment"
 msgstr "Finaliser le paiement"
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:67
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:64
 msgid "Complete the mature content check to unlock mature media."
 msgstr "Effectuez la vérification pour accéder aux médias réservés aux adultes."
 
@@ -8908,11 +8805,11 @@ msgstr "Connectez une caméra et réessayez."
 msgid "Connect a camera or virtual capture device, then try again."
 msgstr "Connectez une caméra ou un appareil de capture virtuel, puis réessayez."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:133
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:132
 msgid "Connect a display, then try again."
 msgstr "Connectez un écran, puis réessayez."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:543
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:522
 msgid "Connect a microphone and try again."
 msgstr "Connectez un microphone et réessayez."
 
@@ -9093,11 +8990,6 @@ msgstr "Contacter l'assistance"
 #: src/features/auth/components/ContentBlockedHandler.tsx:10
 msgid "Content blocked"
 msgstr "Contenu bloqué"
-
-#. Discovery category dropdown option in the community Discovery settings tab. Communities run by an individual creator.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:96
-msgid "Content creator"
-msgstr "Créateur de contenu"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:204
@@ -9504,7 +9396,7 @@ msgstr "Copier le message"
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:736
-#: src/features/input/state/input_keybind/shared.ts:277
+#: src/features/input/state/input_keybind/shared.ts:273
 msgid "Copy message ID"
 msgstr "Copier l'ID du message"
 
@@ -9512,7 +9404,7 @@ msgstr "Copier l'ID du message"
 #. IAR modal: quick-action card title.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:518
-#: src/features/input/state/input_keybind/shared.ts:273
+#: src/features/input/state/input_keybind/shared.ts:269
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:389
 msgid "Copy message link"
 msgstr "Copier le lien du message"
@@ -9623,7 +9515,7 @@ msgid "Copying image..."
 msgstr "Copie de l'image…"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the corrupted-installation banner.
-#: src/features/devtools/components/NagbarControls.ts:17
+#: src/features/devtools/components/NagbarControls.ts:12
 msgid "Corrupted installation nagbar"
 msgstr "Barre de notification d'installation corrompue"
 
@@ -9655,11 +9547,6 @@ msgstr "Impossible d’accepter la demande d’ami"
 #: src/features/relationship/components/alerts/RelationshipErrorModalUtils.tsx:62
 msgid "Couldn't accept the friend request. Try again."
 msgstr "Impossible d'accepter la demande d'ami. Veuillez réessayer."
-
-#. Error modal title shown when a custom Discovery tag cannot be added.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:72
-msgid "Couldn't add tag"
-msgstr "Impossible d’ajouter le tag"
 
 #. Body of the generic fallback error modal shown when adding a friend to a group DM fails.
 #: src/features/channel/components/alerts/GroupDmRecipientErrorModalUtils.tsx:23
@@ -9853,11 +9740,6 @@ msgstr "Impossible d'ignorer la demande d'ami. Veuillez réessayer."
 msgid "Couldn't join community"
 msgstr "Impossible de rejoindre la communauté"
 
-#. Title of the generic fallback error modal shown when joining a discovery community fails.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:14
-msgid "Couldn't join this community"
-msgstr "Impossible de rejoindre cette communauté"
-
 #. Error modal title shown when leaving a group DM fails.
 #: src/features/guild/components/alerts/GroupLeaveFailedModal.tsx:9
 msgid "Couldn't leave group"
@@ -9877,11 +9759,6 @@ msgstr "Impossible de charger les applications autorisées"
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:40
 msgid "Couldn't load bans"
 msgstr "Impossible de charger les bannissements"
-
-#. Empty-state heading in Discovery shown when the request for communities failed.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:28
-msgid "Couldn't load communities"
-msgstr "Impossible de charger les communautés"
 
 #. Error modal title shown when fetching invites fails.
 #: src/features/invite/components/alerts/InvitesLoadFailedModal.tsx:9
@@ -10167,11 +10044,6 @@ msgstr "Impossible de vérifier la connexion"
 msgid "Couldn't verify with passkey. Try again."
 msgstr "Impossible de vérifier avec la clé d'accès. Veuillez réessayer."
 
-#. Error modal title shown when withdrawing a community Discovery application fails.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:68
-msgid "Couldn't withdraw application"
-msgstr "Impossible de retirer la candidature"
-
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #: src/features/channel/components/channel_header_components/developer_tools/MockingMenu.tsx:40
 msgid "Countdown timer"
@@ -10231,11 +10103,11 @@ msgstr "Créer un nouveau groupe avec {userName}"
 #: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:118
 msgid "Create account"
 msgstr "Créer un compte"
 
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:123
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:112
 msgid "Create account to claim gift"
 msgstr "Créer un compte pour récupérer le cadeau"
 
@@ -10438,7 +10310,7 @@ msgid "Croatia"
 msgstr "Croatie"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:68
+#: src/features/user/utils/LocaleUtils.ts:66
 msgid "Croatian"
 msgstr "Croate"
 
@@ -10562,12 +10434,12 @@ msgid "Current uses:"
 msgstr "Utilisations actuelles :"
 
 #. Developer nagbar status: the banner is dismissed in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:109
+#: src/features/devtools/components/NagbarControls.ts:104
 msgid "Currently dismissed"
 msgstr "Actuellement ignoré"
 
 #. Developer nagbar status: the banner is showing in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:113
+#: src/features/devtools/components/NagbarControls.ts:108
 msgid "Currently showing"
 msgstr "Affiché actuellement"
 
@@ -10582,7 +10454,7 @@ msgstr "Actuellement : {mutedText}"
 #: src/features/user/components/modals/tabs/notifications_tab/NotificationsTabSounds.tsx:186
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:94
 #: src/features/voice/components/bottomsheets/VoiceSettingsBottomSheets.tsx:45
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:237
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:236
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:97
 msgid "Custom"
 msgstr "Personnalisé"
@@ -10596,7 +10468,7 @@ msgstr "Personnalisé"
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:91
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:89
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:42
 #: src/features/voice/components/VoiceSettingsMenus.tsx:70
 msgctxt "voice-processing-profile"
@@ -10733,10 +10605,6 @@ msgstr "Statut personnalisé"
 msgid "Custom status: "
 msgstr "Statut personnalisé : "
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:511
-msgid "Custom tags"
-msgstr "Tags personnalisés"
-
 #. Feature comparison table perk label. Shown as the row name comparing restricted vs stock limits.
 #: src/features/app/components/dialogs/components/FeatureComparisonTable.tsx:79
 msgid "Custom themes"
@@ -10857,7 +10725,7 @@ msgid "Cyprus"
 msgstr "Chypre"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:20
+#: src/features/user/utils/LocaleUtils.ts:18
 msgid "Czech"
 msgstr "Tchèque"
 
@@ -10893,7 +10761,7 @@ msgid "Danger zone"
 msgstr "Zone de danger"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:24
+#: src/features/user/utils/LocaleUtils.ts:22
 msgid "Danish"
 msgstr "Danois"
 
@@ -11144,7 +11012,7 @@ msgid "Default"
 msgstr "Par défaut"
 
 #. Fallback label for the system default camera in the screen-share devices tab.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:152
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:151
 msgid "Default camera"
 msgstr "Caméra par défaut"
 
@@ -11623,14 +11491,8 @@ msgstr "Décrire ce média pour les lecteurs d'écran"
 msgid "Describe what makes the content illegal"
 msgstr "Décrivez en quoi le contenu est illégal"
 
-#. Placeholder in the description textarea on the Discovery application form.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:128
-msgid "Describe what your community is about"
-msgstr "Décrivez votre communauté"
-
 #. Generic form-field label for a free-form description.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:422
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:498
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:137
 msgid "Description"
@@ -11640,16 +11502,6 @@ msgstr "Description"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:36
 msgid "Description must be 500 characters or fewer"
 msgstr "La description doit contenir 500 caractères ou moins"
-
-#. Inline validation error on the Discovery application form when the description is too short. {discoveryDescriptionMinLength} is an integer.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:118
-msgid "Description must be at least {discoveryDescriptionMinLength} characters."
-msgstr "La description doit contenir au moins {discoveryDescriptionMinLength} caractères."
-
-#. Inline validation error on the Discovery application form when the description is too long. {discoveryDescriptionMaxLength} is an integer.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:123
-msgid "Description must be no more than {discoveryDescriptionMaxLength} characters."
-msgstr "La description ne doit pas dépasser {discoveryDescriptionMaxLength} caractères."
 
 #. Developer settings tab showing UI component examples.
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:148
@@ -11701,18 +11553,13 @@ msgstr "Absent (ordinateur)"
 msgid "Desktop device"
 msgstr "Appareil de bureau"
 
-#. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the desktop-download banner.
-#: src/features/devtools/components/NagbarControls.ts:7
-msgid "Desktop download nagbar"
-msgstr "Barre de notification de téléchargement pour ordinateur"
-
 #. Settings search entry description. One-line summary of what the settings search entry controls.
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:78
 msgid "Desktop inactivity before mobile push"
 msgstr "Délai d’inactivité sur ordinateur avant les notifications push sur mobile"
 
 #. Developer control label for the desktop-notification banner.
-#: src/features/devtools/components/NagbarControls.ts:40
+#: src/features/devtools/components/NagbarControls.ts:35
 msgid "Desktop notification nagbar"
 msgstr "Bandeau d’activation des notifications de bureau"
 
@@ -11890,7 +11737,7 @@ msgstr "Appareil :"
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:11
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:82
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:57
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:192
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:191
 msgid "Devices"
 msgstr "Appareils"
 
@@ -11998,7 +11845,7 @@ msgstr "Envoi direct actif"
 #. Short footer action in the screen-share picker that disables screen-share preview frame uploads.
 #: src/features/user/components/modals/tabs/account_security_tab/SecurityTab.tsx:238
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:138
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:278
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:277
 msgid "Disable"
 msgstr "Désactiver"
 
@@ -12170,7 +12017,7 @@ msgid "Disabled value"
 msgstr "Valeur désactivée"
 
 #. Explains what happens after disabling screen-share preview uploads. Refers to already-uploaded preview thumbnails.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:326
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:325
 msgid "Disabling previews stops future preview uploads. Existing preview images may remain visible until the stream ends or the preview refreshes."
 msgstr "La désactivation des aperçus empêche l’envoi de nouveaux aperçus. Les images déjà envoyées peuvent rester visibles jusqu’à la fin de la diffusion ou à l’actualisation de l’aperçu."
 
@@ -12205,7 +12052,7 @@ msgstr "Se déconnecter de {channel}"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Tray menu item. Leaves the current voice call when the channel name is unavailable.
-#: src/features/input/state/input_keybind/shared.ts:317
+#: src/features/input/state/input_keybind/shared.ts:313
 #: src/features/platform/utils/DesktopLocaleBridge.ts:220
 msgid "Disconnect from voice"
 msgstr "Se déconnecter de l'appel vocal"
@@ -12234,47 +12081,8 @@ msgstr "Communauté présente dans Découverte"
 
 #. Join source label on the community members page. Shown when the member found the community via the Discovery surface.
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:56
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:328
 msgid "Discovery"
 msgstr "Découverte"
-
-#. Community settings tab for public community discovery/listing.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:76
-msgctxt "community-settings-tab"
-msgid "Discovery"
-msgstr "Découverte"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:285
-msgid "Discovery application sent"
-msgstr "Candidature à Découverte envoyée"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:304
-msgid "Discovery application withdrawn"
-msgstr "Candidature à Découverte retirée"
-
-#. Accessible label for the category tabs in the Discovery page.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:25
-msgid "Discovery categories"
-msgstr "Catégories de Découverte"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:277
-msgid "Discovery listing updated"
-msgstr "Fiche de Découverte mise à jour"
-
-#. Accessible label for the section navigation in the Discovery page sidebar.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:15
-msgid "Discovery navigation"
-msgstr "Navigation dans Découverte"
-
-#. Accessible label for the Discovery community results region.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:30
-msgid "Discovery results"
-msgstr "Résultats de Découverte"
-
-#. Accessible label for the search form in the Discovery navigation bar.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:33
-msgid "Discovery search"
-msgstr "Recherche dans Découverte"
 
 #. Generic button label that dismisses a banner, modal, sheet, or prompt without taking the primary action.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:310
@@ -12314,7 +12122,7 @@ msgid "Display"
 msgstr "Affichage"
 
 #. Fallback label for a display / monitor card in the screen-share picker when the OS does not give us a display name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:146
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:145
 msgctxt "display-screen"
 msgid "Display"
 msgstr "Écran"
@@ -12479,11 +12287,6 @@ msgstr "Voulez-vous aussi bloquer les messages privés des bots de vos communaut
 msgid "Do you also want to block direct messages from members of your existing communities?"
 msgstr "Voulez-vous aussi bloquer les messages privés des membres de vos communautés actuelles ?"
 
-#. Body of the confirmation shown before joining a discoverable community from an expression info card. {communityName} is the community name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:110
-msgid "Do you want to join {communityName}?"
-msgstr "Voulez-vous rejoindre {communityName} ?"
-
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
@@ -12611,9 +12414,7 @@ msgid "Download"
 msgstr "Télécharger"
 
 #. Nagbar button label that downloads the desktop app. productName is the app name.
-#. Short label in the sidebar navigation download button. Preserve {productName}; it is inserted by code.
 #: src/features/app/components/layout/app_layout/nagbars/CorruptedInstallationNagbar.tsx:17
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:26
 msgid "Download {productName}"
 msgstr "Télécharger {productName}"
 
@@ -12630,11 +12431,6 @@ msgstr "Télécharger l’audio"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:91
 msgid "Download button"
 msgstr "Bouton de téléchargement"
-
-#. Button or menu action label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:104
-msgid "Download desktop app"
-msgstr "Télécharger l’application de bureau"
 
 #. Tooltip on the channel header updater icon prompting download of an update with no version or size info.
 #: src/features/channel/components/channel_header_components/UpdaterIcon.tsx:54
@@ -12831,11 +12627,11 @@ msgstr "Déposer l'objet"
 msgid "Drop to upload background"
 msgstr "Déposer pour importer un arrière-plan"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:85
+#: src/features/channel/components/MatureContentChannelGate.tsx:82
 msgid "Due to mature content laws in {regionName}, mature content is blocked until you complete the mature content check."
 msgstr "En raison de la législation sur les contenus pour adultes dans votre région ({regionName}), ces contenus sont bloqués jusqu’à ce que vous effectuiez la vérification d’accès."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:95
+#: src/features/channel/components/MatureContentChannelGate.tsx:92
 msgid "Due to mature content laws in {regionName}, mature content is not available from here. Mature content checks are available only in the UK."
 msgstr "En raison de la législation sur les contenus pour adultes dans votre région ({regionName}), ces contenus ne sont pas accessibles depuis votre position actuelle. La vérification d’accès est disponible uniquement au Royaume-Uni."
 
@@ -12849,7 +12645,7 @@ msgstr "En raison de la législation sur les contenus pour adultes dans votre r�
 msgid "Due to mature content laws in {regionName}, this content is not available from here. Mature content checks are available only in the UK."
 msgstr "En raison de la législation sur les contenus pour adultes dans votre région ({regionName}), ce contenu n’est pas accessible depuis votre position actuelle. La vérification d’accès est disponible uniquement au Royaume-Uni."
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:61
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:58
 msgid "Due to mature content laws in {regionName}, this media is not available from your current region."
 msgstr "En raison de la législation sur les contenus pour adultes dans votre région ({regionName}), ce média n’est pas accessible depuis votre position actuelle."
 
@@ -12876,7 +12672,7 @@ msgid "Duration:"
 msgstr "Durée :"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:96
+#: src/features/user/utils/LocaleUtils.ts:94
 msgid "Dutch"
 msgstr "Néerlandais"
 
@@ -13141,11 +12937,6 @@ msgstr "La modification est temporairement indisponible. Veuillez réessayer plu
 msgid "Editing message"
 msgstr "Modification du message"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:88
-msgid "Education"
-msgstr "Éducation"
-
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:184
 msgid "Eligible for a refund until {windowEndsOn}."
 msgstr "Éligible à un remboursement jusqu'au {windowEndsOn}."
@@ -13227,7 +13018,7 @@ msgid "Email us and a person will review your account. Tell us you cannot verify
 msgstr "Envoyez-nous un e-mail et une personne examinera votre compte. Indiquez-nous que vous ne pouvez pas vérifier par SMS et nous nous en chargerons. Les réponses arrivent par e-mail, ce n'est donc pas instantané."
 
 #. Developer control label for the email-verification banner.
-#: src/features/devtools/components/NagbarControls.ts:36
+#: src/features/devtools/components/NagbarControls.ts:31
 msgid "Email verification nagbar"
 msgstr "Bannière de vérification de l'e-mail"
 
@@ -13324,7 +13115,7 @@ msgid "Emoji"
 msgstr "Emoji"
 
 #. Community settings tab for managing custom emoji uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:36
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:34
 msgctxt "community-settings-tab"
 msgid "Emoji"
 msgstr "Emoji"
@@ -13443,7 +13234,7 @@ msgid "Enable"
 msgstr "Activer"
 
 #. Voice settings CTA label for opening a platform permission prompt.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:124
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:118
 msgid "Enable {permissionName} permission"
 msgstr "Activer la permission {permissionName}"
 
@@ -13502,7 +13293,7 @@ msgid "Enable browser notifications"
 msgstr "Activer les notifications du navigateur"
 
 #. Description shown before the user explicitly requests camera preview permission.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:160
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:159
 msgid "Enable camera access to preview cameras and capture devices before choosing one to stream."
 msgstr "Activez l'accès à la caméra pour prévisualiser les caméras et les périphériques de capture avant d'en choisir un à diffuser."
 
@@ -13618,7 +13409,7 @@ msgid "Enable or disable built-in translators. Enabled translators appear in the
 msgstr "Activer ou désactiver les traducteurs intégrés. Les traducteurs activés apparaissent dans le menu contextuel des messages lorsque du texte est sélectionné."
 
 #. Button that explicitly requests camera permission for device previews.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:168
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:167
 msgid "Enable previews"
 msgstr "Activer les aperçus"
 
@@ -13797,12 +13588,12 @@ msgid "Endpoint:"
 msgstr "Point de terminaison :"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:36
+#: src/features/user/utils/LocaleUtils.ts:34
 msgid "English"
 msgstr "Anglais"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:40
+#: src/features/user/utils/LocaleUtils.ts:38
 msgid "English (US)"
 msgstr "Anglais (États-Unis)"
 
@@ -14047,13 +13838,8 @@ msgstr "Saisissez votre mot de passe."
 msgid "Enter your phone number"
 msgstr "Saisissez votre numéro de téléphone"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:84
-msgid "Entertainment"
-msgstr "Divertissement"
-
 #. Tab label in the screen-share picker. Lists shareable monitors / displays.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:188
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:187
 msgid "Entire screen"
 msgstr "Écran entier"
 
@@ -14072,7 +13858,7 @@ msgstr "Audio du système entier"
 #. Voice menu submenu label that contains per-user entrance sound mute and volume controls.
 #: src/features/ui/action_menu/items/VoiceParticipantMenuData.tsx:181
 #: src/features/ui/action_menu/items/VoiceParticipantMenuItems.tsx:310
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:189
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:183
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:150
 msgid "Entrance sound"
 msgstr "Son d’entrée"
@@ -14182,7 +13968,7 @@ msgstr "Soir"
 
 #. Description for the automatic gain control toggle in the voice processing settings.
 #. Description for the automatic gain control toggle in the voice processing settings.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:173
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:167
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "Équilibre le volume de votre micro pour que votre voix reste bien audible."
@@ -14373,7 +14159,7 @@ msgid "Expired between {earliest} and {latest}"
 msgstr "Expiré entre le {earliest} et le {latest}"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:15
+#: src/features/app/components/shared/ExpiryFootnote.tsx:12
 msgid "Expired on {date}"
 msgstr "Expiré le {date}"
 
@@ -14406,7 +14192,7 @@ msgid "Expires in {remaining}s"
 msgstr "Expire dans {remaining} s"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:19
+#: src/features/app/components/shared/ExpiryFootnote.tsx:16
 msgid "Expires on {date}"
 msgstr "Expire le {date}"
 
@@ -14423,16 +14209,6 @@ msgstr "Expire :"
 #: src/features/guild/components/modals/guild_tabs/GuildModerationTab.tsx:127
 msgid "Explicit content filter setting"
 msgstr "Paramètre du filtre de contenu explicite"
-
-#. Short label in the app layout discovery guild header.
-#: src/features/app/components/layout/DiscoveryGuildHeader.tsx:9
-msgid "Explore"
-msgstr "Explorer"
-
-#. Short label in the sidebar navigation discovery button.
-#: src/features/app/components/layout/sidebar_nav/DiscoveryButton.tsx:21
-msgid "Explore communities"
-msgstr "Découvrir des communautés"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/theme_studio/sections/LibrarySection.tsx:494
@@ -14484,7 +14260,7 @@ msgstr "Catégories du sélecteur d’expressions"
 
 #. Community settings sidebar category grouping the emoji and stickers tabs.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:249
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:232
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:137
 msgid "Expressions"
 msgstr "Expressions"
@@ -14657,7 +14433,7 @@ msgid "Failed to load invites. Try again."
 msgstr "Échec du chargement des invitations. Veuillez réessayer."
 
 #. Error text shown in the screen-share picker when the list of shareable windows/displays fails to load.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:120
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:119
 msgid "Failed to load shareable sources."
 msgstr "Échec du chargement des sources partageables."
 
@@ -15078,13 +14854,6 @@ msgstr "Filtrer par contenu"
 msgid "Filter by join method"
 msgstr "Filtrer par méthode d'adhésion"
 
-#. Label for the discovery language filter button. Keep it concise.
-#. Short label in the discovery page. Keep it concise.
-#: src/features/discovery/discovery/DiscoveryLanguageButton.tsx:16
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:33
-msgid "Filter by language"
-msgstr "Filtrer par langue"
-
 #. Accessible label for the join-date filter chip on the community members page.
 #: src/features/channel/components/guild_members_page/MembersTableHeaderRow.tsx:13
 msgid "Filter by member since"
@@ -15125,11 +14894,6 @@ msgstr "Filtrer les mentions"
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:192
 msgid "Filtering"
 msgstr "Filtrage"
-
-#. Label for the discovery language filter button once a language is chosen. Preserve {language}; it is inserted by code.
-#: src/features/discovery/discovery/DiscoveryLanguageButton.tsx:20
-msgid "Filtering by {language}"
-msgstr "Filtrer par {language}"
 
 #: src/features/voice/components/modals/CameraPreviewModal.tsx:788
 msgid "Finalizing camera..."
@@ -15187,7 +14951,7 @@ msgid "Finland"
 msgstr "Finlande"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:52
+#: src/features/user/utils/LocaleUtils.ts:50
 msgid "Finnish"
 msgstr "Finnois"
 
@@ -15392,12 +15156,12 @@ msgid "For your security, please confirm it's you to continue."
 msgstr "Pour votre sécurité, veuillez confirmer votre identité pour continuer."
 
 #. Developer nagbar override status: the banner is forced to hide.
-#: src/features/devtools/components/NagbarControls.ts:97
+#: src/features/devtools/components/NagbarControls.ts:92
 msgid "Force disabled"
 msgstr "Désactivé de force"
 
 #. Developer nagbar override status: the banner is forced to show.
-#: src/features/devtools/components/NagbarControls.ts:93
+#: src/features/devtools/components/NagbarControls.ts:88
 msgid "Force enabled"
 msgstr "Activé de force"
 
@@ -15617,7 +15381,7 @@ msgid "Free vs {premiumProductName}"
 msgstr "Gratuit ou {premiumProductName}"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:56
+#: src/features/user/utils/LocaleUtils.ts:54
 msgid "French"
 msgstr "Français"
 
@@ -15899,11 +15663,9 @@ msgctxt "gamepad-button-name"
 msgid "Gamepad Y / Triangle"
 msgstr "Manette Y / Triangle"
 
-#. Discovery category dropdown option in the community Discovery settings tab.
 #. Footer summary label for the gaming screen-share quality preset.
 #. Streaming preset label in the stream settings menu. Higher frame rate, optimized for video games.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:76
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:229
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:228
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:70
 msgid "Gaming"
 msgstr "Jeux vidéo"
@@ -15962,7 +15724,7 @@ msgid "Georgia"
 msgstr "Géorgie"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:28
+#: src/features/user/utils/LocaleUtils.ts:26
 msgid "German"
 msgstr "Allemand"
 
@@ -15996,16 +15758,6 @@ msgstr "Recevez des notifications lorsque vous recevez des messages. Vous devrez
 #: src/features/user/components/modals/tabs/notifications_tab/Notifications.tsx:48
 msgid "Get notified when you receive messages. You may need to allow notifications in your browser settings. For per-channel/per-community controls, right-click a community icon and open notification settings."
 msgstr "Recevez des notifications lorsque vous recevez des messages. Vous devrez peut-être autoriser les notifications dans les paramètres de votre navigateur. Pour les contrôles par salon/communauté, faites un clic droit sur l'icône d'une communauté et ouvrez les paramètres de notification."
-
-#. Nagbar body encouraging web users to download the desktop app. productName is the app name.
-#: src/features/app/components/layout/app_layout/nagbars/DesktopDownloadNagbar.tsx:17
-msgid "Get the {productName} desktop app for system-wide push-to-talk and a few other goodies."
-msgstr "Téléchargez l’application de bureau {productName} pour utiliser « Appuyer pour parler » dans tout le système et profiter d’autres avantages."
-
-#. CTA button label in the screen-share picker. Opens the desktop download page.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:20
-msgid "Get the desktop app"
-msgstr "Télécharger l’application de bureau"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Type label for GIF media.
@@ -16126,7 +15878,7 @@ msgid "Gift inventory flow"
 msgstr "Parcours de l’inventaire des cadeaux"
 
 #. Developer control label for the gift-inventory banner.
-#: src/features/devtools/components/NagbarControls.ts:56
+#: src/features/devtools/components/NagbarControls.ts:51
 msgid "Gift inventory nagbar"
 msgstr "Bannière d'inventaire de cadeaux"
 
@@ -16266,7 +16018,7 @@ msgid "Go back and enter a valid email."
 msgstr "Retournez en arrière et saisissez une adresse e-mail valide."
 
 #. Accessible label for the community row of an expression info card, which opens a community the viewer is already a member of. {communityName} is the community name.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:89
+#: src/features/expressions/components/ExpressionInfoCard.tsx:79
 msgid "Go to {communityName}"
 msgstr "Aller à {communityName}"
 
@@ -16429,7 +16181,7 @@ msgid "Greece"
 msgstr "Grèce"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:32
+#: src/features/user/utils/LocaleUtils.ts:30
 msgid "Greek"
 msgstr "Grec"
 
@@ -16757,7 +16509,7 @@ msgid "Heart"
 msgstr "Cœur"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:60
+#: src/features/user/utils/LocaleUtils.ts:58
 msgid "Hebrew"
 msgstr "Hébreu"
 
@@ -16779,11 +16531,6 @@ msgstr "Bonjour, {username} ! Nous sommes ravis de vous compter parmi nous."
 #: src/features/platform/utils/DesktopLocaleBridge.ts:142
 msgid "Help"
 msgstr "Aide"
-
-#. Short label in the sidebar navigation help button.
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:27
-msgid "Help center"
-msgstr "Centre d'aide"
 
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:348
 msgid "Help translate {PRODUCT_NAME} into your language on <0>{I18N_WEBLATE_DOMAIN}</0>."
@@ -16900,12 +16647,8 @@ msgstr "Masquer le chat"
 msgid "Hide community owner crown"
 msgstr "Masquer la couronne du propriétaire de la communauté"
 
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:62
-msgid "Hide download button"
-msgstr "Masquer le bouton de téléchargement"
-
 #. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:13
+#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
 msgstr "Masquer les notes de bas de page d'expiration"
 
@@ -16913,10 +16656,6 @@ msgstr "Masquer les notes de bas de page d'expiration"
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Masquer les favoris"
-
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:63
-msgid "Hide help center button"
-msgstr "Masquer le bouton du centre d'aide"
 
 #. Short label in the system welcome section. Keep it concise.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:32
@@ -17051,7 +16790,7 @@ msgid "Higher values remove more noise but can affect speech texture."
 msgstr "Des valeurs plus élevées suppriment plus de bruit, mais peuvent affecter la texture de la voix."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:64
+#: src/features/user/utils/LocaleUtils.ts:62
 msgid "Hindi"
 msgstr "Hindi"
 
@@ -17165,7 +16904,7 @@ msgid "How this works"
 msgstr "Fonctionnement"
 
 #. Accessible label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:72
+#: src/features/user/utils/LocaleUtils.ts:70
 msgid "Hungarian"
 msgstr "Hongrois"
 
@@ -17237,8 +16976,8 @@ msgid "I need another way"
 msgstr "J'ai besoin d'une autre option"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/channel/components/MatureContentChannelGate.tsx:207
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
+#: src/features/channel/components/MatureContentChannelGate.tsx:180
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:102
 msgid "I understand"
 msgstr "J'ai compris"
 
@@ -17662,10 +17401,6 @@ msgstr "Dans"
 msgid "In \"Operating system\" mode, dictionaries listed above are advisory. {PRODUCT_NAME} will pass these language tags to your OS spellchecker when supported. Tags it doesn't recognize are ignored."
 msgstr "En mode « Système d’exploitation », les dictionnaires ci-dessus sont indicatifs. {PRODUCT_NAME} transmet ces codes de langue au correcteur orthographique de votre système lorsque celui-ci le permet. Les codes non reconnus sont ignorés."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:310
-msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
-msgstr "Dans un navigateur, la fonction \" Appuyer pour parler \" ne fonctionne que lorsque l'onglet {PRODUCT_NAME} est actif. Installez l'application de bureau pour utiliser cette fonction à l'échelle du système."
-
 #: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "En appel"
@@ -17868,7 +17603,7 @@ msgid "Indicators & status"
 msgstr "Indicateurs et statut"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:76
+#: src/features/user/utils/LocaleUtils.ts:74
 msgid "Indonesian"
 msgstr "Indonésien"
 
@@ -17953,7 +17688,7 @@ msgid "Input access was changed. Fully quit and restart {productName} so system-
 msgstr "L’accès aux entrées a été modifié. Quittez complètement puis redémarrez {productName} pour que les raccourcis système puissent l’utiliser."
 
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:177
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:171
 msgid "Input and output"
 msgstr "Entrée et sortie"
 
@@ -18011,11 +17746,6 @@ msgstr "Inser"
 msgid "Insert emoji"
 msgstr "Insérer un emoji"
 
-#. CTA card body in the screen-share picker promoting the desktop app. {productName} is Fluxer.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:16
-msgid "Install {productName} for the full source picker and smoother screen-sharing controls."
-msgstr "Installez {productName} pour profiter de toutes les options de sélection de source et de commandes de partage d'écran plus fluides."
-
 #. Label for the installed desktop version in the Linux update modal.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:136
 msgid "Installed"
@@ -18053,7 +17783,7 @@ msgstr "Nombre entier"
 
 #. Community settings sidebar category grouping webhooks.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:257
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:240
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:26
 msgid "Integrations"
 msgstr "Intégrations"
@@ -18339,7 +18069,7 @@ msgid "Invite unavailable"
 msgstr "Invitation non disponible"
 
 #. Subtitle for a community that can only be joined with an invite.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:80
+#: src/features/expressions/components/ExpressionInfoCard.tsx:70
 msgid "Invite-only community"
 msgstr "Communauté sur invitation"
 
@@ -18370,7 +18100,7 @@ msgid "Invites"
 msgstr "Invitations"
 
 #. Community settings tab for invite link management.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:86
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:79
 msgctxt "community-settings-tab"
 msgid "Invites"
 msgstr "Invitations"
@@ -18407,7 +18137,7 @@ msgid "Invites disabled"
 msgstr "Invitations désactivées"
 
 #. Developer control label for the invites-disabled banner.
-#: src/features/devtools/components/NagbarControls.ts:72
+#: src/features/devtools/components/NagbarControls.ts:67
 msgid "Invites disabled nagbar"
 msgstr "Bannière \" Invitations désactivées \""
 
@@ -18469,18 +18199,13 @@ msgstr "Il a peut-être été supprimé avant d’avoir pu être cloné."
 msgid "It may have been deleted. The name was reverted to what it was before."
 msgstr "Il a peut-être été supprimé. Le nom a été restauré à sa version précédente."
 
-#. Body of the error modal shown when a discovery community is no longer joinable (delisted, invites off, or discovery disabled).
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:51
-msgid "It may have left discovery or turned off new joins. Refresh the page and you won't see it again."
-msgstr "Cette communauté a peut-être quitté Découverte ou désactivé les nouvelles adhésions. Actualisez la page pour qu’elle n’apparaisse plus."
-
 #. Label in the channel and chat active now sidebar.
 #: src/features/channel/components/active_now/ActiveNowSidebar.tsx:17
 msgid "It's quiet for now..."
 msgstr "C'est calme pour l'instant..."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:80
+#: src/features/user/utils/LocaleUtils.ts:78
 msgid "Italian"
 msgstr "Italien"
 
@@ -18495,7 +18220,7 @@ msgid "Italy"
 msgstr "Italie"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:84
+#: src/features/user/utils/LocaleUtils.ts:82
 msgid "Japanese"
 msgstr "Japonais"
 
@@ -18516,10 +18241,8 @@ msgstr "Gigue :"
 msgid "Join"
 msgstr "Rejoindre"
 
-#. Accessible label of a button that joins a community. {communityName} is the community name.
 #. Nagbar button label that opens the official product community invite. communityName is the community name.
 #: src/features/app/components/layout/app_layout/nagbars/GuildMembershipCtaNagbar.tsx:29
-#: src/features/expressions/components/ExpressionInfoCard.tsx:94
 msgid "Join {communityName}"
 msgstr "Rejoindre {communityName}"
 
@@ -18644,10 +18367,6 @@ msgstr "Passer d'un salon non lu à l'autre"
 #: src/features/input/state/input_keybind/shared.ts:61
 msgid "Jump between unread channels with mentions"
 msgstr "Passer d'un salon non lu à l'autre avec des mentions"
-
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:75
-msgid "Jump straight to the app to continue."
-msgstr "Accédez directement à l'app pour continuer."
 
 #. Tooltip / aria label on a button that jumps to the channel. {channelSourceLabel} is the channel or DM name.
 #: src/features/voice/components/voice_connection_status/VoiceConnectionStatusInner.tsx:87
@@ -18809,7 +18528,7 @@ msgid "Keep these safe. Regenerating will break existing integrations."
 msgstr "Gardez-les en sécurité. La régénération interrompra les intégrations existantes."
 
 #. Description for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:79
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:77
 msgid "Keep transmitting briefly after release."
 msgstr "Continuer à transmettre brièvement après avoir relâché le bouton."
 
@@ -18913,7 +18632,7 @@ msgid "Klipy GIFs"
 msgstr "GIF Klipy"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:88
+#: src/features/user/utils/LocaleUtils.ts:86
 msgid "Korean"
 msgstr "Coréen"
 
@@ -19037,7 +18756,7 @@ msgid "Layout"
 msgstr "Mise en page"
 
 #. Accessible label for the screen-share picker footer info button.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:282
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:281
 msgid "Learn about screen share previews"
 msgstr "En savoir plus sur les aperçus du partage d’écran"
 
@@ -19434,10 +19153,6 @@ msgstr "Linux (par défaut)"
 msgid "Linux package"
 msgstr "Paquet Linux"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:331
-msgid "List your community in Discovery so others can find and join it."
-msgstr "Répertoriez votre communauté dans Découverte pour que d'autres puissent la trouver et la rejoindre."
-
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:33
 msgid "Lists"
@@ -19454,7 +19169,7 @@ msgid "Lithuania"
 msgstr "Lituanie"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:92
+#: src/features/user/utils/LocaleUtils.ts:90
 msgid "Lithuanian"
 msgstr "Lituanien"
 
@@ -19477,11 +19192,6 @@ msgstr "Chargement"
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:164
 msgid "Loading banned users"
 msgstr "Chargement des utilisateurs bannis"
-
-#. Screen-reader status text shown while Discovery communities are loading.
-#: src/features/discovery/discovery/DiscoveryPage.tsx:38
-msgid "Loading communities"
-msgstr "Chargement des communautés"
 
 #. OAuth bot invite destination selector placeholder while eligible destinations load.
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:40
@@ -19626,7 +19336,7 @@ msgid "Look and feel"
 msgstr "Apparence"
 
 #. placeholder {0}: externalProcessor.name
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:652
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:631
 msgid "Looks like you're using {0}. Stacking {PRODUCT_NAME}'s processing on top can cause pumping or distortion. Direct input passes your audio through untouched."
 msgstr "Il semble que vous utilisiez {0}. Empiler le traitement de {PRODUCT_NAME} par-dessus peut provoquer des pompages ou des distorsions. L'entrée directe transmet votre audio sans modification."
 
@@ -20044,15 +19754,15 @@ msgstr "Massachusetts"
 msgid "Master volume"
 msgstr "Volume principal"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:141
+#: src/features/channel/components/MatureContentChannelGate.tsx:130
 msgid "Mature category"
 msgstr "Catégorie réservée aux adultes"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:163
+#: src/features/channel/components/MatureContentChannelGate.tsx:144
 msgid "Mature channel"
 msgstr "Salon réservé aux adultes"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:118
+#: src/features/channel/components/MatureContentChannelGate.tsx:115
 msgid "Mature community"
 msgstr "Communauté réservée aux adultes"
 
@@ -20093,7 +19803,7 @@ msgstr "Vérification d’accès aux contenus pour adultes envoyée"
 
 #. Body copy in the mature content check modal when the check is unavailable.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:36
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:71
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:68
 msgid "Mature content checks are currently available only in the UK."
 msgstr "La vérification d’accès aux contenus pour adultes est actuellement disponible uniquement au Royaume-Uni."
 
@@ -20134,7 +19844,7 @@ msgstr "Contenu pour adultes sans restriction d’accès appropriée."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the mature media gate details modal. Keep it concise.
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:26
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:23
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:184
 msgid "Mature media"
 msgstr "Médias pour adultes"
@@ -20412,7 +20122,7 @@ msgid "Members"
 msgstr "Membres"
 
 #. Community settings tab for managing community members.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:81
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:74
 msgctxt "community-settings-tab"
 msgid "Members"
 msgstr "Membres"
@@ -20879,7 +20589,7 @@ msgstr "Micro"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:185
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:179
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:142
 msgid "Mic test"
 msgstr "Test micro"
@@ -21137,7 +20847,7 @@ msgid "Moderation"
 msgstr "Modération"
 
 #. Community settings tab for moderation and safety controls.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:56
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:54
 msgctxt "community-settings-tab"
 msgid "Moderation"
 msgstr "Modération"
@@ -21399,11 +21109,6 @@ msgstr "A déplacé le rôle plus haut dans la liste des membres"
 msgid "Moved the role up in the role list"
 msgstr "A déplacé le rôle plus haut dans la liste des rôles"
 
-#. Discovery category dropdown option in the community Discovery settings tab. "TV" is the abbreviation for television.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:105
-msgid "Movies & TV"
-msgstr "Films et séries TV"
-
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:212
 msgid "MP3"
@@ -21423,11 +21128,6 @@ msgstr "Multiligne"
 #: src/features/typing/rolling/RollingTypingText.tsx:29
 msgid "Multiple people are typing..."
 msgstr "Plusieurs personnes tapent..."
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:80
-msgid "Music"
-msgstr "Musique"
 
 #. Folder icon option in the community-folder settings modal: a music note shape.
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:65
@@ -21998,7 +21698,7 @@ msgid "New"
 msgstr "Nouveau"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:136
+#: src/features/app/components/layout/GuildsLayout.tsx:131
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Nouveau"
@@ -22263,7 +21963,7 @@ msgstr "Aucun paramètre avancé trouvé"
 msgid "No AFK channel"
 msgstr "Aucun salon AFK"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:124
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:123
 msgid "No application windows found"
 msgstr "Aucune fenêtre d'application trouvée"
 
@@ -22359,16 +22059,6 @@ msgstr "Aucun salon disponible"
 msgid "No channels found"
 msgstr "Aucun salon trouvé"
 
-#. Empty-state hint in Discovery shown under the heading when no communities are listed at all.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:24
-msgid "No communities are listed right now. Check back a little later."
-msgstr "Aucune communauté n'est répertoriée pour le moment. Revenez un peu plus tard."
-
-#. Empty-state text in the discovery page.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:12
-msgid "No communities match."
-msgstr "Aucune communauté ne correspond."
-
 #. OAuth bot invite empty state shown when the user has no communities or group DMs where they can invite a bot.
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:30
 msgid "No communities or group DMs available for this bot."
@@ -22390,19 +22080,12 @@ msgstr "Aucun raccourci personnalisé ne correspond à cette recherche."
 msgid "No custom shortcuts yet."
 msgstr "Aucun raccourci personnalisé pour l'instant."
 
-#. Empty-state text in the discovery guild card.
-#. Empty-state text shown in the Discovery community preview modal when a community has no description.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:30
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:23
-msgid "No description."
-msgstr "Aucune description."
-
 #. Desktop updater modal body when no installed version string is available.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:49
 msgid "No desktop update is available."
 msgstr "Aucune mise à jour de l’application de bureau n’est disponible."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:130
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:129
 msgid "No displays found"
 msgstr "Aucun écran trouvé"
 
@@ -22526,7 +22209,7 @@ msgstr "Aucun résultat"
 msgid "No mentions yet"
 msgstr "Aucune mention pour l'instant"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:528
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:507
 msgid "No microphone found"
 msgstr "Aucun microphone détecté"
 
@@ -22886,7 +22569,7 @@ msgid "North Dakota"
 msgstr "Dakota du Nord"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:100
+#: src/features/user/utils/LocaleUtils.ts:98
 msgid "Norwegian"
 msgstr "Norvégien"
 
@@ -22914,10 +22597,6 @@ msgstr "Non disponible"
 #: src/features/app/constants/AppConstants.ts:57
 msgid "Not connected"
 msgstr "Non connecté"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:346
-msgid "Not enough members"
-msgstr "Pas assez de membres"
 
 #: src/features/expressions/components/FavoritesWelcomeSection.tsx:38
 msgid "Not for you? Turn it off anytime."
@@ -22985,11 +22664,6 @@ msgstr "Aucun"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:591
 msgid "Nothing matches"
 msgstr "Aucun résultat"
-
-#. Empty-state heading in Discovery shown when no communities are listed at all.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:20
-msgid "Nothing to explore yet"
-msgstr "Rien à explorer pour le moment"
 
 #. Title of the error modal shown when there is no refundable purchase on the account.
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:55
@@ -23207,7 +22881,7 @@ msgstr "Une fois supprimée, l'application et ses identifiants sont définitivem
 msgid "Once deletion is processed, you cannot recover access to your account"
 msgstr "Une fois la suppression effectuée, vous ne pourrez plus récupérer l'accès à votre compte"
 
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:134
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:123
 msgid "Once your account is created, we'll take you back to the theme so you can apply it."
 msgstr "Une fois votre compte créé, nous vous ramènerons au thème pour que vous puissiez l'appliquer."
 
@@ -23407,11 +23081,6 @@ msgstr "Ouvrir {landmarkName}"
 msgid "Open {macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName}, then allow {productName}. If {productName2} is already enabled, fully quit and restart {productName3} so macOS applies the permission."
 msgstr "Ouvrez « {macosSystemSettingsName} » → « {macosPrivacyAndSecuritySettingsName} » → « {macosScreenRecordingPermissionName} », puis autorisez {productName}. Si {productName2} est déjà activé, quittez complètement et redémarrez {productName3} pour que macOS applique l’autorisation."
 
-#. Button label that opens the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:27
-msgid "Open {productName}"
-msgstr "Ouvrir {productName}"
-
 #. Button or menu action label in the channel and chat gif picker grid item. Keep it concise. Preserve {title}; it is inserted by code.
 #: src/features/channel/components/pickers/gif/GifPickerGridItem.tsx:37
 msgid "Open {title}"
@@ -23427,7 +23096,7 @@ msgstr "Ouvrir @{displayName}"
 msgid "Open advanced media settings"
 msgstr "Ouvrir les paramètres multimédias avancés"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:127
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:126
 msgid "Open an application window, then try again."
 msgstr "Ouvrez une fenêtre d'application, puis réessayez."
 
@@ -23490,7 +23159,7 @@ msgid "Open browser"
 msgstr "Ouvrir le navigateur"
 
 #. Primary button in the screen-share picker on web. Hands off to the browser's native getDisplayMedia picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:208
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:207
 msgid "Open browser picker"
 msgstr "Ouvrir le sélecteur de navigateur"
 
@@ -23525,11 +23194,6 @@ msgstr "Ouvrir la fenêtre de finalisation de l’inscription"
 #: src/features/ui/components/form/ColorPickerField.tsx:23
 msgid "Open color picker"
 msgstr "Ouvrir le sélecteur de couleurs"
-
-#. Button label in the Discovery community preview modal shown when the user is already a member.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:26
-msgid "Open community"
-msgstr "Ouvrir la communauté"
 
 #. Short label in the app layout guild header. Preserve {guildName}; it is inserted by code.
 #: src/features/app/components/layout/GuildHeader.tsx:33
@@ -23618,11 +23282,6 @@ msgstr "Ouvrir le lien GIF"
 msgid "Open group details for {groupDMName}"
 msgstr "Ouvrir les détails du groupe pour {groupDMName}"
 
-#. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:233
-msgid "Open help"
-msgstr "Ouvrir l'aide"
-
 #. Action that opens the image URL in an external browser.
 #. Action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/ReverseImageSearchMenuItems.tsx:29
@@ -23647,11 +23306,6 @@ msgstr "Ouvrir l’image en grand"
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
 msgstr "Ouvrir le lien de l'image"
-
-#. Title in a web prompt that opens the same flow in the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:23
-msgid "Open in {productName} for desktop"
-msgstr "Ouvrir dans {productName} pour ordinateur"
 
 #. Media viewer action that opens the current media in the system default browser.
 #: src/features/messaging/components/modals/media_modal/shared.ts:77
@@ -23758,7 +23412,7 @@ msgid "Open system DM"
 msgstr "Ouvrir la conversation privée avec le système"
 
 #. Primary button in the screen-share picker on Linux/Wayland. Hands off to the OS xdg-desktop-portal picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:213
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:212
 msgid "Open system picker"
 msgstr "Ouvrir le sélecteur système"
 
@@ -23772,7 +23426,7 @@ msgid "Open the ban dialog for this community."
 msgstr "Ouvrir la boîte de dialogue de bannissement pour cette communauté."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:241
+#: src/features/input/state/input_keybind/shared.ts:237
 msgid "Open the context menu"
 msgstr "Ouvrir le menu contextuel"
 
@@ -23795,7 +23449,7 @@ msgid "Open the verification email and use the link inside. This window updates 
 msgstr "Ouvrez l'e-mail de vérification et utilisez le lien qu'il contient. Cette fenêtre se mettra à jour une fois le lien ouvert."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:249
+#: src/features/input/state/input_keybind/shared.ts:245
 msgid "Open theme studio popout"
 msgstr "Ouvrir la fenêtre contextuelle du studio de thèmes"
 
@@ -23853,7 +23507,7 @@ msgid "Open your phone's messaging app and start a new text message."
 msgstr "Ouvrez l’application de SMS de votre téléphone et commencez un nouveau message."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:245
+#: src/features/input/state/input_keybind/shared.ts:241
 msgid "Open your settings"
 msgstr "Ouvrir vos réglages"
 
@@ -23998,10 +23652,8 @@ msgstr "Banni à l'origine par {user} le {date}"
 msgid "Originally banned on {date}"
 msgstr "Banni à l'origine le {date}"
 
-#. Catch-all Discovery category dropdown option in the community Discovery settings tab.
 #. Collapsible group heading in the Theme Studio tokens list, for tokens that fit no other group.
 #. Report category label for a reason that does not match any predefined category.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:110
 #: src/features/moderation/components/report/OptionDescriptors.ts:70
 #: src/features/theme_studio/sections/TokenGroups.ts:118
 msgid "Other"
@@ -24125,7 +23777,7 @@ msgid "Overview"
 msgstr "Vue d’ensemble"
 
 #. Community settings tab for basic server/community details.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:46
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:44
 msgctxt "community-settings-tab"
 msgid "Overview"
 msgstr "Vue d’ensemble"
@@ -24431,10 +24083,8 @@ msgstr "Les paiements sont temporairement indisponibles. Veuillez réessayer dan
 msgid "Payments are unavailable"
 msgstr "Paiements indisponibles"
 
-#. Discovery application status badge in the community Discovery settings tab. The application is awaiting staff review.
 #. Tab label in the DM friends view showing pending friend requests.
 #: src/features/channel/components/direct_message/DMFriendsView.tsx:45
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:40
 msgid "Pending"
 msgstr "En attente"
 
@@ -24456,7 +24106,7 @@ msgstr "Pennsylvanie"
 #: src/features/expressions/utils/UnicodeEmojis.ts:21
 #: src/features/search/state/QuickSwitcherResultConverters.ts:22
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:53
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:261
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
 msgid "People"
 msgstr "Personnes"
 
@@ -24951,10 +24601,8 @@ msgid "Playing despite reduced motion."
 msgstr "Lecture malgré la réduction des animations."
 
 #. Body of the error modal shown when an action is rate limited.
-#. Body of the error modal shown when joining a discovery community is rate limited.
 #. Body of the error modal shown when sharing or sending a theme link is rate limited.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:13
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:60
 #: src/features/theme/components/modals/ShareThemeModal.tsx:67
 msgid "Please wait a moment and try again."
 msgstr "Veuillez patienter un instant et réessayer."
@@ -24982,7 +24630,7 @@ msgid "Poland"
 msgstr "Pologne"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:104
+#: src/features/user/utils/LocaleUtils.ts:102
 msgid "Polish"
 msgstr "Polonais"
 
@@ -25034,7 +24682,7 @@ msgid "Portugal"
 msgstr "Portugal"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:108
+#: src/features/user/utils/LocaleUtils.ts:106
 msgid "Portuguese (Brazil)"
 msgstr "Portugais (Brésil)"
 
@@ -25120,12 +24768,12 @@ msgid "Premium badge"
 msgstr "Badge Premium"
 
 #. Developer control label for the premium-expired banner.
-#: src/features/devtools/components/NagbarControls.ts:48
+#: src/features/devtools/components/NagbarControls.ts:43
 msgid "Premium expired nagbar"
 msgstr "Bannière d'expiration de l'abonnement Premium"
 
 #. Developer control label for the premium grace-period banner.
-#: src/features/devtools/components/NagbarControls.ts:44
+#: src/features/devtools/components/NagbarControls.ts:39
 msgid "Premium grace period nagbar"
 msgstr "Bannière de période de grâce Premium"
 
@@ -25135,7 +24783,7 @@ msgid "Premium model"
 msgstr "Modèle premium"
 
 #. Developer control label for the premium-onboarding banner.
-#: src/features/devtools/components/NagbarControls.ts:52
+#: src/features/devtools/components/NagbarControls.ts:47
 msgid "Premium onboarding nagbar"
 msgstr "Bannière d'intégration Premium"
 
@@ -25221,11 +24869,6 @@ msgstr "Empêcher les membres d'envoyer des messages, de réagir et de rejoindre
 msgid "Preview"
 msgstr "Aperçu"
 
-#. Accessible label for a Discovery community card, which opens a preview of the community. {communityName} is the public community name.
-#: src/features/discovery/discovery/DiscoveryGuildCard.tsx:31
-msgid "Preview {communityName}"
-msgstr "Aperçu de {communityName}"
-
 #. Short label in the accessibility tab. Keep it concise.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:41
 msgid "Preview button"
@@ -25245,17 +24888,17 @@ msgid "Preview hidden"
 msgstr "Aperçu masqué"
 
 #. Privacy explanation for screen-share previews in a one-to-one DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:320
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:319
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. Disable previews if you do not want screen-share frames uploaded for thumbnails."
 msgstr "Les images d’aperçu sont stockées temporairement par {productName} pour leur distribution et ne sont pas chiffrées de bout en bout. Désactivez les aperçus si vous ne souhaitez pas envoyer des images de votre partage d’écran pour créer les miniatures."
 
 #. Privacy explanation for screen-share previews in a group DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:314
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:313
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People in this group DM do not need to be actively watching your stream to see the thumbnail."
 msgstr "Les images d’aperçu sont stockées temporairement par {productName} pour leur distribution et ne sont pas chiffrées de bout en bout. Les membres de cette conversation de groupe peuvent voir la miniature sans regarder votre diffusion."
 
 #. Privacy explanation for screen-share previews in a guild voice channel. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:308
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:307
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People still need permission to connect, but they do not need to be actively watching your stream."
 msgstr "Les images d’aperçu sont stockées temporairement par {productName} pour leur distribution et ne sont pas chiffrées de bout en bout. Les utilisateurs doivent avoir la permission de se connecter au salon, mais ils peuvent voir les aperçus sans regarder votre diffusion."
 
@@ -25355,10 +24998,6 @@ msgstr "Action principale"
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:33
 msgid "Primary button clicked."
 msgstr "Bouton principal cliqué."
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:488
-msgid "Primary language"
-msgstr "Langue principale"
 
 #. ARIA landmark label for the main app navigation area.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:139
@@ -25656,11 +25295,6 @@ msgstr "PTT"
 msgid "Public bot"
 msgstr "Bot public"
 
-#. Line shown above the community name in the Discovery community preview modal. The user found this community in the public directory rather than being invited to it.
-#: src/features/discovery/components/modals/DiscoveryGuildPreviewModal.tsx:34
-msgid "Public community"
-msgstr "Communauté publique"
-
 #. Description for the closed registration mode.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:175
 msgid "Public registration is closed."
@@ -25771,21 +25405,21 @@ msgid "Push timeout"
 msgstr "Délai avant les notifications push"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:297
+#: src/features/input/state/input_keybind/shared.ts:293
 msgid "Push to mute"
 msgstr "Appuyer pour couper le micro"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/input/state/input_keybind/shared.ts:289
+#: src/features/input/state/input_keybind/shared.ts:285
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:162
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:86
 msgid "Push to talk"
 msgstr "Appuyer pour parler"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:293
+#: src/features/input/state/input_keybind/shared.ts:289
 msgid "Push to talk (priority)"
 msgstr "Appuyer pour parler (priorité)"
 
@@ -25800,18 +25434,18 @@ msgid "Push to talk key"
 msgstr "Touche \" Appuyer pour parler \""
 
 #. Switch label in the voice tab toggling push-to-talk mode. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:112
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:349
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:106
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:337
 #: src/features/voice/components/VoiceSettingsMenus.tsx:419
 msgid "Push-to-talk"
 msgstr "Appuyer pour parler"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:100
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:98
 msgid "Push-to-talk (limited)"
 msgstr "Appuyer pour parler (limité)"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:674
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:653
 msgid "Push-to-talk is ignored in direct input. Switch to focused voice or custom to use it."
 msgstr "« Appuyer pour parler » est ignoré en mode « Entrée directe ». Passez en mode « Optimisé pour la voix » ou « Personnalisé » pour l’utiliser."
 
@@ -25821,12 +25455,12 @@ msgid "Push-to-talk is on. Hold {pushToTalkHint} to speak."
 msgstr "« Appuyer pour parler » est activé. Maintenez {pushToTalkHint} enfoncé pour parler."
 
 #. Voice settings warning shown when macOS Input Monitoring is required for system-wide push-to-talk. {productName} is the app name and {permissionName} is the macOS permission name.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:126
 msgid "Push-to-talk only works while {productName} is focused until {permissionName} is enabled. After changing the permission, fully quit and restart {productName} so system-wide hotkeys can use it."
 msgstr "Le mode « Appuyer pour parler » ne fonctionne que lorsque {productName} est au premier plan, jusqu'à ce que l'autorisation {permissionName} soit activée. Après avoir modifié l'autorisation, quittez et redémarrez complètement {productName} pour que les raccourcis clavier système puissent l'utiliser."
 
 #. Voice settings warning shown when push-to-talk is enabled in a browser.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:128
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:122
 msgid "Push-to-talk only works while the browser tab is focused."
 msgstr "« Appuyer pour parler » fonctionne uniquement lorsque l’onglet du navigateur est actif."
 
@@ -26059,11 +25693,6 @@ msgstr "Raison (facultative)"
 msgid "Reason (optional)."
 msgstr "Raison (facultative)."
 
-#. placeholder {0}: application.removal_reason ?? application.review_reason
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:374
-msgid "Reason: {0}"
-msgstr "Raison : {0}"
-
 #. Column header for opening a billing receipt or invoice.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/components/dialogs/components/plutonium/InvoiceList.tsx:129
@@ -26121,7 +25750,7 @@ msgid "Recommended"
 msgstr "Recommandé"
 
 #. Description for the focused voice profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:83
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:81
 msgid "Recommended. Cleans up your mic for clear speech."
 msgstr "Recommandé. Améliore le son du micro pour une voix claire."
 
@@ -26366,11 +25995,6 @@ msgstr "Bouton normal cliqué."
 msgid "Reject"
 msgstr "Refuser"
 
-#. Discovery application status badge in the community Discovery settings tab. The application was declined by staff.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:50
-msgid "Rejected"
-msgstr "Rejeté"
-
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:129
 msgid "Relative"
@@ -26378,7 +26002,7 @@ msgstr "Relatif"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:75
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:73
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:94
 msgid "Release delay"
 msgstr "Délai de relâchement"
@@ -26687,11 +26311,6 @@ msgstr "Supprimer le spoiler"
 msgid "Remove sticker"
 msgstr "Supprimer le sticker"
 
-#. Accessible label for the per-tag X button in the Discovery tag list. {tag} is the tag text. Used by screen readers.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:132
-msgid "Remove tag {tag}"
-msgstr "Supprimer le tag {tag}"
-
 #. Error message in the linked accounts tab. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:63
 msgid "Remove this connection? Can't be undone."
@@ -26717,11 +26336,6 @@ msgstr "Supprimer la date d'achat de {premiumProductName} de votre badge"
 #: src/features/user/components/modals/tabs/my_profile_tab/PremiumBadgeSettings.tsx:53
 msgid "Remove your Visionary ID badge"
 msgstr "Supprimer votre badge Visionary ID"
-
-#. Discovery application status badge in the community Discovery settings tab. The community was delisted from Discovery.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:55
-msgid "Removed"
-msgstr "Supprimé"
 
 #. Button or menu action label in the messaging commands. Keep it concise. Keep the tone plain and specific.
 #: src/features/messaging/commands/SavedMessageCommands.tsx:24
@@ -27476,7 +27090,7 @@ msgstr "Rétablir les valeurs par défaut"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Label for controls that reset app zoom to 100%, including the app zoom slider button.
-#: src/features/input/state/input_keybind/shared.ts:261
+#: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/user/components/modals/tabs/appearance_tab/ScalingTab.tsx:38
 msgid "Reset zoom"
 msgstr "Réinitialiser le zoom"
@@ -28040,7 +27654,7 @@ msgid "Roles"
 msgstr "Rôles"
 
 #. Community settings tab for role hierarchy and permission rules.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:51
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:49
 msgctxt "community-settings-tab"
 msgid "Roles"
 msgstr "Rôles"
@@ -28060,7 +27674,7 @@ msgid "Romania"
 msgstr "Roumanie"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:112
+#: src/features/user/utils/LocaleUtils.ts:110
 msgid "Romanian"
 msgstr "Roumain"
 
@@ -28114,7 +27728,7 @@ msgid "Runtime utilities"
 msgstr "Utilitaires d'exécution"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:116
+#: src/features/user/utils/LocaleUtils.ts:114
 msgid "Russian"
 msgstr "Russe"
 
@@ -28153,7 +27767,6 @@ msgstr "Saturation"
 #: src/features/expressions/components/modals/AddFavoriteMemeModal.tsx:118
 #: src/features/expressions/components/modals/EditFavoriteMemeModal.tsx:94
 #: src/features/expressions/components/modals/EditGuildStickerModal.tsx:123
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:631
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:279
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:91
 #: src/features/messaging/components/modals/AttachmentEditModal.tsx:136
@@ -28276,14 +27889,9 @@ msgid "Scan the QR code with your authenticator app."
 msgstr "Scannez le code QR avec votre application d’authentification."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the scheduled-maintenance banner.
-#: src/features/devtools/components/NagbarControls.ts:22
+#: src/features/devtools/components/NagbarControls.ts:17
 msgid "Scheduled maintenance nagbar"
 msgstr "Barre de notification de maintenance planifiée"
-
-#. Discovery category dropdown option in the community Discovery settings tab.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:92
-msgid "Science & technology"
-msgstr "Sciences et technologies"
 
 #. Filter category label in the mobile channel search sheet for the search scope selector.
 #. Summary row label on the confirm step showing the user-picked scope.
@@ -28326,7 +27934,7 @@ msgstr "Autorisation d'enregistrement d'écran requise"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Streaming preset label in the stream settings menu. Optimized for sharp text in screen shares.
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:222
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:233
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:232
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:83
 msgid "Screen share"
 msgstr "Partage d'écran"
@@ -28342,7 +27950,7 @@ msgid "Screen share audio boost"
 msgstr "Amplification du son du partage d’écran"
 
 #. Error modal title shown when the selected native screen-share audio route cannot start safely.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:176
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:175
 msgid "Screen share audio couldn't start"
 msgstr "Le partage audio de l'écran n'a pas pu démarrer"
 
@@ -28383,17 +27991,17 @@ msgid "Screen share preview behavior"
 msgstr "Comportement de l’aperçu du partage d’écran"
 
 #. Title of an informational modal explaining screen-share preview frame uploads.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:286
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:285
 msgid "Screen share previews"
 msgstr "Aperçus du partage d’écran"
 
 #. Compact footer status in the screen-share picker when preview frame uploads are disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:274
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:273
 msgid "Screen share previews are disabled."
 msgstr "Les aperçus de partage d’écran sont désactivés."
 
 #. Compact footer status in the screen-share picker when preview frame uploads are enabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:270
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:269
 msgid "Screen share previews are enabled."
 msgstr "Les aperçus de partage d’écran sont activés."
 
@@ -28589,11 +28197,6 @@ msgstr "Rechercher par nom d'utilisateur ou ID"
 msgid "Search channels"
 msgstr "Rechercher des salons"
 
-#. Accessible label and placeholder for the community search field in the Discovery page.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:29
-msgid "Search communities"
-msgstr "Rechercher des communautés"
-
 #. Button or menu action label in the phone add modal. Keep it concise.
 #: src/features/user/components/modals/PhoneAddModal.tsx:62
 msgid "Search countries..."
@@ -28619,14 +28222,12 @@ msgstr "Moteur de recherche"
 msgid "Search engines"
 msgstr "Moteurs de recherche"
 
-#. Accessible label for the filter sidebar shown beside the Discovery search results.
 #. Section header in the message search popout listing available filter operators.
 #. Section header in the message search popout listing available filter operators.
 #. Section header in the message search popout listing available filter operators.
 #: src/features/channel/components/message_search_bar/FilterOption.tsx:14
 #: src/features/channel/components/message_search_bar/HistorySection.tsx:16
 #: src/features/channel/components/message_search_bar/PlaintextSection.tsx:18
-#: src/features/discovery/discovery/DiscoverySearchFilters.tsx:17
 msgid "Search filters"
 msgstr "Filtres de recherche"
 
@@ -28678,7 +28279,7 @@ msgstr "Rechercher des langues…"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:137
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:480
 #: src/features/channel/components/message_search_bar/MessageSearchBar.tsx:56
-#: src/features/input/state/input_keybind/shared.ts:237
+#: src/features/input/state/input_keybind/shared.ts:233
 msgid "Search messages"
 msgstr "Rechercher des messages"
 
@@ -28718,11 +28319,6 @@ msgstr "Rechercher des permissions…"
 #: src/features/channel/components/channel_search_results/ChannelSearchResultsShared.tsx:53
 msgid "Search results"
 msgstr "Résultats de recherche"
-
-#. Heading in the Discovery navigation bar when a search is active. {query} is the text the user searched for.
-#: src/features/discovery/discovery/DiscoveryNavbar.tsx:37
-msgid "Search results for “{query}”"
-msgstr "Résultats de recherche pour « {query} »"
 
 #. Short label in the settings dialog add override popout.
 #: src/features/app/components/dialogs/shared/AddOverridePopout.tsx:32
@@ -28955,7 +28551,7 @@ msgstr "Aperçu lors du déplacement dans la vidéo"
 
 #. Hover action on a device card that selects the device without starting the stream.
 #: src/features/app/components/dialogs/components/PricingCard.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:200
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:199
 msgid "Select"
 msgstr "Sélectionner"
 
@@ -29077,7 +28673,7 @@ msgid "Select the account you want to sign in with on the desktop app."
 msgstr "Sélectionnez le compte avec lequel vous souhaitez vous connecter sur l'application de bureau."
 
 #. Aria label for the voice processing radio group in the voice settings tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:120
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:114
 msgid "Select voice processing mode"
 msgstr "Sélectionner le mode de traitement vocal"
 
@@ -29366,7 +28962,7 @@ msgstr "Envoyer le code de vérification"
 #. Plus menu item that opens the desktop voice message composer to record and send a voice clip.
 #: src/features/channel/components/textarea/TextareaPlusMenu.tsx:35
 #: src/features/channel/components/VoiceMessageRecorder.tsx:69
-#: src/features/input/state/input_keybind/shared.ts:285
+#: src/features/input/state/input_keybind/shared.ts:281
 msgid "Send voice message"
 msgstr "Envoyer un message vocal"
 
@@ -29405,7 +29001,7 @@ msgid "Sends raw mic audio with no processing."
 msgstr "Envoie l'audio brut du micro sans traitement."
 
 #. Description for the direct input profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:87
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:85
 msgid "Sends your audio untouched. Best if you're using external audio software."
 msgstr "Envoie votre audio tel quel. Idéal si vous utilisez un logiciel audio externe."
 
@@ -29469,7 +29065,7 @@ msgid "Service error"
 msgstr "Erreur de service"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the service incident banner.
-#: src/features/devtools/components/NagbarControls.ts:27
+#: src/features/devtools/components/NagbarControls.ts:22
 msgid "Service incident nagbar"
 msgstr "Bannière d'incident de service"
 
@@ -29782,7 +29378,7 @@ msgid "Share gift"
 msgstr "Partager un cadeau"
 
 #. Hover action on an application or display card that starts sharing that source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:196
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:195
 msgid "Share screen"
 msgstr "Partager l'écran"
 
@@ -29846,8 +29442,8 @@ msgstr "Partager votre activité vocale avec vos amis"
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:25
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:41
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:33
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:40
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:32
 msgid "Shared theme"
 msgstr "Thème partagé"
 
@@ -29920,7 +29516,7 @@ msgstr "Codes courts"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindRow.tsx:121
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:364
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:352
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:38
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:110
 msgid "Shortcut"
@@ -30938,7 +30534,7 @@ msgid "Smooth scrolling"
 msgstr "Défilement fluide"
 
 #. Footer summary description for the gaming screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:241
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:240
 msgid "Smoother video"
 msgstr "Vidéo plus fluide"
 
@@ -31119,10 +30715,8 @@ msgstr "Une erreur est survenue."
 #. Body of the error modal shown when ringing or stopping a ring fails.
 #. Body of the generic fallback error modal shown when deleting a custom emoji fails.
 #. Body of the generic fallback error modal shown when generating a shareable theme link fails.
-#. Body of the generic fallback error modal shown when joining a discovery community fails.
 #. Generic fallback body shown in an error modal when an action fails for an unexpected reason.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:5
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:18
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:129
 #: src/features/theme/components/modals/ShareThemeModal.tsx:51
 #: src/features/ui/action_menu/items/CallMenuItems.tsx:45
@@ -31145,11 +30739,9 @@ msgid "Something went wrong. Try again later."
 msgstr "Un problème est survenu. Veuillez réessayer plus tard."
 
 #. Generic required-action error fallback.
-#. Inline error in the web deep-link prompt when opening the desktop app fails.
 #. Toast error shown when the mature content check request fails unexpectedly.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:18
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:564
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:31
 msgid "Something went wrong. Try again."
 msgstr "Une erreur est survenue. Veuillez réessayer."
 
@@ -31210,7 +30802,7 @@ msgstr "Sons"
 #. Resolution option in the stream settings menu meaning the original source resolution (no downscale).
 #. Short label in the video tab for the native source resolution option. Keep it concise.
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:68
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:249
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:248
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:105
 msgid "Source"
 msgstr "Source"
@@ -31296,12 +30888,12 @@ msgid "Spam, scams, or phishing"
 msgstr "Spam, arnaques ou hameçonnage"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:48
+#: src/features/user/utils/LocaleUtils.ts:46
 msgid "Spanish (Latin America)"
 msgstr "Espagnol (Amérique latine)"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:44
+#: src/features/user/utils/LocaleUtils.ts:42
 msgid "Spanish (Spain)"
 msgstr "Espagnol (Espagne)"
 
@@ -31665,10 +31257,6 @@ msgstr "Indicateurs de statut"
 msgid "Status slate"
 msgstr "Panneau d’état"
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:368
-msgid "Status:"
-msgstr "Statut :"
-
 #. Label in the motion tab.
 #. Settings search entry label. Names the settings search entry in the settings UI.
 #. Short label for an advanced app interaction toggle.
@@ -31803,7 +31391,7 @@ msgid "Stickers"
 msgstr "Stickers"
 
 #. Community settings tab for managing custom stickers uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:41
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:39
 msgctxt "community-settings-tab"
 msgid "Stickers"
 msgstr "Stickers"
@@ -31976,7 +31564,7 @@ msgstr "Empêche le son de vos haut-parleurs de revenir dans votre micro."
 #. Primary footer action that starts streaming the selected capture device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:236
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:204
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:203
 msgid "Stream"
 msgstr "Diffusion"
 
@@ -32015,7 +31603,7 @@ msgid "Stream quality"
 msgstr "Qualité de la diffusion"
 
 #. Toolbar / menu button label in the screen-share picker. Opens the stream quality settings popover.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:225
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:224
 msgid "Stream settings"
 msgstr "Paramètres de diffusion"
 
@@ -32117,10 +31705,6 @@ msgstr "Style"
 #: src/features/ui/action_menu/ContextMenu.tsx:27
 msgid "Submenu"
 msgstr "Sous-menu"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:631
-msgid "Submit application"
-msgstr "Envoyer la candidature"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:445
 msgid "Submitting"
@@ -32257,7 +31841,7 @@ msgid "Sweden"
 msgstr "Suède"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:120
+#: src/features/user/utils/LocaleUtils.ts:118
 msgid "Swedish"
 msgstr "Suédois"
 
@@ -32314,7 +31898,7 @@ msgstr "Passer à la mise en page confortable"
 msgid "Switch to dense layout"
 msgstr "Passer à la mise en page dense"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:647
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:626
 msgid "Switch to direct input"
 msgstr "Passer en mode Entrée directe"
 
@@ -32405,7 +31989,7 @@ msgid "Switch to…"
 msgstr "Passer à…"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:313
+#: src/features/input/state/input_keybind/shared.ts:309
 msgid "Switch voice channel"
 msgstr "Changer de salon vocal"
 
@@ -32515,7 +32099,7 @@ msgstr "Annonces système de l'équipe {productName}. Vous ne pouvez pas répond
 
 #. Audio device option label meaning the OS default audio input device.
 #. Footer summary fallback for the default capture-device audio input.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:262
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:261
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:137
 msgid "System default"
 msgstr "Par défaut du système"
@@ -32627,11 +32211,6 @@ msgstr "Tags"
 #: src/features/expressions/components/modals/sticker_form/StickerFormFields.tsx:49
 msgid "Tags ({tagCount}/{tagLimit})"
 msgstr "Tags ({tagCount}/{tagLimit})"
-
-#. Discovery custom-tag validation error. maxLength is the maximum allowed tag length.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:60
-msgid "Tags must be 2 to {maxLength} characters and alphanumeric."
-msgstr "Les tags doivent contenir entre 2 et {maxLength} caractères alphanumériques."
 
 #: src/features/app/components/dialogs/components/plutonium/SubscriptionCard.tsx:291
 msgid "Takes effect at your next renewal. We'll apply a {creditLabel} credit from your current monthly payment, so your first yearly charge will be <0>{firstRenewalPriceLabel}</0>. Future yearly renewals will be {renewalPrice}/year."
@@ -32750,7 +32329,7 @@ msgid "Tennessee"
 msgstr "Tennessee"
 
 #. Developer control label for the terms-acceptance banner.
-#: src/features/devtools/components/NagbarControls.ts:64
+#: src/features/devtools/components/NagbarControls.ts:59
 msgid "Terms acceptance nagbar"
 msgstr "Bannière d'acceptation des conditions d'utilisation"
 
@@ -32909,7 +32488,7 @@ msgid "Text-to-speech notifications"
 msgstr "Notifications par synthèse vocale"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:124
+#: src/features/user/utils/LocaleUtils.ts:122
 msgid "Thai"
 msgstr "Thaï"
 
@@ -33024,7 +32603,7 @@ msgid "The bot has been added."
 msgstr "Le bot a été ajouté."
 
 #. Status shown when a device preview has not released the camera before the bounded handoff deadline.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:172
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:171
 msgid "The camera preview is still stopping. Try streaming again in a moment."
 msgstr "L'aperçu de la caméra est toujours en cours d'arrêt. Essayez de diffuser à nouveau dans un moment."
 
@@ -33119,10 +32698,6 @@ msgstr "L’invitation a été configurée pour accorder une adhésion temporair
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogInviteWebhookMessages.ts:15
 msgid "The invite was set to never expire"
 msgstr "L'invitation a été configurée pour ne jamais expirer"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:506
-msgid "The language most of your community speaks. Used to filter Discovery results."
-msgstr "La langue la plus parlée dans votre communauté. Elle sert à filtrer les résultats de Découverte."
 
 #. Error modal body shown when revoking an invite fails; warns the user that the link may still be live.
 #: src/features/invite/components/alerts/InviteRevokeFailedModal.tsx:12
@@ -33291,8 +32866,8 @@ msgstr "Fichiers de thème"
 msgid "Theme library"
 msgstr "Bibliothèque de thèmes"
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:175
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:169
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:69
 msgid "Theme not found"
 msgstr "Thème introuvable"
 
@@ -33325,11 +32900,6 @@ msgstr "Variables du thème"
 #: src/features/channel/components/ThemeEmbed.tsx:33
 msgid "Theme unavailable"
 msgstr "Thème non disponible"
-
-#. Short label in the Discovery page sidebar. Keep it concise.
-#: src/features/discovery/discovery/DiscoverySidebar.tsx:23
-msgid "Themes"
-msgstr "Thèmes"
 
 #: src/features/invite/components/modals/InviteModal.tsx:194
 msgid "There are no channels available to create an invite for."
@@ -33459,7 +33029,7 @@ msgid "This category already contains the maximum of {maxChannelsPerCategory} ch
 msgstr "Cette catégorie contient déjà le nombre maximal de {maxChannelsPerCategory} salons."
 
 #. Body in the channel gate modal for a mature category when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:254
+#: src/features/channel/components/MatureContentChannelGate.tsx:227
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:76
 msgid "This category is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Cette catégorie est réservée aux adultes et peut contenir des éléments inappropriés pour certains utilisateurs."
@@ -33487,7 +33057,7 @@ msgid "This channel doesn't have any invite links yet. Create one to invite peop
 msgstr "Ce salon n’a pas encore de liens d’invitation. Créez-en un pour inviter des personnes à le rejoindre."
 
 #. Body in the channel gate modal for a mature text channel when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:282
+#: src/features/channel/components/MatureContentChannelGate.tsx:255
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:91
 msgid "This channel is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Ce salon est réservé aux adultes et peut contenir des éléments inappropriés pour certains utilisateurs."
@@ -33560,31 +33130,16 @@ msgstr "Cette communauté a suspendu les invitations. Vous pourrez réessayer pl
 msgid "This community has reached its maximum member limit and is not accepting new members at this time."
 msgstr "Cette communauté a atteint sa limite maximale de membres et n'accepte plus de nouvelles adhésions pour le moment."
 
-#. Body of the error modal shown when a discovery community has reached its member limit.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:26
-msgid "This community has reached its member limit, so you can't join right now."
-msgstr "Cette communauté a atteint sa limite de membres, vous ne pouvez donc pas la rejoindre pour le moment."
-
 #. Title of the error modal shown when a non-Visionary user tries to rejoin a gated Plutonium community.
 #: src/features/app/components/dialogs/components/plutonium/hooks/useCommunityActions.tsx:18
 msgid "This community is for Visionary members"
 msgstr "Cette communauté est réservée aux membres Visionary"
 
-#. Title of the error modal shown when a discovery community has reached its member limit.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:22
-msgid "This community is full"
-msgstr "Cette communauté est pleine"
-
 #. Body in the channel gate modal for a mature community when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:225
+#: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Cette communauté est réservée aux adultes et peut contenir des éléments inappropriés pour certains utilisateurs."
-
-#. Title of the error modal shown when a discovery community is no longer joinable (delisted, invites off, or discovery disabled).
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:46
-msgid "This community is no longer available"
-msgstr "Cette communauté n’est plus disponible"
 
 #. Description text in the linked accounts tab.
 #. Description text in the user profile shared popout.
@@ -33639,7 +33194,7 @@ msgid "This emoji could not be prepared. Try another file or try again in a mome
 msgstr "Cet emoji n’a pas pu être préparé. Essayez un autre fichier ou réessayez dans un instant."
 
 #. Label above the community an emoji comes from in the emoji info card.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:71
+#: src/features/expressions/components/ExpressionInfoCard.tsx:61
 msgid "This emoji is from"
 msgstr "Cet emoji provient de"
 
@@ -33680,8 +33235,8 @@ msgstr "Ce fichier fait {fileSize}, ce qui dépasse la limite de {maxSize}. Les 
 msgid "This friends list needs more power"
 msgstr "Cette liste d'amis a besoin de plus de puissance"
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:177
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:84
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:170
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:83
 msgid "This gift code has already been claimed."
 msgstr "Ce code cadeau a déjà été utilisé."
 
@@ -33692,8 +33247,8 @@ msgstr "Ce code cadeau a déjà été utilisé."
 msgid "This gift code is invalid or already claimed."
 msgstr "Ce code cadeau n'est pas valide ou a déjà été utilisé."
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:166
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:73
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:159
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:72
 msgid "This gift code may be invalid, expired, or already redeemed."
 msgstr "Ce code cadeau est peut-être invalide, expiré ou a déjà été utilisé."
 
@@ -33750,12 +33305,12 @@ msgid "This invite may have expired or been deleted."
 msgstr "Cette invitation a peut-être expiré ou a été supprimée."
 
 #. Description of a custom emoji from a community the viewer is not a member of.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:61
+#: src/features/expressions/components/ExpressionInfoCard.tsx:51
 msgid "This is a custom emoji from a community."
 msgstr "Ceci est un emoji personnalisé d'une communauté."
 
 #. Description of a custom sticker from a community the viewer is not a member of.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:65
+#: src/features/expressions/components/ExpressionInfoCard.tsx:55
 msgid "This is a custom sticker from a community."
 msgstr "Ceci est un sticker personnalisé d'une communauté."
 
@@ -33844,35 +33399,26 @@ msgid "This link is not available for your account."
 msgstr "Ce lien n'est pas disponible pour votre compte."
 
 #. Body in the channel gate modal when the current user cannot access a mature category.
+#: src/features/channel/components/MatureContentChannelGate.tsx:136
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:63
 msgid "This mature category is not available to your account."
 msgstr "Cette catégorie réservée aux adultes n’est pas accessible avec votre compte."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:147
-msgid "This mature category is not available to your account. <0>Learn more</0>"
-msgstr "Cette catégorie réservée aux adultes n’est pas accessible avec votre compte. <0>En savoir plus</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature channel.
+#: src/features/channel/components/MatureContentChannelGate.tsx:150
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:67
 msgid "This mature channel is not available to your account."
 msgstr "Ce salon réservé aux adultes n’est pas accessible avec votre compte."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:169
-msgid "This mature channel is not available to your account. <0>Learn more</0>"
-msgstr "Ce salon réservé aux adultes n’est pas accessible avec votre compte. <0>En savoir plus</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature community.
+#: src/features/channel/components/MatureContentChannelGate.tsx:121
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:59
 msgid "This mature community is not available to your account."
 msgstr "Cette communauté réservée aux adultes n’est pas accessible avec votre compte."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:124
-msgid "This mature community is not available to your account. <0>Learn more</0>"
-msgstr "Cette communauté réservée aux adultes n’est pas accessible avec votre compte. <0>En savoir plus</0>"
-
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:106
-msgid "This mature media is not available to your account. <0>Learn more</0>"
-msgstr "Ce média pour adultes n’est pas accessible avec votre compte. <0>En savoir plus</0>"
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:103
+msgid "This mature media is not available to your account."
+msgstr "Ce média pour adultes n’est pas accessible avec votre compte."
 
 #. Body of the error modal shown when a voice moderation action targets a member who no longer exists.
 #: src/features/app/components/alerts/VoiceMemberModerationFailedModal.tsx:33
@@ -33945,7 +33491,7 @@ msgid "This phone number has already been used. Try another number or contact su
 msgstr "Ce numéro de téléphone a déjà été utilisé. Essayez un autre numéro ou contactez l'assistance."
 
 #. Empty state in the screen-share picker shown to web users. Explains that this advanced picker requires the desktop app.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:136
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:135
 msgid "This picker is only available in the desktop app."
 msgstr "Ce sélecteur est uniquement disponible dans l'application de bureau."
 
@@ -34001,7 +33547,7 @@ msgid "This shows how links appear: {linkPreviewExampleUrl}"
 msgstr "Voici comment les liens s'affichent : {linkPreviewExampleUrl}"
 
 #. Label above the community a sticker comes from in the sticker info card.
-#: src/features/expressions/components/ExpressionInfoCard.tsx:75
+#: src/features/expressions/components/ExpressionInfoCard.tsx:65
 msgid "This sticker is from"
 msgstr "Ce sticker provient de"
 
@@ -34039,8 +33585,8 @@ msgstr "Ce thème est trop volumineux pour être partagé"
 msgid "This theme link is missing data."
 msgstr "Il manque des données à ce lien de thème."
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:176
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:71
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:170
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
 msgid "This theme may have been removed or the link is invalid."
 msgstr "Ce thème a peut-être été supprimé ou le lien est invalide."
 
@@ -34364,7 +33910,7 @@ msgid "Toggle between last community and DMs"
 msgstr "Basculer entre la dernière communauté et les MP"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:309
+#: src/features/input/state/input_keybind/shared.ts:305
 msgid "Toggle camera"
 msgstr "Activer/désactiver la caméra"
 
@@ -34384,7 +33930,7 @@ msgid "Toggle developer tools"
 msgstr "Ouvrir/fermer les outils de développement"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:269
+#: src/features/input/state/input_keybind/shared.ts:265
 msgid "Toggle embed suppression"
 msgstr "Masquer/afficher les contenus intégrés"
 
@@ -34416,7 +33962,7 @@ msgid "Toggle quick switcher"
 msgstr "Ouvrir/fermer le Sélecteur rapide"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:281
+#: src/features/input/state/input_keybind/shared.ts:277
 msgid "Toggle saved media"
 msgstr "Afficher/masquer les médias enregistrés"
 
@@ -34460,7 +34006,7 @@ msgid "Toggle the sticker picker"
 msgstr "Ouvrir/fermer le sélecteur de stickers"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:305
+#: src/features/input/state/input_keybind/shared.ts:301
 msgid "Toggle voice activity"
 msgstr "Activer/désactiver l'activité vocale"
 
@@ -34788,11 +34334,6 @@ msgstr "Essayez un autre nom ou vérifiez l'orthographe."
 msgid "Try another search term"
 msgstr "Essayez un autre terme de recherche"
 
-#. Empty-state hint in Discovery shown under the heading when a search returns no communities.
-#: src/features/discovery/discovery/DiscoveryEmptyState.tsx:16
-msgid "Try another search term, or pick a different category or language."
-msgstr "Essayez un autre terme de recherche, ou choisissez une autre catégorie ou langue."
-
 #. Helper text on an unknown invite embed suggesting the user request a fresh invite.
 #: src/features/channel/components/InviteEmbed.tsx:100
 msgid "Try asking for a new invite."
@@ -34851,7 +34392,7 @@ msgid "Tune the processing yourself."
 msgstr "Réglez le traitement vous-même."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:128
+#: src/features/user/utils/LocaleUtils.ts:126
 msgid "Turkish"
 msgstr "Turc"
 
@@ -34872,7 +34413,7 @@ msgid "Turn off anything you're not comfortable with. Some features may stop wor
 msgstr "Désactivez tout ce qui vous met mal à l'aise. Certaines fonctionnalités pourraient ne plus fonctionner."
 
 #. Error modal body shown after a native screen-share audio route fails to start.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:180
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:179
 msgid "Turn off audio sharing for this source or try again in a moment."
 msgstr "Désactivez le partage audio pour cette source ou réessayez dans un instant."
 
@@ -35134,7 +34675,7 @@ msgid "UK law requires a mature content check. To continue, you'll complete a ze
 msgstr "La législation britannique impose une vérification d’accès aux contenus pour adultes. Pour continuer, vous effectuerez une autorisation de carte de crédit d’un montant nul via Stripe. Votre carte ne sera pas débitée."
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:132
+#: src/features/user/utils/LocaleUtils.ts:130
 msgid "Ukrainian"
 msgstr "Ukrainien"
 
@@ -35264,7 +34805,7 @@ msgid "Unclaimed account"
 msgstr "Compte non finalisé"
 
 #. Developer control label for the unclaimed-account banner.
-#: src/features/devtools/components/NagbarControls.ts:32
+#: src/features/devtools/components/NagbarControls.ts:27
 msgid "Unclaimed account nagbar"
 msgstr "Bandeau d’inscription incomplète"
 
@@ -35709,7 +35250,7 @@ msgstr "Groupe sans nom"
 
 #. Fallback label for an audio input device whose name is not reported by the OS.
 #. Footer summary fallback for an audio input without a reported name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:266
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:265
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:141
 msgid "Unnamed input"
 msgstr "Entrée sans nom"
@@ -35923,10 +35464,6 @@ msgstr "Comportement indésirable ou contenu pour adultes dans un espace inadapt
 msgid "Unwanted mature conduct, comments, or requests."
 msgstr "Comportements, commentaires ou demandes à caractère sexuel non désirés."
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:608
-msgid "Up to {DISCOVERY_MAX_TAGS} tags help people find your community. They show up in Discovery search."
-msgstr "Jusqu'à {DISCOVERY_MAX_TAGS} tags aident les gens à trouver votre communauté. Ils apparaissent dans la recherche Découverte."
-
 #. Feature comparison table value label. Shown in the restricted or stock column for a text-valued perk. Format includes a resolution token (4K) and a framerate token that should not be translated.
 #: src/features/app/components/dialogs/components/FeatureComparisonTable.tsx:83
 msgid "Up to 4K/60fps"
@@ -36121,7 +35658,7 @@ msgid "Upload new emoji and stickers, and manage your own creations."
 msgstr "Importer de nouveaux emojis et stickers et gérer vos propres créations."
 
 #. Description for the screen-share preview toggle in the informational modal.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:332
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:331
 msgid "Upload preview frames for screen shares."
 msgstr "Envoyer des images d’aperçu pour les partages d’écran."
 
@@ -36771,27 +36308,27 @@ msgid "Uses:"
 msgstr "Utilisations :"
 
 #. Developer nagbar status: banner follows real account state.
-#: src/features/devtools/components/NagbarControls.ts:101
+#: src/features/devtools/components/NagbarControls.ts:96
 msgid "Using actual account state"
 msgstr "Utilise l'état réel du compte"
 
 #. Developer nagbar status: banner follows real gift inventory state.
-#: src/features/devtools/components/NagbarControls.ts:121
+#: src/features/devtools/components/NagbarControls.ts:116
 msgid "Using actual gift inventory state"
 msgstr "Utilisation de l’état réel de l’inventaire des cadeaux"
 
 #. Developer nagbar status: banner follows real premium subscription state.
-#: src/features/devtools/components/NagbarControls.ts:117
+#: src/features/devtools/components/NagbarControls.ts:112
 msgid "Using actual premium state"
 msgstr "Utilise l'état réel de l'abonnement premium"
 
 #. Developer nagbar status: banner follows the real app state.
-#: src/features/devtools/components/NagbarControls.ts:125
+#: src/features/devtools/components/NagbarControls.ts:120
 msgid "Using actual state"
 msgstr "Utilise l'état réel"
 
 #. Developer nagbar status: banner follows real email verification state.
-#: src/features/devtools/components/NagbarControls.ts:105
+#: src/features/devtools/components/NagbarControls.ts:100
 msgid "Using actual verification state"
 msgstr "Utilisation de l'état de vérification réel"
 
@@ -36828,7 +36365,7 @@ msgid "Vanity URL"
 msgstr "URL personnalisée"
 
 #. Community settings tab for the community vanity/custom invite link.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:71
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:69
 msgctxt "community-settings-tab"
 msgid "Vanity URL"
 msgstr "URL personnalisée"
@@ -37233,7 +36770,7 @@ msgid "Videos"
 msgstr "Vidéos"
 
 #. Short label in the language and locale names. Keep it concise.
-#: src/features/user/utils/LocaleUtils.ts:136
+#: src/features/user/utils/LocaleUtils.ts:134
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
@@ -37366,11 +36903,6 @@ msgstr "Voir les cadeaux"
 #: src/features/user/components/modals/UserProfileModal.tsx:102
 msgid "View global profile"
 msgstr "Voir le profil global"
-
-#. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:17
-msgid "View help article"
-msgstr "Afficher l'article d'aide"
 
 #. Button on the connection banner when an incident is ongoing. Opens that incident on the status page.
 #: src/features/app/hooks/useConnectionNotice.ts:48
@@ -37505,7 +37037,7 @@ msgid "Visionary (lifetime {premiumProductName})"
 msgstr "Visionary ({premiumProductName} à vie)"
 
 #. Developer control label for the Visionary two-factor-authentication banner.
-#: src/features/devtools/components/NagbarControls.ts:60
+#: src/features/devtools/components/NagbarControls.ts:55
 msgid "Visionary 2FA nagbar"
 msgstr "Bannière 2FA Visionary"
 
@@ -37605,7 +37137,7 @@ msgid "Voice activity on active now"
 msgstr "Activité vocale dans « Actif en ce moment »"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:301
+#: src/features/input/state/input_keybind/shared.ts:297
 msgid "Voice activity priority"
 msgstr "Priorité à l'activité vocale"
 
@@ -37738,7 +37270,7 @@ msgid "Voice participants"
 msgstr "Participants à l'appel"
 
 #. Voice settings radio group label for microphone processing profile.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:642
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:621
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:55
 msgid "Voice processing"
 msgstr "Traitement de la voix"
@@ -37763,7 +37295,7 @@ msgid "Voice region"
 msgstr "Région vocale"
 
 #. Developer control label for the voice-session-restore banner.
-#: src/features/devtools/components/NagbarControls.ts:68
+#: src/features/devtools/components/NagbarControls.ts:63
 msgid "Voice session restore nagbar"
 msgstr "Barre de rappel de restauration de session vocale"
 
@@ -37794,7 +37326,7 @@ msgstr "Annulée"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:373
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:181
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:175
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:86
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:174
 msgid "Volume"
@@ -38238,7 +37770,7 @@ msgid "Webhooks"
 msgstr "Webhooks"
 
 #. Community settings tab for configuring webhooks.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:66
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:64
 msgctxt "community-settings-tab"
 msgid "Webhooks"
 msgstr "Webhooks"
@@ -38408,17 +37940,17 @@ msgid "When posted as links in chat"
 msgstr "Lorsque les liens sont publiés dans le chat"
 
 #. Explanation of screen-share preview uploads in a group DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:296
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:295
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so other people in this group DM can see a thumbnail before they watch."
 msgstr "Lorsque les aperçus sont activés, {productName} envoie de temps en temps des images JPEG de votre partage d’écran. Les autres membres de cette conversation de groupe peuvent ainsi voir une miniature avant de regarder la diffusion."
 
 #. Explanation of screen-share preview uploads in a guild voice channel. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:290
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:289
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so people with permission to connect to this voice channel can see a thumbnail before they watch."
 msgstr "Lorsque les aperçus sont activés, {productName} envoie de temps en temps des images JPEG de votre partage d’écran. Les personnes autorisées à se connecter à ce salon vocal peuvent ainsi voir une miniature avant de regarder la diffusion."
 
 #. Explanation of screen-share preview uploads in a one-to-one DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:302
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:301
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so the other person in this DM can see a thumbnail before they watch."
 msgstr "Lorsque les aperçus sont activés, {productName} envoie de temps en temps des images JPEG de votre partage d’écran. Votre correspondant dans ce MP peut ainsi voir une miniature avant de regarder la diffusion."
 
@@ -38462,7 +37994,7 @@ msgstr "Quelles conversations"
 msgid "Which rule was broken?"
 msgstr "Quelle règle a été enfreinte ?"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:358
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:346
 msgid "While push-to-talk is on, your shortcut controls your microphone, so the mute button is disabled."
 msgstr "Lorsque « Appuyer pour parler » est activé, votre raccourci contrôle le micro. Le bouton « Couper le micro » est donc désactivé."
 
@@ -38610,10 +38142,6 @@ msgstr "Avec erreur"
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:93
 msgid "With reduced motion on, stickers only animate on interaction. Choose \"Always animate\" to override."
 msgstr "Lorsque la réduction des animations est activée, les stickers s’animent uniquement lors d’une interaction. Choisissez « Toujours animer » pour modifier ce comportement."
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:622
-msgid "Withdraw"
-msgstr "Retirer"
 
 #. Permission description in the channel-scoped permissions editor for the Use Voice Activity permission. Explains the inverse: without it, the user must use push-to-talk in this voice channel.
 #: src/features/permissions/utils/PermissionLabelDescriptors.ts:297
@@ -38816,11 +38344,6 @@ msgstr "Vous pouvez fermer cette fenêtre. L'importation se poursuivra en arriè
 msgid "You can now close this tab and return to the app."
 msgstr "Vous pouvez maintenant fermer cet onglet et retourner à l'application."
 
-#. Discovery custom-tag validation error. maxTags is the maximum number of custom tags.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:64
-msgid "You can only add up to {maxTags} tags."
-msgstr "Vous ne pouvez ajouter que {maxTags} tags."
-
 #: src/features/theme/components/modals/BackgroundImageGalleryModal.tsx:581
 msgid "You can only have one custom background on the free tier. Picking a new one will replace your existing background."
 msgstr "Vous ne pouvez avoir qu’un seul arrière-plan personnalisé sur la version gratuite. Le choix d’un nouvel arrière-plan remplacera l’arrière-plan existant."
@@ -38900,11 +38423,6 @@ msgstr "Vous ne pouvez pas modifier ce message."
 #: src/features/channel/components/modals/channel_tabs/ChannelPermissionsTab.tsx:54
 msgid "You can't grant a permission you don't have in this channel."
 msgstr "Vous ne pouvez pas accorder une permission que vous n’avez pas dans ce salon."
-
-#. Title of the error modal shown when the user is banned from a discovery community.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:38
-msgid "You can't join this community"
-msgstr "Vous ne pouvez pas rejoindre cette communauté"
 
 #. Label in the user settings voice activity card. Keep the tone plain and specific.
 #: src/features/user/components/profile/VoiceActivityCard.tsx:59
@@ -39089,11 +38607,6 @@ msgstr "Vous n'avez pas l'autorisation de rejoindre ce salon vocal"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:73
 msgid "You don't have permission to rename this emoji. The name was reverted to what it was before."
 msgstr "Vous n'avez pas l'autorisation de renommer cet emoji. Le nom a été rétabli tel qu'il était auparavant."
-
-#. Body of the error modal shown when the user is banned from a discovery community.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:42
-msgid "You have been banned from this community."
-msgstr "Vous avez été banni de cette communauté."
 
 #: src/features/channel/components/barriers/BarrierComponents.tsx:362
 msgid "You have blocked {username}. Unblock them to send messages."
@@ -39409,13 +38922,11 @@ msgstr "Vous modifiez les messages trop rapidement"
 
 #. Title of the error modal shown when an action is rate limited.
 #. Title of the error modal shown when deleting a custom emoji is rate limited.
-#. Title of the error modal shown when joining a discovery community is rate limited.
 #. Title of the error modal shown when renaming a custom emoji is rate limited.
 #. Title of the error modal shown when resending a verification email is rate-limited.
 #. Title of the error modal shown when sharing or sending a theme link is rate limited.
 #: src/features/app/components/alerts/CommonErrorModalDescriptors.ts:9
 #: src/features/app/components/dialogs/components/EmailVerificationAlert.tsx:23
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:56
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:77
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:149
 #: src/features/theme/components/modals/ShareThemeModal.tsx:63
@@ -39440,11 +38951,6 @@ msgstr "Vous êtes en mode aperçu"
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:114
 msgid "You're in the call"
 msgstr "Vous êtes en appel"
-
-#. Body of the error modal shown when the user is already in the maximum number of communities.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:34
-msgid "You're in the maximum number of communities. Leave one and try again."
-msgstr "Vous avez atteint le nombre maximal de communautés. Quittez-en une et réessayez."
 
 #. Subtitle below the connected-to-voice header confirming the user is in the channel.
 #: src/features/voice/components/bottomsheets/VoiceLobbyBottomSheet.tsx:82
@@ -39507,15 +39013,10 @@ msgstr "Vous avez reçu une invitation à rejoindre une conversation de groupe d
 #. Short label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Short label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:84
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:37
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:29
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:36
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:28
 msgid "You've got CSS!"
 msgstr "Vous avez du CSS !"
-
-#. Title of the error modal shown when the user is already in the maximum number of communities.
-#: src/features/discovery/commands/DiscoveryJoinCommands.tsx:30
-msgid "You've reached the community limit"
-msgstr "Vous avez atteint la limite de communautés"
 
 #. Label in the message list page.
 #. Label in the saved messages content popout.
@@ -39624,10 +39125,6 @@ msgstr "Votre compte fonctionnera à nouveau normalement immédiatement et rien 
 msgid "Your action could not be completed because it was flagged by our safety systems. If you believe this is a mistake, please contact support."
 msgstr "Votre action n'a pas pu être effectuée, car elle a été signalée par nos systèmes de sécurité. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter l'assistance."
 
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:409
-msgid "Your application is pending review. You can still update your listing details or withdraw the application."
-msgstr "Votre candidature est en attente d’examen. Vous pouvez encore modifier les détails de votre fiche ou retirer votre candidature."
-
 #. Body of the browser-audio-required modal explaining why the user must click before audio can play.
 #: src/features/voice/components/modals/AudioPlaybackPermissionModal.tsx:12
 msgid "Your browser requires user interaction before audio can be played. Click the button below to enable voice chat."
@@ -39653,15 +39150,6 @@ msgstr "Votre code"
 #: src/features/auth/flow/HandoffCodeDisplay.tsx:121
 msgid "Your code is ready"
 msgstr "Votre code est prêt"
-
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:390
-msgid "Your community is listed in Discovery. You can update your listing details below or withdraw to remove it."
-msgstr "Votre communauté figure dans Découverte. Vous pouvez modifier sa fiche ci-dessous ou la retirer de Découverte."
-
-#. Warning in the community Discovery settings tab when the community is below the minimum size. The plural count is the minimum number of members required to be listed.
-#: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:349
-msgid "Your community needs at least {minMemberCount, plural, one {# member} other {# members}} before it can be listed in Discovery."
-msgstr "Votre communauté doit compter au moins {minMemberCount, plural, one {# membre} other {# membres}} pour figurer dans Découverte."
 
 #. Tooltip on the passive badge on your own screen-share tile when the encoder is limited by CPU.
 #: src/features/voice/components/voice_participant_tile/shared.ts:85
@@ -40005,7 +39493,7 @@ msgstr "Zoom"
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:627
-#: src/features/input/state/input_keybind/shared.ts:253
+#: src/features/input/state/input_keybind/shared.ts:249
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
 msgid "Zoom in"
@@ -40016,7 +39504,7 @@ msgstr "Zoom avant"
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:623
-#: src/features/input/state/input_keybind/shared.ts:257
+#: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86
 msgid "Zoom out"

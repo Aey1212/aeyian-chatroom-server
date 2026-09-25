@@ -951,22 +951,6 @@ export class NoopGatewayService extends IGatewayService {
 		return true;
 	}
 
-	async getDiscoveryOnlineCounts(_guildIds: Array<GuildID>): Promise<Map<GuildID, number>> {
-		return new Map();
-	}
-
-	async getDiscoveryGuildCounts(_guildIds: Array<GuildID>): Promise<
-		Map<
-			GuildID,
-			{
-				memberCount: number;
-				onlineCount: number;
-			}
-		>
-	> {
-		return new Map();
-	}
-
 	async getNodeStats(): Promise<GatewayNodeStats> {
 		return {
 			status: 'ok',

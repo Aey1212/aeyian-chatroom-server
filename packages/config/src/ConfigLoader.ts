@@ -307,10 +307,6 @@ function defaultConfig(): MasterConfig {
 			trust_client_ip_header: false,
 			client_ip_header: 'x-forwarded-for',
 		},
-		discovery: {
-			enabled: true,
-			min_member_count: 1,
-		},
 		attachment_decay_enabled: true,
 		deletion_grace_period_hours: 336,
 		inactivity_deletion_threshold_days: 365,

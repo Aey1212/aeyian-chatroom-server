@@ -30,11 +30,7 @@ import type {UserCacheService} from '@app/api/infrastructure/UserCacheService';
 import type {InviteRepository} from '@app/api/invite/InviteRepository';
 import type {IJobLedgerRepository} from '@app/api/jobs/IJobLedgerRepository';
 import {JobAdminService} from '@app/api/jobs/JobAdminService';
-import {
-	getGuildDiscoveryRepository,
-	getKVAccountDeletionQueue,
-	getNcmecSubmissionService,
-} from '@app/api/middleware/ServiceSingletons';
+import {getKVAccountDeletionQueue, getNcmecSubmissionService} from '@app/api/middleware/ServiceSingletons';
 import type {IApplicationRepository} from '@app/api/oauth/repositories/IApplicationRepository';
 import type {ReportService} from '@app/api/report/ReportService';
 import type {IRiskHistoryRepository} from '@app/api/risk/HistoricalOutcomeRepository';
@@ -125,7 +121,6 @@ export class AdminService {
 			gatewayService: gateway,
 			entityAssetService: this.entityAssetService,
 			auditService: this.auditService,
-			discoveryRepository: getGuildDiscoveryRepository(),
 		});
 		this.assetPurgeService = new AdminAssetPurgeService({
 			guildRepository: this.guildRepository,

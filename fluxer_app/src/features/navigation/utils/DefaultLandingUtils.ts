@@ -20,11 +20,8 @@ export function getDirectMessagesFallbackPath(): string {
 	if (firstGuildId) {
 		return Routes.guildChannel(firstGuildId);
 	}
-	if (Accessibility.showFavorites) {
+	if (Accessibility.showFavorites || !RuntimeConfig.singleCommunityEnabled) {
 		return Routes.FAVORITES;
-	}
-	if (!RuntimeConfig.singleCommunityEnabled) {
-		return Routes.DISCOVER;
 	}
 	return Routes.ME;
 }

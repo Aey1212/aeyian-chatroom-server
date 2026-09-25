@@ -4,7 +4,6 @@ import type {AdminAuditLog} from '@app/api/admin/IAdminRepository';
 import {createTestAccount, setUserACLs, type TestAccount} from '@app/api/auth/tests/AuthTestUtils';
 import {createGuildID, createUserID} from '@app/api/BrandedTypes';
 import {createApiContext} from '@app/api/CreateApiContext';
-import {GuildDiscoveryRepository} from '@app/api/guild/repositories/GuildDiscoveryRepository';
 import {createGuild} from '@app/api/guild/tests/GuildTestUtils';
 import {DisabledLiveKitService} from '@app/api/infrastructure/DisabledLiveKitService';
 import {InMemoryVoiceRoomStore} from '@app/api/infrastructure/InMemoryVoiceRoomStore';
@@ -44,9 +43,7 @@ import bulkUpdateGuildFeatures from '@app/api/worker/tasks/admin_bulk/BulkUpdate
 import {clearWorkerDependencies, setWorkerDependenciesForTest} from '@app/api/worker/WorkerContext';
 import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
 import {MessageTypes} from '@fluxer/constants/src/ChannelConstants';
-import {DiscoveryApplicationStatus, DiscoveryCategories} from '@fluxer/constants/src/DiscoveryConstants';
 import {GuildFeatures} from '@fluxer/constants/src/GuildConstants';
-import type {GuildResponse} from '@fluxer/schema/src/domains/guild/GuildResponseSchemas';
 import type {WorkerTaskHelpers} from '@pkgs/worker/src/contracts/WorkerTask';
 import {afterEach, beforeEach, describe, expect, test} from 'vitest';
 
@@ -138,17 +135,6 @@ describe('admin bulk guild worker tasks', () => {
 		return setUserACLs(harness, admin, ['admin:authenticate', ...acls]);
 	}
 
-	async function createDiscoveryApplicant(admin: TestAccount, name: string): Promise<GuildResponse> {
-		const guild = await createGuild(harness, admin.token, name);
-		await createBuilder(harness, '').post(`/test/guilds/${guild.id}/member-count`).body({member_count: 10}).execute();
-		await createBuilder(harness, admin.token)
-			.post(`/guilds/${guild.id}/discovery`)
-			.body({description: 'A guild worth discovering', category_type: DiscoveryCategories.GAMING})
-			.expect(HTTP_STATUS.OK)
-			.execute();
-		return guild;
-	}
-
 	async function runFeaturesJob(
 		admin: TestAccount,
 		guildIds: Array<string>,
@@ -211,30 +197,6 @@ describe('admin bulk guild worker tasks', () => {
 		expect(summary?.metadata.get('failed')).toBe('0');
 		const updatedGuild = await getGuildRepository().findUnique(createGuildID(BigInt(guild.id)));
 		expect(updatedGuild?.features.has(GuildFeatures.DISCOVERABLE)).toBe(true);
-	});
-
-	test('a bulk guild-features job reconciles discovery exactly like the single-guild endpoint', async () => {
-		const admin = await createAdmin(['guild:update:features']);
-		const bulkGuild = await createDiscoveryApplicant(admin, `Bulk Discovery Guild ${Date.now()}`);
-		const singleGuild = await createDiscoveryApplicant(admin, `Single Discovery Guild ${Date.now()}`);
-		const reason = 'Lilith ticket 4822';
-
-		await runFeaturesJob(admin, [bulkGuild.id], reason);
-		await createBuilder(harness, admin.token)
-			.patch(`/admin/guilds/${singleGuild.id}`)
-			.header('X-Audit-Log-Reason', reason)
-			.body({add_features: [GuildFeatures.DISCOVERABLE]})
-			.expect(HTTP_STATUS.OK)
-			.execute();
-
-		const discoveryRepository = new GuildDiscoveryRepository();
-		const bulkRow = await discoveryRepository.findByGuildId(createGuildID(BigInt(bulkGuild.id)));
-		const singleRow = await discoveryRepository.findByGuildId(createGuildID(BigInt(singleGuild.id)));
-		expect(bulkRow?.status).toBe(DiscoveryApplicationStatus.APPROVED);
-		expect(singleRow?.status).toBe(DiscoveryApplicationStatus.APPROVED);
-		expect(bulkRow?.reviewed_by?.toString()).toBe(admin.userId);
-		expect(singleRow?.reviewed_by?.toString()).toBe(admin.userId);
-		expect(bulkRow?.review_reason).toBe(singleRow?.review_reason);
 	});
 
 	test('a bulk guild-features job surfaces an unknown guild in the job result', async () => {

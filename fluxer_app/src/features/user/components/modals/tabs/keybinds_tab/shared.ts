@@ -96,7 +96,7 @@ export const SECTION_DISPLAY_ORDER: Partial<Record<KeybindSection, ReadonlyArray
 		'voice_answer_call',
 		'voice_decline_call',
 	],
-	misc: ['misc_search', 'misc_open_context_menu', 'misc_help'],
+	misc: ['misc_search', 'misc_open_context_menu'],
 };
 export const SHORTCUT_MERGE_PAIRS: ReadonlyArray<readonly [KeybindCommand, KeybindCommand]> = [
 	['nav_guild_prev', 'nav_guild_next'],

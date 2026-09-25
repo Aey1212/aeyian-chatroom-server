@@ -1946,523 +1946,6 @@
 				]
 			}
 		},
-		"/admin/discovery/applications": {
-			"get": {
-				"operationId": "list_admin_discovery_applications",
-				"summary": "List discovery applications",
-				"tags": ["Admin"],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"content": {
-							"application/json": {
-								"schema": {"$ref": "#/components/schemas/DiscoveryAdminPendingApplicationListResponse"}
-							}
-						}
-					},
-					"400": {
-						"description": "Bad Request - The request was malformed or contained invalid data",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"401": {
-						"description": "Unauthorized - Authentication is required or the token is invalid",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"403": {
-						"description": "Forbidden - You do not have permission to perform this action",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"429": {
-						"description": "Too Many Requests - You are being rate limited",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
-						"headers": {
-							"Retry-After": {
-								"description": "Number of seconds to wait before retrying (only on 429)",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Limit": {
-								"description": "The number of requests that can be made in the current window",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Remaining": {
-								"description": "The number of remaining requests that can be made",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Reset": {
-								"description": "Unix timestamp when the rate limit resets",
-								"schema": {"type": "integer"}
-							}
-						}
-					},
-					"500": {
-						"description": "Internal Server Error - An unexpected error occurred",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					}
-				},
-				"description": "Returns every pending discovery application, enriched with guild metadata. No pagination. Requires DISCOVERY_REVIEW permission.",
-				"security": [{"adminApiKey": []}]
-			}
-		},
-		"/admin/discovery/applications/{guild_id}": {
-			"patch": {
-				"operationId": "update_admin_discovery_application",
-				"summary": "Review discovery application",
-				"tags": ["Admin"],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryApplicationResponse"}}}
-					},
-					"400": {
-						"description": "Bad Request - The request was malformed or contained invalid data",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"401": {
-						"description": "Unauthorized - Authentication is required or the token is invalid",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"403": {
-						"description": "Forbidden - You do not have permission to perform this action",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"429": {
-						"description": "Too Many Requests - You are being rate limited",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
-						"headers": {
-							"Retry-After": {
-								"description": "Number of seconds to wait before retrying (only on 429)",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Limit": {
-								"description": "The number of requests that can be made in the current window",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Remaining": {
-								"description": "The number of remaining requests that can be made",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Reset": {
-								"description": "Unix timestamp when the rate limit resets",
-								"schema": {"type": "integer"}
-							}
-						}
-					},
-					"500": {
-						"description": "Internal Server Error - An unexpected error occurred",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					}
-				},
-				"description": "Approve or reject a pending discovery application. Requires DISCOVERY_REVIEW permission.",
-				"security": [{"adminApiKey": []}],
-				"parameters": [
-					{
-						"name": "guild_id",
-						"in": "path",
-						"required": true,
-						"schema": {"description": "The ID of the guild", "allOf": [{"$ref": "#/components/schemas/SnowflakeType"}]},
-						"description": "The ID of the guild"
-					}
-				],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryAdminApplicationUpdateRequest"}}
-					}
-				}
-			}
-		},
-		"/admin/discovery/categories": {
-			"get": {
-				"operationId": "list_admin_discovery_categories",
-				"summary": "List discovery categories",
-				"tags": ["Admin"],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryCategoryListResponse"}}}
-					},
-					"400": {
-						"description": "Bad Request - The request was malformed or contained invalid data",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"401": {
-						"description": "Unauthorized - Authentication is required or the token is invalid",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"403": {
-						"description": "Forbidden - You do not have permission to perform this action",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"429": {
-						"description": "Too Many Requests - You are being rate limited",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
-						"headers": {
-							"Retry-After": {
-								"description": "Number of seconds to wait before retrying (only on 429)",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Limit": {
-								"description": "The number of requests that can be made in the current window",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Remaining": {
-								"description": "The number of remaining requests that can be made",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Reset": {
-								"description": "Unix timestamp when the rate limit resets",
-								"schema": {"type": "integer"}
-							}
-						}
-					},
-					"500": {
-						"description": "Internal Server Error - An unexpected error occurred",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					}
-				},
-				"description": "Returns every discovery category a listing can be filed under. Requires DISCOVERY_REVIEW permission.",
-				"security": [{"adminApiKey": []}]
-			}
-		},
-		"/admin/discovery/categories/{category_id}/listings": {
-			"get": {
-				"operationId": "list_admin_discovery_category_listings",
-				"summary": "List guilds in a discovery category",
-				"tags": ["Admin"],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"content": {
-							"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryAdminListedGuildListResponse"}}
-						}
-					},
-					"400": {
-						"description": "Bad Request - The request was malformed or contained invalid data",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"401": {
-						"description": "Unauthorized - Authentication is required or the token is invalid",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"403": {
-						"description": "Forbidden - You do not have permission to perform this action",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"429": {
-						"description": "Too Many Requests - You are being rate limited",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
-						"headers": {
-							"Retry-After": {
-								"description": "Number of seconds to wait before retrying (only on 429)",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Limit": {
-								"description": "The number of requests that can be made in the current window",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Remaining": {
-								"description": "The number of remaining requests that can be made",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Reset": {
-								"description": "Unix timestamp when the rate limit resets",
-								"schema": {"type": "integer"}
-							}
-						}
-					},
-					"500": {
-						"description": "Internal Server Error - An unexpected error occurred",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					}
-				},
-				"description": "Returns an offset page of the guilds listed under one discovery category, most members first, enriched with guild metadata. Requires DISCOVERY_REVIEW permission.",
-				"security": [{"adminApiKey": []}],
-				"parameters": [
-					{
-						"name": "category_id",
-						"in": "path",
-						"required": true,
-						"schema": {
-							"type": "integer",
-							"minimum": 0,
-							"maximum": 8,
-							"description": "The ID of the discovery category"
-						},
-						"description": "The ID of the discovery category"
-					},
-					{
-						"name": "limit",
-						"in": "query",
-						"required": false,
-						"schema": {
-							"default": 50,
-							"description": "Number of listings to return",
-							"type": "integer",
-							"minimum": 1,
-							"maximum": 100
-						},
-						"description": "Number of listings to return"
-					},
-					{
-						"name": "offset",
-						"in": "query",
-						"required": false,
-						"schema": {
-							"default": 0,
-							"description": "Pagination offset",
-							"type": "integer",
-							"minimum": 0,
-							"maximum": 10000
-						},
-						"description": "Pagination offset"
-					}
-				]
-			}
-		},
-		"/admin/discovery/listings": {
-			"get": {
-				"operationId": "list_admin_discovery_listings",
-				"summary": "List discovery listings",
-				"tags": ["Admin"],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"content": {
-							"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryAdminListedGuildListResponse"}}
-						}
-					},
-					"400": {
-						"description": "Bad Request - The request was malformed or contained invalid data",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"401": {
-						"description": "Unauthorized - Authentication is required or the token is invalid",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"403": {
-						"description": "Forbidden - You do not have permission to perform this action",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"429": {
-						"description": "Too Many Requests - You are being rate limited",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
-						"headers": {
-							"Retry-After": {
-								"description": "Number of seconds to wait before retrying (only on 429)",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Limit": {
-								"description": "The number of requests that can be made in the current window",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Remaining": {
-								"description": "The number of remaining requests that can be made",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Reset": {
-								"description": "Unix timestamp when the rate limit resets",
-								"schema": {"type": "integer"}
-							}
-						}
-					},
-					"500": {
-						"description": "Internal Server Error - An unexpected error occurred",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					}
-				},
-				"description": "Returns every approved/listed discovery guild, enriched with guild metadata. No pagination. Requires DISCOVERY_REVIEW permission.",
-				"security": [{"adminApiKey": []}]
-			},
-			"patch": {
-				"operationId": "bulk_update_admin_discovery_listing_category",
-				"summary": "Move discovery listings to a category",
-				"tags": ["Admin"],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"content": {
-							"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryAdminListingBulkCategoryResponse"}}
-						}
-					},
-					"400": {
-						"description": "Bad Request - The request was malformed or contained invalid data",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"401": {
-						"description": "Unauthorized - Authentication is required or the token is invalid",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"403": {
-						"description": "Forbidden - You do not have permission to perform this action",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"429": {
-						"description": "Too Many Requests - You are being rate limited",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
-						"headers": {
-							"Retry-After": {
-								"description": "Number of seconds to wait before retrying (only on 429)",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Limit": {
-								"description": "The number of requests that can be made in the current window",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Remaining": {
-								"description": "The number of remaining requests that can be made",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Reset": {
-								"description": "Unix timestamp when the rate limit resets",
-								"schema": {"type": "integer"}
-							}
-						}
-					},
-					"500": {
-						"description": "Internal Server Error - An unexpected error occurred",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					}
-				},
-				"description": "Files every named discovery listing under one category. Every guild is attempted and the ones that could not be moved are reported. Requires DISCOVERY_REVIEW permission.",
-				"security": [{"adminApiKey": []}],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryAdminListingBulkCategoryRequest"}}
-					}
-				}
-			}
-		},
-		"/admin/discovery/listings/{guild_id}": {
-			"patch": {
-				"operationId": "update_admin_discovery_listing",
-				"summary": "Update discovery listing",
-				"tags": ["Admin"],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryApplicationResponse"}}}
-					},
-					"400": {
-						"description": "Bad Request - The request was malformed or contained invalid data",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"401": {
-						"description": "Unauthorized - Authentication is required or the token is invalid",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"403": {
-						"description": "Forbidden - You do not have permission to perform this action",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"429": {
-						"description": "Too Many Requests - You are being rate limited",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
-						"headers": {
-							"Retry-After": {
-								"description": "Number of seconds to wait before retrying (only on 429)",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Limit": {
-								"description": "The number of requests that can be made in the current window",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Remaining": {
-								"description": "The number of remaining requests that can be made",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Reset": {
-								"description": "Unix timestamp when the rate limit resets",
-								"schema": {"type": "integer"}
-							}
-						}
-					},
-					"500": {
-						"description": "Internal Server Error - An unexpected error occurred",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					}
-				},
-				"description": "Edit the description, category, language, or tags of a discovery listing without delisting the guild. Requires DISCOVERY_REVIEW permission.",
-				"security": [{"adminApiKey": []}],
-				"parameters": [
-					{
-						"name": "guild_id",
-						"in": "path",
-						"required": true,
-						"schema": {"description": "The ID of the guild", "allOf": [{"$ref": "#/components/schemas/SnowflakeType"}]},
-						"description": "The ID of the guild"
-					}
-				],
-				"requestBody": {
-					"required": false,
-					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryApplicationPatchRequest"}}}
-				}
-			},
-			"delete": {
-				"operationId": "delete_admin_discovery_listing",
-				"summary": "Remove discovery listing",
-				"tags": ["Admin"],
-				"responses": {
-					"200": {
-						"description": "Success",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryApplicationResponse"}}}
-					},
-					"400": {
-						"description": "Bad Request - The request was malformed or contained invalid data",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"401": {
-						"description": "Unauthorized - Authentication is required or the token is invalid",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"403": {
-						"description": "Forbidden - You do not have permission to perform this action",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					},
-					"429": {
-						"description": "Too Many Requests - You are being rate limited",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
-						"headers": {
-							"Retry-After": {
-								"description": "Number of seconds to wait before retrying (only on 429)",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Limit": {
-								"description": "The number of requests that can be made in the current window",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Remaining": {
-								"description": "The number of remaining requests that can be made",
-								"schema": {"type": "integer"}
-							},
-							"X-RateLimit-Reset": {
-								"description": "Unix timestamp when the rate limit resets",
-								"schema": {"type": "integer"}
-							}
-						}
-					},
-					"500": {
-						"description": "Internal Server Error - An unexpected error occurred",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
-					}
-				},
-				"description": "Remove an approved guild from discovery. Requires DISCOVERY_REMOVE permission.",
-				"security": [{"adminApiKey": []}],
-				"parameters": [
-					{
-						"name": "guild_id",
-						"in": "path",
-						"required": true,
-						"schema": {"description": "The ID of the guild", "allOf": [{"$ref": "#/components/schemas/SnowflakeType"}]},
-						"description": "The ID of the guild"
-					}
-				],
-				"requestBody": {
-					"required": true,
-					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DiscoveryAdminRemoveRequest"}}}
-				}
-			}
-		},
 		"/admin/gateway/memory-stats": {
 			"get": {
 				"operationId": "get_admin_gateway_memory_stats",
@@ -5352,8 +4835,7 @@
 								"audit_logs",
 								"channel_messages",
 								"guild_members",
-								"favorite_memes",
-								"discovery"
+								"favorite_memes"
 							],
 							"x-enumDescriptions": [
 								"Guild search index",
@@ -5362,8 +4844,7 @@
 								"Audit log search index",
 								"Channel message search index",
 								"Guild member search index",
-								"Favourite meme search index",
-								"Discovery guild search index"
+								"Favourite meme search index"
 							],
 							"enum": [
 								"guilds",
@@ -5372,8 +4853,7 @@
 								"audit_logs",
 								"channel_messages",
 								"guild_members",
-								"favorite_memes",
-								"discovery"
+								"favorite_memes"
 							],
 							"type": "string"
 						},
@@ -10214,7 +9694,7 @@
 				"type": "object",
 				"properties": {
 					"acls": {
-						"maxItems": 111,
+						"maxItems": 109,
 						"type": "array",
 						"items": {"$ref": "#/components/schemas/AdminAclType"},
 						"description": "List of access control permissions to assign"
@@ -12377,122 +11857,6 @@
 				"required": ["guilds"],
 				"additionalProperties": false
 			},
-			"DiscoveryAdminRemoveRequest": {
-				"type": "object",
-				"properties": {"reason": {"type": "string", "minLength": 1, "maxLength": 500, "description": "Removal reason"}},
-				"required": ["reason"]
-			},
-			"DiscoveryApplicationResponse": {
-				"type": "object",
-				"properties": {
-					"guild_id": {"description": "Guild ID", "allOf": [{"$ref": "#/components/schemas/SnowflakeStringType"}]},
-					"guild_nsfw_level": {
-						"description": "NSFW level of the guild",
-						"nullable": true,
-						"allOf": [{"$ref": "#/components/schemas/NSFWLevel"}]
-					},
-					"status": {"type": "string", "description": "Application status"},
-					"description": {"type": "string", "description": "Discovery description"},
-					"category_type": {"type": "number", "description": "Discovery category type"},
-					"primary_language": {"description": "Primary community language", "nullable": true, "type": "string"},
-					"custom_tags": {"type": "array", "items": {"type": "string"}, "description": "Custom discovery tags"},
-					"applied_at": {"type": "string", "description": "Application timestamp"},
-					"reviewed_at": {"description": "Review timestamp", "nullable": true, "type": "string"},
-					"review_reason": {"description": "Review reason (approval/rejection)", "nullable": true, "type": "string"},
-					"removed_at": {"description": "Removal timestamp", "nullable": true, "type": "string"},
-					"removal_reason": {"description": "Removal reason", "nullable": true, "type": "string"}
-				},
-				"required": ["guild_id", "status", "description", "category_type", "custom_tags", "applied_at"],
-				"additionalProperties": false
-			},
-			"DiscoveryApplicationPatchRequest": {
-				"type": "object",
-				"properties": {
-					"description": {
-						"description": "Updated description for discovery listing",
-						"type": "string",
-						"minLength": 10,
-						"maxLength": 300
-					},
-					"category_type": {
-						"description": "Updated discovery category type",
-						"type": "integer",
-						"minimum": 0,
-						"maximum": 8
-					},
-					"primary_language": {"type": "string", "description": "Primary community language (BCP-47 code)"},
-					"custom_tags": {
-						"maxItems": 10,
-						"type": "array",
-						"items": {"type": "string", "minLength": 2, "maxLength": 30},
-						"description": "Up to 10 custom discovery tags"
-					}
-				}
-			},
-			"DiscoveryAdminListingBulkCategoryRequest": {
-				"type": "object",
-				"properties": {
-					"guild_ids": {
-						"minItems": 1,
-						"maxItems": 100,
-						"type": "array",
-						"items": {"$ref": "#/components/schemas/SnowflakeType"},
-						"description": "Listed guilds to move"
-					},
-					"category_type": {
-						"type": "integer",
-						"minimum": 0,
-						"maximum": 8,
-						"description": "Discovery category to file every named guild under"
-					}
-				},
-				"required": ["guild_ids", "category_type"]
-			},
-			"DiscoveryAdminListingBulkCategoryResponse": {
-				"type": "object",
-				"properties": {
-					"updated": {"type": "number", "description": "Number of listings moved"},
-					"failed_guild_ids": {
-						"type": "array",
-						"items": {"$ref": "#/components/schemas/SnowflakeStringType"},
-						"description": "Guilds that could not be moved"
-					}
-				},
-				"required": ["updated", "failed_guild_ids"],
-				"additionalProperties": false
-			},
-			"DiscoveryAdminListedGuildListResponse": {
-				"type": "array",
-				"items": {"$ref": "#/components/schemas/DiscoveryAdminListedGuildResponse"}
-			},
-			"DiscoveryCategoryListResponse": {
-				"type": "array",
-				"items": {"$ref": "#/components/schemas/DiscoveryCategoryResponse"}
-			},
-			"DiscoveryAdminApplicationUpdateRequest": {
-				"oneOf": [
-					{
-						"type": "object",
-						"properties": {
-							"reason": {"allOf": [{"$ref": "#/components/schemas/DiscoveryReviewReason"}]},
-							"status": {"type": "string", "enum": ["approved"], "description": "Approve the pending application"}
-						},
-						"required": ["status"]
-					},
-					{
-						"type": "object",
-						"properties": {
-							"reason": {"allOf": [{"$ref": "#/components/schemas/DiscoveryRejectionReason"}]},
-							"status": {"type": "string", "enum": ["rejected"], "description": "Reject the pending application"}
-						},
-						"required": ["reason", "status"]
-					}
-				]
-			},
-			"DiscoveryAdminPendingApplicationListResponse": {
-				"type": "array",
-				"items": {"$ref": "#/components/schemas/DiscoveryAdminPendingApplicationResponse"}
-			},
 			"DeleteMessageResponse": {
 				"type": "object",
 				"properties": {"success": {"type": "boolean", "enum": [true]}},
@@ -13132,7 +12496,7 @@
 					},
 					"acls": {
 						"description": "Replacement list of access control permissions for the key",
-						"maxItems": 111,
+						"maxItems": 109,
 						"type": "array",
 						"items": {"$ref": "#/components/schemas/AdminAclType"}
 					}
@@ -13150,7 +12514,7 @@
 						"type": "string"
 					},
 					"acls": {
-						"maxItems": 111,
+						"maxItems": 109,
 						"type": "array",
 						"items": {"type": "string"},
 						"description": "List of access control permissions for the key"
@@ -13180,7 +12544,7 @@
 						"maximum": 365
 					},
 					"acls": {
-						"maxItems": 111,
+						"maxItems": 109,
 						"type": "array",
 						"items": {"$ref": "#/components/schemas/AdminAclType"},
 						"description": "List of access control permissions for the key"
@@ -13201,7 +12565,7 @@
 						"type": "string"
 					},
 					"acls": {
-						"maxItems": 111,
+						"maxItems": 109,
 						"type": "array",
 						"items": {"type": "string"},
 						"description": "List of access control permissions for the key"
@@ -13214,7 +12578,7 @@
 				"type": "object",
 				"properties": {
 					"acls": {
-						"maxItems": 111,
+						"maxItems": 109,
 						"type": "array",
 						"items": {"type": "string", "minLength": 1, "maxLength": 64},
 						"description": "Every admin access control permission the admin API recognises"
@@ -13274,8 +12638,6 @@
 					"bulk:update:suspicious_activity",
 					"bulk:update:user_flags",
 					"csam:submit_ncmec",
-					"discovery:remove",
-					"discovery:review",
 					"gateway:memory_stats",
 					"gateway:reload_all",
 					"gift_codes:generate",
@@ -14825,110 +14187,6 @@
 					{"name": "IS_ANIMATED", "value": "32", "description": "Attachment is animated"}
 				]
 			},
-			"DiscoveryAdminPendingApplicationResponse": {
-				"type": "object",
-				"properties": {
-					"guild_id": {"description": "Guild ID", "allOf": [{"$ref": "#/components/schemas/SnowflakeStringType"}]},
-					"guild_name": {"type": "string", "description": "Guild name"},
-					"guild_icon": {"nullable": true, "description": "Guild icon hash", "type": "string"},
-					"guild_owner_id": {
-						"description": "Guild owner user ID",
-						"allOf": [{"$ref": "#/components/schemas/SnowflakeStringType"}]
-					},
-					"guild_owner_username": {"nullable": true, "description": "Guild owner username", "type": "string"},
-					"guild_owner_global_name": {"nullable": true, "description": "Guild owner display name", "type": "string"},
-					"guild_member_count": {"type": "number", "description": "Approximate member count"},
-					"guild_nsfw_level": {
-						"nullable": true,
-						"description": "NSFW level of the guild",
-						"allOf": [{"$ref": "#/components/schemas/NSFWLevel"}]
-					},
-					"guild_features": {"type": "array", "items": {"type": "string"}, "description": "Guild feature flags"},
-					"description": {"type": "string", "description": "Discovery description"},
-					"category_type": {"type": "number", "description": "Discovery category type"},
-					"primary_language": {"nullable": true, "description": "Primary community language", "type": "string"},
-					"custom_tags": {"type": "array", "items": {"type": "string"}, "description": "Custom discovery tags"},
-					"applied_at": {"type": "string", "description": "Application timestamp"}
-				},
-				"required": [
-					"guild_id",
-					"guild_name",
-					"guild_icon",
-					"guild_owner_id",
-					"guild_owner_username",
-					"guild_owner_global_name",
-					"guild_member_count",
-					"guild_nsfw_level",
-					"guild_features",
-					"description",
-					"category_type",
-					"primary_language",
-					"custom_tags",
-					"applied_at"
-				],
-				"additionalProperties": false
-			},
-			"DiscoveryRejectionReason": {
-				"type": "string",
-				"minLength": 1,
-				"maxLength": 500,
-				"description": "Rejection reason"
-			},
-			"DiscoveryReviewReason": {"type": "string", "maxLength": 500, "description": "Review reason"},
-			"DiscoveryCategoryResponse": {
-				"type": "object",
-				"properties": {
-					"id": {"type": "number", "description": "Category ID"},
-					"name": {"type": "string", "description": "Category display name"}
-				},
-				"required": ["id", "name"],
-				"additionalProperties": false
-			},
-			"DiscoveryAdminListedGuildResponse": {
-				"type": "object",
-				"properties": {
-					"guild_id": {"description": "Guild ID", "allOf": [{"$ref": "#/components/schemas/SnowflakeStringType"}]},
-					"guild_name": {"type": "string", "description": "Guild name"},
-					"guild_icon": {"nullable": true, "description": "Guild icon hash", "type": "string"},
-					"guild_owner_id": {
-						"description": "Guild owner user ID",
-						"allOf": [{"$ref": "#/components/schemas/SnowflakeStringType"}]
-					},
-					"guild_owner_username": {"nullable": true, "description": "Guild owner username", "type": "string"},
-					"guild_owner_global_name": {"nullable": true, "description": "Guild owner display name", "type": "string"},
-					"guild_member_count": {"type": "number", "description": "Approximate member count"},
-					"guild_nsfw_level": {
-						"nullable": true,
-						"description": "NSFW level of the guild",
-						"allOf": [{"$ref": "#/components/schemas/NSFWLevel"}]
-					},
-					"guild_features": {"type": "array", "items": {"type": "string"}, "description": "Guild feature flags"},
-					"description": {"type": "string", "description": "Discovery description"},
-					"category_type": {"type": "number", "description": "Discovery category type"},
-					"primary_language": {"nullable": true, "description": "Primary community language", "type": "string"},
-					"custom_tags": {"type": "array", "items": {"type": "string"}, "description": "Custom discovery tags"},
-					"applied_at": {"type": "string", "description": "Application timestamp"},
-					"approved_at": {"nullable": true, "description": "Approval timestamp", "type": "string"}
-				},
-				"required": [
-					"guild_id",
-					"guild_name",
-					"guild_icon",
-					"guild_owner_id",
-					"guild_owner_username",
-					"guild_owner_global_name",
-					"guild_member_count",
-					"guild_nsfw_level",
-					"guild_features",
-					"description",
-					"category_type",
-					"primary_language",
-					"custom_tags",
-					"applied_at",
-					"approved_at"
-				],
-				"additionalProperties": false
-			},
 			"Int64StringType": {"type": "string", "pattern": "^-?\\d+$", "format": "int64"},
 			"GiftCodeDurationTypeSchema": {
 				"description": "Gift code duration unit",
@@ -15854,7 +15112,7 @@
 					"pending_bulk_message_deletion_at": {"nullable": true, "type": "string"},
 					"deletion_reason_code": {"nullable": true, "allOf": [{"$ref": "#/components/schemas/Int32Type"}]},
 					"deletion_public_reason": {"nullable": true, "type": "string"},
-					"acls": {"maxItems": 111, "type": "array", "items": {"type": "string"}},
+					"acls": {"maxItems": 109, "type": "array", "items": {"type": "string"}},
 					"traits": {"maxItems": 100, "type": "array", "items": {"type": "string"}},
 					"has_totp": {"type": "boolean"},
 					"authenticator_types": {"maxItems": 10, "type": "array", "items": {"$ref": "#/components/schemas/Int32Type"}},

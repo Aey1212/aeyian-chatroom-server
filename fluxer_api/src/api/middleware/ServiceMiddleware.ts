@@ -89,7 +89,6 @@ import {
 	getGatewayRequestService,
 	getGifService,
 	getGuildAuditLogService,
-	getGuildDiscoveryService,
 	getGuildRepository,
 	getInstanceConfigRepository,
 	getInviteRepository,
@@ -569,10 +568,6 @@ class RequestServices implements RequestScopedServices {
 
 	get gifService() {
 		return getGifService();
-	}
-
-	get discoveryService() {
-		return getGuildDiscoveryService();
 	}
 
 	get instanceConfigRepository() {

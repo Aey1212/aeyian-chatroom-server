@@ -1,11 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import i18n, {loadLocaleCatalog, normalizeLocale} from '@app/app/I18n';
-import {getCachedCollator} from '@app/features/i18n/utils/IntlCache';
 import {Logger} from '@app/features/platform/utils/AppLogger';
 import * as UserSettingsCommands from '@app/features/user/commands/UserSettingsCommands';
 import UserSettings from '@app/features/user/state/UserSettings';
-import {DiscoverySupportedLanguages} from '@fluxer/constants/src/DiscoveryConstants';
 import type {MessageDescriptor} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
 
@@ -280,29 +278,9 @@ interface TranslatedLocaleInfo {
 	region?: string;
 }
 
-interface DiscoveryLanguageInfo {
-	code: string;
-	label: string;
-}
-
 export function getLocalizedLocaleName(code: string): string {
 	const info = SUPPORTED_LOCALES.find((locale) => locale.code === code);
 	return info ? i18n._(info.name) : code;
-}
-
-export function getDiscoveryLanguageLabel(code: string): string {
-	if (code === 'en-US') {
-		return i18n._(ENGLISH_DESCRIPTOR);
-	}
-	return getLocalizedLocaleName(code);
-}
-
-export function getSortedDiscoveryLanguages(): Array<DiscoveryLanguageInfo> {
-	const collator = getCachedCollator(i18n.locale || undefined, {sensitivity: 'base'});
-	return DiscoverySupportedLanguages.map((language) => ({
-		code: language.code,
-		label: getDiscoveryLanguageLabel(language.code),
-	})).sort((a, b) => collator.compare(a.label, b.label) || a.code.localeCompare(b.code));
 }
 
 export function getSortedLocales(): Array<TranslatedLocaleInfo> {

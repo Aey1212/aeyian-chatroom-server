@@ -8,7 +8,6 @@ import type {Message} from '@app/api/models/Message';
 import type {User} from '@app/api/models/User';
 import type {IARSubmission} from '@app/api/report/IReportRepository';
 import {convertToSearchableAuditLog} from '@app/api/search/auditlog/AuditLogSearchSerializer';
-import type {GuildDiscoveryContext} from '@app/api/search/guild/GuildSearchSerializer';
 import {convertToSearchableGuild} from '@app/api/search/guild/GuildSearchSerializer';
 import {convertToSearchableGuildMember} from '@app/api/search/guild_member/GuildMemberSearchSerializer';
 import type {IAuditLogSearchService} from '@app/api/search/IAuditLogSearchService';
@@ -425,20 +424,11 @@ function matchesGuildFilters(doc: SearchableGuild, filters: GuildSearchFilters):
 	if (filters.mfaLevel !== undefined && doc.mfaLevel !== filters.mfaLevel) return false;
 	if (filters.nsfwLevel !== undefined && doc.nsfwLevel !== filters.nsfwLevel) return false;
 	if (filters.hasFeature && !filters.hasFeature.every((feature) => doc.features.includes(feature))) return false;
-	if (filters.isDiscoverable !== undefined && doc.isDiscoverable !== filters.isDiscoverable) return false;
-	if (filters.discoveryCategory !== undefined && doc.discoveryCategory !== filters.discoveryCategory) return false;
-	if (
-		filters.discoveryPrimaryLanguage !== undefined &&
-		doc.discoveryPrimaryLanguage !== filters.discoveryPrimaryLanguage
-	) {
-		return false;
-	}
-	if (filters.discoveryTag !== undefined && !doc.discoveryTags.includes(filters.discoveryTag)) return false;
 	return true;
 }
 
 function collectGuildText(doc: SearchableGuild): Array<string | null> {
-	return [doc.name, doc.vanityUrlCode, doc.discoveryDescription, ...doc.discoveryTags];
+	return [doc.name, doc.vanityUrlCode];
 }
 
 const sortGuildsByCreatedAt = sortNumericField<SearchableGuild, GuildSearchFilters>('createdAt', 'asc');
@@ -462,16 +452,16 @@ class InMemoryGuildSearchService
 		super(matchesGuildFilters, collectGuildText, sortGuilds);
 	}
 
-	async indexGuild(guild: Guild, discovery?: GuildDiscoveryContext): Promise<void> {
-		await this.indexDocument(convertToSearchableGuild(guild, discovery));
+	async indexGuild(guild: Guild): Promise<void> {
+		await this.indexDocument(convertToSearchableGuild(guild));
 	}
 
 	async indexGuilds(guilds: Array<Guild>): Promise<void> {
 		await this.indexDocuments(guilds.map((guild) => convertToSearchableGuild(guild)));
 	}
 
-	async updateGuild(guild: Guild, discovery?: GuildDiscoveryContext): Promise<void> {
-		await this.updateDocument(convertToSearchableGuild(guild, discovery));
+	async updateGuild(guild: Guild): Promise<void> {
+		await this.updateDocument(convertToSearchableGuild(guild));
 	}
 
 	async deleteGuild(guildId: GuildID): Promise<void> {

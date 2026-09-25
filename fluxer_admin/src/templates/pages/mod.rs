@@ -9,7 +9,6 @@ pub mod audit_logs_table;
 pub mod bans;
 pub(crate) mod blocklist_helpers;
 pub mod bulk_actions;
-pub mod discovery;
 pub mod gateway;
 pub mod gateway_leaderboard;
 pub mod gateway_nodes;

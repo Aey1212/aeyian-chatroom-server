@@ -336,30 +336,6 @@ Direct messages and friend requests are disabled on this instance
 
 Email verification is required for this action
 
-### `DISCOVERY_ALREADY_APPLIED`
-
-This community has already applied for discovery
-
-### `DISCOVERY_APPLICATION_ALREADY_REVIEWED`
-
-This discovery application has already been reviewed
-
-### `DISCOVERY_APPLICATION_NOT_FOUND`
-
-Discovery application wasn't found
-
-### `DISCOVERY_DISABLED`
-
-Discovery isn't available on this instance
-
-### `DISCOVERY_INSUFFICIENT_MEMBERS`
-
-This community doesn't meet the minimum member count for discovery
-
-### `DISCOVERY_NOT_DISCOVERABLE`
-
-This community isn't listed in discovery
-
 ### `DONATION_AMOUNT_INVALID`
 
 Donation amount is invalid

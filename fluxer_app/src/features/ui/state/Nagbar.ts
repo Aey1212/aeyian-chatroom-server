@@ -13,7 +13,6 @@ export interface NagbarSettings {
 	premiumExpiredDismissed: boolean;
 	premiumOnboardingDismissed: boolean;
 	giftInventoryDismissed: boolean;
-	desktopDownloadDismissed: boolean;
 	pendingBulkDeletionDismissed: Record<string, boolean>;
 	invitesDisabledDismissed: Record<string, boolean>;
 	guildMfaRequirementDismissed: Record<string, boolean>;
@@ -34,7 +33,6 @@ export interface NagbarSettings {
 	forcePremiumExpired: boolean;
 	forcePremiumOnboarding: boolean;
 	forceGiftInventory: boolean;
-	forceDesktopDownload: boolean;
 	forceGuildMembershipCta: boolean;
 	forceVisionaryMfa: boolean;
 	forceTermsAcceptance: boolean;
@@ -54,7 +52,6 @@ export interface NagbarSettings {
 	forceHidePremiumExpired: boolean;
 	forceHidePremiumOnboarding: boolean;
 	forceHideGiftInventory: boolean;
-	forceHideDesktopDownload: boolean;
 	forceHideGuildMembershipCta: boolean;
 	forceHideVisionaryMfa: boolean;
 	forceHideTermsAcceptance: boolean;
@@ -83,7 +80,6 @@ export class Nagbar implements NagbarSettings {
 	premiumExpiredDismissed = false;
 	premiumOnboardingDismissed = false;
 	giftInventoryDismissed = false;
-	desktopDownloadDismissed = false;
 	pendingBulkDeletionDismissed: Record<string, boolean> = {};
 	invitesDisabledDismissed: Record<string, boolean> = {};
 	guildMfaRequirementDismissed: Record<string, boolean> = {};
@@ -106,7 +102,6 @@ export class Nagbar implements NagbarSettings {
 	forcePremiumExpired = false;
 	forcePremiumOnboarding = false;
 	forceGiftInventory = false;
-	forceDesktopDownload = false;
 	forceGuildMembershipCta = false;
 	forceVisionaryMfa = false;
 	forceTermsAcceptance = false;
@@ -127,7 +122,6 @@ export class Nagbar implements NagbarSettings {
 	forceHidePremiumExpired = false;
 	forceHidePremiumOnboarding = false;
 	forceHideGiftInventory = false;
-	forceHideDesktopDownload = false;
 	forceHideGuildMembershipCta = false;
 	forceHideVisionaryMfa = false;
 	forceHideTermsAcceptance = false;
@@ -155,7 +149,6 @@ export class Nagbar implements NagbarSettings {
 				'premiumExpiredDismissed',
 				'premiumOnboardingDismissed',
 				'giftInventoryDismissed',
-				'desktopDownloadDismissed',
 				'pendingBulkDeletionDismissed',
 				'invitesDisabledDismissed',
 				'guildMfaRequirementDismissed',
@@ -173,7 +166,6 @@ export class Nagbar implements NagbarSettings {
 				premiumExpired: s.premiumExpiredDismissed,
 				premiumOnboarding: s.premiumOnboardingDismissed,
 				giftInventory: s.giftInventoryDismissed,
-				desktopDownload: s.desktopDownloadDismissed,
 				guildMembershipCta: s.guildMembershipCtaDismissed,
 				visionaryMfa: s.visionaryMfaDismissed,
 				pendingBulkDeletion: {...s.pendingBulkDeletionDismissed},
@@ -191,7 +183,6 @@ export class Nagbar implements NagbarSettings {
 				s.premiumExpiredDismissed = m.premiumExpired;
 				s.premiumOnboardingDismissed = m.premiumOnboarding;
 				s.giftInventoryDismissed = m.giftInventory;
-				s.desktopDownloadDismissed = m.desktopDownload;
 				s.guildMembershipCtaDismissed = m.guildMembershipCta;
 				s.visionaryMfaDismissed = m.visionaryMfa;
 				s.pendingBulkDeletionDismissed = {...m.pendingBulkDeletion};
@@ -400,7 +391,6 @@ export class Nagbar implements NagbarSettings {
 		this.premiumExpiredDismissed = false;
 		this.premiumOnboardingDismissed = false;
 		this.giftInventoryDismissed = false;
-		this.desktopDownloadDismissed = false;
 		this.pendingBulkDeletionDismissed = {};
 		this.invitesDisabledDismissed = {};
 		this.guildMfaRequirementDismissed = {};
@@ -422,7 +412,6 @@ export class Nagbar implements NagbarSettings {
 		this.forcePremiumExpired = false;
 		this.forcePremiumOnboarding = false;
 		this.forceGiftInventory = false;
-		this.forceDesktopDownload = false;
 		this.forceGuildMembershipCta = false;
 		this.forceVisionaryMfa = false;
 		this.forceTermsAcceptance = false;
@@ -443,7 +432,6 @@ export class Nagbar implements NagbarSettings {
 		this.forceHidePremiumExpired = false;
 		this.forceHidePremiumOnboarding = false;
 		this.forceHideGiftInventory = false;
-		this.forceHideDesktopDownload = false;
 		this.forceHideGuildMembershipCta = false;
 		this.forceHideVisionaryMfa = false;
 		this.forceHideTermsAcceptance = false;

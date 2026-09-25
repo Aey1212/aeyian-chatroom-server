@@ -47,12 +47,7 @@ export class ElasticsearchSearchProvider implements ISearchProvider {
 		const client = createElasticsearchClient(this.config);
 		const lock = this.lock;
 		this.messageService = new ElasticsearchMessageSearchService({client, lock});
-		const {GuildDiscoveryRepository} = await import('@app/api/guild/repositories/GuildDiscoveryRepository');
-		this.guildService = new ElasticsearchGuildSearchService({
-			client,
-			lock,
-			discoveryRepository: new GuildDiscoveryRepository(),
-		});
+		this.guildService = new ElasticsearchGuildSearchService({client, lock});
 		this.userService = new ElasticsearchUserSearchService({client, lock});
 		this.reportService = new ElasticsearchReportSearchService({client, lock});
 		this.auditLogService = new ElasticsearchAuditLogSearchService({client, lock});

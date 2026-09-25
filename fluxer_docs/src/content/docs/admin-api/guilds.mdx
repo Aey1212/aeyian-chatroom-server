@@ -386,8 +386,6 @@ The groups run in a fixed order: image clears, settings, features, name, custom 
 
 Clearing an image schedules its deletion. Replacing or clearing the custom invite code invalidates the previous invite link.
 
-Supplying `add_features` or `remove_features` reconciles an existing discovery application. The application is approved when [DISCOVERABLE](/http-api/guilds/#guild-features) becomes present and it is not already approved, and it is marked removed when `DISCOVERABLE` becomes absent and it was approved. A guild that has never applied for [discovery](/admin-api/discovery/) gains no application.
-
 Every applied group refreshes the guild's entry in the guild search index and fires one [Guild Update](/gateway/events/#guild-update) Dispatch to every session that can see the guild, including when the write changes no value.
 
 Each applied group records one Admin audit entry with the target type `guild` and the guild ID as the target. A body that applies no group records one entry with action `update_guild` and no metadata instead.

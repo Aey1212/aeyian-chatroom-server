@@ -36,9 +36,6 @@ const MAX_GUILD_PRESENTATIONS = 8;
 const MAX_GUILD_CHANNEL_LISTS = 6;
 const MAX_GUILD_CHANNEL_GROUPS = 16;
 const MAX_GUILD_CHANNEL_ROWS = 64;
-const MAX_DISCOVERY_CATEGORY_TABS = 24;
-const MAX_DISCOVERY_COLUMNS = 4;
-const MAX_DISCOVERY_VISIBLE_ROWS = 64;
 const MAX_SIMPLE_PAGE_ROWS = 200;
 const MAX_HEADER_ACTION_COUNT = 8;
 const MAX_COMPOSER_DESKTOP_ACTION_COUNT = 8;
@@ -74,13 +71,6 @@ export const SKELETON_COMPOSER_EXPRESSION_ACTION_COUNT_WITHOUT_GIF = 3;
 export const SKELETON_COMPOSER_DEFAULT_MOBILE_ACTION_COUNT = 2;
 export const SKELETON_DEFAULT_FAVORITES_VISIBLE = true;
 export const SKELETON_DEFAULT_GUILD_BANNER_ASPECT_RATIO = 16 / 9;
-export const SKELETON_DISCOVERY_MAX_COLUMNS = MAX_DISCOVERY_COLUMNS;
-export const SKELETON_DISCOVERY_MIN_CARD_WIDTH_PX = 320;
-export const SKELETON_DISCOVERY_MAX_CARD_WIDTH_PX = 400;
-export const SKELETON_DISCOVERY_GRID_GAP_PX = 16;
-export const SKELETON_DISCOVERY_ESTIMATED_ROW_HEIGHT_PX = 344;
-const SKELETON_DISCOVERY_SHELL_CHROME_WIDTH_PX = pxFromSpecRem('24.5rem');
-const SKELETON_DISCOVERY_CONTENT_PADDING_PX = pxFromSpecRem('2rem');
 
 export const SkeletonMemberSurfaceKind = Object.freeze({
 	GUILD: 'guild',
@@ -219,10 +209,7 @@ export interface RememberedSkeletonGuildRailLayout {
 	readonly outageVisible: boolean;
 	readonly fluxerVisible: boolean;
 	readonly favoritesVisible: boolean;
-	readonly discoveryVisible: boolean;
 	readonly addGuildVisible: boolean;
-	readonly downloadVisible: boolean;
-	readonly helpVisible: boolean;
 	readonly selectedItemIndex: number;
 	readonly organizedItems: ReadonlyArray<RememberedSkeletonGuildRailItem>;
 	readonly scrollTopPx: number;
@@ -290,12 +277,6 @@ export interface RememberedSkeletonMessagePresentation {
 export interface RememberedSkeletonVoicePresence {
 	readonly connected: boolean;
 	readonly panelHeightPx: number;
-}
-
-export interface RememberedSkeletonDiscoveryLayout {
-	readonly columnCount: number;
-	readonly visibleRowCount: number;
-	readonly categoryTabWidthsPx: ReadonlyArray<number>;
 }
 
 export interface RememberedSkeletonSimplePageLayout {
@@ -379,29 +360,6 @@ export const SKELETON_DEFAULT_VOICE_PRESENCE: RememberedSkeletonVoicePresence = 
 	panelHeightPx: 0,
 });
 
-const SKELETON_DEFAULT_DISCOVERY_CATEGORY_TABS: ReadonlyArray<number> = Object.freeze([SKELETON_UNMEASURED_WIDTH_PX]);
-
-export function resolveDefaultSkeletonDiscoveryLayout(): RememberedSkeletonDiscoveryLayout {
-	if (typeof window === 'undefined') {
-		return Object.freeze({
-			columnCount: SKELETON_DISCOVERY_MAX_COLUMNS,
-			visibleRowCount: 1,
-			categoryTabWidthsPx: SKELETON_DEFAULT_DISCOVERY_CATEGORY_TABS,
-		});
-	}
-	const remScale = getRemScaleForDocument(window.document);
-	const contentWidthPx = Math.max(0, window.innerWidth - SKELETON_DISCOVERY_SHELL_CHROME_WIDTH_PX * remScale);
-	const gridWidthPx = Math.max(0, contentWidthPx - SKELETON_DISCOVERY_CONTENT_PADDING_PX * remScale);
-	const gapPx = SKELETON_DISCOVERY_GRID_GAP_PX * remScale;
-	const columnsThatFit = Math.floor((gridWidthPx + gapPx) / (SKELETON_DISCOVERY_MIN_CARD_WIDTH_PX * remScale + gapPx));
-	const visibleRowCount = Math.ceil(window.innerHeight / (SKELETON_DISCOVERY_ESTIMATED_ROW_HEIGHT_PX * remScale));
-	return Object.freeze({
-		columnCount: Math.min(SKELETON_DISCOVERY_MAX_COLUMNS, Math.max(1, columnsThatFit)),
-		visibleRowCount: Math.min(MAX_DISCOVERY_VISIBLE_ROWS, Math.max(1, visibleRowCount)),
-		categoryTabWidthsPx: SKELETON_DEFAULT_DISCOVERY_CATEGORY_TABS,
-	});
-}
-
 export function resolveDefaultSkeletonComposerLayout(gifButtonAvailable: boolean): RememberedSkeletonComposerLayout {
 	let desktopActionCount = SKELETON_COMPOSER_EXPRESSION_ACTION_COUNT_WITHOUT_GIF;
 	if (gifButtonAvailable) {
@@ -472,10 +430,6 @@ interface TimedSkeletonVoicePresence extends RememberedSkeletonVoicePresence {
 	readonly capturedAt: number;
 }
 
-interface TimedSkeletonDiscoveryLayout extends RememberedSkeletonDiscoveryLayout {
-	readonly capturedAt: number;
-}
-
 interface PendingSkeletonSimplePageLayout extends RememberedSkeletonSimplePageLayout {
 	readonly route: SkeletonSimplePageRoute;
 }
@@ -531,7 +485,6 @@ interface SkeletonLayoutState {
 	readonly composer?: TimedSkeletonComposerLayout;
 	readonly messagePresentation?: TimedSkeletonMessagePresentation;
 	readonly voice?: TimedSkeletonVoicePresence;
-	readonly discovery?: TimedSkeletonDiscoveryLayout;
 	readonly simplePages?: ReadonlyArray<TimedSkeletonSimplePageLayout>;
 	readonly channelMemberLayouts?: ReadonlyArray<TimedSkeletonChannelMemberLayout>;
 	readonly channelProjections?: ReadonlyArray<TimedSkeletonChannelProjection>;
@@ -561,12 +514,6 @@ interface PendingMessagePresentation {
 	viewportHeightPx?: number;
 }
 
-interface PendingDiscoveryLayout {
-	columnCount?: number;
-	visibleRowCount?: number;
-	categoryTabWidthsPx?: ReadonlyArray<number>;
-}
-
 interface PendingChromeLayouts {
 	dmSidebar?: RememberedSkeletonDMSidebarLayout;
 	guildRail?: RememberedSkeletonGuildRailLayout;
@@ -588,7 +535,6 @@ const SKELETON_LAYOUT_STATE_KEY_FLAGS: Readonly<Record<keyof Required<SkeletonLa
 	composer: true,
 	messagePresentation: true,
 	voice: true,
-	discovery: true,
 	simplePages: true,
 	channelMemberLayouts: true,
 	channelProjections: true,
@@ -619,10 +565,7 @@ const GUILD_RAIL_KEYS = new Set([
 	'outageVisible',
 	'fluxerVisible',
 	'favoritesVisible',
-	'discoveryVisible',
 	'addGuildVisible',
-	'downloadVisible',
-	'helpVisible',
 	'selectedItemIndex',
 	'organizedItems',
 	'scrollTopPx',
@@ -664,7 +607,6 @@ const MESSAGE_PRESENTATION_KEYS = new Set([
 	'viewportHeightPx',
 ]);
 const VOICE_KEYS = new Set(['capturedAt', 'connected', 'panelHeightPx']);
-const DISCOVERY_KEYS = new Set(['capturedAt', 'columnCount', 'visibleRowCount', 'categoryTabWidthsPx']);
 const SIMPLE_PAGE_KEYS = new Set(['capturedAt', 'route', 'body', 'rowCount', 'selectable']);
 const CHANNEL_MEMBER_LAYOUT_KEYS = new Set(['capturedAt', 'fingerprint', 'kind', 'memberGroups']);
 const MEMBER_GROUP_KEYS = new Set(['rowCount', 'headingWidthPx', 'subtextFlags']);
@@ -759,21 +701,6 @@ function parseWidthArray(value: unknown, maximumLength: number): ReadonlyArray<n
 	const widths: Array<number> = [];
 	for (const entry of value) {
 		const width = parseBoundedInteger(entry, 0, MAX_MEASURED_WIDTH_PX);
-		if (width == null) {
-			return null;
-		}
-		widths.push(width);
-	}
-	return Object.freeze(widths);
-}
-
-function clampReportedWidths(values: ReadonlyArray<number>, maximumLength: number): ReadonlyArray<number> | null {
-	if (!Array.isArray(values)) {
-		return null;
-	}
-	const widths: Array<number> = [];
-	for (const value of values.slice(0, maximumLength)) {
-		const width = clampReportedInteger(value, 0, MAX_MEASURED_WIDTH_PX);
 		if (width == null) {
 			return null;
 		}
@@ -983,11 +910,7 @@ function parseGuildRailLayout(value: unknown, now: number): OptionalParseResult<
 		typeof value.outageVisible !== 'boolean' ||
 		typeof value.fluxerVisible !== 'boolean' ||
 		typeof value.favoritesVisible !== 'boolean' ||
-		typeof value.discoveryVisible !== 'boolean' ||
 		typeof value.addGuildVisible !== 'boolean' ||
-		typeof value.downloadVisible !== 'boolean' ||
-		typeof value.helpVisible !== 'boolean' ||
-		value.discoveryVisible !== value.addGuildVisible ||
 		(!value.fluxerVisible && inlineDmRowCount > 0) ||
 		!Array.isArray(value.organizedItems) ||
 		value.organizedItems.length > SKELETON_GUILD_RAIL_ORGANIZED_VISUAL_ROW_LIMIT
@@ -1037,10 +960,7 @@ function parseGuildRailLayout(value: unknown, now: number): OptionalParseResult<
 			outageVisible: value.outageVisible,
 			fluxerVisible: value.fluxerVisible,
 			favoritesVisible: value.favoritesVisible,
-			discoveryVisible: value.discoveryVisible,
 			addGuildVisible: value.addGuildVisible,
-			downloadVisible: value.downloadVisible,
-			helpVisible: value.helpVisible,
 			selectedItemIndex,
 			organizedItems: Object.freeze(organizedItems),
 			scrollTopPx,
@@ -1288,32 +1208,6 @@ function parseVoicePresence(value: unknown, now: number): OptionalParseResult<Ti
 		return ABSENT_PARSE_RESULT;
 	}
 	return validParseResult(Object.freeze({capturedAt: value.capturedAt, connected: value.connected, panelHeightPx}));
-}
-
-function parseDiscoveryLayout(value: unknown, now: number): OptionalParseResult<TimedSkeletonDiscoveryLayout> {
-	if (value === undefined) {
-		return ABSENT_PARSE_RESULT;
-	}
-	if (!isRecord(value) || !hasOnlyKeys(value, DISCOVERY_KEYS) || !isValidTimestamp(value.capturedAt, now)) {
-		return INVALID_PARSE_RESULT;
-	}
-	const columnCount = parseBoundedInteger(value.columnCount, 1, MAX_DISCOVERY_COLUMNS);
-	const visibleRowCount = parseBoundedInteger(value.visibleRowCount, 0, MAX_DISCOVERY_VISIBLE_ROWS);
-	const categoryTabWidthsPx = parseWidthArray(value.categoryTabWidthsPx, MAX_DISCOVERY_CATEGORY_TABS);
-	if (columnCount == null || visibleRowCount == null || categoryTabWidthsPx == null) {
-		return INVALID_PARSE_RESULT;
-	}
-	if (!isFreshTimestamp(value.capturedAt, now)) {
-		return ABSENT_PARSE_RESULT;
-	}
-	return validParseResult(
-		Object.freeze({
-			capturedAt: value.capturedAt,
-			columnCount,
-			visibleRowCount,
-			categoryTabWidthsPx,
-		}),
-	);
 }
 
 function isSimplePageRoute(value: unknown): value is SkeletonSimplePageRoute {
@@ -1785,10 +1679,7 @@ function upgradeLegacyGuildRail(guildRail: Record<string, unknown>): Record<stri
 		outageVisible: guildRail.outageVisible,
 		fluxerVisible: guildRail.fluxerVisible,
 		favoritesVisible: guildRail.favoritesVisible,
-		discoveryVisible: guildRail.discoveryVisible,
 		addGuildVisible: guildRail.addGuildVisible,
-		downloadVisible: guildRail.downloadVisible,
-		helpVisible: guildRail.helpVisible,
 		selectedItemIndex: guildRail.selectedItemIndex ?? SKELETON_NO_SELECTED_RAIL_ITEM_INDEX,
 		organizedItems: upgradeLegacyGuildRailItems(guildRail.organizedItems),
 		scrollTopPx: guildRail.scrollTopPx ?? 0,
@@ -1986,7 +1877,6 @@ function readInitialState(activeAccountFingerprint: string | null): SkeletonLayo
 	const composer = parseComposerLayout(record.composer, now);
 	const messagePresentation = parseMessagePresentation(record.messagePresentation, now);
 	const voice = parseVoicePresence(record.voice, now);
-	const discovery = parseDiscoveryLayout(record.discovery, now);
 	const simplePages = parseSimplePageLayouts(record.simplePages, now);
 	const channelMemberLayouts = parseChannelMemberLayouts(record.channelMemberLayouts, now);
 	const channelProjections = parseChannelProjections(record.channelProjections, now);
@@ -2000,7 +1890,6 @@ function readInitialState(activeAccountFingerprint: string | null): SkeletonLayo
 		composer,
 		messagePresentation,
 		voice,
-		discovery,
 		simplePages,
 		channelMemberLayouts,
 		channelProjections,
@@ -2022,7 +1911,6 @@ function readInitialState(activeAccountFingerprint: string | null): SkeletonLayo
 		composer: composer.status === 'valid' ? composer.value : undefined,
 		messagePresentation: messagePresentation.status === 'valid' ? messagePresentation.value : undefined,
 		voice: voice.status === 'valid' ? voice.value : undefined,
-		discovery: discovery.status === 'valid' ? discovery.value : undefined,
 		simplePages: simplePages.status === 'valid' ? simplePages.value : undefined,
 		channelMemberLayouts: channelMemberLayouts.status === 'valid' ? channelMemberLayouts.value : undefined,
 		channelProjections: channelProjections.status === 'valid' ? channelProjections.value : undefined,
@@ -2206,7 +2094,6 @@ let pendingNagbar: RememberedSkeletonNagbarLayout | null = null;
 let pendingComposer: RememberedSkeletonComposerLayout | null = null;
 let pendingMessagePresentation: PendingMessagePresentation = {};
 let pendingVoice: RememberedSkeletonVoicePresence | null = null;
-let pendingDiscovery: PendingDiscoveryLayout = {};
 let pendingSimplePages: ReadonlyArray<PendingSkeletonSimplePageLayout> = Object.freeze([]);
 let pendingChannelMemberLayouts: ReadonlyArray<PendingSkeletonChannelMemberLayout> = Object.freeze([]);
 let pendingChannelProjections: ReadonlyArray<PendingSkeletonChannelProjection> = Object.freeze([]);
@@ -2227,7 +2114,6 @@ function clearPendingCaptureState(): void {
 	pendingComposer = null;
 	pendingMessagePresentation = {};
 	pendingVoice = null;
-	pendingDiscovery = {};
 	pendingSimplePages = Object.freeze([]);
 	pendingChannelMemberLayouts = Object.freeze([]);
 	pendingChannelProjections = Object.freeze([]);
@@ -2391,10 +2277,7 @@ function commitGuildRailLayout(layout: RememberedSkeletonGuildRailLayout): void 
 		previous.outageVisible === layout.outageVisible &&
 		previous.fluxerVisible === layout.fluxerVisible &&
 		previous.favoritesVisible === layout.favoritesVisible &&
-		previous.discoveryVisible === layout.discoveryVisible &&
 		previous.addGuildVisible === layout.addGuildVisible &&
-		previous.downloadVisible === layout.downloadVisible &&
-		previous.helpVisible === layout.helpVisible &&
 		previous.selectedItemIndex === layout.selectedItemIndex &&
 		previous.scrollTopPx === layout.scrollTopPx &&
 		areGuildRailItemsEqual(previous.organizedItems, layout.organizedItems)
@@ -2546,32 +2429,6 @@ function commitVoicePresence(presence: RememberedSkeletonVoicePresence): void {
 	}
 	capturedThisSession.add(sessionKey);
 	state = Object.freeze({...state, voice: Object.freeze({...presence, capturedAt: Date.now()})});
-	scheduleWrite();
-}
-
-function resolvePendingDiscoveryLayout(): RememberedSkeletonDiscoveryLayout {
-	const base = state.discovery ?? resolveDefaultSkeletonDiscoveryLayout();
-	return Object.freeze({
-		columnCount: pendingDiscovery.columnCount ?? base.columnCount,
-		visibleRowCount: pendingDiscovery.visibleRowCount ?? base.visibleRowCount,
-		categoryTabWidthsPx: pendingDiscovery.categoryTabWidthsPx ?? base.categoryTabWidthsPx,
-	});
-}
-
-function commitDiscoveryLayout(): void {
-	const layout = resolvePendingDiscoveryLayout();
-	const previous = state.discovery;
-	const sessionKey = 'discovery';
-	if (
-		capturedThisSession.has(sessionKey) &&
-		previous?.columnCount === layout.columnCount &&
-		previous.visibleRowCount === layout.visibleRowCount &&
-		areNumberArraysEqual(previous.categoryTabWidthsPx, layout.categoryTabWidthsPx)
-	) {
-		return;
-	}
-	capturedThisSession.add(sessionKey);
-	state = Object.freeze({...state, discovery: Object.freeze({...layout, capturedAt: Date.now()})});
 	scheduleWrite();
 }
 
@@ -2728,9 +2585,6 @@ function flushPendingReports(): void {
 	if (pendingVoice != null) {
 		commitVoicePresence(pendingVoice);
 	}
-	if (Object.keys(pendingDiscovery).length > 0) {
-		commitDiscoveryLayout();
-	}
 	for (const layout of pendingSimplePages) {
 		commitSimplePageLayout(layout);
 	}
@@ -2833,11 +2687,7 @@ export function reportSkeletonGuildRailLayout(layout: Omit<RememberedSkeletonGui
 		typeof layout.outageVisible !== 'boolean' ||
 		typeof layout.fluxerVisible !== 'boolean' ||
 		typeof layout.favoritesVisible !== 'boolean' ||
-		typeof layout.discoveryVisible !== 'boolean' ||
 		typeof layout.addGuildVisible !== 'boolean' ||
-		typeof layout.downloadVisible !== 'boolean' ||
-		typeof layout.helpVisible !== 'boolean' ||
-		layout.discoveryVisible !== layout.addGuildVisible ||
 		(!layout.fluxerVisible && inlineDmRowCount > 0) ||
 		!Array.isArray(layout.organizedItems) ||
 		!Array.isArray(layout.inlineDmUnreadFlags)
@@ -2926,10 +2776,7 @@ export function reportSkeletonGuildRailLayout(layout: Omit<RememberedSkeletonGui
 		outageVisible: layout.outageVisible,
 		fluxerVisible: layout.fluxerVisible,
 		favoritesVisible: layout.favoritesVisible,
-		discoveryVisible: layout.discoveryVisible,
 		addGuildVisible: layout.addGuildVisible,
-		downloadVisible: layout.downloadVisible,
-		helpVisible: layout.helpVisible,
 		selectedItemIndex,
 		organizedItems: Object.freeze(organizedItems),
 		scrollTopPx:
@@ -3189,32 +3036,6 @@ export function reportSkeletonVoiceConnected(connected: boolean): void {
 	pendingVoice = normalizedPresence;
 	if (captureEnabled) {
 		commitVoicePresence(normalizedPresence);
-	}
-}
-
-export function reportSkeletonDiscoveryGrid(columnCount: number, visibleRowCount: number): void {
-	synchronizeActiveAccountState();
-	const clampedColumnCount = clampReportedInteger(columnCount, 1, MAX_DISCOVERY_COLUMNS);
-	const clampedVisibleRowCount = clampReportedInteger(visibleRowCount, 0, MAX_DISCOVERY_VISIBLE_ROWS);
-	if (clampedColumnCount == null || clampedVisibleRowCount == null) {
-		return;
-	}
-	pendingDiscovery.columnCount = clampedColumnCount;
-	pendingDiscovery.visibleRowCount = clampedVisibleRowCount;
-	if (captureEnabled) {
-		commitDiscoveryLayout();
-	}
-}
-
-export function reportSkeletonDiscoveryCategoryTabs(widthsPx: ReadonlyArray<number>): void {
-	synchronizeActiveAccountState();
-	const categoryTabWidthsPx = clampReportedWidths(widthsPx, MAX_DISCOVERY_CATEGORY_TABS);
-	if (categoryTabWidthsPx == null || categoryTabWidthsPx.length === 0) {
-		return;
-	}
-	pendingDiscovery.categoryTabWidthsPx = categoryTabWidthsPx;
-	if (captureEnabled) {
-		commitDiscoveryLayout();
 	}
 }
 
@@ -3535,17 +3356,6 @@ export function getRememberedSkeletonVoicePresence(): RememberedSkeletonVoicePre
 		return null;
 	}
 	return presence;
-}
-
-export function getRememberedSkeletonDiscoveryLayout(): RememberedSkeletonDiscoveryLayout | null {
-	if (!ensureActiveAccountStateCurrent()) {
-		return null;
-	}
-	const layout = state.discovery;
-	if (layout == null || !isFreshTimestamp(layout.capturedAt, Date.now())) {
-		return null;
-	}
-	return layout;
 }
 
 export function getRememberedSkeletonSimplePageLayout(

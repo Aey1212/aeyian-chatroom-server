@@ -156,12 +156,6 @@ import {
 	type NcmecUserWorkflowRow,
 } from '@app/api/database/types/CsamTypes';
 import {
-	GUILD_DISCOVERY_BY_STATUS_COLUMNS,
-	GUILD_DISCOVERY_COLUMNS,
-	type GuildDiscoveryByStatusRow,
-	type GuildDiscoveryRow,
-} from '@app/api/database/types/GuildDiscoveryTypes';
-import {
 	GUILD_AUDIT_LOG_COLUMNS,
 	GUILD_BAN_BY_EMAIL_COLUMNS,
 	GUILD_BAN_BY_USER_ID_COLUMNS,
@@ -489,21 +483,6 @@ export const Guilds = defineTable<GuildRow, 'guild_id'>({
 	name: 'guilds',
 	columns: GUILD_COLUMNS,
 	primaryKey: ['guild_id'],
-});
-export const GuildDiscovery = defineTable<GuildDiscoveryRow, 'guild_id'>({
-	name: 'guild_discovery',
-	columns: GUILD_DISCOVERY_COLUMNS,
-	primaryKey: ['guild_id'],
-});
-export const GuildDiscoveryByStatus = defineTable<
-	GuildDiscoveryByStatusRow,
-	'status' | 'applied_at' | 'guild_id',
-	'status'
->({
-	name: 'guild_discovery_by_status',
-	columns: GUILD_DISCOVERY_BY_STATUS_COLUMNS,
-	primaryKey: ['status', 'applied_at', 'guild_id'],
-	partitionKey: ['status'],
 });
 export const GuildBans = defineTable<GuildBanRow, 'guild_id' | 'user_id'>({
 	name: 'guild_bans',

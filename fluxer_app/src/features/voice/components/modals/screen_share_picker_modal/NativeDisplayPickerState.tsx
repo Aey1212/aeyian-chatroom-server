@@ -2,7 +2,6 @@
 
 import {Button} from '@app/features/ui/button/Button';
 import styles from '@app/features/voice/components/modals/ScreenSharePickerModal.module.css';
-import {DesktopDownloadCta} from '@app/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta';
 import type {NativePickerCopy} from '@app/features/voice/components/modals/screen_share_picker_modal/useNativePickerCopy';
 import type React from 'react';
 
@@ -14,7 +13,6 @@ interface NativeDisplayPickerStateProps {
 	secondaryActionLabel?: string;
 	onSecondaryAction?: () => void;
 	secondaryActionPending?: boolean;
-	showDesktopDownloadCta: boolean;
 }
 
 export const NativeDisplayPickerState: React.FC<NativeDisplayPickerStateProps> = ({
@@ -25,7 +23,6 @@ export const NativeDisplayPickerState: React.FC<NativeDisplayPickerStateProps> =
 	secondaryActionLabel,
 	onSecondaryAction,
 	secondaryActionPending = false,
-	showDesktopDownloadCta,
 }) => {
 	return (
 		<div className={styles.state} data-flx="voice.screen-share-picker-modal.state--2">
@@ -60,9 +57,6 @@ export const NativeDisplayPickerState: React.FC<NativeDisplayPickerStateProps> =
 					</Button>
 				)}
 			</div>
-			{showDesktopDownloadCta && (
-				<DesktopDownloadCta data-flx="voice.screen-share-picker-modal.native-display-picker-state.desktop-download-cta" />
-			)}
 		</div>
 	);
 };

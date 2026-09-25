@@ -40,8 +40,6 @@ export const Routes = {
 	partners: () => marketingUrl('partners'),
 	bugs: () => marketingUrl('help/report-bug'),
 	plutonium: () => marketingUrl('plutonium'),
-	help: () => marketingUrl('help'),
-	helpArticle: (slug: string) => marketingUrl(`help/${slug}`),
 	dmChannel: (channelId: string) => `/channels/@me/${channelId}`,
 	favoritesChannel: (channelId: string) => `/channels/@favorites/${channelId}`,
 	guildMembers: (guildId: string) => `/channels/${guildId}/members`,
@@ -67,7 +65,6 @@ export const Routes = {
 		pathname === Routes.YOU,
 	isDMRoute: (pathname: string) => pathname.startsWith('/channels/@me'),
 	isFavoritesRoute: (pathname: string) => pathname.startsWith('/channels/@favorites'),
-	isDiscoverRoute: (pathname: string) => pathname.startsWith('/channels/@discover'),
 	isChannelRoute: (pathname: string) => pathname.startsWith('/channels/'),
 	isGuildChannelRoute: (pathname: string) =>
 		pathname.startsWith('/channels/') &&

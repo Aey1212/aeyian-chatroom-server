@@ -4,7 +4,6 @@ import type {GuildID, UserID} from '@app/api/BrandedTypes';
 import type {IChannelRepository} from '@app/api/channel/IChannelRepository';
 import type {ChannelService} from '@app/api/channel/services/ChannelService';
 import type {GuildAuditLogService} from '@app/api/guild/GuildAuditLogService';
-import {GuildDiscoveryRepository} from '@app/api/guild/repositories/GuildDiscoveryRepository';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import {GuildDataHelpers} from '@app/api/guild/services/data/GuildDataHelpers';
 import {GuildOperationsService} from '@app/api/guild/services/data/GuildOperationsService';
@@ -64,7 +63,6 @@ export class GuildDataService {
 			this.webhookRepository,
 			this.helpers,
 			this.limitConfigService,
-			new GuildDiscoveryRepository(),
 		);
 		this.vanityService = new GuildVanityService(this.guildRepository, this.inviteRepository, this.helpers);
 		this.ownershipService = new GuildOwnershipService(this.guildRepository, this.userRepository, this.helpers);

@@ -6,14 +6,12 @@ import {SkeletonSimplePageRoute} from '@app/features/app/components/skeleton/Ske
 export const SkeletonSidebarVariant = Object.freeze({
 	DM: 'dm',
 	GUILD: 'guild',
-	DISCOVERY: 'discovery',
 } as const);
 
 export type SkeletonSidebarVariant = (typeof SkeletonSidebarVariant)[keyof typeof SkeletonSidebarVariant];
 export type SkeletonContent =
 	| {kind: 'chat'}
 	| {kind: 'friends'}
-	| {kind: 'discovery'}
 	| {kind: 'page'; route: SkeletonSimplePageRoute}
 	| {kind: 'empty'};
 
@@ -51,16 +49,13 @@ function resolveGuildContent(pathname: string): SkeletonContent {
 }
 
 export function showsMobileGuildRail(pathname: string): boolean {
-	if (pathname === Routes.ME || Routes.isDiscoverRoute(pathname)) {
+	if (pathname === Routes.ME) {
 		return true;
 	}
 	return Routes.isChannelRoute(pathname) && isGuildRootPath(pathname);
 }
 
 export function showsMobileSidebar(pathname: string): boolean {
-	if (Routes.isDiscoverRoute(pathname)) {
-		return false;
-	}
 	return showsMobileGuildRail(pathname);
 }
 
@@ -73,7 +68,7 @@ export function showsMobileBottomNav(pathname: string): boolean {
 }
 
 export function reservesMobileBottomNavSpace(pathname: string): boolean {
-	return showsMobileBottomNav(pathname) || Routes.isDiscoverRoute(pathname);
+	return showsMobileBottomNav(pathname);
 }
 
 export function resolveSkeletonShell(pathname: string): SkeletonShell {
@@ -82,9 +77,6 @@ export function resolveSkeletonShell(pathname: string): SkeletonShell {
 	}
 	if (pathname === Routes.NOTIFICATIONS) {
 		return {chrome: 'bare', content: {kind: 'page', route: SkeletonSimplePageRoute.NOTIFICATIONS}};
-	}
-	if (Routes.isDiscoverRoute(pathname)) {
-		return {chrome: 'guilds', sidebar: SkeletonSidebarVariant.DISCOVERY, content: {kind: 'discovery'}};
 	}
 	if (pathname === Routes.BOOKMARKS) {
 		return {

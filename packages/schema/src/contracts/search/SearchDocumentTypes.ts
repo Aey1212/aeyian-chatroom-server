@@ -81,11 +81,6 @@ export interface SearchableGuild {
 	nsfwLevel: number;
 	createdAt: number;
 	memberCount: number;
-	discoveryDescription: string | null;
-	discoveryCategory: number | null;
-	discoveryPrimaryLanguage: string | null;
-	discoveryTags: Array<string>;
-	isDiscoverable: boolean;
 }
 
 export interface GuildSearchFilters {
@@ -94,10 +89,6 @@ export interface GuildSearchFilters {
 	mfaLevel?: number;
 	nsfwLevel?: number;
 	hasFeature?: Array<string>;
-	isDiscoverable?: boolean;
-	discoveryCategory?: number;
-	discoveryPrimaryLanguage?: string;
-	discoveryTag?: string;
 	sortBy?: 'createdAt' | 'memberCount' | 'relevance';
 	sortOrder?: 'asc' | 'desc';
 }

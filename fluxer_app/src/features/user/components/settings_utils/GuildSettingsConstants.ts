@@ -2,7 +2,6 @@
 
 import GuildAuditLogTab from '@app/features/guild/components/modals/guild_tabs/GuildAuditLogTab';
 import GuildBansTab from '@app/features/guild/components/modals/guild_tabs/GuildBansTab';
-import GuildDiscoveryTab from '@app/features/guild/components/modals/guild_tabs/GuildDiscoveryTab';
 import GuildEmojiTab from '@app/features/guild/components/modals/guild_tabs/GuildEmojiTab';
 import GuildInvitesTab from '@app/features/guild/components/modals/guild_tabs/GuildInvitesTab';
 import GuildModerationTab from '@app/features/guild/components/modals/guild_tabs/GuildModerationTab';
@@ -17,7 +16,6 @@ import type {I18n, MessageDescriptor} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
 import {
 	BookOpenIcon,
-	CompassIcon,
 	GearIcon,
 	HammerIcon,
 	type Icon,
@@ -73,11 +71,6 @@ const VANITY_URL_DESCRIPTOR = msg({
 	context: 'community-settings-tab',
 	comment: 'Community settings tab for the community vanity/custom invite link.',
 });
-const DISCOVERY_DESCRIPTOR = msg({
-	message: 'Discovery',
-	context: 'community-settings-tab',
-	comment: 'Community settings tab for public community discovery/listing.',
-});
 const MEMBERS_DESCRIPTOR = msg({
 	message: 'Members',
 	context: 'community-settings-tab',
@@ -103,7 +96,6 @@ export type GuildSettingsTabType =
 	| 'audit_log'
 	| 'webhooks'
 	| 'vanity_url'
-	| 'discovery'
 	| 'members'
 	| 'invites'
 	| 'bans';
@@ -190,15 +182,6 @@ const GUILD_SETTINGS_TABS_DESCRIPTORS: Array<GuildSettingsTabDescriptor> = [
 		permission: [Permissions.CREATE_EXPRESSIONS, Permissions.MANAGE_EXPRESSIONS],
 	},
 	{
-		type: 'discovery',
-		category: 'community',
-		label: DISCOVERY_DESCRIPTOR,
-		icon: CompassIcon,
-		iconWeight: 'fill',
-		component: GuildDiscoveryTab,
-		permission: Permissions.MANAGE_GUILD,
-	},
-	{
 		type: 'vanity_url',
 		category: 'community',
 		label: VANITY_URL_DESCRIPTOR,
@@ -252,7 +235,7 @@ const EXPRESSIONS_CATEGORY_DESCRIPTOR = msg({
 });
 const COMMUNITY_CATEGORY_DESCRIPTOR = msg({
 	message: 'Community',
-	comment: 'Community settings sidebar category grouping discovery and the vanity URL.',
+	comment: 'Community settings sidebar category grouping the vanity URL settings.',
 });
 const INTEGRATIONS_CATEGORY_DESCRIPTOR = msg({
 	message: 'Integrations',

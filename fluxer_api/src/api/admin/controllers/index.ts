@@ -8,7 +8,6 @@ import {AuditLogAdminController} from '@app/api/admin/controllers/AuditLogAdminC
 import {BanAdminController} from '@app/api/admin/controllers/BanAdminController';
 import {BulkAdminController} from '@app/api/admin/controllers/BulkAdminController';
 import {CodesAdminController} from '@app/api/admin/controllers/CodesAdminController';
-import {DiscoveryAdminController} from '@app/api/admin/controllers/DiscoveryAdminController';
 import {GatewayAdminController} from '@app/api/admin/controllers/GatewayAdminController';
 import {GuildAdminController} from '@app/api/admin/controllers/GuildAdminController';
 import {InstanceConfigAdminController} from '@app/api/admin/controllers/InstanceConfigAdminController';
@@ -40,7 +39,6 @@ export function registerAdminControllers(app: HonoApp) {
 	VoiceAdminController(app);
 	GatewayAdminController(app);
 	SearchAdminController(app);
-	DiscoveryAdminController(app);
 	SystemDmAdminController(app);
 	JobsAdminController(app);
 }
