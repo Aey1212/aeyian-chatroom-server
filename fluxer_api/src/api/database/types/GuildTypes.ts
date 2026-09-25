@@ -170,6 +170,8 @@ export interface GuildRoleRow {
 	position: number;
 	hoist_position: Nullish<number>;
 	color: number;
+	secondary_color?: Nullish<number>;
+	tertiary_color?: Nullish<number>;
 	icon_hash: Nullish<string>;
 	unicode_emoji: Nullish<string>;
 	hoist: boolean;
@@ -185,6 +187,8 @@ export const GUILD_ROLE_COLUMNS = [
 	'position',
 	'hoist_position',
 	'color',
+	'secondary_color',
+	'tertiary_color',
 	'icon_hash',
 	'unicode_emoji',
 	'hoist',

@@ -5474,6 +5474,14 @@
 				{
 					"name": "version",
 					"type": "int"
+				},
+				{
+					"name": "secondary_color",
+					"type": "int"
+				},
+				{
+					"name": "tertiary_color",
+					"type": "int"
 				}
 			],
 			"primary_key": "((guild_id), role_id)",
@@ -8661,6 +8669,10 @@
 				{
 					"name": "timezone_privacy_flags",
 					"type": "int"
+				},
+				{
+					"name": "name_style",
+					"type": "text"
 				}
 			],
 			"primary_key": "((user_id))",

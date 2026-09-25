@@ -172,6 +172,7 @@ Roles are named permission masks that a guild assigns to any number of its membe
 | id | snowflake | The ID of the role |
 | name | string | The name of the role (1-100 characters) |
 | color | integer | The colour of the role as an RGB integer, which every operation on this resource writes in the range 0 through 16777215 |
+| colors | [role colours](#role-colors-object) object | The colours of the role, including gradient and holographic colours |
 | position<sup>1</sup> | integer | The rank of the role in the permission hierarchy, where a larger value ranks higher |
 | hoist_position<sup>2</sup> | ?integer | The rank of the role among the separately displayed member list groups |
 | permissions | decimal string | The [permission](#permissions) bitfield the role grants |
@@ -194,11 +195,42 @@ The everyone role has the same snowflake as its guild and is named `@everyone`. 
   "id": "1489002177550843904",
   "name": "Moderator",
   "color": 3447003,
+  "colors": {
+    "primary_color": 3447003,
+    "secondary_color": null,
+    "tertiary_color": null
+  },
   "position": 4,
   "hoist_position": 1,
   "permissions": "1099511637006",
   "hoist": true,
   "mentionable": false
+}
+```
+
+## Role colors object
+
+A role is a solid colour, a two-colour gradient, or a three-colour holographic gradient. A request carries the same fields, and there `secondary_color` and `tertiary_color` may also be omitted.
+
+### Structure
+
+| Field | Type | Description |
+| --- | --- | --- |
+| primary_color | integer | The main colour as a 24-bit RGB integer, always equal to the role's `color` |
+| secondary_color | ?integer | The second colour of a gradient role, or null for a solid colour |
+| tertiary_color<sup>1</sup> | ?integer | The third colour of a holographic role, or null |
+
+<sup>1</sup> Only kept while `secondary_color` is set; a request that sends it without a secondary colour stores null
+
+The holographic preset is `primary_color` 11127295, `secondary_color` 16759788, and `tertiary_color` 16761760.
+
+### Example
+
+```json
+{
+  "primary_color": 11127295,
+  "secondary_color": 16759788,
+  "tertiary_color": 16761760
 }
 ```
 
@@ -302,9 +334,12 @@ Creates a role and returns its [guild role object](#guild-role-object). Requires
 | --- | --- | --- |
 | name | string | The name of the role (1-100 characters) |
 | color? | integer | The colour of the role as a 24-bit RGB integer (0-16777215, default 0) |
-| permissions?<sup>1</sup> | decimal string \| integer | The [permission](#permissions) bitfield the role grants |
+| colors?<sup>1</sup> | [role colours](#role-colors-object) object | The colours of the role, including gradient and holographic colours |
+| permissions?<sup>2</sup> | decimal string \| integer | The [permission](#permissions) bitfield the role grants |
 
-<sup>1</sup> An omitted field copies the current permissions of the everyone role unchanged. A supplied value is intersected with the set of defined bits, Fluxer clears `VIEW_CHANNEL_MEMBERS` unless the caller's [feature declaration](#feature-gated-permission-bits) includes `view_channel_members_permission`, then checks the value against the caller's own permissions
+<sup>1</sup> When present it takes precedence over `color`, and `color` is stored as its `primary_color`
+
+<sup>2</sup> An omitted field copies the current permissions of the everyone role unchanged. A supplied value is intersected with the set of defined bits, Fluxer clears `VIEW_CHANNEL_MEMBERS` unless the caller's [feature declaration](#feature-gated-permission-bits) includes `view_channel_members_permission`, then checks the value against the caller's own permissions
 
 ### Response
 
@@ -355,15 +390,18 @@ Every field is optional, and an omitted field leaves the stored value unchanged.
 | Field | Type | Description |
 | --- | --- | --- |
 | name?<sup>1</sup> | string | The name of the role (1-100 characters) |
-| color? | integer | The colour of the role as a 24-bit RGB integer (0-16777215) |
-| permissions?<sup>2</sup> | decimal string \| integer | The complete replacement [permission](#permissions) bitfield |
+| color?<sup>2</sup> | integer | The colour of the role as a 24-bit RGB integer (0-16777215) |
+| colors?<sup>2</sup> | [role colours](#role-colors-object) object | The colours of the role, including gradient and holographic colours |
+| permissions?<sup>3</sup> | decimal string \| integer | The complete replacement [permission](#permissions) bitfield |
 | hoist?<sup>1</sup> | boolean | Whether members holding the role are displayed as their own member list group |
 | hoist_position?<sup>1</sup> | ?integer | The member list position to give the role, or null to clear it |
 | mentionable?<sup>1</sup> | boolean | Whether a member without `MENTION_EVERYONE` can mention the role |
 
 <sup>1</sup> The field is accepted and then ignored when the target is the everyone role, which cannot be renamed, hoisted, given a member list position, or made mentionable
 
-<sup>2</sup> The supplied value becomes the complete stored mask. Before it checks the caller's authority, Fluxer intersects it with the set of defined bits and keeps each feature-gated bit at its stored value unless the caller's [feature declaration](#feature-gated-permission-bits) names the feature for that bit
+<sup>2</sup> `colors` takes precedence over `color`. A request with `color` and no `colors` makes the role a solid colour and clears its secondary and tertiary colours
+
+<sup>3</sup> The supplied value becomes the complete stored mask. Before it checks the caller's authority, Fluxer intersects it with the set of defined bits and keeps each feature-gated bit at its stored value unless the caller's [feature declaration](#feature-gated-permission-bits) names the feature for that bit
 
 ### Response
 

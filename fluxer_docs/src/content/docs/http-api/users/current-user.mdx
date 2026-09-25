@@ -83,6 +83,7 @@ The username is not a field here. An account asks for a new one with [Request a 
 | has_dismissed_premium_onboarding?<sup>11</sup> | boolean | Whether the premium onboarding flow has been dismissed |
 | has_unread_gift_inventory?<sup>12</sup> | boolean | Whether the gift inventory still holds unread items |
 | mention_flags? | integer | [Reply mention preference](/http-api/users/#reply-mention-preferences), one of `0`, `1`, or `2` |
+| name_style? | ?[name style](/http-api/users/#name-style-object) object | The font, colours, and effect of the display name, or null to reset it to the default |
 | email_token?<sup>13</sup> | string | Email token (1-256 characters) issued by [verify new email](/http-api/users/email-and-password/#verify-new-email) |
 | mfa_method? | string | [Sudo verification](/http-api/users/mfa/#sudo-mode) method, either `totp` or `webauthn` |
 | mfa_code? | string | [Sudo verification](/http-api/users/mfa/#sudo-mode) authenticator or backup code (1-32 characters) |

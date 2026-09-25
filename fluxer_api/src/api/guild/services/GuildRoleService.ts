@@ -30,6 +30,7 @@ import {ResourceLockedError} from '@fluxer/errors/src/domains/core/ResourceLocke
 import {MaxGuildRolesError} from '@fluxer/errors/src/domains/guild/MaxGuildRolesError';
 import {UnknownGuildRoleError} from '@fluxer/errors/src/domains/guild/UnknownGuildRoleError';
 import type {
+	GuildRoleColorsRequest,
 	GuildRoleCreateRequest,
 	GuildRoleUpdateRequest,
 } from '@fluxer/schema/src/domains/guild/GuildRequestSchemas';
@@ -48,6 +49,8 @@ interface GuildAuth {
 type RoleUpdateData = Partial<{
 	name: string;
 	color: number;
+	secondaryColor: number | null;
+	tertiaryColor: number | null;
 	position: number;
 	hoistPosition: number | null;
 	permissions: bigint;
@@ -56,6 +59,23 @@ type RoleUpdateData = Partial<{
 	hoist: boolean;
 	mentionable: boolean;
 }>;
+
+// `colors` wins over `color`; a plain `color` makes the role a solid color again.
+function roleColorFields(data: {color?: number; colors?: GuildRoleColorsRequest}): {
+	color: number;
+	secondary_color: number | null;
+	tertiary_color: number | null;
+} {
+	if (!data.colors) {
+		return {color: data.color || 0, secondary_color: null, tertiary_color: null};
+	}
+	const secondary = data.colors.secondary_color ?? null;
+	return {
+		color: data.colors.primary_color,
+		secondary_color: secondary,
+		tertiary_color: secondary === null ? null : (data.colors.tertiary_color ?? null),
+	};
+}
 
 export class GuildRoleService {
 	constructor(
@@ -88,7 +108,7 @@ export class GuildRoleService {
 			permissions,
 			position,
 			hoist_position: null,
-			color: data.color || 0,
+			...roleColorFields(data),
 			icon_hash: null,
 			unicode_emoji: null,
 			hoist: false,
@@ -142,7 +162,7 @@ export class GuildRoleService {
 			permissions,
 			position,
 			hoist_position: null,
-			color: data.color || 0,
+			...roleColorFields(data),
 			icon_hash: null,
 			unicode_emoji: null,
 			hoist: false,
@@ -225,6 +245,8 @@ export class GuildRoleService {
 			...role.toRow(),
 			name: updateData.name ?? role.name,
 			color: updateData.color ?? role.color,
+			secondary_color: updateData.secondaryColor !== undefined ? updateData.secondaryColor : role.secondaryColor,
+			tertiary_color: updateData.tertiaryColor !== undefined ? updateData.tertiaryColor : role.tertiaryColor,
 			position: updateData.position ?? role.position,
 			hoist_position: updateData.hoistPosition !== undefined ? updateData.hoistPosition : role.hoistPosition,
 			permissions: updateData.permissions ?? role.permissions,
@@ -552,8 +574,11 @@ export class GuildRoleService {
 		if (data.name !== undefined && !isEveryoneRole) {
 			updateData.name = data.name;
 		}
-		if (data.color !== undefined) {
-			updateData.color = data.color;
+		if (data.colors !== undefined || data.color !== undefined) {
+			const colors = roleColorFields({color: data.color ?? role.color, colors: data.colors});
+			updateData.color = colors.color;
+			updateData.secondaryColor = colors.secondary_color;
+			updateData.tertiaryColor = colors.tertiary_color;
 		}
 		if (data.hoist !== undefined && !isEveryoneRole) {
 			updateData.hoist = data.hoist;
@@ -793,6 +818,8 @@ export class GuildRoleService {
 			position: role.position,
 			hoist_position: role.hoistPosition,
 			color: role.color,
+			secondary_color: role.secondaryColor,
+			tertiary_color: role.tertiaryColor,
 			icon_hash: role.iconHash ?? null,
 			unicode_emoji: role.unicodeEmoji ?? null,
 			hoist: role.isHoisted,

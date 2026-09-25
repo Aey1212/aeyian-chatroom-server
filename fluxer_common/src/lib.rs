@@ -4,4 +4,5 @@ pub mod attachment_url_signature;
 pub mod config;
 pub mod external_media_path;
 pub mod geoip;
+pub mod name_style;
 pub mod user_flags;

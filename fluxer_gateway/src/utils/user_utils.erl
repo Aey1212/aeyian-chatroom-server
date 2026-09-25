@@ -16,7 +16,8 @@ partial_user_fields() ->
         <<"bot">>,
         <<"system">>,
         <<"flags">>,
-        <<"mention_flags">>
+        <<"mention_flags">>,
+        <<"name_style">>
     ].
 
 -spec normalize_user(map() | term()) -> map().
@@ -40,6 +41,10 @@ normalize_field(<<"flags">>, Value) ->
     user_flags:parse(Value);
 normalize_field(<<"mention_flags">>, Value) ->
     user_flags:parse(Value);
+normalize_field(<<"name_style">>, Value) when is_map(Value) ->
+    Value;
+normalize_field(<<"name_style">>, _Value) ->
+    undefined;
 normalize_field(_Key, Value) ->
     Value.
 
@@ -94,6 +99,18 @@ normalize_user_passes_mention_flags_test() ->
     Result = normalize_user(User),
     ?assertEqual(1, maps:get(<<"mention_flags">>, Result)).
 
+normalize_user_passes_name_style_test() ->
+    Style = #{
+        <<"font">> => <<"bangers">>,
+        <<"effect">> => <<"gradient">>,
+        <<"primary_color">> => 16#ff0000,
+        <<"secondary_color">> => 16#0000ff
+    },
+    User = #{<<"id">> => <<"123">>, <<"username">> => <<"test">>, <<"name_style">> => Style},
+    ?assertEqual(Style, maps:get(<<"name_style">>, normalize_user(User))),
+    Broken = normalize_user(User#{<<"name_style">> => <<"not a map">>}),
+    ?assertEqual(error, maps:find(<<"name_style">>, Broken)).
+
 normalize_user_undefined_values_test() ->
     User = #{
         <<"id">> => <<"123">>,
@@ -116,7 +133,7 @@ normalize_user_empty_map_test() ->
 partial_user_fields_test() ->
     Fields = partial_user_fields(),
     ?assert(is_list(Fields)),
-    ?assertEqual(9, length(Fields)),
+    ?assertEqual(10, length(Fields)),
     ?assert(lists:member(<<"id">>, Fields)),
     ?assert(lists:member(<<"username">>, Fields)),
     ?assert(lists:member(<<"flags">>, Fields)).

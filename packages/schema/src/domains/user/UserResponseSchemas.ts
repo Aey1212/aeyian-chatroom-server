@@ -19,6 +19,7 @@ import {
 import {ConnectionResponse} from '@fluxer/schema/src/domains/connection/ConnectionSchemas';
 import {GuildMemberResponse} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
 import {MessageResponseSchema} from '@fluxer/schema/src/domains/message/MessageResponseSchemas';
+import {NameStyleSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {LocaleSchema} from '@fluxer/schema/src/primitives/LocaleSchema';
 import {
 	createBitflagInt32Type,
@@ -66,6 +67,9 @@ export const UserPartialResponse = z.object({
 		.describe(
 			"The user's account-wide reply mention preference. Omitted when the user has no preference set (treated as NO_PREFERENCE).",
 		),
+	name_style: NameStyleSchema.optional().describe(
+		'Font, colors and effect of the display name. Omitted when the user uses the default style.',
+	),
 });
 
 export type UserPartialResponse = z.infer<typeof UserPartialResponse>;

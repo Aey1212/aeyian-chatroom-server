@@ -267,6 +267,7 @@ export async function register(
 			gift_inventory_client_seq: null,
 			premium_onboarding_dismissed_at: null,
 			mention_flags: null,
+			name_style: null,
 			last_voice_activity_sharing_change_at: null,
 			version: 1,
 		})

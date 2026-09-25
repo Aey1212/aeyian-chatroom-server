@@ -20,6 +20,7 @@ import {isSupportedTimeZoneId} from '@fluxer/date_utils/src/TimeZoneUtils';
 import {ContentBlockedError} from '@fluxer/errors/src/domains/content/ContentBlockedError';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
 import {MissingAccessError} from '@fluxer/errors/src/domains/core/MissingAccessError';
+import {serializeNameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import type {UserUpdateRequest} from '@fluxer/schema/src/domains/user/UserRequestSchemas';
 import type {IRateLimitService} from '@pkgs/rate_limit/src/IRateLimitService';
 import {ms} from 'itty-time';
@@ -119,6 +120,9 @@ export class UserAccountProfileService {
 		}
 		if (data.mention_flags !== undefined) {
 			updates.mention_flags = data.mention_flags;
+		}
+		if (data.name_style !== undefined) {
+			updates.name_style = serializeNameStyle(data.name_style);
 		}
 		return {updates, preparedAvatarUpload, preparedBannerUpload};
 	}

@@ -17,6 +17,7 @@ use crate::types::{
 use crate::udt;
 use base64::prelude::{BASE64_STANDARD, Engine};
 use chrono::{DateTime, Utc};
+use fluxer_common::name_style::NameStyle;
 use fluxer_common::user_flags::{USER_FLAG_STAFF, visible_user_flags};
 use fluxer_svc::shard::ShardService;
 use fluxer_svc::transport::Transport;
@@ -213,6 +214,8 @@ struct UserPartialServiceResponse {
     flags: Option<i64>,
     avatar_color: Option<i32>,
     mention_flags: Option<i32>,
+    #[serde(default)]
+    name_style: Option<NameStyle>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -1184,6 +1187,7 @@ impl<T: Transport> MessagesShard<T> {
                 system: None,
                 flags: 0,
                 mention_flags: None,
+                name_style: None,
             };
         }
         deleted_user(0)
@@ -2712,6 +2716,7 @@ fn map_user_partial(partial: UserPartialServiceResponse) -> ApiUserPartialRespon
         system: partial.system.filter(|system| *system),
         flags: i64::from(visible_user_flags(flags)),
         mention_flags: partial.mention_flags.filter(|flags| *flags != 0),
+        name_style: partial.name_style,
     }
 }
 
@@ -2726,6 +2731,7 @@ fn fluxer_system_user() -> ApiUserPartialResponse {
         system: Some(true),
         flags: USER_FLAG_STAFF,
         mention_flags: None,
+        name_style: None,
     }
 }
 
@@ -2743,6 +2749,7 @@ fn deleted_user(user_id: i64) -> ApiUserPartialResponse {
         system: None,
         flags: 0,
         mention_flags: None,
+        name_style: None,
     }
 }
 
@@ -3272,6 +3279,7 @@ mod tests {
             flags: Some(USER_FLAG_DELETED),
             avatar_color: None,
             mention_flags: None,
+            name_style: None,
         });
 
         assert_eq!(mapped.id, "0");
@@ -3319,6 +3327,7 @@ mod tests {
             flags: Some(USER_FLAG_DELETED),
             avatar_color: Some(0x336699),
             mention_flags: None,
+            name_style: None,
         });
 
         assert_eq!(mapped.id, "42");

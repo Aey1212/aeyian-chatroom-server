@@ -232,7 +232,8 @@ build_user_data(UserDataMap) ->
         <<"bot">> => map_utils:get_safe(UserDataMap, <<"bot">>, undefined),
         <<"system">> => map_utils:get_safe(UserDataMap, <<"system">>, undefined),
         <<"flags">> => maps:get(<<"flags">>, UserDataMap),
-        <<"mention_flags">> => map_utils:get_safe(UserDataMap, <<"mention_flags">>, undefined)
+        <<"mention_flags">> => map_utils:get_safe(UserDataMap, <<"mention_flags">>, undefined),
+        <<"name_style">> => map_utils:get_safe(UserDataMap, <<"name_style">>, undefined)
     },
     Normalized = user_utils:normalize_user(UserData0),
     Normalized#{<<"is_staff">> => maps:get(<<"is_staff">>, UserDataMap, false)}.

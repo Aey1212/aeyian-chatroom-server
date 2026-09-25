@@ -101,6 +101,11 @@ export function mapGuildRoleToResponse(role: GuildRole): GuildRoleResponse {
 		id: role.id.toString(),
 		name: role.name,
 		color: role.color,
+		colors: {
+			primary_color: role.color,
+			secondary_color: role.secondaryColor,
+			tertiary_color: role.tertiaryColor,
+		},
 		position: role.position,
 		hoist_position: role.hoistPosition,
 		permissions: role.permissions.toString(),
