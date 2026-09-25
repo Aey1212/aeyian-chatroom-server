@@ -1,0 +1,167 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.header {
+	margin-bottom: 0.25rem;
+}
+
+.title {
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+	font-size: 1.25rem;
+}
+
+.description {
+	font-size: 0.875rem;
+	color: var(--text-primary-muted);
+}
+
+.preview {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 1rem 1.25rem;
+	border-radius: 0.5rem;
+	background-color: var(--background-secondary);
+}
+
+.previewName {
+	overflow: hidden;
+	font-weight: 600;
+	font-size: 1.5rem;
+	line-height: 1.4;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: var(--text-primary);
+}
+
+.previewHint {
+	font-size: 0.75rem;
+	color: var(--text-tertiary);
+}
+
+.fieldLabel {
+	margin-top: 0.5rem;
+	font-weight: 600;
+	font-size: 0.875rem;
+	color: var(--text-secondary);
+}
+
+.categoryRow {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+}
+
+.categoryButton {
+	padding: 0.25rem 0.75rem;
+	border: 1px solid var(--background-modifier-accent);
+	border-radius: 999px;
+	background: transparent;
+	font-size: 0.8125rem;
+	color: var(--text-primary-muted);
+	cursor: pointer;
+}
+
+.categoryButton:hover {
+	background-color: var(--background-modifier-hover);
+}
+
+.categoryButtonSelected {
+	border-color: var(--brand-primary);
+	background-color: var(--background-modifier-selected);
+	color: var(--text-primary);
+}
+
+.fontGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+	gap: 0.5rem;
+	max-height: 26rem;
+	overflow-y: auto;
+	padding: 0.125rem;
+}
+
+.fontTile {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.25rem;
+	min-width: 0;
+	padding: 0.625rem 0.75rem;
+	border: 2px solid transparent;
+	border-radius: 0.5rem;
+	background-color: var(--background-secondary);
+	text-align: left;
+	color: var(--text-primary);
+	cursor: pointer;
+}
+
+.fontTile:hover:not(:disabled) {
+	background-color: var(--background-modifier-hover);
+}
+
+.fontTile:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.fontTileSelected {
+	border-color: var(--brand-primary);
+}
+
+.fontSample {
+	overflow: hidden;
+	width: 100%;
+	font-weight: 600;
+	font-size: 1.125rem;
+	line-height: 1.5;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-synthesis: none;
+}
+
+.fontLabel {
+	font-size: 0.75rem;
+	color: var(--text-primary-muted);
+}
+
+.scriptChips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+}
+
+.scriptChip {
+	padding: 0 0.3125rem;
+	border-radius: 0.25rem;
+	background-color: var(--background-modifier-accent);
+	font-size: 0.6875rem;
+	line-height: 1.125rem;
+	color: var(--text-secondary);
+}
+
+.colors {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+	gap: 0.75rem;
+}
+
+.resetButton {
+	align-self: flex-start;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font-size: 0.875rem;
+	color: var(--text-link);
+	cursor: pointer;
+}
+
+.resetButton:hover:not(:disabled) {
+	text-decoration: underline;
+}

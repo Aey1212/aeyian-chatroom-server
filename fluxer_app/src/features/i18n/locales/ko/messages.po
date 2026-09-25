@@ -42,19 +42,19 @@ msgid "(you)"
 msgstr "(나)"
 
 #. Screen reader announcement in the composer when two people are typing. {a} and {b} are their display names.
-#: src/features/typing/rolling/RollingTypingText.tsx:19
+#: src/features/typing/rolling/RollingTypingText.tsx:20
 #: src/features/typing/rolling/RollingTypingText.tsx:54
 msgid "{a} and {b} are typing..."
 msgstr "{a}님과 {b}님이 입력 중..."
 
 #. Screen reader announcement in the composer when one person is typing. {a} is their display name.
-#: src/features/typing/rolling/RollingTypingText.tsx:15
+#: src/features/typing/rolling/RollingTypingText.tsx:16
 #: src/features/typing/rolling/RollingTypingText.tsx:50
 msgid "{a} is typing..."
 msgstr "{a}님이 입력 중..."
 
 #. Screen reader announcement in the composer when three people are typing. {a}, {b} and {c} are their display names.
-#: src/features/typing/rolling/RollingTypingText.tsx:24
+#: src/features/typing/rolling/RollingTypingText.tsx:25
 #: src/features/typing/rolling/RollingTypingText.tsx:60
 msgid "{a}, {b} and {c} are typing..."
 msgstr "{a}님, {b}님, {c}님이 입력 중..."
@@ -949,8 +949,8 @@ msgid "{count, plural, one {# image} other {# images}}"
 msgstr "{count, plural, one {#개의 이미지} other {#개의 이미지}}"
 
 #: src/features/channel/components/ChannelSourcePreview.tsx:245
-#: src/features/channel/components/direct_message/DMListItem.tsx:437
-#: src/features/channel/components/direct_message/DMListItem.tsx:601
+#: src/features/channel/components/direct_message/DMListItem.tsx:448
+#: src/features/channel/components/direct_message/DMListItem.tsx:613
 #: src/features/guild/components/bottomsheets/GuildHeaderBottomSheet.tsx:118
 #: src/features/user/components/modals/MutualItemsSheet.tsx:159
 #: src/features/user/components/modals/user_profile_modal/MutualGroupItem.tsx:26
@@ -3400,6 +3400,7 @@ msgstr "정렬 컨트롤은 더 넓은 화면에서만 사용할 수 있습니�
 #. Audit log target-type filter option. Shows entries for every target type.
 #. Column header in the notification overrides table. Short label for the All messages option. Standalone word; refers to "all messages".
 #. Date-range filter option meaning no time window is applied. Used on the community members page.
+#. Font picker filter that shows every font.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the DM friends view showing all friends.
 #. Tab label in the mobile memes (saved media) picker. Shows all saved media regardless of type.
@@ -3409,6 +3410,7 @@ msgstr "정렬 컨트롤은 더 넓은 화면에서만 사용할 수 있습니�
 #: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:131
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:38
 msgid "All"
 msgstr "전체"
 
@@ -3627,7 +3629,7 @@ msgid "Allow members without the {readMessageHistoryPermissionLabel} permission 
 msgstr "{readMessageHistoryPermissionLabel} 권한이 없는 멤버가 특정 날짜 이후에 보낸 메시지를 볼 수 있도록 허용합니다."
 
 #. Switch label in the role editor (mentionable toggle). When on, any member can mention this role in chat.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:43
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:44
 msgid "Allow mentions for this role"
 msgstr "이 역할에 대한 멘션 허용"
 
@@ -3786,12 +3788,17 @@ msgid "Always"
 msgstr "항상"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:20
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:21
 msgid "Always animate"
 msgstr "항상 애니메이션 사용"
 
+#. Label for the switch that keeps glow, shimmer and holographic names moving all the time.
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:94
+msgid "Always animate name effects"
+msgstr "Always animate name effects"
+
 #. Description shown for stickers when always-animate overrides reduced motion.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:89
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:90
 msgid "Always animating despite reduced motion."
 msgstr "동작 줄이기 설정에도 항상 애니메이션 재생."
 
@@ -3896,7 +3903,7 @@ msgid "and {remainingCount} more"
 msgstr "외 {remainingCount}개"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:28
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:29
 msgid "Animate on interaction"
 msgstr "상호작용 시 애니메이션 재생"
 
@@ -4342,6 +4349,8 @@ msgid "Approve"
 msgstr "승인"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:90
 #: src/features/user/utils/LocaleUtils.ts:10
 msgid "Arabic"
 msgstr "아랍어"
@@ -4374,7 +4383,7 @@ msgid "Are you sure you want to delete every message in your personal notes? Thi
 msgstr "개인 노트의 모든 메시지를 삭제하시겠어요? 모든 메시지와 첨부 파일이 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다."
 
 #. placeholder {0}: selectedRole.name
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:425
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:436
 msgid "Are you sure you want to delete the <0>{0}</0> role? Any members with this role will no longer have it."
 msgstr "<0>{0}</0> 역할을 정말 삭제하시겠어요? 이 역할을 가진 모든 멤버는 더 이상 이 역할을 갖지 못하게 됩니다."
 
@@ -4970,12 +4979,12 @@ msgid "Automatic start"
 msgstr "자동 시작"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:52
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:53
 msgid "Automatically play GIFs"
 msgstr "GIF 자동 재생"
 
 #. Label in the animation tab. Preserve {productName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:56
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:57
 msgid "Automatically play GIFs when {productName} is focused"
 msgstr "{productName}이(가) 포커스되면 GIF 자동 재생"
 
@@ -5161,7 +5170,7 @@ msgstr "재정의로 돌아가기"
 
 #. Back-navigation label that returns from an individual role editor to the roles list.
 #: src/features/app/components/dialogs/components/DesktopGuildSettingsView.tsx:50
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:149
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:150
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleSidebar.tsx:116
 msgid "Back to roles"
 msgstr "역할로 돌아가기"
@@ -6375,7 +6384,7 @@ msgid "Cancel yearly upgrade"
 msgstr "연간 업그레이드 취소"
 
 #. Confirmation prompt in the channel and chat friend list item. Preserve {displayName}; it is inserted by code.
-#: src/features/channel/components/friends/FriendListItem.tsx:54
+#: src/features/channel/components/friends/FriendListItem.tsx:55
 msgid "Cancel your friend request to {displayName}?"
 msgstr "{displayName}님에게 보낸 친구 요청을 취소하시겠어요?"
 
@@ -7255,10 +7264,20 @@ msgstr "아동 안전 또는 성인 콘텐츠"
 msgid "Chinese (simplified)"
 msgstr "중국어(간체)"
 
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:98
+msgid "Chinese (Simplified)"
+msgstr "Chinese (Simplified)"
+
 #. Short label in the language and locale names. Keep it concise.
 #: src/features/user/utils/LocaleUtils.ts:142
 msgid "Chinese (traditional)"
 msgstr "중국어(번체)"
+
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:102
+msgid "Chinese (Traditional)"
+msgstr "Chinese (Traditional)"
 
 #. Slash-command argument type name, spoken by screen readers for an argument picked from a fixed list.
 #: src/features/lexical/composer/nodes/SlashSlotNode.ts:51
@@ -7760,7 +7779,7 @@ msgstr "닉네임 지우기"
 msgid "Clear overrides"
 msgstr "재정의 지우기"
 
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:244
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:252
 msgid "Clear permissions"
 msgstr "권한 지우기"
 
@@ -7985,7 +8004,7 @@ msgid "Close account"
 msgstr "계정 삭제"
 
 #. Accessible label and tooltip for the close-DM button on a DM list row.
-#: src/features/channel/components/direct_message/DMListItem.tsx:83
+#: src/features/channel/components/direct_message/DMListItem.tsx:85
 msgid "Close direct message with {displayName}"
 msgstr "{displayName}님과의 DM 닫기"
 
@@ -8244,6 +8263,11 @@ msgstr "색상 선택 도구"
 msgid "Color scheme"
 msgstr "색상 테마"
 
+#. Label above the solid, gradient and holographic choice in the role editor.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:21
+msgid "Color style"
+msgstr "Color style"
+
 #. Accessible label for the current color input value.
 #: src/features/ui/components/form/ColorPickerField.tsx:19
 msgid "Color value"
@@ -8274,7 +8298,7 @@ msgstr "편안하게"
 #. Density mode label in the channel permissions tab layout toggle. Comfortable option.
 #. Status text or tooltip indicating the role editor permission list is currently in comfy (spacious) layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:17
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:61
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:62
 msgid "Comfy layout"
 msgstr "편안한 레이아웃"
 
@@ -8473,7 +8497,7 @@ msgstr "커뮤니티 이름"
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:126
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:128
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:113
 msgid "Community nickname"
 msgstr "커뮤니티 닉네임"
@@ -8498,7 +8522,7 @@ msgstr "커뮤니티별 설정"
 #. Tooltip on the owner crown icon next to a member name on the community members page.
 #: src/features/channel/components/bottomsheets/ChannelDetailsBottomSheetMemberList.tsx:42
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:73
-#: src/features/channel/components/MemberListItem.tsx:36
+#: src/features/channel/components/MemberListItem.tsx:37
 msgid "Community owner"
 msgstr "커뮤니티 소유자"
 
@@ -8521,7 +8545,7 @@ msgid "Community profile"
 msgstr "커뮤니티 프로필"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:73
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:75
 msgid "Community profile updated"
 msgstr "커뮤니티 프로필 업데이트 완료"
 
@@ -8691,7 +8715,7 @@ msgstr "이 멤버에 대한 권한 재정의 설정"
 msgid "Configure overrides for this role"
 msgstr "이 역할에 대한 권한 재정의 설정"
 
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:159
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:160
 msgid "Configure role settings and permissions"
 msgstr "역할 설정 및 권한 구성"
 
@@ -10724,6 +10748,11 @@ msgstr "음량 임계값보다 작은 소리를 차단하며 CPU 사용량이 �
 msgid "Cyprus"
 msgstr "키프로스"
 
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:87
+msgid "Cyrillic"
+msgstr "Cyrillic"
+
 #. Short label in the language and locale names. Keep it concise.
 #: src/features/user/utils/LocaleUtils.ts:18
 msgid "Czech"
@@ -10987,6 +11016,7 @@ msgid "Decorative divider"
 msgstr "장식용 구분선"
 
 #. Badge for the default saved payment method.
+#. Font tile that keeps the app font for the display name.
 #. Option label representing the default value.
 #. Option label representing the default value.
 #. Pill rendered next to the default value of a filter (e.g. sort:timestamp). Title Case.
@@ -10998,6 +11028,7 @@ msgstr "장식용 구분선"
 #: src/features/ui/action_menu/items/SearchMenuData.tsx:43
 #: src/features/ui/action_menu/items/SearchProviderMenuItems.tsx:14
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:117
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:34
 msgid "Default"
 msgstr "기본"
 
@@ -11074,12 +11105,12 @@ msgid "Default:"
 msgstr "기본값:"
 
 #. Description text in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:64
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:65
 msgid "Defaults to animating on interaction on mobile to preserve battery life."
 msgstr "모바일에서는 배터리 절약을 위해 기본적으로 상호작용할 때만 애니메이션이 재생됩니다."
 
 #. Description text in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:60
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:61
 msgid "Defaults to off on mobile to preserve battery life and reduce data usage."
 msgstr "모바일에서는 배터리를 절약하고 데이터 사용량을 줄이기 위해 기본적으로 꺼져 있습니다."
 
@@ -11304,7 +11335,7 @@ msgstr "리디렉션 URI 삭제"
 #. Destructive button in the role editor that removes the selected role. Removes the role from every member; keep tone plain.
 #. Destructive context menu action in the community roles settings tab that immediately removes the right-clicked role from every member. Keep it short.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/OverwriteContextMenu.tsx:14
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:173
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:174
 #: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:57
 #: src/features/ui/action_menu/RoleContextMenu.tsx:17
 msgid "Delete role"
@@ -11459,7 +11490,7 @@ msgstr "좁게"
 #. Density mode label in the channel permissions tab layout toggle. Dense option.
 #. Status text or tooltip indicating the role editor permission list is currently in dense (compact) layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:13
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:57
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:58
 msgid "Dense layout"
 msgstr "간결한 레이아웃"
 
@@ -11644,6 +11675,11 @@ msgstr "세부 정보"
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:126
 msgid "Detect while typing"
 msgstr "입력하는 동안 감지"
+
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:93
+msgid "Devanagari"
+msgstr "Devanagari"
 
 #. Advanced settings category tag.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
@@ -12105,12 +12141,14 @@ msgstr "그래도 닫기"
 msgid "Dismiss mention"
 msgstr "멘션 지우기"
 
+#. Font picker filter: decorative display fonts.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the chat settings tab. Keep it concise.
 #. Short label in the inline. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:178
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:179
 #: src/features/user/components/modals/tabs/chat_settings_tab/ChatSettingsTabInline.tsx:12
 #: src/features/user/components/modals/tabs/ChatSettingsTab.tsx:12
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:74
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:154
 msgid "Display"
 msgstr "표시"
@@ -12151,7 +12189,7 @@ msgstr "화면 모드"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the my profile tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:22
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:138
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:140
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:61
 msgid "Display name"
 msgstr "표시 이름"
@@ -12290,7 +12328,7 @@ msgstr "기존 커뮤니티 멤버가 보내는 DM도 차단할까요?"
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:146
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:148
 msgid "Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985."
 msgstr "박사님, 저는 미래에서 왔어요. 박사님이 발명한 타임머신을 타고 여기로 왔습니다. 이제 1985년으로 돌아가려면 박사님의 도움이 필요해요."
 
@@ -12713,7 +12751,7 @@ msgid "Edit"
 msgstr "편집"
 
 #. placeholder {0}: selectedRoleWithUpdates.name
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:156
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:157
 msgid "Edit \"{0}\""
 msgstr "\"{0}\" 편집"
 
@@ -12910,7 +12948,7 @@ msgid "Edit translation provider"
 msgstr "번역 서비스 편집"
 
 #. Button or menu action label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:93
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:95
 msgid "Edit your profile appearance and see a live preview"
 msgstr "프로필 모양을 편집하고 실시간 미리보기를 확인하세요"
 
@@ -12936,6 +12974,11 @@ msgstr "편집 기능을 일시적으로 사용할 수 없습니다. 나중에 �
 #: src/features/channel/components/ChannelEditBar.tsx:40
 msgid "Editing message"
 msgstr "메시지 수정 중"
+
+#. Label above the display name effect choice.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:39
+msgid "Effect"
+msgstr "Effect"
 
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:184
 msgid "Eligible for a refund until {windowEndsOn}."
@@ -15077,12 +15120,16 @@ msgstr "음성 입력 따라가기"
 msgid "Following master • {effectiveValue}"
 msgstr "마스터 볼륨 따름 • {effectiveValue}"
 
+#. Label above the display name font picker.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:33
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:170
 msgid "Font"
 msgstr "폰트"
 
+#. Accessible label for the list of display name fonts.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:58
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:9
 msgid "Fonts"
 msgstr "글꼴"
@@ -16007,6 +16054,16 @@ msgstr "글로벌 프로필"
 msgid "Global shortcut"
 msgstr "전역 단축키"
 
+#. Display name effect: a soft glow around the name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:67
+msgid "Glow"
+msgstr "Glow"
+
+#. Label for the glow color of a display name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:45
+msgid "Glow color"
+msgstr "Glow color"
+
 #. Generic back-navigation label in modals, settings tabs, and nested flows.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:107
 msgid "Go back"
@@ -16131,6 +16188,13 @@ msgstr "유예 기간"
 msgid "Grace period (still have access)"
 msgstr "유예 기간(계속 이용 가능)"
 
+#. Display name effect: a gradient between two colors.
+#. Role color style: a gradient between two colors.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:26
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:66
+msgid "Gradient"
+msgstr "Gradient"
+
 #. Button label that starts the native macOS permission request.
 #: src/features/permissions/system/components/modals/MacPermissionsModal.tsx:72
 msgid "Grant"
@@ -16181,6 +16245,8 @@ msgid "Greece"
 msgstr "그리스"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:88
 #: src/features/user/utils/LocaleUtils.ts:30
 msgid "Greek"
 msgstr "그리스어"
@@ -16296,7 +16362,7 @@ msgstr "그룹 온라인 상태"
 #. Channel details bottom sheet label or action (channel type, settings, toast, confirmation, or notification option).
 #. Short label in the direct message member list item. Keep it concise.
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:152
-#: src/features/channel/components/MemberListItem.tsx:40
+#: src/features/channel/components/MemberListItem.tsx:41
 msgid "Group owner"
 msgstr "그룹 소유자"
 
@@ -16355,6 +16421,11 @@ msgstr "H.265(옵트인 필요)"
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:69
 msgid "Handle"
 msgstr "핸들"
+
+#. Font picker filter: handwriting and script fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:75
+msgid "Handwriting"
+msgstr "Handwriting"
 
 #. Report category label, community variant. Keep tone plain.
 #: src/features/moderation/components/report/OptionDescriptors.ts:86
@@ -16509,6 +16580,8 @@ msgid "Heart"
 msgstr "하트"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:91
 #: src/features/user/utils/LocaleUtils.ts:58
 msgid "Hebrew"
 msgstr "히브리어"
@@ -16803,7 +16876,7 @@ msgstr "힌트"
 msgid "Hoist order"
 msgstr "호이스트 순서"
 
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:522
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:533
 msgid "Hoist order reset to default"
 msgstr "호이스트 순서가 기본값으로 재설정되었습니다"
 
@@ -16829,6 +16902,11 @@ msgstr "Shift 키를 누른 상태에서 X 키를 눌러 앱을 선택하세요.
 #: src/features/channel/components/VoiceMessageRecorder.tsx:61
 msgid "Hold to record. Drag up to lock, or release to send."
 msgstr "길게 눌러 녹음. 위로 드래그하면 잠금, 놓으면 전송."
+
+#. Role color style: a shiny three-color gradient that moves on hover.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:27
+msgid "Holographic"
+msgstr "Holographic"
 
 #. Action label in quick switcher for navigating to the Home tab.
 #: src/features/app/components/layout/MobileBottomNav.tsx:110
@@ -16878,6 +16956,11 @@ msgstr "마우스를 올려보세요"
 #: src/features/user/components/modals/tabs/component_gallery_tab/OverlaysTab.tsx:63
 msgid "Hover over buttons to see tooltips in different positions."
 msgstr "버튼에 마우스를 올리면 다양한 위치의 툴팁을 볼 수 있습니다."
+
+#. Hint under the display name preview for animated effects.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:54
+msgid "Hover the preview to see the effect move."
+msgstr "Hover the preview to see the effect move."
 
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:334
 msgid "How about:"
@@ -17141,7 +17224,7 @@ msgstr "스팸 표시 무시"
 
 #. Confirmation prompt in the channel and chat friend list item. Preserve {displayName}; it is inserted by code.
 #. Confirmation prompt in the channel and chat mobile friend request item. Preserve {displayName}; it is inserted by code.
-#: src/features/channel/components/friends/FriendListItem.tsx:49
+#: src/features/channel/components/friends/FriendListItem.tsx:50
 #: src/features/channel/components/friends/MobileFriendRequestItem.tsx:33
 msgid "Ignore the friend request from {displayName}?"
 msgstr "{displayName}님의 친구 요청을 무시하시겠어요?"
@@ -18220,6 +18303,8 @@ msgid "Italy"
 msgstr "이탈리아"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:94
 #: src/features/user/utils/LocaleUtils.ts:82
 msgid "Japanese"
 msgstr "일본어"
@@ -18632,6 +18717,8 @@ msgid "Klipy GIFs"
 msgstr "Klipy GIF"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:95
 #: src/features/user/utils/LocaleUtils.ts:86
 msgid "Korean"
 msgstr "한국어"
@@ -18707,6 +18794,16 @@ msgstr "지연 시간 그래프"
 #: src/features/user/components/modals/tabs/DesktopSettingsTab.tsx:48
 msgid "Later"
 msgstr "나중에"
+
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:82
+msgid "Latin"
+msgstr "Latin"
+
+#. Writing system covered by a font: accented Latin letters.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:85
+msgid "Latin Extended"
+msgstr "Latin Extended"
 
 #. Country name. EU member state in the illegal-content report country dropdown.
 #: src/features/moderation/components/report/OptionDescriptors.ts:171
@@ -19159,7 +19256,7 @@ msgid "Lists"
 msgstr "목록"
 
 #. Helper text under the Show this role separately switch in the role editor.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:39
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:40
 msgid "Lists members with this role in their own section in the member list."
 msgstr "이 역할을 가진 멤버를 멤버 목록에 별도 섹션으로 표시합니다."
 
@@ -19396,6 +19493,11 @@ msgstr "채널의 성인 콘텐츠 설정이 상속되도록 변경했습니다"
 #: src/features/user/components/settings_utils/section_registry/AccountSecuritySections.ts:12
 msgid "Mail"
 msgstr "메일"
+
+#. Label for the first display name color.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:40
+msgid "Main color"
+msgstr "Main color"
 
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:103
@@ -20142,9 +20244,14 @@ msgid "Members with roles can bypass these checks. For public spaces, we recomme
 msgstr "역할이 있는 멤버는 이 검사를 우회할 수 있습니다. 공개 공간의 경우, 인증 활성화를 권장합니다."
 
 #. Helper text under the Allow mentions switch in the role editor. {mentionEveryonePermissionLabel} is the localized name of the Mention Everyone permission and should match its label exactly.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:47
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:48
 msgid "Members with the \"{mentionEveryonePermissionLabel}\" permission can always mention roles, regardless of this setting."
 msgstr "\"{mentionEveryonePermissionLabel}\" 권한이 있는 멤버는 이 설정과 관계없이 항상 역할을 멘션할 수 있습니다."
+
+#. Hint next to the role name preview in the role editor.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:33
+msgid "Members with this role look like this. Hover to see a holographic role move."
+msgstr "Members with this role look like this. Hover to see a holographic role move."
 
 #. Description text in the message history threshold content. Preserve {readMessageHistoryPermissionLabel}; it is inserted by code. Keep the tone plain and specific.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/MessageHistoryThresholdContent.tsx:45
@@ -20286,7 +20393,7 @@ msgstr "메시지"
 #: src/features/user/components/modals/UserProfileModal.tsx:769
 #: src/features/user/components/popouts/UserProfilePopout.tsx:418
 #: src/features/user/components/popouts/UserProfilePopout.tsx:448
-#: src/features/user/components/profile/ProfilePreview.tsx:321
+#: src/features/user/components/profile/ProfilePreview.tsx:325
 msgctxt "message-action"
 msgid "Message"
 msgstr "메시지 보내기"
@@ -20344,7 +20451,7 @@ msgid "Message composer"
 msgstr "메시지 작성"
 
 #. Label in the channel and chat reply preview.
-#: src/features/channel/components/ReplyPreview.tsx:41
+#: src/features/channel/components/ReplyPreview.tsx:42
 msgid "Message contains attached media"
 msgstr "첨부된 미디어가 포함된 메시지"
 
@@ -20867,6 +20974,11 @@ msgstr "{communityName}에서 모더레이션 작업을 하려면 2단계 인증
 msgid "Moderator"
 msgstr "모더레이터"
 
+#. Font picker filter: monospaced fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:77
+msgid "Mono"
+msgstr "Mono"
+
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:138
 msgctxt "us-state"
@@ -20911,7 +21023,7 @@ msgstr "월별 선물"
 #. Tooltip on the overflow button in the inline message hover action bar. Opens the full action menu.
 #: src/features/auth/components/accounts/AccountRow.tsx:23
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:142
-#: src/features/channel/components/friends/FriendListItem.tsx:63
+#: src/features/channel/components/friends/FriendListItem.tsx:64
 #: src/features/channel/components/MessageActionBar.tsx:77
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:125
 msgid "More"
@@ -21125,7 +21237,7 @@ msgid "Multi-line"
 msgstr "여러 줄"
 
 #. Label in the composer typing row when the names of the people typing do not fit.
-#: src/features/typing/rolling/RollingTypingText.tsx:29
+#: src/features/typing/rolling/RollingTypingText.tsx:30
 msgid "Multiple people are typing..."
 msgstr "여러 명이 입력 중입니다..."
 
@@ -21268,7 +21380,7 @@ msgstr "멤버 음소거"
 
 #. Short label in the app layout user area.
 #. Tray menu item shown while in a voice call. Mutes the local microphone.
-#: src/features/app/components/layout/UserArea.tsx:63
+#: src/features/app/components/layout/UserArea.tsx:64
 #: src/features/platform/utils/DesktopLocaleBridge.ts:208
 msgid "Mute microphone"
 msgstr "마이크 음소거"
@@ -21310,7 +21422,7 @@ msgstr "스트림 오디오 음소거"
 #: src/features/app/components/layout/ChannelItem.tsx:112
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:62
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:39
-#: src/features/channel/components/direct_message/DMListItem.tsx:75
+#: src/features/channel/components/direct_message/DMListItem.tsx:77
 msgid "muted"
 msgstr "알림 꺼짐"
 
@@ -21508,6 +21620,16 @@ msgstr "알림 표시줄 재정의"
 msgid "Name"
 msgstr "이름"
 
+#. Accessible label for the display name effect tabs.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:59
+msgid "Name effects"
+msgstr "Name effects"
+
+#. Warning under the switch that keeps animated display names moving all the time.
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:98
+msgid "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
+msgstr "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
+
 #. Form validation error shown when the name field is empty.
 #. Form validation error shown when the name field is empty.
 #: src/features/expressions/components/modals/meme_form/MemeFormFields.tsx:16
@@ -21544,6 +21666,11 @@ msgstr "패스키 이름 지정"
 #: src/features/auth/components/modals/PasskeyNameModal.tsx:15
 msgid "Name passkey form"
 msgstr "패스키 이름 양식"
+
+#. Profile settings section title for the display name font, colors and effect.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:24
+msgid "Name style"
+msgstr "Name style"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:272
@@ -21682,7 +21809,7 @@ msgid "Never"
 msgstr "안 함"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:40
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:41
 msgid "Never animate"
 msgstr "애니메이션 사용 안 함"
 
@@ -22257,7 +22384,7 @@ msgid "No pending requests match that search"
 msgstr "검색 결과와 일치하는 대기 중인 요청이 없습니다"
 
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/PermissionEditorPanel.tsx:156
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:340
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:348
 msgid "No permissions found"
 msgstr "일치하는 권한이 없습니다"
 
@@ -23366,7 +23493,7 @@ msgstr "{directMessageName}님의 프로필 열기"
 
 #. Accessible label for the avatar button that opens a user profile.
 #. Short label in the app layout voice participant item. Preserve {displayName}; it is inserted by code.
-#: src/features/app/components/layout/VoiceParticipantItem.tsx:48
+#: src/features/app/components/layout/VoiceParticipantItem.tsx:49
 #: src/features/ui/avatars/AvatarStack.tsx:21
 msgid "Open profile for {displayName}"
 msgstr "{displayName}님의 프로필 열기"
@@ -23459,7 +23586,7 @@ msgid "Open theme studio…"
 msgstr "테마 스튜디오 열기…"
 
 #. Short label in the app layout user area. Preserve {displayName}; it is inserted by code.
-#: src/features/app/components/layout/UserArea.tsx:71
+#: src/features/app/components/layout/UserArea.tsx:72
 msgid "Open user menu for {displayName}"
 msgstr "{displayName}님의 사용자 메뉴 열기"
 
@@ -23628,12 +23755,12 @@ msgid "Oregon"
 msgstr "오리건"
 
 #. Error message in the channel and chat reply preview.
-#: src/features/channel/components/ReplyPreview.tsx:29
+#: src/features/channel/components/ReplyPreview.tsx:30
 msgid "Original message failed to load"
 msgstr "원래 메시지를 불러오지 못했습니다"
 
 #. Label in the channel and chat reply preview. Keep the tone plain and specific.
-#: src/features/channel/components/ReplyPreview.tsx:25
+#: src/features/channel/components/ReplyPreview.tsx:26
 msgid "Original message was deleted"
 msgstr "원래 메시지가 삭제되었습니다"
 
@@ -24036,12 +24163,12 @@ msgid "Pause preview when Fluxer isn’t focused"
 msgstr "Fluxer가 포커스되지 않았을 때 미리보기 일시 중지"
 
 #. Description shown for the emoji toggle while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:81
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:82
 msgid "Paused by reduced motion. Turn on to keep animated emojis playing."
 msgstr "동작 줄이기로 인해 일시 중지되었습니다. 켜면 움직이는 이모티콘이 계속 재생됩니다."
 
 #. Description shown for the GIF toggle while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:85
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:86
 msgid "Paused by reduced motion. Turn on to keep GIFs playing."
 msgstr "동작 줄이기로 인해 일시 중지되었습니다. 켜면 GIF가 계속 재생됩니다."
 
@@ -24212,7 +24339,7 @@ msgid "Permission override updated"
 msgstr "권한 재정의 업데이트됨"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:249
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:257
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:18
 msgid "Permissions"
 msgstr "권한"
@@ -24312,6 +24439,11 @@ msgstr "전화번호 인증 필요"
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:21
 msgid "Photo"
 msgstr "사진"
+
+#. Profile settings section description for the display name style.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:28
+msgid "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
+msgstr "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
 
 #. Title of the picker modal when choosing a reverse image search provider.
 #: src/features/search/components/modals/SearchProviderPickerModal.tsx:19
@@ -24464,7 +24596,7 @@ msgid "Ping: {latency}ms"
 msgstr "핑: {latency}ms"
 
 #. Screen-reader fragment announcing that the DM list row is pinned. Lowercase fragment.
-#: src/features/channel/components/direct_message/DMListItem.tsx:79
+#: src/features/channel/components/direct_message/DMListItem.tsx:81
 msgid "pinned"
 msgstr "고정됨"
 
@@ -24518,6 +24650,11 @@ msgstr "고정 메시지 팝업"
 msgid "PiP"
 msgstr "PIP"
 
+#. Font picker filter: pixel and retro fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:76
+msgid "Pixel"
+msgstr "Pixel"
+
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:69
 msgid "Plain"
@@ -24550,7 +24687,7 @@ msgid "Play"
 msgstr "재생"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:48
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:49
 msgid "Play animated emojis"
 msgstr "움직이는 이모티콘 재생"
 
@@ -24596,7 +24733,7 @@ msgid "Playback speed: {formattedRate}"
 msgstr "재생 속도: {formattedRate}"
 
 #. Description shown when an animation setting overrides reduced motion.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:77
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:78
 msgid "Playing despite reduced motion."
 msgstr "동작 줄이기 설정에도 애니메이션 재생 중."
 
@@ -25135,18 +25272,18 @@ msgstr "프로필 색상"
 
 #. Settings section label for editing profile appearance and identity.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:105
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:107
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:6
 msgid "Profile customization"
 msgstr "프로필 맞춤 설정"
 
 #. Label in the my profile tab. Preserve {selectedGuildName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:101
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:103
 msgid "Profile customization for {selectedGuildName}"
 msgstr "{selectedGuildName} 프로필 맞춤 설정"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:97
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:99
 msgid "Profile customization form"
 msgstr "프로필 맞춤 설정 양식"
 
@@ -25185,7 +25322,7 @@ msgid "Profile preview"
 msgstr "프로필 미리보기"
 
 #. Label in the user settings profile preview.
-#: src/features/user/components/profile/ProfilePreview.tsx:40
+#: src/features/user/components/profile/ProfilePreview.tsx:41
 msgid "Profile preview (press Enter to open full preview)"
 msgstr "프로필 미리보기 (전체 미리보기를 열려면 Enter 키를 누르세요)"
 
@@ -25211,7 +25348,7 @@ msgid "Profile type"
 msgstr "프로필 유형"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:77
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:79
 msgid "Profile updated"
 msgstr "프로필 업데이트 완료"
 
@@ -25248,14 +25385,14 @@ msgstr "새 오디오 장치가 연결되면 알림 표시"
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:142
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:144
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:177
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:160
 msgid "Pronouns"
 msgstr "대명사"
 
 #: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:79
-#: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:126
+#: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:140
 msgid "Pronouns: "
 msgstr "대명사: "
 
@@ -25424,7 +25561,7 @@ msgid "Push to talk (priority)"
 msgstr "눌러서 말하기 (우선순위)"
 
 #. User-area voice status text shown when push-to-talk is active. The hint is the user-configured keybind label.
-#: src/features/app/components/layout/UserArea.tsx:54
+#: src/features/app/components/layout/UserArea.tsx:55
 msgid "Push to talk is on. Hold {pushToTalkHint} to speak."
 msgstr "눌러서 말하기가 켜져 있습니다. {pushToTalkHint}을(를) 길게 눌러 말하세요."
 
@@ -25884,9 +26021,14 @@ msgid "Reduced motion"
 msgstr "동작 줄이기"
 
 #. Explanatory note shown above the animation controls when reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:72
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:73
 msgid "Reduced motion is on, so content animations are paused by default. You can still turn any of these back on to keep them playing."
 msgstr "동작 줄이기가 켜져 있어 콘텐츠 애니메이션이 기본적으로 일시 중지됩니다. 계속 재생하려면 언제든지 다시 켤 수 있습니다."
+
+#. Description for the animated names switch while reduced motion is active.
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:103
+msgid "Reduced motion is on, so name effects stay still."
+msgstr "Reduced motion is on, so name effects stay still."
 
 #. Short label in the theme studio assets section. Keep it concise.
 #: src/features/theme_studio/sections/AssetsSection.tsx:32
@@ -26627,12 +26769,12 @@ msgid "Reply"
 msgstr "답장"
 
 #. Error message in the channel and chat reply preview. Keep the tone plain and specific.
-#: src/features/channel/components/ReplyPreview.tsx:33
+#: src/features/channel/components/ReplyPreview.tsx:34
 msgid "Reply hidden because the original author is blocked."
 msgstr "작성자를 차단하여 답장이 숨겨졌습니다."
 
 #. Description text in the channel and chat reply preview. Keep the tone plain and specific.
-#: src/features/channel/components/ReplyPreview.tsx:37
+#: src/features/channel/components/ReplyPreview.tsx:38
 msgid "Reply hidden because the original author is marked as a spammer."
 msgstr "작성자가 스팸 발신자로 표시되어 답장이 숨겨졌습니다."
 
@@ -27030,6 +27172,11 @@ msgstr "성인 콘텐츠 동의 상태 재설정"
 #: src/features/messaging/components/modals/media_modal/shared.ts:89
 msgid "Reset media position"
 msgstr "미디어 위치 재설정"
+
+#. Button that returns the display name to the default font, colors and effect.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:50
+msgid "Reset name style"
+msgstr "Reset name style"
 
 #. Short label in the authentication reset password page. Keep the tone plain and specific.
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:19
@@ -27609,7 +27756,7 @@ msgid "Role"
 msgstr "역할"
 
 #. Label of the role color picker in the community role editor. American English spelling is canonical.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:25
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:26
 msgid "Role color"
 msgstr "역할 색상"
 
@@ -27618,8 +27765,8 @@ msgstr "역할 색상"
 msgid "Role created"
 msgstr "역할 생성됨"
 
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:352
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:402
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:362
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:413
 msgid "Role created successfully"
 msgstr "역할이 생성되었습니다"
 
@@ -27628,13 +27775,13 @@ msgstr "역할이 생성되었습니다"
 msgid "Role deleted"
 msgstr "역할 삭제됨"
 
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:440
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:469
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:451
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:480
 msgid "Role deleted successfully"
 msgstr "역할이 삭제되었습니다"
 
 #. Label of the role name input in the community role editor.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:21
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:22
 msgid "Role name"
 msgstr "역할 이름"
 
@@ -27664,7 +27811,7 @@ msgstr "역할"
 msgid "Roles and members"
 msgstr "역할 및 멤버"
 
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:296
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:304
 msgid "Roles updated successfully"
 msgstr "역할이 업데이트되었습니다"
 
@@ -27746,6 +27893,11 @@ msgstr "회원님과 동일한 시간대"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:179
 msgid "Sanitize link"
 msgstr "추적 정보 제거"
+
+#. Font picker filter: sans-serif fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:72
+msgid "Sans"
+msgstr "Sans"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:99
@@ -28304,7 +28456,7 @@ msgid "Search pending requests"
 msgstr "대기 중인 요청 검색"
 
 #. Placeholder in the search input above the permission list in the role editor.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:53
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:54
 msgid "Search permissions"
 msgstr "권한 검색"
 
@@ -28429,6 +28581,13 @@ msgstr "검색 중"
 #: src/features/search/components/quick_switcher/QuickSwitcherModal.tsx:62
 msgid "Searching for people..."
 msgstr "사람 검색 중..."
+
+#. Label for the second display name color, used by gradient, glow and shimmer.
+#. Second color of a gradient role.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:31
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:41
+msgid "Second color"
+msgstr "Second color"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:112
 msgid "Second option"
@@ -28703,7 +28862,7 @@ msgstr "텍스트 선택 가능"
 #: src/features/app/components/layout/ChannelItem.tsx:96
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:54
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:35
-#: src/features/channel/components/direct_message/DMListItem.tsx:67
+#: src/features/channel/components/direct_message/DMListItem.tsx:69
 msgid "selected"
 msgstr "선택됨"
 
@@ -28876,7 +29035,7 @@ msgstr "선물하기"
 
 #. Button or menu action label in the channel and chat friend list item. Keep it concise.
 #. Button or menu action label in the channel and chat textarea buttons. Keep it concise.
-#: src/features/channel/components/friends/FriendListItem.tsx:59
+#: src/features/channel/components/friends/FriendListItem.tsx:60
 #: src/features/channel/components/textarea/TextareaButtons.tsx:24
 msgid "Send message"
 msgstr "메시지 보내기"
@@ -29034,7 +29193,7 @@ msgid "Sent"
 msgstr "보냄"
 
 #. DM list row preview text when the most recent message has only attachments.
-#: src/features/channel/components/direct_message/DMListItem.tsx:63
+#: src/features/channel/components/direct_message/DMListItem.tsx:65
 msgid "Sent an attachment"
 msgstr "첨부파일 전송됨"
 
@@ -29054,6 +29213,11 @@ msgstr "순차 전송"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:143
 msgid "Serial send"
 msgstr "직렬 전송"
+
+#. Font picker filter: serif fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:73
+msgid "Serif"
+msgstr "Serif"
 
 #: src/features/connection/components/modals/AddConnectionModal.tsx:327
 msgid "Serve the token file"
@@ -29492,6 +29656,16 @@ msgstr "Shift"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:323
 msgid "Shift expand"
 msgstr "Shift 확장"
+
+#. Display name effect: a light that sweeps across the name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:68
+msgid "Shimmer"
+msgstr "Shimmer"
+
+#. Label for the color of the light that sweeps across a shimmering display name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:46
+msgid "Shine color"
+msgstr "Shine color"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:109
@@ -29983,7 +30157,7 @@ msgid "Show system tray icon"
 msgstr "시스템 트레이 아이콘 표시"
 
 #. Switch label in the role editor (hoist toggle). When on, members with this role appear in their own member-list section.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:34
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:35
 msgid "Show this role separately"
 msgstr "이 역할을 따로 표시"
 
@@ -30224,7 +30398,7 @@ msgstr "한 번 클릭"
 #. Column count label in the channel permissions tab layout toggle.
 #. Status text or tooltip indicating the role editor permission list is currently in single-column layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:29
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:73
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:74
 msgid "Single column"
 msgstr "1열"
 
@@ -30315,7 +30489,7 @@ msgid "Skip this step"
 msgstr "건너뛰기"
 
 #. Accessible skip-link label for keyboard users.
-#: src/app/App.tsx:69
+#: src/app/App.tsx:70
 msgid "Skip to content"
 msgstr "본문으로 건너뛰기"
 
@@ -30581,6 +30755,13 @@ msgstr "소프트웨어 인코더 품질"
 #: src/features/app/components/dialogs/components/PricingCard.tsx:92
 msgid "Sold out"
 msgstr "매진"
+
+#. Display name effect: one color.
+#. Role color style: one color.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:25
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:65
+msgid "Solid"
+msgstr "Solid"
 
 #. Title of the error modal shown after some emoji uploads fail.
 #: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:69
@@ -31318,11 +31499,11 @@ msgid "Sticker"
 msgstr "스티커"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:68
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:69
 msgid "Sticker animation preference"
 msgstr "스티커 애니메이션 설정"
 
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:187
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:201
 msgid "Sticker animations"
 msgstr "스티커 애니메이션"
 
@@ -31402,22 +31583,22 @@ msgid "Stickers are saved at 320x320 pixels and must be under {maxSize}. Static 
 msgstr "스티커는 320x320픽셀로 저장되며 {maxSize} 이하여야 합니다. 정지된 이미지는 자동으로 크기가 조정되고 압축됩니다. 애니메이션 스티커와 SVG는 제한 내에 있어야 합니다."
 
 #. Label in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:24
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:25
 msgid "Stickers will always animate"
 msgstr "스티커는 항상 움직입니다"
 
 #. Label in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:36
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:37
 msgid "Stickers will animate when you hover or interact with them"
 msgstr "스티커에 마우스를 올리거나 상호작용하면 움직입니다"
 
 #. Label in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:32
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:33
 msgid "Stickers will animate when you press them"
 msgstr "스티커를 누르면 움직입니다"
 
 #. Label in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:44
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:45
 msgid "Stickers will never animate"
 msgstr "스티커는 움직이지 않습니다"
 
@@ -31887,14 +32068,14 @@ msgstr "{listPriceNewLabel}(으)로 전환"
 #. Tooltip on the density toggle when currently in dense mode.
 #. Tooltip on the layout toggle button in the role editor that switches the permission list to comfy layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:25
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:69
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:70
 msgid "Switch to comfy layout"
 msgstr "편안한 레이아웃으로 전환"
 
 #. Tooltip on the density toggle when currently in comfy mode.
 #. Tooltip on the layout toggle button in the role editor that switches the permission list to dense layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:21
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:65
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:66
 msgid "Switch to dense layout"
 msgstr "간결한 레이아웃으로 전환"
 
@@ -31947,7 +32128,7 @@ msgstr "이전 커뮤니티 또는 DM으로 전환"
 #. Tooltip on the column count toggle when currently in two-column mode.
 #. Tooltip on the column toggle button in the role editor that switches the permission list to one column.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:37
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:81
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:82
 msgid "Switch to single column"
 msgstr "1열로 전환"
 
@@ -31967,7 +32148,7 @@ msgstr "이 기기로 전환"
 #. Tooltip on the column count toggle when currently in single-column mode.
 #. Tooltip on the column toggle button in the role editor that switches the permission list to two columns.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:41
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:85
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:86
 msgid "Switch to two columns"
 msgstr "2열로 전환"
 
@@ -32488,6 +32669,8 @@ msgid "Text-to-speech notifications"
 msgstr "텍스트 음성 변환 알림"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:92
 #: src/features/user/utils/LocaleUtils.ts:122
 msgid "Thai"
 msgstr "태국어"
@@ -32966,6 +33149,11 @@ msgstr "메시지 수신을 거부했거나 더 이상 같은 커뮤니티에 �
 #: src/features/relationship/utils/RelationshipActionUtils.tsx:36
 msgid "They're not accepting friend requests right now."
 msgstr "이 사용자는 지금 친구 요청을 받지 않습니다."
+
+#. Third color of a holographic role.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:32
+msgid "Third color"
+msgstr "Third color"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:113
 msgid "Third option"
@@ -33446,7 +33634,7 @@ msgid "This message no longer exists."
 msgstr "이 메시지는 더 이상 존재하지 않습니다."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:130
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:132
 msgid "This nickname will only be visible in this community"
 msgstr "이 닉네임은 이 커뮤니티에서만 표시됩니다"
 
@@ -34566,7 +34754,7 @@ msgstr "두 번 클릭"
 #. Column count label in the channel permissions tab layout toggle.
 #. Status text or tooltip indicating the role editor permission list is currently in two-column layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:33
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:77
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:78
 msgid "Two columns"
 msgstr "2열"
 
@@ -34602,7 +34790,7 @@ msgid "Two-factor backup"
 msgstr "2단계 인증 백업"
 
 #. Helper text under the role color input. Lists accepted color formats; the token names "hex", "rgb()", "hsl()" are CSS-standard and should not be translated.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:29
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:30
 #: src/features/ui/components/form/ColorPickerField.tsx:296
 msgid "Type a color (hex, rgb(), hsl(), or name) or use the picker."
 msgstr "색상(hex, rgb(), hsl() 또는 이름)을 입력하거나 선택 도구를 사용하세요."
@@ -34992,7 +35180,7 @@ msgstr "알 수 없는 날짜"
 #. Fallback device or operating-system label in the devices tab when session client data is unavailable.
 #. Short label in the app layout voice participant item.
 #. Short label in the notifications. Keep it concise.
-#: src/features/app/components/layout/VoiceParticipantItem.tsx:44
+#: src/features/app/components/layout/VoiceParticipantItem.tsx:45
 #: src/features/user/components/modals/tabs/DevicesTab.tsx:65
 #: src/features/user/components/modals/tabs/notifications_tab/Notifications.tsx:78
 msgid "Unknown device"
@@ -35214,7 +35402,7 @@ msgstr "즐겨찾기 알림 켜기"
 
 #. Short label in the app layout user area.
 #. Tray menu item shown while in a voice call. Unmutes the local microphone.
-#: src/features/app/components/layout/UserArea.tsx:59
+#: src/features/app/components/layout/UserArea.tsx:60
 #: src/features/platform/utils/DesktopLocaleBridge.ts:212
 msgid "Unmute microphone"
 msgstr "마이크 음소거 해제"
@@ -35316,7 +35504,7 @@ msgstr "고정 해제된 그룹 DM"
 #: src/features/app/components/layout/sidebar_nav/GuildFolderItem.tsx:89
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:58
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:27
-#: src/features/channel/components/direct_message/DMListItem.tsx:71
+#: src/features/channel/components/direct_message/DMListItem.tsx:73
 msgid "unread"
 msgstr "읽지 않음"
 
@@ -36071,7 +36259,7 @@ msgstr "이 버튼을 사용하여 모든 권한을 빠르게 설정할 수 있�
 msgid "Use these codes to access your account if you lose your authenticator app."
 msgstr "인증 앱을 분실했을 때 이 코드를 사용하여 계정에 액세스하세요."
 
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:235
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:243
 msgid "Use this button to quickly clear all permissions."
 msgstr "이 버튼을 사용하여 모든 권한을 빠르게 지울 수 있습니다."
 
@@ -36164,7 +36352,7 @@ msgid "User avatars"
 msgstr "프로필 사진"
 
 #. Short label in the app layout user area.
-#: src/features/app/components/layout/UserArea.tsx:67
+#: src/features/app/components/layout/UserArea.tsx:68
 msgid "User controls"
 msgstr "사용자 컨트롤"
 
@@ -36544,22 +36732,22 @@ msgid "Verify your email before adding an authenticator app."
 msgstr "인증 앱을 추가하기 전에 이메일을 인증하세요."
 
 #. Description text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:117
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:119
 msgid "Verify your email before changing your community nickname, avatar, banner, bio, pronouns, or accent color."
 msgstr "커뮤니티 닉네임, 아바타, 배너, 자기소개, 대명사 또는 강조 색상을 변경하기 전에 이메일을 인증하세요."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:121
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:123
 msgid "Verify your email before changing your username, display name, avatar, banner, bio, pronouns, time zone, or {premiumProductName} badge privacy."
 msgstr "사용자 이름, 표시 이름, 아바타, 배너, 자기소개, 대명사, 시간대 또는 {premiumProductName} 배지 공개 설정을 변경하기 전에 이메일을 인증하세요."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:85
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:87
 msgid "Verify your email before editing this community profile. You can still preview it here."
 msgstr "커뮤니티 프로필을 수정하려면 이메일을 인증해야 합니다. 그래도 여기에서 미리 볼 수 있습니다."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:89
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:91
 msgid "Verify your email before editing your profile. You can still preview it here."
 msgstr "프로필을 수정하려면 이메일을 인증해야 합니다. 그래도 여기에서 미리 볼 수 있습니다."
 
@@ -36586,12 +36774,12 @@ msgid "Verify your email to continue using {productName}."
 msgstr "{productName}을(를) 계속 사용하려면 이메일을 인증하세요."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:109
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:111
 msgid "Verify your email to edit this community profile"
 msgstr "커뮤니티 프로필을 수정하려면 이메일을 인증하세요"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:113
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:115
 msgid "Verify your email to edit your profile"
 msgstr "프로필을 수정하려면 이메일을 인증하세요"
 
@@ -36770,6 +36958,8 @@ msgid "Videos"
 msgstr "동영상"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:89
 #: src/features/user/utils/LocaleUtils.ts:134
 msgid "Vietnamese"
 msgstr "베트남어"
@@ -38139,7 +38329,7 @@ msgid "With error"
 msgstr "오류 포함"
 
 #. Description shown for the sticker control while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:93
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:107
 msgid "With reduced motion on, stickers only animate on interaction. Choose \"Always animate\" to override."
 msgstr "동작 줄이기가 켜져 있으면 스티커는 상호작용할 때만 움직입니다. 이를 무시하려면 \"항상 애니메이션 사용\"을 선택하세요."
 
@@ -38233,7 +38423,7 @@ msgstr "어제 {timeString}"
 
 #. First-person prefix used in DM list row preview when the current user is the message author.
 #: src/features/app/components/layout/MobileBottomNav.tsx:153
-#: src/features/channel/components/direct_message/DMListItem.tsx:59
+#: src/features/channel/components/direct_message/DMListItem.tsx:61
 msgid "You"
 msgstr "나"
 
@@ -38395,7 +38585,7 @@ msgid "You can't befriend yourself"
 msgstr "자신을 친구로 추가할 수 없습니다"
 
 #. Label in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:134
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:136
 msgid "You can't change your nickname here"
 msgstr "여기서는 닉네임을 변경할 수 없습니다"
 
@@ -38446,7 +38636,7 @@ msgstr "이 사용자에게 메시지를 보낼 수 없습니다"
 #. Error message in the user settings profile preview.
 #: src/features/user/components/modals/UserProfileModal.tsx:110
 #: src/features/user/components/popouts/UserProfilePopout.tsx:73
-#: src/features/user/components/profile/ProfilePreview.tsx:44
+#: src/features/user/components/profile/ProfilePreview.tsx:45
 msgid "You can't message yourself"
 msgstr "자신에게 메시지를 보낼 수 없습니다"
 
@@ -38627,7 +38817,7 @@ msgid "You have unsaved changes."
 msgstr "저장되지 않은 변경사항이 있습니다."
 
 #. Warning text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:81
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:83
 msgid "You have unsaved changes. Save or reset before leaving."
 msgstr "저장되지 않은 변경사항이 있습니다. 나가기 전에 저장하거나 재설정하세요."
 

@@ -2,3 +2,4 @@
 fluxer_static/** -text -diff
 fluxer_static/**/*.md text diff
 packages/fonts/files/** -text -diff
+packages/fonts/name-fonts/files/** -text -diff

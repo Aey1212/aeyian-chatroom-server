@@ -21593,6 +21593,10 @@
 					"mention_flags": {
 						"description": "The user's account-wide reply mention preference. Omitted when the user has no preference set (treated as NO_PREFERENCE).",
 						"$ref": "#/components/schemas/MentionReplyPreferences"
+					},
+					"name_style": {
+						"description": "Font, colors and effect of the display name. Omitted when the user uses the default style.",
+						"$ref": "#/components/schemas/NameStyleSchema"
 					}
 				},
 				"required": ["id", "username", "global_name", "avatar", "avatar_color", "flags"],
@@ -21773,6 +21777,10 @@
 					"mention_flags": {
 						"description": "The user's account-wide reply mention preference. Omitted when the user has no preference set (treated as NO_PREFERENCE).",
 						"$ref": "#/components/schemas/MentionReplyPreferences"
+					},
+					"name_style": {
+						"description": "Font, colors and effect of the display name. Omitted when the user uses the default style.",
+						"$ref": "#/components/schemas/NameStyleSchema"
 					},
 					"is_staff": {"type": "boolean", "description": "Whether the user has staff permissions"},
 					"acls": {
@@ -24372,6 +24380,10 @@
 						"$ref": "#/components/schemas/MentionReplyPreferencesInput",
 						"description": "Account-wide reply mention preference (NO_PREFERENCE, PREFER_MENTION, PREFER_NO_MENTION)"
 					},
+					"name_style": {
+						"anyOf": [{"$ref": "#/components/schemas/NameStyleSchemaInput"}, {"type": "null"}],
+						"description": "Font, colors and effect of the display name; null resets it"
+					},
 					"email_token": {"description": "Email change token for updating email", "type": "string"},
 					"mfa_method": {
 						"description": "MFA method to use for verification",
@@ -26217,7 +26229,11 @@
 				"type": "object",
 				"properties": {
 					"name": {"description": "The name of the role (1-100 characters)", "type": "string"},
-					"color": {"description": "The color of the role as an integer", "$ref": "#/components/schemas/ColorType"},
+					"color": {
+						"description": "The color of the role as an integer. Makes the role a solid color unless `colors` is also sent.",
+						"$ref": "#/components/schemas/ColorType"
+					},
+					"colors": {"$ref": "#/components/schemas/GuildRoleColorsRequest"},
 					"permissions": {
 						"description": "The permissions bitfield for the role",
 						"$ref": "#/components/schemas/UnsignedInt64Type"
@@ -26242,6 +26258,24 @@
 					},
 					"name": {"type": "string", "description": "The name of the role"},
 					"color": {"description": "The colour of the role as an integer", "$ref": "#/components/schemas/Int32Type"},
+					"colors": {
+						"properties": {
+							"primary_color": {
+								"description": "The main colour of the role as an integer; the same value as `color`",
+								"$ref": "#/components/schemas/ColorType"
+							},
+							"secondary_color": {
+								"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+								"description": "The second colour of a gradient role as an integer, or null for a solid colour"
+							},
+							"tertiary_color": {
+								"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+								"description": "The third colour of a holographic role as an integer. Only set when `secondary_color` is set."
+							}
+						},
+						"description": "The colours of the role, including gradient and holographic colours",
+						"$ref": "#/components/schemas/GuildRoleColors"
+					},
 					"position": {
 						"description": "The position of the role in the role hierarchy",
 						"$ref": "#/components/schemas/Int32Type"
@@ -26258,7 +26292,7 @@
 					"mentionable": {"type": "boolean", "description": "Whether this role can be mentioned by anyone"},
 					"unicode_emoji": {"description": "The unicode emoji for this role", "type": ["string", "null"]}
 				},
-				"required": ["id", "name", "color", "position", "permissions", "hoist", "mentionable"],
+				"required": ["id", "name", "color", "colors", "position", "permissions", "hoist", "mentionable"],
 				"additionalProperties": false
 			},
 			"GuildRoleHoistPositionsRequest": {
@@ -26302,6 +26336,7 @@
 						"description": "The color of the role as an integer (default: 0)",
 						"$ref": "#/components/schemas/ColorType"
 					},
+					"colors": {"$ref": "#/components/schemas/GuildRoleColorsRequest"},
 					"permissions": {
 						"description": "The permissions bitfield for the role",
 						"$ref": "#/components/schemas/UnsignedInt64Type"
@@ -29004,6 +29039,27 @@
 				"x-enumDescriptions": ["Time-based one-time password authenticator", "WebAuthn authenticator"]
 			},
 			"SnowflakeStringType": {"type": "string", "pattern": "^(0|[1-9][0-9]*)$", "format": "snowflake"},
+			"NameStyleSchema": {
+				"type": "object",
+				"properties": {
+					"font": {
+						"anyOf": [{"$ref": "#/components/schemas/NameFontIdSchema"}, {"type": "null"}],
+						"description": "Font for the display name, or null for the app font"
+					},
+					"effect": {"$ref": "#/components/schemas/NameStyleEffectSchema"},
+					"primary_color": {
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+						"description": "Main color as an integer, or null for the default text color"
+					},
+					"secondary_color": {
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+						"description": "Second color as an integer, used by the gradient, glow and shimmer effects"
+					}
+				},
+				"required": ["font", "effect", "primary_color", "secondary_color"],
+				"additionalProperties": false,
+				"description": "Font, colors and effect of a display name"
+			},
 			"MentionReplyPreferences": {
 				"description": "Reply mention preference",
 				"type": "integer",
@@ -29034,6 +29090,93 @@
 					},
 					{"name": "SPAMMER", "value": "64", "description": "User is flagged as a spammer"}
 				]
+			},
+			"ColorType": {"type": "integer", "minimum": 0, "maximum": 16777215},
+			"NameStyleEffectSchema": {
+				"description": "How the display name is painted",
+				"x-enumNames": ["SOLID", "GRADIENT", "GLOW", "SHIMMER"],
+				"x-enumDescriptions": [
+					"One color",
+					"A gradient from the primary to the secondary color",
+					"The primary color with a glow in the secondary color",
+					"The primary color with a light sweep in the secondary color"
+				],
+				"enum": ["solid", "gradient", "glow", "shimmer"],
+				"type": "string"
+			},
+			"NameFontIdSchema": {
+				"description": "Id of a display-name font",
+				"x-enumNames": [
+					"NOTO_SANS",
+					"NUNITO",
+					"RUBIK",
+					"POPPINS",
+					"SPACE_GROTESK",
+					"EXO_2",
+					"COMFORTAA",
+					"RIGHTEOUS",
+					"AUDIOWIDE",
+					"BANGERS",
+					"PACIFICO",
+					"LOBSTER",
+					"CAVEAT",
+					"DANCING_SCRIPT",
+					"PLAYFAIR_DISPLAY",
+					"CINZEL",
+					"PRESS_START_2P",
+					"VT323",
+					"JETBRAINS_MONO",
+					"M_PLUS_ROUNDED_1C",
+					"ZEN_MARU_GOTHIC",
+					"KLEE_ONE",
+					"DO_HYEON",
+					"BLACK_HAN_SANS",
+					"GOWUN_DODUM",
+					"ZCOOL_KUAILE",
+					"MA_SHAN_ZHENG",
+					"LXGW_WENKAI_TC",
+					"CAIRO",
+					"KANIT",
+					"REEM_KUFI",
+					"GFS_DIDOT",
+					"KELLY_SLAB"
+				],
+				"enum": [
+					"noto-sans",
+					"nunito",
+					"rubik",
+					"poppins",
+					"space-grotesk",
+					"exo-2",
+					"comfortaa",
+					"righteous",
+					"audiowide",
+					"bangers",
+					"pacifico",
+					"lobster",
+					"caveat",
+					"dancing-script",
+					"playfair-display",
+					"cinzel",
+					"press-start-2p",
+					"vt323",
+					"jetbrains-mono",
+					"m-plus-rounded-1c",
+					"zen-maru-gothic",
+					"klee-one",
+					"do-hyeon",
+					"black-han-sans",
+					"gowun-dodum",
+					"zcool-kuaile",
+					"ma-shan-zheng",
+					"lxgw-wenkai-tc",
+					"cairo",
+					"kanit",
+					"reem-kufi",
+					"gfs-didot",
+					"kelly-slab"
+				],
+				"type": "string"
 			},
 			"RefreshedAttachmentUrl": {
 				"type": "object",
@@ -29950,7 +30093,6 @@
 					{"type": "null"}
 				]
 			},
-			"ColorType": {"type": "integer", "minimum": 0, "maximum": 16777215},
 			"MessageAttachmentFlags": {
 				"type": "integer",
 				"minimum": 0,
@@ -31543,6 +31685,25 @@
 					{"name": "BANNER_UNSET", "value": "2", "description": "Guild member banner is unset"}
 				]
 			},
+			"GuildRoleColorsRequest": {
+				"type": "object",
+				"properties": {
+					"primary_color": {
+						"description": "The main color of the role as an integer",
+						"$ref": "#/components/schemas/ColorType"
+					},
+					"secondary_color": {
+						"description": "The second color of a gradient role, or null for a solid color",
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}]
+					},
+					"tertiary_color": {
+						"description": "The third color of a holographic role. Ignored unless `secondary_color` is set.",
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}]
+					}
+				},
+				"required": ["primary_color"],
+				"description": "The colors of a role. When set, it replaces `color`."
+			},
 			"Permissions": {
 				"type": "string",
 				"pattern": "^\\d+$",
@@ -31611,6 +31772,26 @@
 						"description": "Allows viewing the member list in a channel"
 					}
 				]
+			},
+			"GuildRoleColors": {
+				"type": "object",
+				"properties": {
+					"primary_color": {
+						"description": "The main colour of the role as an integer; the same value as `color`",
+						"$ref": "#/components/schemas/ColorType"
+					},
+					"secondary_color": {
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+						"description": "The second colour of a gradient role as an integer, or null for a solid colour"
+					},
+					"tertiary_color": {
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+						"description": "The third colour of a holographic role as an integer. Only set when `secondary_color` is set."
+					}
+				},
+				"required": ["primary_color", "secondary_color", "tertiary_color"],
+				"additionalProperties": false,
+				"description": "The colours of a role. A secondary colour makes a gradient; a tertiary colour makes it holographic."
 			},
 			"GuildStickerWithUserResponse": {
 				"type": "object",
@@ -33182,6 +33363,26 @@
 				},
 				"required": ["src", "proxy_src", "width", "height"],
 				"additionalProperties": false
+			},
+			"NameStyleSchemaInput": {
+				"type": "object",
+				"properties": {
+					"font": {
+						"anyOf": [{"$ref": "#/components/schemas/NameFontIdSchema"}, {"type": "null"}],
+						"description": "Font for the display name, or null for the app font"
+					},
+					"effect": {"$ref": "#/components/schemas/NameStyleEffectSchema"},
+					"primary_color": {
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+						"description": "Main color as an integer, or null for the default text color"
+					},
+					"secondary_color": {
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+						"description": "Second color as an integer, used by the gradient, glow and shimmer effects"
+					}
+				},
+				"required": ["font", "effect", "primary_color", "secondary_color"],
+				"description": "Font, colors and effect of a display name"
 			},
 			"ProfileFieldPrivacyFlags": {
 				"type": "integer",

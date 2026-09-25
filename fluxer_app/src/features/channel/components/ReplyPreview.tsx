@@ -14,6 +14,7 @@ import markupStyles from '@app/features/theme/styles/Markup.module.css';
 import styles from '@app/features/theme/styles/Message.module.css';
 import {Avatar} from '@app/features/ui/components/Avatar';
 import FocusRing from '@app/features/ui/focus_ring/FocusRing';
+import {memberNamePaint} from '@app/features/user/name_style/NamePaint';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
@@ -121,6 +122,9 @@ export const ReplyPreview = observer(
 			);
 		}
 		const referencedMessage = resolution.message;
+		const repliedMember = GuildMembers.getMember(resolvedGuildId ?? '', referencedMessage.author.id);
+		const repliedName = `${message.mentions.some((mention) => mention.id === referencedMessage.author.id) ? '@' : ''}${NicknameUtils.getNickname(referencedMessage.author, resolvedGuildId)}`;
+		const repliedPaint = memberNamePaint(referencedMessage.author.nameStyle, repliedMember, {text: repliedName});
 		const isSpammerReply =
 			referencedMessage.author.id !== Authentication.currentUserId &&
 			LocalUserSpamOverride.isUserMarkedAsSpammer(referencedMessage.author.id, referencedMessage.author.flags);
@@ -210,20 +214,19 @@ export const ReplyPreview = observer(
 					data-flx="channel.reply-preview.preloadable-user-popout--2"
 				>
 					<span
-						className={styles.repliedUsername}
+						className={clsx(styles.repliedUsername, repliedPaint.className)}
 						style={
 							{
-								'--replied-username-color': GuildMembers.getMember(
-									resolvedGuildId ?? '',
-									referencedMessage.author.id,
-								)?.getColorString(),
+								'--replied-username-color': repliedMember?.getColorString(),
+								...repliedPaint.style,
 							} as CSSProperties
 						}
+						lang={repliedPaint.lang}
 						data-user-id={referencedMessage.author.id}
 						data-guild-id={resolvedGuildId}
 						data-flx="channel.reply-preview.replied-username"
 					>
-						{`${message.mentions.some((mention) => mention.id === referencedMessage.author.id) ? '@' : ''}${NicknameUtils.getNickname(referencedMessage.author, resolvedGuildId)}`}
+						{repliedName}
 					</span>
 				</PreloadableUserPopout>
 				<FocusRing offset={-2} data-flx="channel.reply-preview.focus-ring">

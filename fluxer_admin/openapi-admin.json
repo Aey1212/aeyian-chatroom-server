@@ -13888,6 +13888,10 @@
 					"mention_flags": {
 						"description": "The user's account-wide reply mention preference. Omitted when the user has no preference set (treated as NO_PREFERENCE).",
 						"allOf": [{"$ref": "#/components/schemas/MentionReplyPreferences"}]
+					},
+					"name_style": {
+						"description": "Font, colors and effect of the display name. Omitted when the user uses the default style.",
+						"allOf": [{"$ref": "#/components/schemas/NameStyleSchema"}]
 					}
 				},
 				"required": ["id", "username", "global_name", "avatar", "avatar_color", "flags"],
@@ -13957,6 +13961,30 @@
 					"A reply message"
 				]
 			},
+			"NameStyleSchema": {
+				"type": "object",
+				"properties": {
+					"font": {
+						"nullable": true,
+						"description": "Font for the display name, or null for the app font",
+						"allOf": [{"$ref": "#/components/schemas/NameFontIdSchema"}]
+					},
+					"effect": {"allOf": [{"$ref": "#/components/schemas/NameStyleEffectSchema"}]},
+					"primary_color": {
+						"nullable": true,
+						"description": "Main color as an integer, or null for the default text color",
+						"allOf": [{"$ref": "#/components/schemas/ColorType"}]
+					},
+					"secondary_color": {
+						"nullable": true,
+						"description": "Second color as an integer, used by the gradient, glow and shimmer effects",
+						"allOf": [{"$ref": "#/components/schemas/ColorType"}]
+					}
+				},
+				"required": ["font", "effect", "primary_color", "secondary_color"],
+				"additionalProperties": false,
+				"description": "Font, colors and effect of a display name"
+			},
 			"MentionReplyPreferences": {
 				"description": "Reply mention preference",
 				"type": "integer",
@@ -13987,6 +14015,93 @@
 					},
 					{"name": "SPAMMER", "value": "64", "description": "User is flagged as a spammer"}
 				]
+			},
+			"ColorType": {"type": "integer", "minimum": 0, "maximum": 16777215},
+			"NameStyleEffectSchema": {
+				"description": "How the display name is painted",
+				"x-enumNames": ["SOLID", "GRADIENT", "GLOW", "SHIMMER"],
+				"x-enumDescriptions": [
+					"One color",
+					"A gradient from the primary to the secondary color",
+					"The primary color with a glow in the secondary color",
+					"The primary color with a light sweep in the secondary color"
+				],
+				"enum": ["solid", "gradient", "glow", "shimmer"],
+				"type": "string"
+			},
+			"NameFontIdSchema": {
+				"description": "Id of a display-name font",
+				"x-enumNames": [
+					"NOTO_SANS",
+					"NUNITO",
+					"RUBIK",
+					"POPPINS",
+					"SPACE_GROTESK",
+					"EXO_2",
+					"COMFORTAA",
+					"RIGHTEOUS",
+					"AUDIOWIDE",
+					"BANGERS",
+					"PACIFICO",
+					"LOBSTER",
+					"CAVEAT",
+					"DANCING_SCRIPT",
+					"PLAYFAIR_DISPLAY",
+					"CINZEL",
+					"PRESS_START_2P",
+					"VT323",
+					"JETBRAINS_MONO",
+					"M_PLUS_ROUNDED_1C",
+					"ZEN_MARU_GOTHIC",
+					"KLEE_ONE",
+					"DO_HYEON",
+					"BLACK_HAN_SANS",
+					"GOWUN_DODUM",
+					"ZCOOL_KUAILE",
+					"MA_SHAN_ZHENG",
+					"LXGW_WENKAI_TC",
+					"CAIRO",
+					"KANIT",
+					"REEM_KUFI",
+					"GFS_DIDOT",
+					"KELLY_SLAB"
+				],
+				"enum": [
+					"noto-sans",
+					"nunito",
+					"rubik",
+					"poppins",
+					"space-grotesk",
+					"exo-2",
+					"comfortaa",
+					"righteous",
+					"audiowide",
+					"bangers",
+					"pacifico",
+					"lobster",
+					"caveat",
+					"dancing-script",
+					"playfair-display",
+					"cinzel",
+					"press-start-2p",
+					"vt323",
+					"jetbrains-mono",
+					"m-plus-rounded-1c",
+					"zen-maru-gothic",
+					"klee-one",
+					"do-hyeon",
+					"black-han-sans",
+					"gowun-dodum",
+					"zcool-kuaile",
+					"ma-shan-zheng",
+					"lxgw-wenkai-tc",
+					"cairo",
+					"kanit",
+					"reem-kufi",
+					"gfs-didot",
+					"kelly-slab"
+				],
+				"type": "string"
 			},
 			"MessageEmbedChildResponse": {
 				"type": "object",

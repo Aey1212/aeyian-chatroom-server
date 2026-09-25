@@ -527,3 +527,6 @@ jobs:
 
       - name: Verify shipped fonts match the lockfile
         run: python3 tools/fonts/build_fonts.py --verify
+
+      - name: Verify display-name fonts match their lockfile
+        run: python3 tools/fonts/build_name_fonts.py --verify

@@ -13,6 +13,11 @@ import {
 	type UserAuthenticatorType,
 	type UserPremiumType,
 } from '@fluxer/constants/src/UserConstants';
+import {
+	type NameStyle,
+	parseStoredNameStyle,
+	serializeNameStyle,
+} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {types} from 'cassandra-driver';
 
 export class User {
@@ -74,6 +79,7 @@ export class User {
 	readonly giftInventoryClientSeq: number | null;
 	readonly premiumOnboardingDismissedAt: Date | null;
 	readonly mentionFlags: MentionReplyPreference;
+	readonly nameStyle: NameStyle | null;
 	readonly lastVoiceActivitySharingChangeAt: Date | null;
 	readonly version: number;
 
@@ -137,6 +143,7 @@ export class User {
 		this.giftInventoryClientSeq = row.gift_inventory_client_seq ?? null;
 		this.premiumOnboardingDismissedAt = row.premium_onboarding_dismissed_at ?? null;
 		this.mentionFlags = row.mention_flags ?? 0;
+		this.nameStyle = parseStoredNameStyle(row.name_style);
 		this.lastVoiceActivitySharingChangeAt = row.last_voice_activity_sharing_change_at ?? null;
 		this.version = row.version;
 	}
@@ -227,6 +234,7 @@ export class User {
 			gift_inventory_client_seq: this.giftInventoryClientSeq,
 			premium_onboarding_dismissed_at: this.premiumOnboardingDismissedAt,
 			mention_flags: this.mentionFlags,
+			name_style: serializeNameStyle(this.nameStyle),
 			last_voice_activity_sharing_change_at: this.lastVoiceActivitySharingChangeAt,
 			version: this.version,
 		};

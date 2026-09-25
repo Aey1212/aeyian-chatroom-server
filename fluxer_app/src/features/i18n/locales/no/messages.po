@@ -42,19 +42,19 @@ msgid "(you)"
 msgstr "(deg)"
 
 #. Screen reader announcement in the composer when two people are typing. {a} and {b} are their display names.
-#: src/features/typing/rolling/RollingTypingText.tsx:19
+#: src/features/typing/rolling/RollingTypingText.tsx:20
 #: src/features/typing/rolling/RollingTypingText.tsx:54
 msgid "{a} and {b} are typing..."
 msgstr "{a} og {b} skriver …"
 
 #. Screen reader announcement in the composer when one person is typing. {a} is their display name.
-#: src/features/typing/rolling/RollingTypingText.tsx:15
+#: src/features/typing/rolling/RollingTypingText.tsx:16
 #: src/features/typing/rolling/RollingTypingText.tsx:50
 msgid "{a} is typing..."
 msgstr "{a} skriver …"
 
 #. Screen reader announcement in the composer when three people are typing. {a}, {b} and {c} are their display names.
-#: src/features/typing/rolling/RollingTypingText.tsx:24
+#: src/features/typing/rolling/RollingTypingText.tsx:25
 #: src/features/typing/rolling/RollingTypingText.tsx:60
 msgid "{a}, {b} and {c} are typing..."
 msgstr "{a}, {b} og {c} skriver …"
@@ -949,8 +949,8 @@ msgid "{count, plural, one {# image} other {# images}}"
 msgstr "{count, plural, one {# bilde} other {# bilder}}"
 
 #: src/features/channel/components/ChannelSourcePreview.tsx:245
-#: src/features/channel/components/direct_message/DMListItem.tsx:437
-#: src/features/channel/components/direct_message/DMListItem.tsx:601
+#: src/features/channel/components/direct_message/DMListItem.tsx:448
+#: src/features/channel/components/direct_message/DMListItem.tsx:613
 #: src/features/guild/components/bottomsheets/GuildHeaderBottomSheet.tsx:118
 #: src/features/user/components/modals/MutualItemsSheet.tsx:159
 #: src/features/user/components/modals/user_profile_modal/MutualGroupItem.tsx:26
@@ -3400,6 +3400,7 @@ msgstr "Kontroller for bildeplassering er bare tilgjengelige på bredere skjerme
 #. Audit log target-type filter option. Shows entries for every target type.
 #. Column header in the notification overrides table. Short label for the All messages option. Standalone word; refers to "all messages".
 #. Date-range filter option meaning no time window is applied. Used on the community members page.
+#. Font picker filter that shows every font.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the DM friends view showing all friends.
 #. Tab label in the mobile memes (saved media) picker. Shows all saved media regardless of type.
@@ -3409,6 +3410,7 @@ msgstr "Kontroller for bildeplassering er bare tilgjengelige på bredere skjerme
 #: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:131
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:38
 msgid "All"
 msgstr "Alle"
 
@@ -3627,7 +3629,7 @@ msgid "Allow members without the {readMessageHistoryPermissionLabel} permission 
 msgstr "Tillat medlemmer uten tillatelsen {readMessageHistoryPermissionLabel} å se meldinger sendt etter en bestemt dato."
 
 #. Switch label in the role editor (mentionable toggle). When on, any member can mention this role in chat.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:43
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:44
 msgid "Allow mentions for this role"
 msgstr "Tillat omtaler for denne rollen"
 
@@ -3786,12 +3788,17 @@ msgid "Always"
 msgstr "Alltid"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:20
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:21
 msgid "Always animate"
 msgstr "Animer alltid"
 
+#. Label for the switch that keeps glow, shimmer and holographic names moving all the time.
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:94
+msgid "Always animate name effects"
+msgstr "Always animate name effects"
+
 #. Description shown for stickers when always-animate overrides reduced motion.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:89
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:90
 msgid "Always animating despite reduced motion."
 msgstr "Animerer alltid til tross for redusert bevegelse."
 
@@ -3896,7 +3903,7 @@ msgid "and {remainingCount} more"
 msgstr "og {remainingCount} til"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:28
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:29
 msgid "Animate on interaction"
 msgstr "Animer ved interaksjon"
 
@@ -4342,6 +4349,8 @@ msgid "Approve"
 msgstr "Godkjenn"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:90
 #: src/features/user/utils/LocaleUtils.ts:10
 msgid "Arabic"
 msgstr "Arabisk"
@@ -4374,7 +4383,7 @@ msgid "Are you sure you want to delete every message in your personal notes? Thi
 msgstr "Er du sikker på at du vil slette alle meldingene i de personlige notatene dine? Alle meldingene og vedleggene deres slettes permanent. Denne handlingen kan ikke angres."
 
 #. placeholder {0}: selectedRole.name
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:425
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:436
 msgid "Are you sure you want to delete the <0>{0}</0> role? Any members with this role will no longer have it."
 msgstr "Er du sikker på at du vil slette rollen <0>{0}</0>? Alle medlemmer med denne rollen vil miste den."
 
@@ -4970,12 +4979,12 @@ msgid "Automatic start"
 msgstr "Automatisk start"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:52
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:53
 msgid "Automatically play GIFs"
 msgstr "Spill av GIF-er automatisk"
 
 #. Label in the animation tab. Preserve {productName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:56
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:57
 msgid "Automatically play GIFs when {productName} is focused"
 msgstr "Spill av GIF-er automatisk når {productName} er i fokus"
 
@@ -5161,7 +5170,7 @@ msgstr "Tilbake til overstyringer"
 
 #. Back-navigation label that returns from an individual role editor to the roles list.
 #: src/features/app/components/dialogs/components/DesktopGuildSettingsView.tsx:50
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:149
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:150
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleSidebar.tsx:116
 msgid "Back to roles"
 msgstr "Tilbake til roller"
@@ -6375,7 +6384,7 @@ msgid "Cancel yearly upgrade"
 msgstr "Avbryt oppgradering til årsabonnement"
 
 #. Confirmation prompt in the channel and chat friend list item. Preserve {displayName}; it is inserted by code.
-#: src/features/channel/components/friends/FriendListItem.tsx:54
+#: src/features/channel/components/friends/FriendListItem.tsx:55
 msgid "Cancel your friend request to {displayName}?"
 msgstr "Trekke tilbake venneforespørselen til {displayName}?"
 
@@ -7255,10 +7264,20 @@ msgstr "Barns sikkerhet eller vokseninnhold"
 msgid "Chinese (simplified)"
 msgstr "Kinesisk (forenklet)"
 
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:98
+msgid "Chinese (Simplified)"
+msgstr "Chinese (Simplified)"
+
 #. Short label in the language and locale names. Keep it concise.
 #: src/features/user/utils/LocaleUtils.ts:142
 msgid "Chinese (traditional)"
 msgstr "Kinesisk (tradisjonell)"
+
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:102
+msgid "Chinese (Traditional)"
+msgstr "Chinese (Traditional)"
 
 #. Slash-command argument type name, spoken by screen readers for an argument picked from a fixed list.
 #: src/features/lexical/composer/nodes/SlashSlotNode.ts:51
@@ -7760,7 +7779,7 @@ msgstr "Fjern kallenavn"
 msgid "Clear overrides"
 msgstr "Fjern overstyringer"
 
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:244
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:252
 msgid "Clear permissions"
 msgstr "Fjern tillatelser"
 
@@ -7985,7 +8004,7 @@ msgid "Close account"
 msgstr "Avslutt konto"
 
 #. Accessible label and tooltip for the close-DM button on a DM list row.
-#: src/features/channel/components/direct_message/DMListItem.tsx:83
+#: src/features/channel/components/direct_message/DMListItem.tsx:85
 msgid "Close direct message with {displayName}"
 msgstr "Lukk direktemeldingssamtalen med {displayName}"
 
@@ -8244,6 +8263,11 @@ msgstr "Fargevelgere"
 msgid "Color scheme"
 msgstr "Fargeskjema"
 
+#. Label above the solid, gradient and holographic choice in the role editor.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:21
+msgid "Color style"
+msgstr "Color style"
+
 #. Accessible label for the current color input value.
 #: src/features/ui/components/form/ColorPickerField.tsx:19
 msgid "Color value"
@@ -8274,7 +8298,7 @@ msgstr "Komfortabel"
 #. Density mode label in the channel permissions tab layout toggle. Comfortable option.
 #. Status text or tooltip indicating the role editor permission list is currently in comfy (spacious) layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:17
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:61
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:62
 msgid "Comfy layout"
 msgstr "Komfortabelt oppsett"
 
@@ -8473,7 +8497,7 @@ msgstr "Fellesskapsnavn"
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:126
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:128
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:113
 msgid "Community nickname"
 msgstr "Kallenavn i fellesskapet"
@@ -8498,7 +8522,7 @@ msgstr "Egendefinerte ankomstlyder for fellesskap"
 #. Tooltip on the owner crown icon next to a member name on the community members page.
 #: src/features/channel/components/bottomsheets/ChannelDetailsBottomSheetMemberList.tsx:42
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:73
-#: src/features/channel/components/MemberListItem.tsx:36
+#: src/features/channel/components/MemberListItem.tsx:37
 msgid "Community owner"
 msgstr "Fellesskapets eier"
 
@@ -8521,7 +8545,7 @@ msgid "Community profile"
 msgstr "Fellesskapsprofil"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:73
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:75
 msgid "Community profile updated"
 msgstr "Fellesskapsprofilen er oppdatert"
 
@@ -8691,7 +8715,7 @@ msgstr "Konfigurer egendefinerte tilgangstillatelser for dette medlemmet"
 msgid "Configure overrides for this role"
 msgstr "Konfigurer egendefinerte tilgangstillatelser for denne rollen"
 
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:159
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:160
 msgid "Configure role settings and permissions"
 msgstr "Konfigurer rolleinnstillinger og tillatelser"
 
@@ -10724,6 +10748,11 @@ msgstr "Kutter lyd under en lydstyrketerskel med minimal CPU-bruk."
 msgid "Cyprus"
 msgstr "Kypros"
 
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:87
+msgid "Cyrillic"
+msgstr "Cyrillic"
+
 #. Short label in the language and locale names. Keep it concise.
 #: src/features/user/utils/LocaleUtils.ts:18
 msgid "Czech"
@@ -10987,6 +11016,7 @@ msgid "Decorative divider"
 msgstr "Dekorativ skillelinje"
 
 #. Badge for the default saved payment method.
+#. Font tile that keeps the app font for the display name.
 #. Option label representing the default value.
 #. Option label representing the default value.
 #. Pill rendered next to the default value of a filter (e.g. sort:timestamp). Title Case.
@@ -10998,6 +11028,7 @@ msgstr "Dekorativ skillelinje"
 #: src/features/ui/action_menu/items/SearchMenuData.tsx:43
 #: src/features/ui/action_menu/items/SearchProviderMenuItems.tsx:14
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:117
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:34
 msgid "Default"
 msgstr "Standard"
 
@@ -11074,12 +11105,12 @@ msgid "Default:"
 msgstr "Standard:"
 
 #. Description text in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:64
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:65
 msgid "Defaults to animating on interaction on mobile to preserve battery life."
 msgstr "Animeres som standard ved interaksjon på mobil for å spare batteri."
 
 #. Description text in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:60
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:61
 msgid "Defaults to off on mobile to preserve battery life and reduce data usage."
 msgstr "Er av som standard på mobil for å spare batteri og redusere databruken."
 
@@ -11304,7 +11335,7 @@ msgstr "Slett omdirigerings-URI"
 #. Destructive button in the role editor that removes the selected role. Removes the role from every member; keep tone plain.
 #. Destructive context menu action in the community roles settings tab that immediately removes the right-clicked role from every member. Keep it short.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/OverwriteContextMenu.tsx:14
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:173
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:174
 #: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:57
 #: src/features/ui/action_menu/RoleContextMenu.tsx:17
 msgid "Delete role"
@@ -11459,7 +11490,7 @@ msgstr "Kompakt"
 #. Density mode label in the channel permissions tab layout toggle. Dense option.
 #. Status text or tooltip indicating the role editor permission list is currently in dense (compact) layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:13
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:57
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:58
 msgid "Dense layout"
 msgstr "Kompakt visning"
 
@@ -11644,6 +11675,11 @@ msgstr "Detaljer"
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:126
 msgid "Detect while typing"
 msgstr "Oppdag under skriving"
+
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:93
+msgid "Devanagari"
+msgstr "Devanagari"
 
 #. Advanced settings category tag.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
@@ -12105,12 +12141,14 @@ msgstr "Avvis likevel"
 msgid "Dismiss mention"
 msgstr "Avvis omtale"
 
+#. Font picker filter: decorative display fonts.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the chat settings tab. Keep it concise.
 #. Short label in the inline. Keep it concise.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:178
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:179
 #: src/features/user/components/modals/tabs/chat_settings_tab/ChatSettingsTabInline.tsx:12
 #: src/features/user/components/modals/tabs/ChatSettingsTab.tsx:12
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:74
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:154
 msgid "Display"
 msgstr "Visning"
@@ -12151,7 +12189,7 @@ msgstr "Visningsmodus"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the my profile tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:22
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:138
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:140
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:61
 msgid "Display name"
 msgstr "Visningsnavn"
@@ -12290,7 +12328,7 @@ msgstr "Vil du også blokkere direktemeldinger fra medlemmer av dine eksisterend
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:146
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:148
 msgid "Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985."
 msgstr "Doc, jeg er fra fremtiden. Jeg kom hit i en tidsmaskin du fant opp. Nå trenger jeg hjelpen din for å komme tilbake til 1985."
 
@@ -12713,7 +12751,7 @@ msgid "Edit"
 msgstr "Rediger"
 
 #. placeholder {0}: selectedRoleWithUpdates.name
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:156
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:157
 msgid "Edit \"{0}\""
 msgstr "Rediger «{0}»"
 
@@ -12910,7 +12948,7 @@ msgid "Edit translation provider"
 msgstr "Rediger oversettelsesleverandør"
 
 #. Button or menu action label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:93
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:95
 msgid "Edit your profile appearance and see a live preview"
 msgstr "Rediger profilens utseende og se en forhåndsvisning som oppdateres fortløpende"
 
@@ -12936,6 +12974,11 @@ msgstr "Redigering er midlertidig utilgjengelig. Prøv igjen senere."
 #: src/features/channel/components/ChannelEditBar.tsx:40
 msgid "Editing message"
 msgstr "Redigerer melding"
+
+#. Label above the display name effect choice.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:39
+msgid "Effect"
+msgstr "Effect"
 
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:184
 msgid "Eligible for a refund until {windowEndsOn}."
@@ -15077,12 +15120,16 @@ msgstr "Bruk samme mikrofon som for tale"
 msgid "Following master • {effectiveValue}"
 msgstr "Følger hovedvolumet • {effectiveValue}"
 
+#. Label above the display name font picker.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:33
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:170
 msgid "Font"
 msgstr "Skrifttype"
 
+#. Accessible label for the list of display name fonts.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:58
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:9
 msgid "Fonts"
 msgstr "Skrifttyper"
@@ -16007,6 +16054,16 @@ msgstr "Global profil"
 msgid "Global shortcut"
 msgstr "Global snarvei"
 
+#. Display name effect: a soft glow around the name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:67
+msgid "Glow"
+msgstr "Glow"
+
+#. Label for the glow color of a display name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:45
+msgid "Glow color"
+msgstr "Glow color"
+
 #. Generic back-navigation label in modals, settings tabs, and nested flows.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:107
 msgid "Go back"
@@ -16131,6 +16188,13 @@ msgstr "Respittperiode"
 msgid "Grace period (still have access)"
 msgstr "Respittperiode (har fortsatt tilgang)"
 
+#. Display name effect: a gradient between two colors.
+#. Role color style: a gradient between two colors.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:26
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:66
+msgid "Gradient"
+msgstr "Gradient"
+
 #. Button label that starts the native macOS permission request.
 #: src/features/permissions/system/components/modals/MacPermissionsModal.tsx:72
 msgid "Grant"
@@ -16181,6 +16245,8 @@ msgid "Greece"
 msgstr "Hellas"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:88
 #: src/features/user/utils/LocaleUtils.ts:30
 msgid "Greek"
 msgstr "Gresk"
@@ -16296,7 +16362,7 @@ msgstr "Gruppens nettstatus"
 #. Channel details bottom sheet label or action (channel type, settings, toast, confirmation, or notification option).
 #. Short label in the direct message member list item. Keep it concise.
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:152
-#: src/features/channel/components/MemberListItem.tsx:40
+#: src/features/channel/components/MemberListItem.tsx:41
 msgid "Group owner"
 msgstr "Gruppeeier"
 
@@ -16355,6 +16421,11 @@ msgstr "H.265 (må aktiveres)"
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:69
 msgid "Handle"
 msgstr "Brukernavn"
+
+#. Font picker filter: handwriting and script fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:75
+msgid "Handwriting"
+msgstr "Handwriting"
 
 #. Report category label, community variant. Keep tone plain.
 #: src/features/moderation/components/report/OptionDescriptors.ts:86
@@ -16509,6 +16580,8 @@ msgid "Heart"
 msgstr "Hjerte"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:91
 #: src/features/user/utils/LocaleUtils.ts:58
 msgid "Hebrew"
 msgstr "Hebraisk"
@@ -16803,7 +16876,7 @@ msgstr "Tips"
 msgid "Hoist order"
 msgstr "Rekkefølge på rollegrupper"
 
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:522
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:533
 msgid "Hoist order reset to default"
 msgstr "Rekkefølgen på rollegruppene er tilbakestilt til standard"
 
@@ -16829,6 +16902,11 @@ msgstr "Hold nede Shift og trykk på X for å velge apper. Trykk på {selectAllS
 #: src/features/channel/components/VoiceMessageRecorder.tsx:61
 msgid "Hold to record. Drag up to lock, or release to send."
 msgstr "Hold inne for å ta opp. Dra opp for å låse, eller slipp for å sende."
+
+#. Role color style: a shiny three-color gradient that moves on hover.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:27
+msgid "Holographic"
+msgstr "Holographic"
 
 #. Action label in quick switcher for navigating to the Home tab.
 #: src/features/app/components/layout/MobileBottomNav.tsx:110
@@ -16878,6 +16956,11 @@ msgstr "Hold musepekeren over meg"
 #: src/features/user/components/modals/tabs/component_gallery_tab/OverlaysTab.tsx:63
 msgid "Hover over buttons to see tooltips in different positions."
 msgstr "Hold musepekeren over knappene for å se verktøytips i forskjellige posisjoner."
+
+#. Hint under the display name preview for animated effects.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:54
+msgid "Hover the preview to see the effect move."
+msgstr "Hover the preview to see the effect move."
 
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:334
 msgid "How about:"
@@ -17141,7 +17224,7 @@ msgstr "Ignorer spamflagg"
 
 #. Confirmation prompt in the channel and chat friend list item. Preserve {displayName}; it is inserted by code.
 #. Confirmation prompt in the channel and chat mobile friend request item. Preserve {displayName}; it is inserted by code.
-#: src/features/channel/components/friends/FriendListItem.tsx:49
+#: src/features/channel/components/friends/FriendListItem.tsx:50
 #: src/features/channel/components/friends/MobileFriendRequestItem.tsx:33
 msgid "Ignore the friend request from {displayName}?"
 msgstr "Ignorere venneforespørselen fra {displayName}?"
@@ -18220,6 +18303,8 @@ msgid "Italy"
 msgstr "Italia"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:94
 #: src/features/user/utils/LocaleUtils.ts:82
 msgid "Japanese"
 msgstr "Japansk"
@@ -18632,6 +18717,8 @@ msgid "Klipy GIFs"
 msgstr "Klipy-GIF-er"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:95
 #: src/features/user/utils/LocaleUtils.ts:86
 msgid "Korean"
 msgstr "Koreansk"
@@ -18707,6 +18794,16 @@ msgstr "Forsinkelsesgraf"
 #: src/features/user/components/modals/tabs/DesktopSettingsTab.tsx:48
 msgid "Later"
 msgstr "Senere"
+
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:82
+msgid "Latin"
+msgstr "Latin"
+
+#. Writing system covered by a font: accented Latin letters.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:85
+msgid "Latin Extended"
+msgstr "Latin Extended"
 
 #. Country name. EU member state in the illegal-content report country dropdown.
 #: src/features/moderation/components/report/OptionDescriptors.ts:171
@@ -19159,7 +19256,7 @@ msgid "Lists"
 msgstr "Lister"
 
 #. Helper text under the Show this role separately switch in the role editor.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:39
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:40
 msgid "Lists members with this role in their own section in the member list."
 msgstr "Viser medlemmer med denne rollen i en egen seksjon i medlemslisten."
 
@@ -19396,6 +19493,11 @@ msgstr "Lot kanalen arve innstillingen for voksent innhold"
 #: src/features/user/components/settings_utils/section_registry/AccountSecuritySections.ts:12
 msgid "Mail"
 msgstr "E-post"
+
+#. Label for the first display name color.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:40
+msgid "Main color"
+msgstr "Main color"
 
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:103
@@ -20142,9 +20244,14 @@ msgid "Members with roles can bypass these checks. For public spaces, we recomme
 msgstr "Medlemmer med roller kan omgå disse kontrollene. For offentlige fellesskap anbefaler vi å aktivere verifisering."
 
 #. Helper text under the Allow mentions switch in the role editor. {mentionEveryonePermissionLabel} is the localized name of the Mention Everyone permission and should match its label exactly.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:47
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:48
 msgid "Members with the \"{mentionEveryonePermissionLabel}\" permission can always mention roles, regardless of this setting."
 msgstr "Medlemmer med tillatelsen «{mentionEveryonePermissionLabel}» kan alltid omtale roller, uavhengig av denne innstillingen."
+
+#. Hint next to the role name preview in the role editor.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:33
+msgid "Members with this role look like this. Hover to see a holographic role move."
+msgstr "Members with this role look like this. Hover to see a holographic role move."
 
 #. Description text in the message history threshold content. Preserve {readMessageHistoryPermissionLabel}; it is inserted by code. Keep the tone plain and specific.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/MessageHistoryThresholdContent.tsx:45
@@ -20286,7 +20393,7 @@ msgstr "Melding"
 #: src/features/user/components/modals/UserProfileModal.tsx:769
 #: src/features/user/components/popouts/UserProfilePopout.tsx:418
 #: src/features/user/components/popouts/UserProfilePopout.tsx:448
-#: src/features/user/components/profile/ProfilePreview.tsx:321
+#: src/features/user/components/profile/ProfilePreview.tsx:325
 msgctxt "message-action"
 msgid "Message"
 msgstr "Send melding"
@@ -20344,7 +20451,7 @@ msgid "Message composer"
 msgstr "Meldingsfelt"
 
 #. Label in the channel and chat reply preview.
-#: src/features/channel/components/ReplyPreview.tsx:41
+#: src/features/channel/components/ReplyPreview.tsx:42
 msgid "Message contains attached media"
 msgstr "Meldingen inneholder vedlagte medier"
 
@@ -20867,6 +20974,11 @@ msgstr "Modereringshandlinger i {communityName} krever tofaktorautentisering. Ak
 msgid "Moderator"
 msgstr "Moderator"
 
+#. Font picker filter: monospaced fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:77
+msgid "Mono"
+msgstr "Mono"
+
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:138
 msgctxt "us-state"
@@ -20911,7 +21023,7 @@ msgstr "Gaveabonnement på én måned"
 #. Tooltip on the overflow button in the inline message hover action bar. Opens the full action menu.
 #: src/features/auth/components/accounts/AccountRow.tsx:23
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:142
-#: src/features/channel/components/friends/FriendListItem.tsx:63
+#: src/features/channel/components/friends/FriendListItem.tsx:64
 #: src/features/channel/components/MessageActionBar.tsx:77
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:125
 msgid "More"
@@ -21125,7 +21237,7 @@ msgid "Multi-line"
 msgstr "Flere linjer"
 
 #. Label in the composer typing row when the names of the people typing do not fit.
-#: src/features/typing/rolling/RollingTypingText.tsx:29
+#: src/features/typing/rolling/RollingTypingText.tsx:30
 msgid "Multiple people are typing..."
 msgstr "Flere skriver..."
 
@@ -21268,7 +21380,7 @@ msgstr "Demp medlemmer"
 
 #. Short label in the app layout user area.
 #. Tray menu item shown while in a voice call. Mutes the local microphone.
-#: src/features/app/components/layout/UserArea.tsx:63
+#: src/features/app/components/layout/UserArea.tsx:64
 #: src/features/platform/utils/DesktopLocaleBridge.ts:208
 msgid "Mute microphone"
 msgstr "Demp mikrofonen"
@@ -21310,7 +21422,7 @@ msgstr "Slå av strømmelyden"
 #: src/features/app/components/layout/ChannelItem.tsx:112
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:62
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:39
-#: src/features/channel/components/direct_message/DMListItem.tsx:75
+#: src/features/channel/components/direct_message/DMListItem.tsx:77
 msgid "muted"
 msgstr "dempet"
 
@@ -21508,6 +21620,16 @@ msgstr "Overstyringer for varselbannere"
 msgid "Name"
 msgstr "Navn"
 
+#. Accessible label for the display name effect tabs.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:59
+msgid "Name effects"
+msgstr "Name effects"
+
+#. Warning under the switch that keeps animated display names moving all the time.
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:98
+msgid "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
+msgstr "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
+
 #. Form validation error shown when the name field is empty.
 #. Form validation error shown when the name field is empty.
 #: src/features/expressions/components/modals/meme_form/MemeFormFields.tsx:16
@@ -21544,6 +21666,11 @@ msgstr "Gi passnøkkelen et navn"
 #: src/features/auth/components/modals/PasskeyNameModal.tsx:15
 msgid "Name passkey form"
 msgstr "Skjema for å gi passnøkkelen et navn"
+
+#. Profile settings section title for the display name font, colors and effect.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:24
+msgid "Name style"
+msgstr "Name style"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:272
@@ -21682,7 +21809,7 @@ msgid "Never"
 msgstr "Aldri"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:40
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:41
 msgid "Never animate"
 msgstr "Aldri animer"
 
@@ -22257,7 +22384,7 @@ msgid "No pending requests match that search"
 msgstr "Ingen ventende forespørsler samsvarer med søket"
 
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/PermissionEditorPanel.tsx:156
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:340
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:348
 msgid "No permissions found"
 msgstr "Ingen tillatelser funnet"
 
@@ -23366,7 +23493,7 @@ msgstr "Åpne profilen til {directMessageName}"
 
 #. Accessible label for the avatar button that opens a user profile.
 #. Short label in the app layout voice participant item. Preserve {displayName}; it is inserted by code.
-#: src/features/app/components/layout/VoiceParticipantItem.tsx:48
+#: src/features/app/components/layout/VoiceParticipantItem.tsx:49
 #: src/features/ui/avatars/AvatarStack.tsx:21
 msgid "Open profile for {displayName}"
 msgstr "Åpne profilen til {displayName}"
@@ -23459,7 +23586,7 @@ msgid "Open theme studio…"
 msgstr "Åpne temastudio …"
 
 #. Short label in the app layout user area. Preserve {displayName}; it is inserted by code.
-#: src/features/app/components/layout/UserArea.tsx:71
+#: src/features/app/components/layout/UserArea.tsx:72
 msgid "Open user menu for {displayName}"
 msgstr "Åpne brukermeny for {displayName}"
 
@@ -23628,12 +23755,12 @@ msgid "Oregon"
 msgstr "Oregon"
 
 #. Error message in the channel and chat reply preview.
-#: src/features/channel/components/ReplyPreview.tsx:29
+#: src/features/channel/components/ReplyPreview.tsx:30
 msgid "Original message failed to load"
 msgstr "Klarte ikke å laste inn originalmeldingen"
 
 #. Label in the channel and chat reply preview. Keep the tone plain and specific.
-#: src/features/channel/components/ReplyPreview.tsx:25
+#: src/features/channel/components/ReplyPreview.tsx:26
 msgid "Original message was deleted"
 msgstr "Opprinnelig melding ble slettet"
 
@@ -24036,12 +24163,12 @@ msgid "Pause preview when Fluxer isn’t focused"
 msgstr "Sett forhåndsvisningen på pause når Fluxer ikke er i fokus"
 
 #. Description shown for the emoji toggle while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:81
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:82
 msgid "Paused by reduced motion. Turn on to keep animated emojis playing."
 msgstr "Satt på pause på grunn av redusert bevegelse. Slå på for å fortsette avspillingen av animerte emojier."
 
 #. Description shown for the GIF toggle while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:85
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:86
 msgid "Paused by reduced motion. Turn on to keep GIFs playing."
 msgstr "Satt på pause på grunn av redusert bevegelse. Slå på for å fortsette avspillingen av GIF-er."
 
@@ -24212,7 +24339,7 @@ msgid "Permission override updated"
 msgstr "Tillatelsesoverstyring oppdatert"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:249
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:257
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:18
 msgid "Permissions"
 msgstr "Tillatelser"
@@ -24312,6 +24439,11 @@ msgstr "Telefonbekreftelse kreves"
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:21
 msgid "Photo"
 msgstr "Bilde"
+
+#. Profile settings section description for the display name style.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:28
+msgid "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
+msgstr "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
 
 #. Title of the picker modal when choosing a reverse image search provider.
 #: src/features/search/components/modals/SearchProviderPickerModal.tsx:19
@@ -24464,7 +24596,7 @@ msgid "Ping: {latency}ms"
 msgstr "Ping: {latency} ms"
 
 #. Screen-reader fragment announcing that the DM list row is pinned. Lowercase fragment.
-#: src/features/channel/components/direct_message/DMListItem.tsx:79
+#: src/features/channel/components/direct_message/DMListItem.tsx:81
 msgid "pinned"
 msgstr "festet"
 
@@ -24518,6 +24650,11 @@ msgstr "Panel for festede meldinger"
 msgid "PiP"
 msgstr "Bilde i bilde"
 
+#. Font picker filter: pixel and retro fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:76
+msgid "Pixel"
+msgstr "Pixel"
+
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:69
 msgid "Plain"
@@ -24550,7 +24687,7 @@ msgid "Play"
 msgstr "Spill av"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:48
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:49
 msgid "Play animated emojis"
 msgstr "Spill av animerte emojier"
 
@@ -24596,7 +24733,7 @@ msgid "Playback speed: {formattedRate}"
 msgstr "Avspillingshastighet: {formattedRate}"
 
 #. Description shown when an animation setting overrides reduced motion.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:77
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:78
 msgid "Playing despite reduced motion."
 msgstr "Spiller av til tross for redusert bevegelse."
 
@@ -25135,18 +25272,18 @@ msgstr "Profilfarge"
 
 #. Settings section label for editing profile appearance and identity.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:105
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:107
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:6
 msgid "Profile customization"
 msgstr "Profiltilpasning"
 
 #. Label in the my profile tab. Preserve {selectedGuildName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:101
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:103
 msgid "Profile customization for {selectedGuildName}"
 msgstr "Profiltilpasning for {selectedGuildName}"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:97
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:99
 msgid "Profile customization form"
 msgstr "Skjema for profiltilpasning"
 
@@ -25185,7 +25322,7 @@ msgid "Profile preview"
 msgstr "Forhåndsvisning av profil"
 
 #. Label in the user settings profile preview.
-#: src/features/user/components/profile/ProfilePreview.tsx:40
+#: src/features/user/components/profile/ProfilePreview.tsx:41
 msgid "Profile preview (press Enter to open full preview)"
 msgstr "Forhåndsvisning av profil (trykk Enter for å åpne full forhåndsvisning)"
 
@@ -25211,7 +25348,7 @@ msgid "Profile type"
 msgstr "Profiltype"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:77
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:79
 msgid "Profile updated"
 msgstr "Profilen er oppdatert"
 
@@ -25248,14 +25385,14 @@ msgstr "Spør om nye lydenheter"
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:142
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:144
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:177
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:160
 msgid "Pronouns"
 msgstr "Pronomen"
 
 #: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:79
-#: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:126
+#: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:140
 msgid "Pronouns: "
 msgstr "Pronomen: "
 
@@ -25424,7 +25561,7 @@ msgid "Push to talk (priority)"
 msgstr "Trykk for å snakke (prioritet)"
 
 #. User-area voice status text shown when push-to-talk is active. The hint is the user-configured keybind label.
-#: src/features/app/components/layout/UserArea.tsx:54
+#: src/features/app/components/layout/UserArea.tsx:55
 msgid "Push to talk is on. Hold {pushToTalkHint} to speak."
 msgstr "Trykk for å snakke er på. Hold inne {pushToTalkHint} for å snakke."
 
@@ -25884,9 +26021,14 @@ msgid "Reduced motion"
 msgstr "Redusert bevegelse"
 
 #. Explanatory note shown above the animation controls when reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:72
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:73
 msgid "Reduced motion is on, so content animations are paused by default. You can still turn any of these back on to keep them playing."
 msgstr "Redusert bevegelse er på, så animasjoner er som standard satt på pause. Du kan fortsatt slå på hvilken som helst av dem for å spille den av."
+
+#. Description for the animated names switch while reduced motion is active.
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:103
+msgid "Reduced motion is on, so name effects stay still."
+msgstr "Reduced motion is on, so name effects stay still."
 
 #. Short label in the theme studio assets section. Keep it concise.
 #: src/features/theme_studio/sections/AssetsSection.tsx:32
@@ -26627,12 +26769,12 @@ msgid "Reply"
 msgstr "Svar"
 
 #. Error message in the channel and chat reply preview. Keep the tone plain and specific.
-#: src/features/channel/components/ReplyPreview.tsx:33
+#: src/features/channel/components/ReplyPreview.tsx:34
 msgid "Reply hidden because the original author is blocked."
 msgstr "Svar skjult fordi den opprinnelige forfatteren er blokkert."
 
 #. Description text in the channel and chat reply preview. Keep the tone plain and specific.
-#: src/features/channel/components/ReplyPreview.tsx:37
+#: src/features/channel/components/ReplyPreview.tsx:38
 msgid "Reply hidden because the original author is marked as a spammer."
 msgstr "Svar skjult fordi den opprinnelige forfatteren er merket som spammer."
 
@@ -27030,6 +27172,11 @@ msgstr "Tilbakestill samtykkestatus for voksent innhold"
 #: src/features/messaging/components/modals/media_modal/shared.ts:89
 msgid "Reset media position"
 msgstr "Tilbakestill medieposisjon"
+
+#. Button that returns the display name to the default font, colors and effect.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:50
+msgid "Reset name style"
+msgstr "Reset name style"
 
 #. Short label in the authentication reset password page. Keep the tone plain and specific.
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:19
@@ -27609,7 +27756,7 @@ msgid "Role"
 msgstr "Rolle"
 
 #. Label of the role color picker in the community role editor. American English spelling is canonical.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:25
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:26
 msgid "Role color"
 msgstr "Rollefarge"
 
@@ -27618,8 +27765,8 @@ msgstr "Rollefarge"
 msgid "Role created"
 msgstr "Rolle opprettet"
 
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:352
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:402
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:362
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:413
 msgid "Role created successfully"
 msgstr "Rolle opprettet"
 
@@ -27628,13 +27775,13 @@ msgstr "Rolle opprettet"
 msgid "Role deleted"
 msgstr "Rolle slettet"
 
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:440
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:469
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:451
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:480
 msgid "Role deleted successfully"
 msgstr "Rollen er slettet"
 
 #. Label of the role name input in the community role editor.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:21
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:22
 msgid "Role name"
 msgstr "Rollenavn"
 
@@ -27664,7 +27811,7 @@ msgstr "Roller"
 msgid "Roles and members"
 msgstr "Roller og medlemmer"
 
-#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:296
+#: src/features/guild/components/modals/guild_tabs/GuildRolesTab.tsx:304
 msgid "Roles updated successfully"
 msgstr "Roller er oppdatert"
 
@@ -27746,6 +27893,11 @@ msgstr "Samme klokkeslett som deg"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:179
 msgid "Sanitize link"
 msgstr "Fjern sporing fra lenke"
+
+#. Font picker filter: sans-serif fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:72
+msgid "Sans"
+msgstr "Sans"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:99
@@ -28304,7 +28456,7 @@ msgid "Search pending requests"
 msgstr "Søk i ventende forespørsler"
 
 #. Placeholder in the search input above the permission list in the role editor.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:53
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:54
 msgid "Search permissions"
 msgstr "Søk i tillatelser"
 
@@ -28429,6 +28581,13 @@ msgstr "Søker"
 #: src/features/search/components/quick_switcher/QuickSwitcherModal.tsx:62
 msgid "Searching for people..."
 msgstr "Søker etter personer …"
+
+#. Label for the second display name color, used by gradient, glow and shimmer.
+#. Second color of a gradient role.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:31
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:41
+msgid "Second color"
+msgstr "Second color"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:112
 msgid "Second option"
@@ -28703,7 +28862,7 @@ msgstr "Tekst som kan markeres"
 #: src/features/app/components/layout/ChannelItem.tsx:96
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:54
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:35
-#: src/features/channel/components/direct_message/DMListItem.tsx:67
+#: src/features/channel/components/direct_message/DMListItem.tsx:69
 msgid "selected"
 msgstr "valgt"
 
@@ -28876,7 +29035,7 @@ msgstr "Send gave"
 
 #. Button or menu action label in the channel and chat friend list item. Keep it concise.
 #. Button or menu action label in the channel and chat textarea buttons. Keep it concise.
-#: src/features/channel/components/friends/FriendListItem.tsx:59
+#: src/features/channel/components/friends/FriendListItem.tsx:60
 #: src/features/channel/components/textarea/TextareaButtons.tsx:24
 msgid "Send message"
 msgstr "Send melding"
@@ -29034,7 +29193,7 @@ msgid "Sent"
 msgstr "Sendt"
 
 #. DM list row preview text when the most recent message has only attachments.
-#: src/features/channel/components/direct_message/DMListItem.tsx:63
+#: src/features/channel/components/direct_message/DMListItem.tsx:65
 msgid "Sent an attachment"
 msgstr "Sendte et vedlegg"
 
@@ -29054,6 +29213,11 @@ msgstr "Sekvensiell sending"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:143
 msgid "Serial send"
 msgstr "Seriell sending"
+
+#. Font picker filter: serif fonts.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:73
+msgid "Serif"
+msgstr "Serif"
 
 #: src/features/connection/components/modals/AddConnectionModal.tsx:327
 msgid "Serve the token file"
@@ -29492,6 +29656,16 @@ msgstr "Skift"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:323
 msgid "Shift expand"
 msgstr "Utvid med Skift"
+
+#. Display name effect: a light that sweeps across the name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:68
+msgid "Shimmer"
+msgstr "Shimmer"
+
+#. Label for the color of the light that sweeps across a shimmering display name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:46
+msgid "Shine color"
+msgstr "Shine color"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:109
@@ -29983,7 +30157,7 @@ msgid "Show system tray icon"
 msgstr "Vis ikon i systemstatusfeltet"
 
 #. Switch label in the role editor (hoist toggle). When on, members with this role appear in their own member-list section.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:34
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:35
 msgid "Show this role separately"
 msgstr "Vis denne rollen separat"
 
@@ -30224,7 +30398,7 @@ msgstr "Enkeltklikk"
 #. Column count label in the channel permissions tab layout toggle.
 #. Status text or tooltip indicating the role editor permission list is currently in single-column layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:29
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:73
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:74
 msgid "Single column"
 msgstr "Enkel kolonne"
 
@@ -30315,7 +30489,7 @@ msgid "Skip this step"
 msgstr "Hopp over dette trinnet"
 
 #. Accessible skip-link label for keyboard users.
-#: src/app/App.tsx:69
+#: src/app/App.tsx:70
 msgid "Skip to content"
 msgstr "Hopp til innhold"
 
@@ -30581,6 +30755,13 @@ msgstr "Kvalitet på programvarekoding"
 #: src/features/app/components/dialogs/components/PricingCard.tsx:92
 msgid "Sold out"
 msgstr "Utsolgt"
+
+#. Display name effect: one color.
+#. Role color style: one color.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:25
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:65
+msgid "Solid"
+msgstr "Solid"
 
 #. Title of the error modal shown after some emoji uploads fail.
 #: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:69
@@ -31318,11 +31499,11 @@ msgid "Sticker"
 msgstr "Klistremerke"
 
 #. Short label in the animation tab. Keep it concise.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:68
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:69
 msgid "Sticker animation preference"
 msgstr "Innstillinger for klistremerkeanimasjon"
 
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:187
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:201
 msgid "Sticker animations"
 msgstr "Klistremerkeanimasjoner"
 
@@ -31402,22 +31583,22 @@ msgid "Stickers are saved at 320x320 pixels and must be under {maxSize}. Static 
 msgstr "Klistremerker lagres i 320x320 piksler og må være mindre enn {maxSize}. Statiske bilder skaleres og komprimeres automatisk. Animerte klistremerker og SVG-er må allerede være innenfor grensen."
 
 #. Label in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:24
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:25
 msgid "Stickers will always animate"
 msgstr "Klistremerker vil alltid animeres"
 
 #. Label in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:36
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:37
 msgid "Stickers will animate when you hover or interact with them"
 msgstr "Klistremerker animeres når du holder musepekeren over dem eller samhandler med dem"
 
 #. Label in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:32
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:33
 msgid "Stickers will animate when you press them"
 msgstr "Klistremerker animeres når du trykker på dem"
 
 #. Label in the animation tab.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:44
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:45
 msgid "Stickers will never animate"
 msgstr "Klistremerker vil aldri animeres"
 
@@ -31887,14 +32068,14 @@ msgstr "Bytt til {listPriceNewLabel}"
 #. Tooltip on the density toggle when currently in dense mode.
 #. Tooltip on the layout toggle button in the role editor that switches the permission list to comfy layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:25
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:69
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:70
 msgid "Switch to comfy layout"
 msgstr "Bytt til romslig oppsett"
 
 #. Tooltip on the density toggle when currently in comfy mode.
 #. Tooltip on the layout toggle button in the role editor that switches the permission list to dense layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:21
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:65
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:66
 msgid "Switch to dense layout"
 msgstr "Bytt til kompakt oppsett"
 
@@ -31947,7 +32128,7 @@ msgstr "Bytt til forrige fellesskap eller direktemeldinger"
 #. Tooltip on the column count toggle when currently in two-column mode.
 #. Tooltip on the column toggle button in the role editor that switches the permission list to one column.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:37
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:81
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:82
 msgid "Switch to single column"
 msgstr "Bytt til én kolonne"
 
@@ -31967,7 +32148,7 @@ msgstr "Bytt til denne enheten"
 #. Tooltip on the column count toggle when currently in single-column mode.
 #. Tooltip on the column toggle button in the role editor that switches the permission list to two columns.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:41
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:85
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:86
 msgid "Switch to two columns"
 msgstr "Bytt til to kolonner"
 
@@ -32488,6 +32669,8 @@ msgid "Text-to-speech notifications"
 msgstr "Tekst-til-tale-varsler"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:92
 #: src/features/user/utils/LocaleUtils.ts:122
 msgid "Thai"
 msgstr "Thai"
@@ -32966,6 +33149,11 @@ msgstr "De godtar kanskje ikke meldinger fra deg, eller dere deler ikke lenger e
 #: src/features/relationship/utils/RelationshipActionUtils.tsx:36
 msgid "They're not accepting friend requests right now."
 msgstr "De godtar ikke venneforespørsler akkurat nå."
+
+#. Third color of a holographic role.
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:32
+msgid "Third color"
+msgstr "Third color"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:113
 msgid "Third option"
@@ -33446,7 +33634,7 @@ msgid "This message no longer exists."
 msgstr "Denne meldingen finnes ikke lenger."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:130
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:132
 msgid "This nickname will only be visible in this community"
 msgstr "Dette kallenavnet vil bare være synlig i dette fellesskapet"
 
@@ -34566,7 +34754,7 @@ msgstr "To klikk"
 #. Column count label in the channel permissions tab layout toggle.
 #. Status text or tooltip indicating the role editor permission list is currently in two-column layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:33
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:77
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:78
 msgid "Two columns"
 msgstr "To kolonner"
 
@@ -34602,7 +34790,7 @@ msgid "Two-factor backup"
 msgstr "Reservekoder for tofaktor"
 
 #. Helper text under the role color input. Lists accepted color formats; the token names "hex", "rgb()", "hsl()" are CSS-standard and should not be translated.
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:29
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:30
 #: src/features/ui/components/form/ColorPickerField.tsx:296
 msgid "Type a color (hex, rgb(), hsl(), or name) or use the picker."
 msgstr "Skriv inn en farge (hex, rgb(), hsl() eller navn) eller bruk fargevelgeren."
@@ -34992,7 +35180,7 @@ msgstr "Ukjent dato"
 #. Fallback device or operating-system label in the devices tab when session client data is unavailable.
 #. Short label in the app layout voice participant item.
 #. Short label in the notifications. Keep it concise.
-#: src/features/app/components/layout/VoiceParticipantItem.tsx:44
+#: src/features/app/components/layout/VoiceParticipantItem.tsx:45
 #: src/features/user/components/modals/tabs/DevicesTab.tsx:65
 #: src/features/user/components/modals/tabs/notifications_tab/Notifications.tsx:78
 msgid "Unknown device"
@@ -35214,7 +35402,7 @@ msgstr "Opphev demping av favoritter"
 
 #. Short label in the app layout user area.
 #. Tray menu item shown while in a voice call. Unmutes the local microphone.
-#: src/features/app/components/layout/UserArea.tsx:59
+#: src/features/app/components/layout/UserArea.tsx:60
 #: src/features/platform/utils/DesktopLocaleBridge.ts:212
 msgid "Unmute microphone"
 msgstr "Slå på mikrofonen"
@@ -35316,7 +35504,7 @@ msgstr "Løsnet gruppechat"
 #: src/features/app/components/layout/sidebar_nav/GuildFolderItem.tsx:89
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:58
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:27
-#: src/features/channel/components/direct_message/DMListItem.tsx:71
+#: src/features/channel/components/direct_message/DMListItem.tsx:73
 msgid "unread"
 msgstr "ulest"
 
@@ -36071,7 +36259,7 @@ msgstr "Bruk disse knappene for å angi alle tillatelser raskt."
 msgid "Use these codes to access your account if you lose your authenticator app."
 msgstr "Bruk disse kodene for å få tilgang til kontoen din hvis du mister autentiseringsappen din."
 
-#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:235
+#: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:243
 msgid "Use this button to quickly clear all permissions."
 msgstr "Bruk denne knappen for å fjerne alle tillatelser raskt."
 
@@ -36164,7 +36352,7 @@ msgid "User avatars"
 msgstr "Brukeravatarer"
 
 #. Short label in the app layout user area.
-#: src/features/app/components/layout/UserArea.tsx:67
+#: src/features/app/components/layout/UserArea.tsx:68
 msgid "User controls"
 msgstr "Brukerkontroller"
 
@@ -36544,22 +36732,22 @@ msgid "Verify your email before adding an authenticator app."
 msgstr "Bekreft e-postadressen din før du legger til en autentiseringsapp."
 
 #. Description text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:117
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:119
 msgid "Verify your email before changing your community nickname, avatar, banner, bio, pronouns, or accent color."
 msgstr "Bekreft e-postadressen din før du endrer kallenavn, avatar, banner, biografi, pronomen eller aksentfarge i fellesskapet."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:121
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:123
 msgid "Verify your email before changing your username, display name, avatar, banner, bio, pronouns, time zone, or {premiumProductName} badge privacy."
 msgstr "Bekreft e-postadressen din før du endrer brukernavn, visningsnavn, avatar, banner, biografi, pronomen, tidssone eller personverninnstillinger for {premiumProductName}-merket ditt."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:85
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:87
 msgid "Verify your email before editing this community profile. You can still preview it here."
 msgstr "Bekreft e-postadressen din før du redigerer denne fellesskapsprofilen. Du kan fortsatt forhåndsvise den her."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:89
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:91
 msgid "Verify your email before editing your profile. You can still preview it here."
 msgstr "Bekreft e-postadressen din før du redigerer profilen din. Du kan fortsatt forhåndsvise den her."
 
@@ -36586,12 +36774,12 @@ msgid "Verify your email to continue using {productName}."
 msgstr "Bekreft e-postadressen din for å fortsette å bruke {productName}."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:109
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:111
 msgid "Verify your email to edit this community profile"
 msgstr "Bekreft e-postadressen din for å redigere denne fellesskapsprofilen"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:113
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:115
 msgid "Verify your email to edit your profile"
 msgstr "Bekreft e-postadressen din for å redigere profilen din"
 
@@ -36770,6 +36958,8 @@ msgid "Videos"
 msgstr "Videoer"
 
 #. Short label in the language and locale names. Keep it concise.
+#. Writing system covered by a font.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:89
 #: src/features/user/utils/LocaleUtils.ts:134
 msgid "Vietnamese"
 msgstr "Vietnamesisk"
@@ -38139,7 +38329,7 @@ msgid "With error"
 msgstr "Med feil"
 
 #. Description shown for the sticker control while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:93
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:107
 msgid "With reduced motion on, stickers only animate on interaction. Choose \"Always animate\" to override."
 msgstr "Når redusert bevegelse er på, animeres klistremerker bare når du samhandler med dem. Velg «Animer alltid» for å overstyre."
 
@@ -38233,7 +38423,7 @@ msgstr "I går kl. {timeString}"
 
 #. First-person prefix used in DM list row preview when the current user is the message author.
 #: src/features/app/components/layout/MobileBottomNav.tsx:153
-#: src/features/channel/components/direct_message/DMListItem.tsx:59
+#: src/features/channel/components/direct_message/DMListItem.tsx:61
 msgid "You"
 msgstr "Du"
 
@@ -38395,7 +38585,7 @@ msgid "You can't befriend yourself"
 msgstr "Du kan ikke bli venn med deg selv"
 
 #. Label in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:134
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:136
 msgid "You can't change your nickname here"
 msgstr "Du kan ikke endre kallenavnet ditt her"
 
@@ -38446,7 +38636,7 @@ msgstr "Du kan ikke sende melding til denne brukeren"
 #. Error message in the user settings profile preview.
 #: src/features/user/components/modals/UserProfileModal.tsx:110
 #: src/features/user/components/popouts/UserProfilePopout.tsx:73
-#: src/features/user/components/profile/ProfilePreview.tsx:44
+#: src/features/user/components/profile/ProfilePreview.tsx:45
 msgid "You can't message yourself"
 msgstr "Du kan ikke sende meldinger til deg selv"
 
@@ -38627,7 +38817,7 @@ msgid "You have unsaved changes."
 msgstr "Du har ulagrede endringer."
 
 #. Warning text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:81
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:83
 msgid "You have unsaved changes. Save or reset before leaving."
 msgstr "Du har ulagrede endringer. Lagre eller tilbakestill før du går herfra."
 

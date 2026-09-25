@@ -12,6 +12,7 @@ import {
 } from '@fluxer/constants/src/UserConstants';
 import {MS_PER_DAY} from '@fluxer/date_utils/src/DateConstants';
 import {DEFAULT_STOCK_LIMITS} from '@fluxer/limits/src/LimitDefaults';
+import {type NameStyle, sameNameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import type {
 	RequiredAction,
 	UserPartial,
@@ -130,6 +131,14 @@ function hasKey<K extends string>(obj: object, key: K): boolean {
 	return key in obj;
 }
 
+// The server omits name_style for the default style, so a complete user object without it clears the
+// style. Fragments (no username and flags) leave it alone.
+function mergeNameStyle(current: NameStyle | null, updates: Partial<WireUser>): NameStyle | undefined {
+	if (hasKey(updates, 'name_style')) return updates.name_style ?? undefined;
+	if (hasKey(updates, 'username') && hasKey(updates, 'flags')) return undefined;
+	return current ?? undefined;
+}
+
 export class User {
 	readonly instanceId: string;
 	readonly id: string;
@@ -140,6 +149,7 @@ export class User {
 	readonly system: boolean;
 	readonly flags: number;
 	readonly mentionFlags: MentionReplyPreference;
+	readonly nameStyle: NameStyle | null;
 	readonly avatarColor: number | null | undefined;
 	private readonly _isStaff: boolean | undefined;
 	private readonly _email: string | null | undefined;
@@ -191,6 +201,7 @@ export class User {
 		this.system = user.system ?? false;
 		this.flags = user.flags;
 		this.mentionFlags = user.mention_flags ?? 0;
+		this.nameStyle = user.name_style ?? null;
 		this.avatarColor = hasKey(user, 'avatar_color') ? user.avatar_color : undefined;
 		this._isStaff = hasKey(user, 'is_staff') ? user.is_staff : undefined;
 		this._email = hasKey(user, 'email') ? (user.email ?? null) : undefined;
@@ -388,6 +399,7 @@ export class User {
 			system: u.system ?? this.system,
 			flags: u.flags ?? this.flags,
 			mention_flags: hasKey(u, 'mention_flags') ? u.mention_flags : this.mentionFlags || undefined,
+			name_style: mergeNameStyle(this.nameStyle, u),
 		};
 		const isStaff = pickField(this._isStaff, u, 'is_staff', opts);
 		if (isStaff !== undefined) result.is_staff = isStaff;
@@ -616,6 +628,7 @@ export class User {
 			this.system === other.system &&
 			this.flags === other.flags &&
 			this.mentionFlags === other.mentionFlags &&
+			sameNameStyle(this.nameStyle, other.nameStyle) &&
 			this._isStaff === other._isStaff &&
 			this._email === other._email &&
 			this._emailBounced === other._emailBounced &&
@@ -669,6 +682,7 @@ export class User {
 			system: this.system,
 			flags: this.flags,
 			mention_flags: this.mentionFlags || undefined,
+			name_style: this.nameStyle ?? undefined,
 		};
 		const privateFields: Record<string, unknown> = {};
 		const setOptional = <K extends keyof UserPrivate>(key: K, value: UserPrivate[K] | undefined): void => {

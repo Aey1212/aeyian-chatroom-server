@@ -185,9 +185,22 @@ export const MyGuildMemberUpdateRequest = GuildMemberUpdateRequest.omit({roles: 
 
 export type MyGuildMemberUpdateRequest = z.infer<typeof MyGuildMemberUpdateRequest>;
 
+export const GuildRoleColorsRequest = z
+	.object({
+		primary_color: ColorType.describe('The main color of the role as an integer'),
+		secondary_color: ColorType.nullish().describe('The second color of a gradient role, or null for a solid color'),
+		tertiary_color: ColorType.nullish().describe(
+			'The third color of a holographic role. Ignored unless `secondary_color` is set.',
+		),
+	})
+	.describe('The colors of a role. When set, it replaces `color`.');
+
+export type GuildRoleColorsRequest = z.infer<typeof GuildRoleColorsRequest>;
+
 export const GuildRoleCreateRequest = z.object({
 	name: createStringType(1, 100).describe('The name of the role (1-100 characters)'),
 	color: ColorType.default(0x000000).describe('The color of the role as an integer (default: 0)'),
+	colors: GuildRoleColorsRequest.optional(),
 	permissions: UnsignedInt64Type.optional().describe('The permissions bitfield for the role'),
 });
 
@@ -195,7 +208,10 @@ export type GuildRoleCreateRequest = z.infer<typeof GuildRoleCreateRequest>;
 
 export const GuildRoleUpdateRequest = z.object({
 	name: createStringType(1, 100).optional().describe('The name of the role (1-100 characters)'),
-	color: ColorType.optional().describe('The color of the role as an integer'),
+	color: ColorType.optional().describe(
+		'The color of the role as an integer. Makes the role a solid color unless `colors` is also sent.',
+	),
+	colors: GuildRoleColorsRequest.optional(),
 	permissions: UnsignedInt64Type.optional().describe('The permissions bitfield for the role'),
 	hoist: z.boolean().optional().describe('Whether the role should be displayed separately in the member list'),
 	hoist_position: z.number().int().nullish().describe('The position of the role in the hoisted member list'),

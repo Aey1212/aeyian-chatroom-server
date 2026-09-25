@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+use fluxer_common::name_style::NameStyle;
 use serde::{Deserialize, Serialize};
 
 fn deserialize_double_option<'de, D, T>(deserializer: D) -> Result<Option<Option<T>>, D::Error>
@@ -220,6 +221,8 @@ pub struct ApiUserPartialResponse {
     pub flags: i64,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mention_flags: Option<i32>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub name_style: Option<NameStyle>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -762,6 +765,7 @@ mod tests {
             system: None,
             flags: 0,
             mention_flags: None,
+            name_style: None,
         };
         ApiMessageResponse {
             id: "2".to_string(),

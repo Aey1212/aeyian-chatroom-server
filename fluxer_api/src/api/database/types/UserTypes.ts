@@ -76,6 +76,7 @@ export interface UserRow {
 	gift_inventory_client_seq: Nullish<number>;
 	premium_onboarding_dismissed_at: Nullish<Date>;
 	mention_flags?: Nullish<MentionReplyPreference>;
+	name_style?: Nullish<string>;
 	last_voice_activity_sharing_change_at: Nullish<Date>;
 	version: number;
 }
@@ -139,6 +140,7 @@ export const USER_COLUMNS = [
 	'gift_inventory_client_seq',
 	'premium_onboarding_dismissed_at',
 	'mention_flags',
+	'name_style',
 	'last_voice_activity_sharing_change_at',
 	'version',
 ] as const satisfies ReadonlyArray<keyof UserRow>;
@@ -201,6 +203,7 @@ export const EMPTY_USER_ROW: UserRow = {
 	gift_inventory_client_seq: null,
 	premium_onboarding_dismissed_at: null,
 	mention_flags: null,
+	name_style: null,
 	last_voice_activity_sharing_change_at: null,
 	version: 1,
 };

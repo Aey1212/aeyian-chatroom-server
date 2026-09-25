@@ -18,6 +18,7 @@ import {ListStatusAwareAvatar} from '@app/features/ui/components/StatusAwareAvat
 import {useTextOverflow} from '@app/features/ui/hooks/useTextOverflow';
 import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
 import type {User} from '@app/features/user/models/User';
+import {memberNamePaint} from '@app/features/user/name_style/NamePaint';
 import type {CustomStatus} from '@app/features/user/state/CustomStatus';
 import * as AvatarUtils from '@app/features/user/utils/AvatarUtils';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
@@ -169,11 +170,13 @@ export const MemberListItem: React.FC<MemberListItemProps> = observer((props) =>
 			size: avatarMediaSize,
 		});
 	}, [avatarMediaSize, guildId, guildMember, user]);
+	const paint = memberNamePaint(user.nameStyle, guildMember, {text: nickname});
 	const nameContent = (
 		<span
 			ref={nameRef}
-			className={clsx(styles.name, roleColor && styles.nameRoleColored)}
-			style={nameStyle}
+			className={clsx(styles.name, roleColor && styles.nameRoleColored, paint.className)}
+			style={paint.style ? {...nameStyle, ...paint.style} : nameStyle}
+			lang={paint.lang}
 			data-flx="channel.member-list-item.name"
 		>
 			{nickname}
@@ -192,6 +195,7 @@ export const MemberListItem: React.FC<MemberListItemProps> = observer((props) =>
 					contextMenuOpen && styles.buttonContextMenuOpen,
 				)}
 				onContextMenu={handleContextMenu}
+				data-name-animate-scope=""
 				data-member-list-focus-item="true"
 				data-flx="channel.member-list-item.button.context-menu"
 			>

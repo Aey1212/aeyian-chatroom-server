@@ -3,6 +3,7 @@
 use crate::types::{ApiUserPartial, User, UserPartial, UserRequest, UserResponse};
 #[cfg(feature = "scylla")]
 use chrono::{DateTime, NaiveDate, Utc};
+use fluxer_common::name_style::NameStyle;
 use fluxer_svc::shard::ShardService;
 use fluxer_svc::{postgres, postgres::KeyPart};
 use futures::stream::{self, StreamExt};
@@ -54,13 +55,13 @@ const FULL_USER_COLUMNS: &str = "\
     first_refund_at, version, has_verified_phone, \
     premium_grace_ends_at, mention_flags, \
     last_voice_activity_sharing_change_at, \
-    timezone, timezone_privacy_flags";
+    timezone, timezone_privacy_flags, name_style";
 #[cfg(feature = "scylla")]
 const PARTIAL_USER_COLUMNS: &str = "\
     user_id, username, global_name, \
     avatar_hash, bot, system, flags, \
     banner_hash, banner_color, accent_color, avatar_color, \
-    mention_flags";
+    mention_flags, name_style";
 const USER_BATCH_SIZE: usize = 128;
 const USER_BATCH_CONCURRENCY: usize = 8;
 const USER_CACHE_MIN_GENERATION_STRIPES: usize = 4096;
@@ -167,6 +168,7 @@ struct FullUserDbRow {
     last_voice_activity_sharing_change_at: OptionalTimestamp,
     timezone: Option<String>,
     timezone_privacy_flags: Option<i32>,
+    name_style: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -184,6 +186,7 @@ struct PartialUserDbRow {
     accent_color: Option<i32>,
     avatar_color: Option<i32>,
     mention_flags: Option<i32>,
+    name_style: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -245,6 +248,7 @@ struct FullUserKvRow {
     last_voice_activity_sharing_change_at: Option<i64>,
     timezone: Option<String>,
     timezone_privacy_flags: Option<i32>,
+    name_style: Option<String>,
 }
 
 fn generation_stripes(max_entries: u64) -> usize {
@@ -676,6 +680,7 @@ fn fluxer_system_user() -> User {
         last_voice_activity_sharing_change_at: None,
         timezone: None,
         timezone_privacy_flags: None,
+        name_style: None,
     }
 }
 
@@ -773,6 +778,7 @@ impl From<PartialUserDbRow> for UserPartial {
             accent_color: row.accent_color,
             avatar_color: row.avatar_color,
             mention_flags: row.mention_flags,
+            name_style: NameStyle::parse_stored(row.name_style.as_deref()),
         }
     }
 }
@@ -857,6 +863,7 @@ impl From<FullUserDbRow> for User {
             ),
             timezone: row.timezone,
             timezone_privacy_flags: row.timezone_privacy_flags,
+            name_style: NameStyle::parse_stored(row.name_style.as_deref()),
         }
     }
 }
@@ -923,6 +930,7 @@ impl From<FullUserKvRow> for User {
             last_voice_activity_sharing_change_at: row.last_voice_activity_sharing_change_at,
             timezone: row.timezone,
             timezone_privacy_flags: row.timezone_privacy_flags,
+            name_style: NameStyle::parse_stored(row.name_style.as_deref()),
         }
     }
 }
@@ -1144,5 +1152,29 @@ mod tests {
         assert_eq!(user.date_of_birth.as_deref(), Some("1815-12-10"));
         assert_eq!(user.premium_since, Some(1_781_526_896_789));
         assert_eq!(user.version, 3);
+    }
+
+    #[test]
+    fn postgres_partial_decoder_reads_the_name_style() {
+        let partial = decode_postgres_user_partial(json!({
+            "user_id": {"__fluxer_type": "bigint", "value": "42"},
+            "username": "ada",
+            "name_style": "{\"font\":\"cinzel\",\"effect\":\"glow\",\"primary_color\":16777215,\"secondary_color\":null}"
+        }))
+        .unwrap();
+
+        let style = partial.to_api_partial().name_style.expect("name style");
+        assert_eq!(style.font.as_deref(), Some("cinzel"));
+        assert_eq!(style.effect, "glow");
+        assert_eq!(style.primary_color, Some(0xffffff));
+        assert_eq!(style.secondary_color, None);
+
+        let plain = decode_postgres_user_partial(json!({
+            "user_id": {"__fluxer_type": "bigint", "value": "7"},
+            "username": "bob"
+        }))
+        .unwrap();
+        let serialized = serde_json::to_value(plain.to_api_partial()).unwrap();
+        assert!(serialized.get("name_style").is_none());
     }
 }

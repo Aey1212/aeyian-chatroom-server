@@ -61,6 +61,7 @@ COPY packages/voice_engine_v2/ ./packages/voice_engine_v2/
 COPY packages/fonts/css/ ./packages/fonts/css/
 COPY packages/fonts/files/ ./packages/fonts/files/
 COPY packages/fonts/NOTICE.md packages/fonts/LICENSE-IBM-PLEX.txt ./packages/fonts/
+COPY packages/fonts/name-fonts/ ./packages/fonts/name-fonts/
 COPY packages/markdown_parser/rust/Cargo.toml ./packages/markdown_parser/rust/
 COPY packages/markdown_parser/rust/.cargo/ ./packages/markdown_parser/rust/.cargo/
 COPY packages/markdown_parser/rust/benches/parser.rs ./packages/markdown_parser/rust/benches/

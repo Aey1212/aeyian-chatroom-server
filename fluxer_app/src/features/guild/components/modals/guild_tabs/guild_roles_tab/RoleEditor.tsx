@@ -2,6 +2,7 @@
 
 import {PermissionRoleCategory} from '@app/features/app/components/dialogs/shared/PermissionComponents';
 import styles from '@app/features/guild/components/modals/guild_tabs/GuildRolesTab.module.css';
+import {RoleColorStyle} from '@app/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle';
 import type {RoleUpdate} from '@app/features/guild/components/modals/guild_tabs/guild_roles_tab/shared';
 import type {GuildRole} from '@app/features/guild/models/GuildRole';
 import PermissionLayout from '@app/features/permissions/state/PermissionLayout';
@@ -207,6 +208,13 @@ export const RoleEditor: React.FC<RoleEditorProps> = observer(
 										/>
 									</div>
 								</div>
+								{selectedRoleWithUpdates.color !== 0 && (
+									<RoleColorStyle
+										role={selectedRoleWithUpdates}
+										disabled={selectedRoleLocked || !canManageRoles}
+										onUpdate={(updates) => selectedRole && onRoleUpdate(selectedRole.id, updates)}
+									/>
+								)}
 								{!selectedRoleWithUpdates.isEveryone && (
 									<div className={styles.settingsGroup} data-flx="guild.guild-tabs.guild-roles-tab.settings-group">
 										<Switch

@@ -6,6 +6,7 @@ import GuildMembers from '@app/features/member/state/GuildMembers';
 import {TYPING_ROLLING_MAX_NAMES} from '@app/features/typing/rolling/TypingSendThrottle';
 import {getTypingTierText} from '@app/features/typing/utils/TypingTierText';
 import type {User} from '@app/features/user/models/User';
+import {StyledNameText} from '@app/features/user/name_style/StyledNameText';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import type {I18n} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
@@ -37,13 +38,12 @@ function getTypistName(user: User, channel: Channel): string {
 
 function getTypingNames(typingUsers: ReadonlyArray<User>, channel: Channel): ReactNode {
 	const [a, b, c] = typingUsers.slice(0, TYPING_ROLLING_MAX_NAMES).map((user) => (
-		<span
-			key={user.id}
-			className={styles.username}
-			style={{color: GuildMembers.getMember(channel.guildId ?? '', user.id)?.getColorString()}}
-			data-flx="channel.typing-users.get-typing-text.username"
-		>
-			{getTypistName(user, channel)}
+		<span key={user.id} className={styles.username} data-flx="channel.typing-users.get-typing-text.username">
+			<StyledNameText
+				nameStyle={user.nameStyle}
+				member={GuildMembers.getMember(channel.guildId ?? '', user.id)}
+				text={getTypistName(user, channel)}
+			/>
 		</span>
 	));
 	if (typingUsers.length === 1) {

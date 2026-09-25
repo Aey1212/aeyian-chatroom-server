@@ -14,7 +14,7 @@ import type {
 } from '@fluxer/schema/src/domains/guild/GuildAuditLogSchemas';
 import type {GuildVanityURLUpdateResponse} from '@fluxer/schema/src/domains/guild/GuildRequestSchemas';
 import type {Guild, GuildVanityURLResponse} from '@fluxer/schema/src/domains/guild/GuildResponseSchemas';
-import type {GuildRole} from '@fluxer/schema/src/domains/guild/GuildRoleSchemas';
+import type {GuildRole, GuildRoleColors} from '@fluxer/schema/src/domains/guild/GuildRoleSchemas';
 import type {TemplateSerializedGuild} from '@fluxer/schema/src/domains/guild/GuildTemplateSchemas';
 import type {Invite} from '@fluxer/schema/src/domains/invite/InviteSchemas';
 import type {UserPartial} from '@fluxer/schema/src/domains/user/UserResponseSchemas';
@@ -250,11 +250,12 @@ export async function updateVanityURL(guildId: string, code: string | null): Pro
 export async function createRole(
 	guildId: string,
 	name: string,
-	options?: {color?: number; permissions?: bigint},
+	options?: {color?: number; colors?: GuildRoleColors; permissions?: bigint},
 ): Promise<GuildRole> {
 	try {
-		const body: {name: string; color?: number; permissions?: string} = {name};
+		const body: {name: string; color?: number; colors?: GuildRoleColors; permissions?: string} = {name};
 		if (options?.color !== undefined) body.color = options.color;
+		if (options?.colors !== undefined) body.colors = options.colors;
 		if (options?.permissions !== undefined) body.permissions = options.permissions.toString();
 		const response = await http.post<GuildRole>(Endpoints.GUILD_ROLES(guildId), {body});
 		logger.debug(`Created role "${name}" in guild ${guildId}`);

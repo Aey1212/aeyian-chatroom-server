@@ -18,6 +18,7 @@ import FocusRing from '@app/features/ui/focus_ring/FocusRing';
 import MobileLayout from '@app/features/ui/state/MobileLayout';
 import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
 import type {User} from '@app/features/user/models/User';
+import {StyledNameText} from '@app/features/user/name_style/StyledNameText';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import {VoiceParticipantBottomSheet} from '@app/features/voice/components/bottomsheets/VoiceParticipantBottomSheet';
 import {getStreamKey} from '@app/features/voice/components/StreamKeys';
@@ -254,7 +255,7 @@ export const VoiceParticipantItem = observer(function VoiceParticipantItem({
 							)}
 							data-flx="app.voice-participant-item.participant-name"
 						>
-							{displayName}
+							<StyledNameText nameStyle={user.nameStyle} text={displayName} />
 						</span>
 					</Tooltip>
 				) : (
@@ -266,7 +267,7 @@ export const VoiceParticipantItem = observer(function VoiceParticipantItem({
 						)}
 						data-flx="app.voice-participant-item.participant-name--2"
 					>
-						{displayName}
+						<StyledNameText nameStyle={user.nameStyle} text={displayName} />
 					</span>
 				)}
 				{hasVoiceStateIcons && (

@@ -11,6 +11,8 @@ export class GuildRole {
 	readonly position: number;
 	readonly hoistPosition: number | null;
 	readonly color: number;
+	readonly secondaryColor: number | null;
+	readonly tertiaryColor: number | null;
 	readonly iconHash: string | null;
 	readonly unicodeEmoji: string | null;
 	readonly isHoisted: boolean;
@@ -25,6 +27,8 @@ export class GuildRole {
 		this.position = row.position;
 		this.hoistPosition = row.hoist_position ?? null;
 		this.color = row.color ?? 0;
+		this.secondaryColor = row.secondary_color ?? null;
+		this.tertiaryColor = this.secondaryColor === null ? null : (row.tertiary_color ?? null);
 		this.iconHash = row.icon_hash ?? null;
 		this.unicodeEmoji = row.unicode_emoji ?? null;
 		this.isHoisted = row.hoist ?? false;
@@ -45,6 +49,8 @@ export class GuildRole {
 			position: this.position,
 			hoist_position: this.hoistPosition,
 			color: this.color,
+			secondary_color: this.secondaryColor,
+			tertiary_color: this.tertiaryColor,
 			icon_hash: this.iconHash,
 			unicode_emoji: this.unicodeEmoji,
 			hoist: this.isHoisted,

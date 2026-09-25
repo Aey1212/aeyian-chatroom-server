@@ -9,6 +9,7 @@ import type {RadioOption} from '@app/features/ui/radio_group/RadioGroup';
 import {RadioGroup} from '@app/features/ui/radio_group/RadioGroup';
 import MobileLayout from '@app/features/ui/state/MobileLayout';
 import styles from '@app/features/user/components/modals/tabs/accessibility_tab/AnimationTab.module.css';
+import NameStylePrefs from '@app/features/user/name_style/NameStylePrefs';
 import UserSettings from '@app/features/user/state/UserSettings';
 import {StickerAnimationOptions} from '@fluxer/constants/src/UserConstants';
 import {msg} from '@lingui/core/macro';
@@ -89,6 +90,19 @@ const PAUSED_BY_REDUCED_MOTION_GIF_DESCRIPTOR = msg({
 const STICKERS_ALWAYS_ANIMATE_DESPITE_REDUCED_MOTION_DESCRIPTOR = msg({
 	message: 'Always animating despite reduced motion.',
 	comment: 'Description shown for stickers when always-animate overrides reduced motion.',
+});
+const ALWAYS_ANIMATE_NAME_EFFECTS_DESCRIPTOR = msg({
+	message: 'Always animate name effects',
+	comment: 'Label for the switch that keeps glow, shimmer and holographic names moving all the time.',
+});
+const NAME_EFFECTS_WARNING_DESCRIPTOR = msg({
+	message:
+		'Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery.',
+	comment: 'Warning under the switch that keeps animated display names moving all the time.',
+});
+const NAME_EFFECTS_REDUCED_MOTION_DESCRIPTOR = msg({
+	message: 'Reduced motion is on, so name effects stay still.',
+	comment: 'Description for the animated names switch while reduced motion is active.',
 });
 const STICKERS_REDUCED_MOTION_HINT_DESCRIPTOR = msg({
 	message: 'With reduced motion on, stickers only animate on interaction. Choose "Always animate" to override.',
@@ -203,6 +217,18 @@ export const AnimationTabContent: React.FC = observer(() => {
 					data-flx="user.accessibility-tab.animation-tab.animation-tab-content.radio-group"
 				/>
 			</div>
+			<Switch
+				label={i18n._(ALWAYS_ANIMATE_NAME_EFFECTS_DESCRIPTOR)}
+				description={
+					motion.reducedMotion
+						? i18n._(NAME_EFFECTS_REDUCED_MOTION_DESCRIPTOR)
+						: i18n._(NAME_EFFECTS_WARNING_DESCRIPTOR)
+				}
+				value={NameStylePrefs.alwaysAnimate}
+				disabled={motion.reducedMotion}
+				onChange={(value) => NameStylePrefs.setAlwaysAnimate(value)}
+				data-flx="user.accessibility-tab.animation-tab.animation-tab-content.always-animate-names"
+			/>
 		</>
 	);
 });

@@ -49,6 +49,7 @@ import Popout from '@app/features/ui/state/Popout';
 import {getDesktopWindowBehaviorSettings} from '@app/features/ui/utils/DesktopWindowBehaviorUtils';
 import {attachExternalLinkInterceptor, isDesktop} from '@app/features/ui/utils/NativeUtils';
 import {UNFOCUSED_FULLY_INTERACTIVE_CLASS} from '@app/features/ui/utils/WindowFocusInteractionGuard';
+import NameStylePrefs from '@app/features/user/name_style/NameStylePrefs';
 import UserSettings from '@app/features/user/state/UserSettings';
 import {IncomingCallManager} from '@app/features/voice/components/IncomingCallManager';
 import {VoiceLiveKitRoot} from '@app/features/voice/components/VoiceLiveKitRoot';
@@ -152,6 +153,7 @@ export const AppWrapper = observer(({children}: AppWrapperProps) => {
 	useKeybindManager(i18n);
 	useDesktopElectronBridges();
 	useDocumentClassToggle('reduced-motion', reducedMotion);
+	useDocumentClassToggle('name-animations-always', NameStylePrefs.alwaysAnimate && !reducedMotion);
 	useDocumentClassToggle('mobile-layout', MobileLayout.platformMobileDetected || MobileLayout.enabled);
 	useDocumentClassToggle(UNFOCUSED_FULLY_INTERACTIVE_CLASS, stayInteractiveWhenUnfocused);
 	useDesktopAllowTransparency(isNative);

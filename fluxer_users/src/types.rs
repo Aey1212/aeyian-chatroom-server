@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+use fluxer_common::name_style::NameStyle;
 #[cfg(test)]
 use fluxer_common::user_flags::{USER_FLAG_PARTNER, USER_FLAG_STAFF_HIDDEN};
 use fluxer_common::user_flags::{USER_FLAG_STAFF, visible_user_flags};
@@ -100,6 +101,8 @@ pub struct User {
     pub last_voice_activity_sharing_change_at: Option<i64>,
     pub timezone: Option<String>,
     pub timezone_privacy_flags: Option<i32>,
+    #[serde(default)]
+    pub name_style: Option<NameStyle>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -116,6 +119,8 @@ pub struct UserPartial {
     pub accent_color: Option<i32>,
     pub avatar_color: Option<i32>,
     pub mention_flags: Option<i32>,
+    #[serde(default)]
+    pub name_style: Option<NameStyle>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -132,6 +137,8 @@ pub struct ApiUserPartial {
     pub flags: i32,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mention_flags: Option<i32>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub name_style: Option<NameStyle>,
 }
 
 const FLUXER_SYSTEM_USER_ID: i64 = 0;
@@ -152,6 +159,7 @@ impl User {
             accent_color: self.accent_color,
             avatar_color: self.avatar_color,
             mention_flags: self.mention_flags,
+            name_style: self.name_style.clone(),
         }
     }
 }
@@ -171,6 +179,7 @@ impl UserPartial {
             system: self.system.filter(|system| *system),
             flags: visible_user_flags(self.flags.unwrap_or_default()),
             mention_flags: self.mention_flags.filter(|flags| *flags != 0),
+            name_style: self.name_style.clone(),
         }
     }
 }
@@ -186,6 +195,7 @@ fn fluxer_system_user() -> ApiUserPartial {
         system: Some(true),
         flags: USER_FLAG_STAFF as i32,
         mention_flags: None,
+        name_style: None,
     }
 }
 
@@ -227,6 +237,7 @@ mod tests {
             accent_color: None,
             avatar_color: Some(0x336699),
             mention_flags: Some(0),
+            name_style: None,
         }
     }
 
@@ -289,6 +300,7 @@ mod tests {
             last_voice_activity_sharing_change_at: None,
             timezone: Some("Europe/London".to_owned()),
             timezone_privacy_flags: Some(1),
+            name_style: None,
         }
     }
 

@@ -34,6 +34,7 @@ The public account representation embedded by messages, relationships, guild mem
 | system? | boolean | Whether the account is a Fluxer system account, omitted when false |
 | flags | integer | [Public user flags](#public-user-flags) |
 | mention_flags? | integer | [Reply mention preference](#reply-mention-preferences), omitted when the account has no preference |
+| name_style? | [name style](#name-style-object) object | The font, colours, and effect of the display name, omitted while the account uses the default style |
 
 <sup>1</sup> An animated avatar hash has the `a_` prefix, and the prefix is removed while the account has no animated avatar entitlement
 
@@ -51,12 +52,53 @@ The public account representation embedded by messages, relationships, guild mem
 ```
 
 :::note[A deleted account keeps a renderable shape]
-A completed deletion returns the username `DeletedUser`, the global name `Deleted User`, null `avatar` and `avatar_color`, `flags` of `0`, and no `mention_flags`. The `bot` field keeps its account value.
+A completed deletion returns the username `DeletedUser`, the global name `Deleted User`, null `avatar` and `avatar_color`, `flags` of `0`, and no `mention_flags` or `name_style`. The `bot` field keeps its account value.
 :::
 
 :::note[Substituted values appear only when deletion completes]
 A system account never receives the deleted representation. An account only scheduled for deletion keeps its ordinary representation throughout the grace period.
 :::
+
+## Name style object
+
+How clients paint the account's display name. Every font is free for every account.
+
+### Structure
+
+| Field | Type | Description |
+| --- | --- | --- |
+| font | ?string | A [name font](#name-fonts) ID, or null for the client's own font |
+| effect | string | A [name effect](#name-effects) |
+| primary_color | ?integer | The main colour as a packed 24-bit RGB integer, or null for the default text colour |
+| secondary_color | ?integer | The second colour used by `gradient`, `glow`, and `shimmer`, or null |
+
+A style whose font and colours are all null and whose effect is `solid` is the default style and is stored as no style.
+
+### Example
+
+```json
+{
+  "font": "bangers",
+  "effect": "gradient",
+  "primary_color": 16711680,
+  "secondary_color": 255
+}
+```
+
+### Name effects
+
+| Value | Description |
+| --- | --- |
+| solid | One colour |
+| gradient | A gradient from the primary to the secondary colour |
+| glow | The primary colour with a glow in the secondary colour |
+| shimmer | The primary colour with a light sweep in the secondary colour |
+
+### Name fonts
+
+`noto-sans`, `nunito`, `rubik`, `poppins`, `space-grotesk`, `exo-2`, `comfortaa`, `righteous`, `audiowide`, `bangers`, `pacifico`, `lobster`, `caveat`, `dancing-script`, `playfair-display`, `cinzel`, `press-start-2p`, `vt323`, `jetbrains-mono`, `m-plus-rounded-1c`, `zen-maru-gothic`, `klee-one`, `do-hyeon`, `black-han-sans`, `gowun-dodum`, `zcool-kuaile`, `ma-shan-zheng`, `lxgw-wenkai-tc`, `cairo`, `kanit`, `reem-kufi`, `gfs-didot`, `kelly-slab`
+
+A stored font ID that a later release no longer ships is read as null.
 
 ## Public user flags
 
@@ -100,6 +142,7 @@ The private representation of the current account, returned by [Get current user
 | system? | boolean | Whether the account is a Fluxer system account, omitted when false |
 | flags | integer | [Public user flags](#public-user-flags) |
 | mention_flags? | integer | [Reply mention preference](#reply-mention-preferences), omitted when the account has no preference |
+| name_style? | [name style](#name-style-object) object | The font, colours, and effect of the display name, omitted while the account uses the default style |
 | is_staff | boolean | Whether the account has the staff flag, including when that flag is hidden from `flags` |
 | acls<sup>2</sup> <sup>3</sup> | array[string] | The Admin access control entries held by the account |
 | traits<sup>3</sup> <sup>4</sup> | array[string] | The account traits, in sorted order |
