@@ -208,7 +208,7 @@ describe('Admin Search Field Coverage', () => {
 			expect(found!.username).toBe(username);
 			expect(found!.email).toBe(email);
 			expect(found!.has_verified_phone).toBe(true);
-			expect(found!).toHaveProperty('discriminator');
+			expect(found!).not.toHaveProperty('discriminator');
 			expect(found!).toHaveProperty('global_name');
 			expect(found!).toHaveProperty('flags');
 			expect(found!).toHaveProperty('email_verified');

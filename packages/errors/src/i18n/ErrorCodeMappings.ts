@@ -376,7 +376,6 @@ export const ErrorCodeToI18nKey = {
 	[ValidationErrorCodes.BANNER_CHANGED_TOO_MANY_TIMES]: 'rate_limits.banner_changed_too_often',
 	[ValidationErrorCodes.BIO_CHANGED_TOO_MANY_TIMES]: 'rate_limits.bio_changed_too_often',
 	[ValidationErrorCodes.PRONOUNS_CHANGED_TOO_MANY_TIMES]: 'rate_limits.pronouns_changed_too_often',
-	[ValidationErrorCodes.USERNAME_CHANGED_TOO_MANY_TIMES]: 'rate_limits.username_changed_too_often',
 	[ValidationErrorCodes.VOICE_ACTIVITY_SHARING_ON_COOLDOWN]: 'rate_limits.voice_activity_sharing_on_cooldown',
 	[ValidationErrorCodes.GLOBAL_NAME_CANNOT_CONTAIN_RESERVED_TERMS]: 'usernames_and_tags.display_name_reserved_terms',
 	[ValidationErrorCodes.GLOBAL_NAME_LENGTH_INVALID]: 'usernames_and_tags.global_name_length_invalid',

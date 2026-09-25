@@ -116,7 +116,7 @@ normalize_user_empty_map_test() ->
 partial_user_fields_test() ->
     Fields = partial_user_fields(),
     ?assert(is_list(Fields)),
-    ?assertEqual(10, length(Fields)),
+    ?assertEqual(9, length(Fields)),
     ?assert(lists:member(<<"id">>, Fields)),
     ?assert(lists:member(<<"username">>, Fields)),
     ?assert(lists:member(<<"flags">>, Fields)).

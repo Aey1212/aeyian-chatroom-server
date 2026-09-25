@@ -76,7 +76,8 @@ describe('OAuth2 Application Create', () => {
 		});
 		const botUsername = result.application.bot?.username;
 		expect(botUsername).toBeTruthy();
-		expect(UsernameType.safeParse(botUsername).success).toBe(true);
+		expect(botUsername?.endsWith('-BOT')).toBe(true);
+		expect(UsernameType.safeParse(botUsername?.slice(0, -'-BOT'.length)).success).toBe(true);
 		expect(botUsername?.toLowerCase()).not.toContain('fluxer');
 		expect(botUsername?.toLowerCase()).not.toContain('systemmessage');
 	});

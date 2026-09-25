@@ -30,10 +30,6 @@ export function normalizeUsername(username: string): string {
 	return username.trim().toLowerCase();
 }
 
-export function isReservedUsername(username: string): boolean {
-	return RESERVED_USERNAMES.has(normalizeUsername(username));
-}
-
 export interface IUsernameRegistry {
 	/** Claims a free name for an account. False when it is in use, locked, held or reserved. */
 	claim(username: string, userId: UserID): Promise<boolean>;

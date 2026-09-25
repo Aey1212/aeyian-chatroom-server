@@ -41,7 +41,6 @@ interface UserPrivateResponse {
 	email: string;
 	has_verified_phone: boolean;
 	username: string;
-	discriminator: string;
 	global_name: string;
 	bio: string;
 	verified: boolean;

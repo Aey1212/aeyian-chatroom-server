@@ -9,7 +9,7 @@ import {
 	createGuild,
 } from '@app/api/channel/tests/ChannelTestUtils';
 import {getUserActivityBuffer} from '@app/api/middleware/ServiceSingletons';
-import {HTTP_STATUS, TEST_CREDENTIALS} from '@app/api/test/TestConstants';
+import {HTTP_STATUS} from '@app/api/test/TestConstants';
 import {createBuilder} from '@app/api/test/TestRequestBuilder';
 import {AdminACLs} from '@fluxer/constants/src/AdminACLs';
 
@@ -290,12 +290,12 @@ export const UserAdminAuditCases: ReadonlyArray<AdminAuditCoverageCase> = [
 	{
 		method: 'GET',
 		route: '/admin/users/:user_id/change-log',
-		async prepare({harness}) {
+		async prepare({harness, admin}) {
 			const target = await createTestAccount(harness);
 			for (const username of ['auditfirstname', 'auditsecondname']) {
-				await createBuilder(harness, target.token)
-					.patch('/users/@me')
-					.body({username, password: TEST_CREDENTIALS.STRONG_PASSWORD})
+				await createBuilder(harness, admin.token)
+					.patch(`/admin/users/${target.userId}/username`)
+					.body({username})
 					.expect(HTTP_STATUS.OK)
 					.execute();
 			}

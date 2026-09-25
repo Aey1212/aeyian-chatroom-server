@@ -58,7 +58,7 @@ function fakeMessageResponse(messageId: string, channelId: string = '1'): Record
 	return {
 		id: messageId,
 		channel_id: channelId,
-		author: {id: '3', username: 'author', discriminator: '0001', avatar: null, flags: 0},
+		author: {id: '3', username: 'author', avatar: null, flags: 0},
 		type: MessageTypes.DEFAULT,
 		flags: 0,
 		content: '',

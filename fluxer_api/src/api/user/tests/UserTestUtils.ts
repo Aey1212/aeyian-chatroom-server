@@ -69,7 +69,6 @@ export async function updateUserProfile(
 	token: string,
 	data: {
 		username?: string;
-		discriminator?: string;
 		global_name?: string;
 		bio?: string;
 		password?: string;

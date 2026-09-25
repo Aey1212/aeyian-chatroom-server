@@ -19795,8 +19795,11 @@
 						"name": "username",
 						"in": "query",
 						"required": true,
-						"schema": {"description": "The username to check", "$ref": "#/components/schemas/UsernameType"},
-						"description": "The username to check"
+						"schema": {
+							"description": "The username to check, compared case-insensitively",
+							"$ref": "#/components/schemas/UsernameLookupType"
+						},
+						"description": "The username to check, compared case-insensitively"
 					}
 				]
 			}
@@ -22165,7 +22168,7 @@
 				"required": ["user", "user_profile", "timezone_offset"],
 				"additionalProperties": false
 			},
-			"UsernameType": {"type": "string"},
+			"UsernameLookupType": {"type": "string"},
 			"UsernameCheckResponse": {
 				"type": "object",
 				"properties": {"taken": {"type": "boolean", "description": "Whether the username is already taken"}},
@@ -22983,8 +22986,8 @@
 				"type": "object",
 				"properties": {
 					"username": {
-						"description": "Username of the user to send friend request",
-						"$ref": "#/components/schemas/UsernameType"
+						"description": "Username of the user to send friend request, compared case-insensitively",
+						"$ref": "#/components/schemas/UsernameLookupType"
 					}
 				},
 				"required": ["username"]
@@ -29723,6 +29726,7 @@
 				"required": ["registration_pending_approval", "user_id"],
 				"additionalProperties": false
 			},
+			"UsernameType": {"type": "string"},
 			"AuthSessionResponse": {
 				"type": "object",
 				"properties": {
@@ -33243,7 +33247,6 @@
 					"message_link"
 				]
 			},
-			"UsernameLookupType": {"type": "string"},
 			"MessageReportCategory": {
 				"description": "Category of the message report",
 				"x-enumNames": [

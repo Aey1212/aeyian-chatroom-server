@@ -42,7 +42,6 @@ describe('OAuth2 Application Delete', () => {
 		const botUser = await createBuilder<{
 			id: string;
 			username: string;
-			discriminator: string;
 			avatar: string | null;
 		}>(harness, account.token)
 			.get(`/users/${createResult.botUserId}`)

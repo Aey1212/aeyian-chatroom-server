@@ -40,6 +40,24 @@ function adminBuilder({harness, admin}: AdminAuditCoverageContext) {
 	return createBuilder(harness, admin.token);
 }
 
+async function requestRename(context: AdminAuditCoverageContext, account: TestAccount): Promise<string> {
+	const username = createUniqueUsername('wanted');
+	await createBuilder(context.harness, account.token)
+		.put('/users/@me/username-change-request')
+		.body({username})
+		.execute();
+	return username;
+}
+
+async function renameByAdmin(context: AdminAuditCoverageContext, account: TestAccount): Promise<string> {
+	const oldUsername = (await loadUser(account)).username;
+	await adminBuilder(context)
+		.patch(`/admin/users/${account.userId}/username`)
+		.body({username: createUniqueUsername('renamed')})
+		.execute();
+	return oldUsername;
+}
+
 async function enableTotp(context: AdminAuditCoverageContext, account: TestAccount): Promise<string> {
 	const secret = createTotpSecret();
 	await createBuilder(context.harness, account.token)
@@ -233,8 +251,107 @@ export const UserWriteAdminAuditCases: ReadonlyArray<AdminAuditCoverageCase> = [
 					metadata: {
 						old_username: (await loadUser(target)).username,
 						new_username: username,
-						discriminator: expect.any(String),
 					},
+				},
+			};
+		},
+	},
+	{
+		method: 'GET',
+		route: '/admin/username-change-requests',
+		async prepare(context) {
+			await requestRename(context, await createTestAccount(context.harness));
+			return {
+				request: {path: '/admin/username-change-requests'},
+				expected: {
+					action: 'list_username_change_requests',
+					targetType: 'username',
+					targetId: '0',
+					metadata: {entry_count: '1'},
+				},
+			};
+		},
+	},
+	{
+		method: 'POST',
+		route: '/admin/username-change-requests/:user_id/approve',
+		async prepare(context) {
+			const target = await createTestAccount(context.harness);
+			const oldUsername = (await loadUser(target)).username;
+			const username = await requestRename(context, target);
+			return {
+				request: {path: `/admin/username-change-requests/${target.userId}/approve`},
+				expected: {
+					action: 'approve_username_change_request',
+					targetType: 'user',
+					targetId: target.userId,
+					metadata: {old_username: oldUsername, new_username: username},
+				},
+			};
+		},
+	},
+	{
+		method: 'POST',
+		route: '/admin/username-change-requests/:user_id/reject',
+		async prepare(context) {
+			const target = await createTestAccount(context.harness);
+			const username = await requestRename(context, target);
+			return {
+				request: {path: `/admin/username-change-requests/${target.userId}/reject`},
+				expected: {
+					action: 'reject_username_change_request',
+					targetType: 'user',
+					targetId: target.userId,
+					metadata: {requested_username: username},
+				},
+			};
+		},
+	},
+	{
+		method: 'GET',
+		route: '/admin/usernames/locked',
+		async prepare(context) {
+			await renameByAdmin(context, await createTestAccount(context.harness));
+			return {
+				request: {path: '/admin/usernames/locked'},
+				expected: {
+					action: 'list_locked_usernames',
+					targetType: 'username',
+					targetId: '0',
+					metadata: {entry_count: '1'},
+				},
+			};
+		},
+	},
+	{
+		method: 'POST',
+		route: '/admin/usernames/locked/:username/release',
+		async prepare(context) {
+			const target = await createTestAccount(context.harness);
+			const oldUsername = await renameByAdmin(context, target);
+			return {
+				request: {path: `/admin/usernames/locked/${oldUsername}/release`},
+				expected: {
+					action: 'release_locked_username',
+					targetType: 'user',
+					targetId: target.userId,
+					metadata: {username: oldUsername.toLowerCase()},
+				},
+			};
+		},
+	},
+	{
+		method: 'PUT',
+		route: '/admin/users/:user_id/password-reset-mode',
+		async prepare({harness}) {
+			const target = await createTestAccount(harness);
+			return {
+				request: {path: `/admin/users/${target.userId}/password-reset-mode`, body: {open: true}},
+				expected: {
+					action: 'open_password_reset',
+					targetType: 'user',
+					targetId: target.userId,
+					metadata: {},
 				},
 			};
 		},

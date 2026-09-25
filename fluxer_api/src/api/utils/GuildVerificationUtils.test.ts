@@ -115,7 +115,6 @@ function createMemberResponse(joinedAt = TEST_JOINED_AT): GuildMemberResponse {
 		user: {
 			id: TEST_USER_ID.toString(),
 			username: 'member',
-			discriminator: '0001',
 			global_name: null,
 			avatar: null,
 			avatar_color: null,

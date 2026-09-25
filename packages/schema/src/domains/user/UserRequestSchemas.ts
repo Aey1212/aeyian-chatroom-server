@@ -49,7 +49,13 @@ import {
 	TimeFormatTypesSchema,
 	UserNotificationSettingsSchema,
 } from '@fluxer/schema/src/primitives/UserSettingsValidators';
-import {EmailType, GlobalNameType, PasswordType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
+import {
+	EmailType,
+	GlobalNameType,
+	PasswordType,
+	UsernameLookupType,
+	UsernameType,
+} from '@fluxer/schema/src/primitives/UserValidators';
 import {z} from 'zod';
 
 export const UserUpdateRequest = z
@@ -176,7 +182,7 @@ export const PasswordChangeCompleteRequest = PasswordChangeTicketRequest.extend(
 export type PasswordChangeCompleteRequest = z.infer<typeof PasswordChangeCompleteRequest>;
 
 export const FriendRequestByUsernameRequest = z.object({
-	username: UsernameType.describe('Username of the user to send friend request'),
+	username: UsernameLookupType.describe('Username of the user to send friend request, compared case-insensitively'),
 });
 
 export type FriendRequestByUsernameRequest = z.infer<typeof FriendRequestByUsernameRequest>;
@@ -434,7 +440,7 @@ export const EmptyBodyRequest = z.object({}).optional();
 export type EmptyBodyRequest = z.infer<typeof EmptyBodyRequest>;
 
 export const UsernameCheckQueryRequest = z.object({
-	username: UsernameType.describe('The username to check'),
+	username: UsernameLookupType.describe('The username to check, compared case-insensitively'),
 });
 
 export type UsernameCheckQueryRequest = z.infer<typeof UsernameCheckQueryRequest>;
