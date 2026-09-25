@@ -61,7 +61,7 @@ export const MutualFriendItem: React.FC<MutualFriendItemProps> = ({
 					className={userProfileModalStyles.mutualFriendUsername}
 					data-flx="user.user-profile-modal.mutual-friend-item.span--2"
 				>
-					{NicknameUtils.formatTagForStreamerMode(user.tag)}
+					{NicknameUtils.formatUsernameForStreamerMode(user.username)}
 				</span>
 			</div>
 		</div>

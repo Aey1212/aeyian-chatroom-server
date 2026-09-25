@@ -31,7 +31,6 @@ interface UserPrivateResponse {
 	email: string;
 	phone?: string | null;
 	username: string;
-	discriminator: string;
 	global_name: string;
 	bio: string;
 	verified: boolean;
@@ -57,15 +56,14 @@ describe('Auth unclaimed claim flow', () => {
 	afterAll(async () => {
 		await harness?.shutdown();
 	});
-	it('unclaimed users cannot change username before claim', async () => {
+	it('unclaimed users cannot change their profile before claim', async () => {
 		const account = await createTestAccount(harness);
 		await clearTestEmails(harness);
 		await unclaimAccount(harness, account.userId);
-		const newUsername = `forbidden${Date.now()}`;
 		const {response, text} = await createBuilder<UserPrivateResponse>(harness, account.token)
 			.patch('/users/@me')
 			.body({
-				username: newUsername,
+				global_name: 'Forbidden Name',
 			})
 			.executeRaw();
 		expect(response.status).toBe(HTTP_STATUS.BAD_REQUEST);

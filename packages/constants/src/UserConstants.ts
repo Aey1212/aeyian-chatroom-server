@@ -95,7 +95,7 @@ export const UserFlagsDescriptions: Record<keyof typeof UserFlags, string> = {
 		'User is permanently exempt from automatic suspicious-activity flagging on RPC session start (does not require a prior payment)',
 };
 export const PremiumFlags = {
-	DISCRIMINATOR: 1 << 0,
+	// 1 << 0 is retired (it was the premium custom username tag); the bit stays unused so stored flags keep their meaning.
 	BADGE_HIDDEN: 1 << 1,
 	BADGE_MASKED: 1 << 2,
 	BADGE_TIMESTAMP_HIDDEN: 1 << 3,
@@ -106,7 +106,6 @@ export const PremiumFlags = {
 	PERKS_DISABLED: 1 << 8,
 } as const;
 export const PremiumFlagsDescriptions: Record<keyof typeof PremiumFlags, string> = {
-	DISCRIMINATOR: 'User has a premium discriminator',
 	BADGE_HIDDEN: 'User has hidden their premium badge',
 	BADGE_MASKED: 'User has masked their premium badge',
 	BADGE_TIMESTAMP_HIDDEN: 'User has hidden their premium badge timestamp',
@@ -117,7 +116,6 @@ export const PremiumFlagsDescriptions: Record<keyof typeof PremiumFlags, string>
 	PERKS_DISABLED: 'User has temporarily disabled premium perks',
 };
 const LEGACY_PREMIUM_FLAG_BITS_TO_NEW: ReadonlyArray<readonly [bigint, number]> = [
-	[1n << 37n, PremiumFlags.DISCRIMINATOR],
 	[1n << 40n, PremiumFlags.BADGE_HIDDEN],
 	[1n << 41n, PremiumFlags.BADGE_MASKED],
 	[1n << 42n, PremiumFlags.BADGE_TIMESTAMP_HIDDEN],
@@ -151,8 +149,15 @@ export const PUBLIC_USER_FLAGS =
 	UserFlags.SPAMMER;
 export const DELETED_USER_USERNAME = 'DeletedUser';
 export const DELETED_USER_GLOBAL_NAME = 'Deleted User';
-export const DELETED_USER_DISCRIMINATOR = 0;
 export const DELETED_USER_ID = 1n;
+// Every bot username ends in this suffix; human usernames cannot contain '-', so
+// no human name can ever take it. The base name leaves room for it in 32 chars.
+export const BOT_USERNAME_SUFFIX = '-BOT';
+// Set by an admin on an account whose owner may choose a new password without email.
+// The first reset clears it.
+export const PASSWORD_RESET_OPEN_TRAIT = 'password_reset_open';
+export const USERNAME_MAX_LENGTH = 32;
+export const BOT_USERNAME_BASE_MAX_LENGTH = USERNAME_MAX_LENGTH - BOT_USERNAME_SUFFIX.length;
 export const PublicUserFlags = {
 	STAFF: Number(UserFlags.STAFF),
 	PARTNER: Number(UserFlags.PARTNER),

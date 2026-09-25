@@ -33,10 +33,6 @@ function firstDisplayText(...values: Array<string | null | undefined>): string {
 	return '';
 }
 
-function toLowerSearchText(value: string | null | undefined): string {
-	return typeof value === 'string' ? value.toLowerCase() : '';
-}
-
 export function getMemberDisplayName(member: GuildMember): string {
 	return firstDisplayText(
 		DisplayNameUtils.getUntruncatedGuildMemberNickname(member),
@@ -51,24 +47,10 @@ export function getUserDisplayName(user: User): string {
 
 export interface ParsedMentionQuery {
 	usernameQuery: string;
-	tagQuery: string | null;
-	hasTagSeparator: boolean;
 }
 
 export function parseMentionQuery(query: string): ParsedMentionQuery {
-	const hashIndex = query.indexOf('#');
-	if (hashIndex === -1) {
-		return {
-			usernameQuery: query,
-			tagQuery: null,
-			hasTagSeparator: false,
-		};
-	}
-	return {
-		usernameQuery: query.slice(0, hashIndex),
-		tagQuery: query.slice(hashIndex + 1),
-		hasTagSeparator: true,
-	};
+	return {usernameQuery: query};
 }
 
 export function filterDMUsers(
@@ -82,25 +64,11 @@ export function filterDMUsers(
 	const trimmedUsername = parsedQuery.usernameQuery.trim();
 	const limit = MENTION_RESULT_LIMIT;
 	let matchedUsers: typeof users;
-	if (parsedQuery.hasTagSeparator) {
-		const usernameQueryLower = parsedQuery.usernameQuery.toLowerCase();
-		const tagQueryLower = parsedQuery.tagQuery === null ? '' : parsedQuery.tagQuery.toLowerCase();
-		matchedUsers = users.filter((user) => {
-			const username = toLowerSearchText(user.username);
-			const display = toLowerSearchText(getUserDisplayName(user));
-			const discriminator = firstDisplayText(user.discriminator).toLowerCase();
-			const matchesUsername =
-				usernameQueryLower.length === 0 ||
-				username.startsWith(usernameQueryLower) ||
-				display.startsWith(usernameQueryLower);
-			const matchesTag = tagQueryLower.length === 0 || discriminator.startsWith(tagQueryLower);
-			return matchesUsername && matchesTag;
-		});
-	} else if (trimmedUsername.length === 0) {
+	if (trimmedUsername.length === 0) {
 		matchedUsers = users;
 	} else {
 		matchedUsers = matchSorter(users, trimmedUsername, {
-			keys: [(user) => getUserDisplayName(user), 'username', 'tag'],
+			keys: [(user) => getUserDisplayName(user), 'username'],
 		});
 	}
 	const sorted = [...matchedUsers].sort((a, b) =>
@@ -116,27 +84,11 @@ export function filterDMUsers(
 function matchGuildMembers(membersToUse: Array<GuildMember>, parsedQuery: ParsedMentionQuery): Array<GuildMember> {
 	const trimmedUsername = parsedQuery.usernameQuery.trim();
 	let matchedMembers: Array<GuildMember>;
-	if (parsedQuery.hasTagSeparator) {
-		const usernameQueryLower = parsedQuery.usernameQuery.toLowerCase();
-		const tagQueryLower = parsedQuery.tagQuery === null ? '' : parsedQuery.tagQuery.toLowerCase();
-		matchedMembers = membersToUse.filter((member) => {
-			const nick = toLowerSearchText(member.nick);
-			const username = toLowerSearchText(member.user.username);
-			const display = toLowerSearchText(getMemberDisplayName(member));
-			const discriminator = firstDisplayText(member.user.discriminator).toLowerCase();
-			const matchesUsername =
-				usernameQueryLower.length === 0 ||
-				username.startsWith(usernameQueryLower) ||
-				display.startsWith(usernameQueryLower) ||
-				nick.startsWith(usernameQueryLower);
-			const matchesTag = tagQueryLower.length === 0 || discriminator.startsWith(tagQueryLower);
-			return matchesUsername && matchesTag;
-		});
-	} else if (trimmedUsername.length === 0) {
+	if (trimmedUsername.length === 0) {
 		matchedMembers = membersToUse;
 	} else {
 		matchedMembers = matchSorter(membersToUse, trimmedUsername, {
-			keys: [(member) => getMemberDisplayName(member), 'nick', 'user.globalName', 'user.username', 'user.tag'],
+			keys: [(member) => getMemberDisplayName(member), 'nick', 'user.globalName', 'user.username'],
 		});
 	}
 	return matchedMembers;

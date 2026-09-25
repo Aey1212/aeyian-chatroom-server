@@ -10,7 +10,7 @@ import {Validator} from '@app/api/Validator';
 import {UserIdParam} from '@fluxer/schema/src/domains/common/CommonParamSchemas';
 import {
 	BulkIgnoreFriendRequestsRequest,
-	FriendRequestByTagRequest,
+	FriendRequestByUsernameRequest,
 	FriendRequestCreateRequest,
 	RelationshipNicknameUpdateRequest,
 	RelationshipTypePutRequest,
@@ -50,19 +50,19 @@ export function UserRelationshipController(app: HonoApp) {
 		RateLimitMiddleware(RateLimitConfigs.USER_FRIEND_REQUEST_SEND),
 		LoginRequired,
 		DefaultUserOnly,
-		Validator('json', FriendRequestByTagRequest),
+		Validator('json', FriendRequestByUsernameRequest),
 		OpenAPI({
-			operationId: 'send_friend_request_by_tag',
-			summary: 'Send friend request by tag',
+			operationId: 'send_friend_request_by_username',
+			summary: 'Send friend request by username',
 			responseSchema: RelationshipResponse,
 			statusCode: 200,
 			security: ['bearerToken', 'sessionToken'],
 			tags: ['Users'],
 			description:
-				'Sends a friend request to a user identified by username tag (username#discriminator). Returns the new relationship object. Can fail if user not found or request already sent.',
+				'Sends a friend request to a user identified by username. Returns the new relationship object. Can fail if user not found or request already sent.',
 		}),
 		async (ctx) => {
-			const response = await ctx.get('userRelationshipRequestService').sendFriendRequestByTag({
+			const response = await ctx.get('userRelationshipRequestService').sendFriendRequestByUsername({
 				userId: ctx.get('user').id,
 				data: ctx.req.valid('json'),
 				requestCache: ctx.get('requestCache'),

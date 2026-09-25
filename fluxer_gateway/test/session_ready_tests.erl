@@ -794,7 +794,6 @@ presence_request(UserId) ->
         user_data => #{
             <<"id">> => integer_to_binary(UserId),
             <<"username">> => <<"ready-target">>,
-            <<"discriminator">> => <<"0001">>,
             <<"avatar">> => null,
             <<"flags">> => 0
         },

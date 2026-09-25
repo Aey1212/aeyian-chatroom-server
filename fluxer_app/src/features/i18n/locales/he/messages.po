@@ -28,7 +28,7 @@ msgid "(edited)"
 msgstr "(נערך)"
 
 #: src/features/app/components/pages/YouPage.tsx:189
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:903
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:894
 msgid "(only visible to you)"
 msgstr "(גלוי לך בלבד)"
 
@@ -872,11 +872,11 @@ msgstr "{communityName} נגישה כרגע רק לחברי צוות של {produ
 msgid "{count, plural, =0 {∞ No limit} one {# participant} other {# participants}}"
 msgstr "{count, plural, =0 {∞ ללא הגבלה} one {# משתתף} other {# משתתפים}}"
 
-#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:193
+#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:141
 msgid "{count, plural, one {... (# line left)} other {... (# lines left)}}"
 msgstr "{count, plural, one {... (נותרה שורה אחת)} other {... (נותרו # שורות)}}"
 
-#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:210
+#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:158
 msgid "{count, plural, one {... (# row left)} other {... (# rows left)}}"
 msgstr "{count, plural, one {... (נותרה שורה אחת)} other {... (נותרו # שורות)}}"
 
@@ -1074,7 +1074,7 @@ msgstr "{count, plural, one {הרחב (שורה אחת)} other {הרחב (# שו
 msgid "{count, plural, one {Expand # other device} other {Expand # other devices}}"
 msgstr "{count, plural, one {הרחב מכשיר אחד נוסף} other {הרחב # מכשירים נוספים}}"
 
-#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:109
+#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:111
 msgid "{count, plural, one {Group DM · # member} other {Group DM · # members}}"
 msgstr "{count, plural, one {צ'אט קבוצתי · חבר אחד} other {צ'אט קבוצתי · # חברים}}"
 
@@ -1471,7 +1471,7 @@ msgid "{memberCount} {rawMemberCount, plural, one {member} other {members}}"
 msgstr "{memberCount} {rawMemberCount, plural, one {חבר} other {חברים}}"
 
 #. Generic aria-label for an unread-mentions badge. Preserve {mentionCount}.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:800
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:804
 msgid "{mentionCount, plural, one {# mention} other {# mentions}}"
 msgstr "{mentionCount, plural, one {# אזכור} two {# אזכורים} other {# אזכורים}}"
 
@@ -2233,11 +2233,11 @@ msgstr "15 דקות"
 msgid "2 clicks"
 msgstr "2 לחיצות"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:332
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:331
 msgid "2 members (online)"
 msgstr "2 חברים (מחוברים)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:366
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:365
 msgid "2 members (typing)"
 msgstr "2 חברים (מקלידים)"
 
@@ -2280,11 +2280,11 @@ msgstr "דרישת אימות דו-שלבי"
 msgid "3 days"
 msgstr "3 ימים"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:346
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:345
 msgid "3 members (online)"
 msgstr "3 חברים (מחוברים)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:381
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:380
 msgid "3 members (typing)"
 msgstr "3 חברים (מקלידים)"
 
@@ -2304,7 +2304,7 @@ msgstr "30 פריימים לשנייה"
 msgid "30 minutes"
 msgstr "30 דקות"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:300
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:299
 msgid "32px, 2 members"
 msgstr "32px, 2 חברים"
 
@@ -2312,7 +2312,7 @@ msgstr "32px, 2 חברים"
 msgid "404: page not found"
 msgstr "404: הדף לא נמצא"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:313
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:312
 msgid "40px, 3 members"
 msgstr "40px, 3 חברים"
 
@@ -2435,7 +2435,7 @@ msgid "a forwarded message"
 msgstr "הודעה שהועברה"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:60
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:62
 msgid "A helpful bot that does amazing things!"
 msgstr "בוט מועיל שעושה דברים מדהימים!"
 
@@ -2530,7 +2530,7 @@ msgstr "אודות {appName}"
 #. Short label in the user profile shared popout. Keep it concise.
 #: src/features/app/components/pages/YouPage.tsx:166
 #: src/features/user/components/modals/tabs/my_profile_tab/BioEditor.tsx:26
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:787
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:778
 #: src/features/user/components/popouts/UserProfileShared.tsx:41
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:133
 msgid "About me"
@@ -2751,8 +2751,8 @@ msgstr "פעולות"
 msgid "Active"
 msgstr "פעיל"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:356
-#: src/features/auth/components/accounts/AccountRow.tsx:136
+#: src/features/app/components/floating/UserAreaPopout.tsx:358
+#: src/features/auth/components/accounts/AccountRow.tsx:140
 msgid "Active account"
 msgstr "חשבון פעיל"
 
@@ -2791,7 +2791,7 @@ msgstr "מנוי חודשי פעיל (ביטול מתוזמן)"
 #. Short label in the appearance tab. Keep it concise.
 #. Short label in the inline. Keep it concise.
 #. Status label indicating a user is currently active.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:744
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:748
 #: src/features/user/components/modals/tabs/appearance_tab/AppearanceTabInline.tsx:43
 #: src/features/user/components/modals/tabs/AppearanceTab.tsx:51
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:430
@@ -2892,7 +2892,7 @@ msgid "Add a friend to get started."
 msgstr "הוסף חבר כדי להתחיל."
 
 #. Setup wizard body for GIF integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:934
+#: src/features/app/components/setup/SetupWizardSteps.tsx:928
 msgid "Add a Klipy API key to enable GIF search at runtime."
 msgstr "הוסף מפתח API של Klipy כדי לאפשר חיפוש GIF בזמן ריצה."
 
@@ -2929,7 +2929,7 @@ msgid "Add a working email"
 msgstr "הוסף אימייל פעיל"
 
 #. Setup wizard body for YouTube integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:942
+#: src/features/app/components/setup/SetupWizardSteps.tsx:936
 msgid "Add a YouTube Data API key to enrich YouTube links."
 msgstr "הוסף מפתח API של YouTube Data כדי להעשיר קישורי YouTube."
 
@@ -2975,7 +2975,7 @@ msgid "Add another reaction"
 msgstr "הוספת ריאקציה נוספת"
 
 #. Setup wizard body for Bluesky integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:966
+#: src/features/app/components/setup/SetupWizardSteps.tsx:960
 msgid "Add Bluesky OAuth client metadata and a signing key."
 msgstr "הוסף מטא-נתונים של לקוח OAuth של Bluesky ומפתח חתימה."
 
@@ -3125,7 +3125,7 @@ msgid "Add shortcut"
 msgstr "הוספת קיצור דרך"
 
 #. Setup wizard body for SMTP integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:958
+#: src/features/app/components/setup/SetupWizardSteps.tsx:952
 msgid "Add SMTP credentials so the instance can send verification and notification email."
 msgstr "הוסף פרטי כניסה ל-SMTP כדי שהמופע יוכל לשלוח אימייל אימות והתראות."
 
@@ -3152,7 +3152,7 @@ msgid "Add stream"
 msgstr "הוסף שידור"
 
 #. Description for configuring an optional setup wizard integration now.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:926
+#: src/features/app/components/setup/SetupWizardSteps.tsx:920
 msgid "Add the credentials during setup."
 msgstr "הוסף את פרטי הכניסה במהלך ההגדרה."
 
@@ -3174,12 +3174,12 @@ msgstr "הוספה לקבוצה"
 #. Action that adds the selected media to saved media.
 #. Action that adds the selected media to saved media.
 #: src/features/expressions/components/modals/AddFavoriteMemeModal.tsx:16
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:177
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:178
 msgid "Add to saved media"
 msgstr "הוספה למדיה השמורה"
 
 #. Media context menu action that saves a GIF favorite by URL without uploading it.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:169
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:170
 msgid "Add to URL-only GIF favorites"
 msgstr "הוספה לקובצי GIF מועדפים לפי כתובת URL בלבד"
 
@@ -3271,7 +3271,7 @@ msgid "Added to favorite GIFs"
 msgstr "נוסף לקובצי ה-GIF המועדפים"
 
 #. Toast confirming an item was added to the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:615
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:619
 msgid "Added to favorites"
 msgstr "נוסף למועדפים"
 
@@ -3289,7 +3289,7 @@ msgid "Added: {createdDate} • last used: {lastUsedDate}"
 msgstr "נוסף: {createdDate} • שימוש אחרון: {lastUsedDate}"
 
 #. Field label on the details step of the DSA report form. Optional free-text context the reporter wants staff to see.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:72
+#: src/features/moderation/components/report/ReportStepDetails.tsx:71
 msgid "Additional comments (optional)"
 msgstr "הערות נוספות (אופציונלי)"
 
@@ -3452,7 +3452,7 @@ msgstr "פקדי יישור זמינים רק במסכים רחבים יותר"
 #: src/features/app/config/AuditLogConstants.ts:143
 #: src/features/channel/components/direct_message/DMFriendsView.tsx:41
 #: src/features/channel/components/guild_members_page/GuildMembersPageDescriptors.ts:10
-#: src/features/channel/components/MobileMemesPicker.tsx:42
+#: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
 #: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:11
 #: src/features/discovery/discovery/DiscoveryNavbar.tsx:21
@@ -3550,7 +3550,7 @@ msgstr "כל השפות"
 msgid "All messages"
 msgstr "כל ההודעות"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:227
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:226
 msgid "All status types"
 msgstr "כל סוגי הסטטוסים"
 
@@ -3713,7 +3713,7 @@ msgid "Allow transparent desktop window"
 msgstr "אפשר חלון שקוף באפליקציית שולחן העבודה"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:76
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:78
 msgid "Allow users to send this bot friend requests for manual approval."
 msgstr "אפשר למשתמשים לשלוח לבוט הזה בקשות חברות לאישור ידני."
 
@@ -4015,13 +4015,13 @@ msgstr "אימוג'י, קובצי GIF ומדבקות מונפשים נשארים
 
 #. Media type chip shown in the media viewer info panel for animated GIFs.
 #. Short label in the channel and chat embed gifv. Keep it concise.
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:67
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:101
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:68
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:102
 msgid "Animated GIF"
 msgstr "GIF מונפש"
 
 #. Short label in the channel and chat embed gifv. Keep it concise.
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:63
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:64
 msgid "Animated GIF video"
 msgstr "סרטון GIF מונפש"
 
@@ -4050,12 +4050,12 @@ msgid "Animated icons require the {animatedIconFeature} community feature."
 msgstr "אייקונים מונפשים דורשים את תכונת הקהילה {animatedIconFeature}."
 
 #. Media type chip shown in the media viewer info panel for animated images.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:109
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:110
 msgid "Animated image"
 msgstr "תמונה מונפשת"
 
 #. Accessible label for an animated image (APNG/AVIF) shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:77
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:78
 msgid "Animated image preview"
 msgstr "תצוגה מקדימה של תמונה מונפשת"
 
@@ -4075,7 +4075,7 @@ msgid "Animated uploads require a {premiumProductName} subscription."
 msgstr "העלאת קבצים מונפשים דורשת מנוי {premiumProductName}."
 
 #. Media type chip shown in the media viewer info panel for short looping video clips.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:105
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:106
 msgid "Animated video"
 msgstr "וידאו מונפש"
 
@@ -4235,7 +4235,7 @@ msgid "Anyone can request an account, but an administrator must approve it."
 msgstr "כל אחד יכול לבקש חשבון, אך מנהל מערכת חייב לאשר אותו."
 
 #. Label for an integration API key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:979
+#: src/features/app/components/setup/SetupWizardSteps.tsx:973
 msgid "API key"
 msgstr "מפתח API"
 
@@ -4279,7 +4279,7 @@ msgid "App zoom"
 msgstr "זום של האפליקציה"
 
 #. Setting label for the global UI zoom level.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:776
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:780
 msgid "App zoom level"
 msgstr "רמת זום של האפליקציה"
 
@@ -4349,7 +4349,7 @@ msgid "Application name is required"
 msgstr "שם האפליקציה נדרש"
 
 #. Short label in the application detail. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:46
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:49
 msgid "Application updated successfully"
 msgstr "האפליקציה עודכנה בהצלחה"
 
@@ -4427,7 +4427,7 @@ msgid "Are you sure you want to delete {channelLabel}? This cannot be undone."
 msgstr "האם למחוק את {channelLabel}? לא ניתן לבטל פעולה זו."
 
 #. placeholder {0}: application.name
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:407
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:410
 msgid "Are you sure you want to delete <0>{0}</0>?"
 msgstr "האם למחוק את <0>{0}</0>?"
 
@@ -4560,6 +4560,10 @@ msgstr "סמיילי ASCII"
 msgid "Ask before starting calls"
 msgstr "בקש אישור לפני תחילת שיחות"
 
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:91
+msgid "Ask the admin to open a password reset for your account. Once it is open, choose a new password here."
+msgstr "Ask the admin to open a password reset for your account. Once it is open, choose a new password here."
+
 #. Short label in the theme studio. Keep it concise.
 #: src/features/theme_studio/ThemeStudio.tsx:56
 msgid "Assets"
@@ -4587,7 +4591,7 @@ msgstr "קובץ מצורף"
 #. Accessible label for a thumbnail in the media viewer. index1 is the 1-based attachment index.
 #. Accessible label for the active attachment in the media viewer. index1 is the 1-based index.
 #: src/features/messaging/components/modals/media_modal/shared.ts:129
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:73
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:74
 msgid "Attachment {index1}"
 msgstr "קובץ מצורף {index1}"
 
@@ -4614,12 +4618,12 @@ msgid "Attachment expired"
 msgstr "הקובץ המצורף פג תוקף"
 
 #. Toast shown when an attachment URL is no longer accessible.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:133
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:134
 msgid "Attachment has expired or is unavailable"
 msgstr "הקובץ המצורף פג תוקף או אינו זמין"
 
 #. Developer-mode toast confirming an attachment ID was copied.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:161
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:162
 msgid "Attachment ID copied to clipboard"
 msgstr "מזהה הקובץ המצורף הועתק ללוח"
 
@@ -4729,12 +4733,12 @@ msgid "Audio packet loss:"
 msgstr "איבוד מנות שמע:"
 
 #. Aria label for the inline audio attachment player container.
-#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:34
+#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:35
 msgid "Audio player"
 msgstr "נגן שמע"
 
 #. Accessible label for an audio clip shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:93
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:94
 msgid "Audio preview"
 msgstr "תצוגה מקדימה של שמע"
 
@@ -4769,7 +4773,7 @@ msgid "Audio processing (focused voice)"
 msgstr "עיבוד שמע (קול ממוקד)"
 
 #. Aria label on the playback progress slider in the inline audio attachment player.
-#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:38
+#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:39
 msgid "Audio progress"
 msgstr "התקדמות שמע"
 
@@ -5152,14 +5156,14 @@ msgstr "התמונה גדולה מדי. יש לבחור תמונה קטנה מ-{
 msgid "Avatar mode selection"
 msgstr "בחירת מצב אווטאר"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:387
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:386
 msgid "Avatar stacks"
 msgstr "ערימות אווטאר"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:24
-msgid "Avatar, tag, and rich profile details for your bot."
-msgstr "תמונת פרופיל, תגית ופרטי פרופיל מורחבים עבור הבוט שלך."
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:25
+msgid "Avatar, username, and rich profile details for your bot."
+msgstr "Avatar, username, and rich profile details for your bot."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:294
@@ -5196,7 +5200,7 @@ msgstr "לא זמין כרגע"
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:377
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:397
 #: src/features/moderation/components/report_modal/IARModal.tsx:86
-#: src/features/moderation/components/report/ReportStepDetails.tsx:312
+#: src/features/moderation/components/report/ReportStepDetails.tsx:311
 #: src/features/user/components/modals/PhoneAddModal.tsx:411
 #: src/features/user/components/modals/PhoneAddModal.tsx:430
 msgid "Back"
@@ -5212,7 +5216,7 @@ msgstr "חזרה לשיחה"
 msgid "Back to GIF categories"
 msgstr "חזרה לקטגוריות GIF"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:583
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:586
 msgid "Back to list"
 msgstr "חזרה לרשימה"
 
@@ -5413,11 +5417,11 @@ msgstr "נחסם"
 msgid "Banned {targetUserTag} from the community"
 msgstr "{targetUserTag} נחסם מהקהילה"
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:104
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:102
 msgid "Banned by"
 msgstr "נחסם על ידי"
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:86
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:84
 msgid "Banned on"
 msgstr "תאריך החסימה"
 
@@ -5505,9 +5509,9 @@ msgstr "הדחיסה הטובה ביותר. יש להשתמש רק כאשר WebR
 msgid "Best with the desktop app"
 msgstr "מומלץ עם אפליקציית המחשב"
 
-#: src/features/ui/components/form/UsernameValidationRules.tsx:42
-msgid "Between 1 and 32 characters"
-msgstr "בין 1 ל-32 תווים"
+#: src/features/ui/components/form/UsernameValidationRules.tsx:45
+msgid "Between 1 and {maxLength} characters"
+msgstr "Between 1 and {maxLength} characters"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/PlutoniumIndex.ts:27
@@ -5652,7 +5656,7 @@ msgstr "חסימת החבר מלשלוח הודעות, להגיב ולהצטרף
 #. Short label in the account security tab. Keep it concise.
 #. User settings tab listing accounts the current user has blocked.
 #: src/features/user/components/modals/tabs/account_security_tab/AccountSecuritySections.tsx:31
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:210
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:212
 #: src/features/user/components/settings_utils/search_index/BlockedUsersIndex.ts:6
 #: src/features/user/components/settings_utils/section_registry/AccountSecuritySections.ts:155
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:18
@@ -5660,7 +5664,7 @@ msgstr "חסימת החבר מלשלוח הודעות, להגיב ולהצטרף
 msgid "Blocked users"
 msgstr "משתמשים חסומים"
 
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:211
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:213
 msgid "Blocked users can't send you friend requests or message you directly."
 msgstr "משתמשים חסומים לא יכולים לשלוח לך בקשות חברות או הודעות ישירות."
 
@@ -5680,7 +5684,7 @@ msgid "Bluesky connections"
 msgstr "חיבורי Bluesky"
 
 #. Setup wizard title for Bluesky integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:962
+#: src/features/app/components/setup/SetupWizardSteps.tsx:956
 msgid "Bluesky OAuth"
 msgstr "OAuth של Bluesky"
 
@@ -5784,7 +5788,7 @@ msgstr "הבוט נוסף"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:28
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:29
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:68
 msgid "Bot avatar"
 msgstr "תמונת פרופיל של בוט"
@@ -5795,12 +5799,12 @@ msgid "Bot banner"
 msgstr "באנר בוט"
 
 #. Short label in the bot profile section. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:68
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:70
 msgid "Bot banner preview"
 msgstr "תצוגה מקדימה של באנר בוט"
 
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:56
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:58
 msgid "Bot bio"
 msgstr "אודות הבוט"
 
@@ -5842,13 +5846,13 @@ msgstr "הרשאות בוט לא יכולות להיות שליליות."
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:20
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:21
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:64
 msgid "Bot profile"
 msgstr "פרופיל בוט"
 
 #. Setup wizard title for CAPTCHA integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:946
+#: src/features/app/components/setup/SetupWizardSteps.tsx:940
 msgid "Bot protection"
 msgstr "הגנה מפני בוטים"
 
@@ -5865,13 +5869,13 @@ msgid "Bot token"
 msgstr "אסימון בוט"
 
 #. Description text in the application detail. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:62
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:65
 msgid "Bot token regenerated. Update any code that uses the old token."
 msgstr "אסימון הבוט נוצר מחדש. יש לעדכן כל קוד שמשתמש באסימון הישן."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:48
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:49
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:72
 msgid "Bot username"
 msgstr "שם משתמש של בוט"
@@ -6203,7 +6207,7 @@ msgstr "שיחות"
 #. Generic voice/video setting label for the active camera device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the video tab. Keep it concise.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:720
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:724
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:72
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:162
 #: src/features/voice/utils/SettingsDeviceOptions.ts:24
@@ -6263,7 +6267,7 @@ msgstr "מצלמה כבויה"
 
 #. Generic action label that enables the local camera.
 #. Notification sound setting label. Sound played when the user turns their camera on in a call.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:724
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:728
 #: src/features/notification/utils/SoundLabels.ts:52
 msgid "Camera on"
 msgstr "מצלמה פועלת"
@@ -6372,7 +6376,6 @@ msgstr "לא ניתן להעלות קבצים כאן"
 #: src/features/user/components/modals/EmailChangeModal.tsx:289
 #: src/features/user/components/modals/EmailChangeModal.tsx:311
 #: src/features/user/components/modals/EmailChangeModal.tsx:326
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:394
 #: src/features/user/components/modals/PasswordChangeModal.tsx:226
 #: src/features/user/components/modals/PasswordChangeModal.tsx:237
 #: src/features/user/components/modals/PasswordChangeModal.tsx:255
@@ -6394,10 +6397,6 @@ msgstr "ביטול עריכת ההודעה"
 msgid "Cancel friend request"
 msgstr "ביטול בקשת חברות"
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:145
-msgid "Cancel if you want to choose a different username instead."
-msgstr "בטל אם ברצונך לבחור שם משתמש אחר במקום זאת."
-
 #. Danger button in the favorite GIF import modal. Stops the active import.
 #: src/features/channel/components/pickers/gif/ImportFavoriteGifsModal.tsx:58
 msgid "Cancel import"
@@ -6415,6 +6414,7 @@ msgstr "ביטול תגובה"
 
 #. Button or menu action label in the channel and chat mobile friend request item. Keep it concise.
 #: src/features/channel/components/friends/MobileFriendRequestItem.tsx:38
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:134
 msgid "Cancel request"
 msgstr "ביטול הבקשה"
 
@@ -6751,16 +6751,10 @@ msgstr "שינוי מקור השידור"
 msgid "Change the name shown on your global profile"
 msgstr "שינוי השם שמוצג בפרופיל הגלובלי שלך"
 
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:66
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:77
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:97
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:39
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:59
 msgid "Change username"
 msgstr "שינוי שם משתמש"
-
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:48
-msgid "Change username form"
-msgstr "טופס שינוי שם משתמש"
 
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/MessageHistoryCutoffSection.tsx:22
 msgid "Change what users without \"{readMessageHistoryPermissionLabel}\" can see"
@@ -6817,8 +6811,6 @@ msgid "Change your profile picture"
 msgstr "שינוי תמונת הפרופיל שלך"
 
 #. Settings search entry description. One-line summary of what the settings search entry controls.
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:52
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:77
 msgid "Change your username"
 msgstr "שינוי שם המשתמש שלך"
@@ -7033,7 +7025,7 @@ msgid "Channel access"
 msgstr "גישה לערוץ"
 
 #. Title of the alert shown when clicking a message link the user does not have permission to view.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:117
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:118
 msgid "Channel access denied"
 msgstr "הגישה לערוץ נדחתה"
 
@@ -7047,7 +7039,7 @@ msgid "Channel actions"
 msgstr "פעולות ערוץ"
 
 #. Toast confirming a channel was added to the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:792
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:796
 msgid "Channel added to favorites"
 msgstr "הערוץ נוסף למועדפים"
 
@@ -7075,7 +7067,7 @@ msgstr "ניפוי באגים בערוץ"
 #. Audit log entry label. Past-tense action describing that a channel was deleted.
 #. Toast confirming a channel was successfully deleted.
 #: src/features/app/config/AuditLogConstants.ts:20
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:760
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:764
 msgid "Channel deleted"
 msgstr "הערוץ נמחק"
 
@@ -7098,7 +7090,7 @@ msgstr "מזהה הערוץ הועתק ללוח הגזירים"
 
 #. Short label in the messaging mention renderer. Keep it concise.
 #. Type chip suffix in tooltips for inline rendered channel mentions. Lowercase because it follows the channel name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:86
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:87
 #: src/features/messaging/components/markdown/renderers/MentionRenderer.tsx:39
 msgid "channel link"
 msgstr "קישור לערוץ"
@@ -7165,7 +7157,7 @@ msgid "Channel record"
 msgstr "רשומת ערוץ"
 
 #. Toast confirming a channel was removed from the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:788
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:792
 msgid "Channel removed from favorites"
 msgstr "הערוץ הוסר מהמועדפים"
 
@@ -7288,7 +7280,6 @@ msgstr "בדוק את החיבור שלך, ולאחר מכן נסה שוב."
 
 #. Required-action modal carousel step title for existing-email verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:240
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:55
 #: src/features/auth/flow/IpAuthorizationScreen.tsx:120
 msgid "Check your email"
 msgstr "בדוק את האימייל שלך"
@@ -7477,7 +7468,7 @@ msgid "Choose friends to message."
 msgstr "בחר חברים לשלוח להם הודעה."
 
 #. Setup wizard body for CAPTCHA integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:950
+#: src/features/app/components/setup/SetupWizardSteps.tsx:944
 msgid "Choose hCaptcha or Cloudflare Turnstile for signup challenges."
 msgstr "בחר hCaptcha או Cloudflare Turnstile עבור אתגרי הרשמה."
 
@@ -7657,7 +7648,7 @@ msgstr "תבע את החשבון כדי לממש"
 #. Action label on the gift redemption flow.
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:286
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
 #: src/features/expressions/components/pages/GiftLoginPage.tsx:41
 #: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
 msgid "Claim gift"
@@ -7668,7 +7659,7 @@ msgstr "קבל את המתנה"
 #. Title shown when an unclaimed account cannot start a DM or group DM.
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:32
 #: src/features/auth/components/modals/ClaimAccountModal.tsx:41
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:62
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:57
 #: src/features/channel/utils/CreateDMModalUtils.tsx:43
 #: src/features/guild/components/modals/add_guild_modal/GuildCreateForm.tsx:214
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:440
@@ -7695,7 +7686,7 @@ msgid "Claim your account to call"
 msgstr "תבע את החשבון שלך כדי להתקשר"
 
 #. Label in the username section.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:21
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:14
 msgid "Claim your account to change your username"
 msgstr "תבע את החשבון שלך כדי לשנות את שם המשתמש"
 
@@ -7733,14 +7724,14 @@ msgstr "תבע את החשבון שלך כדי לממש או לנהל קודי �
 
 #. Helper text on a gift code embed for guest accounts. Prompts account claim before redeeming.
 #: src/features/channel/components/GiftEmbed.tsx:36
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:209
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:208
 msgid "Claim your account to redeem this gift."
 msgstr "תבע את החשבון שלך כדי לממש את המתנה הזו."
 
 #. Description text in the channel and chat dm welcome section.
 #. Description text in the user profile modal.
 #. Tooltip shown when an unclaimed account tries to send a friend request.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:63
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:58
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:37
 #: src/features/ui/action_menu/items/RelationshipMenuItems.tsx:40
 #: src/features/user/components/modals/UserProfileModal.tsx:122
@@ -8010,7 +8001,7 @@ msgid "Client"
 msgstr "לקוח"
 
 #. Label for Bluesky OAuth client name input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1018
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1012
 msgid "Client name"
 msgstr "שם הלקוח"
 
@@ -8022,12 +8013,12 @@ msgid "Client secret"
 msgstr "סוד לקוח"
 
 #. Description text in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:58
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:61
 msgid "Client secret regenerated. Update any code that uses the old secret."
 msgstr "סוד הלקוח נוצר מחדש. עדכן כל קוד שמשתמש בסוד הישן."
 
 #. Label for Bluesky OAuth client URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1022
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1016
 msgid "Client URL"
 msgstr "כתובת הלקוח"
 
@@ -8075,6 +8066,7 @@ msgstr "השכפול כבוי"
 #. Native Window menu item that closes the focused desktop window.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:306
 #: src/features/platform/utils/DesktopLocaleBridge.ts:138
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:190
 msgid "Close"
 msgstr "סגירה"
 
@@ -8180,7 +8172,7 @@ msgid "Cloud upload"
 msgstr "העלאה לענן"
 
 #. Cloudflare Turnstile provider option.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:975
+#: src/features/app/components/setup/SetupWizardSteps.tsx:969
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
@@ -8490,7 +8482,7 @@ msgid "Community debug"
 msgstr "ניפוי באגים של קהילה"
 
 #. Notification level option indicating the channel inherits the community default.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:764
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:768
 msgid "Community default"
 msgstr "ברירת מחדל של קהילה"
 
@@ -8525,11 +8517,11 @@ msgid "Community icon"
 msgstr "אייקון קהילה"
 
 #. Field label on the details step of the DSA report form (community report). The reported community's snowflake ID.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:43
+#: src/features/moderation/components/report/ReportStepDetails.tsx:42
 msgid "Community ID"
 msgstr "מזהה קהילה"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:237
+#: src/features/moderation/components/report/ReportStepDetails.tsx:236
 msgid "Community ID is required."
 msgstr "נדרש מזהה קהילה."
 
@@ -8785,7 +8777,7 @@ msgid "Configure keyboard shortcuts"
 msgstr "הגדרת קיצורי מקלדת"
 
 #. Option for configuring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:922
+#: src/features/app/components/setup/SetupWizardSteps.tsx:916
 msgid "Configure now"
 msgstr "הגדר כעת"
 
@@ -8879,7 +8871,9 @@ msgstr "אישור קבוצה חדשה"
 msgid "Confirm new password"
 msgstr "אישור סיסמה חדשה"
 
+#. Label of the password confirmation field on the forgot password page.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:29
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:35
 msgid "Confirm password"
 msgstr "אישור סיסמה"
@@ -9161,8 +9155,7 @@ msgstr "ניתן לפתוח תפריטי הקשר בלחיצה שמאלית (ע�
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthAccountStep.tsx:34
 #: src/features/auth/flow/HandoffApprovalFlow.tsx:109
 #: src/features/connection/components/modals/AddConnectionModal.tsx:384
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:712
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:397
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:716
 #: src/features/user/components/modals/tabs/AuthorizedAppsTab.tsx:182
 msgid "Continue"
 msgstr "המשך"
@@ -9278,13 +9271,13 @@ msgstr "נתוני JSON הועתקו ללוח הגזירים"
 
 #. Generic success toast confirming that content was copied to the clipboard.
 #. Toast shown after copying text to the clipboard succeeds.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:145
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:146
 #: src/features/ui/commands/TextCopyCommands.ts:11
 msgid "Copied to clipboard"
 msgstr "הועתק ללוח הגזירים"
 
 #. Label in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:82
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:85
 msgid "Copied URL to clipboard"
 msgstr "כתובת ה-URL הועתקה ללוח הגזירים"
 
@@ -9313,12 +9306,12 @@ msgid "Copy attachment ID"
 msgstr "העתקת מזהה קובץ מצורף"
 
 #. Media context menu action that copies an audio attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:61
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:62
 msgid "Copy audio"
 msgstr "העתקת שמע"
 
 #. Media context menu action that copies the URL of the audio attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:81
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:82
 msgid "Copy audio link"
 msgstr "העתקת קישור לשמע"
 
@@ -9343,7 +9336,7 @@ msgid "Copy banner URL"
 msgstr "העתקת כתובת ה-URL של הבאנר"
 
 #. Tray menu item. Copies build / version diagnostics to the clipboard for bug reports.
-#: src/features/app/components/floating/UserAreaPopout.tsx:707
+#: src/features/app/components/floating/UserAreaPopout.tsx:709
 #: src/features/platform/utils/DesktopLocaleBridge.ts:228
 msgid "Copy build info"
 msgstr "העתקת פרטי הגרסה"
@@ -9374,7 +9367,7 @@ msgid "Copy code"
 msgstr "העתקת קוד"
 
 #. Developer-mode action that copies a community snowflake/ID to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:728
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:732
 msgid "Copy community ID"
 msgstr "העתקת מזהה קהילה"
 
@@ -9406,17 +9399,17 @@ msgid "Copy endpoint"
 msgstr "העתקת נקודת קצה"
 
 #. Media context menu action that copies the URL of the file attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:85
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:86
 msgid "Copy file link"
 msgstr "העתקת קישור לקובץ"
 
 #. Media context menu action that copies a GIF attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:53
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:54
 msgid "Copy GIF"
 msgstr "העתקת GIF"
 
 #. Media context menu action that copies the URL of the GIF attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:73
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:74
 msgid "Copy GIF link"
 msgstr "העתקת קישור ל-GIF"
 
@@ -9441,7 +9434,7 @@ msgid "Copy identifier"
 msgstr "העתקת מזהה"
 
 #. Media context menu action that copies an image attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:49
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:50
 msgid "Copy image"
 msgstr "העתקת תמונה"
 
@@ -9449,7 +9442,7 @@ msgstr "העתקת תמונה"
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
 #: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:44
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:69
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:70
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:44
 msgid "Copy image link"
 msgstr "העתקת קישור לתמונה"
@@ -9477,7 +9470,7 @@ msgid "Copy invite URL"
 msgstr "העתקת כתובת ה-URL של ההזמנה"
 
 #. Generic action label that copies a URL to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:740
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:744
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:330
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:145
 msgid "Copy link"
@@ -9494,7 +9487,7 @@ msgid "Copy link to section"
 msgstr "העתקת קישור למקטע"
 
 #. Generic media context menu action label when the specific type is unknown.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:65
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:66
 msgid "Copy media"
 msgstr "העתקת מדיה"
 
@@ -9510,7 +9503,7 @@ msgstr "העתקת הודעה"
 
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:732
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:736
 #: src/features/input/state/input_keybind/shared.ts:277
 msgid "Copy message ID"
 msgstr "העתקת מזהה הודעה"
@@ -9585,13 +9578,13 @@ msgid "Copy the setup key into your authenticator app."
 msgstr "העתק את מפתח ההגדרה לאפליקציית האימות שלך."
 
 #. Developer-mode action that copies a user snowflake/ID to the clipboard.
-#: src/features/app/components/floating/UserAreaPopout.tsx:692
+#: src/features/app/components/floating/UserAreaPopout.tsx:694
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:172
 msgid "Copy user ID"
 msgstr "העתקת מזהה משתמש"
 
 #. Action that copies a user username (handle) to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:736
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:740
 msgid "Copy username"
 msgstr "העתקת שם משתמש"
 
@@ -9601,16 +9594,16 @@ msgid "Copy value"
 msgstr "העתקת הערך"
 
 #. Media context menu action that copies a video attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:57
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:58
 msgid "Copy video"
 msgstr "העתקת סרטון"
 
 #. Media context menu action that copies the URL of the video attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:77
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:78
 msgid "Copy video link"
 msgstr "העתקת קישור לסרטון"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:720
+#: src/features/app/components/floating/UserAreaPopout.tsx:722
 msgid "Copy voice diagnostics"
 msgstr "העתקת נתוני אבחון קול"
 
@@ -9625,7 +9618,7 @@ msgid "Copy webhook URL"
 msgstr "העתקת כתובת ה-URL של ה-webhook"
 
 #. Progress toast shown while encoding and copying an image to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:153
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:154
 msgid "Copying image..."
 msgstr "מעתיק תמונה..."
 
@@ -9784,7 +9777,7 @@ msgid "Couldn't crop image"
 msgstr "לא ניתן לחתוך את התמונה"
 
 #. Title of the error modal shown when deleting a developer application fails.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:54
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:57
 msgid "Couldn't delete application"
 msgstr "לא ניתן היה למחוק את האפליקציה"
 
@@ -9895,7 +9888,7 @@ msgstr "לא ניתן לטעון קהילות"
 msgid "Couldn't load invites"
 msgstr "לא ניתן לטעון הזמנות"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:574
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:577
 msgid "Couldn't load this application"
 msgstr "לא ניתן לטעון את האפליקציה הזו"
 
@@ -9953,7 +9946,7 @@ msgid "Couldn't refund this purchase"
 msgstr "לא ניתן להחזיר את הרכישה הזו"
 
 #. Title of the error modal shown when regenerating a client secret or bot token fails.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:66
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:69
 msgid "Couldn't regenerate secret"
 msgstr "לא ניתן היה ליצור מחדש את הסוד"
 
@@ -10033,7 +10026,7 @@ msgid "Couldn't send invite"
 msgstr "לא ניתן היה לשלוח הזמנה"
 
 #. Toast shown when sending an invite (group DM or community) fails.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:704
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:708
 msgid "Couldn't send invite. Try again."
 msgstr "לא ניתן לשלוח הזמנה. יש לנסות שוב."
 
@@ -10192,7 +10185,7 @@ msgid "Country"
 msgstr "מדינה"
 
 #. Field label on the details step of the DSA report form. The country where the reporter resides, used for the legal declaration.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:62
+#: src/features/moderation/components/report/ReportStepDetails.tsx:61
 msgid "Country of residence"
 msgstr "מדינת מגורים"
 
@@ -10235,7 +10228,7 @@ msgid "Create a new group with {userName}"
 msgstr "צור קבוצה חדשה עם {userName}"
 
 #. Generic authentication action label for starting or submitting account creation.
-#: src/features/auth/components/pages/RegisterPage.tsx:46
+#: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
 #: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
@@ -10620,11 +10613,6 @@ msgstr "משך חסימה מותאם אישית (שניות)"
 msgid "Custom date range"
 msgstr "טווח תאריכים מותאם אישית"
 
-#. Error message in the FluxerTag change modal.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:65
-msgid "Custom discriminators are not available on this instance"
-msgstr "מזהים מותאמים אישית אינם זמינים במופע זה"
-
 #. Accessible label for a custom emoji in the message composer. Preserve {emojiName} and {communityName}.
 #: src/features/lexical/composer/nodes/ComposerCustomEmoji.tsx:21
 msgid "Custom emoji {emojiName} from {communityName}"
@@ -10797,7 +10785,7 @@ msgid "Custom warning text"
 msgstr "טקסט אזהרה מותאם אישית"
 
 #. Last "Custom…" option in dropdown menus that opens a custom-value picker.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:768
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:772
 msgid "Custom…"
 msgstr "מותאם אישית…"
 
@@ -10837,15 +10825,6 @@ msgstr "התאמה אישית של הכפתורים והמחוונים שמופ�
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:49
 msgid "Customize your profile banner"
 msgstr "התאמה אישית של באנר הפרופיל שלך"
-
-#. Description text in the username section. Preserve {discriminatorLabel}, {premiumProductName}; they are inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:29
-msgid "Customize your tag ({discriminatorLabel}) to your liking with {premiumProductName}"
-msgstr "התאם אישית את התגית שלך ({discriminatorLabel}) לטעמך עם {premiumProductName}"
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:386
-msgid "Customize your tag or keep it when changing your username"
-msgstr "התאם אישית את התגית שלך או השאר אותה בעת שינוי שם המשתמש שלך"
 
 #. Label in the accent color picker. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/my_profile_tab/AccentColorPicker.tsx:16
@@ -10903,7 +10882,7 @@ msgstr "לחצן סכנה נלחץ."
 #. Short label in the account security tab. Keep it concise. Keep the tone plain and specific.
 #: src/features/theme_studio/sections/ThemeStudioSettingsSection.tsx:357
 #: src/features/user/components/modals/tabs/account_security_tab/AccountSecuritySections.tsx:39
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:698
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:701
 msgid "Danger zone"
 msgstr "אזור מסוכן"
 
@@ -10990,10 +10969,8 @@ msgstr "תאריך"
 msgid "Date and time"
 msgstr "תאריך ושעה"
 
-#. Short label in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
 #. Short label in the authentication date of birth field. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:27
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:39
 #: src/features/auth/flow/DateOfBirthField.tsx:16
 #: src/features/auth/flow/DateOfBirthField.tsx:98
@@ -11259,8 +11236,8 @@ msgstr "דלאוור"
 #. Tooltip for the custom emoji delete button.
 #: src/features/channel/components/embeds/media/EmbedAudio.tsx:29
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:23
-#: src/features/channel/components/MobileMemesPicker.tsx:88
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:39
+#: src/features/channel/components/MobileMemesPicker.tsx:89
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:40
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
@@ -11289,8 +11266,8 @@ msgstr "למחוק את :{emojiName}:? לא ניתן לבטל פעולה זו."
 
 #. Body of the destructive delete confirmation alert in the saved media picker. memeName is the user-chosen name. Keep quotation marks.
 #. Error message in the channel and chat mobile memes picker. Preserve {memeName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/channel/components/MobileMemesPicker.tsx:83
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:34
+#: src/features/channel/components/MobileMemesPicker.tsx:84
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:35
 msgid "Delete \"{memeName}\"? Can't be undone."
 msgstr "למחוק את \"{memeName}\"? לא ניתן לבטל פעולה זו."
 
@@ -11336,13 +11313,13 @@ msgid "Delete all messages"
 msgstr "מחיקת כל ההודעות"
 
 #. Button or menu action label in the application detail. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:50
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:721
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:53
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:724
 msgid "Delete application"
 msgstr "מחיקת אפליקציה"
 
 #. Generic action label that removes an attachment from the upload tray / message.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:748
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:752
 msgid "Delete attachment"
 msgstr "מחיקת קובץ מצורף"
 
@@ -11400,7 +11377,7 @@ msgid "Delete invite"
 msgstr "מחיקת הזמנה"
 
 #. Accessible label for the delete button on a saved media tile in the picker.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:56
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:57
 msgid "Delete media"
 msgstr "מחיקת מדיה"
 
@@ -11467,8 +11444,8 @@ msgstr "מחיקת תפקיד"
 
 #. Accessible label and tooltip for the delete button on a saved media tile in the mobile memes picker.
 #. Title of the destructive delete confirmation alert in the saved media (memes) picker.
-#: src/features/channel/components/MobileMemesPicker.tsx:79
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:30
+#: src/features/channel/components/MobileMemesPicker.tsx:80
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:31
 msgid "Delete saved media"
 msgstr "מחיקת מדיה שמורה"
 
@@ -11642,7 +11619,7 @@ msgid "Describe this media for screen readers"
 msgstr "תאר את המדיה הזו עבור קוראי מסך"
 
 #. Placeholder in the Additional comments textarea on the DSA report form. Prompts the reporter to explain why the content is illegal.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:77
+#: src/features/moderation/components/report/ReportStepDetails.tsx:76
 msgid "Describe what makes the content illegal"
 msgstr "תאר מה הופך את התוכן לבלתי חוקי"
 
@@ -11850,13 +11827,13 @@ msgstr "מצב מפתח"
 #. Short label in the channel and chat utility buttons. Keep it concise.
 #. Title of the info alert shown when clicking an internal developer-tools deep link.
 #: src/features/channel/components/channel_header_components/UtilityButtons.tsx:20
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:129
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:130
 #: src/features/ui/action_menu/items/StaffDeveloperUserControlsMenuItem.tsx:13
 msgid "Developer tools"
 msgstr "כלי מפתחים"
 
 #. Body of the developer-tools info alert. Refers to the staff badge button in the channel header.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:133
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:134
 msgid "Developer tools are available from the staff badge in the channel header."
 msgstr "כלי מפתחים זמינים דרך תג הצוות בכותרת הערוץ."
 
@@ -11932,19 +11909,19 @@ msgstr "מילונים"
 msgid "Dictionary"
 msgstr "מילון"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:392
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:391
 msgid "Different sizes"
 msgstr "גדלים שונים"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:203
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:202
 msgid "Different sizes (online)"
 msgstr "גדלים שונים (מחובר)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:120
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:119
 msgid "Different sizes (status supported)"
 msgstr "גדלים שונים (סטטוס נתמך)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:287
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:286
 msgid "Different sizes & member counts"
 msgstr "גדלים שונים ומספר חברים שונה"
 
@@ -12251,7 +12228,7 @@ msgid "Disconnected"
 msgstr "מנותק"
 
 #. Label for a community that anyone can find through discovery. Used in the community badge and as the community subtitle in expression info cards. Keep it concise.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:679
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:683
 msgid "Discoverable community"
 msgstr "קהילה ניתנת לגילוי"
 
@@ -12298,11 +12275,6 @@ msgstr "תוצאות גילוי"
 #: src/features/discovery/discovery/DiscoveryNavbar.tsx:33
 msgid "Discovery search"
 msgstr "חיפוש בגילוי"
-
-#. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:52
-msgid "Discriminator"
-msgstr "מזהה"
 
 #. Generic button label that dismisses a banner, modal, sheet, or prompt without taking the primary action.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:310
@@ -12376,9 +12348,7 @@ msgstr "מצב תצוגה"
 msgid "Display name"
 msgstr "שם לתצוגה"
 
-#. Short label in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:31
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:51
 #: src/features/auth/flow/MockMinimalRegisterForm.tsx:91
 msgid "Display name (optional)"
@@ -12549,7 +12519,7 @@ msgstr "לא חוסם. אפשר לפתוח שוב מאוחר יותר."
 
 #. Generic form-field / table-column label for an internet domain.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:772
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:776
 #: src/features/user/components/settings_utils/search_index/LinkedAccountsIndex.ts:28
 msgid "Domain"
 msgstr "דומיין"
@@ -12571,7 +12541,7 @@ msgstr "אל תנקה"
 msgid "Don't delete any"
 msgstr "אל תמחק כלום"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:106
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:149
 msgid "Don't have an account?"
 msgstr "אין לך חשבון?"
 
@@ -12652,7 +12622,7 @@ msgid "Download <0>fluxer-verification</0> and place it in your <1>.well-known</
 msgstr "הורד את <0>fluxer-verification</0> והנח אותו בתיקיית <1>.well-known</1> כדי שנוכל לאמת את הדומיין."
 
 #. Media context menu action that downloads an audio attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:121
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:122
 msgid "Download audio"
 msgstr "הורד את האודיו"
 
@@ -12687,7 +12657,7 @@ msgid "Download desktop update {version} ({formatBytes})"
 msgstr "הורד עדכון למחשב {version} ({formatBytes})"
 
 #. Media context menu action that downloads a file attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:125
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:126
 msgid "Download file"
 msgstr "הורד את הקובץ"
 
@@ -12696,12 +12666,12 @@ msgid "Download fluxer-verification"
 msgstr "הורד את fluxer-verification"
 
 #. Media context menu action that downloads a GIF attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:113
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:114
 msgid "Download GIF"
 msgstr "הורד את ה-GIF"
 
 #. Image context menu action that downloads the image to disk.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:109
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:110
 msgid "Download image"
 msgstr "הורד את התמונה"
 
@@ -12715,7 +12685,7 @@ msgstr "הורדת קובץ ההתקנה"
 #. Tooltip on the download button in the media viewer modal.
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:28
 #: src/features/messaging/components/modals/media_modal/shared.ts:73
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:129
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:130
 msgid "Download media"
 msgstr "הורדת מדיה"
 
@@ -12725,7 +12695,7 @@ msgid "Download package"
 msgstr "הורדת חבילה"
 
 #. Media context menu action that downloads a video attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:117
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:118
 msgid "Download video"
 msgstr "הורד את הסרטון"
 
@@ -12964,7 +12934,7 @@ msgstr "עריכת גישה עבור {0}"
 #. Accessible label in the edit alt text modal. Keep it concise.
 #. Action that opens the modal for editing an image or video accessibility description.
 #: src/features/messaging/components/modals/EditAltTextModal.tsx:32
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:165
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:166
 msgid "Edit alt text"
 msgstr "עריכת טקסט אלטרנטיבי"
 
@@ -13054,13 +13024,13 @@ msgid "Edit keyboard shortcut"
 msgstr "עריכת קיצור מקלדת"
 
 #. Tooltip on the edit button on a saved media tile in the picker.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:48
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:49
 msgid "Edit media"
 msgstr "עריכת מדיה"
 
 #. Generic action label that opens the message edit composer.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:708
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:712
 #: src/features/input/state/input_keybind/shared.ts:9
 msgid "Edit message"
 msgstr "עריכת הודעה"
@@ -13082,10 +13052,10 @@ msgstr "עריכה או מחיקה של אימוג'י ומדבקות שנוצר�
 msgid "Edit overwrites for roles and members in this channel."
 msgstr "ערוך עקיפות הרשאות עבור תפקידים וחברים בערוץ זה."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:743
+#: src/features/app/components/floating/UserAreaPopout.tsx:745
 #: src/features/app/components/pages/YouPage.tsx:157
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:682
-#: src/features/user/components/modals/UserProfileModal.tsx:587
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
+#: src/features/user/components/modals/UserProfileModal.tsx:586
 #: src/features/user/components/popouts/UserProfilePopout.tsx:432
 msgid "Edit profile"
 msgstr "עריכת פרופיל"
@@ -13103,8 +13073,8 @@ msgstr "עריכת מנוע חיפוש תמונה הפוך"
 #. Accessible label for the edit button on a saved media tile in the picker.
 #. Action that opens the editor for a saved media (favorite meme) entry.
 #. Button or menu action label in the channel and chat mobile memes picker. Keep it concise.
-#: src/features/channel/components/MobileMemesPicker.tsx:93
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:52
+#: src/features/channel/components/MobileMemesPicker.tsx:94
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:53
 #: src/features/expressions/components/modals/EditFavoriteMemeModal.tsx:18
 msgid "Edit saved media"
 msgstr "עריכת מדיה שמורה"
@@ -13190,6 +13160,11 @@ msgstr "זכאי להחזר כספי עד {windowEndsOn}. פעולה זו גם �
 msgid "Email"
 msgstr "אימייל"
 
+#. Label of the optional email field on the sign-up form.
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:63
+msgid "Email (optional)"
+msgstr "Email (optional)"
+
 #. Label for the current account email shown in the required-action modal.
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the moderation report step email. Keep it concise. Keep the tone plain and specific.
@@ -13212,7 +13187,7 @@ msgid "Email changed"
 msgstr "האימייל שונה"
 
 #. Setup wizard title for SMTP integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:954
+#: src/features/app/components/setup/SetupWizardSteps.tsx:948
 msgid "Email delivery"
 msgstr "משלוח אימייל"
 
@@ -13517,7 +13492,7 @@ msgid "Enable beta feature"
 msgstr "הפעלת תכונת בטא"
 
 #. Label for enabling Bluesky OAuth in setup.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1014
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1008
 msgid "Enable Bluesky OAuth"
 msgstr "אפשר OAuth של Bluesky"
 
@@ -13550,7 +13525,7 @@ msgid "Enable developer mode"
 msgstr "הפעל מצב מפתחים"
 
 #. Label for enabling SMTP email delivery in setup.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:982
+#: src/features/app/components/setup/SetupWizardSteps.tsx:976
 msgid "Enable email delivery"
 msgstr "אפשר שליחת אימייל"
 
@@ -13617,7 +13592,7 @@ msgstr "הפעלת התראות דחיפה בנייד"
 
 #. Generic action label / toggle that turns on push or desktop notifications.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:780
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:784
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:127
 msgid "Enable notifications"
 msgstr "הפעלת התראות"
@@ -13832,7 +13807,7 @@ msgid "English (US)"
 msgstr "אנגלית (ארצות הברית)"
 
 #. Generic radio / dropdown option label for an "enhanced" tier.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:784
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:788
 msgid "Enhanced"
 msgstr "משופר"
 
@@ -13907,11 +13882,6 @@ msgstr "יש להזין מספר טלפון נייד חוקי."
 #: src/features/user/components/modals/PhoneAddModal.tsx:46
 msgid "Enter a valid phone number"
 msgstr "יש להזין מספר טלפון חוקי"
-
-#. Description text in the channel and chat add friend form. Preserve {exampleFluxerTagFull}; it is inserted by code.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:32
-msgid "Enter a valid username ({exampleFluxerTagFull})."
-msgstr "הזן שם משתמש חוקי ({exampleFluxerTagFull})."
 
 #. Required-action modal body for entering a replacement email address.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:371
@@ -14061,10 +14031,6 @@ msgstr "הזן שם משתמש"
 #: src/features/moderation/components/report/ReportStepVerification.tsx:48
 msgid "Enter verification code"
 msgstr "הזן קוד אימות"
-
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:74
-msgid "Enter your email address and we'll send you a link to reset your password."
-msgstr "הזן את כתובת האימייל שלך ונשלח לך קישור לאיפוס הסיסמה."
 
 #. Short label in the inputs tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:26
@@ -14220,6 +14186,11 @@ msgstr "ערב"
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "מאזן את עוצמת המיקרופון שלך כדי שלא תישמע שקט מדי."
+
+#. Help text under the bot username field. -BOT is literal and must stay in capitals.
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:53
+msgid "Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it."
+msgstr "Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it."
 
 #. Short label in the text to speech. Keep it concise.
 #: src/features/user/components/modals/tabs/notifications_tab/TextToSpeech.tsx:17
@@ -14507,7 +14478,7 @@ msgid "Expression autocomplete"
 msgstr "השלמה אוטומטית של ביטויים"
 
 #. Aria label for the expression picker category nav.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:752
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:756
 msgid "Expression picker categories"
 msgstr "קטגוריות בורר הביטויים"
 
@@ -14594,7 +14565,7 @@ msgstr "העתקת קישור ההזמנה נכשלה"
 
 #. Error toast shown when copying to the clipboard fails.
 #. Toast shown after copying text to the clipboard fails.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:149
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:150
 #: src/features/ui/commands/TextCopyCommands.ts:15
 msgid "Failed to copy to clipboard"
 msgstr "ההעתקה ללוח נכשלה"
@@ -14997,7 +14968,7 @@ msgstr "התכונה מושבתת זמנית"
 msgid "Features"
 msgstr "תכונות"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:231
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:230
 msgid "Fetch a URL and inspect the embed payload the chat renderer receives."
 msgstr "יש לאחזר כתובת URL ולבדוק את מטען ההטמעה שרכיב התצוגה של הצ'אט מקבל."
 
@@ -15221,7 +15192,7 @@ msgid "Finnish"
 msgstr "פינית"
 
 #. Placeholder in the Full legal name input on the DSA report form.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:58
+#: src/features/moderation/components/report/ReportStepDetails.tsx:57
 msgid "First and last name"
 msgstr "שם פרטי ושם משפחה"
 
@@ -15537,12 +15508,12 @@ msgid "Forgetting authorized IPs..."
 msgstr "מוחק כתובות IP מורשות..."
 
 #. Short label in the authentication forgot password page. Keep the tone plain and specific.
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:20
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:25
 msgid "Forgot password"
 msgstr "שכחתי סיסמה"
 
 #. Authentication link label that opens password recovery.
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:71
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:88
 #: src/features/auth/flow/AuthLoginLayout.tsx:63
 msgid "Forgot your password?"
 msgstr "שכחת את הסיסמה?"
@@ -15562,7 +15533,7 @@ msgid "Forward"
 msgstr "העברה"
 
 #. Tooltip / aria label on the forward / fast-forward button in the standalone audio player. {defaultSeekAmount} is an integer second count.
-#: src/features/voice/components/media_player/components/AudioPlayer.tsx:31
+#: src/features/voice/components/media_player/components/AudioPlayer.tsx:32
 msgid "Forward {defaultSeekAmount} seconds"
 msgstr "קדימה ב-{defaultSeekAmount} שניות"
 
@@ -15688,18 +15659,18 @@ msgid "Friend requests"
 msgstr "בקשות חברות"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:84
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:86
 msgid "Friend requests to this bot need manual approval."
 msgstr "בקשות חברות לבוט זה דורשות אישור ידני."
 
 #. Short label in the channel and chat add friend form. Keep it concise.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:41
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:36
 msgid "Friend's username"
 msgstr "שם המשתמש של החבר"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:72
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:74
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:84
 msgid "Friendly bot"
 msgstr "בוט ידידותי"
@@ -15771,8 +15742,8 @@ msgstr "שיחות מחברים בלבד"
 msgid "From"
 msgstr "מאת"
 
-#. Attribution label on a gift, showing the sender FluxerTag.
-#. Sender label on a gift code embed. creatorTag is the FluxerTag of the gift creator.
+#. Attribution label on a gift, showing the sender username.
+#. Sender label on a gift code embed. creatorTag is the username of the gift creator.
 #: src/features/channel/components/GiftEmbed.tsx:28
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:32
 msgid "From {creatorTag}"
@@ -15789,12 +15760,12 @@ msgid "from <0>{0}</0>"
 msgstr "מ-<0>{0}</0>"
 
 #. Label for SMTP from email input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:986
+#: src/features/app/components/setup/SetupWizardSteps.tsx:980
 msgid "From email"
 msgstr "כתובת אימייל של השולח"
 
 #. Label for SMTP from name input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:990
+#: src/features/app/components/setup/SetupWizardSteps.tsx:984
 msgid "From name"
 msgstr "שם השולח"
 
@@ -15814,7 +15785,7 @@ msgid "Full dynamic range"
 msgstr "טווח דינמי מלא"
 
 #. Field label on the details step of the DSA report form. Required legal name of the reporter for the formal declaration. Sensitive PII; keep tone neutral.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:53
+#: src/features/moderation/components/report/ReportStepDetails.tsx:52
 msgid "Full legal name"
 msgstr "שם מלא רשמי"
 
@@ -16001,7 +15972,7 @@ msgid "Germany"
 msgstr "גרמניה"
 
 #. Generic upsell CTA button to start the Plutonium purchase flow. Preserve {premiumProductName}.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:796
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:800
 msgid "Get {premiumProductName}"
 msgstr "קבל את {premiumProductName}"
 
@@ -16009,16 +15980,6 @@ msgstr "קבל את {premiumProductName}"
 #: src/features/premium/utils/PremiumMessageDescriptors.ts:48
 msgid "Get {premiumProductName} for yourself and unlock higher limits and exclusive features."
 msgstr "קבל את {premiumProductName} לעצמך ותיהנה ממגבלות גבוהות יותר ומתכונות בלעדיות."
-
-#. Label in the username section. Preserve {premiumProductName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:34
-msgid "Get {premiumProductName} to customize your tag"
-msgstr "קבל את {premiumProductName} כדי להתאים אישית את התג שלך"
-
-#. Description text in the FluxerTag change modal. Preserve {premiumProductName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:56
-msgid "Get {premiumProductName} to customize your tag or keep it when changing your username"
-msgstr "קבל את {premiumProductName} כדי להתאים אישית את התג שלך או לשמור אותו בעת שינוי שם המשתמש"
 
 #. Button in the required-action modal. Requests a new inbound SMS challenge code.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:202
@@ -16074,12 +16035,12 @@ msgid "GIF picker loading"
 msgstr "טוען בורר GIF"
 
 #. Accessible label for an animated GIF shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:85
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:86
 msgid "GIF preview"
 msgstr "תצוגה מקדימה של GIF"
 
 #. Setup wizard title for GIF integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:930
+#: src/features/app/components/setup/SetupWizardSteps.tsx:924
 msgid "GIF search"
 msgstr "חיפוש GIF"
 
@@ -16101,7 +16062,7 @@ msgstr "לא ניתן היה לטעון קובצי GIF"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subscription status badge meaning premium access came from a gift.
 #: src/features/app/components/dialogs/components/plutonium/SubscriptionCard.tsx:443
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:294
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:293
 #: src/features/user/components/settings_utils/search_index/PlutoniumIndex.ts:79
 msgid "Gift"
 msgstr "מתנה"
@@ -16527,11 +16488,11 @@ msgstr "צ'אט קבוצתי"
 msgid "Group DM"
 msgstr "צ'אט קבוצתי"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:277
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:276
 msgid "Group DM avatars"
 msgstr "תמונות פרופיל של צ'אטים קבוצתיים"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:279
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:278
 msgid "Group DM avatars using the same status masks as regular avatars, including stacked layouts and typing states."
 msgstr "תמונות הפרופיל של צ'אטים קבוצתיים משתמשות באותן מסכות סטטוס כמו תמונות פרופיל רגילות, כולל פריסות מוערמות ומצבי הקלדה."
 
@@ -16576,7 +16537,7 @@ msgstr "שם הקבוצה"
 msgid "Group name must not exceed 100 characters"
 msgstr "שם הקבוצה לא יכול לעלות על 100 תווים"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:318
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:317
 msgid "Group online status"
 msgstr "סטטוס נוכחות של קבוצה"
 
@@ -16602,7 +16563,7 @@ msgstr "פרטיות קבוצתית"
 msgid "Group settings"
 msgstr "הגדרות קבוצה"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:351
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:350
 msgid "Group typing states"
 msgstr "מצבי הקלדה של קבוצה"
 
@@ -16749,7 +16710,7 @@ msgid "Hawaii"
 msgstr "הוואי"
 
 #. hCaptcha provider option.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:974
+#: src/features/app/components/setup/SetupWizardSteps.tsx:968
 msgid "hCaptcha"
 msgstr "hCaptcha"
 
@@ -16949,7 +16910,7 @@ msgid "Hide expiration footnotes"
 msgstr "הסתר הערות תפוגה"
 
 #. Toggle / action label that collapses or hides the favorites section.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:696
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "הסתרת מועדפים"
 
@@ -17179,7 +17140,7 @@ msgstr "רחף מעליי"
 msgid "Hover over buttons to see tooltips in different positions."
 msgstr "רחף מעל הכפתורים כדי לראות תיאורי כלים במיקומים שונים."
 
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:386
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:334
 msgid "How about:"
 msgstr "מה דעתך על:"
 
@@ -17318,7 +17279,7 @@ msgstr "זהות"
 
 #. Generic presence-status label indicating the user is idle / AFK.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:639
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:643
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:46
 msgid "Idle"
 msgstr "לא פעיל"
@@ -17395,14 +17356,6 @@ msgstr "אם תסגור את ההודעה הזו, תמיד תוכל להפעיל
 #: src/features/voice/components/dialogs/DisablePiPConfirmModal.tsx:56
 msgid "If you don't save this preference, we'll only hide the popout for this session. You can change this any time in {audioVideoSettingsPath}."
 msgstr "אם לא תשמור את ההעדפה הזו, נסתיר את החלון הקופץ רק עבור הסשן הנוכחי. תוכל לשנות זאת בכל עת ב{audioVideoSettingsPath}."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:354
-msgid "If you save this username, your tag will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires on <0>{premiumExpiresAtLabel}</0>, unless it renews."
-msgstr "אם תשמור את שם המשתמש הזה, התג שלך יוגרל מחדש באופן אקראי כשהמנוי שלך ל-{PREMIUM_PRODUCT_NAME} יפוג ב-<0>{premiumExpiresAtLabel}</0>, אלא אם כן הוא יתחדש."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:361
-msgid "If you save this username, your tag will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires, unless it renews."
-msgstr "אם תשמור את שם המשתמש הזה, התג שלך יוגרל מחדש באופן אקראי כשהמנוי שלך ל-{PREMIUM_PRODUCT_NAME} יפוג, אלא אם כן הוא יתחדש."
 
 #: src/features/auth/components/modals/AccountDeleteModal.tsx:64
 msgid "If you want to export your data or delete your messages first, please visit {privacyDashboardPath} before proceeding."
@@ -17497,7 +17450,7 @@ msgstr "אילינוי"
 #. Type label for image media.
 #: src/features/channel/components/embeds/media/EmbedImage.tsx:47
 #: src/features/expressions/utils/FavoriteMemeUtils.ts:14
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:113
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:114
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:25
 msgid "Image"
 msgstr "תמונה"
@@ -17508,7 +17461,7 @@ msgid "Image assets"
 msgstr "נכסי תמונה"
 
 #. Success toast confirming that an image was copied as a bitmap to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:157
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:158
 msgid "Image copied to clipboard"
 msgstr "התמונה הועתקה ללוח הגזירים"
 
@@ -17542,7 +17495,7 @@ msgid "Image options"
 msgstr "אפשרויות תמונה"
 
 #. Accessible label for a static image shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:81
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:82
 msgid "Image preview"
 msgstr "תצוגה מקדימה של תמונה"
 
@@ -17569,7 +17522,7 @@ msgstr "העלאת תמונה"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the mobile memes picker. Filters to saved images.
-#: src/features/channel/components/MobileMemesPicker.tsx:46
+#: src/features/channel/components/MobileMemesPicker.tsx:47
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:16
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:105
 msgid "Images"
@@ -17713,7 +17666,7 @@ msgstr "במצב \"מערכת הפעלה\", המילונים המפורטים ל
 msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
 msgstr "בדפדפן, דיבור בלחיצה (push-to-talk) פועל רק כשהכרטיסייה של {PRODUCT_NAME} ממוקדת. התקן את אפליקציית המחשב כדי להשתמש בדיבור בלחיצה בכל המערכת."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:721
+#: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "בשיחה"
 
@@ -18250,7 +18203,7 @@ msgid "Invite background"
 msgstr "רקע להזמנה"
 
 #. Field label on the details step of the DSA report form (community report). Optional invite code to the reported community.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:48
+#: src/features/moderation/components/report/ReportStepDetails.tsx:47
 msgid "Invite code (optional)"
 msgstr "קוד הזמנה (אופציונלי)"
 
@@ -18294,7 +18247,7 @@ msgid "Invite link is hidden while sharing:"
 msgstr "קישור ההזמנה מוסתר בזמן שיתוף:"
 
 #. Inline replacement text shown for invite links while streaming privacy is active.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:145
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:146
 msgid "Invite link masked while sharing"
 msgstr "קישור ההזמנה מוסתר בזמן שיתוף"
 
@@ -18406,7 +18359,7 @@ msgstr "מזמין:"
 #. Generic section / tab label for the invites list.
 #: src/features/channel/components/modals/channel_tabs/ChannelInvitesTab.tsx:191
 #: src/features/guild/components/modals/guild_tabs/GuildInvitesTab.tsx:53
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:684
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:688
 msgid "Invites"
 msgstr "הזמנות"
 
@@ -18595,7 +18548,7 @@ msgid "Join call"
 msgstr "הצטרף לשיחה"
 
 #. Generic action label that accepts a community invite / joins a community.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:675
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:679
 msgid "Join community"
 msgstr "הצטרפות לקהילה"
 
@@ -18707,7 +18660,7 @@ msgid "Jump to {displayName}"
 msgstr "קפוץ אל {displayName}"
 
 #. Accessible label for an inline channel mention link. labelText is the channel display name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:100
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:101
 msgid "Jump to {labelText}"
 msgstr "קפוץ אל {labelText}"
 
@@ -18764,12 +18717,12 @@ msgid "Jump to the current call"
 msgstr "קפיצה לשיחה הנוכחית"
 
 #. Fallback accessible label for an inline channel mention when the target name is not known.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:104
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:105
 msgid "Jump to the linked channel"
 msgstr "קפוץ לערוץ המקושר"
 
 #. Fallback accessible label for an inline message link when the target channel is not known.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:96
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:97
 msgid "Jump to the linked message"
 msgstr "קפוץ להודעה המקושרת"
 
@@ -18779,7 +18732,7 @@ msgid "Jump to the message from {authorNickname}"
 msgstr "קפוץ להודעה של {authorNickname}"
 
 #. Accessible label for an inline message link that jumps to a specific message in a channel. labelText is the channel display name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:91
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:92
 msgid "Jump to the message in {labelText}"
 msgstr "קפוץ להודעה ב-{labelText}"
 
@@ -18941,7 +18894,7 @@ msgid "Kick a member from this community."
 msgstr "להוציא משתמש מהקהילה הזו."
 
 #. Moderation action label that removes a member from a community without banning.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:671
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:675
 msgid "Kick member"
 msgstr "הוצאת חבר"
 
@@ -19108,18 +19061,13 @@ msgstr "לצאת מ-{count, plural, one {# קהילה} other {# קהילות}} �
 msgid "Leave and set aside"
 msgstr "צא ודחה את הבדיקה"
 
-#. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:63
-msgid "Leave blank for a random username"
-msgstr "השאר ריק כדי לקבל שם משתמש אקראי"
-
 #. Destructive button in the mobile direct-call lobby bottom sheet. Disconnects from the call.
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:92
 msgid "Leave call"
 msgstr "יציאה מהשיחה"
 
 #. Destructive action label that removes the current user from a community.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:667
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:671
 msgid "Leave community"
 msgstr "יציאה מהקהילה"
 
@@ -19265,7 +19213,7 @@ msgstr "מתן אפשרות לחבר לשמוע שוב אחרים בקהילה �
 msgid "Lets custom CSS reveal transparent window regions after restarting the desktop app."
 msgstr "מאפשר ל-CSS מותאם אישית לחשוף אזורים שקופים בחלון לאחר הפעלה מחדש של אפליקציית המחשב."
 
-#: src/features/ui/components/form/UsernameValidationRules.tsx:47
+#: src/features/ui/components/form/UsernameValidationRules.tsx:50
 msgid "Letters (a-z, A-Z), numbers (0-9), and underscores (_) only"
 msgstr "אותיות (a-z, A-Z), מספרים (0-9) וקווים תחתונים (_) בלבד"
 
@@ -19427,7 +19375,7 @@ msgid "Link styling"
 msgstr "עיצוב קישורים"
 
 #. Title of the alert shown when clicking an internal link that is not available to the current account.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:137
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:138
 msgid "Link unavailable"
 msgstr "הקישור אינו זמין"
 
@@ -19580,7 +19528,7 @@ msgid "Loading theme..."
 msgstr "טוען ערכת נושא..."
 
 #. Generic loading toast or label shown while an operation is in progress.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:141
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:142
 msgid "Loading..."
 msgstr "טוען..."
 
@@ -19648,7 +19596,7 @@ msgid "Logo"
 msgstr "לוגו"
 
 #. Label for Bluesky OAuth logo URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1026
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1020
 msgid "Logo URL"
 msgstr "כתובת URL של הלוגו"
 
@@ -19809,7 +19757,7 @@ msgstr "תוכנות זדוניות, גניבת פרטי כניסה או קבצ�
 msgid "Manage"
 msgstr "נהל"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:396
+#: src/features/app/components/floating/UserAreaPopout.tsx:398
 #: src/features/auth/components/accounts/AccountSwitcherModal.tsx:78
 msgid "Manage accounts"
 msgstr "ניהול חשבונות"
@@ -19966,7 +19914,7 @@ msgstr "סמן כספוילר"
 
 #. Generic action label that flips a channel back to unread.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:663
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:667
 #: src/features/input/state/input_keybind/shared.ts:33
 msgid "Mark as unread"
 msgstr "סמן כלא נקרא"
@@ -20205,7 +20153,7 @@ msgstr "מספר השימושים המקסימלי"
 msgid "Max size: {BACKGROUND_MEDIA_MAX_SIZE_LABEL}."
 msgstr "גודל מקסימלי: {BACKGROUND_MEDIA_MAX_SIZE_LABEL}."
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:451
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:450
 msgid "Max visible count"
 msgstr "מספר מקסימלי של פריטים גלויים"
 
@@ -20241,8 +20189,8 @@ msgstr "עלול לגרום לבעיות תאימות עבור צופים. אנ�
 
 #. Short label in the max favorite memes modal.
 #: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:36
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:220
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:277
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:219
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:276
 msgid "Maybe later"
 msgstr "אולי אחר כך"
 
@@ -20318,7 +20266,7 @@ msgstr "הרצועה הבאה"
 #. Accessible label for the overflow menu button in the media viewer modal.
 #. Short label in the channel and chat media action bottom sheet. Keep it concise.
 #: src/features/channel/components/MediaActionBottomSheet.tsx:37
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:69
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:70
 msgid "Media options"
 msgstr "אפשרויות מדיה"
 
@@ -20328,7 +20276,7 @@ msgid "Media play/pause"
 msgstr "ניגון/השהיה"
 
 #. Generic accessible label for unknown media in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:97
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:98
 msgid "Media preview"
 msgstr "תצוגה מקדימה של המדיה"
 
@@ -20361,7 +20309,7 @@ msgstr "עצירת הניגון"
 msgid "Medium"
 msgstr "בינוני"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:150
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:149
 msgid "Medium size (default)"
 msgstr "גודל בינוני (ברירת מחדל)"
 
@@ -20519,7 +20467,7 @@ msgstr "לאזכר את {mention}?"
 msgid "Mention {roleLabel}?"
 msgstr "לאזכר את {roleLabel}?"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:145
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:144
 msgid "Mention badges"
 msgstr "תגי אזכור"
 
@@ -20561,7 +20509,7 @@ msgstr "לאזכר את התפקיד הזה?"
 #. Generic section / tab label for the mentions inbox.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:136
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:643
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:647
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:166
 msgid "Mentions"
 msgstr "אזכורים"
@@ -20623,9 +20571,9 @@ msgstr "הודעה"
 #: src/features/ui/action_menu/items/ActionsSubmenu.tsx:41
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:715
-#: src/features/user/components/modals/UserProfileModal.tsx:562
-#: src/features/user/components/modals/UserProfileModal.tsx:770
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
+#: src/features/user/components/modals/UserProfileModal.tsx:561
+#: src/features/user/components/modals/UserProfileModal.tsx:769
 #: src/features/user/components/popouts/UserProfilePopout.tsx:418
 #: src/features/user/components/popouts/UserProfilePopout.tsx:448
 #: src/features/user/components/profile/ProfilePreview.tsx:321
@@ -20714,7 +20662,7 @@ msgstr "מחיקת הודעות"
 msgid "Message display mode"
 msgstr "מצב תצוגת הודעות"
 
-#: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:264
+#: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:263
 msgid "Message display settings are only available on desktop."
 msgstr "הגדרות תצוגת ההודעות זמינות רק במחשב."
 
@@ -20783,12 +20731,12 @@ msgid "Message layout"
 msgstr "פריסת הודעות"
 
 #. Type chip suffix in tooltips for inline rendered message links. Lowercase because it follows the channel name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:81
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:82
 msgid "message link"
 msgstr "קישור להודעה"
 
 #. Field label on the details step of the DSA report form (message report). The reporter pastes a direct link to the offending message.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:23
+#: src/features/moderation/components/report/ReportStepDetails.tsx:22
 msgid "Message link"
 msgstr "קישור להודעה"
 
@@ -21102,7 +21050,7 @@ msgstr "שגיאות כתיב"
 msgid "Mobile device"
 msgstr "מכשיר נייד"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:95
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:94
 msgid "Mobile online status on avatars"
 msgstr "סטטוס מחובר בנייד על תמונות פרופיל"
 
@@ -21118,7 +21066,7 @@ msgstr "התראות פוש לנייד"
 msgid "Mobile push timeout"
 msgstr "זמן קצוב להתראות בנייד"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:198
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:197
 msgid "Mock avatars"
 msgstr "אווטרים לדוגמה"
 
@@ -21164,7 +21112,7 @@ msgstr "סיבת חסימת מדיה עם תוכן למבוגרים (מדומה)
 msgid "Mock UK geo"
 msgstr "הדמיית מיקום גאוגרפי בבריטניה"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:199
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:198
 msgid "Mock user avatars in various sizes and all status permutations."
 msgstr "אווטרים מדומים של משתמשים בגדלים שונים ובכל שילובי הסטטוסים."
 
@@ -21562,7 +21510,7 @@ msgid "Mute calls"
 msgstr "השתקת שיחות"
 
 #. Action label that mutes notifications for a channel category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:575
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:579
 msgid "Mute category"
 msgstr "השתקת קטגוריה"
 
@@ -21609,7 +21557,7 @@ msgid "Mute entrance sound"
 msgstr "השתקת צליל כניסה"
 
 #. Action label that mutes notifications for the favourites pseudo-guild.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:688
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:692
 msgid "Mute favorites"
 msgstr "השתקת מועדפים"
 
@@ -21738,7 +21686,7 @@ msgstr "חברים משותפים"
 msgid "Mutual friends ({count})"
 msgstr "חברים משותפים ({count})"
 
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:842
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:833
 msgid "Mutual friends ({mutualFriendsCount})"
 msgstr "חברים משותפים ({mutualFriendsCount})"
 
@@ -22029,7 +21977,7 @@ msgid "Nevada"
 msgstr "נבאדה"
 
 #. Generic short option label for "never" in time / frequency dropdowns.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:647
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:651
 msgid "Never"
 msgstr "אף פעם"
 
@@ -22187,6 +22135,10 @@ msgstr "הגדרות חדשות"
 msgid "New settings stay here for 30 days."
 msgstr "הגדרות חדשות יישארו כאן למשך 30 יום."
 
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:151
+msgid "New username"
+msgstr "New username"
+
 #. Invite page subtext shown during raid protection. Explains that account actions still work, but joining is paused.
 #: src/features/invite/utils/InviteMessageDescriptors.ts:41
 msgid "New users can't join right now. You can still create an account or sign in, then try this link again later."
@@ -22221,7 +22173,7 @@ msgstr "החדשים ביותר תחילה"
 #. Primary button in the required-action modal. Moves to the next carousel step.
 #: src/features/app/components/setup/SelfHostedSetupWizardGate.tsx:81
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:154
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:716
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:720
 msgid "Next"
 msgstr "הבא"
 
@@ -22272,7 +22224,7 @@ msgid "No {sendMessagesPermission} permission"
 msgstr "אין הרשאת {sendMessagesPermission}"
 
 #. Inline text shown inside a custom message link pill when the linked message cannot be accessed.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:125
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:126
 msgid "No access"
 msgstr "אין גישה"
 
@@ -22366,7 +22318,7 @@ msgid "No bookmarks"
 msgstr "אין סימניות"
 
 #. Empty-state text in the bot profile section. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:64
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:66
 msgid "No bot banner"
 msgstr "אין באנר לבוט"
 
@@ -22392,7 +22344,7 @@ msgid "No category"
 msgstr "ללא קטגוריה"
 
 #. Empty-state text in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:42
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:45
 msgid "No changes to save"
 msgstr "אין שינויים לשמירה"
 
@@ -22458,7 +22410,7 @@ msgstr "לא נמצאו תצוגות"
 msgid "No email address set"
 msgstr "לא הוגדרה כתובת אימייל"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:284
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:283
 msgid "No embeds returned"
 msgstr "לא הוחזרו הטמעות"
 
@@ -22602,6 +22554,11 @@ msgstr "לא זמינים שירותים אופציונליים במופע זה.
 msgid "No part of {query} could be applied. Fix the underlined value or add something to search for."
 msgstr "לא ניתן היה להשתמש באף חלק מ-{query}. תקן את הערך המסומן בקו תחתון או הוסף טקסט לחיפוש."
 
+#. Error on the forgot password page when the admin has not opened a password reset for the account. There is no email reset.
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:37
+msgid "No password reset is open for this account. Ask the admin to open one, then try again."
+msgstr "No password reset is open for this account. Ask the admin to open one, then try again."
+
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:189
 msgid "No password set"
 msgstr "לא הוגדרה סיסמה"
@@ -22652,7 +22609,7 @@ msgstr "אין תצוגה מקדימה עדיין"
 msgid "No push subscriptions registered yet."
 msgstr "עדיין לא נרשמו מינויים להתראות דחיפה."
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:79
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:77
 msgid "No reason provided"
 msgstr "לא צוינה סיבה"
 
@@ -22674,7 +22631,7 @@ msgstr "לא התקבל גוף תגובה"
 #. Empty-state text in the channel and chat memes picker view.
 #. Heading shown when the channel search query returned zero matches.
 #: src/features/channel/components/channel_search_results/ChannelSearchResultsShared.tsx:74
-#: src/features/channel/components/MobileMemesPicker.tsx:66
+#: src/features/channel/components/MobileMemesPicker.tsx:67
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:32
 msgid "No results"
 msgstr "אין תוצאות"
@@ -22703,7 +22660,7 @@ msgstr "אין עדיין תפקידים. הוסף תפקידים ב{rolesSettin
 
 #. Empty state title in the mobile memes picker when the user has saved nothing yet.
 #. Empty-state text in the channel and chat memes picker view.
-#: src/features/channel/components/MobileMemesPicker.tsx:58
+#: src/features/channel/components/MobileMemesPicker.tsx:59
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:24
 msgid "No saved media"
 msgstr "אין מדיה שמורה"
@@ -23012,7 +22969,7 @@ msgstr "לא אמת או שקר"
 #: src/features/messaging/utils/markdown/Plaintext.ts:72
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:19
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:79
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:897
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:888
 msgid "Note"
 msgstr "הערה"
 
@@ -23054,7 +23011,7 @@ msgstr "התראה"
 msgid "Notification area"
 msgstr "אזור התראות"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:146
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:145
 msgid "Notification badges showing unread mention counts in different sizes."
 msgstr "תגי התראות בגדלים שונים המציגים ספירת אזכורים שלא נקראו."
 
@@ -23087,7 +23044,7 @@ msgstr "עוצמת קול התראות"
 #. Generic section header / tab label for the notifications area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/components/layout/MobileBottomNav.tsx:136
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:700
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:704
 #: src/features/notification/components/pages/NotificationsPage.tsx:61
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedSettingsCategories.ts:18
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:30
@@ -23185,7 +23142,7 @@ msgid "Off"
 msgstr "כבוי"
 
 #. Generic presence-status label indicating the user is offline.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:635
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:639
 msgid "Offline"
 msgstr "לא מחובר"
 
@@ -23242,7 +23199,7 @@ msgstr "ב-<0>{listPriceEffectiveDate}</0> המנוי שלך יעבור מ-{list
 msgid "On click"
 msgstr "בלחיצה"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:704
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:707
 msgid "Once deleted, the application and its credentials are permanently removed."
 msgstr "לאחר המחיקה, האפליקציה ופרטי הגישה שלה יוסרו לצמיתות."
 
@@ -23436,7 +23393,7 @@ msgid "Open {displayName}"
 msgstr "פתח את {displayName}"
 
 #. Accessible label for an inline settings deep-link pill. labelText is the resolved settings tab and section breadcrumb.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:108
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:109
 msgid "Open {labelText} in settings"
 msgstr "פתח את {labelText} בהגדרות"
 
@@ -23477,14 +23434,14 @@ msgstr "פתח חלון של אפליקציה, ואז נסה שוב."
 #. Button or menu action label in the channel and chat attachment grid item. Keep it concise.
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:74
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:55
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:56
 msgid "Open animated GIF in full view"
 msgstr "פתח GIF מונפש בתצוגה מלאה"
 
 #. Button or menu action label in the channel and chat attachment grid item. Keep it concise.
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:70
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:51
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:52
 msgid "Open animated GIF video in full view"
 msgstr "פתח סרטון GIF מונפש בתצוגה מלאה"
 
@@ -23494,7 +23451,7 @@ msgid "Open audio in full view"
 msgstr "פתח אודיו בתצוגה מלאה"
 
 #. Media context menu action that opens the audio URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:101
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:102
 msgid "Open audio link"
 msgstr "פתח קישור שמע"
 
@@ -23647,12 +23604,12 @@ msgid "Open favorites menu"
 msgstr "פתיחת תפריט מועדפים"
 
 #. Media context menu action that opens the file URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:105
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:106
 msgid "Open file link"
 msgstr "פתח קישור לקובץ"
 
 #. Media context menu action that opens the GIF URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:93
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:94
 msgid "Open GIF link"
 msgstr "פתח קישור GIF"
 
@@ -23677,7 +23634,7 @@ msgstr "פתח תמונה בדפדפן"
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #. Button or menu action label in the channel and chat embed image. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:78
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:59
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:60
 #: src/features/channel/components/embeds/media/EmbedImage.tsx:43
 msgid "Open image in full view"
 msgstr "פתח תמונה בתצוגה מלאה"
@@ -23686,7 +23643,7 @@ msgstr "פתח תמונה בתצוגה מלאה"
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:48
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:89
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:90
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
 msgstr "פתח קישור לתמונה"
@@ -23863,7 +23820,7 @@ msgid "Open video in full view"
 msgstr "פתח סרטון בתצוגה מלאה"
 
 #. Media context menu action that opens the video URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:97
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:98
 msgid "Open video link"
 msgstr "פתח קישור וידאו"
 
@@ -24129,7 +24086,7 @@ msgstr "עוצמת פלט"
 msgid "Outside the refund window"
 msgstr "מחוץ לחלון ההחזר הכספי"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:388
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:387
 msgid "Overlapping avatar groups showing multiple users with automatic overflow counts."
 msgstr "קבוצות אווטאר חופפות המציגות מספר משתמשים עם ספירת גלישה אוטומטית."
 
@@ -24274,7 +24231,7 @@ msgstr "מפתחות גישה דורשים חבילת macOS חתומה עם מז
 
 #. Generic form-field label for a password.
 #. Label for SMTP password input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:997
+#: src/features/app/components/setup/SetupWizardSteps.tsx:991
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:210
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:146
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:183
@@ -24296,7 +24253,9 @@ msgstr "ללא סיסמה"
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
 #. Short label in the authentication email revert page. Keep the tone plain and specific.
 #. Short label in the authentication reset password page. Keep the tone plain and specific.
+#. Validation error on the forgot password page.
 #: src/features/auth/components/pages/EmailRevertPage.tsx:22
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:33
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:23
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:31
 #: src/features/user/components/modals/PasswordChangeModal.tsx:34
@@ -24860,7 +24819,7 @@ msgid "pinned"
 msgstr "מוצמד"
 
 #. Generic short toast / status label confirming a DM was pinned.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:651
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:655
 msgid "Pinned DM"
 msgstr "צ'אט מוצמד"
 
@@ -25065,7 +25024,7 @@ msgid "Popup"
 msgstr "חלון קופץ"
 
 #. Label for SMTP port input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:995
+#: src/features/app/components/setup/SetupWizardSteps.tsx:989
 msgid "Port"
 msgstr "יציאה"
 
@@ -25258,7 +25217,7 @@ msgstr "מניעת חברים מלשלוח הודעות, להגיב ולהצטר
 
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:276
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
 msgstr "תצוגה מקדימה"
 
@@ -25441,12 +25400,12 @@ msgid "Privacy policy"
 msgstr "מדיניות פרטיות"
 
 #. Generic section heading / button label for the privacy settings area.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:659
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:663
 msgid "Privacy settings"
 msgstr "הגדרות פרטיות"
 
 #. Label for Bluesky OAuth privacy URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1034
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1028
 msgid "Privacy URL"
 msgstr "כתובת URL של פרטיות"
 
@@ -25471,7 +25430,7 @@ msgid "Private details"
 msgstr "פרטים אישיים"
 
 #. Label for Bluesky OAuth private key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1042
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1036
 msgid "Private key"
 msgstr "מפתח פרטי"
 
@@ -25666,7 +25625,7 @@ msgstr "כינויי גוף: "
 msgid "Protect your Visionary account by enabling two-factor authentication. Thanks for supporting {productName}!"
 msgstr "הגן על חשבון ה-Visionary שלך על ידי הפעלת אימות דו-שלבי. תודה על תמיכתך ב-{productName}!"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:216
+#: src/features/moderation/components/report/ReportStepDetails.tsx:215
 msgid "Provide at least a user ID or a user tag."
 msgstr "יש לספק לפחות מזהה משתמש או תג משתמש."
 
@@ -25681,7 +25640,7 @@ msgid "Provide your full legal name for the declaration."
 msgstr "יש לציין את שמך המלא כפי שמופיע במסמכים רשמיים לצורך ההצהרה."
 
 #. Label for an integration provider choice.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:970
+#: src/features/app/components/setup/SetupWizardSteps.tsx:964
 msgid "Provider"
 msgstr "ספק"
 
@@ -25979,7 +25938,7 @@ msgstr "מהירות"
 msgid "Rate limited"
 msgstr "הוגבל קצב"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:292
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:291
 msgid "Raw embed JSON"
 msgstr "JSON גולמי של ההטמעה"
 
@@ -26005,7 +25964,7 @@ msgstr "הגב באמצעות {emojiShortcode}"
 
 #. Generic short section / tab / aria label for emoji reactions.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:655
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:659
 #: src/features/messaging/components/modals/MessageReactionsModal.tsx:144
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:13
 msgid "Reactions"
@@ -26084,7 +26043,7 @@ msgid "Real-time"
 msgstr "זמן אמת"
 
 #: src/features/guild/components/modals/guild_tabs/GuildAuditLogTab.tsx:595
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:74
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:72
 msgid "Reason"
 msgstr "סיבה"
 
@@ -26347,7 +26306,7 @@ msgstr "להחזיר את הרכישה האחרונה שלך?"
 #. Short label in the secrets section. Keep it concise.
 #: src/features/auth/components/modals/BackupCodesModal.tsx:114
 #: src/features/user/components/modals/tabs/applications_tab/application_detail/SecretsSection.tsx:23
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:78
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:81
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:128
 msgid "Regenerate"
 msgstr "יצירה מחדש"
@@ -26358,20 +26317,20 @@ msgid "Regenerate backup codes"
 msgstr "יצירה מחדש של קודי גיבוי"
 
 #. Confirmation prompt in the application detail. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:74
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:77
 msgid "Regenerate bot token?"
 msgstr "ליצור מחדש את אסימון הבוט?"
 
 #. Confirmation prompt in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:70
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:73
 msgid "Regenerate client secret?"
 msgstr "ליצור מחדש את סוד הלקוח?"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:541
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:544
 msgid "Regenerating will invalidate the current secret. Update any code that uses the old value."
 msgstr "יצירה מחדש תבטל את התוקף של הסוד הנוכחי. יש לעדכן כל קוד שמשתמש בערך הישן."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:543
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:546
 msgid "Regenerating will invalidate the current token. Update any code that uses the old value."
 msgstr "יצירה מחדש תבטל את התוקף של האסימון הנוכחי. יש לעדכן כל קוד שמשתמש בערך הישן."
 
@@ -26389,8 +26348,7 @@ msgstr "מפתחות גישה רשומים"
 msgid "Registration"
 msgstr "הרשמה"
 
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:211
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:312
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:284
 msgid "Registration is currently closed. Use a registration link from an admin to create an account."
 msgstr "ההרשמה סגורה כרגע. יש להשתמש בקישור הרשמה ממנהל כדי ליצור חשבון."
 
@@ -26638,7 +26596,7 @@ msgid "Remove from group"
 msgstr "הסר מהקבוצה"
 
 #. Action that removes the selected media from saved media.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:181
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:182
 msgid "Remove from saved media"
 msgstr "הסרה מהמדיה השמורה"
 
@@ -26650,7 +26608,7 @@ msgid "Remove from top"
 msgstr "בטל הישארות בחלון עליון"
 
 #. Media context menu action that removes a GIF favorite saved by URL.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:173
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:174
 msgid "Remove from URL-only GIF favorites"
 msgstr "הסרה מקובצי GIF מועדפים לפי כתובת URL בלבד"
 
@@ -26776,7 +26734,7 @@ msgid "Removed from favorite GIFs"
 msgstr "הוסר מקובצי ה-GIF המועדפים"
 
 #. Toast confirming an item was removed from the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:611
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:615
 msgid "Removed from favorites"
 msgstr "הוסר מהמועדפים"
 
@@ -26981,6 +26939,16 @@ msgstr "טופס שינוי שם ערוץ"
 msgid "Rename emoji"
 msgstr "שנה שם אימוג'י"
 
+#. Toast after a user cancels their pending rename request.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:29
+msgid "Rename request cancelled"
+msgstr "Rename request cancelled"
+
+#. Toast after a user asks for a new username. The admin still has to approve it.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:25
+msgid "Rename request sent"
+msgstr "Rename request sent"
+
 #. Activity log detail line under a community settings update, shown when the community name changed. It continues the entry summary, so it has no subject. It is a past tense record of a change the actor in the summary already made, never an instruction to the reader. Do not write it as a command, a button label or in first or second person. {oldName} is the previous community name and {newName} is the new community name, both shown in bold. The app adds the bold, so do not add ** or <b>.
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogGuildMessages.ts:46
 msgid "Renamed the community from {oldName} to {newName}"
@@ -27039,7 +27007,7 @@ msgstr "תגובות"
 
 #. Generic action label that opens the reply composer for a message.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:607
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:611
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:71
 msgid "Reply"
 msgstr "השב"
@@ -27112,7 +27080,7 @@ msgstr "דיווח על פרופיל משתמש"
 msgid "Report community"
 msgstr "דיווח על קהילה"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:128
+#: src/features/moderation/components/report/ReportStepDetails.tsx:127
 msgid "Report details"
 msgstr "פרטי דיווח"
 
@@ -27150,10 +27118,10 @@ msgstr "סוג הדיווח"
 msgid "Report user"
 msgstr "דיווח על משתמש"
 
-#. Field label on the details step of the DSA report form (message report). Optional FluxerTag of the user who sent the message.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:28
-msgid "Reported user tag (optional)"
-msgstr "תגית המשתמש שדווח (אופציונלי)"
+#. Field label on the details step of the DSA report form (message report). Optional username of the user who sent the message.
+#: src/features/moderation/components/report/ReportStepDetails.tsx:27
+msgid "Reported username (optional)"
+msgstr "Reported username (optional)"
 
 #: src/features/channel/components/embeds/channel_embed/BlueskyEmbed.tsx:45
 msgid "Reposts: <0>{countLabel}</0>"
@@ -27167,6 +27135,16 @@ msgstr "יש לבקש קוד חדש תחילה."
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:135
 msgid "Request a new reset link"
 msgstr "בקשת קישור איפוס חדש"
+
+#. Title of the rename request modal.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:37
+msgid "Request a new username"
+msgstr "Request a new username"
+
+#. Accessible label of the rename request form.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:33
+msgid "Request a new username form"
+msgstr "Request a new username form"
 
 #. Form validation error shown when the user tries to submit a code before requesting one.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:112
@@ -27198,7 +27176,7 @@ msgid "Require double-click to join voice channels"
 msgstr "דרושה לחיצה כפולה כדי להצטרף לערוצי קול"
 
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:80
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:82
 msgid "Require manual friend approval"
 msgstr "דרוש אישור ידני לבקשות חברות"
 
@@ -27749,10 +27727,6 @@ msgstr "חדש את המנוי"
 msgid "Resumed invites"
 msgstr "הזמנות הופעלו מחדש"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:62
-msgid "Return to sign-in"
-msgstr "חזרה למסך ההתחברות"
-
 #. Account settings: button that reveals the masked user email address. Verb, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat mature media blur overlay. Keep it concise.
@@ -27789,7 +27763,7 @@ msgstr "חיפוש תמונה הפוך"
 
 #. Generic action label that runs a reverse-image search on the selected media.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:603
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:607
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:267
 msgid "Reverse image search"
 msgstr "חיפוש תמונה הפוך"
@@ -27904,7 +27878,7 @@ msgstr "ביטול הגישה של כל האפליקציות"
 #. Short label in the guild bans tab. Keep it concise. Keep the tone plain and specific.
 #: src/features/guild/components/modals/guild_tabs/BannedUserActionsSheet.tsx:23
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:32
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:137
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:135
 #: src/features/ui/action_menu/BannedUserContextMenu.tsx:55
 msgid "Revoke ban"
 msgstr "ביטול חסימה"
@@ -27943,7 +27917,7 @@ msgid "Revoked ban for {0}"
 msgstr "החסימה של {0} בוטלה"
 
 #. Tooltip / aria label on the rewind button in the standalone audio player. {defaultSeekAmount} is an integer second count.
-#: src/features/voice/components/media_player/components/AudioPlayer.tsx:26
+#: src/features/voice/components/media_player/components/AudioPlayer.tsx:27
 msgid "Rewind {defaultSeekAmount} seconds"
 msgstr "הרץ אחורה ב-{defaultSeekAmount} שניות"
 
@@ -28243,7 +28217,7 @@ msgstr "שמירת אייקון"
 
 #. Button or menu action label in the channel and chat memes picker view. Keep it concise.
 #. Empty state body in the mobile memes picker explaining how to save media. Tone can be friendly.
-#: src/features/channel/components/MobileMemesPicker.tsx:62
+#: src/features/channel/components/MobileMemesPicker.tsx:63
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:28
 msgid "Save some media from messages to get started!"
 msgstr "שמור מדיה מההודעות כדי להתחיל!"
@@ -28325,7 +28299,7 @@ msgstr "הרשאות"
 
 #. Section heading for screen-reader related accessibility settings.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:599
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:603
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:51
 msgid "Screen reader"
 msgstr "קורא מסך"
@@ -28762,7 +28736,7 @@ msgstr "חיפוש תפקידים או חברים…"
 
 #. Button or menu action label in the channel and chat memes picker header. Keep it concise.
 #. Placeholder text in the mobile memes picker search input.
-#: src/features/channel/components/MobileMemesPicker.tsx:54
+#: src/features/channel/components/MobileMemesPicker.tsx:55
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:24
 msgid "Search saved media"
 msgstr "חיפוש מדיה שמורה"
@@ -28892,7 +28866,7 @@ msgid "Secret"
 msgstr "סוד"
 
 #. Label for a CAPTCHA secret key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:981
+#: src/features/app/components/setup/SetupWizardSteps.tsx:975
 msgid "Secret key"
 msgstr "מפתח סודי"
 
@@ -28986,7 +28960,7 @@ msgid "Select"
 msgstr "בחר"
 
 #. Accessible label for a saved media tile in the mobile memes picker. accessibleName is the media filename or alt text.
-#: src/features/channel/components/MobileMemesPicker.tsx:74
+#: src/features/channel/components/MobileMemesPicker.tsx:75
 msgid "Select {accessibleName}"
 msgstr "בחר {accessibleName}"
 
@@ -29269,7 +29243,7 @@ msgstr "כפתור שליחה"
 msgid "Send code"
 msgstr "שלח קוד"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:302
+#: src/features/moderation/components/report/ReportStepDetails.tsx:301
 msgid "Send DSA report"
 msgstr "שליחת דיווח DSA"
 
@@ -29337,16 +29311,13 @@ msgid "Send report"
 msgstr "שליחת דיווח"
 
 #. Button or menu action label in the channel and chat add friend form. Keep it concise.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:37
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:32
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:193
 msgid "Send request"
 msgstr "שלח בקשה"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:95
-msgid "Send reset link"
-msgstr "שלח קישור איפוס"
-
 #. Accessible label for a saved media tile in the picker. Activating sends it. memeName is the user-chosen name.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:43
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:44
 msgid "Send saved media {memeName}"
 msgstr "שליחת מדיה שמורה {memeName}"
 
@@ -29462,7 +29433,7 @@ msgid "Sensitive media"
 msgstr "מדיה רגישה"
 
 #. Generic short status label confirming an item (invite, gift, theme link) was sent.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:804
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:808
 msgid "Sent"
 msgstr "נשלח"
 
@@ -29527,7 +29498,7 @@ msgstr "סשנים"
 msgid "Set a custom role icon"
 msgstr "הגדרת סמל מותאם אישית לתפקיד"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:601
+#: src/features/app/components/floating/UserAreaPopout.tsx:603
 #: src/features/app/components/shared/custom_status_display/CustomStatusDisplay.tsx:253
 msgid "Set a custom status"
 msgstr "הגדר סטטוס מותאם אישית"
@@ -29572,6 +29543,7 @@ msgstr "הוגדר כאן"
 msgid "Set mute shortcut"
 msgstr "הגדר קיצור דרך להשתקת מיקרופון"
 
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:138
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:116
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:144
 msgid "Set new password"
@@ -29714,7 +29686,7 @@ msgid "Set up authenticator app"
 msgstr "הגדרת אפליקציית אימות"
 
 #. Option for deferring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:914
+#: src/features/app/components/setup/SetupWizardSteps.tsx:908
 msgid "Set up later"
 msgstr "הגדר מאוחר יותר"
 
@@ -29755,7 +29727,7 @@ msgid "Settings"
 msgstr "הגדרות"
 
 #. Type chip suffix in tooltips for inline rendered fluxer://settings/user deep links. Lowercase.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:113
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:114
 msgid "settings link"
 msgstr "קישור להגדרות"
 
@@ -29838,7 +29810,7 @@ msgstr "שיתוף ערכת נושא"
 msgid "Share voice activity with all friends?"
 msgstr "לשתף פעילות קולית עם כל החברים?"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:131
+#: src/features/moderation/components/report/ReportStepDetails.tsx:130
 msgid "Share what our team needs to assess this."
 msgstr "שתף את המידע שהצוות שלנו צריך כדי להעריך זאת."
 
@@ -30220,11 +30192,11 @@ msgstr "הצגת מבוא למצב מקלדת"
 msgid "Show keyboard shortcuts list"
 msgstr "הצגת רשימת קיצורי המקלדת"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:473
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:472
 msgid "Show max 3 (+5 badge)"
 msgstr "הצג עד 3 (תג +5)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:495
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:494
 msgid "Show max 5 (+5 badge)"
 msgstr "הצג עד 5 (תג +5)"
 
@@ -30519,7 +30491,7 @@ msgstr "התחבר באמצעות ספק ה-SSO של הארגון שלך."
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:195
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:256
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:313
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:595
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:599
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:47
 msgid "Sign out"
 msgstr "התנתקות"
@@ -30598,7 +30570,7 @@ msgid "Signed-in devices"
 msgstr "מכשירים מחוברים"
 
 #. Label for Bluesky OAuth signing key ID input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1038
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1032
 msgid "Signing key ID"
 msgstr "מזהה מפתח חתימה"
 
@@ -30680,12 +30652,12 @@ msgstr "שכבה אחת"
 msgid "Single line"
 msgstr "שורה בודדת"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:71
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:70
 msgid "Single user (all statuses)"
 msgstr "משתמש יחיד (כל הסטטוסים)"
 
 #. Label for a CAPTCHA site key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:980
+#: src/features/app/components/setup/SetupWizardSteps.tsx:974
 msgid "Site key"
 msgstr "מפתח אתר"
 
@@ -30738,7 +30710,7 @@ msgid "Skip the system leave notice — nobody gets pinged."
 msgstr "דלג על הודעת העזיבה של המערכת — אף אחד לא יקבל התראה."
 
 #. Description for deferring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:918
+#: src/features/app/components/setup/SetupWizardSteps.tsx:912
 msgid "Skip this now and configure it from the admin panel."
 msgstr "דלג על זה כעת והגדר אותו מלוח הניהול."
 
@@ -30938,7 +30910,7 @@ msgstr "משני קטן"
 msgid "Small secondary clicked."
 msgstr "כפתור משני קטן נלחץ."
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:162
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:161
 msgid "Small size"
 msgstr "גודל קטן"
 
@@ -30976,17 +30948,17 @@ msgid "SMS verification is unavailable right now. Try again later or contact sup
 msgstr "אימות באמצעות SMS אינו זמין כרגע. נסה שוב מאוחר יותר או צור קשר עם התמיכה."
 
 #. Success message after validating SMTP credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1006
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1000
 msgid "SMTP connection verified."
 msgstr "החיבור ל-SMTP אומת."
 
 #. Label for SMTP host input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:994
+#: src/features/app/components/setup/SetupWizardSteps.tsx:988
 msgid "SMTP host"
 msgstr "מארח SMTP"
 
 #. Failure message after validating SMTP credentials when the server returns no error detail.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1010
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1004
 msgid "SMTP validation failed."
 msgstr "אימות ה-SMTP נכשל."
 
@@ -31223,7 +31195,7 @@ msgstr "עוצמת קול"
 
 #. Section heading / tab label for the notification-sounds area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:808
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:812
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:135
 msgid "Sounds"
 msgstr "צלילים"
@@ -31614,7 +31586,7 @@ msgstr "התחלת גרירה ושחרור"
 msgid "Start mic test"
 msgstr "התחל בדיקת מיקרופון"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:326
+#: src/features/moderation/components/report/ReportStepDetails.tsx:325
 #: src/features/moderation/components/report/ReportStepEmail.tsx:97
 #: src/features/moderation/components/report/ReportStepVerification.tsx:134
 msgid "Start over"
@@ -31640,7 +31612,7 @@ msgid "Start uploading attachments as soon as they are added to the message inpu
 msgstr "התחלת העלאת קבצים מצורפים ברגע שהם נוספים לשדה ההודעה"
 
 #. Action label that initiates a video call (DM or group DM).
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:591
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:595
 msgid "Start video call"
 msgstr "התחלת שיחת וידאו"
 
@@ -31685,7 +31657,7 @@ msgstr "סמל סטטוס"
 
 #. Collapsible group heading in the Theme Studio tokens list, for presence and status color tokens.
 #: src/features/theme_studio/sections/TokenGroups.ts:58
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:61
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:60
 msgid "Status indicators"
 msgstr "מחווני סטטוס"
 
@@ -31730,7 +31702,7 @@ msgstr "שלב 2"
 msgid "Step 3"
 msgstr "שלב 3"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:125
+#: src/features/moderation/components/report/ReportStepDetails.tsx:124
 msgid "Step 4"
 msgstr "שלב 4"
 
@@ -32231,7 +32203,7 @@ msgid "Suppress all role mentions"
 msgstr "השתקת כל אזכורי התפקידים"
 
 #. Action label on a message that hides link previews / embeds.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:587
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:591
 msgid "Suppress embeds"
 msgstr "הסתר תצוגות מקדימות"
 
@@ -32294,7 +32266,7 @@ msgstr "שוודית"
 msgid "Switch account"
 msgstr "החלף חשבון"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:677
+#: src/features/app/components/floating/UserAreaPopout.tsx:679
 msgid "Switch accounts"
 msgstr "החלף חשבונות"
 
@@ -32640,8 +32612,6 @@ msgid "Tables"
 msgstr "טבלאות"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:61
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:73
 msgid "Tag"
 msgstr "תגית"
@@ -32790,7 +32760,7 @@ msgid "Terms of service"
 msgstr "תנאי שירות"
 
 #. Label for Bluesky OAuth terms URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1030
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1024
 msgid "Terms URL"
 msgstr "כתובת URL של תנאים"
 
@@ -32800,7 +32770,7 @@ msgid "Terrorism or violent extremism"
 msgstr "טרור או קיצוניות אלימה"
 
 #. Button that validates SMTP credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1002
+#: src/features/app/components/setup/SetupWizardSteps.tsx:996
 msgid "Test SMTP"
 msgstr "בדוק SMTP"
 
@@ -32972,7 +32942,7 @@ msgstr "הפעולה לא בוצעה. שום דבר לא השתנה. נסה שו
 msgid "That doesn't look like a valid color. Try hex, rgb(), hsl(), or a CSS color name."
 msgstr "זה לא נראה כמו צבע תקין. נסה hex, rgb(), hsl(), או שם צבע CSS."
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:175
+#: src/features/moderation/components/report/ReportStepDetails.tsx:174
 msgid "That doesn't look like a valid URL."
 msgstr "זה לא נראה כמו כתובת URL תקינה."
 
@@ -33013,10 +32983,10 @@ msgstr "ההודעה הזו כבר לא קיימת, או שאיבדת גישה �
 msgid "That's all of them."
 msgstr "זה הכל."
 
-#. Description text in the FluxerTag change modal.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:69
-msgid "The #0000 tag is reserved for Visionary subscribers. Visionary is no longer available for purchase."
-msgstr "התגית #0000 שמורה למנויי Visionary. מינוי Visionary אינו זמין עוד לרכישה."
+#. placeholder {0}: rejectedRequest.requested_username
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:140
+msgid "The admin rejected your request for <0>{0}</0>."
+msgstr "The admin rejected your request for <0>{0}</0>."
 
 #. Error shown when the setup wizard cannot load because the API origin differs from the page origin.
 #: src/features/app/components/setup/SelfHostedSetupWizardGate.tsx:97
@@ -33257,10 +33227,6 @@ msgstr "המערכת הסירה את התפקיד {role} מ-{target}"
 msgid "The upload service rejected this sticker as larger than {maxSize}. Try a smaller file, a simpler image, or a shorter animation."
 msgstr "שירות ההעלאה דחה את המדבקה הזו מכיוון שהיא גדולה מ-{maxSize}. נסה קובץ קטן יותר, תמונה פשוטה יותר או אנימציה קצרה יותר."
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:135
-msgid "The username <0>{fluxerTag}</0> is already taken. Continuing will reroll your tag automatically."
-msgstr "שם המשתמש <0>{fluxerTag}</0> כבר תפוס. אם תמשיך, התגית שלך תוגרל מחדש אוטומטית."
-
 #. Inline error on the verification step of the DSA report flow when the entered code is rejected.
 #: src/features/moderation/components/pages/ReportPage.tsx:89
 msgid "The verification code is invalid or expired."
@@ -33445,7 +33411,7 @@ msgstr "צד שלישי"
 msgid "This account can't be blocked."
 msgstr "לא ניתן לחסום חשבון זה."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:416
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:419
 msgid "This action cannot be undone. All associated data, including the bot user, will be permanently deleted."
 msgstr "לא ניתן לבטל פעולה זו. כל הנתונים המשויכים, כולל משתמש הבוט, יימחקו לצמיתות."
 
@@ -33478,7 +33444,7 @@ msgstr "מסוף הדפדפן הזה הוא כלי למפתחים."
 msgid "This call is end-to-end encrypted."
 msgstr "שיחה זו מוצפנת מקצה לקצה."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:699
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:702
 msgid "This cannot be undone. Removing the application also deletes its bot."
 msgstr "לא ניתן לבטל פעולה זו. הסרת האפליקציה תמחק גם את הבוט שלה."
 
@@ -33873,7 +33839,7 @@ msgid "This link channel is marked for mature content and may open material that
 msgstr "ערוץ קישור זה מסומן ככולל תוכן למבוגרים ועשוי להכיל חומר שאינו הולם עבור חלק מהמשתמשים."
 
 #. Body of the link-unavailable alert.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:141
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:142
 msgid "This link is not available for your account."
 msgstr "הקישור הזה אינו זמין לחשבון שלך."
 
@@ -34627,7 +34593,7 @@ msgstr "הבעלות הועברה אל {0}"
 
 #. Generic action label that translates a message body.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:583
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:587
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:255
 msgid "Translate"
 msgstr "תרגום"
@@ -34673,7 +34639,7 @@ msgstr "שינויים בסמל מגש המערכת יחולו רק לאחר ה�
 
 #. Short label in the channel and chat gif picker grid. Keep it concise.
 #. Short label in the channel and chat gif picker header. Keep it concise.
-#: src/features/channel/components/pickers/gif/GifPickerGrid.tsx:25
+#: src/features/channel/components/pickers/gif/GifPickerGrid.tsx:26
 #: src/features/channel/components/pickers/gif/GifPickerHeader.tsx:18
 msgid "Trending GIFs"
 msgstr "קובצי GIF פופולריים"
@@ -34767,7 +34733,7 @@ msgstr "נסה שאילתת חיפוש אחרת."
 
 #. Empty state body in the mobile memes picker suggesting query changes.
 #. Label in the channel and chat memes picker view.
-#: src/features/channel/components/MobileMemesPicker.tsx:70
+#: src/features/channel/components/MobileMemesPicker.tsx:71
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:36
 msgid "Try a different search term or filter"
 msgstr "נסה מונח חיפוש או מסנן אחר"
@@ -34804,7 +34770,7 @@ msgstr "נסה שוב בעוד רגע."
 msgid "Try again later."
 msgstr "נסה שוב מאוחר יותר."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:575
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:578
 msgid "Try again or go back to the applications list."
 msgstr "נסה שוב או חזור לרשימת האפליקציות."
 
@@ -35143,7 +35109,7 @@ msgstr "רק חיווי הקלדה"
 msgid "Typing indicator, status: {effectiveStatusLabel}"
 msgstr "חיווי הקלדה, סטטוס: {effectiveStatusLabel}"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:251
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:250
 msgid "Typing state"
 msgstr "מצב הקלדה"
 
@@ -35258,7 +35224,7 @@ msgstr "לא זמין"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/channel/components/barriers/BarrierComponents.tsx:376
 #: src/features/relationship/utils/RelationshipMessageDescriptors.ts:45
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:177
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:179
 #: src/features/user/components/settings_utils/search_index/BlockedUsersIndex.ts:22
 msgid "Unblock"
 msgstr "בטל חסימה"
@@ -35285,7 +35251,7 @@ msgid "Unblock user"
 msgstr "בטל חסימת משתמש"
 
 #. Generic label for items that do not belong to a category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:631
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:635
 msgid "Uncategorized"
 msgstr "ללא קטגוריה"
 
@@ -35420,7 +35386,7 @@ msgid "Unfurl"
 msgstr "פתיחת תצוגה מקדימה"
 
 #. Settings section label for the embed debugger URL input.
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:230
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:229
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:62
 msgid "Unfurl debugger"
 msgstr "מנפה שגיאות תצוגה מקדימה"
@@ -35440,9 +35406,9 @@ msgstr "חלופה אוניברסלית. האיכות הנמוכה ביותר, �
 #. Generic fallback label when a more specific value is unavailable.
 #. Short label in the invite list item. Keep it concise.
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:584
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:756
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:760
 #: src/features/invite/components/InviteListItem.tsx:36
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:114
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:112
 #: src/features/updater/commands/UpdaterModalCommands.tsx:144
 msgid "Unknown"
 msgstr "לא ידוע"
@@ -35666,7 +35632,7 @@ msgid "Unmute all devices"
 msgstr "בטל השתקה בכל המכשירים"
 
 #. Action label that unmutes notifications for a channel category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:579
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:583
 msgid "Unmute category"
 msgstr "בטל השתקת קטגוריה"
 
@@ -35701,7 +35667,7 @@ msgid "Unmute DMs"
 msgstr "בטל השתקת הודעות פרטיות"
 
 #. Action label that unmutes notifications for the favourites pseudo-guild.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:692
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:696
 msgid "Unmute favorites"
 msgstr "בטל השתקת מועדפים"
 
@@ -35784,7 +35750,7 @@ msgid "Unpin this message?"
 msgstr "להסיר את ההצמדה מההודעה הזו?"
 
 #. Generic short toast / status label confirming a DM was unpinned.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:627
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:631
 msgid "Unpinned DM"
 msgstr "צ'אט לא מוצמד"
 
@@ -36236,7 +36202,7 @@ msgid "URL"
 msgstr "URL"
 
 #. Success toast confirming that a media URL was copied as text fallback.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:137
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:138
 msgid "URL copied to clipboard"
 msgstr "כתובת ה-URL הועתקה ללוח הגזירים"
 
@@ -36587,7 +36553,7 @@ msgid "Use this when troubleshooting the client or collecting logs. It may add v
 msgstr "השתמש באפשרות זו בעת פתרון בעיות בלקוח או איסוף יומנים. היא עשויה להוסיף הודעות מפורטות לקונסולת הדפדפן עבור הלקוח הנוכחי."
 
 #. Label for SMTP TLS toggle.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:998
+#: src/features/app/components/setup/SetupWizardSteps.tsx:992
 msgid "Use TLS"
 msgstr "השתמש ב-TLS"
 
@@ -36666,12 +36632,12 @@ msgid "User controls"
 msgstr "בקרות משתמש"
 
 #. Title of the developer-mode user debug modal.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:571
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:575
 msgid "User debug"
 msgstr "ניפוי באגים של משתמש"
 
 #. Field label on the details step of the DSA report form (user report). Optional Fluxer user snowflake ID. "ID" is conventional.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:33
+#: src/features/moderation/components/report/ReportStepDetails.tsx:32
 msgid "User ID (optional)"
 msgstr "מזהה משתמש (אופציונלי)"
 
@@ -36730,11 +36696,6 @@ msgstr "רשומת משתמש"
 msgid "User settings"
 msgstr "הגדרות משתמש"
 
-#. Field label on the details step of the DSA report form (user report). Optional FluxerTag of the reported user.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:38
-msgid "User tag (optional)"
-msgstr "תגית משתמש (אופציונלי)"
-
 #. Voice menu slider label for the saved volume of a specific user.
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:243
 msgid "User volume"
@@ -36743,31 +36704,25 @@ msgstr "עוצמת שמע של משתמש"
 #. Generic form-field label for a username.
 #. Label for SMTP username input.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:996
+#: src/features/app/components/setup/SetupWizardSteps.tsx:990
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:567
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:218
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:56
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:29
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:53
 msgid "Username"
 msgstr "שם משתמש"
 
-#. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:59
+#. Field label on the details step of the DSA report form (user report). Optional username of the reported user.
+#: src/features/moderation/components/report/ReportStepDetails.tsx:37
 msgid "Username (optional)"
 msgstr "שם משתמש (אופציונלי)"
 
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:40
-msgid "Username already taken"
-msgstr "שם המשתמש כבר תפוס"
-
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:44
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:45
 msgid "Username can only contain letters, numbers, and underscores"
 msgstr "שם המשתמש יכול להכיל אותיות, מספרים וקו תחתון בלבד"
 
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:32
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:33
 msgid "Username is required"
 msgstr "שם משתמש נדרש"
 
@@ -36777,23 +36732,19 @@ msgid "Username must be {maxUsernameLength} characters or fewer"
 msgstr "שם המשתמש יכול להכיל {maxUsernameLength} תווים לכל היותר"
 
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:36
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:37
 msgid "Username must be at least 1 character"
 msgstr "שם המשתמש חייב להכיל תו אחד לפחות"
 
-#. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:40
-msgid "Username must be at most 32 characters"
-msgstr "שם המשתמש יכול להכיל 32 תווים לכל היותר"
+#. Label in the bot profile section. Preserve {maxLength}; it is inserted by code. -BOT is literal.
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:41
+msgid "Username must be at most {maxLength} characters before -BOT"
+msgstr "Username must be at most {maxLength} characters before -BOT"
 
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:44
-msgid "Username updated"
-msgstr "שם המשתמש עודכן"
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:211
-msgid "Usernames can only contain letters (a-z, A-Z), numbers (0-9), and underscores. Usernames are case-insensitive."
-msgstr "שמות משתמש יכולים להכיל רק אותיות (a-z, A-Z), מספרים (0-9) וקווים תחתונים. שמות משתמש אינם תלויי רישיות."
+#. Label of the sign-in field that accepts either a username or an email address.
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:571
+msgid "Username or email"
+msgstr "Username or email"
 
 #. Section header in the message search popout listing matching users for from: / mentions: filters. Title Case.
 #. Section heading in the channel and chat autocomplete for user suggestions.
@@ -37032,7 +36983,7 @@ msgstr "יש לוודא שאתה אנושי"
 #. Title of the error modal shown when an unverified account tries to start a DM.
 #. Title shown when an unverified account cannot start a DM or group DM.
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:40
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:79
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:74
 #: src/features/channel/utils/CreateDMModalUtils.tsx:51
 #: src/features/moderation/components/report/ReportStepEmail.tsx:43
 msgid "Verify your email"
@@ -37091,11 +37042,6 @@ msgstr "יש לאמת את כתובת האימייל שלך קודם"
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:69
 msgid "Verify your email or phone to continue using {productName}."
 msgstr "יש לאמת את כתובת האימייל או מספר הטלפון שלך כדי להמשיך להשתמש ב-{productName}."
-
-#. Label in the username section.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:25
-msgid "Verify your email to change your username"
-msgstr "אמת את כתובת האימייל שלך כדי לשנות את שם המשתמש"
 
 #. Required-action modal body for first-time email verification. Product name is interpolated.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:53
@@ -37184,7 +37130,7 @@ msgstr "וידאו"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Tooltip on the channel header button that starts a video call in a DM or group DM.
 #: src/features/channel/components/channel_header/shared.ts:43
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:766
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:757
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:199
 msgid "Video call"
@@ -37224,7 +37170,7 @@ msgstr "איבוד מנות וידאו:"
 #. Accessible label for a video thumbnail in the media viewer thumbnail strip.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/messaging/components/modals/media_modal/shared.ts:133
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:89
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:90
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:182
 msgid "Video preview"
 msgstr "תצוגה מקדימה של וידאו"
@@ -37280,7 +37226,7 @@ msgstr "העלאת סרטון"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the mobile memes picker. Filters to saved videos.
-#: src/features/channel/components/MobileMemesPicker.tsx:50
+#: src/features/channel/components/MobileMemesPicker.tsx:51
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:20
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:109
 msgid "Videos"
@@ -37514,7 +37460,7 @@ msgid "Viewer leaves stream"
 msgstr "הצופה עזב את השידור"
 
 #. Field label on the details step of the DSA illegal-content report form. The category dropdown narrows the type of violation. Legal/sensitive flow; keep tone formal.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:18
+#: src/features/moderation/components/report/ReportStepDetails.tsx:17
 msgid "Violation category"
 msgstr "קטגוריית הפרה"
 
@@ -37605,7 +37551,7 @@ msgctxt "accessibility-settings-section"
 msgid "Visual"
 msgstr "תצוגה"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:63
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:62
 msgid "Visual indicators showing user status, rendered using the same masked status badges as avatars: online, idle, do not disturb, invisible, and offline."
 msgstr "מחוונים חזותיים שמציגים את סטטוס המשתמש, באמצעות אותם תגי סטטוס ממוסכים שמשמשים בתמונות הפרופיל: מחובר, לא פעיל, נא לא להפריע, בלתי נראה ולא מחובר."
 
@@ -37681,7 +37627,7 @@ msgid "Voice and video shortcuts"
 msgstr "קיצורי דרך לקול ווידאו"
 
 #. Short label for a voice call (lobby header, DM action, settings section).
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:744
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:735
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:35
 msgid "Voice call"
 msgstr "שיחה קולית"
@@ -37777,7 +37723,7 @@ msgid "Voice message"
 msgstr "הודעה קולית"
 
 #. Short label in the channel and chat voice message player. Keep it concise.
-#: src/features/channel/components/embeds/media/VoiceMessagePlayer.tsx:30
+#: src/features/channel/components/embeds/media/VoiceMessagePlayer.tsx:31
 msgid "Voice message player"
 msgstr "נגן הודעה קולית"
 
@@ -37918,6 +37864,12 @@ msgstr "ממתין שתוקף מצב איטי ב-{forwardChannelDisplayName} י�
 #: src/features/messaging/components/modals/ForwardModal.tsx:82
 msgid "Waiting for slowmode in one or more selected channels to expire."
 msgstr "ממתין שתוקף מצב איטי באחד או יותר מהערוצים שנבחרו יפוג."
+
+#. placeholder {0}: pendingRequest.requested_username
+#. placeholder {1}: getFormattedDateTime(pendingRequest.created_at)
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:119
+msgid "Waiting for the admin: <0>{0}</0>, asked on {1}. A new request replaces it."
+msgstr "Waiting for the admin: <0>{0}</0>, asked on {1}. A new request replaces it."
 
 #. Label in the messages tab.
 #: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:48
@@ -38197,10 +38149,6 @@ msgstr "ביצענו שינויים משמעותיים ב<0>תנאי השירו�
 msgid "We've made significant changes to our <0>Terms of service</0>. Review it before continuing to use {productName}."
 msgstr "ביצענו שינויים משמעותיים ב<0>תנאי השירות</0> שלנו. עיין בהם לפני שתמשיך להשתמש ב-{productName}."
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:58
-msgid "We've sent password reset instructions to your email. Check your inbox for the reset link."
-msgstr "שלחנו הוראות לאיפוס סיסמה לכתובת האימייל שלך. חפש בתיבת הדואר הנכנס את קישור האיפוס."
-
 #. Nagbar body shown when the user must accept updated policies before continuing.
 #: src/features/app/components/layout/app_layout/nagbars/TermsAcceptanceNagbar.tsx:15
 msgid "We've updated our policies. Review and accept them to continue."
@@ -38407,10 +38355,8 @@ msgstr "מערב וירג'יניה"
 msgid "What kind of rule was broken?"
 msgstr "איזה כלל הופר?"
 
-#. Question prompt in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Question prompt in the authentication auth register form core. Keep the tone plain and specific.
 #. Question prompt in the authentication mock minimal register form. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:35
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:55
 #: src/features/auth/flow/MockMinimalRegisterForm.tsx:29
 msgid "What should people call you?"
@@ -39092,16 +39038,8 @@ msgstr "לא ניתן להסיר הרשאה זו מכיוון שהיא תוסר 
 msgid "You changed your nickname in this community from **{previousNickname}** to **{newNickname}**."
 msgstr "שינית את הכינוי שלך בקהילה זו מ-**{previousNickname}** ל-**{newNickname}**."
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:367
-msgid "You changed your tag while on {PREMIUM_PRODUCT_NAME}. It will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires on <0>{premiumExpiresAtLabel}</0>, unless it renews."
-msgstr "שינית את התג שלך בזמן שהיית ב-{PREMIUM_PRODUCT_NAME}. הוא יוגרל מחדש באופן אקראי כשתוקף ה-{PREMIUM_PRODUCT_NAME} שלך יפוג ב-<0>{premiumExpiresAtLabel}</0>, אלא אם כן הוא יתחדש."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:374
-msgid "You changed your tag while on {PREMIUM_PRODUCT_NAME}. It will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires, unless it renews."
-msgstr "שינית את התג שלך בזמן שהיית ב-{PREMIUM_PRODUCT_NAME}. הוא ישתנה באופן אקראי כשתוקף ה-{PREMIUM_PRODUCT_NAME} שלך יפוג, אלא אם כן הוא יתחדש."
-
 #. Body of the access-denied alert for clicked message links.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:121
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:122
 msgid "You do not have access to the channel where this message was sent."
 msgstr "אין לך גישה לערוץ שבו נשלחה ההודעה הזו."
 
@@ -39313,7 +39251,7 @@ msgstr "עליך לאמת מספר טלפון כדי לשלוח הודעות ב�
 msgid "You need to verify your email address before you can create a community."
 msgstr "יש לאמת את כתובת האימייל שלך לפני שתוכל ליצור קהילה."
 
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:80
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:75
 msgid "You need to verify your email address before you can send friend requests."
 msgstr "עליך לאמת את כתובת האימייל שלך לפני שתוכל לשלוח בקשות חברות."
 
@@ -39335,6 +39273,11 @@ msgstr "עליך לאמת את כתובת האימייל שלך כדי לשלו�
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:60
 msgid "You or someone you're adding already has the maximum number of group DMs open. Leave one and try again."
 msgstr "לך או למישהו שאתה מוסיף כבר יש את המספר המרבי של צ'אטים קבוצתיים פתוחים. צא מאחד מהם ונסה שוב."
+
+#. Placeholder of the required username field on the sign-up form. The username is the login ID.
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:59
+msgid "You sign in with it"
+msgstr "You sign in with it"
 
 #. Confirmation line in the required-action modal explaining that communities the user owns are kept rather than left. ownedNames is a comma-separated list inserted by code.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:316
@@ -39663,8 +39606,7 @@ msgstr "החשבון שלך עדיין לא נתבע. ללא אימייל וסי
 msgid "Your account is too new to send messages in this community."
 msgstr "החשבון שלך חדש מדי כדי לשלוח הודעות בקהילה זו."
 
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:220
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:321
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:293
 msgid "Your account request is pending approval. You can sign in after an admin approves it."
 msgstr "בקשת החשבון שלך ממתינה לאישור. אפשר להתחבר לאחר שמנהל יאשר אותה."
 
@@ -39894,7 +39836,7 @@ msgstr "שינוי החיוב הממתין שלך בוטל."
 msgid "Your personal space for quick access to channels, DMs, and groups you love. Press the star on any channel to add it here."
 msgstr "המרחב האישי שלך לגישה מהירה לערוצים, לצ'אטים פרטיים ולקבוצות שאתה אוהב. לחץ על הכוכב בכל ערוץ כדי להוסיף אותו לכאן."
 
-#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:130
+#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:132
 msgid "Your private space"
 msgstr "המרחב הפרטי שלך"
 
@@ -40006,9 +39948,14 @@ msgid "Your theme CSS is too large to share. Trim it down and try again."
 msgstr "קובץ ה-CSS של העיצוב גדול מדי לשיתוף. צמצם אותו ונסה שוב."
 
 #. Field label on the details step of the DSA report form. Optional Fluxer username of the reporter so staff can follow up.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:67
+#: src/features/moderation/components/report/ReportStepDetails.tsx:66
 msgid "Your username (optional)"
 msgstr "שם המשתמש שלך (אופציונלי)"
+
+#. placeholder {0}: user.username
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:110
+msgid "Your username is <0>{0}</0>. A new username is a request: the name is held for you until the admin approves or rejects it. Usernames are case-insensitive."
+msgstr "Your username is <0>{0}</0>. A new username is a request: the name is held for you until the admin approves or rejects it. Usernames are case-insensitive."
 
 #. Success toast after removing a community vanity invite URL.
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:54
@@ -40032,7 +39979,7 @@ msgid "YouTube enrichment"
 msgstr "העשרת YouTube"
 
 #. Setup wizard title for YouTube integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:938
+#: src/features/app/components/setup/SetupWizardSteps.tsx:932
 msgid "YouTube previews"
 msgstr "תצוגות מקדימות של YouTube"
 
@@ -40057,7 +40004,7 @@ msgstr "הגדלה"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:623
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:627
 #: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
@@ -40068,7 +40015,7 @@ msgstr "התקרבות"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:619
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:623
 #: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86

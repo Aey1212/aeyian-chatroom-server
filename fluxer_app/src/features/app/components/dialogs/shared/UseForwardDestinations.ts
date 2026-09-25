@@ -227,7 +227,7 @@ function buildForwardUserCandidates(): ReadonlyArray<ForwardUserCandidate> {
 				globalName: user.globalName,
 				id: user.id,
 				nicknames: nicknames.get(user.id) ?? NO_STRINGS,
-				username: user.discriminator === '0' ? user.username : `${user.username}#${user.discriminator}`,
+				username: user.username,
 			}),
 		);
 	}
@@ -454,7 +454,7 @@ function resolveForwardDestinationOption(
 		return Object.freeze({
 			channel: null,
 			destination,
-			detail: NicknameUtils.formatUserTagForStreamerMode(user),
+			detail: NicknameUtils.formatUserNameForStreamerMode(user),
 			disableReason: resolveAgeRestrictedDisableReason(findDirectMessageChannel(destination.id), mediaNeeds, i18n),
 			displayName: NicknameUtils.getNickname(user, null),
 			key,

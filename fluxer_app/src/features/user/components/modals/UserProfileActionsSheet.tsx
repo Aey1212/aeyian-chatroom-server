@@ -135,8 +135,8 @@ export const UserProfileActionsSheet: React.FC<UserProfileActionsSheetProps> = o
 			member &&
 			((isCurrentUser && hasChangeNicknamePermission && !memberIsTimedOut) ||
 				(hasManageNicknamesPermission && canManageTarget(user.id)));
-		const handleCopyFluxerTag = () => {
-			TextCopyCommands.copy(i18n, `${user.username}#${user.discriminator}`, true);
+		const handleCopyUsername = () => {
+			TextCopyCommands.copy(i18n, user.username, true);
 			onClose();
 		};
 		const handleCopyUserId = () => {
@@ -272,7 +272,7 @@ export const UserProfileActionsSheet: React.FC<UserProfileActionsSheetProps> = o
 				{
 					icon: <CopyIcon className={styles.icon} data-flx="user.user-profile-actions-sheet.icon--2" />,
 					label: i18n._(COPY_USERNAME_DESCRIPTOR),
-					onClick: handleCopyFluxerTag,
+					onClick: handleCopyUsername,
 				},
 				{
 					icon: <IdentificationCardIcon className={styles.icon} data-flx="user.user-profile-actions-sheet.icon--3" />,

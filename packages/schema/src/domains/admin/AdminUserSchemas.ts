@@ -24,13 +24,12 @@ import {
 	SnowflakeType,
 	withFieldDescription,
 } from '@fluxer/schema/src/primitives/SchemaPrimitives';
-import {DiscriminatorType, EmailType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
+import {EmailType, UsernameLookupType, UsernameType} from '@fluxer/schema/src/primitives/UserValidators';
 import {z} from 'zod';
 
 export const UserAdminResponseSchema = z.object({
 	id: SnowflakeStringType,
 	username: z.string(),
-	discriminator: Int32Type,
 	global_name: z.string().nullable(),
 	bot: z.boolean(),
 	system: z.boolean(),
@@ -160,7 +159,6 @@ export type ListUserDmChannelsRequest = z.infer<typeof ListUserDmChannelsRequest
 const AdminResolvedUserSchema = z.object({
 	id: SnowflakeStringType,
 	username: z.string(),
-	discriminator: z.string(),
 	global_name: z.string().nullable(),
 	avatar: z.string().nullable(),
 });
@@ -286,7 +284,6 @@ export type SendPasswordResetRequest = z.infer<typeof SendPasswordResetRequest>;
 export const ChangeUsernameRequest = z.object({
 	user_id: SnowflakeType.describe('ID of the user to change username for'),
 	username: UsernameType.describe('New username for the user'),
-	discriminator: DiscriminatorType.optional().describe('Legacy discriminator value'),
 });
 
 export type ChangeUsernameRequest = z.infer<typeof ChangeUsernameRequest>;
@@ -519,9 +516,7 @@ export const AdminUserListQuery = z.object({
 		.describe('Restrict the results to these users. Repeat the parameter to pass more than one.'),
 	resolve: createStringType(1, 1024)
 		.optional()
-		.describe(
-			'Resolve one exact identifier: a username#discriminator tag, a user ID, an email address, or a Stripe subscription ID',
-		),
+		.describe('Resolve one exact identifier: a username, a user ID, an email address, or a Stripe subscription ID'),
 	email: createStringType(1, 320).optional().describe('Restrict the results to the user with this exact email address'),
 	last_active_ip: createStringType(1, 64)
 		.optional()
@@ -664,3 +659,58 @@ export type AdminUserSuspiciousDisableRequest = z.infer<typeof AdminUserSuspicio
 export const AdminUserDmChannelListResponse = z.union([ListUserDmChannelsResponse, ListUserGroupDmChannelsResponse]);
 
 export type AdminUserDmChannelListResponse = z.infer<typeof AdminUserDmChannelListResponse>;
+
+export const AdminUsernameParam = z.object({
+	username: UsernameLookupType.describe('A username, compared case-insensitively'),
+});
+
+export type AdminUsernameParam = z.infer<typeof AdminUsernameParam>;
+
+export const AdminLockedUsernameSchema = z.object({
+	username: z.string().describe('The locked username, lowercase'),
+	user_id: SnowflakeStringType.describe('The deleted account that held the name'),
+	locked_at: z.string().describe('ISO 8601 timestamp of when the name was locked'),
+});
+
+export const AdminLockedUsernamesResponse = z.object({
+	usernames: z.array(AdminLockedUsernameSchema).describe('Usernames of deleted accounts that nobody can register'),
+});
+
+export type AdminLockedUsernamesResponse = z.infer<typeof AdminLockedUsernamesResponse>;
+
+export const AdminReleaseUsernameResponse = z.object({
+	released: z.boolean().describe('Whether the name was locked and is now free to register'),
+});
+
+export type AdminReleaseUsernameResponse = z.infer<typeof AdminReleaseUsernameResponse>;
+
+export const AdminUsernameChangeRequestSchema = z.object({
+	user_id: SnowflakeStringType.describe('The account asking for a new name'),
+	current_username: z.string().nullable().describe("The account's current username, null if the account is gone"),
+	requested_username: z.string().describe('The username asked for, held until the request is decided'),
+	created_at: z.string().describe('ISO 8601 timestamp of the request'),
+});
+
+export const AdminUsernameChangeRequestsResponse = z.object({
+	requests: z.array(AdminUsernameChangeRequestSchema).describe('Pending rename requests, oldest first'),
+});
+
+export type AdminUsernameChangeRequestsResponse = z.infer<typeof AdminUsernameChangeRequestsResponse>;
+
+export const AdminUsernameChangeDecisionResponse = z.object({
+	applied: z.boolean().describe('Whether a pending request existed and the decision was applied'),
+});
+
+export type AdminUsernameChangeDecisionResponse = z.infer<typeof AdminUsernameChangeDecisionResponse>;
+
+export const AdminPasswordResetModeRequest = z.object({
+	open: z.boolean().describe('Whether the account owner may choose a new password without email'),
+});
+
+export type AdminPasswordResetModeRequest = z.infer<typeof AdminPasswordResetModeRequest>;
+
+export const AdminPasswordResetModeResponse = z.object({
+	open: z.boolean().describe('Whether a password reset is open for the account'),
+});
+
+export type AdminPasswordResetModeResponse = z.infer<typeof AdminPasswordResetModeResponse>;

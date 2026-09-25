@@ -84,9 +84,14 @@ async function requestUserHasCaptchaExemptFlag(ctx: Context<HonoEnv>): Promise<b
 	try {
 		const body = (await ctx.req.raw.clone().json()) as unknown;
 		if (!body || typeof body !== 'object' || Array.isArray(body)) return false;
-		const email = (body as Record<string, unknown>).email;
-		if (typeof email !== 'string') return false;
-		const user = await ctx.get('userRepository').findByEmail(email);
+		// Login sends `login` (a username or an email address); other routes send `email`.
+		const fields = body as Record<string, unknown>;
+		const identifier = typeof fields.login === 'string' ? fields.login.trim() : fields.email;
+		if (typeof identifier !== 'string' || identifier.length === 0) return false;
+		const users = ctx.get('userRepository');
+		const user = identifier.includes('@')
+			? await users.findByEmail(identifier)
+			: await users.findByUsername(identifier);
 		return userHasCaptchaExemptFlag(user);
 	} catch {
 		return false;

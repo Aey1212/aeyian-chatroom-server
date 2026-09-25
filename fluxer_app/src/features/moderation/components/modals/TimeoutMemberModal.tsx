@@ -52,7 +52,7 @@ export const TimeoutMemberModal: React.FC<TimeoutMemberModalProps> = observer(({
 	const [selectedDuration, setSelectedDuration] = useState<number>(durationOptions[3].value);
 	const [reason, setReason] = useState('');
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const targetUserTag = DisplayNameUtils.formatTagForStreamerMode(targetUser.tag);
+	const targetUserTag = DisplayNameUtils.formatUsernameForStreamerMode(targetUser.username);
 	const handleTimeout = async () => {
 		setIsSubmitting(true);
 		try {

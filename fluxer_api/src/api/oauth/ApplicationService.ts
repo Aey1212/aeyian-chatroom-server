@@ -7,7 +7,6 @@ import type {IChannelRepository} from '@app/api/channel/IChannelRepository';
 import type {ApplicationRow} from '@app/api/database/types/OAuth2Types';
 import type {UserRow} from '@app/api/database/types/UserTypes';
 import {contentModerationService} from '@app/api/infrastructure/ContentModerationService';
-import type {DiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService, PreparedAssetUpload} from '@app/api/infrastructure/EntityAssetService';
 import type {UserCacheService} from '@app/api/infrastructure/UserCacheService';
 import {Logger} from '@app/api/Logger';
@@ -18,14 +17,18 @@ import {remapAuthorMessagesToDeletedUser} from '@app/api/oauth/ApplicationMessag
 import type {BotAuthService} from '@app/api/oauth/BotAuthService';
 import {generateOAuthTokenSecret} from '@app/api/oauth/OAuthTokenSecret';
 import type {IApplicationRepository} from '@app/api/oauth/repositories/IApplicationRepository';
-import {enforceFluxerTagChangeRateLimit} from '@app/api/user/FluxerTagChangeRateLimit';
+import {UsernameChangeRequestService} from '@app/api/user/services/UsernameChangeRequestService';
 import {hasPartialUserFieldsChanged, mapUserToPrivateResponse} from '@app/api/user/UserMappers';
+import {botUsernameCandidate} from '@app/api/user/UsernameCandidates';
+import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import {runAllInOrder} from '@app/api/utils/ConcurrencyUtils';
 import {hashPassword} from '@app/api/utils/PasswordUtils';
 import {generateRandomUsername} from '@app/api/utils/UsernameGenerator';
 import {deriveUsernameFromDisplayName} from '@app/api/utils/UsernameSuggestionUtils';
 import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
 import {
+	BOT_USERNAME_BASE_MAX_LENGTH,
+	BOT_USERNAME_SUFFIX,
 	DELETED_USER_GLOBAL_NAME,
 	DELETED_USER_USERNAME,
 	ProfileFieldPrivacyFlags,
@@ -42,7 +45,7 @@ import {UnknownApplicationError} from '@fluxer/errors/src/domains/oauth/UnknownA
 import type {BotProfileUpdateRequest} from '@fluxer/schema/src/domains/oauth/OAuthSchemas';
 
 interface ApplicationServiceDeps {
-	discriminatorService: DiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	channelRepository: IChannelRepository;
 	applicationRepository: IApplicationRepository;
 	botAuthService: BotAuthService;
@@ -75,30 +78,20 @@ export class ApplicationService {
 		public readonly deps: ApplicationServiceDeps,
 	) {}
 
-	private async generateBotUsername(applicationName: string): Promise<{
-		username: string;
-		discriminator: number;
-	}> {
-		const preferredUsername = deriveUsernameFromDisplayName(applicationName);
-		if (preferredUsername) {
-			const discResult = await this.deps.discriminatorService.generateDiscriminator({
-				username: preferredUsername,
-			});
-			if (discResult.available && discResult.discriminator !== -1) {
-				return {username: preferredUsername, discriminator: discResult.discriminator};
-			}
+	private static readonly BOT_USERNAME_ATTEMPTS = 100;
+
+	// Every bot name ends in -BOT. The app name is the base; when base-BOT is taken the next
+	// candidates are base2-BOT, base3-BOT, and so on.
+	private async claimBotUsername(applicationName: string, botUserId: UserID): Promise<string> {
+		const derivedBase = deriveUsernameFromDisplayName(applicationName);
+		if (!derivedBase) {
+			Logger.info({applicationName}, 'Application name did not yield a usable bot username base, using a random one');
 		}
-		Logger.info(
-			{applicationName, preferredUsername: preferredUsername ?? null},
-			'Application name did not yield a usable bot username, falling back to random username',
-		);
-		for (let attempts = 0; attempts < 100; attempts++) {
-			const randomUsername = generateRandomUsername();
-			const randomDiscResult = await this.deps.discriminatorService.generateDiscriminator({
-				username: randomUsername,
-			});
-			if (randomDiscResult.available && randomDiscResult.discriminator !== -1) {
-				return {username: randomUsername, discriminator: randomDiscResult.discriminator};
+		const base = derivedBase ?? generateRandomUsername();
+		for (let attempt = 1; attempt <= ApplicationService.BOT_USERNAME_ATTEMPTS; attempt++) {
+			const candidate = botUsernameCandidate(base, attempt);
+			if (await this.deps.usernameRegistry.claim(candidate, botUserId)) {
+				return candidate;
 			}
 		}
 		throw new BotUserGenerationError();
@@ -142,8 +135,9 @@ export class ApplicationService {
 		}
 		const applicationId: ApplicationID = (await this.apiContext.services.snowflake.generate()) as ApplicationID;
 		const botUserId = applicationIdToUserId(applicationId);
-		const {username, discriminator} = await this.generateBotUsername(args.name);
+		const username = await this.claimBotUsername(args.name, botUserId);
 		if (profileSubstringBlocklistCache.containsBannedSubstring('username', username)) {
+			await this.deps.usernameRegistry.release(username, botUserId);
 			throw new ContentBlockedError();
 		}
 		Logger.info(
@@ -151,7 +145,6 @@ export class ApplicationService {
 				applicationId: applicationId.toString(),
 				botUserId: botUserId.toString(),
 				username,
-				discriminator,
 				applicationName: args.name,
 			},
 			'Creating application with bot user',
@@ -159,7 +152,6 @@ export class ApplicationService {
 		const botUserRow: UserRow = {
 			user_id: botUserId,
 			username,
-			discriminator,
 			global_name: null,
 			bot: true,
 			system: false,
@@ -216,7 +208,10 @@ export class ApplicationService {
 			last_voice_activity_sharing_change_at: null,
 			version: 1,
 		};
-		const botUser = await this.apiContext.services.users.create(botUserRow);
+		const botUser = await this.apiContext.services.users.create(botUserRow).catch(async (error: unknown) => {
+			await this.deps.usernameRegistry.release(username, botUserId);
+			throw error;
+		});
 		const {
 			token: botToken,
 			hash: botTokenHash,
@@ -338,12 +333,13 @@ export class ApplicationService {
 				}
 			}
 			const botUser = await this.apiContext.services.users.findUniqueAssert(botUserId);
+			// A deleted bot's name stays locked, like any deleted account's, until an admin releases it.
+			await this.deps.usernameRegistry.lock(botUser.username, botUserId);
 			await this.apiContext.services.users.patchUpsert(
 				botUserId,
 				{
 					username: DELETED_USER_USERNAME,
 					global_name: DELETED_USER_GLOBAL_NAME,
-					discriminator: 0,
 					email: null,
 					email_verified: false,
 					password_hash: null,
@@ -463,33 +459,19 @@ export class ApplicationService {
 			messageId: null,
 			surface: 'profile_field',
 		});
-		if (args.discriminator !== undefined && args.discriminator !== botUser.discriminator) {
-			throw InputValidationError.fromCode('discriminator', ValidationErrorCodes.BOT_DISCRIMINATOR_CANNOT_BE_CHANGED);
-		}
 		const updates: Partial<UserRow> = {};
-		const newUsername = args.username ?? botUser.username;
-		const usernameChanged = args.username !== undefined && args.username !== botUser.username;
-		if (usernameChanged) {
-			const result = await this.deps.discriminatorService.resolveUsernameChange({
-				currentUsername: botUser.username,
-				currentDiscriminator: botUser.discriminator,
-				newUsername,
-			});
-			if (result.username !== botUser.username) {
-				updates.username = result.username;
-			}
-			if (result.discriminator !== botUser.discriminator) {
-				updates.discriminator = result.discriminator;
-			}
-			if (profileSubstringBlocklistCache.containsBannedSubstring('username', result.username)) {
-				throw new ContentBlockedError();
-			}
-			if (result.username !== botUser.username || result.discriminator !== botUser.discriminator) {
-				await enforceFluxerTagChangeRateLimit({
-					rateLimitService: this.apiContext.services.rateLimit,
-					userId: botUserId,
-					errorPath: 'username',
-				});
+		// Bot renames follow the same rule as everyone's: the owner asks for the name before
+		// -BOT, the name is held, and an admin approves or rejects the request.
+		if (args.username !== undefined) {
+			const requestedUsername = `${args.username}${BOT_USERNAME_SUFFIX}`;
+			if (requestedUsername !== botUser.username) {
+				if (args.username.length > BOT_USERNAME_BASE_MAX_LENGTH) {
+					throw InputValidationError.fromCode('username', ValidationErrorCodes.USERNAME_LENGTH_INVALID);
+				}
+				await new UsernameChangeRequestService({usernameRegistry: this.deps.usernameRegistry}).submit(
+					botUser,
+					requestedUsername,
+				);
 			}
 		}
 		updates.global_name = null;

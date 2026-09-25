@@ -20,7 +20,7 @@ describe('Auth login with invalid invite code', () => {
 	it('login with invalid invite code succeeds but does not add guilds', async () => {
 		const member = await createTestAccount(harness);
 		const login = await loginUser(harness, {
-			email: member.email,
+			login: member.email,
 			password: member.password,
 			invite_code: 'invalidcode123',
 		});

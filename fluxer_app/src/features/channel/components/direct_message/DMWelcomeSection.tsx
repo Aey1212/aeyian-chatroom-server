@@ -96,7 +96,7 @@ export const DMWelcomeSection: React.FC<DMWelcomeSectionProps> = observer(functi
 		return null;
 	}
 	const displayName = NicknameUtils.getNickname(user, null, channel?.id);
-	const fluxerTag = NicknameUtils.formatTagForStreamerMode(user.tag);
+	const usernameLabel = NicknameUtils.formatUsernameForStreamerMode(user.username);
 	const handleSendFriendRequest = () => {
 		RelationshipActionUtils.sendFriendRequest(i18n, user.id);
 	};
@@ -282,7 +282,7 @@ export const DMWelcomeSection: React.FC<DMWelcomeSectionProps> = observer(functi
 						data-flx="channel.direct-message.dm-welcome-section.username-button.open-full-profile"
 					>
 						<span className={styles.username} data-flx="channel.direct-message.dm-welcome-section.username">
-							{fluxerTag}
+							{usernameLabel}
 						</span>
 					</button>
 				</FocusRing>

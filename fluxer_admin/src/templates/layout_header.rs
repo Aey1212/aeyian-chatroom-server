@@ -2,7 +2,7 @@
 
 use crate::{
     config::AdminConfig, middleware::auth::AuthContext,
-    templates::components::media::user_avatar_url, utils::bigint::format_discriminator,
+    templates::components::media::user_avatar_url,
 };
 use maud::{Markup, html};
 
@@ -32,7 +32,7 @@ pub fn render_header(config: &AdminConfig, auth: &AuthContext, csrf_token: &str)
                                 (display)
                             }
                             div class="truncate text-neutral-500 text-xs" {
-                                (admin.username) "#" (format_discriminator(&admin.discriminator))
+                                (admin.username)
                             }
                         }
                     }

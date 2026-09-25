@@ -4,7 +4,6 @@ import {Config} from '@app/api/Config';
 import type {UserRow} from '@app/api/database/types/UserTypes';
 import {mapGuildMemberToResponse} from '@app/api/guild/GuildModel';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {IGatewayService} from '@app/api/infrastructure/IGatewayService';
 import type {UserCacheService} from '@app/api/infrastructure/UserCacheService';
 import {Logger} from '@app/api/Logger';
@@ -46,8 +45,6 @@ interface SessionStartUserCacheService
 
 interface SessionStartGatewayService extends Pick<IGatewayService, 'dispatchGuild' | 'dispatchPresence'> {}
 
-interface SessionStartDiscriminatorService extends Pick<IDiscriminatorService, 'generateDiscriminator'> {}
-
 interface SessionStartPaymentRepository extends Pick<PaymentRepository, 'hasEverPaidSuccessfully'> {}
 
 interface SessionStartDeps {
@@ -55,7 +52,6 @@ interface SessionStartDeps {
 	guildRepository: SessionStartGuildRepository;
 	userCacheService: SessionStartUserCacheService;
 	gatewayService: SessionStartGatewayService;
-	discriminatorService: SessionStartDiscriminatorService;
 	paymentRepository: SessionStartPaymentRepository;
 }
 
@@ -139,39 +135,6 @@ export class RpcSessionStartService {
 					Logger.warn({userId: user.id.toString(), error}, 'Failed to strip expired premium on RPC session start');
 				}
 			});
-		}
-		if (!isPremium && (user.premiumFlags & PremiumFlags.DISCRIMINATOR) !== 0) {
-			const resetDiscriminatorSteps: RpcTimingSteps = {};
-			const resetDiscriminatorStartedAtNs = startRpcTiming();
-			try {
-				const discriminatorResult = await timeRpcStep(resetDiscriminatorSteps, 'generate_discriminator', async () =>
-					this.deps.discriminatorService.generateDiscriminator({
-						username: user.username,
-						user,
-					}),
-				);
-				if (discriminatorResult.available && discriminatorResult.discriminator !== -1) {
-					const updatedUser = await timeRpcStep(resetDiscriminatorSteps, 'persist_discriminator', async () =>
-						this.deps.userRepository.patchUpsert(
-							user.id,
-							{
-								discriminator: discriminatorResult.discriminator,
-							},
-							user.toRow(),
-						),
-					);
-					if (updatedUser) {
-						Object.assign(user, updatedUser);
-						userData.user = user;
-						this.deps.userCacheService.setUserPartialResponseFromUserInBackground(user, requestCache);
-						premiumFlagsToUpdate = (premiumFlagsToUpdate ?? user.premiumFlags) & ~PremiumFlags.DISCRIMINATOR;
-					}
-				}
-			} catch (error) {
-				Logger.error({userId: user.id.toString(), error}, 'Failed to reset discriminator after premium expired');
-			} finally {
-				timings.record('reset_expired_premium_discriminator', resetDiscriminatorStartedAtNs, resetDiscriminatorSteps);
-			}
 		}
 		if (hadPremium && !isPremium && !hasBeenSanitized) {
 			const sanitizePremiumSteps: RpcTimingSteps = {};

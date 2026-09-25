@@ -59,8 +59,8 @@ describe('User profile text validation', () => {
 			profileSubstringBlocklistCache.add(scope, 'blockedslug');
 		}
 		await createBuilder(harness, account.token)
-			.patch('/users/@me')
-			.body({username: 'myblockedslugname', password: TEST_CREDENTIALS.STRONG_PASSWORD})
+			.put('/users/@me/username-change-request')
+			.body({username: 'myblockedslugname'})
 			.expect(HTTP_STATUS.FORBIDDEN, APIErrorCodes.CONTENT_BLOCKED)
 			.execute();
 		await createBuilder(harness, account.token)

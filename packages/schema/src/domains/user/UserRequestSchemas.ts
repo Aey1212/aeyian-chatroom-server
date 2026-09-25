@@ -50,18 +50,16 @@ import {
 	UserNotificationSettingsSchema,
 } from '@fluxer/schema/src/primitives/UserSettingsValidators';
 import {
-	DiscriminatorType,
 	EmailType,
 	GlobalNameType,
 	PasswordType,
+	UsernameLookupType,
 	UsernameType,
 } from '@fluxer/schema/src/primitives/UserValidators';
 import {z} from 'zod';
 
 export const UserUpdateRequest = z
 	.object({
-		username: UsernameType.describe('The username for the account (1-32 characters)'),
-		discriminator: DiscriminatorType.describe('The 4-digit discriminator tag'),
 		global_name: GlobalNameType.nullish().describe('The display name shown to other users'),
 		email: EmailType.describe('The email address for the account'),
 		new_password: PasswordType.describe('The new password to set'),
@@ -183,12 +181,11 @@ export const PasswordChangeCompleteRequest = PasswordChangeTicketRequest.extend(
 
 export type PasswordChangeCompleteRequest = z.infer<typeof PasswordChangeCompleteRequest>;
 
-export const FriendRequestByTagRequest = z.object({
-	username: UsernameType.describe('Username of the user to send friend request'),
-	discriminator: DiscriminatorType.describe('Discriminator tag of the user'),
+export const FriendRequestByUsernameRequest = z.object({
+	username: UsernameLookupType.describe('Username of the user to send friend request, compared case-insensitively'),
 });
 
-export type FriendRequestByTagRequest = z.infer<typeof FriendRequestByTagRequest>;
+export type FriendRequestByUsernameRequest = z.infer<typeof FriendRequestByUsernameRequest>;
 
 export const FriendRequestCreateRequest = z.preprocess(
 	(value) => value ?? {},
@@ -442,12 +439,11 @@ export const EmptyBodyRequest = z.object({}).optional();
 
 export type EmptyBodyRequest = z.infer<typeof EmptyBodyRequest>;
 
-export const UserTagCheckQueryRequest = z.object({
-	username: UsernameType.describe('The username to check'),
-	discriminator: DiscriminatorType.describe('The discriminator to check'),
+export const UsernameCheckQueryRequest = z.object({
+	username: UsernameLookupType.describe('The username to check, compared case-insensitively'),
 });
 
-export type UserTagCheckQueryRequest = z.infer<typeof UserTagCheckQueryRequest>;
+export type UsernameCheckQueryRequest = z.infer<typeof UsernameCheckQueryRequest>;
 
 export const UserProfileQueryRequest = z.object({
 	guild_id: SnowflakeType.optional().describe('Optional guild ID for guild-specific profile'),
@@ -755,3 +751,9 @@ export const VoiceActivitySharingUpdateRequest = z
 	);
 
 export type VoiceActivitySharingUpdateRequest = z.infer<typeof VoiceActivitySharingUpdateRequest>;
+
+export const UsernameChangeRequestSubmitRequest = z.object({
+	username: UsernameType.describe('The username to ask for; an admin approves or rejects the request'),
+});
+
+export type UsernameChangeRequestSubmitRequest = z.infer<typeof UsernameChangeRequestSubmitRequest>;

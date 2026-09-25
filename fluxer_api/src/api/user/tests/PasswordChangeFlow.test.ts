@@ -246,7 +246,7 @@ describe('PasswordChangeFlow', () => {
 			const {ticket, verificationProof} = await runFullVerification(harness, account);
 			await completePasswordChange(harness, account.token, ticket, verificationProof, TEST_CREDENTIALS.ALT_PASSWORD_1);
 			const freshLogin = await loginUser(harness, {
-				email: account.email,
+				login: account.email,
 				password: TEST_CREDENTIALS.ALT_PASSWORD_1,
 			});
 			if ('mfa' in freshLogin) {
@@ -271,7 +271,7 @@ describe('PasswordChangeFlow', () => {
 			const account = await createTestAccount(harness);
 			const originalToken = account.token;
 			const otherLogin = await loginUser(harness, {
-				email: account.email,
+				login: account.email,
 				password: account.password,
 			});
 			if ('mfa' in otherLogin) {
@@ -301,7 +301,7 @@ describe('PasswordChangeFlow', () => {
 			const {ticket, verificationProof} = await runFullVerification(harness, account);
 			await completePasswordChange(harness, account.token, ticket, verificationProof, TEST_CREDENTIALS.ALT_PASSWORD_1);
 			const login = await loginUser(harness, {
-				email: account.email,
+				login: account.email,
 				password: TEST_CREDENTIALS.ALT_PASSWORD_1,
 			});
 			expect('token' in login).toBe(true);
@@ -313,7 +313,7 @@ describe('PasswordChangeFlow', () => {
 			await completePasswordChange(harness, account.token, ticket, verificationProof, TEST_CREDENTIALS.ALT_PASSWORD_1);
 			await createBuilderWithoutAuth(harness)
 				.post('/auth/login')
-				.body({email: account.email, password: TEST_CREDENTIALS.STRONG_PASSWORD})
+				.body({login: account.email, password: TEST_CREDENTIALS.STRONG_PASSWORD})
 				.expect(HTTP_STATUS.BAD_REQUEST)
 				.execute();
 		});
@@ -347,7 +347,7 @@ describe('PasswordChangeFlow', () => {
 				TEST_CREDENTIALS.ALT_PASSWORD_1,
 			);
 			const login = await loginUser(harness, {
-				email: account.email,
+				login: account.email,
 				password: TEST_CREDENTIALS.ALT_PASSWORD_1,
 			});
 			expect('token' in login).toBe(true);

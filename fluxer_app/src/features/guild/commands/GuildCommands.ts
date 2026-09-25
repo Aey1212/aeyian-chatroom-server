@@ -61,8 +61,6 @@ export interface GuildBan {
 		id: string;
 		username: string;
 		global_name?: string | null;
-		tag: string;
-		discriminator: string;
 		avatar: string | null;
 	};
 	reason: string | null;

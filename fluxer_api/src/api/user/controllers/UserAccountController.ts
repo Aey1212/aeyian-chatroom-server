@@ -3,13 +3,16 @@
 import * as AuthSession from '@app/api/auth/AuthSession';
 import {requireSudoMode} from '@app/api/auth/services/SudoVerificationService';
 import {createGuildID, createUserID} from '@app/api/BrandedTypes';
+import type {UsernameChangeRequestRow} from '@app/api/database/types/UserTypes';
 import {DefaultUserOnly, LoginRequired, LoginRequiredAllowSuspicious} from '@app/api/middleware/AuthMiddleware';
 import {requireOAuth2ScopeForBearer} from '@app/api/middleware/OAuth2ScopeMiddleware';
 import {RateLimitMiddleware} from '@app/api/middleware/RateLimitMiddleware';
 import {OpenAPI} from '@app/api/middleware/ResponseTypeMiddleware';
+import {getUsernameRegistry} from '@app/api/middleware/ServiceSingletons';
 import {SudoModeMiddleware} from '@app/api/middleware/SudoModeMiddleware';
 import {RateLimitConfigs} from '@app/api/RateLimitConfig';
 import type {HonoApp} from '@app/api/types/HonoEnv';
+import {UsernameChangeRequestService} from '@app/api/user/services/UsernameChangeRequestService';
 import {getCachedUserPartialResponse} from '@app/api/user/UserCacheHelpers';
 import {
 	mapUserGuildSettingsToResponse,
@@ -49,9 +52,10 @@ import {
 	UnregisterMobileDeviceRequest,
 	UserGuildSettingsUpdateRequest,
 	UserNoteUpdateRequest,
+	UsernameChangeRequestSubmitRequest,
+	UsernameCheckQueryRequest,
 	UserProfileQueryRequest,
 	UserSettingsUpdateRequest,
-	UserTagCheckQueryRequest,
 	UserUpdateWithVerificationRequest,
 	VoiceActivitySharingUpdateRequest,
 } from '@fluxer/schema/src/domains/user/UserRequestSchemas';
@@ -72,13 +76,31 @@ import {
 	UserGuildSettingsResponse,
 	UserNoteResponse,
 	UserNotesRecordResponse,
+	UsernameChangeRequestResponse,
+	UsernameCheckResponse,
 	UserPartialResponse,
 	UserPrivateResponse,
 	UserProfileFullResponse,
 	UserSettingsResponse,
-	UserTagCheckResponse,
 } from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 import {uint8ArrayToBase64} from 'uint8array-extras';
+
+function usernameChangeRequestService(): UsernameChangeRequestService {
+	return new UsernameChangeRequestService({usernameRegistry: getUsernameRegistry()});
+}
+
+function mapUsernameChangeRequest(request: UsernameChangeRequestRow | null): UsernameChangeRequestResponse {
+	return {
+		request: request
+			? {
+					requested_username: request.requested_username,
+					status: request.status,
+					created_at: request.created_at.toISOString(),
+					reviewed_at: request.reviewed_at?.toISOString() ?? null,
+				}
+			: null,
+	};
+}
 
 export function UserAccountController(app: HonoApp) {
 	app.get(
@@ -490,30 +512,89 @@ export function UserAccountController(app: HonoApp) {
 		},
 	);
 	app.get(
-		'/users/check-tag',
-		RateLimitMiddleware(RateLimitConfigs.USER_CHECK_TAG),
+		'/users/@me/username-change-request',
+		RateLimitMiddleware(RateLimitConfigs.USER_CHECK_USERNAME),
 		LoginRequired,
-		Validator('query', UserTagCheckQueryRequest),
+		DefaultUserOnly,
 		OpenAPI({
-			operationId: 'check_username_tag_availability',
-			summary: 'Check username tag availability',
-			responseSchema: UserTagCheckResponse,
+			operationId: 'get_username_change_request',
+			summary: 'Get your rename request',
+			responseSchema: UsernameChangeRequestResponse,
+			statusCode: 200,
+			security: ['bearerToken', 'sessionToken'],
+			tags: ['Users'],
+			description:
+				'Returns your latest rename request and where it stands. Usernames change only through a request that an admin approves.',
+		}),
+		async (ctx) => {
+			const request = await usernameChangeRequestService().getLatest(ctx.get('user'));
+			return ctx.json(mapUsernameChangeRequest(request));
+		},
+	);
+	app.put(
+		'/users/@me/username-change-request',
+		RateLimitMiddleware(RateLimitConfigs.USER_USERNAME_CHANGE_REQUEST),
+		LoginRequired,
+		DefaultUserOnly,
+		Validator('json', UsernameChangeRequestSubmitRequest),
+		OpenAPI({
+			operationId: 'submit_username_change_request',
+			summary: 'Ask for a new username',
+			responseSchema: UsernameChangeRequestResponse,
+			statusCode: 200,
+			security: ['bearerToken', 'sessionToken'],
+			tags: ['Users'],
+			description:
+				'Asks for a new username. The name is held for you until an admin approves or rejects the request. A new request replaces a pending one and gives its name back. Fails with USERNAME_ALREADY_TAKEN when the name is in use, locked or held.',
+		}),
+		async (ctx) => {
+			const {username} = ctx.req.valid('json');
+			const request = await usernameChangeRequestService().submit(ctx.get('user'), username);
+			return ctx.json(mapUsernameChangeRequest(request));
+		},
+	);
+	app.delete(
+		'/users/@me/username-change-request',
+		RateLimitMiddleware(RateLimitConfigs.USER_USERNAME_CHANGE_REQUEST),
+		LoginRequired,
+		DefaultUserOnly,
+		OpenAPI({
+			operationId: 'cancel_username_change_request',
+			summary: 'Cancel your rename request',
+			responseSchema: null,
+			statusCode: 204,
+			security: ['bearerToken', 'sessionToken'],
+			tags: ['Users'],
+			description:
+				'Cancels your pending rename request and gives the held name back. Does nothing when none is pending.',
+		}),
+		async (ctx) => {
+			await usernameChangeRequestService().cancelPending(ctx.get('user'));
+			return ctx.body(null, 204);
+		},
+	);
+	app.get(
+		'/users/check-username',
+		RateLimitMiddleware(RateLimitConfigs.USER_CHECK_USERNAME),
+		LoginRequired,
+		Validator('query', UsernameCheckQueryRequest),
+		OpenAPI({
+			operationId: 'check_username_availability',
+			summary: 'Check username availability',
+			responseSchema: UsernameCheckResponse,
 			statusCode: 200,
 			security: ['botToken', 'bearerToken', 'sessionToken'],
 			tags: ['Users'],
 			description:
-				'Checks if a username and discriminator combination is available for registration. Returns whether the tag is taken by another user.',
+				"Checks whether a username is taken. A name is taken when an account uses it, a deleted account left it locked, or a pending rename request holds it. The caller's own current name is not reported as taken.",
 		}),
 		async (ctx) => {
-			const {username, discriminator} = ctx.req.valid('query');
+			const {username} = ctx.req.valid('query');
 			const currentUser = ctx.get('user');
-			const userAccountRequestService = ctx.get('userAccountRequestService');
-			if (!userAccountRequestService.checkTagAvailability({currentUser, username, discriminator})) {
+			if (username.trim().toLowerCase() === currentUser.username.toLowerCase()) {
 				return ctx.json({taken: false});
 			}
-			const taken = await ctx
-				.get('userService')
-				.accountService.lookupService.checkUsernameDiscriminatorAvailability({username, discriminator});
+			const taken = await ctx.get('userService').accountService.lookupService.isUsernameTaken(username);
 			return ctx.json({taken});
 		},
 	);

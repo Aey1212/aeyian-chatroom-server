@@ -3,8 +3,7 @@
 import {
 	EXAMPLE_INVITE_CODE,
 	EXAMPLE_MESSAGE_LINK,
-	EXAMPLE_REPORT_USER_TAG,
-	EXAMPLE_USERNAME_TAG,
+	EXAMPLE_USERNAME,
 } from '@app/features/app/config/I18nDisplayConstants';
 import styles from '@app/features/moderation/components/pages/ReportPage.module.css';
 import type {FormValues, ReportType} from '@app/features/moderation/components/report/ReportTypes';
@@ -25,20 +24,20 @@ const MESSAGE_LINK_DESCRIPTOR = msg({
 	comment:
 		'Field label on the details step of the DSA report form (message report). The reporter pastes a direct link to the offending message.',
 });
-const REPORTED_USER_TAG_OPTIONAL_DESCRIPTOR = msg({
-	message: 'Reported user tag (optional)',
+const REPORTED_USERNAME_OPTIONAL_DESCRIPTOR = msg({
+	message: 'Reported username (optional)',
 	comment:
-		'Field label on the details step of the DSA report form (message report). Optional FluxerTag of the user who sent the message.',
+		'Field label on the details step of the DSA report form (message report). Optional username of the user who sent the message.',
 });
 const USER_ID_OPTIONAL_DESCRIPTOR = msg({
 	message: 'User ID (optional)',
 	comment:
 		'Field label on the details step of the DSA report form (user report). Optional Fluxer user snowflake ID. "ID" is conventional.',
 });
-const USER_TAG_OPTIONAL_DESCRIPTOR = msg({
-	message: 'User tag (optional)',
+const USERNAME_OPTIONAL_DESCRIPTOR = msg({
+	message: 'Username (optional)',
 	comment:
-		'Field label on the details step of the DSA report form (user report). Optional FluxerTag of the reported user.',
+		'Field label on the details step of the DSA report form (user report). Optional username of the reported user.',
 });
 const COMMUNITY_ID_DESCRIPTOR = msg({
 	message: 'Community ID',
@@ -179,13 +178,13 @@ export const ReportStepDetails: React.FC<Props> = ({
 								data-flx="moderation.report.report-step-details.input.field-change.url"
 							/>
 							<Input
-								label={i18n._(REPORTED_USER_TAG_OPTIONAL_DESCRIPTOR)}
+								label={i18n._(REPORTED_USERNAME_OPTIONAL_DESCRIPTOR)}
 								type="text"
-								value={formValues.messageUserTag}
-								onChange={(e) => onFieldChange('messageUserTag', e.target.value)}
-								placeholder={EXAMPLE_REPORT_USER_TAG}
+								value={formValues.messageUsername}
+								onChange={(e) => onFieldChange('messageUsername', e.target.value)}
+								placeholder={EXAMPLE_USERNAME}
 								autoComplete="off"
-								error={fieldErrors.messageUserTag}
+								error={fieldErrors.messageUsername}
 								data-flx="moderation.report.report-step-details.input.field-change.text"
 							/>
 						</>
@@ -203,13 +202,13 @@ export const ReportStepDetails: React.FC<Props> = ({
 								data-flx="moderation.report.report-step-details.input.field-change.text--2"
 							/>
 							<Input
-								label={i18n._(USER_TAG_OPTIONAL_DESCRIPTOR)}
+								label={i18n._(USERNAME_OPTIONAL_DESCRIPTOR)}
 								type="text"
-								value={formValues.userTag}
-								onChange={(e) => onFieldChange('userTag', e.target.value)}
-								placeholder={EXAMPLE_REPORT_USER_TAG}
+								value={formValues.username}
+								onChange={(e) => onFieldChange('username', e.target.value)}
+								placeholder={EXAMPLE_USERNAME}
 								autoComplete="off"
-								error={fieldErrors.userTag}
+								error={fieldErrors.username}
 								footer={
 									userTargetOk ? undefined : (
 										<span className={styles.helperText} data-flx="moderation.report.report-step-details.helper-text--2">
@@ -273,10 +272,10 @@ export const ReportStepDetails: React.FC<Props> = ({
 					<Input
 						label={i18n._(YOUR_USERNAME_OPTIONAL_DESCRIPTOR)}
 						type="text"
-						value={formValues.reporterFluxerTag}
-						onChange={(e) => onFieldChange('reporterFluxerTag', e.target.value)}
-						placeholder={EXAMPLE_USERNAME_TAG}
-						error={fieldErrors.reporterFluxerTag}
+						value={formValues.reporterUsername}
+						onChange={(e) => onFieldChange('reporterUsername', e.target.value)}
+						placeholder={EXAMPLE_USERNAME}
+						error={fieldErrors.reporterUsername}
 						data-flx="moderation.report.report-step-details.input.field-change.text--7"
 					/>
 					<Textarea

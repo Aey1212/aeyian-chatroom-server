@@ -238,7 +238,7 @@ function createUserCandidateFromMember(member: GuildMember): UserCandidate {
 	const title = member.nick
 		? NicknameUtils.formatNicknameForStreamerMode(member.nick)
 		: NicknameUtils.getNickname(member.user, member.guildId);
-	const subtitle = NicknameUtils.formatUserTagForStreamerMode(member.user);
+	const subtitle = NicknameUtils.formatUserNameForStreamerMode(member.user);
 	const searchValues = [title, subtitle, member.user.username, member.user.id, member.nick].filter(
 		Boolean,
 	) as Array<string>;

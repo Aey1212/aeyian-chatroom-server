@@ -119,7 +119,7 @@ function isFriendRelationship(userId: string): boolean {
 function getTransformedUser(user: User): TransformedMember {
 	return {
 		id: user.id,
-		username: `${user.username}#${user.discriminator}`,
+		username: `${user.username}`,
 		globalName: user.globalName,
 		isBot: user.bot,
 		isFriend: isFriendRelationship(user.id),

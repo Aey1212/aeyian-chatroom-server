@@ -27,23 +27,22 @@ When the caller lacks `user:view:email`, `user:view:dob`, or `user:view:ip`, Flu
 | Field | Type | Description |
 | --- | --- | --- |
 | id | snowflake | The ID of the account |
-| username | string | The username of the account, unique only together with its discriminator (1-32 characters) |
-| discriminator<sup>1</sup> | integer | Discriminator from 0 to 9999, unpadded |
+| username | string | The username of the account, unique ignoring letter case (1-32 characters) |
 | global_name | ?string | The display name of the account, or null when unset |
 | bot | boolean | Whether the account is a bot |
 | system | boolean | Whether the account is an official system account |
-| flags<sup>2</sup> | string | [Account flags](#account-flags) as an unsigned 64-bit decimal string |
+| flags<sup>1</sup> | string | [Account flags](#account-flags) as an unsigned 64-bit decimal string |
 | premium_flags | integer | [Premium flags](#premium-flags) |
 | avatar | ?string | The avatar hash, or null when the account has none |
 | banner | ?string | The profile banner hash, or null when the account has none |
 | bio | ?string | The profile biography, or null when unset |
 | pronouns | ?string | The profile pronouns, or null when unset |
 | accent_color | ?integer | The profile accent colour packed into an integer, or null when unset |
-| email<sup>3</sup> | ?string | The registered email address, or null when the account has none |
-| email_verified<sup>3</sup> | boolean | Whether the registered address has been verified |
-| email_bounced<sup>3</sup> | boolean | Whether delivery to the registered address hard bounced |
+| email<sup>2</sup> | ?string | The registered email address, or null when the account has none |
+| email_verified<sup>2</sup> | boolean | Whether the registered address has been verified |
+| email_bounced<sup>2</sup> | boolean | Whether delivery to the registered address hard bounced |
 | has_verified_phone | boolean | Whether the account is treated as having completed phone verification |
-| date_of_birth<sup>4</sup> | ?string | The date of birth in `YYYY-MM-DD` form, or null when none is stored |
+| date_of_birth<sup>3</sup> | ?string | The date of birth in `YYYY-MM-DD` form, or null when none is stored |
 | locale | ?string | The saved [locale](/topics/locales/#supported-locales), or null when the account has never set one |
 | premium_type | ?integer | [Premium type](#premium-types) |
 | premium_since | ?ISO8601 timestamp | The time the premium subscription began, or null when the account has none |
@@ -51,44 +50,42 @@ When the caller lacks `user:view:email`, `user:view:dob`, or `user:view:ip`, Flu
 | premium_grace_ends_at | ?ISO8601 timestamp | The time the payment grace period ends, or null when no grace period is running |
 | premium_lifetime_sequence | ?integer | The sequence number of the lifetime purchase, or null when the account holds none |
 | suspicious_activity_flags | integer | [Suspicious activity flags](#suspicious-activity-flags) |
-| phone_verification_deferred<sup>5</sup> | boolean | Whether a stored phone requirement is deferred until the account joins a discoverable or large community |
-| temp_banned_until<sup>6</sup> | ?ISO8601 timestamp | The time the ban expires, or null when no ban stands |
+| phone_verification_deferred<sup>4</sup> | boolean | Whether a stored phone requirement is deferred until the account joins a discoverable or large community |
+| temp_banned_until<sup>5</sup> | ?ISO8601 timestamp | The time the ban expires, or null when no ban stands |
 | pending_deletion_at | ?ISO8601 timestamp | The time the scheduled deletion runs, or null when none is scheduled |
-| pending_bulk_message_deletion_at<sup>7</sup> | ?ISO8601 timestamp | The time the account's own scheduled bulk message deletion runs |
+| pending_bulk_message_deletion_at<sup>6</sup> | ?ISO8601 timestamp | The time the account's own scheduled bulk message deletion runs |
 | deletion_reason_code | ?integer | [Deletion reason](#deletion-reasons) |
 | deletion_public_reason | ?string | The reason shown to the account holder, or null when none was supplied |
-| acls<sup>8</sup> | array[string] | Effective [Admin ACLs](/admin-api/#acl-registry), with at most 111 entries |
-| traits<sup>9</sup> | array[string] | The free-form operator labels set on the account, with at most 100 entries |
-| has_totp<sup>10</sup> | boolean | Whether a TOTP authenticator is registered |
-| authenticator_types<sup>10</sup> | array[integer] | Registered [authenticator types](/http-api/users/#authenticator-types), with at most 10 entries |
+| acls<sup>7</sup> | array[string] | Effective [Admin ACLs](/admin-api/#acl-registry), with at most 111 entries |
+| traits<sup>8</sup> | array[string] | The free-form operator labels set on the account, with at most 100 entries |
+| has_totp<sup>9</sup> | boolean | Whether a TOTP authenticator is registered |
+| authenticator_types<sup>9</sup> | array[integer] | Registered [authenticator types](/http-api/users/#authenticator-types), with at most 10 entries |
 | last_active_at | ?ISO8601 timestamp | The time of the last recorded activity, or null when none is recorded |
-| last_active_ip<sup>11</sup> | ?string | The IP address the account was last active from |
-| last_active_ip_reverse<sup>11</sup> <sup>12</sup> | ?string | The reverse DNS name of that IP address |
-| last_active_location<sup>11</sup> <sup>12</sup> | ?string | The approximate location of that IP address |
+| last_active_ip<sup>10</sup> | ?string | The IP address the account was last active from |
+| last_active_ip_reverse<sup>10</sup> <sup>11</sup> | ?string | The reverse DNS name of that IP address |
+| last_active_location<sup>10</sup> <sup>11</sup> | ?string | The approximate location of that IP address |
 
-<sup>1</sup> An unpadded JSON number here, unlike the zero-padded string `discriminator` of the [Admin user summary](/admin-api/#admin-user-summary-object) and the [Admin resolved user](#admin-resolved-user-object) embedded in other Admin objects
+<sup>1</sup> Serialised as a decimal string
 
-<sup>2</sup> Serialised as a decimal string
+<sup>2</sup> Requires `user:view:email`. Without it `email` is null while `email_verified` and `email_bounced` are both false regardless of the stored state, so an unverified account and a redacted one are indistinguishable
 
-<sup>3</sup> Requires `user:view:email`. Without it `email` is null while `email_verified` and `email_bounced` are both false regardless of the stored state, so an unverified account and a redacted one are indistinguishable
+<sup>3</sup> Requires `user:view:dob`, and without it the field is null
 
-<sup>4</sup> Requires `user:view:dob`, and without it the field is null
+<sup>4</sup> Derived from bit `1 << 16` of `suspicious_activity_flags`, which sits outside the [suspicious activity flag](#suspicious-activity-flags) registry
 
-<sup>5</sup> Derived from bit `1 << 16` of `suspicious_activity_flags`, which sits outside the [suspicious activity flag](#suspicious-activity-flags) registry
+<sup>5</sup> Set by [Ban user](#ban-user) for both ban modes. An expiry that has already passed is reported as null, so an elapsed temporary ban reads the same as no ban
 
-<sup>6</sup> Set by [Ban user](#ban-user) for both ban modes. An expiry that has already passed is reported as null, so an elapsed temporary ban reads the same as no ban
+<sup>6</sup> Written when the account holder schedules its own bulk message deletion, and cleared by [Cancel scheduled message deletion](#cancel-scheduled-message-deletion)
 
-<sup>7</sup> Written when the account holder schedules its own bulk message deletion, and cleared by [Cancel scheduled message deletion](#cancel-scheduled-message-deletion)
+<sup>7</sup> The set written by [Set user ACLs](#set-user-acls), returned in stored order. This set alone decides whether the account can reach the Admin API, and the `STAFF` [account flag](#account-flags) plays no part in that
 
-<sup>8</sup> The set written by [Set user ACLs](#set-user-acls), returned in stored order. This set alone decides whether the account can reach the Admin API, and the `STAFF` [account flag](#account-flags) plays no part in that
+<sup>8</sup> Sorted in ascending order, unlike `acls`
 
-<sup>9</sup> Sorted in ascending order, unlike `acls`
+<sup>9</sup> Never redacted, and returned in full to any caller the operation admitted
 
-<sup>10</sup> Never redacted, and returned in full to any caller the operation admitted
+<sup>10</sup> Requires `user:view:ip`, and without it the field is null and no network lookup is attempted
 
-<sup>11</sup> Requires `user:view:ip`, and without it the field is null and no network lookup is attempted
-
-<sup>12</sup> Resolved live from `last_active_ip` for each response, and null when the lookup fails or returns nothing. The reverse DNS result is cached for one day
+<sup>11</sup> Resolved live from `last_active_ip` for each response, and null when the lookup fails or returns nothing. The reverse DNS result is cached for one day
 
 ### Example
 
@@ -96,7 +93,6 @@ When the caller lacks `user:view:email`, `user:view:dob`, or `user:view:ip`, Flu
 {
   "id": "1493004551122763776",
   "username": "subject",
-  "discriminator": 7,
   "global_name": null,
   "bot": false,
   "system": false,
@@ -156,7 +152,6 @@ The `flags` field of the [Admin user object](#admin-user-object) is a 64-bit bit
 
 | Value | Name | Description |
 | --- | --- | --- |
-| 1 &lt;&lt; 0 | DISCRIMINATOR | Account has a premium discriminator |
 | 1 &lt;&lt; 1 | BADGE_HIDDEN | Premium badge is hidden |
 | 1 &lt;&lt; 2 | BADGE_MASKED | Premium badge is masked |
 | 1 &lt;&lt; 3 | BADGE_TIMESTAMP_HIDDEN | Premium badge timestamp is hidden |
@@ -302,11 +297,8 @@ The account summary embedded in the Admin direct message channel object and the 
 | --- | --- | --- |
 | id | snowflake | The ID of the account |
 | username | string | The username of the account |
-| discriminator<sup>1</sup> | string | The four-digit discriminator of the account |
 | global_name | ?string | The display name of the account, or null when unset |
 | avatar | ?string | The avatar hash, or null when the account has none |
-
-<sup>1</sup> Left-padded with zeroes to four digits, unlike the unpadded integer `discriminator` of the [Admin user object](#admin-user-object)
 
 ### Example
 
@@ -314,7 +306,6 @@ The account summary embedded in the Admin direct message channel object and the 
 {
   "id": "1493004551122763776",
   "username": "kelsier",
-  "discriminator": "0042",
   "global_name": "Kelsier",
   "avatar": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
 }
@@ -387,7 +378,6 @@ One entry for each direct message or group direct message channel the account ha
   "target": {
     "id": "1489200013322551296",
     "username": "operator",
-    "discriminator": "0042",
     "global_name": "Operator"
   }
 }
@@ -395,14 +385,14 @@ One entry for each direct message or group direct message channel the account ha
 
 ## Admin user change log object
 
-One recorded change to the account's email address, phone verification state, or username and discriminator. The account holder's own changes appear here, and so do [Change user username](#change-user-username) and [Change user email](#change-user-email).
+One recorded change to the account's email address, phone verification state, or username. The account holder's own changes appear here, and so do [Change user username](#change-user-username) and [Change user email](#change-user-email).
 
 ### Structure
 
 | Field | Type | Description |
 | --- | --- | --- |
 | event_id<sup>1</sup> | string | The ID of the change entry as an unsigned 64-bit decimal string |
-| field | string | The field that changed, one of `email`, `has_verified_phone`, or `fluxer_tag` |
+| field | string | The field that changed, one of `email`, `has_verified_phone`, or `username` |
 | old_value<sup>2</sup> | ?string | The value before the change, or null when the field was unset |
 | new_value<sup>2</sup> | ?string | The value after the change, or null when the field was cleared |
 | reason<sup>3</sup> | ?string | The recorded reason for the change, or null when unrecorded |
@@ -428,6 +418,31 @@ One recorded change to the account's email address, phone verification state, or
   "event_at": "2026-08-14T07:55:31.882000+00:00"
 }
 ```
+
+## Admin rename request object
+
+A pending rename request, as [list rename requests](#list-rename-requests) returns it.
+
+### Structure
+
+| Field | Type | Description |
+| --- | --- | --- |
+| user_id | snowflake | The ID of the account asking for a new username |
+| current_username | ?string | The current username, or null when the account no longer exists |
+| requested_username | string | The username asked for |
+| created_at | ISO8601 timestamp | When the request was made |
+
+## Admin locked username object
+
+A username nobody can register or ask for until an admin releases it.
+
+### Structure
+
+| Field | Type | Description |
+| --- | --- | --- |
+| username | string | The locked username, in lowercase |
+| user_id | snowflake | The ID of the account that left it behind |
+| locked_at | ISO8601 timestamp | When the username was locked |
 
 ## Message shred entry object
 
@@ -479,7 +494,7 @@ Fluxer honours exactly one selector, in this precedence order: `user_id`, `resol
 
 <sup>6</sup> Honoured by the `last_active_ip` and `q` selectors. The `user_id`, `resolve`, and `email` selectors ignore both
 
-Fluxer chooses the `resolve` lookup from the shape of the value. A `username#discriminator` value resolves the tag, a value that is entirely digits resolves the account ID, and a value containing `@` resolves the email address. Every other value resolves a Stripe subscription ID.
+Fluxer chooses the `resolve` lookup from the shape of the value. A value that is entirely digits resolves the account ID, and a value containing `@` resolves the email address. Every other value resolves a Stripe subscription ID.
 
 A `q` value that is entirely digits also resolves that exact account ID and places it first, even when the search index did not match it, provided `offset` is zero. That direct hit raises `total` by one when the index did not already return it.
 
@@ -583,9 +598,7 @@ The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-obje
 
 <RouteHeader method="PATCH" path="/v1/admin/users/{user_id}/username" auditReason />
 
-Replaces the username, allocates or claims a discriminator, and returns the resulting account. Requires `user:update:username`.
-
-A target account may hold a custom discriminator on every self-hosted instance, and on any other instance only when the `feature_custom_discriminator` limit resolves to a value above zero for that account.
+Renames the account directly, without a rename request, and returns the resulting account. The old username stays locked until it is [released](#release-a-locked-username). Requires `user:update:username`.
 
 ### Path parameters
 
@@ -598,11 +611,8 @@ A target account may hold a custom discriminator on every self-hosted instance, 
 | Field | Type | Description |
 | --- | --- | --- |
 | username<sup>1</sup> | string | Replacement username (1-32 characters) |
-| discriminator?<sup>2</sup> | string | Requested discriminator of one to four decimal digits |
 
-<sup>1</sup> Trimmed before validation, restricted to letters, digits, and underscores, and rejected when it lowercases to `everyone` or `here` or contains `fluxer` or `system message`
-
-<sup>2</sup> Honoured only when the target account may hold a custom discriminator. In every other case, including an omitted field, Fluxer allocates a free discriminator for the submitted username
+<sup>1</sup> Trimmed before validation, restricted to letters, digits, and underscores, and rejected when it lowercases to `everyone` or `here` or contains `fluxer` or `system message`. For a bot, the value is the part before `-BOT` (1-28 characters) and Fluxer appends the suffix
 
 ### Response body
 
@@ -615,18 +625,207 @@ A target account may hold a custom discriminator on every self-hosted instance, 
 | Status | Body | Condition |
 | --- | --- | --- |
 | 200 | response body | Username was replaced |
-| 400 | [error response](/admin-api/#error-response) | Path or body validation fails, or the requested tag is taken and the request returns `TAG_ALREADY_TAKEN` |
+| 400 | [error response](/admin-api/#error-response) | Path or body validation fails, or the username is in use, locked, or held and the request returns `USERNAME_ALREADY_TAKEN` |
 | 404 | [error response](/admin-api/#error-response) | `UNKNOWN_USER`, because the account does not exist |
 
-`TAG_ALREADY_TAKEN` also covers a submitted username with no free discriminator left, and an allocation lock the operation cannot get within its 10 second wait.
+A change of letter case only keeps the name the account already owns.
 
 ### Side effects
 
-[User Update](/gateway/events/#user-update) is emitted to the account's own sessions, and each guild the account is a member of receives [Guild Member Update](/gateway/events/#guild-member-update). Fluxer reindexes the member in each indexed guild in the background, so a member search result can briefly report the previous tag.
+[User Update](/gateway/events/#user-update) is emitted to the account's own sessions, and each guild the account is a member of receives [Guild Member Update](/gateway/events/#guild-member-update). Fluxer reindexes the member in each indexed guild in the background, so a member search result can briefly report the previous username.
 
 The change is recorded in the contact change log and is returned by [List user change log](#list-user-change-log) with `reason` set to `admin_action` and `actor_user_id` set to the acting Admin.
 
-The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `change_username`, target type `user`, and metadata keys `old_username`, `new_username`, and `discriminator`.
+The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `change_username`, target type `user`, and metadata keys `old_username` and `new_username`.
+
+### Rate limit
+
+100 requests per minute for each authenticated user, on the `admin:user:modify` bucket.
+
+## List rename requests
+
+<RouteHeader method="GET" path="/v1/admin/username-change-requests" />
+
+Lists the pending rename requests, oldest first. Each requested username is held for its account until the request is approved or rejected. Requires `user:update:username`.
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| requests | array[[Admin rename request](#admin-rename-request-object) object] | The pending requests |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The pending requests were listed |
+
+### Side effects
+
+The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `list_username_change_requests`.
+
+### Rate limit
+
+200 requests per minute for each authenticated user, on the `admin:lookup` bucket.
+
+## Approve a rename request
+
+<RouteHeader method="POST" path="/v1/admin/username-change-requests/{user_id}/approve" auditReason />
+
+Renames the account to the username its pending request holds. The old username stays locked until it is [released](#release-a-locked-username). Requires `user:update:username`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| user_id | snowflake | The ID of the account whose request is approved |
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| applied | boolean | Whether a pending request existed and the decision was applied |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The decision was applied, or there was no pending request |
+
+A request whose account no longer exists is closed as rejected, its username is given back, and `applied` is false.
+
+### Side effects
+
+The side effects are those of [Change user username](#change-user-username), with the audit action `approve_username_change_request`.
+
+### Rate limit
+
+100 requests per minute for each authenticated user, on the `admin:user:modify` bucket.
+
+## Reject a rename request
+
+<RouteHeader method="POST" path="/v1/admin/username-change-requests/{user_id}/reject" auditReason />
+
+Rejects the pending rename request of the account and gives the held username back. The account keeps its username. Requires `user:update:username`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| user_id | snowflake | The ID of the account whose request is rejected |
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| applied | boolean | Whether a pending request existed and the decision was applied |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The decision was applied, or there was no pending request |
+
+### Side effects
+
+The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `reject_username_change_request` and metadata key `requested_username`.
+
+### Rate limit
+
+100 requests per minute for each authenticated user, on the `admin:user:modify` bucket.
+
+## List locked usernames
+
+<RouteHeader method="GET" path="/v1/admin/usernames/locked" />
+
+Lists the usernames that deleted or renamed accounts left behind. Nobody can register or ask for a locked username until it is released. Requires `user:update:username`.
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| usernames | array[[Admin locked username](#admin-locked-username-object) object] | The locked usernames |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The locked usernames were listed |
+
+### Side effects
+
+The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `list_locked_usernames`.
+
+### Rate limit
+
+200 requests per minute for each authenticated user, on the `admin:lookup` bucket.
+
+## Release a locked username
+
+<RouteHeader method="POST" path="/v1/admin/usernames/locked/{username}/release" auditReason />
+
+Makes a locked username available to register or ask for again. Requires `user:update:username`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| username | string | The locked username, compared ignoring letter case |
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| released | boolean | Whether the username was locked and is now free |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The username was released, or it was not locked |
+
+### Side effects
+
+A release records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `release_locked_username` and metadata key `username`.
+
+### Rate limit
+
+100 requests per minute for each authenticated user, on the `admin:user:modify` bucket.
+
+## Set password reset mode
+
+<RouteHeader method="PUT" path="/v1/admin/users/{user_id}/password-reset-mode" auditReason />
+
+Opens or closes a password reset for the account. While a reset is open, the account holder can choose a new password with [reset an opened password](/http-api/authentication/#reset-an-opened-password), without email. The reset closes when it is used. Requires `user:update:email`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| user_id | snowflake | The ID of the target account |
+
+### JSON body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| open | boolean | Whether a password reset is open for the account |
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| open | boolean | Whether a password reset is open for the account |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The reset mode was set |
+| 404 | [error response](/admin-api/#error-response) | `UNKNOWN_USER`, because the account does not exist |
+
+### Side effects
+
+The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `open_password_reset` or `close_password_reset`.
 
 ### Rate limit
 
@@ -1559,7 +1758,7 @@ Lists the guilds the account is a member of, in ascending guild ID order. Requir
 | --- | --- | --- |
 | guilds<sup>1</sup> | array[[Admin guild](/admin-api/guilds/#admin-guild-object) object] | The guilds in this page that the account is a member of |
 
-<sup>1</sup> `approximate_member_count` and `approximate_presence_count` are present only when `with_counts` resolved to true. `owner_username`, `owner_global_name`, and `owner_discriminator` are resolved by this operation and are null only for an owner account that no longer exists
+<sup>1</sup> `approximate_member_count` and `approximate_presence_count` are present only when `with_counts` resolved to true. `owner_username` and `owner_global_name` are resolved by this operation and are null only for an owner account that no longer exists
 
 ### Response
 

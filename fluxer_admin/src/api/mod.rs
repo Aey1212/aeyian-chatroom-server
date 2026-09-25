@@ -23,5 +23,6 @@ pub mod search;
 pub mod system;
 pub mod system_dm;
 pub mod types;
+pub mod usernames;
 pub mod users;
 pub mod voice;

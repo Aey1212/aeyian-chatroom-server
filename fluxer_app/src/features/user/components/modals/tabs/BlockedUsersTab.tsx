@@ -91,7 +91,7 @@ export const BlockedUsersContent: React.FC = observer(() => {
 							}
 							onClick={() => {
 								onClose();
-								TextCopyCommands.copy(i18n, user.tag, true);
+								TextCopyCommands.copy(i18n, user.username, true);
 							}}
 							data-flx="user.blocked-users-tab.handle-more-options-click.menu-item.close--2"
 						>
@@ -161,9 +161,11 @@ export const BlockedUsersContent: React.FC = observer(() => {
 											<span className={styles.username} data-flx="user.blocked-users-tab.username">
 												{displayName}
 											</span>
-											<span className={styles.discriminator} data-flx="user.blocked-users-tab.discriminator">
-												{NicknameUtils.formatUserTagForStreamerMode(user)}
-											</span>
+											{user.username !== displayName && (
+												<span className={styles.handle} data-flx="user.blocked-users-tab.handle">
+													{NicknameUtils.formatUserNameForStreamerMode(user)}
+												</span>
+											)}
 										</div>
 									</button>
 								</div>

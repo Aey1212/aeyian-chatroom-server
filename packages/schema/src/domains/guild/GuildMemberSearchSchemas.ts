@@ -44,7 +44,6 @@ export const GuildMemberSearchResult = z.object({
 	guild_id: z.string().describe('Guild ID'),
 	user_id: z.string().describe('User ID'),
 	username: z.string().describe('Username'),
-	discriminator: z.string().describe('Zero-padded 4-digit discriminator'),
 	global_name: z.string().nullable().describe('Global display name'),
 	nickname: z.string().nullable().describe('Guild nickname'),
 	role_ids: z.array(z.string()).describe('Role IDs'),

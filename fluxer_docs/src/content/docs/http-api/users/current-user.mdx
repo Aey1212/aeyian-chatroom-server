@@ -52,9 +52,11 @@ An account with an outstanding [required action](/http-api/users/#required-actio
 
 Modifies the current account and returns the resulting [user](/http-api/users/#user-object) object.
 
+The username is not a field here. An account asks for a new one with [Request a new username](#request-a-new-username), and an admin approves or rejects the request.
+
 ### Limitations
 
-- Changing the username or discriminator to a different value, supplying `new_password`, or supplying `email_token` requires [sudo verification](/http-api/users/mfa/#sudo-mode).
+- Supplying `new_password` or `email_token` requires [sudo verification](/http-api/users/mfa/#sudo-mode).
 - A field supplied with the value the account already holds is not a change and does not raise that requirement.
 - An unclaimed account never raises it either.
 
@@ -62,62 +64,56 @@ Modifies the current account and returns the resulting [user](/http-api/users/#u
 
 | Field | Type | Description |
 | --- | --- | --- |
-| username?<sup>1</sup> | string | Username after trimming (1-32 ASCII letters, digits, or underscores) |
-| discriminator?<sup>2</sup> | string \| integer | Discriminator parsed as an integer (1-4 decimal digits) |
-| global_name?<sup>3</sup> | ?string | Display name after sanitisation (1-32 characters), or null to clear |
-| email?<sup>4</sup> | string | Always rejected, because an address is applied through `email_token` |
-| new_password?<sup>5</sup> | string | New password (8-256 characters) |
+| global_name?<sup>1</sup> | ?string | Display name after sanitisation (1-32 characters), or null to clear |
+| email?<sup>2</sup> | string | Always rejected, because an address is applied through `email_token` |
+| new_password?<sup>3</sup> | string | New password (8-256 characters) |
 | password? | string | Current password (8-256 characters), used as [sudo verification](/http-api/users/mfa/#sudo-mode) proof |
-| avatar?<sup>6</sup> | ?string | Base64-encoded avatar image, or null to clear |
-| banner?<sup>6</sup> <sup>7</sup> | ?string | Base64-encoded banner image, or null to clear |
-| bio?<sup>8</sup> | ?string | Biography (1-320 characters), or null to clear |
-| pronouns?<sup>9</sup> | ?string | Pronouns (1-40 characters), or null to clear |
+| avatar?<sup>4</sup> | ?string | Base64-encoded avatar image, or null to clear |
+| banner?<sup>4</sup> <sup>5</sup> | ?string | Base64-encoded banner image, or null to clear |
+| bio?<sup>6</sup> | ?string | Biography (1-320 characters), or null to clear |
+| pronouns?<sup>7</sup> | ?string | Pronouns (1-40 characters), or null to clear |
 | accent_color? | ?integer | Packed 24-bit RGB colour (0-16777215), or null to clear |
-| timezone?<sup>10</sup> <sup>11</sup> | ?string | Supported IANA timezone identifier (1-128 characters), or null to clear |
-| timezone_privacy_flags?<sup>10</sup> | integer | [Profile field privacy flags](/http-api/users/#profile-field-privacy-flags) applied to the profile timezone |
+| timezone?<sup>8</sup> <sup>9</sup> | ?string | Supported IANA timezone identifier (1-128 characters), or null to clear |
+| timezone_privacy_flags?<sup>8</sup> | integer | [Profile field privacy flags](/http-api/users/#profile-field-privacy-flags) applied to the profile timezone |
 | premium_badge_hidden? | boolean | Whether to hide the premium badge from the public profile |
 | premium_badge_masked? | boolean | Whether to present a lifetime badge as an ordinary subscription badge |
 | premium_badge_timestamp_hidden? | boolean | Whether to hide the premium activation time |
 | premium_badge_sequence_hidden? | boolean | Whether to hide the lifetime premium sequence |
-| premium_enabled_override?<sup>12</sup> | boolean | Whether a staff override grants premium entitlements |
-| has_dismissed_premium_onboarding?<sup>13</sup> | boolean | Whether the premium onboarding flow has been dismissed |
-| has_unread_gift_inventory?<sup>14</sup> | boolean | Whether the gift inventory still holds unread items |
+| premium_enabled_override?<sup>10</sup> | boolean | Whether a staff override grants premium entitlements |
+| has_dismissed_premium_onboarding?<sup>11</sup> | boolean | Whether the premium onboarding flow has been dismissed |
+| has_unread_gift_inventory?<sup>12</sup> | boolean | Whether the gift inventory still holds unread items |
 | mention_flags? | integer | [Reply mention preference](/http-api/users/#reply-mention-preferences), one of `0`, `1`, or `2` |
-| email_token?<sup>15</sup> | string | Email token (1-256 characters) issued by [verify new email](/http-api/users/email-and-password/#verify-new-email) |
+| email_token?<sup>13</sup> | string | Email token (1-256 characters) issued by [verify new email](/http-api/users/email-and-password/#verify-new-email) |
 | mfa_method? | string | [Sudo verification](/http-api/users/mfa/#sudo-mode) method, either `totp` or `webauthn` |
 | mfa_code? | string | [Sudo verification](/http-api/users/mfa/#sudo-mode) authenticator or backup code (1-32 characters) |
 | webauthn_response? | [WebAuthn assertion](/http-api/users/mfa/#webauthn-assertion-object) object | [Sudo verification](/http-api/users/mfa/#sudo-mode) WebAuthn assertion |
 | webauthn_challenge? | string | [Sudo verification](/http-api/users/mfa/#sudo-mode) WebAuthn challenge (1-256 characters) |
 
-<sup>1</sup> The value cannot be `everyone` or `here` and cannot contain `fluxer` or `system message`, on every instance including a self-hosted one
+<sup>1</sup> Sanitisation strips standalone surrogates, invisible characters, and variation selectors and collapses whitespace before the length is measured
 
-<sup>2</sup> Supplying the field without a username requires the custom discriminator entitlement and is otherwise rejected with `CHANGING_DISCRIMINATOR_REQUIRES_PREMIUM`. A pair already assigned to another account is rejected with `TAG_ALREADY_TAKEN`
+<sup>2</sup> Any string value returns [`EMAIL_MUST_BE_CHANGED_VIA_TOKEN`](/http-api/errors/) on the `email` path, joined by `INVALID_EMAIL_FORMAT` when the string is not an address
 
-<sup>3</sup> Sanitisation strips standalone surrogates, invisible characters, and variation selectors and collapses whitespace before the length is measured
+<sup>3</sup> A claimed account also supplies `password`, and a body that omits it is rejected with `PASSWORD_NOT_SET`. A breached password is rejected with [`PASSWORD_IS_TOO_COMMON`](/http-api/errors/)
 
-<sup>4</sup> Any string value returns [`EMAIL_MUST_BE_CHANGED_VIA_TOKEN`](/http-api/errors/) on the `email` path, joined by `INVALID_EMAIL_FORMAT` when the string is not an address
+<sup>4</sup> The value may have a `data:...;base64,` prefix. The remaining payload runs 1 to 13981016 characters
 
-<sup>5</sup> A claimed account also supplies `password`, and a body that omits it is rejected with `PASSWORD_NOT_SET`. A breached password is rejected with [`PASSWORD_IS_TOO_COMMON`](/http-api/errors/)
+<sup>5</sup> Every non-null value requires the animated banner entitlement, which gates every profile banner, and is otherwise rejected with [`BANNERS_REQUIRE_PREMIUM`](/http-api/errors/)
 
-<sup>6</sup> The value may have a `data:...;base64,` prefix. The remaining payload runs 1 to 13981016 characters
+<sup>6</sup> The resolved `max_bio_length` instance limit applies on top of the schema bound, and a longer value is rejected with `CONTENT_EXCEEDS_MAX_LENGTH`
 
-<sup>7</sup> Every non-null value requires the animated banner entitlement, which gates every profile banner, and is otherwise rejected with [`BANNERS_REQUIRE_PREMIUM`](/http-api/errors/)
+<sup>7</sup> The value is matched against the instance profile substring blocklist like `global_name` and `bio`
 
-<sup>8</sup> The resolved `max_bio_length` instance limit applies on top of the schema bound, and a longer value is rejected with `CONTENT_EXCEEDS_MAX_LENGTH`
+<sup>8</sup> The pair is staff-only. A request from an account without the [`STAFF`](/http-api/users/#public-user-flags) flag has both fields dropped before the update runs
 
-<sup>9</sup> The value is matched against the instance profile substring blocklist like `username`, `global_name`, and `bio`
+<sup>9</sup> An unrecognised identifier is rejected with `INVALID_TIMEZONE_IDENTIFIER`. Setting a first timezone without `timezone_privacy_flags` sets those flags to `EVERYONE`
 
-<sup>10</sup> The pair is staff-only. A request from an account without the [`STAFF`](/http-api/users/#public-user-flags) flag has both fields dropped before the update runs
+<sup>10</sup> The field requires the [`STAFF`](/http-api/users/#public-user-flags) flag, and a caller without it is rejected with 403 [`MISSING_ACCESS`](/http-api/errors/)
 
-<sup>11</sup> An unrecognised identifier is rejected with `INVALID_TIMEZONE_IDENTIFIER`. Setting a first timezone without `timezone_privacy_flags` sets those flags to `EVERYONE`
+<sup>11</sup> Only `true` has an effect, recording the current time as the dismissal moment. `false` is accepted and does nothing
 
-<sup>12</sup> The field requires the [`STAFF`](/http-api/users/#public-user-flags) flag, and a caller without it is rejected with 403 [`MISSING_ACCESS`](/http-api/errors/)
+<sup>12</sup> Only `false` has an effect, advancing the gift inventory read cursor to the current sequence. `true` is accepted and does nothing
 
-<sup>13</sup> Only `true` has an effect, recording the current time as the dismissal moment. `false` is accepted and does nothing
-
-<sup>14</sup> Only `false` has an effect, advancing the gift inventory read cursor to the current sequence. `true` is accepted and does nothing
-
-<sup>15</sup> Supplying the field applies the verified address the token stands for, and the token is deleted once the update lands
+<sup>13</sup> Supplying the field applies the verified address the token stands for, and the token is deleted once the update lands
 
 An omitted field leaves its stored value untouched, and an explicit `null` clears a nullable field. `has_dismissed_premium_onboarding` acts only on `true` and `has_unread_gift_inventory` only on `false`, so neither can be reversed through this route.
 
@@ -127,7 +123,7 @@ A body that has no `email_token` and nothing beyond `mfa_method`, `mfa_code`, `w
 
 Fluxer rejects an account with an outstanding required action. The one exemption is a body that has `email_token` and nothing beyond the sudo verification fields. Any other defined field removes the exemption.
 
-A claimed account needs a verified email before changing the username, discriminator, display name, avatar, banner, biography, pronouns, accent colour, timezone, timezone privacy, or any premium badge field. A request without one returns 403 [`PROFILE_EMAIL_VERIFICATION_REQUIRED`](/http-api/errors/).
+A claimed account needs a verified email before changing the display name, avatar, banner, biography, pronouns, accent colour, timezone, timezone privacy, or any premium badge field. A request without one returns 403 [`PROFILE_EMAIL_VERIFICATION_REQUIRED`](/http-api/errors/).
 
 An account is unclaimed while it holds no password credential, is not a bot, and does not have the SSO trait. Such an account may set only `new_password`, `has_dismissed_premium_onboarding`, and `has_unread_gift_inventory`. Any other field is rejected with [`UNCLAIMED_ACCOUNTS_CAN_ONLY_SET_EMAIL_VIA_TOKEN`](/http-api/errors/) on the path of the first offending field. The allow-list covers the profile payload only, so `email_token` and the sudo fields stay available as the way such an account claims itself.
 
@@ -139,9 +135,9 @@ An animated avatar requires the animated avatar entitlement and is otherwise rej
 
 ### Content blocklists
 
-The username, display name, biography, and pronouns are matched against the instance profile substring blocklist, and a match returns 403 [`CONTENT_BLOCKED`](/http-api/errors/). An account with the `STAFF` flag is exempt. The biography and pronouns are also scanned against the phrase and URL blocklists.
+The display name, biography, and pronouns are matched against the instance profile substring blocklist, and a match returns 403 [`CONTENT_BLOCKED`](/http-api/errors/). An account with the `STAFF` flag is exempt. The biography and pronouns are also scanned against the phrase and URL blocklists.
 
-The global content filter applied to every POST, PUT, and PATCH JSON body runs the phrase and URL blocklists over the whole body before the handler. It reads `username`, `global_name`, `email`, `timezone`, and `discriminator` when supplied as a string, alongside the biography and pronouns. It skips `avatar`, `banner`, `password`, `new_password`, `email_token`, `mfa_code`, `webauthn_response`, `webauthn_challenge`, and every field whose name ends in `_flags`, and it ignores any value shorter than 3 characters. A match returns the same 403 `CONTENT_BLOCKED`, and no flag exempts an account from it.
+The global content filter applied to every POST, PUT, and PATCH JSON body runs the phrase and URL blocklists over the whole body before the handler. It reads `global_name`, `email`, and `timezone` when supplied as a string, alongside the biography and pronouns. It skips `avatar`, `banner`, `password`, `new_password`, `email_token`, `mfa_code`, `webauthn_response`, `webauthn_challenge`, and every field whose name ends in `_flags`, and it ignores any value shorter than 3 characters. A match returns the same 403 `CONTENT_BLOCKED`, and no flag exempts an account from it.
 
 ### Secondary controls
 
@@ -149,7 +145,6 @@ Each control is separate from the route bucket. A denial returns 400 `INVALID_FO
 
 | Change | Allowance | Validation code |
 | --- | --- | --- |
-| Resulting username or discriminator | 5 per 3 hours | `USERNAME_CHANGED_TOO_MANY_TIMES` |
 | Biography to a different value | 25 per 30 minutes | `BIO_CHANGED_TOO_MANY_TIMES` |
 | Pronouns to a different value | 25 per 30 minutes | `PRONOUNS_CHANGED_TOO_MANY_TIMES` |
 | Accent colour to a different value | 25 per 30 minutes | `ACCENT_COLOR_CHANGED_TOO_MANY_TIMES` |
@@ -167,16 +162,103 @@ Supplying `new_password` on a claimed account deletes every other authentication
 | Status | Body | Condition |
 | --- | --- | --- |
 | 200 | [user](/http-api/users/#user-object) object | Account was returned after applying every permitted field |
-| 400 | [error response](/http-api/#error-response) | Body, image, tag, password, entitlement, secondary control, or sudo proof is invalid |
+| 400 | [error response](/http-api/#error-response) | Body, image, password, entitlement, secondary control, or sudo proof is invalid |
 | 403 | [error response](/http-api/#error-response) | Email verification, sudo verification, or a staff-only field is required, or content is blocked |
 
 ### Side effects
 
-A successful change emits [User Update](/gateway/events/#user-update) to the account. When a [partial user object](/http-api/users/#partial-user-object) field changes, other accounts observe the new value. Changing the username, discriminator, or display name also updates the account in guild member search for every guild whose members are indexed. A body with no `email_token` and no field beyond the sudo verification fields changes nothing and emits no Dispatch. Any other accepted body emits the Dispatch even when no stored value changed.
+A successful change emits [User Update](/gateway/events/#user-update) to the account. When a [partial user object](/http-api/users/#partial-user-object) field changes, other accounts observe the new value. Changing the display name also updates the account in guild member search for every guild whose members are indexed. A body with no `email_token` and no field beyond the sudo verification fields changes nothing and emits no Dispatch. Any other accepted body emits the Dispatch even when no stored value changed.
 
 ### Rate limit
 
 20 requests per minute for each authenticated user, on the `user:update` bucket, which is shared with [Accept current policies](#accept-current-policies) and [Reset current premium state](#reset-current-premium-state).
+
+## Username change request object
+
+The latest rename request of the current account.
+
+### Structure
+
+| Field | Type | Description |
+| --- | --- | --- |
+| requested_username | string | The username asked for |
+| status | string | `pending`, `approved`, `rejected`, or `cancelled` |
+| created_at | ISO8601 timestamp | When the request was made |
+| reviewed_at | ?ISO8601 timestamp | When an admin approved or rejected it, or null |
+
+## Get current rename request
+
+<RouteHeader method="GET" path="/v1/users/@me/username-change-request" />
+
+Returns the latest rename request of the current account, whatever its status.
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| request | ?[username change request](#username-change-request-object) object | The latest request, or null when the account never made one |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The latest request was returned |
+
+### Rate limit
+
+60 requests per 10 seconds for each authenticated user, on the `user:check_username` bucket.
+
+## Request a new username
+
+<RouteHeader method="PUT" path="/v1/users/@me/username-change-request" />
+
+Asks for a new username. The username is held for the account, so nobody else can take it, until an admin approves or rejects the request. Approval renames the account and locks the old username. Rejection gives the held username back.
+
+An account has one open request. A new request replaces a pending one and gives its username back. A request that changes only letter case holds nothing, because the account already owns the name.
+
+### JSON body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| username<sup>1</sup> | string | The username asked for (1-32 ASCII letters, digits, or underscores) |
+
+<sup>1</sup> The value cannot be `everyone` or `here` and cannot contain `fluxer` or `system message`, all compared case-insensitively
+
+A username already in use, locked, or held for someone else is rejected with `USERNAME_ALREADY_TAKEN`, and so is the account's current username exactly as stored. A username matching the instance profile substring blocklist returns 403 [`CONTENT_BLOCKED`](/http-api/errors/).
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| request | [username change request](#username-change-request-object) object | The new pending request |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The request was recorded and the username is held |
+| 400 | [error response](/http-api/#error-response) | The username is invalid or unavailable |
+| 403 | [error response](/http-api/#error-response) | The username is blocked |
+
+### Rate limit
+
+10 requests per hour for each authenticated user, on the `user:username_change_request` bucket.
+
+## Cancel current rename request
+
+<RouteHeader method="DELETE" path="/v1/users/@me/username-change-request" />
+
+Cancels the pending rename request of the current account and gives the held username back. Does nothing when no request is pending.
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 204 | empty | No request is pending any more |
+
+### Rate limit
+
+10 requests per hour for each authenticated user, on the `user:username_change_request` bucket.
 
 ## Forget authorised IPs
 

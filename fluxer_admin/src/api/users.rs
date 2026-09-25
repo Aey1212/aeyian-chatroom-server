@@ -355,15 +355,8 @@ impl AdminApiClient {
         Ok(resp.user)
     }
 
-    pub async fn change_username(
-        &self,
-        user_id: &str,
-        username: &str,
-        discriminator: Option<&str>,
-    ) -> ApiResult<AdminUser> {
+    pub async fn change_username(&self, user_id: &str, username: &str) -> ApiResult<AdminUser> {
         let body = generated_types::AdminUserUsernameUpdateRequest {
-            discriminator: discriminator
-                .map(|value| generated_types::DiscriminatorType::String(value.to_owned())),
             username: generated_types::UsernameType::from(username.to_owned()),
         };
         let response = self

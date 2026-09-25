@@ -10,7 +10,7 @@ use crate::{
         media::user_avatar_url,
         user_profile_badges::user_profile_badges,
     },
-    utils::{bigint::format_discriminator, timestamps::snowflake_creation_date},
+    utils::timestamps::snowflake_creation_date,
 };
 use maud::{Markup, html};
 
@@ -66,7 +66,7 @@ pub fn user_peek_fragment(config: &AdminConfig, user: &AdminUser, admin_acls: &[
                         ))
                     }
                     p class="break-words text-sm text-neutral-500" {
-                        (user.username) "#" (format_discriminator(&user.discriminator))
+                        (user.username)
                     }
                     div class="flex flex-wrap items-center justify-center gap-2 \
                                 sm:justify-start" {

@@ -14,7 +14,6 @@ describe('LookupGuildResponse', () => {
 		owner_id: '111111111111111111',
 		owner_username: 'owner',
 		owner_global_name: null,
-		owner_discriminator: '0001',
 		name: 'Test Guild',
 		vanity_url_code: null,
 		icon: null,

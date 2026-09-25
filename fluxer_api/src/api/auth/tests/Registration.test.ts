@@ -25,6 +25,7 @@ function bootstrapRegistrationBody(prefix: string): Record<string, unknown> {
 		email: createUniqueEmail(prefix),
 		username: createUniqueUsername(prefix),
 		global_name: 'Bootstrap Admin',
+		password: 'a-strong-password',
 		date_of_birth: '2000-01-01',
 		consent: true,
 	};
@@ -161,16 +162,36 @@ describe('Auth registration', () => {
 		const me = (await fetchMe(harness, reg.token)).json as UserMeResponse;
 		expect(me.global_name).toBe(globalName);
 	});
-	it('derives username from display name when username is omitted', async () => {
+	it('requires a username and a password', async () => {
+		for (const missing of ['username', 'password']) {
+			const body: Record<string, unknown> = {
+				email: createUniqueEmail('missing-field'),
+				username: createUniqueUsername('missingfield'),
+				password: 'a-strong-password',
+				global_name: 'Magic Tester',
+				date_of_birth: '2000-01-01',
+				consent: true,
+			};
+			delete body[missing];
+			const json = await createBuilderWithoutAuth<{errors?: Array<{path: string}>}>(harness)
+				.post('/auth/register')
+				.body(body)
+				.expect(400, 'INVALID_FORM_BODY')
+				.execute();
+			expect(json.errors?.some((error) => error.path === missing)).toBe(true);
+		}
+	});
+	it('registers without an email address', async () => {
+		const username = createUniqueUsername('noemail');
 		const reg = await registerUser(harness, {
-			email: createUniqueEmail('derived-username'),
+			username,
 			password: 'a-strong-password',
-			global_name: 'Magic Tester',
 			date_of_birth: '2000-01-01',
 			consent: true,
 		});
 		const me = (await fetchMe(harness, reg.token)).json as UserMeResponse;
-		expect(me.username).toBe('Magic_Tester');
+		expect(me.username).toBe(username);
+		expect(me.email).toBeNull();
 	});
 	it('rejects invalid registration payloads', async () => {
 		await createBuilderWithoutAuth(harness)
@@ -292,7 +313,7 @@ describe('Auth registration', () => {
 		});
 		const login = await createBuilderWithoutAuth<LoginSuccessResponse>(harness)
 			.post('/auth/login')
-			.body({email, password})
+			.body({login: email, password})
 			.execute();
 		expect('mfa' in login).toBe(false);
 		expect(login.token.length).toBeGreaterThan(0);
@@ -332,7 +353,7 @@ describe('Auth registration', () => {
 		for (const email of loginEmails) {
 			const login = await createBuilderWithoutAuth<LoginSuccessResponse>(harness)
 				.post('/auth/login')
-				.body({email, password})
+				.body({login: email, password})
 				.execute();
 			expect(login.token.length).toBeGreaterThan(0);
 		}

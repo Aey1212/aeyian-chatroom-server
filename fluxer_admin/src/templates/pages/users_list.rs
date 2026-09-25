@@ -22,7 +22,6 @@ use crate::{
         },
         layout::admin_layout,
     },
-    utils::bigint::format_discriminator,
 };
 use maud::{Markup, html};
 
@@ -331,7 +330,7 @@ fn render_users_table(config: &AdminConfig, users: &[AdminUser], can_view_email:
                                             @if user.global_name.as_deref().map(|n| !n.trim().is_empty()).unwrap_or(false) {
                                                 (display_name)
                                             } @else {
-                                                (user.username) "#" (format_discriminator(&user.discriminator))
+                                                (user.username)
                                             }
                                         }
                                         (user_profile_badges(
@@ -345,7 +344,7 @@ fn render_users_table(config: &AdminConfig, users: &[AdminUser], can_view_email:
                                     }
                                     @if user.global_name.as_deref().map(|n| !n.trim().is_empty()).unwrap_or(false) {
                                         p class="text-xs font-normal text-neutral-500" {
-                                            (user.username) "#" (format_discriminator(&user.discriminator))
+                                            (user.username)
                                         }
                                     }
                                 }

@@ -1,61 +1,33 @@
 /* SPDX-License-Identifier: AGPL-3.0-or-later */
 
-.confirmDescription {
+.pendingBox {
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 	gap: 0.5rem;
-	font-size: 0.875rem;
+	padding: 0.75rem;
+	border-radius: 0.375rem;
+	border: 0.0625rem solid var(--background-modifier-accent);
+	background-color: var(--background-secondary);
 }
 
-.confirmSecondary {
+.pendingText {
+	margin: 0;
+	font-size: 0.875rem;
 	color: var(--text-secondary);
 }
 
-.fluxerTagContainer {
+.field {
 	display: flex;
 	flex-direction: column;
 	gap: 0.25rem;
 }
 
-.fluxerTagLabel {
+.fieldLabel {
 	margin-bottom: 0.25rem;
 	font-size: 0.875rem;
 	font-weight: 600;
 	color: var(--text-tertiary);
-}
-
-.fluxerTagInputRow {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-}
-
-.usernameInput {
-	flex: 1;
-}
-
-.separator {
-	font-family: monospace;
-	font-size: 1.125rem;
-	color: var(--text-primary);
-}
-
-.discriminatorInput {
-	width: 5rem;
-}
-
-.discriminatorInputDisabled {
-	position: relative;
-}
-
-.discriminatorInputDisabled input:disabled {
-	cursor: pointer;
-}
-
-.discriminatorOverlay {
-	position: absolute;
-	inset: 0;
-	cursor: pointer;
 }
 
 .errorBox {
@@ -76,12 +48,4 @@
 	border-radius: 0.375rem;
 	border: 0.0625rem solid var(--background-modifier-accent);
 	background-color: var(--background-secondary);
-}
-
-.premiumDiscriminatorWarning {
-	margin-top: 0.75rem;
-}
-
-.premiumUpsell {
-	margin-top: 0.5rem;
 }

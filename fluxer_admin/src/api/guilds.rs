@@ -300,7 +300,6 @@ fn guild_admin_response(response: generated_types::GuildAdminResponse) -> ApiRes
         owner_id: String::from(response.owner_id),
         owner_username: response.owner_username,
         owner_global_name: response.owner_global_name,
-        owner_discriminator: response.owner_discriminator,
         member_count: crate::api::generated::i64_to_u64(
             i64::from(i32::from(response.member_count)),
             "member_count",
@@ -329,7 +328,6 @@ fn guild_update_response(
             owner_id: String::from(guild.owner_id),
             owner_username: None,
             owner_global_name: None,
-            owner_discriminator: None,
             member_count: crate::api::generated::i64_to_u64(
                 i64::from(i32::from(guild.member_count)),
                 "member_count",

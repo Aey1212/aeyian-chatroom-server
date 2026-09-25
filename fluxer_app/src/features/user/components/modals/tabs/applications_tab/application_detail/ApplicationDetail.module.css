@@ -409,11 +409,20 @@
 	width: 100%;
 }
 
-.discriminatorInput {
-	width: 6rem;
+.botUsernameSuffix {
 	display: flex;
 	align-items: center;
 	align-self: end;
+	height: 2.75rem;
+	font-weight: 600;
+	color: var(--text-secondary);
+}
+
+.helpText {
+	margin: 0;
+	font-size: 0.8125rem;
+	line-height: 1.125rem;
+	color: var(--text-tertiary);
 }
 
 .metaRow {

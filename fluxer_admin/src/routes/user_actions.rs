@@ -217,13 +217,22 @@ pub async fn dispatch(
             let Some(username) = get("username") else {
                 return DispatchOutcome::error("Username is required");
             };
-            let discriminator = get("discriminator");
             DispatchOutcome::from_result(
-                client
-                    .change_username(user_id, &username, discriminator.as_deref())
-                    .await,
+                client.change_username(user_id, &username).await,
                 "Username changed successfully",
                 "Failed to change username",
+            )
+        }
+        "open_password_reset" | "close_password_reset" => {
+            let open = action == "open_password_reset";
+            DispatchOutcome::from_result(
+                client.set_password_reset_mode(user_id, open).await,
+                if open {
+                    "Password reset opened: the owner can now choose a new password with their username"
+                } else {
+                    "Password reset closed"
+                },
+                "Failed to change the password reset",
             )
         }
         "change_email" => {

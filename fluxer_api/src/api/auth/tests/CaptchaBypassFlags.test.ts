@@ -65,7 +65,7 @@ describe('Auth Captcha Bypass Flags', () => {
 		await withCaptchaEnabled(async () => {
 			const resp = await createBuilderWithoutAuth<{token?: string; user_id?: string}>(harness)
 				.post('/auth/login')
-				.body({email: account.email, password: account.password})
+				.body({login: account.email, password: account.password})
 				.execute();
 			expect(resp.token).toBeTruthy();
 			expect(resp.user_id).toBe(account.userId);
@@ -76,7 +76,7 @@ describe('Auth Captcha Bypass Flags', () => {
 		await withCaptchaEnabled(async () => {
 			await createBuilderWithoutAuth(harness)
 				.post('/auth/login')
-				.body({email: account.email, password: account.password})
+				.body({login: account.email, password: account.password})
 				.expect(HTTP_STATUS.BAD_REQUEST, APIErrorCodes.CAPTCHA_REQUIRED)
 				.execute();
 		});

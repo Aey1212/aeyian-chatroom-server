@@ -49,12 +49,8 @@ fn report_type_label(report_type: i32) -> &'static str {
 }
 
 fn reporter_label(report: &ReportEntry) -> String {
-    if let Some(tag) = &report.reporter_tag {
-        return tag.to_owned();
-    }
     if let Some(username) = &report.reporter_username {
-        let discriminator = report.reporter_discriminator.as_deref().unwrap_or("0000");
-        return format!("{username}#{discriminator}");
+        return username.to_owned();
     }
     if let Some(email) = &report.reporter_email {
         return email.to_owned();
@@ -63,15 +59,8 @@ fn reporter_label(report: &ReportEntry) -> String {
 }
 
 fn reported_user_label(report: &ReportEntry) -> String {
-    if let Some(tag) = &report.reported_user_tag {
-        return tag.to_owned();
-    }
     if let Some(username) = &report.reported_user_username {
-        let discriminator = report
-            .reported_user_discriminator
-            .as_deref()
-            .unwrap_or("0000");
-        return format!("{username}#{discriminator}");
+        return username.to_owned();
     }
     format!(
         "User {}",

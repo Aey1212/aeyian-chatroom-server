@@ -226,7 +226,6 @@ build_user_data(UserDataMap) ->
     UserData0 = #{
         <<"id">> => maps:get(<<"id">>, UserDataMap),
         <<"username">> => maps:get(<<"username">>, UserDataMap),
-        <<"discriminator">> => maps:get(<<"discriminator">>, UserDataMap),
         <<"global_name">> => maps:get(<<"global_name">>, UserDataMap, null),
         <<"avatar">> => maps:get(<<"avatar">>, UserDataMap),
         <<"avatar_color">> => map_utils:get_safe(UserDataMap, <<"avatar_color">>, undefined),

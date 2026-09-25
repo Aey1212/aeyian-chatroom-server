@@ -61,7 +61,7 @@ export const UserInfo: React.FC<UserInfoProps> = observer(({user, profile, guild
 					</div>
 					<div className={userProfileModalStyles.tagBadgeRow} data-flx="user.user-profile-modal.user-info.div--6">
 						<div className={userProfileModalStyles.usernameRow} data-flx="user.user-profile-modal.user-info.div--7">
-							{NicknameUtils.formatTagForStreamerMode(user.tag)}
+							{NicknameUtils.formatUsernameForStreamerMode(user.username)}
 						</div>
 						<div className={userProfileModalStyles.badgesWrapper} data-flx="user.user-profile-modal.user-info.div--8">
 							<UserProfileBadges

@@ -101,7 +101,6 @@ fn pending_discovery_application(
         guild_owner_id: Some(String::from(app.guild_owner_id)),
         guild_owner_username: app.guild_owner_username,
         guild_owner_global_name: app.guild_owner_global_name,
-        guild_owner_discriminator: app.guild_owner_discriminator,
         guild_member_count: Some(float_to_u64(app.guild_member_count, "guild_member_count")?),
         guild_nsfw_level: app.guild_nsfw_level.map(i32::from),
         guild_features: app.guild_features,
@@ -125,7 +124,6 @@ fn listed_guild(
         guild_owner_id: Some(String::from(guild.guild_owner_id)),
         guild_owner_username: guild.guild_owner_username,
         guild_owner_global_name: guild.guild_owner_global_name,
-        guild_owner_discriminator: guild.guild_owner_discriminator,
         guild_member_count: Some(float_to_u64(
             guild.guild_member_count,
             "guild_member_count",

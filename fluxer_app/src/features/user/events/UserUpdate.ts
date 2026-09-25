@@ -8,17 +8,8 @@ import QuickSwitcher from '@app/features/search/state/QuickSwitcher';
 import Users from '@app/features/user/state/Users';
 import type {User} from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 
-interface UserUpdatePayload {
-	id: string;
-	username: string;
-	discriminator: string;
-	avatar: string | null;
-	flags: number;
-	is_staff?: boolean;
-}
-
-export function handleUserUpdate(data: UserUpdatePayload, _context: GatewayHandlerContext): void {
-	Users.handleUserUpdate(data as User);
+export function handleUserUpdate(data: User, _context: GatewayHandlerContext): void {
+	Users.handleUserUpdate(data);
 	Messages.handleUserUpdate({user: {id: data.id}});
 	Permission.handleUserUpdate(data.id);
 	QuickSwitcher.recomputeIfOpen();

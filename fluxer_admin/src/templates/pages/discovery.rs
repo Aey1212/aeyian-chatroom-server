@@ -16,7 +16,6 @@ use crate::{
         },
         layout::admin_layout,
     },
-    utils::bigint::format_discriminator,
     utils::timestamps::format_admin_timestamp,
 };
 use maud::{Markup, html};
@@ -62,22 +61,13 @@ fn category_label(category_type: Option<i32>, fallback: Option<&str>) -> String 
     }
 }
 
-fn owner_display(
-    owner_id: &str,
-    username: Option<&str>,
-    global_name: Option<&str>,
-    discriminator: Option<&str>,
-) -> String {
+fn owner_display(owner_id: &str, username: Option<&str>, global_name: Option<&str>) -> String {
     let Some(username) = username else {
         return owner_id.to_owned();
     };
-    let Some(discriminator) = discriminator else {
-        return owner_id.to_owned();
-    };
-    let tag = format!("{username}#{}", format_discriminator(discriminator));
     match global_name.filter(|value| !value.trim().is_empty()) {
-        Some(global_name) => format!("{global_name} ({tag})"),
-        None => tag,
+        Some(global_name) => format!("{global_name} ({username})"),
+        None => username.to_owned(),
     }
 }
 
@@ -100,17 +90,11 @@ struct GuildHeaderData<'a> {
     owner_id: &'a str,
     owner_username: Option<&'a str>,
     owner_global_name: Option<&'a str>,
-    owner_discriminator: Option<&'a str>,
 }
 
 fn guild_header(data: GuildHeaderData<'_>) -> Markup {
     let icon_url = guild_icon_url(data.config, data.guild_id, data.icon, 160, true);
-    let owner = owner_display(
-        data.owner_id,
-        data.owner_username,
-        data.owner_global_name,
-        data.owner_discriminator,
-    );
+    let owner = owner_display(data.owner_id, data.owner_username, data.owner_global_name);
     html! {
         div class="flex items-start gap-4" {
             @if let Some(url) = icon_url {
@@ -238,7 +222,6 @@ fn pending_card(
                     owner_id,
                     owner_username: app.guild_owner_username.as_deref(),
                     owner_global_name: app.guild_owner_global_name.as_deref(),
-                    owner_discriminator: app.guild_owner_discriminator.as_deref(),
                 }))
                 (discovery_details(
                     app.description.as_deref(),
@@ -308,7 +291,6 @@ fn listed_card(
                     owner_id,
                     owner_username: guild.guild_owner_username.as_deref(),
                     owner_global_name: guild.guild_owner_global_name.as_deref(),
-                    owner_discriminator: guild.guild_owner_discriminator.as_deref(),
                 }))
                 (discovery_details(
                     guild.description.as_deref(),

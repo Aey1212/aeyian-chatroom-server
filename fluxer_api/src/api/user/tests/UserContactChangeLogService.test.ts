@@ -1,28 +1,32 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {createTestAccount} from '@app/api/auth/tests/AuthTestUtils';
+import {createTestAccount, setUserACLs, type TestAccount} from '@app/api/auth/tests/AuthTestUtils';
 import {type ApiTestHarness, createApiTestHarness} from '@app/api/test/ApiTestHarness';
 import {HTTP_STATUS, TEST_CREDENTIALS} from '@app/api/test/TestConstants';
 import {createBuilder} from '@app/api/test/TestRequestBuilder';
 import {fetchUserMe} from '@app/api/user/tests/UserTestUtils';
+import {AdminACLs} from '@fluxer/constants/src/AdminACLs';
 import {afterAll, beforeAll, beforeEach, describe, expect, test} from 'vitest';
 
-interface UserMeResponse {
-	id: string;
-	username: string;
-	discriminator: string;
-	email: string | null;
+interface ChangeLogResponse {
+	entries: Array<{field: string; old_value: string | null; new_value: string | null}>;
 }
 
-async function updateUserUsername(
+// Usernames change only through an admin: directly, or by approving a rename request.
+async function renameByAdmin(
 	harness: ApiTestHarness,
-	token: string,
+	account: TestAccount,
 	newUsername: string,
-): Promise<UserMeResponse> {
-	return createBuilder<UserMeResponse>(harness, token)
-		.patch('/users/@me')
-		.body({username: newUsername, password: TEST_CREDENTIALS.STRONG_PASSWORD})
+): Promise<{username: string}> {
+	const admin = await setUserACLs(harness, await createTestAccount(harness), [
+		AdminACLs.AUTHENTICATE,
+		AdminACLs.USER_UPDATE_USERNAME,
+	]);
+	const {user} = await createBuilder<{user: {username: string}}>(harness, admin.token)
+		.patch(`/admin/users/${account.userId}/username`)
+		.body({username: newUsername})
 		.execute();
+	return user;
 }
 
 describe('UserContactChangeLogService', () => {
@@ -69,20 +73,30 @@ describe('UserContactChangeLogService', () => {
 		});
 	});
 	describe('username change operations', () => {
-		test('username change updates user profile', async () => {
+		test('an admin rename updates the profile and records the change', async () => {
 			const account = await createTestAccount(harness, {
 				username: 'originaluser',
 			});
-			const updatedUser = await updateUserUsername(harness, account.token, 'newusername');
+			const updatedUser = await renameByAdmin(harness, account, 'newusername');
 			expect(updatedUser.username).toBe('newusername');
+			const admin = await setUserACLs(harness, await createTestAccount(harness), [AdminACLs.WILDCARD]);
+			const log = await createBuilder<ChangeLogResponse>(harness, admin.token)
+				.get(`/admin/users/${account.userId}/change-log?limit=50`)
+				.expect(HTTP_STATUS.OK)
+				.execute();
+			expect(log.entries).toContainEqual(
+				expect.objectContaining({field: 'username', old_value: 'originaluser', new_value: 'newusername'}),
+			);
 		});
-		test('username change without password requires sudo mode', async () => {
-			const account = await createTestAccount(harness);
+		test('a profile update does not change the username', async () => {
+			const account = await createTestAccount(harness, {username: 'keptname'});
 			await createBuilder(harness, account.token)
 				.patch('/users/@me')
-				.body({username: 'newusername'})
-				.expect(HTTP_STATUS.FORBIDDEN, 'SUDO_MODE_REQUIRED')
+				.body({username: 'newusername', password: TEST_CREDENTIALS.STRONG_PASSWORD})
+				.expect(HTTP_STATUS.OK)
 				.execute();
+			const {json: me} = await fetchUserMe(harness, account.token);
+			expect(me.username).toBe('keptname');
 		});
 	});
 	describe('no change scenarios', () => {
@@ -91,7 +105,7 @@ describe('UserContactChangeLogService', () => {
 			const account = await createTestAccount(harness, {
 				username: originalUsername,
 			});
-			const updatedUser = await updateUserUsername(harness, account.token, originalUsername);
+			const updatedUser = await renameByAdmin(harness, account, originalUsername);
 			expect(updatedUser.username).toBe(originalUsername);
 		});
 	});
@@ -100,9 +114,9 @@ describe('UserContactChangeLogService', () => {
 			const account = await createTestAccount(harness, {
 				username: 'seqname1',
 			});
-			const result1 = await updateUserUsername(harness, account.token, 'seqname2');
+			const result1 = await renameByAdmin(harness, account, 'seqname2');
 			expect(result1.username).toBe('seqname2');
-			const result2 = await updateUserUsername(harness, account.token, 'seqname3');
+			const result2 = await renameByAdmin(harness, account, 'seqname3');
 			expect(result2.username).toBe('seqname3');
 			const {json: finalState} = await fetchUserMe(harness, account.token);
 			expect(finalState.username).toBe('seqname3');
@@ -126,8 +140,8 @@ describe('UserContactChangeLogService', () => {
 		test('empty username rejected', async () => {
 			const account = await createTestAccount(harness);
 			await createBuilder(harness, account.token)
-				.patch('/users/@me')
-				.body({username: '', password: TEST_CREDENTIALS.STRONG_PASSWORD})
+				.put('/users/@me/username-change-request')
+				.body({username: ''})
 				.expect(HTTP_STATUS.BAD_REQUEST)
 				.execute();
 		});

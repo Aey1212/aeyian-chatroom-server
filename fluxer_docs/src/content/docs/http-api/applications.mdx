@@ -65,8 +65,7 @@ The bot account an application owns. [Create application](#create-application) c
 | Field | Type | Description |
 | --- | --- | --- |
 | id | snowflake | The ID of the bot user, always equal to the application ID |
-| username | string | The username of the bot account, 1 to 32 ASCII letters, digits, or underscores |
-| discriminator | string | The discriminator of the bot account, always four decimal digits with leading zeroes |
+| username | string | The username of the bot account, always ending in `-BOT` (1-32 characters) |
 | avatar?<sup>1</sup> <sup>2</sup> | ?string | The avatar hash of the bot account, or null when none is stored |
 | banner?<sup>1</sup> <sup>2</sup> | ?string | The banner hash of the bot account, or null when none is stored |
 | bio | ?string | The profile biography of the bot account, or null when none is stored |
@@ -157,8 +156,7 @@ The bot account's profile fields after an update. [Update bot profile](#update-b
 | Field | Type | Description |
 | --- | --- | --- |
 | id | snowflake | The ID of the bot user |
-| username | string | The username of the bot account |
-| discriminator | string | The discriminator of the bot account, always four decimal digits with leading zeroes |
+| username | string | The username of the bot account, always ending in `-BOT` |
 | avatar<sup>1</sup> | ?string | The avatar hash of the bot account, or null when none is stored |
 | banner<sup>1</sup> | ?string | The banner hash of the bot account, or null when none is stored |
 | bio | ?string | The profile biography of the bot account, or null when none is stored |
@@ -328,7 +326,7 @@ An unclaimed account cannot create an application. An account is unclaimed while
 
 <sup>4</sup> `UNCLAIMED_ACCOUNT_CANNOT_CREATE_APPLICATIONS`
 
-Fluxer derives the bot username from the application name when that name yields an available tag, and otherwise assigns a random username. The resulting username and discriminator can both differ from the application name.
+Every bot username ends in `-BOT`. Fluxer derives the part before it from the application name, and uses a random base only when the name yields no usable one. When `name-BOT` is taken, Fluxer tries `name2-BOT`, `name3-BOT`, and so on, so the result can differ from the application name.
 
 ### Side effects
 
@@ -427,22 +425,19 @@ Updates the bot account an application owns and returns the resulting [bot profi
 
 | Field | Type | Description |
 | --- | --- | --- |
-| username?<sup>1</sup> | string | The new username for the bot account (1-32 characters) |
-| discriminator?<sup>2</sup> | string \| integer | The discriminator, 1 to 4 decimal digits parsed as an integer |
-| avatar?<sup>3</sup> | ?string | The base64-encoded avatar image, or null to clear the stored avatar |
-| banner?<sup>3</sup> | ?string | The base64-encoded banner image, or null to clear the stored banner |
-| bio?<sup>4</sup> | ?string | The profile biography (0-1024 characters), or null to clear the stored value |
-| bot_flags?<sup>5</sup> | integer | [Bot flags](#bot-flags) |
+| username?<sup>1</sup> | string | The username to ask for, without the `-BOT` suffix (1-28 characters) |
+| avatar?<sup>2</sup> | ?string | The base64-encoded avatar image, or null to clear the stored avatar |
+| banner?<sup>2</sup> | ?string | The base64-encoded banner image, or null to clear the stored banner |
+| bio?<sup>3</sup> | ?string | The profile biography (0-1024 characters), or null to clear the stored value |
+| bot_flags?<sup>4</sup> | integer | [Bot flags](#bot-flags) |
 
-<sup>1</sup> Trimmed before validation and restricted to ASCII letters, digits, and underscores. The value cannot be `everyone` or `here` and cannot contain `fluxer` or `system message`. A change that alters more than letter case always reallocates the discriminator. A username the profile substring blocklist rejects returns 403 `CONTENT_BLOCKED`
+<sup>1</sup> Trimmed before validation and restricted to ASCII letters, digits, and underscores. The value cannot be `everyone` or `here` and cannot contain `fluxer` or `system message`. Fluxer appends `-BOT`, and a value longer than 28 characters returns the field code `USERNAME_LENGTH_INVALID`. A username the profile substring blocklist rejects returns 403 `CONTENT_BLOCKED`
 
-<sup>2</sup> Accepted only when it equals the bot's current discriminator. Any other value returns the field code `BOT_DISCRIMINATOR_CANNOT_BE_CHANGED`
+<sup>2</sup> The value can include a `data:...;base64,` prefix, which Fluxer strips before it measures the payload. The remaining base64 payload is bounded at 13981016 characters for both fields, the encoded length of a full 10485760-byte image, and a longer value is rejected with the field code `BASE64_LENGTH_INVALID`
 
-<sup>3</sup> The value can include a `data:...;base64,` prefix, which Fluxer strips before it measures the payload. The remaining base64 payload is bounded at 13981016 characters for both fields, the encoded length of a full 10485760-byte image, and a longer value is rejected with the field code `BASE64_LENGTH_INVALID`
+<sup>3</sup> Rejected with 403 `CONTENT_BLOCKED` when content moderation or the profile substring blocklist blocks the value
 
-<sup>4</sup> Rejected with 403 `CONTENT_BLOCKED` when content moderation or the profile substring blocklist blocks the value
-
-<sup>5</sup> Fluxer reads only the [bot flags](#bot-flags) from the supplied bitfield and sets or clears each to match. It ignores every other bit
+<sup>4</sup> Fluxer reads only the [bot flags](#bot-flags) from the supplied bitfield and sets or clears each to match. It ignores every other bit
 
 Fluxer checks the decoded bytes of `avatar` and `banner` against the instance's avatar byte ceiling, which applies to both fields and defaults to 10 MiB. An image in a format the field does not accept, an animated image on a field that accepts no animation, and any animated AVIF return the field code `INVALID_IMAGE_FORMAT`. Pixel dimensions are never checked.
 
@@ -452,15 +447,17 @@ Fluxer checks the decoded bytes of `avatar` and `banner` against the instance's 
 | --- | --- | --- |
 | 200 | [bot profile](#bot-profile-object) object | The profile was updated |
 | 400 | [error response](/http-api/#error-response) | The path or body fails validation |
-| 400 | [error response](/http-api/#error-response) | No discriminator can be allocated for the requested username (`USERNAME_NOT_AVAILABLE`) |
-| 400 | [error response](/http-api/#error-response) | The discriminator differs from the current one |
+| 400 | [error response](/http-api/#error-response) | The username is in use, locked, or held (`USERNAME_ALREADY_TAKEN`) |
 | 400 | [error response](/http-api/#error-response) | The image is malformed, oversized, or an unsupported format |
-| 400 | [error response](/http-api/#error-response) | The tag change allowance is exhausted |
 | 403 | [error response](/http-api/#error-response) | The credential is a bot or bearer token, or the caller does not own the application (`ACCESS_DENIED`) |
 | 403 | [error response](/http-api/#error-response) | The username or biography is blocked (`CONTENT_BLOCKED`) |
 | 404 | [error response](/http-api/#error-response) | The application does not exist (`UNKNOWN_APPLICATION`), or it has no bot account (`BOT_USER_NOT_FOUND`) |
 
-This operation always clears the bot's global display name, so a bot is always presented by its username. The write consumes the tag change allowance only when it changes the username or the discriminator. Fluxer reports an exhausted allowance as a body validation entry on `username` with the code `USERNAME_CHANGED_TOO_MANY_TIMES`, never as 429.
+This operation always clears the bot's global display name, so a bot is always presented by its username.
+
+:::note[A bot rename is a request]
+A `username` that differs from the current one does not rename the bot. It files a [rename request](/http-api/users/current-user/#request-a-new-username) for the bot account: the new username is held until an admin approves or rejects it, and the response still shows the current username.
+:::
 
 :::note[Only null clears a stored value]
 An omitted `avatar`, `banner`, or `bio` leaves the stored value untouched. Sending `{"bio": null}` clears the biography, and sending `{}` changes nothing except the global display name.
@@ -468,11 +465,11 @@ An omitted `avatar`, `banner`, or `bio` leaves the stored value untouched. Sendi
 
 ### Side effects
 
-Fluxer applies the supplied profile fields to the bot account. Replaced avatar and banner assets stop appearing after the update. A username change that alters more than letter case also replaces the discriminator with a random free one for the new username. The operation emits a [User Update](/gateway/events/#user-update) Gateway Dispatch to the bot account's own sessions.
+Fluxer applies the supplied profile fields to the bot account. Replaced avatar and banner assets stop appearing after the update. The operation emits a [User Update](/gateway/events/#user-update) Gateway Dispatch to the bot account's own sessions.
 
 ### Rate limit
 
-30 requests per minute for each authenticated user, on the `oauth_dev:clients:update::client_id` bucket, shared with [Update application](#update-application), and a change to the resulting tag is also limited to 5 changes per 3 hours for each bot account.
+30 requests per minute for each authenticated user, on the `oauth_dev:clients:update::client_id` bucket, shared with [Update application](#update-application).
 
 ## Reset bot token
 
@@ -586,7 +583,7 @@ A 204 response means the removal has finished. Repeating the request afterwards 
 
 ### Side effects
 
-The bot's messages remain attributed to a deleted account, and its tag becomes available for reuse. The bot is removed from every guild and its profile is anonymised as `DeletedUser#0000`, with the global name `Deleted User`.
+The bot's messages remain attributed to a deleted account. Its username stays locked until an admin releases it. The bot is removed from every guild and its profile is anonymised as `DeletedUser`, with the global name `Deleted User`.
 
 The bot token and client secret stop working. Token exchange, refresh, introspection, and revocation also fail. An existing access token can still authenticate a scope-gated route until it expires, but [Get current OAuth2 authorisation](/http-api/oauth2/#get-current-oauth2-authorisation) and [Get OAuth2 user information](/http-api/oauth2/#get-oauth2-user-information) return 401 `INVALID_TOKEN`.
 

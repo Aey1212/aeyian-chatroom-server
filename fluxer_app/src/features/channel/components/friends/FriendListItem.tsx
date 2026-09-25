@@ -370,7 +370,7 @@ export const FriendListItem: React.FC<FriendListItemProps> = observer((props) =>
 								{NicknameUtils.getNickname(user, null)}
 							</span>
 							<span className={styles.friendTag} data-flx="channel.friends.friend-list-item.friend-tag">
-								{NicknameUtils.formatTagForStreamerMode(user.tag)}
+								{NicknameUtils.formatUsernameForStreamerMode(user.username)}
 							</span>
 						</div>
 						{hasCustomStatus ? (

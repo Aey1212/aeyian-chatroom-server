@@ -152,7 +152,6 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 				new User({
 					id: userId,
 					username: userId,
-					discriminator: '0000',
 					global_name: null,
 					avatar: null,
 					avatar_color: null,
@@ -215,7 +214,7 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 		}, [profile, showGlobalProfile, hasGuildProfile]);
 		const screenReaderLabel = useMemo(() => {
 			if (!displayUser) return i18n._(USER_PROFILE_DESCRIPTOR);
-			const tag = NicknameUtils.formatTagForStreamerMode(displayUser.tag);
+			const tag = NicknameUtils.formatUsernameForStreamerMode(displayUser.username);
 			return i18n._(USER_PROFILE_2_DESCRIPTOR, {tag});
 		}, [displayUser, i18n.locale]);
 		const effectiveProfile: Profile | null = displayProfile ?? profile ?? profileFallback;
@@ -339,8 +338,8 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 		const handleReportUser = () => {
 			openReportUserModal({i18n, user: displayUser, guildId});
 		};
-		const handleCopyFluxerTag = () => {
-			TextCopyCommands.copy(i18n, `${displayUser.username}#${displayUser.discriminator}`, true);
+		const handleCopyUsername = () => {
+			TextCopyCommands.copy(i18n, displayUser.username, true);
 		};
 		const handleCopyUserId = () => {
 			TextCopyCommands.copy(i18n, displayUser.id, true);
@@ -442,7 +441,7 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 						<MenuItem
 							icon={<CopyIcon data-flx="user.user-profile-modal.open-more-options-menu.copy-icon" />}
 							onClick={() => {
-								handleCopyFluxerTag();
+								handleCopyUsername();
 								props.onClose();
 							}}
 							data-flx="user.user-profile-modal.open-more-options-menu.menu-item.copy-fluxer-tag"

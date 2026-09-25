@@ -99,7 +99,7 @@ export const UsersSection: React.FC<UsersSectionProps> = observer(
 													</span>
 												</span>
 												<span className={styles.userTag} data-flx="channel.message-search-bar.users-section.user-tag">
-													{NicknameUtils.formatUserTagForStreamerMode(user)}
+													{NicknameUtils.formatUserNameForStreamerMode(user)}
 												</span>
 											</span>
 										</div>

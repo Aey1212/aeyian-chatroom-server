@@ -524,7 +524,7 @@ export const GuildMemberActionsSheet: FC<GuildMemberActionsSheetProps> = observe
 						{NicknameUtils.getNickname(user, guildId)}
 					</span>
 					<span className={styles.headerTag} data-flx="guild.guild-tabs.guild-member-actions-sheet.header-tag">
-						{NicknameUtils.formatUserTagForStreamerMode(user)}
+						{NicknameUtils.formatUserNameForStreamerMode(user)}
 					</span>
 				</div>
 			</div>

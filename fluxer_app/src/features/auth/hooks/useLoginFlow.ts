@@ -89,16 +89,16 @@ export function useLoginFormController({
 }: LoginFormControllerOptions) {
 	const [isPasskeyLoading, setIsPasskeyLoading] = useState(false);
 	const {form, isLoading, fieldErrors, error} = useAuthForm({
-		initialValues: {email: '', password: ''},
+		initialValues: {login: '', password: ''},
 		onSubmit: async (values) => {
 			const result = await loginWithPassword({
-				email: values.email,
+				login: values.login.trim(),
 				password: values.password,
 				inviteCode,
 			});
 			handleLoginOutcome(result, onLoginSuccess, onRequireMfa, onRequireIpAuthorization, redirectPath);
 		},
-		firstFieldName: 'email',
+		firstFieldName: 'login',
 		redirectPath: undefined,
 	});
 	const handleDesktopPasskeyHandoff = useCallback(() => {

@@ -918,7 +918,6 @@ fn user(id: &str, username: &str) -> Value {
     json!({
         "id": id,
         "username": username,
-        "discriminator": 1,
         "avatar": null,
         "banner": null,
         "email": "admin@example.com",
@@ -967,7 +966,6 @@ fn searched_guild() -> generated_types::GuildAdminResponse {
         "owner_id": "1500000000000000001",
         "owner_username": "SearchedUser",
         "owner_global_name": "SearchedUser",
-        "owner_discriminator": "0001",
         "member_count": 12,
         "features": ["COMMUNITY"],
         "nsfw_level": 0,
@@ -984,7 +982,6 @@ fn searched_guild_detail() -> generated_types::LookupGuildResponseGuild {
         "owner_id": "1500000000000000001",
         "owner_username": "SearchedUser",
         "owner_global_name": "SearchedUser",
-        "owner_discriminator": "0001",
         "name": "Searched Guild",
         "vanity_url_code": null,
         "icon": null,
@@ -1060,11 +1057,9 @@ fn searched_application() -> Value {
         "owner_user_id": "1500000000000000001",
         "owner_username": "SearchedUser",
         "owner_global_name": "SearchedUser",
-        "owner_discriminator": "0001",
         "bot_user_id": null,
         "bot_username": null,
         "bot_global_name": null,
-        "bot_discriminator": null,
         "bot_is_public": true,
         "bot_require_code_grant": false,
         "oauth2_redirect_uris": [],
@@ -1081,14 +1076,12 @@ fn searched_report() -> Value {
     json!({
         "report_id": "1800000000000000001",
         "reporter_id": "1500000000000000000",
-        "reporter_tag": "AdminUser#0001",
         "reported_at": "2026-05-26T12:00:00.000Z",
         "status": 0,
         "report_type": 1,
         "category": "other",
         "additional_info": "Mock report details",
         "reported_user_id": "1500000000000000001",
-        "reported_user_tag": "SearchedUser#0001"
     })
 }
 
@@ -1096,14 +1089,12 @@ fn searched_message_report() -> Value {
     json!({
         "report_id": "1800000000000000002",
         "reporter_id": "1500000000000000000",
-        "reporter_tag": "AdminUser#0001",
         "reported_at": "2026-05-26T12:00:00.000Z",
         "status": 0,
         "report_type": 0,
         "category": "spam",
         "additional_info": "Mock message report details",
         "reported_user_id": "1500000000000000001",
-        "reported_user_tag": "SearchedUser#0001",
         "reported_message_id": "1800000000000001001",
         "reported_channel_id": "1600000000000000101",
         "reported_channel_name": "general",
@@ -1114,7 +1105,6 @@ fn searched_message_report() -> Value {
             "author_id": "1500000000000000001",
             "author_username": "SearchedUser",
             "author_global_name": "SearchedUser",
-            "author_discriminator": "0001",
             "author_avatar": null,
             "channel_id": "1600000000000000101",
             "attachments": []
@@ -1235,7 +1225,6 @@ fn pending_registration_fixture() -> Value {
     json!({
         "user_id": "1500000000000000002",
         "username": "PendingUser",
-        "discriminator": 0,
         "global_name": "Pending User",
         "email": "pending.user.with.a.long.address@example.test",
         "requested_at": "2026-05-26T12:10:00.000Z",

@@ -30,31 +30,28 @@ A guild's submitted application, together with the guild details Fluxer resolves
 | guild_owner_id<sup>1</sup> | snowflake | Current guild owner |
 | guild_owner_username<sup>2</sup> | ?string | Username of the owner |
 | guild_owner_global_name<sup>2</sup> | ?string | Display name of the owner, or null when unset |
-| guild_owner_discriminator<sup>2</sup> <sup>3</sup> | ?string | Discriminator of the owner |
-| guild_member_count<sup>1</sup> <sup>4</sup> | integer | The member count on the guild record |
+| guild_member_count<sup>1</sup> <sup>3</sup> | integer | The member count on the guild record |
 | guild_nsfw_level<sup>1</sup> | ?integer | Current [NSFW level](/http-api/guilds/#nsfw-levels) of the guild |
-| guild_features<sup>1</sup> <sup>5</sup> | array[string] | Current [guild features](/http-api/guilds/#guild-features) |
+| guild_features<sup>1</sup> <sup>4</sup> | array[string] | Current [guild features](/http-api/guilds/#guild-features) |
 | description | string | Listing description of 10 through 300 characters |
-| category_type<sup>6</sup> | integer | [Discovery category](/http-api/discovery/#discovery-categories) the listing is filed under |
-| primary_language<sup>7</sup> | ?string | [Supported primary language](/http-api/discovery/#supported-primary-languages) code |
-| custom_tags<sup>6</sup> <sup>8</sup> | array[string] | Normalised [custom tags](/http-api/discovery/#custom-tags) of the listing |
+| category_type<sup>5</sup> | integer | [Discovery category](/http-api/discovery/#discovery-categories) the listing is filed under |
+| primary_language<sup>6</sup> | ?string | [Supported primary language](/http-api/discovery/#supported-primary-languages) code |
+| custom_tags<sup>5</sup> <sup>7</sup> | array[string] | Normalised [custom tags](/http-api/discovery/#custom-tags) of the listing |
 | applied_at | ISO8601 timestamp | Time at which the guild applied |
 
 <sup>1</sup> Resolved from the guild at request time. A guild Fluxer fails to load yields the literal name `(unknown guild)`, a null icon, the owner ID `0`, a member count of 0, a null NSFW level, an empty feature array, and null for all owner name fields
 
 <sup>2</sup> Read from the owner account, so it is null when the guild resolved but the owner account did not
 
-<sup>3</sup> Rendered as four digits with leading zeroes
+<sup>3</sup> The count stored on the guild record, so it is approximate
 
-<sup>4</sup> The count stored on the guild record, so it is approximate
+<sup>4</sup> An approved application has the discoverable feature here
 
-<sup>5</sup> An approved application has the discoverable feature here
+<sup>5</sup> A stored null reads as `0` for the category and as an empty array for the tags
 
-<sup>6</sup> A stored null reads as `0` for the category and as an empty array for the tags
+<sup>6</sup> A stored null reads as `en-US`, so this read does not produce null
 
-<sup>7</sup> A stored null reads as `en-US`, so this read does not produce null
-
-<sup>8</sup> Stored already trimmed, lowercased, and whitespace collapsed, so a tag does not round-trip in the casing it was submitted with
+<sup>7</sup> Stored already trimmed, lowercased, and whitespace collapsed, so a tag does not round-trip in the casing it was submitted with
 
 ### Example
 
@@ -66,7 +63,6 @@ A guild's submitted application, together with the guild details Fluxer resolves
   "guild_owner_id": "1478812292088791041",
   "guild_owner_username": "example",
   "guild_owner_global_name": "Example",
-  "guild_owner_discriminator": "0042",
   "guild_member_count": 1204,
   "guild_nsfw_level": 0,
   "guild_features": ["COMMUNITY"],

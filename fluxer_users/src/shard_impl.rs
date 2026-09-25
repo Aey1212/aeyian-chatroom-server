@@ -31,7 +31,7 @@ type OptionalDate = Option<MaybeEmpty<NaiveDate>>;
 
 #[cfg(feature = "scylla")]
 const FULL_USER_COLUMNS: &str = "\
-    user_id, username, discriminator, bot, system, \
+    user_id, username, bot, system, \
     email, email_verified, email_bounced, \
     authenticator_types, \
     avatar_hash, avatar_color, banner_hash, banner_color, \
@@ -57,7 +57,7 @@ const FULL_USER_COLUMNS: &str = "\
     timezone, timezone_privacy_flags";
 #[cfg(feature = "scylla")]
 const PARTIAL_USER_COLUMNS: &str = "\
-    user_id, username, discriminator, global_name, \
+    user_id, username, global_name, \
     avatar_hash, bot, system, flags, \
     banner_hash, banner_color, accent_color, avatar_color, \
     mention_flags";
@@ -67,7 +67,6 @@ const USER_CACHE_MIN_GENERATION_STRIPES: usize = 4096;
 const USER_CACHE_MAX_GENERATION_STRIPES: usize = 1 << 20;
 const FLUXER_SYSTEM_USER_ID: i64 = 0;
 const FLUXER_SYSTEM_USERNAME: &str = "Fluxer";
-const FLUXER_SYSTEM_DISCRIMINATOR: i32 = 0;
 const USER_FLAG_STAFF: i64 = 1;
 
 pub struct UsersShard {
@@ -113,7 +112,6 @@ struct ScyllaUsersStorage {
 struct FullUserDbRow {
     user_id: i64,
     username: String,
-    discriminator: i32,
     bot: Option<bool>,
     system: Option<bool>,
     email: Option<String>,
@@ -176,7 +174,6 @@ struct FullUserDbRow {
 struct PartialUserDbRow {
     user_id: i64,
     username: String,
-    discriminator: i32,
     global_name: Option<String>,
     avatar_hash: Option<String>,
     bot: Option<bool>,
@@ -193,7 +190,6 @@ struct PartialUserDbRow {
 struct FullUserKvRow {
     user_id: i64,
     username: String,
-    discriminator: i32,
     bot: Option<bool>,
     system: Option<bool>,
     email: Option<String>,
@@ -625,7 +621,6 @@ fn fluxer_system_user() -> User {
     User {
         user_id: FLUXER_SYSTEM_USER_ID,
         username: FLUXER_SYSTEM_USERNAME.to_owned(),
-        discriminator: FLUXER_SYSTEM_DISCRIMINATOR,
         bot: Some(true),
         system: Some(true),
         email: None,
@@ -768,7 +763,6 @@ impl From<PartialUserDbRow> for UserPartial {
         Self {
             user_id: row.user_id,
             username: row.username,
-            discriminator: row.discriminator,
             global_name: row.global_name,
             avatar_hash: row.avatar_hash,
             bot: row.bot,
@@ -789,7 +783,6 @@ impl From<FullUserDbRow> for User {
         Self {
             user_id: row.user_id,
             username: row.username,
-            discriminator: row.discriminator,
             bot: row.bot,
             system: row.system,
             email: row.email,
@@ -873,7 +866,6 @@ impl From<FullUserKvRow> for User {
         Self {
             user_id: row.user_id,
             username: row.username,
-            discriminator: row.discriminator,
             bot: row.bot,
             system: row.system,
             email: row.email,
@@ -944,7 +936,6 @@ mod tests {
         let mut user = fluxer_system_user();
         user.user_id = user_id;
         user.username = "Ada".to_owned();
-        user.discriminator = 7;
         user.global_name = Some("Ada Lovelace".to_owned());
         user.avatar_hash = Some("avatar_hash".to_owned());
         user.bot = Some(false);
@@ -1120,7 +1111,6 @@ mod tests {
 
         assert_eq!(partial.user_id, 0);
         assert_eq!(partial.username, "Fluxer");
-        assert_eq!(partial.discriminator, 0);
         assert_eq!(partial.global_name, None);
         assert_eq!(partial.bot, Some(true));
         assert_eq!(partial.system, Some(true));
@@ -1147,7 +1137,6 @@ mod tests {
 
         assert_eq!(user.user_id, 42);
         assert_eq!(user.username, "ada");
-        assert_eq!(user.discriminator, 7);
         assert_eq!(user.authenticator_types, vec![1, 2]);
         assert_eq!(user.traits, vec!["founder"]);
         assert_eq!(user.acls, vec!["admin"]);

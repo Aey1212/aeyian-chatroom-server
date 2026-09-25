@@ -12,6 +12,7 @@ import {SectionCard} from '@app/features/user/components/modals/tabs/application
 import type {ApplicationDetailForm} from '@app/features/user/components/modals/tabs/applications_tab/application_detail/ApplicationDetailTypes';
 import {AvatarUploader} from '@app/features/user/components/modals/tabs/my_profile_tab/AvatarUploader';
 import {BannerUploader} from '@app/features/user/components/modals/tabs/my_profile_tab/BannerUploader';
+import {BOT_USERNAME_BASE_MAX_LENGTH, BOT_USERNAME_SUFFIX} from '@fluxer/constants/src/UserConstants';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
 import type React from 'react';
@@ -22,7 +23,7 @@ const BOT_PROFILE_DESCRIPTOR = msg({
 	comment: 'Short label in the bot profile section. Keep it concise.',
 });
 const AVATAR_TAG_AND_RICH_PROFILE_DETAILS_FOR_YOUR_DESCRIPTOR = msg({
-	message: 'Avatar, tag, and rich profile details for your bot.',
+	message: 'Avatar, username, and rich profile details for your bot.',
 	comment: 'Description text in the bot profile section.',
 });
 const BOT_AVATAR_DESCRIPTOR = msg({
@@ -37,9 +38,9 @@ const USERNAME_MUST_BE_AT_LEAST_1_CHARACTER_DESCRIPTOR = msg({
 	message: 'Username must be at least 1 character',
 	comment: 'Label in the bot profile section.',
 });
-const USERNAME_MUST_BE_AT_MOST_32_CHARACTERS_DESCRIPTOR = msg({
-	message: 'Username must be at most 32 characters',
-	comment: 'Label in the bot profile section.',
+const USERNAME_MUST_BE_AT_MOST_N_CHARACTERS_DESCRIPTOR = msg({
+	message: 'Username must be at most {maxLength} characters before -BOT',
+	comment: 'Label in the bot profile section. Preserve {maxLength}; it is inserted by code. -BOT is literal.',
 });
 const USERNAME_CAN_ONLY_CONTAIN_LETTERS_NUMBERS_AND_UNDERSCORES_DESCRIPTOR = msg({
 	message: 'Username can only contain letters, numbers, and underscores',
@@ -49,9 +50,10 @@ const BOT_USERNAME_DESCRIPTOR = msg({
 	message: 'Bot username',
 	comment: 'Short label in the bot profile section. Keep it concise.',
 });
-const DISCRIMINATOR_DESCRIPTOR = msg({
-	message: 'Discriminator',
-	comment: 'Short label in the bot profile section. Keep it concise.',
+const BOT_RENAME_NEEDS_APPROVAL_DESCRIPTOR = msg({
+	message:
+		'Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it.',
+	comment: 'Help text under the bot username field. -BOT is literal and must stay in capitals.',
 });
 const BOT_BIO_DESCRIPTOR = msg({
 	message: 'Bot bio',
@@ -163,7 +165,12 @@ export const BotProfileSection: React.FC<BotProfileSectionProps> = ({
 						rules={{
 							required: i18n._(USERNAME_IS_REQUIRED_DESCRIPTOR),
 							minLength: {value: 1, message: i18n._(USERNAME_MUST_BE_AT_LEAST_1_CHARACTER_DESCRIPTOR)},
-							maxLength: {value: 32, message: i18n._(USERNAME_MUST_BE_AT_MOST_32_CHARACTERS_DESCRIPTOR)},
+							maxLength: {
+								value: BOT_USERNAME_BASE_MAX_LENGTH,
+								message: i18n._(USERNAME_MUST_BE_AT_MOST_N_CHARACTERS_DESCRIPTOR, {
+									maxLength: BOT_USERNAME_BASE_MAX_LENGTH,
+								}),
+							},
 							pattern: {
 								value: /^[a-zA-Z0-9_]+$/,
 								message: i18n._(USERNAME_CAN_ONLY_CONTAIN_LETTERS_NUMBERS_AND_UNDERSCORES_DESCRIPTOR),
@@ -175,26 +182,19 @@ export const BotProfileSection: React.FC<BotProfileSectionProps> = ({
 								{...field}
 								aria-label={i18n._(BOT_USERNAME_DESCRIPTOR)}
 								placeholder={EXAMPLE_BOT_NAME}
-								maxLength={32}
+								maxLength={BOT_USERNAME_BASE_MAX_LENGTH}
 								required
 								label={i18n._(USERNAME_DESCRIPTOR)}
 							/>
 						)}
 						data-flx="user.applications-tab.application-detail.bot-profile-section.controller"
 					/>
-					<div
-						className={styles.discriminatorInput}
-						data-flx="user.applications-tab.application-detail.bot-profile-section.discriminator-input"
+					<span
+						className={styles.botUsernameSuffix}
+						data-flx="user.applications-tab.application-detail.bot-profile-section.bot-username-suffix"
 					>
-						<Input
-							value={application.bot?.discriminator}
-							readOnly
-							disabled
-							maxLength={4}
-							aria-label={i18n._(DISCRIMINATOR_DESCRIPTOR)}
-							data-flx="user.applications-tab.application-detail.bot-profile-section.input--2"
-						/>
-					</div>
+						{BOT_USERNAME_SUFFIX}
+					</span>
 				</div>
 				{form.formState.errors.username && (
 					<div className={styles.error} data-flx="user.applications-tab.application-detail.bot-profile-section.error">
@@ -205,8 +205,15 @@ export const BotProfileSection: React.FC<BotProfileSectionProps> = ({
 					className={styles.validationBox}
 					data-flx="user.applications-tab.application-detail.bot-profile-section.validation-box"
 				>
+					<p
+						className={styles.helpText}
+						data-flx="user.applications-tab.application-detail.bot-profile-section.help-text"
+					>
+						{i18n._(BOT_RENAME_NEEDS_APPROVAL_DESCRIPTOR)}
+					</p>
 					<UsernameValidationRules
 						username={form.watch('username') || ''}
+						maxLength={BOT_USERNAME_BASE_MAX_LENGTH}
 						data-flx="user.applications-tab.application-detail.bot-profile-section.username-validation-rules"
 					/>
 				</div>
@@ -286,3 +293,9 @@ export const BotProfileSection: React.FC<BotProfileSectionProps> = ({
 		</SectionCard>
 	);
 };
+
+/** The bot form edits the part of the username before -BOT; the server adds the suffix. */
+export function botUsernameBase(username: string | undefined): string {
+	if (!username) return '';
+	return username.endsWith(BOT_USERNAME_SUFFIX) ? username.slice(0, -BOT_USERNAME_SUFFIX.length) : username;
+}

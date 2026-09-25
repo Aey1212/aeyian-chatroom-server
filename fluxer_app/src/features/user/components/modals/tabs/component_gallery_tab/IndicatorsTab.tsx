@@ -31,7 +31,6 @@ const AVATAR_STATUSES: Array<string> = [
 const createMockRecipient = (id: string): UserPartial => ({
 	id,
 	username: id,
-	discriminator: '0000',
 	global_name: null,
 	avatar: null,
 	avatar_color: null,

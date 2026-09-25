@@ -31,7 +31,7 @@ const THIS_GIFT_CODE_IS_INVALID_OR_ALREADY_CLAIMED_DESCRIPTOR = msg({
 });
 const FROM_DESCRIPTOR = msg({
 	message: 'From {creatorTag}',
-	comment: 'Attribution label on a gift, showing the sender FluxerTag.',
+	comment: 'Attribution label on a gift, showing the sender username.',
 });
 const THIS_GIFT_HAS_ALREADY_BEEN_CLAIMED_DESCRIPTOR = msg({
 	message: 'This gift has already been claimed.',
@@ -63,7 +63,6 @@ export const GiftAcceptModal = observer(function GiftAcceptModal({code}: GiftAcc
 		return new User({
 			id: gift.created_by.id,
 			username: gift.created_by.username,
-			discriminator: gift.created_by.discriminator,
 			global_name: gift.created_by.global_name,
 			avatar: gift.created_by.avatar,
 			avatar_color: gift.created_by.avatar_color,

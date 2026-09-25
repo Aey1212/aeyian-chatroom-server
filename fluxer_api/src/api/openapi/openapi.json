@@ -948,6 +948,54 @@
 				"security": [{"botToken": []}, {"sessionToken": []}]
 			}
 		},
+		"/auth/password-reset": {
+			"post": {
+				"operationId": "reset_opened_password",
+				"summary": "Choose a new password after an admin opened a reset",
+				"tags": ["Auth"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/AuthLoginResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Sets a new password without email, but only for an account an admin has opened a password reset for. The reset closes when used, other sessions end, and the response logs the account in. Fails with INVALID_OR_EXPIRED_RESET_TOKEN when no reset is open.",
+				"requestBody": {
+					"required": true,
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/OpenedPasswordResetRequest"}}}
+				}
+			}
+		},
 		"/auth/register": {
 			"post": {
 				"operationId": "register_account",
@@ -991,7 +1039,7 @@
 				},
 				"description": "Create a new user account with email and password. Requires CAPTCHA verification. User account is created but must verify email before logging in.",
 				"requestBody": {
-					"required": false,
+					"required": true,
 					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/RegisterRequest"}}}
 				}
 			}
@@ -18484,8 +18532,8 @@
 				"security": [{"sessionToken": []}]
 			},
 			"post": {
-				"operationId": "send_friend_request_by_tag",
-				"summary": "Send friend request by tag",
+				"operationId": "send_friend_request_by_username",
+				"summary": "Send friend request by username",
 				"tags": ["Users"],
 				"responses": {
 					"200": {
@@ -18531,11 +18579,11 @@
 						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
 					}
 				},
-				"description": "Sends a friend request to a user identified by username tag (username#discriminator). Returns the new relationship object. Can fail if user not found or request already sent.",
+				"description": "Sends a friend request to a user identified by username. Returns the new relationship object. Can fail if user not found or request already sent.",
 				"security": [{"sessionToken": []}],
 				"requestBody": {
 					"required": true,
-					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/FriendRequestByTagRequest"}}}
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/FriendRequestByUsernameRequest"}}}
 				}
 			}
 		},
@@ -19533,15 +19581,15 @@
 				}
 			}
 		},
-		"/users/check-tag": {
+		"/users/@me/username-change-request": {
 			"get": {
-				"operationId": "check_username_tag_availability",
-				"summary": "Check username tag availability",
+				"operationId": "get_username_change_request",
+				"summary": "Get your rename request",
 				"tags": ["Users"],
 				"responses": {
 					"200": {
 						"description": "Success",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/UserTagCheckResponse"}}}
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/UsernameChangeRequestResponse"}}}
 					},
 					"400": {
 						"description": "Bad Request - The request was malformed or contained invalid data",
@@ -19582,22 +19630,176 @@
 						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
 					}
 				},
-				"description": "Checks if a username and discriminator combination is available for registration. Returns whether the tag is taken by another user.",
+				"description": "Returns your latest rename request and where it stands. Usernames change only through a request that an admin approves.",
+				"security": [{"sessionToken": []}]
+			},
+			"put": {
+				"operationId": "submit_username_change_request",
+				"summary": "Ask for a new username",
+				"tags": ["Users"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/UsernameChangeRequestResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Asks for a new username. The name is held for you until an admin approves or rejects the request. A new request replaces a pending one and gives its name back. Fails with USERNAME_ALREADY_TAKEN when the name is in use, locked or held.",
+				"security": [{"sessionToken": []}],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {"schema": {"$ref": "#/components/schemas/UsernameChangeRequestSubmitRequest"}}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "cancel_username_change_request",
+				"summary": "Cancel your rename request",
+				"tags": ["Users"],
+				"responses": {
+					"204": {"description": "No Content"},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Cancels your pending rename request and gives the held name back. Does nothing when none is pending.",
+				"security": [{"sessionToken": []}]
+			}
+		},
+		"/users/check-username": {
+			"get": {
+				"operationId": "check_username_availability",
+				"summary": "Check username availability",
+				"tags": ["Users"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/UsernameCheckResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Checks whether a username is taken. A name is taken when an account uses it, a deleted account left it locked, or a pending rename request holds it. The caller's own current name is not reported as taken.",
 				"security": [{"botToken": []}, {"sessionToken": []}],
 				"parameters": [
 					{
 						"name": "username",
 						"in": "query",
 						"required": true,
-						"schema": {"description": "The username to check", "$ref": "#/components/schemas/UsernameType"},
-						"description": "The username to check"
-					},
-					{
-						"name": "discriminator",
-						"in": "query",
-						"required": true,
-						"schema": {"description": "The discriminator to check", "$ref": "#/components/schemas/DiscriminatorType"},
-						"description": "The discriminator to check"
+						"schema": {
+							"description": "The username to check, compared case-insensitively",
+							"$ref": "#/components/schemas/UsernameLookupType"
+						},
+						"description": "The username to check, compared case-insensitively"
 					}
 				]
 			}
@@ -21854,8 +22056,10 @@
 						"description": "The unique identifier (snowflake) for this user",
 						"$ref": "#/components/schemas/SnowflakeStringType"
 					},
-					"username": {"type": "string", "description": "The username of the user, not unique across the platform"},
-					"discriminator": {"type": "string", "description": "The four-digit discriminator tag of the user"},
+					"username": {
+						"type": "string",
+						"description": "The username of the user, unique across the instance (case-insensitive)"
+					},
 					"global_name": {"description": "The display name of the user, if set", "type": ["string", "null"]},
 					"avatar": {"description": "The hash of the user avatar image", "type": ["string", "null"]},
 					"avatar_color": {
@@ -21870,7 +22074,7 @@
 						"$ref": "#/components/schemas/MentionReplyPreferences"
 					}
 				},
-				"required": ["id", "username", "discriminator", "global_name", "avatar", "avatar_color", "flags"],
+				"required": ["id", "username", "global_name", "avatar", "avatar_color", "flags"],
 				"additionalProperties": false
 			},
 			"UserProfileFullResponse": {
@@ -21964,14 +22168,48 @@
 				"required": ["user", "user_profile", "timezone_offset"],
 				"additionalProperties": false
 			},
-			"DiscriminatorType": {"type": ["string", "number"]},
-			"UsernameType": {"type": "string"},
-			"UserTagCheckResponse": {
+			"UsernameLookupType": {"type": "string"},
+			"UsernameCheckResponse": {
+				"type": "object",
+				"properties": {"taken": {"type": "boolean", "description": "Whether the username is already taken"}},
+				"required": ["taken"],
+				"additionalProperties": false
+			},
+			"UsernameChangeRequestSubmitRequest": {
 				"type": "object",
 				"properties": {
-					"taken": {"type": "boolean", "description": "Whether the username/discriminator combination is already taken"}
+					"username": {
+						"description": "The username to ask for; an admin approves or rejects the request",
+						"$ref": "#/components/schemas/UsernameType"
+					}
 				},
-				"required": ["taken"],
+				"required": ["username"]
+			},
+			"UsernameChangeRequestResponse": {
+				"type": "object",
+				"properties": {
+					"request": {
+						"anyOf": [
+							{
+								"type": "object",
+								"properties": {
+									"requested_username": {"type": "string", "description": "The username asked for"},
+									"status": {"$ref": "#/components/schemas/UsernameChangeRequestStatus"},
+									"created_at": {"type": "string", "description": "ISO 8601 timestamp of the request"},
+									"reviewed_at": {
+										"description": "ISO 8601 timestamp of the admin decision, if any",
+										"type": ["string", "null"]
+									}
+								},
+								"required": ["requested_username", "status", "created_at", "reviewed_at"],
+								"additionalProperties": false
+							},
+							{"type": "null"}
+						],
+						"description": "The user's latest rename request, or null when there has never been one"
+					}
+				},
+				"required": ["request"],
 				"additionalProperties": false
 			},
 			"ThemeCreateRequest": {
@@ -21998,8 +22236,10 @@
 						"description": "The unique identifier (snowflake) for this user",
 						"$ref": "#/components/schemas/SnowflakeStringType"
 					},
-					"username": {"type": "string", "description": "The username of the user, not unique across the platform"},
-					"discriminator": {"type": "string", "description": "The four-digit discriminator tag of the user"},
+					"username": {
+						"type": "string",
+						"description": "The username of the user, unique across the instance (case-insensitive)"
+					},
 					"global_name": {"description": "The display name of the user, if set", "type": ["string", "null"]},
 					"avatar": {"description": "The hash of the user avatar image", "type": ["string", "null"]},
 					"avatar_color": {
@@ -22092,10 +22332,6 @@
 					"premium_grace_ends_at": {
 						"description": "ISO8601 timestamp at which the post-cancel grace period ends. Set when the subscription is fully canceled in Stripe; perks remain active and the original premium_since is restored on resubscribe until this timestamp passes. Null when not in grace.",
 						"type": ["string", "null"]
-					},
-					"premium_discriminator": {
-						"type": "boolean",
-						"description": "Whether the user selected a premium-only discriminator that will be rerolled when non-lifetime premium access ends"
 					},
 					"premium_badge_hidden": {
 						"type": "boolean",
@@ -22197,7 +22433,6 @@
 				"required": [
 					"id",
 					"username",
-					"discriminator",
 					"global_name",
 					"avatar",
 					"avatar_color",
@@ -22221,7 +22456,6 @@
 					"premium_billing_cycle",
 					"premium_lifetime_sequence",
 					"premium_grace_ends_at",
-					"premium_discriminator",
 					"premium_badge_hidden",
 					"premium_badge_masked",
 					"premium_badge_timestamp_hidden",
@@ -22748,19 +22982,15 @@
 				"required": ["ignored_count"],
 				"additionalProperties": false
 			},
-			"FriendRequestByTagRequest": {
+			"FriendRequestByUsernameRequest": {
 				"type": "object",
 				"properties": {
 					"username": {
-						"description": "Username of the user to send friend request",
-						"$ref": "#/components/schemas/UsernameType"
-					},
-					"discriminator": {
-						"description": "Discriminator tag of the user",
-						"$ref": "#/components/schemas/DiscriminatorType"
+						"description": "Username of the user to send friend request, compared case-insensitively",
+						"$ref": "#/components/schemas/UsernameLookupType"
 					}
 				},
-				"required": ["username", "discriminator"]
+				"required": ["username"]
 			},
 			"RelationshipListResponse": {"type": "array", "items": {"$ref": "#/components/schemas/RelationshipResponse"}},
 			"SuccessResponse": {
@@ -24575,14 +24805,6 @@
 			"UserUpdateWithVerificationRequest": {
 				"type": "object",
 				"properties": {
-					"username": {
-						"description": "The username for the account (1-32 characters)",
-						"$ref": "#/components/schemas/UsernameType"
-					},
-					"discriminator": {
-						"description": "The 4-digit discriminator tag",
-						"$ref": "#/components/schemas/DiscriminatorType"
-					},
 					"global_name": {"description": "The display name shown to other users", "type": ["string", "null"]},
 					"email": {"description": "The email address for the account", "$ref": "#/components/schemas/EmailType"},
 					"new_password": {"description": "The new password to set", "$ref": "#/components/schemas/PasswordType"},
@@ -25711,14 +25933,13 @@
 						"$ref": "#/components/schemas/SnowflakeStringType"
 					},
 					"username": {"type": "string", "description": "The username of the user"},
-					"discriminator": {"type": "string", "description": "The discriminator of the user"},
 					"global_name": {"description": "The global display name of the user", "type": ["string", "null"]},
 					"avatar": {"description": "The avatar hash of the user", "type": ["string", "null"]},
 					"email": {"description": "The email address of the user", "type": ["string", "null"]},
 					"verified": {"description": "Whether the user has verified their email", "type": ["boolean", "null"]},
 					"flags": {"$ref": "#/components/schemas/PublicUserFlags", "description": "The user flags"}
 				},
-				"required": ["sub", "id", "username", "discriminator", "global_name", "avatar"],
+				"required": ["sub", "id", "username", "global_name", "avatar"],
 				"additionalProperties": false
 			},
 			"RevokeRequestForm": {
@@ -25845,14 +26066,13 @@
 										"$ref": "#/components/schemas/SnowflakeStringType"
 									},
 									"username": {"type": "string", "description": "The username of the bot"},
-									"discriminator": {"type": "string", "description": "The discriminator of the bot"},
 									"avatar": {"description": "The avatar hash of the bot", "type": ["string", "null"]},
 									"banner": {"description": "The banner hash of the bot", "type": ["string", "null"]},
 									"bio": {"description": "The bio or description of the bot", "type": ["string", "null"]},
 									"token": {"description": "The bot token for authentication", "type": "string"},
 									"flags": {"$ref": "#/components/schemas/BotFlags"}
 								},
-								"required": ["id", "username", "discriminator", "bio", "flags"],
+								"required": ["id", "username", "bio", "flags"],
 								"additionalProperties": false,
 								"description": "Detailed bot user metadata"
 							},
@@ -25894,7 +26114,6 @@
 								"$ref": "#/components/schemas/SnowflakeStringType"
 							},
 							"username": {"type": "string", "description": "The username of the bot"},
-							"discriminator": {"type": "string", "description": "The discriminator of the bot"},
 							"avatar": {"description": "The avatar hash of the bot", "type": ["string", "null"]},
 							"banner": {"description": "The banner hash of the bot", "type": ["string", "null"]},
 							"bio": {"description": "The bio or description of the bot", "type": ["string", "null"]},
@@ -25908,7 +26127,7 @@
 							},
 							"flags": {"$ref": "#/components/schemas/BotFlags"}
 						},
-						"required": ["id", "username", "discriminator", "bio", "flags"],
+						"required": ["id", "username", "bio", "flags"],
 						"additionalProperties": false
 					}
 				},
@@ -25927,7 +26146,6 @@
 								"$ref": "#/components/schemas/SnowflakeStringType"
 							},
 							"username": {"type": "string", "description": "The username of the bot"},
-							"discriminator": {"type": "string", "description": "The discriminator of the bot"},
 							"avatar": {"description": "The avatar hash of the bot", "type": ["string", "null"]},
 							"banner": {"description": "The banner hash of the bot", "type": ["string", "null"]},
 							"bio": {"description": "The bio or description of the bot", "type": ["string", "null"]},
@@ -25941,7 +26159,7 @@
 							},
 							"flags": {"$ref": "#/components/schemas/BotFlags"}
 						},
-						"required": ["id", "username", "discriminator", "bio", "flags"],
+						"required": ["id", "username", "bio", "flags"],
 						"additionalProperties": false,
 						"description": "Detailed bot user metadata"
 					}
@@ -25953,10 +26171,6 @@
 				"type": "object",
 				"properties": {
 					"username": {"description": "The username of the bot", "$ref": "#/components/schemas/UsernameType"},
-					"discriminator": {
-						"description": "The discriminator of the bot",
-						"$ref": "#/components/schemas/DiscriminatorType"
-					},
 					"avatar": {
 						"description": "The avatar image as base64",
 						"anyOf": [{"$ref": "#/components/schemas/Base64ImageType"}, {"type": "null"}]
@@ -25977,13 +26191,12 @@
 						"$ref": "#/components/schemas/SnowflakeStringType"
 					},
 					"username": {"type": "string", "description": "The username of the bot"},
-					"discriminator": {"type": "string", "description": "The discriminator of the bot"},
 					"avatar": {"description": "The avatar hash of the bot", "type": ["string", "null"]},
 					"banner": {"description": "The banner hash of the bot", "type": ["string", "null"]},
 					"bio": {"description": "The bio or description of the bot", "type": ["string", "null"]},
 					"flags": {"$ref": "#/components/schemas/BotFlags"}
 				},
-				"required": ["id", "username", "discriminator", "avatar", "banner", "bio", "flags"],
+				"required": ["id", "username", "avatar", "banner", "bio", "flags"],
 				"additionalProperties": false
 			},
 			"ApplicationUpdateRequest": {
@@ -26074,7 +26287,6 @@
 								"$ref": "#/components/schemas/SnowflakeStringType"
 							},
 							"username": {"type": "string", "description": "The username of the user"},
-							"discriminator": {"type": "string", "description": "The discriminator of the user"},
 							"global_name": {"description": "The global display name of the user", "type": ["string", "null"]},
 							"avatar": {"description": "The avatar hash of the user", "type": ["string", "null"]},
 							"avatar_color": {
@@ -26087,7 +26299,7 @@
 							"email": {"description": "The email address of the user", "type": ["string", "null"]},
 							"verified": {"description": "Whether the user has verified their email", "type": ["boolean", "null"]}
 						},
-						"required": ["id", "username", "discriminator", "global_name", "avatar", "avatar_color", "flags"],
+						"required": ["id", "username", "global_name", "avatar", "avatar_color", "flags"],
 						"additionalProperties": false
 					}
 				},
@@ -28682,9 +28894,12 @@
 			"RegisterRequest": {
 				"type": "object",
 				"properties": {
-					"email": {"description": "Email address for the new account", "$ref": "#/components/schemas/EmailType"},
+					"email": {
+						"description": "Optional email address for the new account",
+						"$ref": "#/components/schemas/EmailType"
+					},
 					"username": {
-						"description": "Username for the new account (1-32 characters)",
+						"description": "Username for the new account (1-32 characters), unique on this instance and used to log in",
 						"$ref": "#/components/schemas/UsernameType"
 					},
 					"global_name": {"description": "Display name shown to other users", "type": "string"},
@@ -28709,7 +28924,8 @@
 						"enum": ["dark", "dark_legacy", "coal", "light", "system"],
 						"type": "string"
 					}
-				}
+				},
+				"required": ["username", "password"]
 			},
 			"AuthRegisterResponse": {
 				"anyOf": [
@@ -28737,6 +28953,14 @@
 					},
 					{"$ref": "#/components/schemas/AuthRegistrationPendingApprovalResponse"}
 				]
+			},
+			"OpenedPasswordResetRequest": {
+				"type": "object",
+				"properties": {
+					"login": {"description": "Username or email address of the account", "type": "string"},
+					"password": {"description": "The new password", "$ref": "#/components/schemas/PasswordType"}
+				},
+				"required": ["login", "password"]
 			},
 			"MfaTicketRequest": {
 				"type": "object",
@@ -28766,11 +28990,11 @@
 			"LoginRequest": {
 				"type": "object",
 				"properties": {
-					"email": {"description": "Email address for authentication", "$ref": "#/components/schemas/EmailType"},
+					"login": {"description": "Username or email address for authentication", "type": "string"},
 					"password": {"description": "Account password", "$ref": "#/components/schemas/PasswordType"},
 					"invite_code": {"description": "Guild invite code to join after login", "type": ["string", "null"]}
 				},
-				"required": ["email", "password"]
+				"required": ["login", "password"]
 			},
 			"IpAuthorizationPollResponse": {
 				"type": "object",
@@ -28959,7 +29183,6 @@
 								"$ref": "#/components/schemas/SnowflakeStringType"
 							},
 							"username": {"type": "string", "description": "The username of the bot"},
-							"discriminator": {"type": "string", "description": "The discriminator of the bot"},
 							"avatar": {"description": "The avatar hash of the bot", "type": ["string", "null"]},
 							"banner": {"description": "The banner hash of the bot", "type": ["string", "null"]},
 							"bio": {"description": "The bio or description of the bot", "type": ["string", "null"]},
@@ -28973,7 +29196,7 @@
 							},
 							"flags": {"$ref": "#/components/schemas/BotFlags"}
 						},
-						"required": ["id", "username", "discriminator", "bio", "flags"],
+						"required": ["id", "username", "bio", "flags"],
 						"additionalProperties": false
 					},
 					"redirect_uris": {
@@ -29503,6 +29726,7 @@
 				"required": ["registration_pending_approval", "user_id"],
 				"additionalProperties": false
 			},
+			"UsernameType": {"type": "string"},
 			"AuthSessionResponse": {
 				"type": "object",
 				"properties": {
@@ -31866,7 +32090,6 @@
 					"guild_id": {"type": "string", "description": "Guild ID"},
 					"user_id": {"type": "string", "description": "User ID"},
 					"username": {"type": "string", "description": "Username"},
-					"discriminator": {"type": "string", "description": "Zero-padded 4-digit discriminator"},
 					"global_name": {"description": "Global display name", "type": ["string", "null"]},
 					"nickname": {"description": "Guild nickname", "type": ["string", "null"]},
 					"role_ids": {"type": "array", "items": {"type": "string"}, "description": "Role IDs"},
@@ -31892,7 +32115,6 @@
 					"guild_id",
 					"user_id",
 					"username",
-					"discriminator",
 					"global_name",
 					"nickname",
 					"role_ids",
@@ -32772,11 +32994,9 @@
 						],
 						"type": "string"
 					},
-					"reporter_fluxer_tag": {
-						"description": "Fluxer tag of the reporter if they have an account",
-						"type": "string",
-						"minLength": 3,
-						"maxLength": 37
+					"reporter_username": {
+						"description": "Username of the reporter if they have an account",
+						"$ref": "#/components/schemas/UsernameLookupType"
 					},
 					"report_type": {"type": "string", "const": "guild", "description": "Type of report"},
 					"category": {"$ref": "#/components/schemas/GuildReportCategory"},
@@ -32892,20 +33112,16 @@
 						],
 						"type": "string"
 					},
-					"reporter_fluxer_tag": {
-						"description": "Fluxer tag of the reporter if they have an account",
-						"type": "string",
-						"minLength": 3,
-						"maxLength": 37
+					"reporter_username": {
+						"description": "Username of the reporter if they have an account",
+						"$ref": "#/components/schemas/UsernameLookupType"
 					},
 					"report_type": {"type": "string", "const": "user", "description": "Type of report"},
 					"category": {"$ref": "#/components/schemas/UserReportCategory"},
 					"user_id": {"description": "ID of the user being reported", "$ref": "#/components/schemas/SnowflakeType"},
-					"user_tag": {
-						"description": "Fluxer tag of the user being reported",
-						"type": "string",
-						"minLength": 3,
-						"maxLength": 37
+					"username": {
+						"description": "Username of the user being reported",
+						"$ref": "#/components/schemas/UsernameLookupType"
 					}
 				},
 				"required": ["ticket", "reporter_full_legal_name", "reporter_country_of_residence", "report_type", "category"]
@@ -33010,20 +33226,16 @@
 						],
 						"type": "string"
 					},
-					"reporter_fluxer_tag": {
-						"description": "Fluxer tag of the reporter if they have an account",
-						"type": "string",
-						"minLength": 3,
-						"maxLength": 37
+					"reporter_username": {
+						"description": "Username of the reporter if they have an account",
+						"$ref": "#/components/schemas/UsernameLookupType"
 					},
 					"report_type": {"type": "string", "const": "message", "description": "Type of report"},
 					"category": {"$ref": "#/components/schemas/MessageReportCategory"},
 					"message_link": {"description": "Link to the message being reported", "type": "string"},
-					"reported_user_tag": {
-						"description": "Fluxer tag of the user who sent the message",
-						"type": "string",
-						"minLength": 3,
-						"maxLength": 37
+					"reported_user_username": {
+						"description": "Username of the user who sent the message",
+						"$ref": "#/components/schemas/UsernameLookupType"
 					}
 				},
 				"required": [
@@ -34244,6 +34456,11 @@
 				"x-enumDescriptions": ["Time-based one-time password authenticator", "WebAuthn authenticator"]
 			},
 			"HexString16Type": {"type": "string", "pattern": "^[a-f0-9]{16}$"},
+			"UsernameChangeRequestStatus": {
+				"type": "string",
+				"enum": ["pending", "approved", "rejected", "cancelled"],
+				"description": "Where the rename request stands"
+			},
 			"Int64Type": {
 				"anyOf": [{"type": "string"}, {"type": "integer", "minimum": -9007199254740991, "maximum": 9007199254740991}],
 				"format": "int64"

@@ -153,7 +153,7 @@ export const UserFilterSheet: React.FC<UserFilterSheetProps> = observer(
 													{displayName}
 												</span>
 												<span className={styles.username} data-flx="search.search.user-filter-sheet.username">
-													{NicknameUtils.formatUserTagForStreamerMode(user)}
+													{NicknameUtils.formatUserNameForStreamerMode(user)}
 												</span>
 											</div>
 											{isSelected && (

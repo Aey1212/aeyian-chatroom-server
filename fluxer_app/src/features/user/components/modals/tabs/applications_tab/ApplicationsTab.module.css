@@ -527,12 +527,6 @@
 	margin-top: var(--spacing-1);
 }
 
-.fluxerTagContainer {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-2);
-}
-
 .sectionSubtitle {
 	margin: 0;
 	color: var(--text-primary-muted);
@@ -610,22 +604,6 @@
 	gap: var(--spacing-1);
 }
 
-.fluxerTagLabel {
-	margin: 0;
-	display: block;
-	padding: 0;
-	font-weight: 500;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-	color: var(--text-primary);
-}
-
-.fluxerTagInputRow {
-	display: flex;
-	align-items: center;
-	gap: var(--spacing-2);
-}
-
 .usernameInput {
 	flex: 1;
 }
@@ -638,10 +616,6 @@
 	line-height: 1;
 	color: var(--text-primary);
 	padding: 0 var(--spacing-1);
-}
-
-.discriminatorInput {
-	width: 5rem;
 }
 
 .validationBox {

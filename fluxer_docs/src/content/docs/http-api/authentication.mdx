@@ -52,7 +52,7 @@ A newly issued session token and the account it belongs to. Password login witho
 A lost session token cannot be recovered through any operation. The account MUST authenticate again to obtain a new session.
 :::
 
-:::note[The successful result has no discriminator]
+:::note[The successful result has no type marker]
 Password login, registration, and password reset each return either this object or an alternative shape. The successful shape has no `mfa` or `registration_pending_approval` member of its own, so a client MUST branch on the presence of `token`.
 :::
 
@@ -376,7 +376,7 @@ When the subject is not yet linked, Fluxer adopts any existing account holding t
 
 Fluxer refuses the adoption only when the account already holds a different provider subject.
 
-The provider exchange and claim resolution can return the field codes `INVALID_SSO_AUTHORIZATION_CODE`, `INVALID_SSO_TOKEN`, `FAILED_TO_FETCH_SSO_USER_INFO`, `FAILED_TO_PARSE_SSO_USER_INFO`, `SSO_PROVIDER_DID_NOT_RETURN_EMAIL`, `SSO_IDENTITY_MISMATCH`, `SSO_MISCONFIGURED`, `INVALID_EMAIL_ADDRESS`, `EMAIL_DOMAIN_NOT_ALLOWED_FOR_SSO`, or `SSO_UNABLE_TO_ALLOCATE_DISCRIMINATOR`. An unverified provider email uses the field code `INVALID_SSO_TOKEN`.
+The provider exchange and claim resolution can return the field codes `INVALID_SSO_AUTHORIZATION_CODE`, `INVALID_SSO_TOKEN`, `FAILED_TO_FETCH_SSO_USER_INFO`, `FAILED_TO_PARSE_SSO_USER_INFO`, `SSO_PROVIDER_DID_NOT_RETURN_EMAIL`, `SSO_IDENTITY_MISMATCH`, `SSO_MISCONFIGURED`, `INVALID_EMAIL_ADDRESS`, `EMAIL_DOMAIN_NOT_ALLOWED_FOR_SSO`, or `SSO_UNABLE_TO_ALLOCATE_USERNAME`. An unverified provider email uses the field code `INVALID_SSO_TOKEN`.
 
 Closed registration returns 403 `REGISTRATION_CLOSED`, an unknown account on an instance with automatic provisioning disabled returns 403 `SSO_REQUIRED`, an account awaiting approval returns 403 `REGISTRATION_PENDING_APPROVAL`, and account suspension returns 403 `ACCOUNT_SUSPENDED_TEMPORARILY` or 403 `ACCOUNT_SUSPENDED_PERMANENTLY`. A provisioned username or display name containing a blocked substring returns 403 `CONTENT_BLOCKED`.
 
@@ -430,18 +430,18 @@ Registration verifies [CAPTCHA](/topics/captcha/) when CAPTCHA is enabled. It pe
 | Field | Type | Description |
 | --- | --- | --- |
 | email?<sup>1</sup> | string | The account email address |
-| username?<sup>2</sup> | string | The account username (1-32 characters, letters, digits, and underscores) |
+| username<sup>2</sup> | string | The account username and login ID (1-32 characters, letters, digits, and underscores) |
 | global_name? | string | The display name after normalisation (1-32 characters) |
-| password?<sup>3</sup> | string | The account password (8-256 characters) |
+| password<sup>3</sup> | string | The account password (8-256 characters) |
 | date_of_birth?<sup>4</sup> | string | The date of birth in exact `YYYY-MM-DD` form |
 | consent?<sup>5</sup> | boolean | Whether the terms of service and privacy policy are accepted (default false) |
 | invite_code? | ?string | The invite accepted immediately after registration (0-256 characters) |
 | registration_url_code?<sup>6</sup> | ?string | The administrator-issued registration URL code (1-256 characters) |
 | theme? | string | The initial theme preference, one of `dark`, `dark_legacy`, `coal`, `light`, or `system` |
 
-<sup>1</sup> Omitting the email address creates an unclaimed account, which has no recovery path until it is claimed. An address whose domain has no usable DNS records, or whose top-level domain is blocked by account policy, returns the field code `INVALID_EMAIL_ADDRESS`, and an address already in use returns `EMAIL_ALREADY_IN_USE`
+<sup>1</sup> Omitting the email address creates an account without one. It signs in with its username, and its password can be reset only after an admin opens a reset for it, see [reset an opened password](#reset-an-opened-password). An address whose domain has no usable DNS records, or whose top-level domain is blocked by account policy, returns the field code `INVALID_EMAIL_ADDRESS`, and an address already in use returns `EMAIL_ALREADY_IN_USE`
 
-<sup>2</sup> Omitting the username derives one from `global_name` when that value produces a permitted username, and otherwise allocates a generated username, in both cases with a server-allocated discriminator
+<sup>2</sup> The username is unique on the instance ignoring letter case. A username in use, locked after a deleted account or a rename, or held by a pending rename request returns the field code `USERNAME_ALREADY_TAKEN`
 
 <sup>3</sup> The password is checked against the public breached-password corpus described under [reset a password](#reset-a-password), and a match returns the field code `PASSWORD_IS_TOO_COMMON`
 
@@ -453,7 +453,7 @@ Registration verifies [CAPTCHA](/topics/captcha/) when CAPTCHA is enabled. It pe
 
 Fluxer resolves the region from the client IP address, and an age below the minimum for that region returns the field code `MUST_BE_MINIMUM_AGE`. That minimum is 13 years unless account policy sets a different minimum for the region, and the applied minimum appears only in the localised message.
 
-Registration returns 403 `REGISTRATION_CLOSED` when the instance is closed and no valid registration URL was supplied. A username whose discriminator space is exhausted returns the field code `TOO_MANY_USERS_WITH_THIS_USERNAME`. A username or display name containing a blocked substring returns 403 `CONTENT_BLOCKED`.
+Registration returns 403 `REGISTRATION_CLOSED` when the instance is closed and no valid registration URL was supplied. A username or display name containing a blocked substring returns 403 `CONTENT_BLOCKED`.
 
 :::caution[Registration reports an address already in use]
 [Log in with a password](#log-in-with-a-password) and [request password recovery](#request-password-recovery) are enumeration-safe and registration is not. An address that already holds an account returns the field code `EMAIL_ALREADY_IN_USE`, so an unauthenticated caller learns from the response whether that address is registered.
@@ -490,9 +490,9 @@ Approval mode registration creates no guild membership and no authentication ses
 
 <RouteHeader method="POST" path="/v1/auth/login" unauthenticated />
 
-Validates local email and password credentials. Authentication is not required. Returns an [authentication token response](#authentication-token-response) when no second factor and no IP approval are outstanding, and an [MFA challenge response](#mfa-challenge-response) when the account has a second factor.
+Validates a username or email address with a password. Authentication is not required. Returns an [authentication token response](#authentication-token-response) when no second factor and no IP approval are outstanding, and an [MFA challenge response](#mfa-challenge-response) when the account has a second factor.
 
-Login verifies CAPTCHA when CAPTCHA is enabled. It also permits 10 attempts per client IP address in 30 minutes, keyed by the exact IPv4 address or the IPv6 /64 network, and 5 attempts per email address in 15 minutes. Every admitted attempt consumes both allowances, whether or not the credentials turn out to be correct, and a successful login clears neither.
+Login verifies CAPTCHA when CAPTCHA is enabled. It also permits 10 attempts per client IP address in 30 minutes, keyed by the exact IPv4 address or the IPv6 /64 network, and 5 attempts per login value in 15 minutes, ignoring letter case. Every admitted attempt consumes both allowances, whether or not the credentials turn out to be correct, and a successful login clears neither.
 
 ### Request headers
 
@@ -513,19 +513,21 @@ Login verifies CAPTCHA when CAPTCHA is enabled. It also permits 10 attempts per 
 
 | Field | Type | Description |
 | --- | --- | --- |
-| email | string | The account email address |
+| login<sup>1</sup> | string | The account username or email address (1-254 characters) |
 | password | string | The account password (8-256 characters) |
-| invite_code?<sup>1</sup> | ?string | The invite accepted immediately after a successful login (0-256 characters) |
+| invite_code?<sup>2</sup> | ?string | The invite accepted immediately after a successful login (0-256 characters) |
 
-<sup>1</sup> The invite is accepted only on a login that completes without a second factor, and a failure to accept it does not fail the login. A login held for IP authorisation discards the invite
+<sup>1</sup> A value containing `@` is looked up as an email address and any other value as a username, both ignoring letter case
+
+<sup>2</sup> The invite is accepted only on a login that completes without a second factor, and a failure to accept it does not fail the login. A login held for IP authorisation discards the invite
 
 :::note[Unknown accounts and unknown passwords are indistinguishable]
-An unknown email address and an incorrect password both return the same paired field codes `INVALID_EMAIL_OR_PASSWORD` on `email` and `password`.
+An unknown username or email address and an incorrect password all return the same paired field codes `INVALID_EMAIL_OR_PASSWORD` on `login` and `password`.
 :::
 
 A new client IP address on an account that has neither a second factor nor the app store reviewer flag returns 403 `IP_AUTHORIZATION_REQUIRED`. That error body has `ip_authorization_required` set to true, the `ticket` used by the IP authorisation operations, the account `email`, and `resend_available_in` set to 30 seconds.
 
-When the instance has disabled new-IP authorisation or sends no email, Fluxer authorises the client IP address silently and the login continues. An account that already has a second factor never enters IP authorisation.
+When the instance has disabled new-IP authorisation or sends no email, or the account has no email address, Fluxer authorises the client IP address silently and the login continues. An account that already has a second factor never enters IP authorisation.
 
 Account policy can return 403 `REGISTRATION_PENDING_APPROVAL`, 403 `REGISTRATION_REJECTED`, 403 `ACCOUNT_SUSPENDED_TEMPORARILY`, or 403 `ACCOUNT_SUSPENDED_PERMANENTLY`. A bot account returns 403 `BOT_USER_AUTH_ENDPOINT_ACCESS_DENIED`.
 
@@ -540,10 +542,10 @@ A correct password also clears an expired temporary suspension before any second
 | Status | Body | Condition |
 | --- | --- | --- |
 | 200 | [authentication token response](#authentication-token-response) \| [MFA challenge response](#mfa-challenge-response) | The credentials are accepted |
-| 400 | [error response](/http-api/#error-response) | The body, CAPTCHA, email, or password is invalid |
+| 400 | [error response](/http-api/#error-response) | The body, CAPTCHA, login, or password is invalid |
 | 403 | [error response](/http-api/#error-response) | Account policy, SSO enforcement, or IP authorisation prevents the login |
 | 409 | [error response](/http-api/#error-response) | `CONFLICT`, because the deletion state changed while cancelling a self-scheduled deletion |
-| 429 | [rate limit response](/topics/rate-limits/#rate-limit-response-object) | A route, global, email, or IP bucket denies the request |
+| 429 | [rate limit response](/topics/rate-limits/#rate-limit-response-object) | A route, global, login, or IP bucket denies the request |
 | 500 | [error response](/http-api/#error-response) | Unexpected internal failure occurs |
 | 503 | [error response](/http-api/#error-response) | The instance is at its in-flight request ceiling |
 
@@ -967,6 +969,41 @@ An account with no second factor then receives one new session and its token. An
 
 10 requests per minute, on the `auth:reset` bucket.
 
+## Reset an opened password
+
+<RouteHeader method="POST" path="/v1/auth/password-reset" unauthenticated />
+
+Replaces the password of an account an admin has opened a password reset for, then issues a new session or an MFA challenge. No email or token is involved: the admin opens the reset with [set password reset mode](/admin-api/users/#set-password-reset-mode), and the reset closes when it is used. Returns an [authentication token response](#authentication-token-response) when the account has no second factor, and an [MFA challenge response](#mfa-challenge-response) when it has one.
+
+### JSON body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| login<sup>1</sup> | string | The account username or email address (1-254 characters) |
+| password<sup>2</sup> | string | The replacement password (8-256 characters) |
+
+<sup>1</sup> A value containing `@` is looked up as an email address and any other value as a username, both ignoring letter case
+
+<sup>2</sup> The password is checked against the public breached-password corpus, and a match returns the field code `PASSWORD_IS_TOO_COMMON`
+
+An unknown account, a deleted account, and an account with no open reset all return the field code `INVALID_OR_EXPIRED_RESET_TOKEN` on `login`. A bot account returns 403 `BOT_USER_AUTH_ENDPOINT_ACCESS_DENIED`, and a live suspension returns its 403.
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | [authentication token response](#authentication-token-response) \| [MFA challenge response](#mfa-challenge-response) | The password was replaced |
+| 400 | [error response](/http-api/#error-response) | The body is invalid, no reset is open, or the password is too common |
+| 403 | [error response](/http-api/#error-response) | A bot account or a suspension rejects the mutation |
+
+### Side effects
+
+The operation replaces the password, records the change time, closes the open reset, and terminates every authentication session on the account. An account with no second factor then receives one new session and its token. An account with a second factor receives a five-minute MFA ticket instead.
+
+### Rate limit
+
+10 requests per minute, on the `auth:reset` bucket, shared with [reset a password](#reset-a-password).
+
 ## Revert an email change
 
 <RouteHeader method="POST" path="/v1/auth/email-revert" unauthenticated />
@@ -1221,7 +1258,7 @@ The route shares the `auth:register` bucket, which permits 10 requests per 10 se
 | global_name | string | The display name after normalisation (1-32 characters) |
 
 :::note[A returned candidate can be taken before use]
-The operation does no availability check and holds nothing. Registration allocates its own discriminator regardless of the suggestion.
+The operation does no availability check and holds nothing. Registration returns `USERNAME_ALREADY_TAKEN` when the suggested username is taken by then.
 :::
 
 ### Response

@@ -30,7 +30,6 @@ export function mapBotUserToResponse(
 	return {
 		id: partial.id,
 		username: partial.username,
-		discriminator: partial.discriminator,
 		avatar: partial.avatar,
 		banner: stripBannerForUser(user),
 		bio: user.bio ?? null,
@@ -80,7 +79,6 @@ export function mapBotProfileToResponse(user: User): BotProfileResponse {
 	return {
 		id: partial.id,
 		username: partial.username,
-		discriminator: partial.discriminator,
 		avatar: partial.avatar,
 		banner: stripBannerForUser(user),
 		bio: user.bio ?? null,

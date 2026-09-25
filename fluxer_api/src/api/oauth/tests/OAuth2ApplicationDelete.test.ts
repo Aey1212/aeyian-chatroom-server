@@ -42,14 +42,12 @@ describe('OAuth2 Application Delete', () => {
 		const botUser = await createBuilder<{
 			id: string;
 			username: string;
-			discriminator: string;
 			avatar: string | null;
 		}>(harness, account.token)
 			.get(`/users/${createResult.botUserId}`)
 			.expect(HTTP_STATUS.OK)
 			.execute();
 		expect(botUser.username).toBe('DeletedUser');
-		expect(botUser.discriminator).toBe('0000');
 		expect(botUser.avatar).toBeNull();
 	});
 	test('keeps bot-authored messages readable after deleting the application', async () => {
@@ -96,7 +94,6 @@ describe('OAuth2 Application Delete', () => {
 		expect(foundMessage).toBeDefined();
 		expect(foundMessage?.author.id).not.toBe(createResult.botUserId);
 		expect(foundMessage?.author.username).toBe('DeletedUser');
-		expect(foundMessage?.author.discriminator).toBe('0000');
 		const previousAuthorCount = await createBuilderWithoutAuth<{
 			count: number;
 		}>(harness)

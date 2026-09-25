@@ -210,7 +210,6 @@ export function createSystemMessage(channelId: string, content: string): Message
 	const fluxerbotUser = new User({
 		id: FLUXERBOT_ID,
 		username: 'Fluxerbot',
-		discriminator: '0000',
 		global_name: null,
 		avatar: null,
 		avatar_color: null,

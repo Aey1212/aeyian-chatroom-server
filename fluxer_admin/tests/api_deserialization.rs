@@ -9,7 +9,6 @@ fn deserialize_admin_users_me_response() {
         "user": {
             "id": "1130650140672000000",
             "username": "Hampus",
-            "discriminator": 0,
             "global_name": "Hampus",
             "bot": false,
             "system": false,
@@ -53,7 +52,6 @@ fn deserialize_admin_users_me_response() {
 
     assert_eq!(user.id, "1130650140672000000");
     assert_eq!(user.username, "Hampus");
-    assert_eq!(user.discriminator, "0000");
     assert_eq!(user.flags, 2308095358783193091);
     assert_eq!(user.premium_flags, 2);
     assert!(!user.bot);
@@ -71,7 +69,7 @@ fn deserialize_admin_users_me_response() {
 fn deserialize_flags_as_string_and_number() {
     let json_str = r#"{
         "user": {
-            "id": "1", "username": "a", "discriminator": 1, "global_name": null,
+            "id": "1", "username": "a", "global_name": null,
             "bot": false, "system": false, "flags": "549755813888",
             "premium_flags": 0, "avatar": null, "banner": null, "bio": null,
             "pronouns": null, "accent_color": null, "email": null,
@@ -100,49 +98,12 @@ fn deserialize_flags_as_string_and_number() {
 }
 
 #[test]
-fn deserialize_discriminator_int_and_string() {
-    let json_int = r#"{
-        "user": {
-            "id": "1", "username": "test", "discriminator": 4363, "global_name": null,
-            "bot": true, "system": false, "flags": "0", "premium_flags": 0,
-            "avatar": null, "banner": null, "bio": null, "pronouns": null,
-            "accent_color": null, "email": null, "email_verified": false,
-            "email_bounced": false, "has_verified_phone": false, "date_of_birth": null,
-            "locale": null, "premium_type": null, "premium_since": null,
-            "premium_until": null, "premium_grace_ends_at": null,
-            "premium_lifetime_sequence": null, "suspicious_activity_flags": 0,
-            "temp_banned_until": null, "pending_deletion_at": null,
-            "pending_bulk_message_deletion_at": null, "deletion_reason_code": null,
-            "deletion_public_reason": null, "acls": [], "traits": [],
-            "has_totp": false, "authenticator_types": [],
-            "last_active_at": null, "last_active_ip": null,
-            "last_active_ip_reverse": null, "last_active_location": null
-        }
-    }"#;
-    let resp: types::AdminUserMeResponse = serde_json::from_str(json_int).unwrap();
-    assert_eq!(resp.user.discriminator, "4363");
-
-    let json_zero = json_int.replace("4363", "0");
-    let resp2: types::AdminUserMeResponse = serde_json::from_str(&json_zero).unwrap();
-    assert_eq!(resp2.user.discriminator, "0000");
-
-    let json_string = json_int.replace("4363", "\"7220\"");
-    let resp3: types::AdminUserMeResponse = serde_json::from_str(&json_string).unwrap();
-    assert_eq!(resp3.user.discriminator, "7220");
-
-    let json_short = json_int.replace("4363", "\"42\"");
-    let resp4: types::AdminUserMeResponse = serde_json::from_str(&json_short).unwrap();
-    assert_eq!(resp4.user.discriminator, "0042");
-}
-
-#[test]
 fn deserialize_search_users_response() {
     let json = r#"{
         "users": [
             {
                 "id": "1508576042312688531",
                 "username": "test",
-                "discriminator": 4363,
                 "global_name": null,
                 "bot": true,
                 "system": false,
@@ -187,7 +148,6 @@ fn deserialize_search_users_response() {
     assert_eq!(resp.total, 42);
     assert_eq!(resp.users.len(), 1);
     assert_eq!(resp.users[0].username, "test");
-    assert_eq!(resp.users[0].discriminator, "4363");
     assert!(resp.users[0].bot);
 }
 
@@ -202,7 +162,6 @@ fn deserialize_search_guilds_response() {
                 "owner_id": "1489329094902315533",
                 "owner_username": null,
                 "owner_global_name": null,
-                "owner_discriminator": null,
                 "icon": "de44253f",
                 "banner": "048c048f",
                 "member_count": 715,
@@ -577,10 +536,8 @@ fn deserialize_search_reports_response() {
             {
                 "report_id": "1508849882800552806",
                 "reporter_id": "1474002886188635356",
-                "reporter_tag": "user#2602",
                 "reporter_username": "user",
                 "reporter_global_name": null,
-                "reporter_discriminator": "2602",
                 "reporter_email": "user@example.com",
                 "reporter_full_legal_name": null,
                 "reporter_country_of_residence": null,
@@ -590,10 +547,8 @@ fn deserialize_search_reports_response() {
                 "category": "nsfw_violation",
                 "additional_info": null,
                 "reported_user_id": "1461557793540882622",
-                "reported_user_tag": "ReportedUser#4331",
                 "reported_user_username": "ReportedUser",
                 "reported_user_global_name": "ReportedUser",
-                "reported_user_discriminator": "4331",
                 "reported_user_avatar_hash": "75c675b2",
                 "reported_guild_id": null,
                 "reported_guild_name": null,
@@ -642,7 +597,6 @@ fn deserialize_lookup_guild_response() {
             "owner_id": "456",
             "owner_username": "admin",
             "owner_global_name": "Admin",
-            "owner_discriminator": "0001",
             "name": "Test Guild",
             "vanity_url_code": null,
             "icon": null,
@@ -690,11 +644,9 @@ fn deserialize_lookup_application_response() {
             "owner_user_id": "222",
             "owner_username": "dev",
             "owner_global_name": null,
-            "owner_discriminator": "0001",
             "bot_user_id": "333",
             "bot_username": "MyBot",
             "bot_global_name": null,
-            "bot_discriminator": "0001",
             "bot_is_public": true,
             "bot_require_code_grant": false,
             "oauth2_redirect_uris": ["https://example.com/cb"],
@@ -740,7 +692,7 @@ fn deserialize_codes_response() {
 fn deserialize_user_mutation_response() {
     let json = r#"{
         "user": {
-            "id": "1", "username": "updated", "discriminator": 42,
+            "id": "1", "username": "updated",
             "global_name": null, "bot": false, "system": false,
             "flags": "1", "premium_flags": 0, "avatar": null, "banner": null,
             "bio": null, "pronouns": null, "accent_color": null, "email": null,
@@ -758,7 +710,6 @@ fn deserialize_user_mutation_response() {
     }"#;
     let resp: types::UserMutationResponse = serde_json::from_str(json).unwrap();
     assert_eq!(resp.user.username, "updated");
-    assert_eq!(resp.user.discriminator, "0042");
     assert_eq!(resp.user.flags, 1);
 }
 
@@ -772,7 +723,6 @@ fn deserialize_guild_update_response() {
             "owner_id": "456",
             "owner_username": null,
             "owner_global_name": null,
-            "owner_discriminator": null,
             "icon": null,
             "banner": null,
             "member_count": 50,
@@ -793,7 +743,6 @@ fn deserialize_list_guild_members_response() {
                 "user": {
                     "id": "111",
                     "username": "member1",
-                    "discriminator": 1234,
                     "global_name": "Member One",
                     "avatar": null,
                     "bot": false
@@ -811,7 +760,6 @@ fn deserialize_list_guild_members_response() {
     let resp: types::ListGuildMembersResponse = serde_json::from_str(json).unwrap();
     assert_eq!(resp.total, 1);
     assert_eq!(resp.members[0].user.username, "member1");
-    assert_eq!(resp.members[0].user.discriminator, "1234");
     assert_eq!(resp.members[0].roles.len(), 2);
 }
 
@@ -876,7 +824,6 @@ fn deserialize_list_user_relationships_response() {
                 "target": {
                     "id": "111",
                     "username": "friend1",
-                    "discriminator": "0042",
                     "global_name": "Friend One",
                     "avatar": null
                 }
@@ -889,10 +836,6 @@ fn deserialize_list_user_relationships_response() {
 
     let resp: types::ListUserRelationshipsResponse = serde_json::from_str(json).unwrap();
     assert_eq!(resp.friends.len(), 1);
-    assert_eq!(
-        resp.friends[0].target.as_ref().unwrap().discriminator,
-        "0042"
-    );
 }
 
 #[test]

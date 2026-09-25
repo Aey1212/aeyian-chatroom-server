@@ -75,7 +75,6 @@ import {
 	getChannelRepository,
 	getConnectionRepository,
 	getContactChangeLogService,
-	getDiscriminatorService,
 	getDonationRepository,
 	getDownloadService,
 	getEmailChangeRepository,
@@ -114,6 +113,7 @@ import {
 	getUnfurlerService,
 	getUserActivityBuffer,
 	getUserCacheService,
+	getUsernameRegistry,
 	getUserPermissionUtils,
 	getUserRepository,
 	getVirusScanServiceInstance,
@@ -668,7 +668,7 @@ class RequestServices implements RequestScopedServices {
 			getChannelRepository(),
 			getAdminRepository(),
 			getInviteRepository(),
-			getDiscriminatorService(),
+			getUsernameRegistry(),
 			this.guildService,
 			getUserCacheService(),
 			this.channelService,
@@ -695,7 +695,7 @@ class RequestServices implements RequestScopedServices {
 			channelRepository: getChannelRepository(),
 			userCacheService: getUserCacheService(),
 			entityAssetService: getEntityAssetService(),
-			discriminatorService: getDiscriminatorService(),
+			usernameRegistry: getUsernameRegistry(),
 			botAuthService: getBotAuthService(),
 		});
 		return this.cachedApplicationService;
@@ -705,7 +705,7 @@ class RequestServices implements RequestScopedServices {
 		this.cachedSsoService ??= new SsoService(
 			this.context,
 			getInstanceConfigRepository(),
-			getDiscriminatorService(),
+			getUsernameRegistry(),
 			getKVActivityTracker(),
 		);
 		return this.cachedSsoService;
@@ -728,7 +728,7 @@ class RequestServices implements RequestScopedServices {
 					inviteService: this.inviteService,
 					instanceConfigRepository: getInstanceConfigRepository(),
 					singleCommunityService: this.singleCommunityService,
-					discriminatorService: getDiscriminatorService(),
+					usernameRegistry: getUsernameRegistry(),
 					kvActivityTracker: getKVActivityTracker(),
 					registrationRiskEvaluator: registrationRiskEvaluator ?? noopRegistrationRiskEvaluator,
 					accountPolicyEvaluator: getAccountPolicyEvaluator(),
@@ -881,7 +881,6 @@ class RequestServices implements RequestScopedServices {
 			getReadStateService(),
 			this.context,
 			this.gatewayService,
-			getDiscriminatorService(),
 			getFavoriteMemeRepository(),
 			getBotAuthService(),
 			getInviteRepository(),
@@ -960,7 +959,7 @@ class RequestServices implements RequestScopedServices {
 			getChannelRepository(),
 			this.guildService,
 			getEntityAssetService(),
-			getDiscriminatorService(),
+			getUsernameRegistry(),
 			getGuildRepository(),
 			getUserPermissionUtils(),
 			getKVAccountDeletionQueue(),

@@ -49,6 +49,18 @@ pub const NAV_SECTIONS: &[NavSection] = &[
                 [acl::DISCOVERY_REVIEW]
             ),
             item!(
+                "Rename Requests",
+                "/username-requests",
+                "username-requests",
+                [acl::USER_UPDATE_USERNAME]
+            ),
+            item!(
+                "Locked Usernames",
+                "/locked-usernames",
+                "locked-usernames",
+                [acl::USER_UPDATE_USERNAME]
+            ),
+            item!(
                 "Bulk Actions",
                 "/bulk-actions",
                 "bulk-actions",

@@ -50,7 +50,7 @@ describe('Auth login with invite code auto-join', () => {
 			.execute();
 		const member = await createTestAccount(harness);
 		const login = await loginUser(harness, {
-			email: member.email,
+			login: member.email,
 			password: member.password,
 			invite_code: invite.code,
 		});

@@ -63,8 +63,6 @@ type UserUpdatePayload = Omit<
 >;
 
 const EMAIL_VERIFICATION_REQUIRED_PROFILE_UPDATE_FIELDS: ReadonlyArray<keyof UserUpdatePayload> = [
-	'username',
-	'discriminator',
 	'global_name',
 	'avatar',
 	'banner',
@@ -510,18 +508,6 @@ export class UserAccountRequestService {
 		};
 	}
 
-	checkTagAvailability(params: {currentUser: User; username: string; discriminator: number}): boolean {
-		const currentUser = params.currentUser;
-		const discriminator = params.discriminator;
-		if (
-			params.username.toLowerCase() === currentUser.username.toLowerCase() &&
-			discriminator === currentUser.discriminator
-		) {
-			return false;
-		}
-		return true;
-	}
-
 	private stripBearerSensitiveFields(response: UserPrivateResponse): void {
 		response.acls = [];
 		response.traits = [];
@@ -596,15 +582,13 @@ export class UserAccountRequestService {
 	}
 
 	private requiresSensitiveUserVerification(user: User, data: UserUpdatePayload, emailTokenProvided: boolean): boolean {
-		const isUnclaimed = user.isUnclaimedAccount();
-		const usernameChanged = data.username !== undefined && data.username !== user.username;
-		const discriminatorChanged = data.discriminator !== undefined && data.discriminator !== user.discriminator;
+		// Usernames change only through an approved rename request, never through a profile update.
+		if (user.isUnclaimedAccount()) {
+			return false;
+		}
 		const emailChanged = data.email !== undefined && data.email !== user.email;
 		const newPasswordProvided = data.new_password !== undefined;
-		if (isUnclaimed) {
-			return usernameChanged || discriminatorChanged;
-		}
-		return usernameChanged || discriminatorChanged || emailTokenProvided || emailChanged || newPasswordProvided;
+		return emailTokenProvided || emailChanged || newPasswordProvided;
 	}
 
 	private mapConnectionsToResponse(connections: Array<UserConnectionRow>): Array<ConnectionResponse> {

@@ -39,7 +39,7 @@ describe('Auth case-insensitive email', () => {
 		});
 		it('allows login with lowercase email', async () => {
 			const login = await loginUser(harness, {
-				email: baseEmail.toLowerCase(),
+				login: baseEmail.toLowerCase(),
 				password,
 			});
 			expect('mfa' in login).toBe(false);
@@ -47,7 +47,7 @@ describe('Auth case-insensitive email', () => {
 		});
 		it('allows login with uppercase email', async () => {
 			const login = await loginUser(harness, {
-				email: baseEmail.toUpperCase(),
+				login: baseEmail.toUpperCase(),
 				password,
 			});
 			expect('mfa' in login).toBe(false);
@@ -59,7 +59,7 @@ describe('Auth case-insensitive email', () => {
 				.map((char, index) => (index % 2 === 0 ? char.toUpperCase() : char.toLowerCase()))
 				.join('');
 			const login = await loginUser(harness, {
-				email: mixedCaseEmail,
+				login: mixedCaseEmail,
 				password,
 			});
 			expect('mfa' in login).toBe(false);
@@ -70,7 +70,7 @@ describe('Auth case-insensitive email', () => {
 				.toLowerCase()
 				.replace(/(^|[.@])([a-z])/g, (_match, prefix, char) => `${prefix}${char.toUpperCase()}`);
 			const login = await loginUser(harness, {
-				email: titleCaseEmail,
+				login: titleCaseEmail,
 				password,
 			});
 			expect('mfa' in login).toBe(false);
@@ -140,7 +140,7 @@ describe('Auth case-insensitive email', () => {
 		};
 		expect(user.email).toBe(mixedEmail);
 		const login = await loginUser(harness, {
-			email: mixedEmail.toLowerCase(),
+			login: mixedEmail.toLowerCase(),
 			password,
 		});
 		expect('mfa' in login).toBe(false);

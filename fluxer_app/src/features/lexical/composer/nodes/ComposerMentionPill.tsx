@@ -82,7 +82,7 @@ export const ComposerMentionPill = observer(({mentionType, mentionId, display}: 
 	if (mentionType === 'user') {
 		const user = Users.getUser(mentionId);
 		const label = user ? `@${DisplayNameUtils.getNickname(user, guildId, channelId)}` : display;
-		const fullTag = user ? `@${DisplayNameUtils.formatUserTagForStreamerMode(user)}` : null;
+		const fullTag = user ? `@${DisplayNameUtils.formatUserNameForStreamerMode(user)}` : null;
 		const pill = (
 			<span
 				className={markupStyles.mention}

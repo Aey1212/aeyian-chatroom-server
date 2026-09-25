@@ -28,7 +28,7 @@ msgid "(edited)"
 msgstr "(змінено)"
 
 #: src/features/app/components/pages/YouPage.tsx:189
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:903
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:894
 msgid "(only visible to you)"
 msgstr "(видно лише вам)"
 
@@ -872,11 +872,11 @@ msgstr "Доступ до спільноти «{communityName}» наразі м
 msgid "{count, plural, =0 {∞ No limit} one {# participant} other {# participants}}"
 msgstr "{count, plural, =0 {∞ Без обмежень} one {# учасник} few {# учасники} many {# учасників} other {# учасника}}"
 
-#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:193
+#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:141
 msgid "{count, plural, one {... (# line left)} other {... (# lines left)}}"
 msgstr "{count, plural, one {... (ще # рядок)} few {... (ще # рядки)} many {... (ще # рядків)} other {... (ще # рядка)}}"
 
-#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:210
+#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:158
 msgid "{count, plural, one {... (# row left)} other {... (# rows left)}}"
 msgstr "{count, plural, one {... (ще # рядок)} few {... (ще # рядки)} many {... (ще # рядків)} other {... (ще # рядка)}}"
 
@@ -1074,7 +1074,7 @@ msgstr "{count, plural, one {Розгорнути (# рядок)} few {Розг�
 msgid "{count, plural, one {Expand # other device} other {Expand # other devices}}"
 msgstr "{count, plural, one {Розгорнути ще # пристрій} few {Розгорнути ще # пристрої} many {Розгорнути ще # пристроїв} other {Розгорнути ще # пристроїв}}"
 
-#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:109
+#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:111
 msgid "{count, plural, one {Group DM · # member} other {Group DM · # members}}"
 msgstr "{count, plural, one {Груповий чат · # учасник} few {Груповий чат · # учасники} many {Груповий чат · # учасників} other {Груповий чат · # учасника}}"
 
@@ -1471,7 +1471,7 @@ msgid "{memberCount} {rawMemberCount, plural, one {member} other {members}}"
 msgstr "{memberCount} {rawMemberCount, plural, one {учасник} few {учасники} many {учасників} other {учасників}}"
 
 #. Generic aria-label for an unread-mentions badge. Preserve {mentionCount}.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:800
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:804
 msgid "{mentionCount, plural, one {# mention} other {# mentions}}"
 msgstr "{mentionCount, plural, one {# згадка} few {# згадки} many {# згадок} other {# згадки}}"
 
@@ -2233,11 +2233,11 @@ msgstr "15 хвилин"
 msgid "2 clicks"
 msgstr "2 кліки"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:332
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:331
 msgid "2 members (online)"
 msgstr "2 учасники (онлайн)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:366
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:365
 msgid "2 members (typing)"
 msgstr "2 учасники (друкують)"
 
@@ -2280,11 +2280,11 @@ msgstr "Вимога 2FA"
 msgid "3 days"
 msgstr "3 дні"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:346
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:345
 msgid "3 members (online)"
 msgstr "3 учасники (онлайн)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:381
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:380
 msgid "3 members (typing)"
 msgstr "3 учасники (друкують)"
 
@@ -2304,7 +2304,7 @@ msgstr "30 кадр/с"
 msgid "30 minutes"
 msgstr "30 хвилин"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:300
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:299
 msgid "32px, 2 members"
 msgstr "32 пікс., 2 учасники"
 
@@ -2312,7 +2312,7 @@ msgstr "32 пікс., 2 учасники"
 msgid "404: page not found"
 msgstr "404: сторінку не знайдено"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:313
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:312
 msgid "40px, 3 members"
 msgstr "40 пікс., 3 учасники"
 
@@ -2435,7 +2435,7 @@ msgid "a forwarded message"
 msgstr "переслане повідомлення"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:60
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:62
 msgid "A helpful bot that does amazing things!"
 msgstr "Корисний бот, який робить дивовижні речі!"
 
@@ -2530,7 +2530,7 @@ msgstr "Про {appName}"
 #. Short label in the user profile shared popout. Keep it concise.
 #: src/features/app/components/pages/YouPage.tsx:166
 #: src/features/user/components/modals/tabs/my_profile_tab/BioEditor.tsx:26
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:787
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:778
 #: src/features/user/components/popouts/UserProfileShared.tsx:41
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:133
 msgid "About me"
@@ -2751,8 +2751,8 @@ msgstr "Дії"
 msgid "Active"
 msgstr "Активна"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:356
-#: src/features/auth/components/accounts/AccountRow.tsx:136
+#: src/features/app/components/floating/UserAreaPopout.tsx:358
+#: src/features/auth/components/accounts/AccountRow.tsx:140
 msgid "Active account"
 msgstr "Активний обліковий запис"
 
@@ -2791,7 +2791,7 @@ msgstr "Активний місячний підписник (скасуванн
 #. Short label in the appearance tab. Keep it concise.
 #. Short label in the inline. Keep it concise.
 #. Status label indicating a user is currently active.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:744
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:748
 #: src/features/user/components/modals/tabs/appearance_tab/AppearanceTabInline.tsx:43
 #: src/features/user/components/modals/tabs/AppearanceTab.tsx:51
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:430
@@ -2892,7 +2892,7 @@ msgid "Add a friend to get started."
 msgstr "Додайте друга, щоб почати."
 
 #. Setup wizard body for GIF integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:934
+#: src/features/app/components/setup/SetupWizardSteps.tsx:928
 msgid "Add a Klipy API key to enable GIF search at runtime."
 msgstr "Додайте ключ API Klipy, щоб увімкнути пошук GIF під час роботи."
 
@@ -2929,7 +2929,7 @@ msgid "Add a working email"
 msgstr "Додайте дієву електронну адресу"
 
 #. Setup wizard body for YouTube integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:942
+#: src/features/app/components/setup/SetupWizardSteps.tsx:936
 msgid "Add a YouTube Data API key to enrich YouTube links."
 msgstr "Додайте ключ API YouTube Data, щоб доповнювати посилання на YouTube."
 
@@ -2975,7 +2975,7 @@ msgid "Add another reaction"
 msgstr "Додати ще одну реакцію"
 
 #. Setup wizard body for Bluesky integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:966
+#: src/features/app/components/setup/SetupWizardSteps.tsx:960
 msgid "Add Bluesky OAuth client metadata and a signing key."
 msgstr "Додайте метадані клієнта OAuth Bluesky та ключ підпису."
 
@@ -3125,7 +3125,7 @@ msgid "Add shortcut"
 msgstr "Додати комбінацію клавіш"
 
 #. Setup wizard body for SMTP integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:958
+#: src/features/app/components/setup/SetupWizardSteps.tsx:952
 msgid "Add SMTP credentials so the instance can send verification and notification email."
 msgstr "Додайте облікові дані SMTP, щоб екземпляр міг надсилати електронні листи для підтвердження та сповіщень."
 
@@ -3152,7 +3152,7 @@ msgid "Add stream"
 msgstr "Додати трансляцію"
 
 #. Description for configuring an optional setup wizard integration now.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:926
+#: src/features/app/components/setup/SetupWizardSteps.tsx:920
 msgid "Add the credentials during setup."
 msgstr "Додайте облікові дані під час налаштування."
 
@@ -3174,12 +3174,12 @@ msgstr "Додати до групи"
 #. Action that adds the selected media to saved media.
 #. Action that adds the selected media to saved media.
 #: src/features/expressions/components/modals/AddFavoriteMemeModal.tsx:16
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:177
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:178
 msgid "Add to saved media"
 msgstr "Додати до збережених медіа"
 
 #. Media context menu action that saves a GIF favorite by URL without uploading it.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:169
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:170
 msgid "Add to URL-only GIF favorites"
 msgstr "Додати до вибраних GIF за URL-адресою"
 
@@ -3271,7 +3271,7 @@ msgid "Added to favorite GIFs"
 msgstr "Додано до вибраних GIF"
 
 #. Toast confirming an item was added to the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:615
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:619
 msgid "Added to favorites"
 msgstr "Додано до вибраного"
 
@@ -3289,7 +3289,7 @@ msgid "Added: {createdDate} • last used: {lastUsedDate}"
 msgstr "Додано: {createdDate} • востаннє використано: {lastUsedDate}"
 
 #. Field label on the details step of the DSA report form. Optional free-text context the reporter wants staff to see.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:72
+#: src/features/moderation/components/report/ReportStepDetails.tsx:71
 msgid "Additional comments (optional)"
 msgstr "Додаткові коментарі (необов'язково)"
 
@@ -3452,7 +3452,7 @@ msgstr "Елементи керування вирівнюванням дост�
 #: src/features/app/config/AuditLogConstants.ts:143
 #: src/features/channel/components/direct_message/DMFriendsView.tsx:41
 #: src/features/channel/components/guild_members_page/GuildMembersPageDescriptors.ts:10
-#: src/features/channel/components/MobileMemesPicker.tsx:42
+#: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
 #: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:11
 #: src/features/discovery/discovery/DiscoveryNavbar.tsx:21
@@ -3550,7 +3550,7 @@ msgstr "Усі мови"
 msgid "All messages"
 msgstr "Усі повідомлення"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:227
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:226
 msgid "All status types"
 msgstr "Усі типи статусів"
 
@@ -3713,7 +3713,7 @@ msgid "Allow transparent desktop window"
 msgstr "Дозволити прозоре вікно на робочому столі"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:76
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:78
 msgid "Allow users to send this bot friend requests for manual approval."
 msgstr "Дозволити користувачам надсилати цьому боту запити на додавання в друзі для ручного схвалення."
 
@@ -4015,13 +4015,13 @@ msgstr "Анімовані емодзі, GIF-файли та стікери за
 
 #. Media type chip shown in the media viewer info panel for animated GIFs.
 #. Short label in the channel and chat embed gifv. Keep it concise.
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:67
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:101
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:68
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:102
 msgid "Animated GIF"
 msgstr "Анімований GIF"
 
 #. Short label in the channel and chat embed gifv. Keep it concise.
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:63
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:64
 msgid "Animated GIF video"
 msgstr "Анімоване GIF-відео"
 
@@ -4050,12 +4050,12 @@ msgid "Animated icons require the {animatedIconFeature} community feature."
 msgstr "Для анімованих іконок потрібна функція спільноти {animatedIconFeature}."
 
 #. Media type chip shown in the media viewer info panel for animated images.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:109
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:110
 msgid "Animated image"
 msgstr "Анімоване зображення"
 
 #. Accessible label for an animated image (APNG/AVIF) shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:77
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:78
 msgid "Animated image preview"
 msgstr "Попередній перегляд анімованого зображення"
 
@@ -4075,7 +4075,7 @@ msgid "Animated uploads require a {premiumProductName} subscription."
 msgstr "Для завантаження анімованих файлів потрібна підписка {premiumProductName}."
 
 #. Media type chip shown in the media viewer info panel for short looping video clips.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:105
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:106
 msgid "Animated video"
 msgstr "Анімоване відео"
 
@@ -4235,7 +4235,7 @@ msgid "Anyone can request an account, but an administrator must approve it."
 msgstr "Будь-хто може подати запит на обліковий запис, але адміністратор має його схвалити."
 
 #. Label for an integration API key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:979
+#: src/features/app/components/setup/SetupWizardSteps.tsx:973
 msgid "API key"
 msgstr "Ключ API"
 
@@ -4279,7 +4279,7 @@ msgid "App zoom"
 msgstr "Масштаб застосунку"
 
 #. Setting label for the global UI zoom level.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:776
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:780
 msgid "App zoom level"
 msgstr "Масштаб застосунку"
 
@@ -4349,7 +4349,7 @@ msgid "Application name is required"
 msgstr "Потрібна назва застосунку"
 
 #. Short label in the application detail. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:46
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:49
 msgid "Application updated successfully"
 msgstr "Застосунок успішно оновлено"
 
@@ -4427,7 +4427,7 @@ msgid "Are you sure you want to delete {channelLabel}? This cannot be undone."
 msgstr "Ви впевнені, що хочете видалити «{channelLabel}»? Цю дію не можна буде скасувати."
 
 #. placeholder {0}: application.name
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:407
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:410
 msgid "Are you sure you want to delete <0>{0}</0>?"
 msgstr "Ви впевнені, що хочете видалити <0>{0}</0>?"
 
@@ -4560,6 +4560,10 @@ msgstr "ASCII-смайлики"
 msgid "Ask before starting calls"
 msgstr "Запитувати перед початком дзвінків"
 
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:91
+msgid "Ask the admin to open a password reset for your account. Once it is open, choose a new password here."
+msgstr "Ask the admin to open a password reset for your account. Once it is open, choose a new password here."
+
 #. Short label in the theme studio. Keep it concise.
 #: src/features/theme_studio/ThemeStudio.tsx:56
 msgid "Assets"
@@ -4587,7 +4591,7 @@ msgstr "вкладення"
 #. Accessible label for a thumbnail in the media viewer. index1 is the 1-based attachment index.
 #. Accessible label for the active attachment in the media viewer. index1 is the 1-based index.
 #: src/features/messaging/components/modals/media_modal/shared.ts:129
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:73
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:74
 msgid "Attachment {index1}"
 msgstr "Вкладення {index1}"
 
@@ -4614,12 +4618,12 @@ msgid "Attachment expired"
 msgstr "Термін дії вкладення закінчився"
 
 #. Toast shown when an attachment URL is no longer accessible.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:133
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:134
 msgid "Attachment has expired or is unavailable"
 msgstr "Термін дії вкладення закінчився або воно недоступне"
 
 #. Developer-mode toast confirming an attachment ID was copied.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:161
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:162
 msgid "Attachment ID copied to clipboard"
 msgstr "Ідентифікатор вкладення скопійовано в буфер обміну"
 
@@ -4729,12 +4733,12 @@ msgid "Audio packet loss:"
 msgstr "Втрата аудіопакетів:"
 
 #. Aria label for the inline audio attachment player container.
-#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:34
+#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:35
 msgid "Audio player"
 msgstr "Аудіоплеєр"
 
 #. Accessible label for an audio clip shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:93
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:94
 msgid "Audio preview"
 msgstr "Попередній перегляд аудіо"
 
@@ -4769,7 +4773,7 @@ msgid "Audio processing (focused voice)"
 msgstr "Обробка аудіо (фокусований голос)"
 
 #. Aria label on the playback progress slider in the inline audio attachment player.
-#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:38
+#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:39
 msgid "Audio progress"
 msgstr "Прогрес відтворення аудіо"
 
@@ -5152,14 +5156,14 @@ msgstr "Аватар завеликий — виберіть менший за {
 msgid "Avatar mode selection"
 msgstr "Вибір режиму аватара"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:387
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:386
 msgid "Avatar stacks"
 msgstr "Стопки аватарів"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:24
-msgid "Avatar, tag, and rich profile details for your bot."
-msgstr "Аватар, тег і розширені дані профілю для вашого бота."
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:25
+msgid "Avatar, username, and rich profile details for your bot."
+msgstr "Avatar, username, and rich profile details for your bot."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:294
@@ -5196,7 +5200,7 @@ msgstr "Зараз відсутній(-я)"
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:377
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:397
 #: src/features/moderation/components/report_modal/IARModal.tsx:86
-#: src/features/moderation/components/report/ReportStepDetails.tsx:312
+#: src/features/moderation/components/report/ReportStepDetails.tsx:311
 #: src/features/user/components/modals/PhoneAddModal.tsx:411
 #: src/features/user/components/modals/PhoneAddModal.tsx:430
 msgid "Back"
@@ -5212,7 +5216,7 @@ msgstr "Повернутися до дзвінка"
 msgid "Back to GIF categories"
 msgstr "Назад до категорій GIF"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:583
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:586
 msgid "Back to list"
 msgstr "Назад до списку"
 
@@ -5413,11 +5417,11 @@ msgstr "Заблоковано"
 msgid "Banned {targetUserTag} from the community"
 msgstr "{targetUserTag} заблоковано в спільноті"
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:104
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:102
 msgid "Banned by"
 msgstr "Ким заблоковано"
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:86
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:84
 msgid "Banned on"
 msgstr "Дата блокування"
 
@@ -5505,9 +5509,9 @@ msgstr "Найкраще стиснення. Використовуйте лиш
 msgid "Best with the desktop app"
 msgstr "Найкраще з десктопним застосунком"
 
-#: src/features/ui/components/form/UsernameValidationRules.tsx:42
-msgid "Between 1 and 32 characters"
-msgstr "Від 1 до 32 символів"
+#: src/features/ui/components/form/UsernameValidationRules.tsx:45
+msgid "Between 1 and {maxLength} characters"
+msgstr "Between 1 and {maxLength} characters"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/PlutoniumIndex.ts:27
@@ -5652,7 +5656,7 @@ msgstr "Заборонено учаснику надсилати повідом�
 #. Short label in the account security tab. Keep it concise.
 #. User settings tab listing accounts the current user has blocked.
 #: src/features/user/components/modals/tabs/account_security_tab/AccountSecuritySections.tsx:31
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:210
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:212
 #: src/features/user/components/settings_utils/search_index/BlockedUsersIndex.ts:6
 #: src/features/user/components/settings_utils/section_registry/AccountSecuritySections.ts:155
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:18
@@ -5660,7 +5664,7 @@ msgstr "Заборонено учаснику надсилати повідом�
 msgid "Blocked users"
 msgstr "Заблоковані користувачі"
 
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:211
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:213
 msgid "Blocked users can't send you friend requests or message you directly."
 msgstr "Заблоковані користувачі не можуть надсилати вам запити на додавання в друзі або писати вам безпосередньо."
 
@@ -5680,7 +5684,7 @@ msgid "Bluesky connections"
 msgstr "Підключення до Bluesky"
 
 #. Setup wizard title for Bluesky integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:962
+#: src/features/app/components/setup/SetupWizardSteps.tsx:956
 msgid "Bluesky OAuth"
 msgstr "OAuth Bluesky"
 
@@ -5784,7 +5788,7 @@ msgstr "Додано бота"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:28
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:29
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:68
 msgid "Bot avatar"
 msgstr "Аватар бота"
@@ -5795,12 +5799,12 @@ msgid "Bot banner"
 msgstr "Банер бота"
 
 #. Short label in the bot profile section. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:68
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:70
 msgid "Bot banner preview"
 msgstr "Попередній перегляд банера бота"
 
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:56
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:58
 msgid "Bot bio"
 msgstr "Про бота"
 
@@ -5842,13 +5846,13 @@ msgstr "Дозволи бота не можуть бути від'ємними."
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:20
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:21
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:64
 msgid "Bot profile"
 msgstr "Профіль бота"
 
 #. Setup wizard title for CAPTCHA integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:946
+#: src/features/app/components/setup/SetupWizardSteps.tsx:940
 msgid "Bot protection"
 msgstr "Захист від ботів"
 
@@ -5865,13 +5869,13 @@ msgid "Bot token"
 msgstr "Токен бота"
 
 #. Description text in the application detail. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:62
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:65
 msgid "Bot token regenerated. Update any code that uses the old token."
 msgstr "Токен бота оновлено. Оновіть код, який використовує старий токен."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:48
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:49
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:72
 msgid "Bot username"
 msgstr "Ім'я користувача бота"
@@ -6203,7 +6207,7 @@ msgstr "Дзвінки"
 #. Generic voice/video setting label for the active camera device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the video tab. Keep it concise.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:720
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:724
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:72
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:162
 #: src/features/voice/utils/SettingsDeviceOptions.ts:24
@@ -6263,7 +6267,7 @@ msgstr "Камера вимкнена"
 
 #. Generic action label that enables the local camera.
 #. Notification sound setting label. Sound played when the user turns their camera on in a call.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:724
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:728
 #: src/features/notification/utils/SoundLabels.ts:52
 msgid "Camera on"
 msgstr "Камера ввімкнена"
@@ -6372,7 +6376,6 @@ msgstr "Сюди не можна завантажити файли"
 #: src/features/user/components/modals/EmailChangeModal.tsx:289
 #: src/features/user/components/modals/EmailChangeModal.tsx:311
 #: src/features/user/components/modals/EmailChangeModal.tsx:326
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:394
 #: src/features/user/components/modals/PasswordChangeModal.tsx:226
 #: src/features/user/components/modals/PasswordChangeModal.tsx:237
 #: src/features/user/components/modals/PasswordChangeModal.tsx:255
@@ -6394,10 +6397,6 @@ msgstr "Скасувати редагування повідомлення"
 msgid "Cancel friend request"
 msgstr "Скасувати запит на додавання в друзі"
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:145
-msgid "Cancel if you want to choose a different username instead."
-msgstr "Скасуйте, якщо хочете вибрати інше ім'я користувача."
-
 #. Danger button in the favorite GIF import modal. Stops the active import.
 #: src/features/channel/components/pickers/gif/ImportFavoriteGifsModal.tsx:58
 msgid "Cancel import"
@@ -6415,6 +6414,7 @@ msgstr "Скасувати відповідь"
 
 #. Button or menu action label in the channel and chat mobile friend request item. Keep it concise.
 #: src/features/channel/components/friends/MobileFriendRequestItem.tsx:38
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:134
 msgid "Cancel request"
 msgstr "Скасувати запит"
 
@@ -6751,16 +6751,10 @@ msgstr "Змінити джерело трансляції"
 msgid "Change the name shown on your global profile"
 msgstr "Змінити ім'я, що відображається у вашому глобальному профілі"
 
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:66
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:77
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:97
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:39
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:59
 msgid "Change username"
 msgstr "Змінити ім'я користувача"
-
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:48
-msgid "Change username form"
-msgstr "Форма зміни імені користувача"
 
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/MessageHistoryCutoffSection.tsx:22
 msgid "Change what users without \"{readMessageHistoryPermissionLabel}\" can see"
@@ -6817,8 +6811,6 @@ msgid "Change your profile picture"
 msgstr "Змінити фото профілю"
 
 #. Settings search entry description. One-line summary of what the settings search entry controls.
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:52
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:77
 msgid "Change your username"
 msgstr "Змінити ім'я користувача"
@@ -7033,7 +7025,7 @@ msgid "Channel access"
 msgstr "Доступ до каналу"
 
 #. Title of the alert shown when clicking a message link the user does not have permission to view.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:117
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:118
 msgid "Channel access denied"
 msgstr "Доступ до каналу заборонено"
 
@@ -7047,7 +7039,7 @@ msgid "Channel actions"
 msgstr "Дії з каналом"
 
 #. Toast confirming a channel was added to the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:792
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:796
 msgid "Channel added to favorites"
 msgstr "Канал додано до вибраного"
 
@@ -7075,7 +7067,7 @@ msgstr "Налагодження каналу"
 #. Audit log entry label. Past-tense action describing that a channel was deleted.
 #. Toast confirming a channel was successfully deleted.
 #: src/features/app/config/AuditLogConstants.ts:20
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:760
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:764
 msgid "Channel deleted"
 msgstr "Канал видалено"
 
@@ -7098,7 +7090,7 @@ msgstr "Ідентифікатор каналу скопійовано в буф
 
 #. Short label in the messaging mention renderer. Keep it concise.
 #. Type chip suffix in tooltips for inline rendered channel mentions. Lowercase because it follows the channel name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:86
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:87
 #: src/features/messaging/components/markdown/renderers/MentionRenderer.tsx:39
 msgid "channel link"
 msgstr "посилання на канал"
@@ -7165,7 +7157,7 @@ msgid "Channel record"
 msgstr "Запис каналу"
 
 #. Toast confirming a channel was removed from the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:788
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:792
 msgid "Channel removed from favorites"
 msgstr "Канал видалено з вибраного"
 
@@ -7288,7 +7280,6 @@ msgstr "Перевірте з'єднання, потім спробуйте ще
 
 #. Required-action modal carousel step title for existing-email verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:240
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:55
 #: src/features/auth/flow/IpAuthorizationScreen.tsx:120
 msgid "Check your email"
 msgstr "Перевірте свою електронну пошту"
@@ -7477,7 +7468,7 @@ msgid "Choose friends to message."
 msgstr "Виберіть друзів для листування."
 
 #. Setup wizard body for CAPTCHA integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:950
+#: src/features/app/components/setup/SetupWizardSteps.tsx:944
 msgid "Choose hCaptcha or Cloudflare Turnstile for signup challenges."
 msgstr "Виберіть hCaptcha або Cloudflare Turnstile для завдань під час реєстрації."
 
@@ -7657,7 +7648,7 @@ msgstr "Зареєструвати обліковий запис для акти
 #. Action label on the gift redemption flow.
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:286
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
 #: src/features/expressions/components/pages/GiftLoginPage.tsx:41
 #: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
 msgid "Claim gift"
@@ -7668,7 +7659,7 @@ msgstr "Отримати подарунок"
 #. Title shown when an unclaimed account cannot start a DM or group DM.
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:32
 #: src/features/auth/components/modals/ClaimAccountModal.tsx:41
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:62
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:57
 #: src/features/channel/utils/CreateDMModalUtils.tsx:43
 #: src/features/guild/components/modals/add_guild_modal/GuildCreateForm.tsx:214
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:440
@@ -7695,7 +7686,7 @@ msgid "Claim your account to call"
 msgstr "Зареєструйте обліковий запис, щоб дзвонити"
 
 #. Label in the username section.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:21
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:14
 msgid "Claim your account to change your username"
 msgstr "Зареєструйте обліковий запис, щоб змінити ім'я користувача"
 
@@ -7733,14 +7724,14 @@ msgstr "Щоб активувати подарункові коди {premiumProd
 
 #. Helper text on a gift code embed for guest accounts. Prompts account claim before redeeming.
 #: src/features/channel/components/GiftEmbed.tsx:36
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:209
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:208
 msgid "Claim your account to redeem this gift."
 msgstr "Щоб активувати цей подарунок, зареєструйте свій обліковий запис."
 
 #. Description text in the channel and chat dm welcome section.
 #. Description text in the user profile modal.
 #. Tooltip shown when an unclaimed account tries to send a friend request.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:63
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:58
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:37
 #: src/features/ui/action_menu/items/RelationshipMenuItems.tsx:40
 #: src/features/user/components/modals/UserProfileModal.tsx:122
@@ -8010,7 +8001,7 @@ msgid "Client"
 msgstr "Клієнт"
 
 #. Label for Bluesky OAuth client name input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1018
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1012
 msgid "Client name"
 msgstr "Назва клієнта"
 
@@ -8022,12 +8013,12 @@ msgid "Client secret"
 msgstr "Секрет клієнта"
 
 #. Description text in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:58
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:61
 msgid "Client secret regenerated. Update any code that uses the old secret."
 msgstr "Секрет клієнта оновлено. Оновіть весь код, що використовує старий секрет."
 
 #. Label for Bluesky OAuth client URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1022
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1016
 msgid "Client URL"
 msgstr "URL клієнта"
 
@@ -8075,6 +8066,7 @@ msgstr "Клонування вимкнено"
 #. Native Window menu item that closes the focused desktop window.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:306
 #: src/features/platform/utils/DesktopLocaleBridge.ts:138
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:190
 msgid "Close"
 msgstr "Закрити"
 
@@ -8180,7 +8172,7 @@ msgid "Cloud upload"
 msgstr "Завантаження в хмару"
 
 #. Cloudflare Turnstile provider option.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:975
+#: src/features/app/components/setup/SetupWizardSteps.tsx:969
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
@@ -8490,7 +8482,7 @@ msgid "Community debug"
 msgstr "Налагодження спільноти"
 
 #. Notification level option indicating the channel inherits the community default.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:764
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:768
 msgid "Community default"
 msgstr "За замовчуванням спільноти"
 
@@ -8525,11 +8517,11 @@ msgid "Community icon"
 msgstr "Іконка спільноти"
 
 #. Field label on the details step of the DSA report form (community report). The reported community's snowflake ID.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:43
+#: src/features/moderation/components/report/ReportStepDetails.tsx:42
 msgid "Community ID"
 msgstr "Ідентифікатор спільноти"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:237
+#: src/features/moderation/components/report/ReportStepDetails.tsx:236
 msgid "Community ID is required."
 msgstr "Потрібен ідентифікатор спільноти."
 
@@ -8785,7 +8777,7 @@ msgid "Configure keyboard shortcuts"
 msgstr "Налаштувати комбінації клавіш"
 
 #. Option for configuring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:922
+#: src/features/app/components/setup/SetupWizardSteps.tsx:916
 msgid "Configure now"
 msgstr "Налаштувати зараз"
 
@@ -8879,7 +8871,9 @@ msgstr "Підтвердити нову групу"
 msgid "Confirm new password"
 msgstr "Підтвердьте новий пароль"
 
+#. Label of the password confirmation field on the forgot password page.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:29
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:35
 msgid "Confirm password"
 msgstr "Підтвердьте пароль"
@@ -9161,8 +9155,7 @@ msgstr "Контекстні меню можна відкрити лівим к�
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthAccountStep.tsx:34
 #: src/features/auth/flow/HandoffApprovalFlow.tsx:109
 #: src/features/connection/components/modals/AddConnectionModal.tsx:384
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:712
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:397
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:716
 #: src/features/user/components/modals/tabs/AuthorizedAppsTab.tsx:182
 msgid "Continue"
 msgstr "Продовжити"
@@ -9278,13 +9271,13 @@ msgstr "Статистику JSON скопійовано в буфер обмі�
 
 #. Generic success toast confirming that content was copied to the clipboard.
 #. Toast shown after copying text to the clipboard succeeds.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:145
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:146
 #: src/features/ui/commands/TextCopyCommands.ts:11
 msgid "Copied to clipboard"
 msgstr "Скопійовано в буфер обміну"
 
 #. Label in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:82
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:85
 msgid "Copied URL to clipboard"
 msgstr "URL скопійовано в буфер обміну"
 
@@ -9313,12 +9306,12 @@ msgid "Copy attachment ID"
 msgstr "Копіювати ID вкладення"
 
 #. Media context menu action that copies an audio attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:61
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:62
 msgid "Copy audio"
 msgstr "Копіювати аудіо"
 
 #. Media context menu action that copies the URL of the audio attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:81
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:82
 msgid "Copy audio link"
 msgstr "Копіювати посилання на аудіо"
 
@@ -9343,7 +9336,7 @@ msgid "Copy banner URL"
 msgstr "Копіювати посилання на банер"
 
 #. Tray menu item. Copies build / version diagnostics to the clipboard for bug reports.
-#: src/features/app/components/floating/UserAreaPopout.tsx:707
+#: src/features/app/components/floating/UserAreaPopout.tsx:709
 #: src/features/platform/utils/DesktopLocaleBridge.ts:228
 msgid "Copy build info"
 msgstr "Копіювати інформацію про збірку"
@@ -9374,7 +9367,7 @@ msgid "Copy code"
 msgstr "Копіювати код"
 
 #. Developer-mode action that copies a community snowflake/ID to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:728
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:732
 msgid "Copy community ID"
 msgstr "Копіювати ID спільноти"
 
@@ -9406,17 +9399,17 @@ msgid "Copy endpoint"
 msgstr "Копіювати кінцеву точку"
 
 #. Media context menu action that copies the URL of the file attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:85
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:86
 msgid "Copy file link"
 msgstr "Копіювати посилання на файл"
 
 #. Media context menu action that copies a GIF attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:53
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:54
 msgid "Copy GIF"
 msgstr "Копіювати GIF"
 
 #. Media context menu action that copies the URL of the GIF attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:73
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:74
 msgid "Copy GIF link"
 msgstr "Копіювати посилання на GIF"
 
@@ -9441,7 +9434,7 @@ msgid "Copy identifier"
 msgstr "Копіювати ідентифікатор"
 
 #. Media context menu action that copies an image attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:49
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:50
 msgid "Copy image"
 msgstr "Копіювати зображення"
 
@@ -9449,7 +9442,7 @@ msgstr "Копіювати зображення"
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
 #: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:44
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:69
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:70
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:44
 msgid "Copy image link"
 msgstr "Копіювати посилання на зображення"
@@ -9477,7 +9470,7 @@ msgid "Copy invite URL"
 msgstr "Копіювати посилання-запрошення"
 
 #. Generic action label that copies a URL to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:740
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:744
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:330
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:145
 msgid "Copy link"
@@ -9494,7 +9487,7 @@ msgid "Copy link to section"
 msgstr "Копіювати посилання на розділ"
 
 #. Generic media context menu action label when the specific type is unknown.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:65
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:66
 msgid "Copy media"
 msgstr "Копіювати медіа"
 
@@ -9510,7 +9503,7 @@ msgstr "Копіювати повідомлення"
 
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:732
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:736
 #: src/features/input/state/input_keybind/shared.ts:277
 msgid "Copy message ID"
 msgstr "Копіювати ID повідомлення"
@@ -9585,13 +9578,13 @@ msgid "Copy the setup key into your authenticator app."
 msgstr "Скопіюйте ключ налаштування в застосунок для автентифікації."
 
 #. Developer-mode action that copies a user snowflake/ID to the clipboard.
-#: src/features/app/components/floating/UserAreaPopout.tsx:692
+#: src/features/app/components/floating/UserAreaPopout.tsx:694
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:172
 msgid "Copy user ID"
 msgstr "Копіювати ID користувача"
 
 #. Action that copies a user username (handle) to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:736
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:740
 msgid "Copy username"
 msgstr "Копіювати ім'я користувача"
 
@@ -9601,16 +9594,16 @@ msgid "Copy value"
 msgstr "Копіювати значення"
 
 #. Media context menu action that copies a video attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:57
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:58
 msgid "Copy video"
 msgstr "Копіювати відео"
 
 #. Media context menu action that copies the URL of the video attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:77
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:78
 msgid "Copy video link"
 msgstr "Копіювати посилання на відео"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:720
+#: src/features/app/components/floating/UserAreaPopout.tsx:722
 msgid "Copy voice diagnostics"
 msgstr "Копіювати діагностику голосу"
 
@@ -9625,7 +9618,7 @@ msgid "Copy webhook URL"
 msgstr "Копіювати URL вебхука"
 
 #. Progress toast shown while encoding and copying an image to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:153
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:154
 msgid "Copying image..."
 msgstr "Копіювання зображення..."
 
@@ -9784,7 +9777,7 @@ msgid "Couldn't crop image"
 msgstr "Не вдалося обрізати зображення"
 
 #. Title of the error modal shown when deleting a developer application fails.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:54
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:57
 msgid "Couldn't delete application"
 msgstr "Не вдалося видалити застосунок"
 
@@ -9895,7 +9888,7 @@ msgstr "Не вдалося завантажити спільноти"
 msgid "Couldn't load invites"
 msgstr "Не вдалося завантажити запрошення"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:574
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:577
 msgid "Couldn't load this application"
 msgstr "Не вдалося завантажити цей застосунок"
 
@@ -9953,7 +9946,7 @@ msgid "Couldn't refund this purchase"
 msgstr "Не вдалося повернути кошти за цю покупку"
 
 #. Title of the error modal shown when regenerating a client secret or bot token fails.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:66
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:69
 msgid "Couldn't regenerate secret"
 msgstr "Не вдалося повторно згенерувати секрет"
 
@@ -10033,7 +10026,7 @@ msgid "Couldn't send invite"
 msgstr "Не вдалося надіслати запрошення"
 
 #. Toast shown when sending an invite (group DM or community) fails.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:704
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:708
 msgid "Couldn't send invite. Try again."
 msgstr "Не вдалося надіслати запрошення. Спробуйте ще раз."
 
@@ -10192,7 +10185,7 @@ msgid "Country"
 msgstr "Країна"
 
 #. Field label on the details step of the DSA report form. The country where the reporter resides, used for the legal declaration.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:62
+#: src/features/moderation/components/report/ReportStepDetails.tsx:61
 msgid "Country of residence"
 msgstr "Країна проживання"
 
@@ -10235,7 +10228,7 @@ msgid "Create a new group with {userName}"
 msgstr "Створити нову групу з {userName}"
 
 #. Generic authentication action label for starting or submitting account creation.
-#: src/features/auth/components/pages/RegisterPage.tsx:46
+#: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
 #: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
@@ -10620,11 +10613,6 @@ msgstr "Власна тривалість блокування (секунди)"
 msgid "Custom date range"
 msgstr "Вибрати період"
 
-#. Error message in the FluxerTag change modal.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:65
-msgid "Custom discriminators are not available on this instance"
-msgstr "Користувацькі дискримінатори недоступні на цьому екземплярі"
-
 #. Accessible label for a custom emoji in the message composer. Preserve {emojiName} and {communityName}.
 #: src/features/lexical/composer/nodes/ComposerCustomEmoji.tsx:21
 msgid "Custom emoji {emojiName} from {communityName}"
@@ -10797,7 +10785,7 @@ msgid "Custom warning text"
 msgstr "Власний текст попередження"
 
 #. Last "Custom…" option in dropdown menus that opens a custom-value picker.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:768
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:772
 msgid "Custom…"
 msgstr "Власне…"
 
@@ -10837,15 +10825,6 @@ msgstr "Налаштуйте, які кнопки та індикатори ві
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:49
 msgid "Customize your profile banner"
 msgstr "Налаштуйте свій банер профілю"
-
-#. Description text in the username section. Preserve {discriminatorLabel}, {premiumProductName}; they are inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:29
-msgid "Customize your tag ({discriminatorLabel}) to your liking with {premiumProductName}"
-msgstr "Налаштуйте свій тег ({discriminatorLabel}) на свій смак за допомогою {premiumProductName}"
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:386
-msgid "Customize your tag or keep it when changing your username"
-msgstr "Налаштуйте свій тег або залиште його під час зміни імені користувача"
 
 #. Label in the accent color picker. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/my_profile_tab/AccentColorPicker.tsx:16
@@ -10903,7 +10882,7 @@ msgstr "Натиснуто кнопку «Небезпека»."
 #. Short label in the account security tab. Keep it concise. Keep the tone plain and specific.
 #: src/features/theme_studio/sections/ThemeStudioSettingsSection.tsx:357
 #: src/features/user/components/modals/tabs/account_security_tab/AccountSecuritySections.tsx:39
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:698
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:701
 msgid "Danger zone"
 msgstr "Небезпечна зона"
 
@@ -10990,10 +10969,8 @@ msgstr "Дата"
 msgid "Date and time"
 msgstr "Дата й час"
 
-#. Short label in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
 #. Short label in the authentication date of birth field. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:27
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:39
 #: src/features/auth/flow/DateOfBirthField.tsx:16
 #: src/features/auth/flow/DateOfBirthField.tsx:98
@@ -11259,8 +11236,8 @@ msgstr "Делавер"
 #. Tooltip for the custom emoji delete button.
 #: src/features/channel/components/embeds/media/EmbedAudio.tsx:29
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:23
-#: src/features/channel/components/MobileMemesPicker.tsx:88
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:39
+#: src/features/channel/components/MobileMemesPicker.tsx:89
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:40
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
@@ -11289,8 +11266,8 @@ msgstr "Видалити :{emojiName}:? Цю дію не можна скасув
 
 #. Body of the destructive delete confirmation alert in the saved media picker. memeName is the user-chosen name. Keep quotation marks.
 #. Error message in the channel and chat mobile memes picker. Preserve {memeName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/channel/components/MobileMemesPicker.tsx:83
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:34
+#: src/features/channel/components/MobileMemesPicker.tsx:84
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:35
 msgid "Delete \"{memeName}\"? Can't be undone."
 msgstr "Видалити «{memeName}»? Цю дію не можна скасувати."
 
@@ -11336,13 +11313,13 @@ msgid "Delete all messages"
 msgstr "Видалити всі повідомлення"
 
 #. Button or menu action label in the application detail. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:50
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:721
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:53
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:724
 msgid "Delete application"
 msgstr "Видалити застосунок"
 
 #. Generic action label that removes an attachment from the upload tray / message.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:748
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:752
 msgid "Delete attachment"
 msgstr "Видалити вкладення"
 
@@ -11400,7 +11377,7 @@ msgid "Delete invite"
 msgstr "Видалити запрошення"
 
 #. Accessible label for the delete button on a saved media tile in the picker.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:56
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:57
 msgid "Delete media"
 msgstr "Видалити медіа"
 
@@ -11467,8 +11444,8 @@ msgstr "Видалити роль"
 
 #. Accessible label and tooltip for the delete button on a saved media tile in the mobile memes picker.
 #. Title of the destructive delete confirmation alert in the saved media (memes) picker.
-#: src/features/channel/components/MobileMemesPicker.tsx:79
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:30
+#: src/features/channel/components/MobileMemesPicker.tsx:80
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:31
 msgid "Delete saved media"
 msgstr "Видалити збережені медіа"
 
@@ -11642,7 +11619,7 @@ msgid "Describe this media for screen readers"
 msgstr "Опишіть цей медіафайл для програм читання з екрана"
 
 #. Placeholder in the Additional comments textarea on the DSA report form. Prompts the reporter to explain why the content is illegal.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:77
+#: src/features/moderation/components/report/ReportStepDetails.tsx:76
 msgid "Describe what makes the content illegal"
 msgstr "Опишіть, чому цей вміст є незаконним"
 
@@ -11850,13 +11827,13 @@ msgstr "Стан розробника"
 #. Short label in the channel and chat utility buttons. Keep it concise.
 #. Title of the info alert shown when clicking an internal developer-tools deep link.
 #: src/features/channel/components/channel_header_components/UtilityButtons.tsx:20
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:129
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:130
 #: src/features/ui/action_menu/items/StaffDeveloperUserControlsMenuItem.tsx:13
 msgid "Developer tools"
 msgstr "Інструменти розробника"
 
 #. Body of the developer-tools info alert. Refers to the staff badge button in the channel header.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:133
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:134
 msgid "Developer tools are available from the staff badge in the channel header."
 msgstr "Інструменти розробника доступні зі значка персоналу в заголовку каналу."
 
@@ -11932,19 +11909,19 @@ msgstr "Словники"
 msgid "Dictionary"
 msgstr "Словник"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:392
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:391
 msgid "Different sizes"
 msgstr "Різні розміри"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:203
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:202
 msgid "Different sizes (online)"
 msgstr "Різні розміри (онлайн)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:120
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:119
 msgid "Different sizes (status supported)"
 msgstr "Різні розміри (статус підтримується)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:287
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:286
 msgid "Different sizes & member counts"
 msgstr "Різні розміри та кількість учасників"
 
@@ -12251,7 +12228,7 @@ msgid "Disconnected"
 msgstr "Від'єднано"
 
 #. Label for a community that anyone can find through discovery. Used in the community badge and as the community subtitle in expression info cards. Keep it concise.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:679
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:683
 msgid "Discoverable community"
 msgstr "Спільнота в Discovery"
 
@@ -12298,11 +12275,6 @@ msgstr "Результати Discovery"
 #: src/features/discovery/discovery/DiscoveryNavbar.tsx:33
 msgid "Discovery search"
 msgstr "Пошук у Discovery"
-
-#. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:52
-msgid "Discriminator"
-msgstr "Дискримінатор"
 
 #. Generic button label that dismisses a banner, modal, sheet, or prompt without taking the primary action.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:310
@@ -12376,9 +12348,7 @@ msgstr "Режим відображення"
 msgid "Display name"
 msgstr "Ім'я для відображення"
 
-#. Short label in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:31
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:51
 #: src/features/auth/flow/MockMinimalRegisterForm.tsx:91
 msgid "Display name (optional)"
@@ -12549,7 +12519,7 @@ msgstr "Не блокує. Можна відкрити знову пізніше
 
 #. Generic form-field / table-column label for an internet domain.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:772
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:776
 #: src/features/user/components/settings_utils/search_index/LinkedAccountsIndex.ts:28
 msgid "Domain"
 msgstr "Домен"
@@ -12571,7 +12541,7 @@ msgstr "Не очищати"
 msgid "Don't delete any"
 msgstr "Не видаляти жодних"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:106
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:149
 msgid "Don't have an account?"
 msgstr "Не маєте облікового запису?"
 
@@ -12652,7 +12622,7 @@ msgid "Download <0>fluxer-verification</0> and place it in your <1>.well-known</
 msgstr "Завантажте <0>fluxer-verification</0> та помістіть його до папки <1>.well-known</1>, щоб ми могли перевірити домен."
 
 #. Media context menu action that downloads an audio attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:121
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:122
 msgid "Download audio"
 msgstr "Завантажити аудіо"
 
@@ -12687,7 +12657,7 @@ msgid "Download desktop update {version} ({formatBytes})"
 msgstr "Завантажити оновлення для комп'ютера {version} ({formatBytes})"
 
 #. Media context menu action that downloads a file attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:125
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:126
 msgid "Download file"
 msgstr "Завантажити файл"
 
@@ -12696,12 +12666,12 @@ msgid "Download fluxer-verification"
 msgstr "Завантажити fluxer-verification"
 
 #. Media context menu action that downloads a GIF attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:113
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:114
 msgid "Download GIF"
 msgstr "Завантажити GIF"
 
 #. Image context menu action that downloads the image to disk.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:109
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:110
 msgid "Download image"
 msgstr "Завантажити зображення"
 
@@ -12715,7 +12685,7 @@ msgstr "Завантажити інсталятор"
 #. Tooltip on the download button in the media viewer modal.
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:28
 #: src/features/messaging/components/modals/media_modal/shared.ts:73
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:129
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:130
 msgid "Download media"
 msgstr "Завантажити медіа"
 
@@ -12725,7 +12695,7 @@ msgid "Download package"
 msgstr "Завантажити пакунок"
 
 #. Media context menu action that downloads a video attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:117
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:118
 msgid "Download video"
 msgstr "Завантажити відео"
 
@@ -12964,7 +12934,7 @@ msgstr "Редагувати доступ для {0}"
 #. Accessible label in the edit alt text modal. Keep it concise.
 #. Action that opens the modal for editing an image or video accessibility description.
 #: src/features/messaging/components/modals/EditAltTextModal.tsx:32
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:165
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:166
 msgid "Edit alt text"
 msgstr "Редагувати альтернативний текст"
 
@@ -13054,13 +13024,13 @@ msgid "Edit keyboard shortcut"
 msgstr "Змінити комбінацію клавіш"
 
 #. Tooltip on the edit button on a saved media tile in the picker.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:48
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:49
 msgid "Edit media"
 msgstr "Редагувати медіа"
 
 #. Generic action label that opens the message edit composer.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:708
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:712
 #: src/features/input/state/input_keybind/shared.ts:9
 msgid "Edit message"
 msgstr "Редагувати повідомлення"
@@ -13082,10 +13052,10 @@ msgstr "Редагувати або видаляти емодзі та стік�
 msgid "Edit overwrites for roles and members in this channel."
 msgstr "Редагувати перевизначення дозволів для ролей і учасників у цьому каналі."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:743
+#: src/features/app/components/floating/UserAreaPopout.tsx:745
 #: src/features/app/components/pages/YouPage.tsx:157
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:682
-#: src/features/user/components/modals/UserProfileModal.tsx:587
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
+#: src/features/user/components/modals/UserProfileModal.tsx:586
 #: src/features/user/components/popouts/UserProfilePopout.tsx:432
 msgid "Edit profile"
 msgstr "Редагувати профіль"
@@ -13103,8 +13073,8 @@ msgstr "Редагувати пошукову систему для зворот
 #. Accessible label for the edit button on a saved media tile in the picker.
 #. Action that opens the editor for a saved media (favorite meme) entry.
 #. Button or menu action label in the channel and chat mobile memes picker. Keep it concise.
-#: src/features/channel/components/MobileMemesPicker.tsx:93
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:52
+#: src/features/channel/components/MobileMemesPicker.tsx:94
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:53
 #: src/features/expressions/components/modals/EditFavoriteMemeModal.tsx:18
 msgid "Edit saved media"
 msgstr "Редагувати збережені медіа"
@@ -13190,6 +13160,11 @@ msgstr "Маєте право на відшкодування до {windowEndsOn
 msgid "Email"
 msgstr "Електронна пошта"
 
+#. Label of the optional email field on the sign-up form.
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:63
+msgid "Email (optional)"
+msgstr "Email (optional)"
+
 #. Label for the current account email shown in the required-action modal.
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the moderation report step email. Keep it concise. Keep the tone plain and specific.
@@ -13212,7 +13187,7 @@ msgid "Email changed"
 msgstr "Електронну пошту змінено"
 
 #. Setup wizard title for SMTP integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:954
+#: src/features/app/components/setup/SetupWizardSteps.tsx:948
 msgid "Email delivery"
 msgstr "Доставка електронної пошти"
 
@@ -13517,7 +13492,7 @@ msgid "Enable beta feature"
 msgstr "Увімкнути бета-функцію"
 
 #. Label for enabling Bluesky OAuth in setup.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1014
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1008
 msgid "Enable Bluesky OAuth"
 msgstr "Увімкнути OAuth для Bluesky"
 
@@ -13550,7 +13525,7 @@ msgid "Enable developer mode"
 msgstr "Увімкнути режим розробника"
 
 #. Label for enabling SMTP email delivery in setup.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:982
+#: src/features/app/components/setup/SetupWizardSteps.tsx:976
 msgid "Enable email delivery"
 msgstr "Увімкнути доставку електронної пошти"
 
@@ -13617,7 +13592,7 @@ msgstr "Увімкнути push-сповіщення на мобільному"
 
 #. Generic action label / toggle that turns on push or desktop notifications.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:780
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:784
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:127
 msgid "Enable notifications"
 msgstr "Увімкнути сповіщення"
@@ -13832,7 +13807,7 @@ msgid "English (US)"
 msgstr "Англійська (США)"
 
 #. Generic radio / dropdown option label for an "enhanced" tier.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:784
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:788
 msgid "Enhanced"
 msgstr "Покращено"
 
@@ -13907,11 +13882,6 @@ msgstr "Введіть дійсний номер мобільного телеф
 #: src/features/user/components/modals/PhoneAddModal.tsx:46
 msgid "Enter a valid phone number"
 msgstr "Введіть дійсний номер телефону"
-
-#. Description text in the channel and chat add friend form. Preserve {exampleFluxerTagFull}; it is inserted by code.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:32
-msgid "Enter a valid username ({exampleFluxerTagFull})."
-msgstr "Введіть дійсне ім'я користувача ({exampleFluxerTagFull})."
 
 #. Required-action modal body for entering a replacement email address.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:371
@@ -14061,10 +14031,6 @@ msgstr "Введіть ім'я користувача"
 #: src/features/moderation/components/report/ReportStepVerification.tsx:48
 msgid "Enter verification code"
 msgstr "Введіть код підтвердження"
-
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:74
-msgid "Enter your email address and we'll send you a link to reset your password."
-msgstr "Введіть свою електронну адресу, і ми надішлемо вам посилання для скидання пароля."
 
 #. Short label in the inputs tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:26
@@ -14220,6 +14186,11 @@ msgstr "Вечірній час"
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "Вирівнює гучність мікрофона, щоб ви не були занадто тихими."
+
+#. Help text under the bot username field. -BOT is literal and must stay in capitals.
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:53
+msgid "Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it."
+msgstr "Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it."
 
 #. Short label in the text to speech. Keep it concise.
 #: src/features/user/components/modals/tabs/notifications_tab/TextToSpeech.tsx:17
@@ -14507,7 +14478,7 @@ msgid "Expression autocomplete"
 msgstr "Автозавершення виразів"
 
 #. Aria label for the expression picker category nav.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:752
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:756
 msgid "Expression picker categories"
 msgstr "Категорії вибору виразів"
 
@@ -14594,7 +14565,7 @@ msgstr "Не вдалося скопіювати посилання-запрош
 
 #. Error toast shown when copying to the clipboard fails.
 #. Toast shown after copying text to the clipboard fails.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:149
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:150
 #: src/features/ui/commands/TextCopyCommands.ts:15
 msgid "Failed to copy to clipboard"
 msgstr "Не вдалося скопіювати в буфер обміну"
@@ -14997,7 +14968,7 @@ msgstr "Функцію тимчасово вимкнено"
 msgid "Features"
 msgstr "Функції"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:231
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:230
 msgid "Fetch a URL and inspect the embed payload the chat renderer receives."
 msgstr "Завантажте URL-адресу та перевірте дані вбудованого вмісту, які отримує компонент відображення чату."
 
@@ -15221,7 +15192,7 @@ msgid "Finnish"
 msgstr "Фінська"
 
 #. Placeholder in the Full legal name input on the DSA report form.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:58
+#: src/features/moderation/components/report/ReportStepDetails.tsx:57
 msgid "First and last name"
 msgstr "Ім'я та прізвище"
 
@@ -15537,12 +15508,12 @@ msgid "Forgetting authorized IPs..."
 msgstr "Забуваємо авторизовані IP-адреси..."
 
 #. Short label in the authentication forgot password page. Keep the tone plain and specific.
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:20
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:25
 msgid "Forgot password"
 msgstr "Забули пароль"
 
 #. Authentication link label that opens password recovery.
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:71
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:88
 #: src/features/auth/flow/AuthLoginLayout.tsx:63
 msgid "Forgot your password?"
 msgstr "Забули пароль?"
@@ -15562,7 +15533,7 @@ msgid "Forward"
 msgstr "Переслати"
 
 #. Tooltip / aria label on the forward / fast-forward button in the standalone audio player. {defaultSeekAmount} is an integer second count.
-#: src/features/voice/components/media_player/components/AudioPlayer.tsx:31
+#: src/features/voice/components/media_player/components/AudioPlayer.tsx:32
 msgid "Forward {defaultSeekAmount} seconds"
 msgstr "Перемотати вперед на {defaultSeekAmount} секунд"
 
@@ -15688,18 +15659,18 @@ msgid "Friend requests"
 msgstr "Запити на додавання в друзі"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:84
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:86
 msgid "Friend requests to this bot need manual approval."
 msgstr "Запити на додавання в друзі до цього бота потребують ручного схвалення."
 
 #. Short label in the channel and chat add friend form. Keep it concise.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:41
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:36
 msgid "Friend's username"
 msgstr "Ім'я користувача друга"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:72
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:74
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:84
 msgid "Friendly bot"
 msgstr "Дружній бот"
@@ -15771,8 +15742,8 @@ msgstr "Дзвінки лише для друзів"
 msgid "From"
 msgstr "Від"
 
-#. Attribution label on a gift, showing the sender FluxerTag.
-#. Sender label on a gift code embed. creatorTag is the FluxerTag of the gift creator.
+#. Attribution label on a gift, showing the sender username.
+#. Sender label on a gift code embed. creatorTag is the username of the gift creator.
 #: src/features/channel/components/GiftEmbed.tsx:28
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:32
 msgid "From {creatorTag}"
@@ -15789,12 +15760,12 @@ msgid "from <0>{0}</0>"
 msgstr "зі спільноти <0>{0}</0>"
 
 #. Label for SMTP from email input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:986
+#: src/features/app/components/setup/SetupWizardSteps.tsx:980
 msgid "From email"
 msgstr "Від кого (електронна адреса)"
 
 #. Label for SMTP from name input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:990
+#: src/features/app/components/setup/SetupWizardSteps.tsx:984
 msgid "From name"
 msgstr "Від кого (ім'я)"
 
@@ -15814,7 +15785,7 @@ msgid "Full dynamic range"
 msgstr "Повний динамічний діапазон"
 
 #. Field label on the details step of the DSA report form. Required legal name of the reporter for the formal declaration. Sensitive PII; keep tone neutral.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:53
+#: src/features/moderation/components/report/ReportStepDetails.tsx:52
 msgid "Full legal name"
 msgstr "Повне ім'я за документами"
 
@@ -16001,7 +15972,7 @@ msgid "Germany"
 msgstr "Німеччина"
 
 #. Generic upsell CTA button to start the Plutonium purchase flow. Preserve {premiumProductName}.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:796
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:800
 msgid "Get {premiumProductName}"
 msgstr "Отримати {premiumProductName}"
 
@@ -16009,16 +15980,6 @@ msgstr "Отримати {premiumProductName}"
 #: src/features/premium/utils/PremiumMessageDescriptors.ts:48
 msgid "Get {premiumProductName} for yourself and unlock higher limits and exclusive features."
 msgstr "Отримайте {premiumProductName} для себе та розблокуйте вищі ліміти й ексклюзивні функції."
-
-#. Label in the username section. Preserve {premiumProductName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:34
-msgid "Get {premiumProductName} to customize your tag"
-msgstr "Отримайте {premiumProductName}, щоб налаштувати свій тег"
-
-#. Description text in the FluxerTag change modal. Preserve {premiumProductName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:56
-msgid "Get {premiumProductName} to customize your tag or keep it when changing your username"
-msgstr "Отримайте {premiumProductName}, щоб налаштувати свій тег або зберегти його під час зміни імені користувача"
 
 #. Button in the required-action modal. Requests a new inbound SMS challenge code.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:202
@@ -16074,12 +16035,12 @@ msgid "GIF picker loading"
 msgstr "Завантаження добірки GIF"
 
 #. Accessible label for an animated GIF shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:85
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:86
 msgid "GIF preview"
 msgstr "Попередній перегляд GIF"
 
 #. Setup wizard title for GIF integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:930
+#: src/features/app/components/setup/SetupWizardSteps.tsx:924
 msgid "GIF search"
 msgstr "Пошук GIF"
 
@@ -16101,7 +16062,7 @@ msgstr "Не вдалося завантажити GIF-файли"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subscription status badge meaning premium access came from a gift.
 #: src/features/app/components/dialogs/components/plutonium/SubscriptionCard.tsx:443
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:294
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:293
 #: src/features/user/components/settings_utils/search_index/PlutoniumIndex.ts:79
 msgid "Gift"
 msgstr "Подарунок"
@@ -16527,11 +16488,11 @@ msgstr "Груповий чат"
 msgid "Group DM"
 msgstr "Груповий чат"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:277
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:276
 msgid "Group DM avatars"
 msgstr "Аватари групових чатів"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:279
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:278
 msgid "Group DM avatars using the same status masks as regular avatars, including stacked layouts and typing states."
 msgstr "Аватари групових чатів використовують ті самі маски статусу, що й звичайні аватари, включно з багатошаровим розташуванням та станами набору тексту."
 
@@ -16576,7 +16537,7 @@ msgstr "Назва групи"
 msgid "Group name must not exceed 100 characters"
 msgstr "Назва групи не може перевищувати 100 символів"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:318
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:317
 msgid "Group online status"
 msgstr "Онлайн-статус групи"
 
@@ -16602,7 +16563,7 @@ msgstr "Приватність групи"
 msgid "Group settings"
 msgstr "Налаштування групи"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:351
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:350
 msgid "Group typing states"
 msgstr "Стани набору в групі"
 
@@ -16749,7 +16710,7 @@ msgid "Hawaii"
 msgstr "Гаваї"
 
 #. hCaptcha provider option.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:974
+#: src/features/app/components/setup/SetupWizardSteps.tsx:968
 msgid "hCaptcha"
 msgstr "hCaptcha"
 
@@ -16949,7 +16910,7 @@ msgid "Hide expiration footnotes"
 msgstr "Сховати примітки про термін дії"
 
 #. Toggle / action label that collapses or hides the favorites section.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:696
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Сховати вибране"
 
@@ -17179,7 +17140,7 @@ msgstr "Наведіть курсор"
 msgid "Hover over buttons to see tooltips in different positions."
 msgstr "Наведіть курсор на кнопки, щоб побачити підказки в різних позиціях."
 
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:386
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:334
 msgid "How about:"
 msgstr "Можливо:"
 
@@ -17318,7 +17279,7 @@ msgstr "Ідентичність"
 
 #. Generic presence-status label indicating the user is idle / AFK.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:639
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:643
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:46
 msgid "Idle"
 msgstr "Неактивний"
@@ -17395,14 +17356,6 @@ msgstr "Якщо ви закриєте це, то завжди зможете в
 #: src/features/voice/components/dialogs/DisablePiPConfirmModal.tsx:56
 msgid "If you don't save this preference, we'll only hide the popout for this session. You can change this any time in {audioVideoSettingsPath}."
 msgstr "Якщо ви не збережете це налаштування, ми приховаємо спливаюче вікно лише для цього сеансу. Ви можете змінити це будь-коли в {audioVideoSettingsPath}."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:354
-msgid "If you save this username, your tag will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires on <0>{premiumExpiresAtLabel}</0>, unless it renews."
-msgstr "Якщо ви збережете це ім'я користувача, ваш тег буде випадковим чином змінено, коли термін дії вашої підписки {PREMIUM_PRODUCT_NAME} завершиться <0>{premiumExpiresAtLabel}</0>, якщо її не буде поновлено."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:361
-msgid "If you save this username, your tag will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires, unless it renews."
-msgstr "Якщо ви збережете це ім'я користувача, ваш тег буде випадковим чином змінено після закінчення терміну дії вашої підписки {PREMIUM_PRODUCT_NAME}, якщо її не буде поновлено."
 
 #: src/features/auth/components/modals/AccountDeleteModal.tsx:64
 msgid "If you want to export your data or delete your messages first, please visit {privacyDashboardPath} before proceeding."
@@ -17497,7 +17450,7 @@ msgstr "Іллінойс"
 #. Type label for image media.
 #: src/features/channel/components/embeds/media/EmbedImage.tsx:47
 #: src/features/expressions/utils/FavoriteMemeUtils.ts:14
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:113
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:114
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:25
 msgid "Image"
 msgstr "Зображення"
@@ -17508,7 +17461,7 @@ msgid "Image assets"
 msgstr "Зображення"
 
 #. Success toast confirming that an image was copied as a bitmap to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:157
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:158
 msgid "Image copied to clipboard"
 msgstr "Зображення скопійовано в буфер обміну"
 
@@ -17542,7 +17495,7 @@ msgid "Image options"
 msgstr "Параметри зображення"
 
 #. Accessible label for a static image shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:81
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:82
 msgid "Image preview"
 msgstr "Попередній перегляд зображення"
 
@@ -17569,7 +17522,7 @@ msgstr "Завантаження зображення"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the mobile memes picker. Filters to saved images.
-#: src/features/channel/components/MobileMemesPicker.tsx:46
+#: src/features/channel/components/MobileMemesPicker.tsx:47
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:16
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:105
 msgid "Images"
@@ -17713,7 +17666,7 @@ msgstr "У режимі «Операційна система» наведені
 msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
 msgstr "У браузері функція «Натисни і говори» працює лише тоді, коли вкладка {PRODUCT_NAME} активна. Установіть десктопний застосунок для використання функції «Натисни і говори» в усій системі."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:721
+#: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "У дзвінку"
 
@@ -18250,7 +18203,7 @@ msgid "Invite background"
 msgstr "Фон запрошення"
 
 #. Field label on the details step of the DSA report form (community report). Optional invite code to the reported community.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:48
+#: src/features/moderation/components/report/ReportStepDetails.tsx:47
 msgid "Invite code (optional)"
 msgstr "Код запрошення (необов'язково)"
 
@@ -18294,7 +18247,7 @@ msgid "Invite link is hidden while sharing:"
 msgstr "Посилання-запрошення приховано під час демонстрації екрана:"
 
 #. Inline replacement text shown for invite links while streaming privacy is active.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:145
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:146
 msgid "Invite link masked while sharing"
 msgstr "Посилання-запрошення приховано під час демонстрації екрана"
 
@@ -18406,7 +18359,7 @@ msgstr "Хто запросив:"
 #. Generic section / tab label for the invites list.
 #: src/features/channel/components/modals/channel_tabs/ChannelInvitesTab.tsx:191
 #: src/features/guild/components/modals/guild_tabs/GuildInvitesTab.tsx:53
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:684
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:688
 msgid "Invites"
 msgstr "Запрошення"
 
@@ -18595,7 +18548,7 @@ msgid "Join call"
 msgstr "Приєднатися до дзвінка"
 
 #. Generic action label that accepts a community invite / joins a community.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:675
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:679
 msgid "Join community"
 msgstr "Приєднатися до спільноти"
 
@@ -18707,7 +18660,7 @@ msgid "Jump to {displayName}"
 msgstr "Перейти до {displayName}"
 
 #. Accessible label for an inline channel mention link. labelText is the channel display name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:100
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:101
 msgid "Jump to {labelText}"
 msgstr "Перейти до {labelText}"
 
@@ -18764,12 +18717,12 @@ msgid "Jump to the current call"
 msgstr "Перейти до поточного дзвінка"
 
 #. Fallback accessible label for an inline channel mention when the target name is not known.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:104
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:105
 msgid "Jump to the linked channel"
 msgstr "Перейти до пов'язаного каналу"
 
 #. Fallback accessible label for an inline message link when the target channel is not known.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:96
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:97
 msgid "Jump to the linked message"
 msgstr "Перейти до пов'язаного повідомлення"
 
@@ -18779,7 +18732,7 @@ msgid "Jump to the message from {authorNickname}"
 msgstr "Перейти до повідомлення від {authorNickname}"
 
 #. Accessible label for an inline message link that jumps to a specific message in a channel. labelText is the channel display name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:91
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:92
 msgid "Jump to the message in {labelText}"
 msgstr "Перейти до повідомлення в {labelText}"
 
@@ -18941,7 +18894,7 @@ msgid "Kick a member from this community."
 msgstr "Вигнати учасника з цієї спільноти."
 
 #. Moderation action label that removes a member from a community without banning.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:671
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:675
 msgid "Kick member"
 msgstr "Вигнати учасника"
 
@@ -19108,18 +19061,13 @@ msgstr "Вийти з {count, plural, one {# спільноти} few {# спіл
 msgid "Leave and set aside"
 msgstr "Вийти та відкласти"
 
-#. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:63
-msgid "Leave blank for a random username"
-msgstr "Залиште порожнім для випадкового імені користувача"
-
 #. Destructive button in the mobile direct-call lobby bottom sheet. Disconnects from the call.
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:92
 msgid "Leave call"
 msgstr "Вийти з дзвінка"
 
 #. Destructive action label that removes the current user from a community.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:667
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:671
 msgid "Leave community"
 msgstr "Вийти зі спільноти"
 
@@ -19265,7 +19213,7 @@ msgstr "Дозволено учаснику знову чути інших у ц
 msgid "Lets custom CSS reveal transparent window regions after restarting the desktop app."
 msgstr "Дозволяє власному CSS показувати прозорі області вікна після перезапуску десктопного застосунку."
 
-#: src/features/ui/components/form/UsernameValidationRules.tsx:47
+#: src/features/ui/components/form/UsernameValidationRules.tsx:50
 msgid "Letters (a-z, A-Z), numbers (0-9), and underscores (_) only"
 msgstr "Лише літери (a-z, A-Z), цифри (0-9) та символи підкреслення (_)"
 
@@ -19427,7 +19375,7 @@ msgid "Link styling"
 msgstr "Стиль посилань"
 
 #. Title of the alert shown when clicking an internal link that is not available to the current account.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:137
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:138
 msgid "Link unavailable"
 msgstr "Посилання недоступне"
 
@@ -19580,7 +19528,7 @@ msgid "Loading theme..."
 msgstr "Завантаження теми…"
 
 #. Generic loading toast or label shown while an operation is in progress.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:141
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:142
 msgid "Loading..."
 msgstr "Завантаження..."
 
@@ -19648,7 +19596,7 @@ msgid "Logo"
 msgstr "Логотип"
 
 #. Label for Bluesky OAuth logo URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1026
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1020
 msgid "Logo URL"
 msgstr "URL логотипу"
 
@@ -19809,7 +19757,7 @@ msgstr "Шкідливе програмне забезпечення, краді
 msgid "Manage"
 msgstr "Керувати"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:396
+#: src/features/app/components/floating/UserAreaPopout.tsx:398
 #: src/features/auth/components/accounts/AccountSwitcherModal.tsx:78
 msgid "Manage accounts"
 msgstr "Керувати обліковими записами"
@@ -19966,7 +19914,7 @@ msgstr "Позначити як спойлер"
 
 #. Generic action label that flips a channel back to unread.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:663
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:667
 #: src/features/input/state/input_keybind/shared.ts:33
 msgid "Mark as unread"
 msgstr "Позначити як непрочитане"
@@ -20205,7 +20153,7 @@ msgstr "Максимальна кількість використань"
 msgid "Max size: {BACKGROUND_MEDIA_MAX_SIZE_LABEL}."
 msgstr "Максимальний розмір: {BACKGROUND_MEDIA_MAX_SIZE_LABEL}."
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:451
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:450
 msgid "Max visible count"
 msgstr "Максимальна кількість видимих"
 
@@ -20241,8 +20189,8 @@ msgstr "Може спричинити проблеми сумісності у �
 
 #. Short label in the max favorite memes modal.
 #: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:36
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:220
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:277
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:219
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:276
 msgid "Maybe later"
 msgstr "Можливо, пізніше"
 
@@ -20318,7 +20266,7 @@ msgstr "Наступна доріжка"
 #. Accessible label for the overflow menu button in the media viewer modal.
 #. Short label in the channel and chat media action bottom sheet. Keep it concise.
 #: src/features/channel/components/MediaActionBottomSheet.tsx:37
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:69
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:70
 msgid "Media options"
 msgstr "Параметри медіа"
 
@@ -20328,7 +20276,7 @@ msgid "Media play/pause"
 msgstr "Відтворення/пауза"
 
 #. Generic accessible label for unknown media in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:97
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:98
 msgid "Media preview"
 msgstr "Попередній перегляд медіа"
 
@@ -20361,7 +20309,7 @@ msgstr "Зупинити відтворення"
 msgid "Medium"
 msgstr "Середній"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:150
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:149
 msgid "Medium size (default)"
 msgstr "Середній розмір (за замовчуванням)"
 
@@ -20519,7 +20467,7 @@ msgstr "Згадати {mention}?"
 msgid "Mention {roleLabel}?"
 msgstr "Згадати {roleLabel}?"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:145
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:144
 msgid "Mention badges"
 msgstr "Значки згадок"
 
@@ -20561,7 +20509,7 @@ msgstr "Згадати цю роль?"
 #. Generic section / tab label for the mentions inbox.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:136
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:643
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:647
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:166
 msgid "Mentions"
 msgstr "Згадки"
@@ -20623,9 +20571,9 @@ msgstr "Повідомлення"
 #: src/features/ui/action_menu/items/ActionsSubmenu.tsx:41
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:715
-#: src/features/user/components/modals/UserProfileModal.tsx:562
-#: src/features/user/components/modals/UserProfileModal.tsx:770
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
+#: src/features/user/components/modals/UserProfileModal.tsx:561
+#: src/features/user/components/modals/UserProfileModal.tsx:769
 #: src/features/user/components/popouts/UserProfilePopout.tsx:418
 #: src/features/user/components/popouts/UserProfilePopout.tsx:448
 #: src/features/user/components/profile/ProfilePreview.tsx:321
@@ -20714,7 +20662,7 @@ msgstr "Видалення повідомлень"
 msgid "Message display mode"
 msgstr "Режим відображення повідомлень"
 
-#: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:264
+#: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:263
 msgid "Message display settings are only available on desktop."
 msgstr "Налаштування відображення повідомлень доступні лише на комп'ютері."
 
@@ -20783,12 +20731,12 @@ msgid "Message layout"
 msgstr "Макет повідомлення"
 
 #. Type chip suffix in tooltips for inline rendered message links. Lowercase because it follows the channel name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:81
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:82
 msgid "message link"
 msgstr "посилання на повідомлення"
 
 #. Field label on the details step of the DSA report form (message report). The reporter pastes a direct link to the offending message.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:23
+#: src/features/moderation/components/report/ReportStepDetails.tsx:22
 msgid "Message link"
 msgstr "Посилання на повідомлення"
 
@@ -21102,7 +21050,7 @@ msgstr "Слова з помилками"
 msgid "Mobile device"
 msgstr "Мобільний пристрій"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:95
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:94
 msgid "Mobile online status on avatars"
 msgstr "Мобільний онлайн-статус на аватарах"
 
@@ -21118,7 +21066,7 @@ msgstr "Мобільні push-сповіщення"
 msgid "Mobile push timeout"
 msgstr "Час очікування мобільних сповіщень"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:198
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:197
 msgid "Mock avatars"
 msgstr "Тестові аватари"
 
@@ -21164,7 +21112,7 @@ msgstr "Імітувати причину блокування медіа з к�
 msgid "Mock UK geo"
 msgstr "Імітувати геопозицію Великої Британії"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:199
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:198
 msgid "Mock user avatars in various sizes and all status permutations."
 msgstr "Тестові аватари користувачів різних розмірів і з усіма можливими статусами."
 
@@ -21562,7 +21510,7 @@ msgid "Mute calls"
 msgstr "Вимкнути звук дзвінків"
 
 #. Action label that mutes notifications for a channel category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:575
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:579
 msgid "Mute category"
 msgstr "Вимкнути сповіщення категорії"
 
@@ -21609,7 +21557,7 @@ msgid "Mute entrance sound"
 msgstr "Вимкнути звук входу"
 
 #. Action label that mutes notifications for the favourites pseudo-guild.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:688
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:692
 msgid "Mute favorites"
 msgstr "Вимкнути сповіщення для вибраного"
 
@@ -21738,7 +21686,7 @@ msgstr "Спільні друзі"
 msgid "Mutual friends ({count})"
 msgstr "Спільні друзі ({count})"
 
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:842
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:833
 msgid "Mutual friends ({mutualFriendsCount})"
 msgstr "Спільні друзі ({mutualFriendsCount})"
 
@@ -22029,7 +21977,7 @@ msgid "Nevada"
 msgstr "Невада"
 
 #. Generic short option label for "never" in time / frequency dropdowns.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:647
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:651
 msgid "Never"
 msgstr "Ніколи"
 
@@ -22187,6 +22135,10 @@ msgstr "Нові налаштування"
 msgid "New settings stay here for 30 days."
 msgstr "Нові налаштування залишаються тут протягом 30 днів."
 
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:151
+msgid "New username"
+msgstr "New username"
+
 #. Invite page subtext shown during raid protection. Explains that account actions still work, but joining is paused.
 #: src/features/invite/utils/InviteMessageDescriptors.ts:41
 msgid "New users can't join right now. You can still create an account or sign in, then try this link again later."
@@ -22221,7 +22173,7 @@ msgstr "Спочатку найновіші"
 #. Primary button in the required-action modal. Moves to the next carousel step.
 #: src/features/app/components/setup/SelfHostedSetupWizardGate.tsx:81
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:154
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:716
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:720
 msgid "Next"
 msgstr "Далі"
 
@@ -22272,7 +22224,7 @@ msgid "No {sendMessagesPermission} permission"
 msgstr "Немає дозволу {sendMessagesPermission}"
 
 #. Inline text shown inside a custom message link pill when the linked message cannot be accessed.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:125
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:126
 msgid "No access"
 msgstr "Немає доступу"
 
@@ -22366,7 +22318,7 @@ msgid "No bookmarks"
 msgstr "Немає закладок"
 
 #. Empty-state text in the bot profile section. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:64
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:66
 msgid "No bot banner"
 msgstr "Без банера бота"
 
@@ -22392,7 +22344,7 @@ msgid "No category"
 msgstr "Без категорії"
 
 #. Empty-state text in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:42
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:45
 msgid "No changes to save"
 msgstr "Немає змін для збереження"
 
@@ -22458,7 +22410,7 @@ msgstr "Дисплеї не знайдено"
 msgid "No email address set"
 msgstr "Електронну адресу не вказано"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:284
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:283
 msgid "No embeds returned"
 msgstr "Вбудовані елементи не повернуто"
 
@@ -22602,6 +22554,11 @@ msgstr "На цьому екземплярі немає додаткових с�
 msgid "No part of {query} could be applied. Fix the underlined value or add something to search for."
 msgstr "Не вдалося застосувати жодну частину {query}. Виправте підкреслене значення або додайте щось для пошуку."
 
+#. Error on the forgot password page when the admin has not opened a password reset for the account. There is no email reset.
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:37
+msgid "No password reset is open for this account. Ask the admin to open one, then try again."
+msgstr "No password reset is open for this account. Ask the admin to open one, then try again."
+
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:189
 msgid "No password set"
 msgstr "Пароль не встановлено"
@@ -22652,7 +22609,7 @@ msgstr "Попереднього перегляду ще немає"
 msgid "No push subscriptions registered yet."
 msgstr "Ще немає зареєстрованих push-підписок."
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:79
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:77
 msgid "No reason provided"
 msgstr "Причина не вказана"
 
@@ -22674,7 +22631,7 @@ msgstr "Не отримано тіла відповіді"
 #. Empty-state text in the channel and chat memes picker view.
 #. Heading shown when the channel search query returned zero matches.
 #: src/features/channel/components/channel_search_results/ChannelSearchResultsShared.tsx:74
-#: src/features/channel/components/MobileMemesPicker.tsx:66
+#: src/features/channel/components/MobileMemesPicker.tsx:67
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:32
 msgid "No results"
 msgstr "Немає результатів"
@@ -22703,7 +22660,7 @@ msgstr "Ще немає ролей. Додайте ролі в {rolesSettingsPat
 
 #. Empty state title in the mobile memes picker when the user has saved nothing yet.
 #. Empty-state text in the channel and chat memes picker view.
-#: src/features/channel/components/MobileMemesPicker.tsx:58
+#: src/features/channel/components/MobileMemesPicker.tsx:59
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:24
 msgid "No saved media"
 msgstr "Немає збережених медіа"
@@ -23012,7 +22969,7 @@ msgstr "Не «так» і не «ні»"
 #: src/features/messaging/utils/markdown/Plaintext.ts:72
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:19
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:79
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:897
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:888
 msgid "Note"
 msgstr "Примітка"
 
@@ -23054,7 +23011,7 @@ msgstr "Сповіщення"
 msgid "Notification area"
 msgstr "Область сповіщень"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:146
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:145
 msgid "Notification badges showing unread mention counts in different sizes."
 msgstr "Значки сповіщень, що показують кількість непрочитаних згадок у різних розмірах."
 
@@ -23087,7 +23044,7 @@ msgstr "Гучність сповіщень"
 #. Generic section header / tab label for the notifications area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/components/layout/MobileBottomNav.tsx:136
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:700
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:704
 #: src/features/notification/components/pages/NotificationsPage.tsx:61
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedSettingsCategories.ts:18
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:30
@@ -23185,7 +23142,7 @@ msgid "Off"
 msgstr "Вимкнено"
 
 #. Generic presence-status label indicating the user is offline.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:635
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:639
 msgid "Offline"
 msgstr "Не в мережі"
 
@@ -23242,7 +23199,7 @@ msgstr "З <0>{listPriceEffectiveDate}</0> ваша підписка зміни�
 msgid "On click"
 msgstr "При натисканні"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:704
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:707
 msgid "Once deleted, the application and its credentials are permanently removed."
 msgstr "Після видалення застосунок та його облікові дані будуть назавжди видалені."
 
@@ -23436,7 +23393,7 @@ msgid "Open {displayName}"
 msgstr "Відкрити {displayName}"
 
 #. Accessible label for an inline settings deep-link pill. labelText is the resolved settings tab and section breadcrumb.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:108
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:109
 msgid "Open {labelText} in settings"
 msgstr "Відкрити {labelText} у налаштуваннях"
 
@@ -23477,14 +23434,14 @@ msgstr "Відкрийте вікно застосунку, а потім спр
 #. Button or menu action label in the channel and chat attachment grid item. Keep it concise.
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:74
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:55
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:56
 msgid "Open animated GIF in full view"
 msgstr "Відкрити анімований GIF на весь екран"
 
 #. Button or menu action label in the channel and chat attachment grid item. Keep it concise.
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:70
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:51
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:52
 msgid "Open animated GIF video in full view"
 msgstr "Відкрити анімоване GIF-відео на весь екран"
 
@@ -23494,7 +23451,7 @@ msgid "Open audio in full view"
 msgstr "Відкрити аудіо на весь екран"
 
 #. Media context menu action that opens the audio URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:101
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:102
 msgid "Open audio link"
 msgstr "Відкрити посилання на аудіо"
 
@@ -23647,12 +23604,12 @@ msgid "Open favorites menu"
 msgstr "Відкрити меню «Вибране»"
 
 #. Media context menu action that opens the file URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:105
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:106
 msgid "Open file link"
 msgstr "Відкрити посилання на файл"
 
 #. Media context menu action that opens the GIF URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:93
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:94
 msgid "Open GIF link"
 msgstr "Відкрити посилання на GIF"
 
@@ -23677,7 +23634,7 @@ msgstr "Відкрити зображення в браузері"
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #. Button or menu action label in the channel and chat embed image. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:78
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:59
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:60
 #: src/features/channel/components/embeds/media/EmbedImage.tsx:43
 msgid "Open image in full view"
 msgstr "Відкрити зображення на весь екран"
@@ -23686,7 +23643,7 @@ msgstr "Відкрити зображення на весь екран"
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:48
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:89
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:90
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
 msgstr "Відкрити посилання на зображення"
@@ -23863,7 +23820,7 @@ msgid "Open video in full view"
 msgstr "Відкрити відео на весь екран"
 
 #. Media context menu action that opens the video URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:97
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:98
 msgid "Open video link"
 msgstr "Відкрити посилання на відео"
 
@@ -24129,7 +24086,7 @@ msgstr "Гучність виводу"
 msgid "Outside the refund window"
 msgstr "Період повернення коштів минув"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:388
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:387
 msgid "Overlapping avatar groups showing multiple users with automatic overflow counts."
 msgstr "Групи аватарів, що перекриваються, показують кількох користувачів з автоматичним підрахунком надлишку."
 
@@ -24274,7 +24231,7 @@ msgstr "Для ключів доступу потрібен підписаний
 
 #. Generic form-field label for a password.
 #. Label for SMTP password input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:997
+#: src/features/app/components/setup/SetupWizardSteps.tsx:991
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:210
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:146
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:183
@@ -24296,7 +24253,9 @@ msgstr "Без пароля"
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
 #. Short label in the authentication email revert page. Keep the tone plain and specific.
 #. Short label in the authentication reset password page. Keep the tone plain and specific.
+#. Validation error on the forgot password page.
 #: src/features/auth/components/pages/EmailRevertPage.tsx:22
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:33
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:23
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:31
 #: src/features/user/components/modals/PasswordChangeModal.tsx:34
@@ -24860,7 +24819,7 @@ msgid "pinned"
 msgstr "закріплено"
 
 #. Generic short toast / status label confirming a DM was pinned.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:651
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:655
 msgid "Pinned DM"
 msgstr "Закріплений приватний чат"
 
@@ -25065,7 +25024,7 @@ msgid "Popup"
 msgstr "Спливаюче вікно"
 
 #. Label for SMTP port input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:995
+#: src/features/app/components/setup/SetupWizardSteps.tsx:989
 msgid "Port"
 msgstr "Порт"
 
@@ -25258,7 +25217,7 @@ msgstr "Заборонити учасникам надсилати повідо�
 
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:276
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
 msgstr "Попередній перегляд"
 
@@ -25441,12 +25400,12 @@ msgid "Privacy policy"
 msgstr "Політика конфіденційності"
 
 #. Generic section heading / button label for the privacy settings area.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:659
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:663
 msgid "Privacy settings"
 msgstr "Налаштування приватності"
 
 #. Label for Bluesky OAuth privacy URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1034
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1028
 msgid "Privacy URL"
 msgstr "URL політики конфіденційності"
 
@@ -25471,7 +25430,7 @@ msgid "Private details"
 msgstr "Приватні дані"
 
 #. Label for Bluesky OAuth private key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1042
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1036
 msgid "Private key"
 msgstr "Приватний ключ"
 
@@ -25666,7 +25625,7 @@ msgstr "Займенники: "
 msgid "Protect your Visionary account by enabling two-factor authentication. Thanks for supporting {productName}!"
 msgstr "Захистіть свій обліковий запис Visionary, увімкнувши двофакторну автентифікацію. Дякуємо за підтримку {productName}!"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:216
+#: src/features/moderation/components/report/ReportStepDetails.tsx:215
 msgid "Provide at least a user ID or a user tag."
 msgstr "Вкажіть принаймні ID користувача або тег користувача."
 
@@ -25681,7 +25640,7 @@ msgid "Provide your full legal name for the declaration."
 msgstr "Вкажіть своє повне ім'я за документами для декларації."
 
 #. Label for an integration provider choice.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:970
+#: src/features/app/components/setup/SetupWizardSteps.tsx:964
 msgid "Provider"
 msgstr "Постачальник"
 
@@ -25979,7 +25938,7 @@ msgstr "Швидкість"
 msgid "Rate limited"
 msgstr "Перевищено ліміт запитів"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:292
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:291
 msgid "Raw embed JSON"
 msgstr "Необроблений JSON вбудованого вмісту"
 
@@ -26005,7 +25964,7 @@ msgstr "Відреагувати {emojiShortcode}"
 
 #. Generic short section / tab / aria label for emoji reactions.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:655
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:659
 #: src/features/messaging/components/modals/MessageReactionsModal.tsx:144
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:13
 msgid "Reactions"
@@ -26084,7 +26043,7 @@ msgid "Real-time"
 msgstr "У реальному часі"
 
 #: src/features/guild/components/modals/guild_tabs/GuildAuditLogTab.tsx:595
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:74
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:72
 msgid "Reason"
 msgstr "Причина"
 
@@ -26347,7 +26306,7 @@ msgstr "Повернути кошти за останню покупку?"
 #. Short label in the secrets section. Keep it concise.
 #: src/features/auth/components/modals/BackupCodesModal.tsx:114
 #: src/features/user/components/modals/tabs/applications_tab/application_detail/SecretsSection.tsx:23
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:78
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:81
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:128
 msgid "Regenerate"
 msgstr "Згенерувати повторно"
@@ -26358,20 +26317,20 @@ msgid "Regenerate backup codes"
 msgstr "Згенерувати резервні коди повторно"
 
 #. Confirmation prompt in the application detail. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:74
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:77
 msgid "Regenerate bot token?"
 msgstr "Згенерувати токен бота повторно?"
 
 #. Confirmation prompt in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:70
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:73
 msgid "Regenerate client secret?"
 msgstr "Згенерувати секрет клієнта повторно?"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:541
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:544
 msgid "Regenerating will invalidate the current secret. Update any code that uses the old value."
 msgstr "Повторна генерація зробить поточний секрет недійсним. Оновіть весь код, що використовує старе значення."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:543
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:546
 msgid "Regenerating will invalidate the current token. Update any code that uses the old value."
 msgstr "Повторна генерація зробить поточний токен недійсним. Оновіть весь код, що використовує старе значення."
 
@@ -26389,8 +26348,7 @@ msgstr "Зареєстровані ключі доступу"
 msgid "Registration"
 msgstr "Реєстрація"
 
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:211
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:312
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:284
 msgid "Registration is currently closed. Use a registration link from an admin to create an account."
 msgstr "Реєстрацію зараз закрито. Щоб створити обліковий запис, скористайтеся реєстраційним посиланням від адміністратора."
 
@@ -26638,7 +26596,7 @@ msgid "Remove from group"
 msgstr "Видалити з групи"
 
 #. Action that removes the selected media from saved media.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:181
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:182
 msgid "Remove from saved media"
 msgstr "Видалити зі збережених медіа"
 
@@ -26650,7 +26608,7 @@ msgid "Remove from top"
 msgstr "Зняти закріплення"
 
 #. Media context menu action that removes a GIF favorite saved by URL.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:173
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:174
 msgid "Remove from URL-only GIF favorites"
 msgstr "Видалити з вибраних GIF за URL-адресою"
 
@@ -26776,7 +26734,7 @@ msgid "Removed from favorite GIFs"
 msgstr "Видалено з вибраних GIF"
 
 #. Toast confirming an item was removed from the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:611
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:615
 msgid "Removed from favorites"
 msgstr "Видалено з вибраного"
 
@@ -26981,6 +26939,16 @@ msgstr "Форма перейменування каналу"
 msgid "Rename emoji"
 msgstr "Перейменувати емодзі"
 
+#. Toast after a user cancels their pending rename request.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:29
+msgid "Rename request cancelled"
+msgstr "Rename request cancelled"
+
+#. Toast after a user asks for a new username. The admin still has to approve it.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:25
+msgid "Rename request sent"
+msgstr "Rename request sent"
+
 #. Activity log detail line under a community settings update, shown when the community name changed. It continues the entry summary, so it has no subject. It is a past tense record of a change the actor in the summary already made, never an instruction to the reader. Do not write it as a command, a button label or in first or second person. {oldName} is the previous community name and {newName} is the new community name, both shown in bold. The app adds the bold, so do not add ** or <b>.
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogGuildMessages.ts:46
 msgid "Renamed the community from {oldName} to {newName}"
@@ -27039,7 +27007,7 @@ msgstr "Відповіді"
 
 #. Generic action label that opens the reply composer for a message.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:607
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:611
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:71
 msgid "Reply"
 msgstr "Відповісти"
@@ -27112,7 +27080,7 @@ msgstr "Поскаржитися на профіль користувача"
 msgid "Report community"
 msgstr "Поскаржитися на спільноту"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:128
+#: src/features/moderation/components/report/ReportStepDetails.tsx:127
 msgid "Report details"
 msgstr "Деталі скарги"
 
@@ -27150,10 +27118,10 @@ msgstr "Тип скарги"
 msgid "Report user"
 msgstr "Поскаржитися на користувача"
 
-#. Field label on the details step of the DSA report form (message report). Optional FluxerTag of the user who sent the message.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:28
-msgid "Reported user tag (optional)"
-msgstr "Тег користувача, на якого надіслано скаргу (необов'язково)"
+#. Field label on the details step of the DSA report form (message report). Optional username of the user who sent the message.
+#: src/features/moderation/components/report/ReportStepDetails.tsx:27
+msgid "Reported username (optional)"
+msgstr "Reported username (optional)"
 
 #: src/features/channel/components/embeds/channel_embed/BlueskyEmbed.tsx:45
 msgid "Reposts: <0>{countLabel}</0>"
@@ -27167,6 +27135,16 @@ msgstr "Спершу запитайте новий код."
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:135
 msgid "Request a new reset link"
 msgstr "Запитати нове посилання для скидання"
+
+#. Title of the rename request modal.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:37
+msgid "Request a new username"
+msgstr "Request a new username"
+
+#. Accessible label of the rename request form.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:33
+msgid "Request a new username form"
+msgstr "Request a new username form"
 
 #. Form validation error shown when the user tries to submit a code before requesting one.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:112
@@ -27198,7 +27176,7 @@ msgid "Require double-click to join voice channels"
 msgstr "Вимагати подвійне натискання для приєднання до голосових каналів"
 
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:80
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:82
 msgid "Require manual friend approval"
 msgstr "Вимагати ручного схвалення запитів на додавання в друзі"
 
@@ -27749,10 +27727,6 @@ msgstr "Поновити підписку"
 msgid "Resumed invites"
 msgstr "Відновлено запрошення"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:62
-msgid "Return to sign-in"
-msgstr "Повернутися до входу"
-
 #. Account settings: button that reveals the masked user email address. Verb, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat mature media blur overlay. Keep it concise.
@@ -27789,7 +27763,7 @@ msgstr "Зворотний пошук зображень"
 
 #. Generic action label that runs a reverse-image search on the selected media.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:603
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:607
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:267
 msgid "Reverse image search"
 msgstr "Зворотний пошук зображень"
@@ -27904,7 +27878,7 @@ msgstr "Відкликати всі застосунки"
 #. Short label in the guild bans tab. Keep it concise. Keep the tone plain and specific.
 #: src/features/guild/components/modals/guild_tabs/BannedUserActionsSheet.tsx:23
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:32
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:137
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:135
 #: src/features/ui/action_menu/BannedUserContextMenu.tsx:55
 msgid "Revoke ban"
 msgstr "Скасувати блокування"
@@ -27943,7 +27917,7 @@ msgid "Revoked ban for {0}"
 msgstr "Скасовано блокування для {0}"
 
 #. Tooltip / aria label on the rewind button in the standalone audio player. {defaultSeekAmount} is an integer second count.
-#: src/features/voice/components/media_player/components/AudioPlayer.tsx:26
+#: src/features/voice/components/media_player/components/AudioPlayer.tsx:27
 msgid "Rewind {defaultSeekAmount} seconds"
 msgstr "Перемотати на {defaultSeekAmount} секунд назад"
 
@@ -28243,7 +28217,7 @@ msgstr "Зберегти іконку"
 
 #. Button or menu action label in the channel and chat memes picker view. Keep it concise.
 #. Empty state body in the mobile memes picker explaining how to save media. Tone can be friendly.
-#: src/features/channel/components/MobileMemesPicker.tsx:62
+#: src/features/channel/components/MobileMemesPicker.tsx:63
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:28
 msgid "Save some media from messages to get started!"
 msgstr "Збережіть медіа з повідомлень, щоб почати!"
@@ -28325,7 +28299,7 @@ msgstr "Області дії"
 
 #. Section heading for screen-reader related accessibility settings.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:599
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:603
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:51
 msgid "Screen reader"
 msgstr "Програма читання з екрана"
@@ -28762,7 +28736,7 @@ msgstr "Пошук ролей або учасників…"
 
 #. Button or menu action label in the channel and chat memes picker header. Keep it concise.
 #. Placeholder text in the mobile memes picker search input.
-#: src/features/channel/components/MobileMemesPicker.tsx:54
+#: src/features/channel/components/MobileMemesPicker.tsx:55
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:24
 msgid "Search saved media"
 msgstr "Пошук збережених медіа"
@@ -28892,7 +28866,7 @@ msgid "Secret"
 msgstr "Секрет"
 
 #. Label for a CAPTCHA secret key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:981
+#: src/features/app/components/setup/SetupWizardSteps.tsx:975
 msgid "Secret key"
 msgstr "Секретний ключ"
 
@@ -28986,7 +28960,7 @@ msgid "Select"
 msgstr "Вибрати"
 
 #. Accessible label for a saved media tile in the mobile memes picker. accessibleName is the media filename or alt text.
-#: src/features/channel/components/MobileMemesPicker.tsx:74
+#: src/features/channel/components/MobileMemesPicker.tsx:75
 msgid "Select {accessibleName}"
 msgstr "Виберіть {accessibleName}"
 
@@ -29269,7 +29243,7 @@ msgstr "Кнопка надсилання"
 msgid "Send code"
 msgstr "Надіслати код"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:302
+#: src/features/moderation/components/report/ReportStepDetails.tsx:301
 msgid "Send DSA report"
 msgstr "Надіслати скаргу за DSA"
 
@@ -29337,16 +29311,13 @@ msgid "Send report"
 msgstr "Надіслати скаргу"
 
 #. Button or menu action label in the channel and chat add friend form. Keep it concise.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:37
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:32
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:193
 msgid "Send request"
 msgstr "Надіслати запит"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:95
-msgid "Send reset link"
-msgstr "Надіслати посилання для скидання"
-
 #. Accessible label for a saved media tile in the picker. Activating sends it. memeName is the user-chosen name.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:43
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:44
 msgid "Send saved media {memeName}"
 msgstr "Надіслати збережений медіафайл «{memeName}»"
 
@@ -29462,7 +29433,7 @@ msgid "Sensitive media"
 msgstr "Чутливі медіа"
 
 #. Generic short status label confirming an item (invite, gift, theme link) was sent.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:804
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:808
 msgid "Sent"
 msgstr "Надіслано"
 
@@ -29527,7 +29498,7 @@ msgstr "Сесії"
 msgid "Set a custom role icon"
 msgstr "Встановлено власну іконку ролі"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:601
+#: src/features/app/components/floating/UserAreaPopout.tsx:603
 #: src/features/app/components/shared/custom_status_display/CustomStatusDisplay.tsx:253
 msgid "Set a custom status"
 msgstr "Встановити власний статус"
@@ -29572,6 +29543,7 @@ msgstr "Задано тут"
 msgid "Set mute shortcut"
 msgstr "Установити комбінацію клавіш для вимкнення мікрофона"
 
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:138
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:116
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:144
 msgid "Set new password"
@@ -29714,7 +29686,7 @@ msgid "Set up authenticator app"
 msgstr "Налаштувати застосунок автентифікації"
 
 #. Option for deferring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:914
+#: src/features/app/components/setup/SetupWizardSteps.tsx:908
 msgid "Set up later"
 msgstr "Налаштувати пізніше"
 
@@ -29755,7 +29727,7 @@ msgid "Settings"
 msgstr "Налаштування"
 
 #. Type chip suffix in tooltips for inline rendered fluxer://settings/user deep links. Lowercase.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:113
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:114
 msgid "settings link"
 msgstr "посилання на налаштування"
 
@@ -29838,7 +29810,7 @@ msgstr "Поділитися темою"
 msgid "Share voice activity with all friends?"
 msgstr "Ділитися голосовою активністю з усіма друзями?"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:131
+#: src/features/moderation/components/report/ReportStepDetails.tsx:130
 msgid "Share what our team needs to assess this."
 msgstr "Поділіться тим, що потрібно нашій команді для оцінки."
 
@@ -30220,11 +30192,11 @@ msgstr "Показати вступ до режиму клавіатури"
 msgid "Show keyboard shortcuts list"
 msgstr "Показати список комбінацій клавіш"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:473
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:472
 msgid "Show max 3 (+5 badge)"
 msgstr "Показувати щонайбільше 3 (значок +5)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:495
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:494
 msgid "Show max 5 (+5 badge)"
 msgstr "Показувати щонайбільше 5 (значок +5)"
 
@@ -30519,7 +30491,7 @@ msgstr "Увійдіть за допомогою єдиного входу ва�
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:195
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:256
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:313
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:595
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:599
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:47
 msgid "Sign out"
 msgstr "Вийти"
@@ -30598,7 +30570,7 @@ msgid "Signed-in devices"
 msgstr "Підключені пристрої"
 
 #. Label for Bluesky OAuth signing key ID input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1038
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1032
 msgid "Signing key ID"
 msgstr "Ідентифікатор ключа підпису"
 
@@ -30680,12 +30652,12 @@ msgstr "Один шар"
 msgid "Single line"
 msgstr "Один рядок"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:71
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:70
 msgid "Single user (all statuses)"
 msgstr "Один користувач (усі статуси)"
 
 #. Label for a CAPTCHA site key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:980
+#: src/features/app/components/setup/SetupWizardSteps.tsx:974
 msgid "Site key"
 msgstr "Ключ сайту"
 
@@ -30738,7 +30710,7 @@ msgid "Skip the system leave notice — nobody gets pinged."
 msgstr "Пропустити системне повідомлення про вихід — ніхто не отримає сповіщення."
 
 #. Description for deferring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:918
+#: src/features/app/components/setup/SetupWizardSteps.tsx:912
 msgid "Skip this now and configure it from the admin panel."
 msgstr "Пропустити зараз і налаштувати з панелі адміністратора."
 
@@ -30938,7 +30910,7 @@ msgstr "Мала додаткова"
 msgid "Small secondary clicked."
 msgstr "Натиснуто малу додаткову кнопку."
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:162
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:161
 msgid "Small size"
 msgstr "Малий розмір"
 
@@ -30976,17 +30948,17 @@ msgid "SMS verification is unavailable right now. Try again later or contact sup
 msgstr "Підтвердження через SMS наразі недоступне. Спробуйте пізніше або зверніться до служби підтримки."
 
 #. Success message after validating SMTP credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1006
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1000
 msgid "SMTP connection verified."
 msgstr "З'єднання SMTP перевірено."
 
 #. Label for SMTP host input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:994
+#: src/features/app/components/setup/SetupWizardSteps.tsx:988
 msgid "SMTP host"
 msgstr "SMTP-сервер"
 
 #. Failure message after validating SMTP credentials when the server returns no error detail.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1010
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1004
 msgid "SMTP validation failed."
 msgstr "Не вдалося перевірити SMTP."
 
@@ -31223,7 +31195,7 @@ msgstr "Гучність"
 
 #. Section heading / tab label for the notification-sounds area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:808
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:812
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:135
 msgid "Sounds"
 msgstr "Звуки"
@@ -31614,7 +31586,7 @@ msgstr "Почати перетягування"
 msgid "Start mic test"
 msgstr "Почати перевірку мікрофона"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:326
+#: src/features/moderation/components/report/ReportStepDetails.tsx:325
 #: src/features/moderation/components/report/ReportStepEmail.tsx:97
 #: src/features/moderation/components/report/ReportStepVerification.tsx:134
 msgid "Start over"
@@ -31640,7 +31612,7 @@ msgid "Start uploading attachments as soon as they are added to the message inpu
 msgstr "Завантажувати вкладення одразу після їх додавання до поля введення повідомлення"
 
 #. Action label that initiates a video call (DM or group DM).
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:591
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:595
 msgid "Start video call"
 msgstr "Почати відеодзвінок"
 
@@ -31685,7 +31657,7 @@ msgstr "Іконка статусу"
 
 #. Collapsible group heading in the Theme Studio tokens list, for presence and status color tokens.
 #: src/features/theme_studio/sections/TokenGroups.ts:58
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:61
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:60
 msgid "Status indicators"
 msgstr "Індикатори статусу"
 
@@ -31730,7 +31702,7 @@ msgstr "Крок 2"
 msgid "Step 3"
 msgstr "Крок 3"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:125
+#: src/features/moderation/components/report/ReportStepDetails.tsx:124
 msgid "Step 4"
 msgstr "Крок 4"
 
@@ -32231,7 +32203,7 @@ msgid "Suppress all role mentions"
 msgstr "Вимкнути всі згадки ролей"
 
 #. Action label on a message that hides link previews / embeds.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:587
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:591
 msgid "Suppress embeds"
 msgstr "Приховати вбудований вміст"
 
@@ -32294,7 +32266,7 @@ msgstr "Шведська"
 msgid "Switch account"
 msgstr "Змінити обліковий запис"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:677
+#: src/features/app/components/floating/UserAreaPopout.tsx:679
 msgid "Switch accounts"
 msgstr "Змінити обліковий запис"
 
@@ -32640,8 +32612,6 @@ msgid "Tables"
 msgstr "Таблиці"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:61
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:73
 msgid "Tag"
 msgstr "Тег"
@@ -32790,7 +32760,7 @@ msgid "Terms of service"
 msgstr "Умови використання"
 
 #. Label for Bluesky OAuth terms URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1030
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1024
 msgid "Terms URL"
 msgstr "URL-адреса умов"
 
@@ -32800,7 +32770,7 @@ msgid "Terrorism or violent extremism"
 msgstr "Тероризм або насильницький екстремізм"
 
 #. Button that validates SMTP credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1002
+#: src/features/app/components/setup/SetupWizardSteps.tsx:996
 msgid "Test SMTP"
 msgstr "Перевірити SMTP"
 
@@ -32972,7 +32942,7 @@ msgstr "Не вдалося. Нічого не змінилося. Спробу�
 msgid "That doesn't look like a valid color. Try hex, rgb(), hsl(), or a CSS color name."
 msgstr "Це не схоже на дійсний колір. Спробуйте шістнадцятковий код, rgb(), hsl() або назву кольору CSS."
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:175
+#: src/features/moderation/components/report/ReportStepDetails.tsx:174
 msgid "That doesn't look like a valid URL."
 msgstr "Це не схоже на дійсну URL-адресу."
 
@@ -33013,10 +32983,10 @@ msgstr "Це повідомлення зникло, або ви втратили
 msgid "That's all of them."
 msgstr "Це всі повідомлення."
 
-#. Description text in the FluxerTag change modal.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:69
-msgid "The #0000 tag is reserved for Visionary subscribers. Visionary is no longer available for purchase."
-msgstr "Тег #0000 зарезервовано для підписників Visionary. Підписка Visionary більше недоступна для придбання."
+#. placeholder {0}: rejectedRequest.requested_username
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:140
+msgid "The admin rejected your request for <0>{0}</0>."
+msgstr "The admin rejected your request for <0>{0}</0>."
 
 #. Error shown when the setup wizard cannot load because the API origin differs from the page origin.
 #: src/features/app/components/setup/SelfHostedSetupWizardGate.tsx:97
@@ -33257,10 +33227,6 @@ msgstr "Система видалила роль {role} у користувач�
 msgid "The upload service rejected this sticker as larger than {maxSize}. Try a smaller file, a simpler image, or a shorter animation."
 msgstr "Служба завантаження відхилила цей стікер, оскільки він більший за {maxSize}. Спробуйте менший файл, простіше зображення або коротшу анімацію."
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:135
-msgid "The username <0>{fluxerTag}</0> is already taken. Continuing will reroll your tag automatically."
-msgstr "Ім'я користувача <0>{fluxerTag}</0> вже зайняте. Якщо продовжити, ваш тег буде автоматично змінено."
-
 #. Inline error on the verification step of the DSA report flow when the entered code is rejected.
 #: src/features/moderation/components/pages/ReportPage.tsx:89
 msgid "The verification code is invalid or expired."
@@ -33445,7 +33411,7 @@ msgstr "Сторонні"
 msgid "This account can't be blocked."
 msgstr "Цей обліковий запис не можна заблокувати."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:416
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:419
 msgid "This action cannot be undone. All associated data, including the bot user, will be permanently deleted."
 msgstr "Цю дію не можна скасувати. Усі пов'язані дані, включно з користувачем-ботом, буде видалено назавжди."
 
@@ -33478,7 +33444,7 @@ msgstr "Консоль браузера — це інструмент розро
 msgid "This call is end-to-end encrypted."
 msgstr "Цей дзвінок наскрізно зашифровано."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:699
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:702
 msgid "This cannot be undone. Removing the application also deletes its bot."
 msgstr "Цю дію не можна скасувати. Видалення застосунку також призведе до видалення його бота."
 
@@ -33873,7 +33839,7 @@ msgid "This link channel is marked for mature content and may open material that
 msgstr "Цей канал за посиланням позначено як такий, що містить контент для дорослих, і може відкривати матеріали, які можуть бути неприйнятними для деяких користувачів."
 
 #. Body of the link-unavailable alert.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:141
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:142
 msgid "This link is not available for your account."
 msgstr "Це посилання недоступне для вашого облікового запису."
 
@@ -34627,7 +34593,7 @@ msgstr "Право власності передано користувачу {0
 
 #. Generic action label that translates a message body.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:583
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:587
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:255
 msgid "Translate"
 msgstr "Перекласти"
@@ -34673,7 +34639,7 @@ msgstr "Зміни іконки в треї застосовуються лиш�
 
 #. Short label in the channel and chat gif picker grid. Keep it concise.
 #. Short label in the channel and chat gif picker header. Keep it concise.
-#: src/features/channel/components/pickers/gif/GifPickerGrid.tsx:25
+#: src/features/channel/components/pickers/gif/GifPickerGrid.tsx:26
 #: src/features/channel/components/pickers/gif/GifPickerHeader.tsx:18
 msgid "Trending GIFs"
 msgstr "Популярні GIF-файли"
@@ -34767,7 +34733,7 @@ msgstr "Спробуйте інший пошуковий запит."
 
 #. Empty state body in the mobile memes picker suggesting query changes.
 #. Label in the channel and chat memes picker view.
-#: src/features/channel/components/MobileMemesPicker.tsx:70
+#: src/features/channel/components/MobileMemesPicker.tsx:71
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:36
 msgid "Try a different search term or filter"
 msgstr "Спробуйте інший пошуковий запит або фільтр"
@@ -34804,7 +34770,7 @@ msgstr "Спробуйте ще раз за мить."
 msgid "Try again later."
 msgstr "Спробуйте пізніше."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:575
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:578
 msgid "Try again or go back to the applications list."
 msgstr "Спробуйте ще раз або поверніться до списку застосунків."
 
@@ -35143,7 +35109,7 @@ msgstr "Лише індикатор набору тексту"
 msgid "Typing indicator, status: {effectiveStatusLabel}"
 msgstr "Індикатор набору тексту, статус: {effectiveStatusLabel}"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:251
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:250
 msgid "Typing state"
 msgstr "Стан набору тексту"
 
@@ -35258,7 +35224,7 @@ msgstr "Недоступно"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/channel/components/barriers/BarrierComponents.tsx:376
 #: src/features/relationship/utils/RelationshipMessageDescriptors.ts:45
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:177
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:179
 #: src/features/user/components/settings_utils/search_index/BlockedUsersIndex.ts:22
 msgid "Unblock"
 msgstr "Розблокувати"
@@ -35285,7 +35251,7 @@ msgid "Unblock user"
 msgstr "Розблокувати користувача"
 
 #. Generic label for items that do not belong to a category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:631
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:635
 msgid "Uncategorized"
 msgstr "Без категорії"
 
@@ -35420,7 +35386,7 @@ msgid "Unfurl"
 msgstr "Розгорнути посилання"
 
 #. Settings section label for the embed debugger URL input.
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:230
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:229
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:62
 msgid "Unfurl debugger"
 msgstr "Налагоджувач розгортання посилань"
@@ -35440,9 +35406,9 @@ msgstr "Універсальний запасний варіант. Найниж
 #. Generic fallback label when a more specific value is unavailable.
 #. Short label in the invite list item. Keep it concise.
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:584
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:756
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:760
 #: src/features/invite/components/InviteListItem.tsx:36
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:114
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:112
 #: src/features/updater/commands/UpdaterModalCommands.tsx:144
 msgid "Unknown"
 msgstr "Невідомо"
@@ -35666,7 +35632,7 @@ msgid "Unmute all devices"
 msgstr "Увімкнути мікрофон на всіх пристроях"
 
 #. Action label that unmutes notifications for a channel category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:579
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:583
 msgid "Unmute category"
 msgstr "Увімкнути сповіщення категорії"
 
@@ -35701,7 +35667,7 @@ msgid "Unmute DMs"
 msgstr "Увімкнути сповіщення в приватних чатах"
 
 #. Action label that unmutes notifications for the favourites pseudo-guild.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:692
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:696
 msgid "Unmute favorites"
 msgstr "Увімкнути сповіщення для вибраного"
 
@@ -35784,7 +35750,7 @@ msgid "Unpin this message?"
 msgstr "Відкріпити це повідомлення?"
 
 #. Generic short toast / status label confirming a DM was unpinned.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:627
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:631
 msgid "Unpinned DM"
 msgstr "Відкріплений приватний чат"
 
@@ -36236,7 +36202,7 @@ msgid "URL"
 msgstr "URL"
 
 #. Success toast confirming that a media URL was copied as text fallback.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:137
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:138
 msgid "URL copied to clipboard"
 msgstr "URL скопійовано в буфер обміну"
 
@@ -36587,7 +36553,7 @@ msgid "Use this when troubleshooting the client or collecting logs. It may add v
 msgstr "Використовуйте це для виправлення неполадок клієнта або збору журналів. Це може додати докладні повідомлення до консолі браузера для поточного клієнта."
 
 #. Label for SMTP TLS toggle.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:998
+#: src/features/app/components/setup/SetupWizardSteps.tsx:992
 msgid "Use TLS"
 msgstr "Використовувати TLS"
 
@@ -36666,12 +36632,12 @@ msgid "User controls"
 msgstr "Елементи керування користувача"
 
 #. Title of the developer-mode user debug modal.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:571
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:575
 msgid "User debug"
 msgstr "Налагодження користувача"
 
 #. Field label on the details step of the DSA report form (user report). Optional Fluxer user snowflake ID. "ID" is conventional.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:33
+#: src/features/moderation/components/report/ReportStepDetails.tsx:32
 msgid "User ID (optional)"
 msgstr "ID користувача (необов'язково)"
 
@@ -36730,11 +36696,6 @@ msgstr "Запис користувача"
 msgid "User settings"
 msgstr "Налаштування користувача"
 
-#. Field label on the details step of the DSA report form (user report). Optional FluxerTag of the reported user.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:38
-msgid "User tag (optional)"
-msgstr "Тег користувача (необов'язково)"
-
 #. Voice menu slider label for the saved volume of a specific user.
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:243
 msgid "User volume"
@@ -36743,31 +36704,25 @@ msgstr "Гучність користувача"
 #. Generic form-field label for a username.
 #. Label for SMTP username input.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:996
+#: src/features/app/components/setup/SetupWizardSteps.tsx:990
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:567
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:218
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:56
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:29
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:53
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:59
+#. Field label on the details step of the DSA report form (user report). Optional username of the reported user.
+#: src/features/moderation/components/report/ReportStepDetails.tsx:37
 msgid "Username (optional)"
 msgstr "Ім'я користувача (необов'язково)"
 
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:40
-msgid "Username already taken"
-msgstr "Ім'я користувача вже зайняте"
-
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:44
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:45
 msgid "Username can only contain letters, numbers, and underscores"
 msgstr "Ім'я користувача може містити лише літери, цифри та символи підкреслення"
 
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:32
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:33
 msgid "Username is required"
 msgstr "Ім'я користувача обов'язкове"
 
@@ -36777,23 +36732,19 @@ msgid "Username must be {maxUsernameLength} characters or fewer"
 msgstr "Ім'я користувача має містити не більше ніж {maxUsernameLength} символів"
 
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:36
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:37
 msgid "Username must be at least 1 character"
 msgstr "Ім'я користувача має містити щонайменше 1 символ"
 
-#. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:40
-msgid "Username must be at most 32 characters"
-msgstr "Ім'я користувача має містити не більше 32 символів"
+#. Label in the bot profile section. Preserve {maxLength}; it is inserted by code. -BOT is literal.
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:41
+msgid "Username must be at most {maxLength} characters before -BOT"
+msgstr "Username must be at most {maxLength} characters before -BOT"
 
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:44
-msgid "Username updated"
-msgstr "Ім'я користувача оновлено"
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:211
-msgid "Usernames can only contain letters (a-z, A-Z), numbers (0-9), and underscores. Usernames are case-insensitive."
-msgstr "Імена користувачів можуть містити лише літери (a-z, A-Z), цифри (0-9) та символи підкреслення. Імена користувачів не чутливі до регістру."
+#. Label of the sign-in field that accepts either a username or an email address.
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:571
+msgid "Username or email"
+msgstr "Username or email"
 
 #. Section header in the message search popout listing matching users for from: / mentions: filters. Title Case.
 #. Section heading in the channel and chat autocomplete for user suggestions.
@@ -37032,7 +36983,7 @@ msgstr "Підтвердьте, що ви не робот"
 #. Title of the error modal shown when an unverified account tries to start a DM.
 #. Title shown when an unverified account cannot start a DM or group DM.
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:40
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:79
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:74
 #: src/features/channel/utils/CreateDMModalUtils.tsx:51
 #: src/features/moderation/components/report/ReportStepEmail.tsx:43
 msgid "Verify your email"
@@ -37091,11 +37042,6 @@ msgstr "Спершу підтвердьте свою електронну пош
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:69
 msgid "Verify your email or phone to continue using {productName}."
 msgstr "Підтвердьте свою електронну пошту або номер телефону, щоб продовжити користуватися {productName}."
-
-#. Label in the username section.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:25
-msgid "Verify your email to change your username"
-msgstr "Підтвердьте свою електронну пошту, щоб змінити ім'я користувача"
 
 #. Required-action modal body for first-time email verification. Product name is interpolated.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:53
@@ -37184,7 +37130,7 @@ msgstr "Відео"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Tooltip on the channel header button that starts a video call in a DM or group DM.
 #: src/features/channel/components/channel_header/shared.ts:43
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:766
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:757
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:199
 msgid "Video call"
@@ -37224,7 +37170,7 @@ msgstr "Втрата відеопакетів:"
 #. Accessible label for a video thumbnail in the media viewer thumbnail strip.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/messaging/components/modals/media_modal/shared.ts:133
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:89
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:90
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:182
 msgid "Video preview"
 msgstr "Попередній перегляд відео"
@@ -37280,7 +37226,7 @@ msgstr "Завантаження відео"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the mobile memes picker. Filters to saved videos.
-#: src/features/channel/components/MobileMemesPicker.tsx:50
+#: src/features/channel/components/MobileMemesPicker.tsx:51
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:20
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:109
 msgid "Videos"
@@ -37514,7 +37460,7 @@ msgid "Viewer leaves stream"
 msgstr "Глядач залишає трансляцію"
 
 #. Field label on the details step of the DSA illegal-content report form. The category dropdown narrows the type of violation. Legal/sensitive flow; keep tone formal.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:18
+#: src/features/moderation/components/report/ReportStepDetails.tsx:17
 msgid "Violation category"
 msgstr "Категорія порушення"
 
@@ -37605,7 +37551,7 @@ msgctxt "accessibility-settings-section"
 msgid "Visual"
 msgstr "Візуальні налаштування"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:63
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:62
 msgid "Visual indicators showing user status, rendered using the same masked status badges as avatars: online, idle, do not disturb, invisible, and offline."
 msgstr "Візуальні індикатори статусу користувача, які використовують ті самі масковані значки статусу, що й аватари: онлайн, неактивний, не турбувати, невидимий та не в мережі."
 
@@ -37681,7 +37627,7 @@ msgid "Voice and video shortcuts"
 msgstr "Комбінації клавіш для голосових і відеодзвінків"
 
 #. Short label for a voice call (lobby header, DM action, settings section).
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:744
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:735
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:35
 msgid "Voice call"
 msgstr "Голосовий дзвінок"
@@ -37777,7 +37723,7 @@ msgid "Voice message"
 msgstr "Голосове повідомлення"
 
 #. Short label in the channel and chat voice message player. Keep it concise.
-#: src/features/channel/components/embeds/media/VoiceMessagePlayer.tsx:30
+#: src/features/channel/components/embeds/media/VoiceMessagePlayer.tsx:31
 msgid "Voice message player"
 msgstr "Програвач голосових повідомлень"
 
@@ -37918,6 +37864,12 @@ msgstr "Очікування завершення повільного режи�
 #: src/features/messaging/components/modals/ForwardModal.tsx:82
 msgid "Waiting for slowmode in one or more selected channels to expire."
 msgstr "Очікування завершення повільного режиму в одному або кількох вибраних каналах."
+
+#. placeholder {0}: pendingRequest.requested_username
+#. placeholder {1}: getFormattedDateTime(pendingRequest.created_at)
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:119
+msgid "Waiting for the admin: <0>{0}</0>, asked on {1}. A new request replaces it."
+msgstr "Waiting for the admin: <0>{0}</0>, asked on {1}. A new request replaces it."
 
 #. Label in the messages tab.
 #: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:48
@@ -38197,10 +38149,6 @@ msgstr "Ми внесли значні зміни до наших <0>Умов в
 msgid "We've made significant changes to our <0>Terms of service</0>. Review it before continuing to use {productName}."
 msgstr "Ми внесли значні зміни до наших <0>Умов використання</0>. Перегляньте їх, перш ніж продовжити користуватися {productName}."
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:58
-msgid "We've sent password reset instructions to your email. Check your inbox for the reset link."
-msgstr "Ми надіслали інструкції зі скидання пароля на вашу електронну адресу. Перевірте вхідні, там буде посилання для скидання."
-
 #. Nagbar body shown when the user must accept updated policies before continuing.
 #: src/features/app/components/layout/app_layout/nagbars/TermsAcceptanceNagbar.tsx:15
 msgid "We've updated our policies. Review and accept them to continue."
@@ -38407,10 +38355,8 @@ msgstr "Західна Вірджинія"
 msgid "What kind of rule was broken?"
 msgstr "Яке правило було порушено?"
 
-#. Question prompt in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Question prompt in the authentication auth register form core. Keep the tone plain and specific.
 #. Question prompt in the authentication mock minimal register form. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:35
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:55
 #: src/features/auth/flow/MockMinimalRegisterForm.tsx:29
 msgid "What should people call you?"
@@ -39092,16 +39038,8 @@ msgstr "Ви не можете видалити цей дозвіл, бо тод
 msgid "You changed your nickname in this community from **{previousNickname}** to **{newNickname}**."
 msgstr "Ви змінили свій псевдонім у цій спільноті з **{previousNickname}** на **{newNickname}**."
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:367
-msgid "You changed your tag while on {PREMIUM_PRODUCT_NAME}. It will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires on <0>{premiumExpiresAtLabel}</0>, unless it renews."
-msgstr "Ви змінили свій тег, поки у вас був {PREMIUM_PRODUCT_NAME}. Він стане випадковим, коли термін дії {PREMIUM_PRODUCT_NAME} завершиться <0>{premiumExpiresAtLabel}</0>, якщо підписку не буде поновлено."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:374
-msgid "You changed your tag while on {PREMIUM_PRODUCT_NAME}. It will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires, unless it renews."
-msgstr "Ви змінили свій тег, поки у вас був {PREMIUM_PRODUCT_NAME}. Він стане випадковим, коли термін дії {PREMIUM_PRODUCT_NAME} завершиться, якщо підписку не буде поновлено."
-
 #. Body of the access-denied alert for clicked message links.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:121
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:122
 msgid "You do not have access to the channel where this message was sent."
 msgstr "У вас немає доступу до каналу, куди було надіслано це повідомлення."
 
@@ -39313,7 +39251,7 @@ msgstr "Щоб надсилати повідомлення в цій спіль�
 msgid "You need to verify your email address before you can create a community."
 msgstr "Щоб створити спільноту, потрібно підтвердити свою електронну адресу."
 
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:80
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:75
 msgid "You need to verify your email address before you can send friend requests."
 msgstr "Щоб надсилати запити на додавання в друзі, потрібно підтвердити свою електронну адресу."
 
@@ -39335,6 +39273,11 @@ msgstr "Щоб надсилати повідомлення в цій спіль�
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:60
 msgid "You or someone you're adding already has the maximum number of group DMs open. Leave one and try again."
 msgstr "У вас або в когось із тих, кого ви додаєте, уже відкрито максимальну кількість групових чатів. Вийдіть з одного й спробуйте ще раз."
+
+#. Placeholder of the required username field on the sign-up form. The username is the login ID.
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:59
+msgid "You sign in with it"
+msgstr "You sign in with it"
 
 #. Confirmation line in the required-action modal explaining that communities the user owns are kept rather than left. ownedNames is a comma-separated list inserted by code.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:316
@@ -39663,8 +39606,7 @@ msgstr "Ваш обліковий запис ще не зареєстрован�
 msgid "Your account is too new to send messages in this community."
 msgstr "Ваш обліковий запис занадто новий, щоб надсилати повідомлення в цій спільноті."
 
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:220
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:321
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:293
 msgid "Your account request is pending approval. You can sign in after an admin approves it."
 msgstr "Ваш запит на обліковий запис очікує схвалення. Ви зможете ввійти після схвалення адміністратором."
 
@@ -39894,7 +39836,7 @@ msgstr "Вашу заплановану зміну платіжного пері
 msgid "Your personal space for quick access to channels, DMs, and groups you love. Press the star on any channel to add it here."
 msgstr "Ваш особистий простір для швидкого доступу до улюблених каналів, особистих повідомлень і груп. Натисніть зірочку на будь-якому каналі, щоб додати його сюди."
 
-#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:130
+#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:132
 msgid "Your private space"
 msgstr "Ваш приватний простір"
 
@@ -40006,9 +39948,14 @@ msgid "Your theme CSS is too large to share. Trim it down and try again."
 msgstr "CSS вашої теми завеликий, щоб ним ділитися. Зменште його та спробуйте ще раз."
 
 #. Field label on the details step of the DSA report form. Optional Fluxer username of the reporter so staff can follow up.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:67
+#: src/features/moderation/components/report/ReportStepDetails.tsx:66
 msgid "Your username (optional)"
 msgstr "Ваше ім'я користувача (необов'язково)"
+
+#. placeholder {0}: user.username
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:110
+msgid "Your username is <0>{0}</0>. A new username is a request: the name is held for you until the admin approves or rejects it. Usernames are case-insensitive."
+msgstr "Your username is <0>{0}</0>. A new username is a request: the name is held for you until the admin approves or rejects it. Usernames are case-insensitive."
 
 #. Success toast after removing a community vanity invite URL.
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:54
@@ -40032,7 +39979,7 @@ msgid "YouTube enrichment"
 msgstr "Доповнення посилань YouTube"
 
 #. Setup wizard title for YouTube integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:938
+#: src/features/app/components/setup/SetupWizardSteps.tsx:932
 msgid "YouTube previews"
 msgstr "Попередній перегляд YouTube"
 
@@ -40057,7 +40004,7 @@ msgstr "Масштабувати"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:623
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:627
 #: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
@@ -40068,7 +40015,7 @@ msgstr "Збільшити масштаб"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:619
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:623
 #: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86

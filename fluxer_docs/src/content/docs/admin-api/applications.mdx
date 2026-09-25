@@ -27,11 +27,9 @@ The Admin view of one application. An application and its bot account share one 
 | owner_user_id | snowflake | The ID of the owning account |
 | owner_username<sup>1</sup> | ?string | The username of the owner |
 | owner_global_name<sup>1</sup> | ?string | The display name of the owner, or null when unset |
-| owner_discriminator<sup>1</sup> | ?string | The discriminator of the owner, as four decimal digits with leading zeroes |
 | bot_user_id | ?snowflake | The ID of the bot account, or null when the application has no bot |
 | bot_username<sup>2</sup> | ?string | The username of the bot |
 | bot_global_name<sup>2</sup> | ?string | The display name of the bot, or null when unset |
-| bot_discriminator<sup>2</sup> | ?string | The discriminator of the bot, as four decimal digits with leading zeroes |
 | bot_is_public | boolean | Whether an account other than the owner can add the bot |
 | bot_require_code_grant | boolean | Whether adding the bot requires a completed authorisation code grant |
 | oauth2_redirect_uris<sup>3</sup> | array[string] | The registered OAuth2 redirect URIs (at most 10 entries) |
@@ -61,11 +59,9 @@ The Admin view of one application. An application and its bot account share one 
   "owner_user_id": "1483920011884392448",
   "owner_username": "wren",
   "owner_global_name": "Wren",
-  "owner_discriminator": "0042",
   "bot_user_id": "1501314428688998182",
   "bot_username": "metronome",
   "bot_global_name": null,
-  "bot_discriminator": "0001",
   "bot_is_public": true,
   "bot_require_code_grant": false,
   "oauth2_redirect_uris": ["https://example.com/oauth2/callback"],

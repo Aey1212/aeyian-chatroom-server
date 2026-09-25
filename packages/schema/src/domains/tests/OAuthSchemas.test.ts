@@ -155,7 +155,7 @@ describe('application redirect policies', () => {
 describe('application bot authenticators', () => {
 	const response = {
 		...buildApplicationResponse([]),
-		bot: {id: '123', username: 'bot', discriminator: '0001', bio: null, flags: 0},
+		bot: {id: '123', username: 'bot', bio: null, flags: 0},
 	};
 	it('accepts every canonical authenticator type', () => {
 		const types = Object.values(UserAuthenticatorTypes);

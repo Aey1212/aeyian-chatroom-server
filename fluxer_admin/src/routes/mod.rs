@@ -17,6 +17,7 @@ pub mod system;
 mod system_actions;
 mod user_actions;
 mod user_tabs;
+pub mod usernames;
 pub mod users;
 pub mod voice;
 mod voice_actions;
@@ -70,6 +71,7 @@ pub fn build_router(config: AdminConfig) -> Router {
         .merge(system::router())
         .merge(voice::router())
         .merge(admin::router())
+        .merge(usernames::router())
         .route("/", get(dashboard))
         .route("/dashboard", get(dashboard))
         .layer(from_fn(middleware::htmx::flash_redirect_to_toast))

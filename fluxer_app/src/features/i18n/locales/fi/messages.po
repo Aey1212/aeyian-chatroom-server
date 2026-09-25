@@ -28,7 +28,7 @@ msgid "(edited)"
 msgstr "(muokattu)"
 
 #: src/features/app/components/pages/YouPage.tsx:189
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:903
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:894
 msgid "(only visible to you)"
 msgstr "(näkyy vain sinulle)"
 
@@ -872,11 +872,11 @@ msgstr "{communityName} on tällä hetkellä vain {productName}-henkilöstön j�
 msgid "{count, plural, =0 {∞ No limit} one {# participant} other {# participants}}"
 msgstr "{count, plural, =0 {∞ Ei rajoitusta} one {# osallistuja} other {# osallistujaa}}"
 
-#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:193
+#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:141
 msgid "{count, plural, one {... (# line left)} other {... (# lines left)}}"
 msgstr "{count, plural, one {... (# rivi jäljellä)} other {... (# riviä jäljellä)}}"
 
-#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:210
+#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:158
 msgid "{count, plural, one {... (# row left)} other {... (# rows left)}}"
 msgstr "{count, plural, one {... (# rivi jäljellä)} other {... (# riviä jäljellä)}}"
 
@@ -1074,7 +1074,7 @@ msgstr "{count, plural, one {Laajenna (# rivi)} other {Laajenna (# riviä)}}"
 msgid "{count, plural, one {Expand # other device} other {Expand # other devices}}"
 msgstr "{count, plural, one {Laajenna # muu laite} other {Laajenna # muuta laitetta}}"
 
-#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:109
+#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:111
 msgid "{count, plural, one {Group DM · # member} other {Group DM · # members}}"
 msgstr "{count, plural, one {Ryhmäkeskustelu · # jäsen} other {Ryhmäkeskustelu · # jäsentä}}"
 
@@ -1471,7 +1471,7 @@ msgid "{memberCount} {rawMemberCount, plural, one {member} other {members}}"
 msgstr "{memberCount} {rawMemberCount, plural, one {jäsen} other {jäsentä}}"
 
 #. Generic aria-label for an unread-mentions badge. Preserve {mentionCount}.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:800
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:804
 msgid "{mentionCount, plural, one {# mention} other {# mentions}}"
 msgstr "{mentionCount, plural, one {# maininta} other {# mainintaa}}"
 
@@ -2233,11 +2233,11 @@ msgstr "15 minuuttia"
 msgid "2 clicks"
 msgstr "2 klikkausta"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:332
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:331
 msgid "2 members (online)"
 msgstr "2 jäsentä (paikalla)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:366
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:365
 msgid "2 members (typing)"
 msgstr "2 jäsentä (kirjoittaa)"
 
@@ -2280,11 +2280,11 @@ msgstr "2FA-vaatimus"
 msgid "3 days"
 msgstr "3 päivää"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:346
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:345
 msgid "3 members (online)"
 msgstr "3 jäsentä (paikalla)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:381
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:380
 msgid "3 members (typing)"
 msgstr "3 jäsentä (kirjoittaa)"
 
@@ -2304,7 +2304,7 @@ msgstr "30 FPS"
 msgid "30 minutes"
 msgstr "30 minuuttia"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:300
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:299
 msgid "32px, 2 members"
 msgstr "32 px, 2 jäsentä"
 
@@ -2312,7 +2312,7 @@ msgstr "32 px, 2 jäsentä"
 msgid "404: page not found"
 msgstr "404: sivua ei löydy"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:313
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:312
 msgid "40px, 3 members"
 msgstr "40 px, 3 jäsentä"
 
@@ -2435,7 +2435,7 @@ msgid "a forwarded message"
 msgstr "edelleenlähetetty viesti"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:60
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:62
 msgid "A helpful bot that does amazing things!"
 msgstr "Auttavainen botti, joka tekee uskomattomia asioita!"
 
@@ -2530,7 +2530,7 @@ msgstr "Tietoja sovelluksesta {appName}"
 #. Short label in the user profile shared popout. Keep it concise.
 #: src/features/app/components/pages/YouPage.tsx:166
 #: src/features/user/components/modals/tabs/my_profile_tab/BioEditor.tsx:26
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:787
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:778
 #: src/features/user/components/popouts/UserProfileShared.tsx:41
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:133
 msgid "About me"
@@ -2751,8 +2751,8 @@ msgstr "Toiminnot"
 msgid "Active"
 msgstr "Aktiivinen"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:356
-#: src/features/auth/components/accounts/AccountRow.tsx:136
+#: src/features/app/components/floating/UserAreaPopout.tsx:358
+#: src/features/auth/components/accounts/AccountRow.tsx:140
 msgid "Active account"
 msgstr "Aktiivinen tili"
 
@@ -2791,7 +2791,7 @@ msgstr "Aktiivinen kuukausitilaaja (peruutus ajoitettu)"
 #. Short label in the appearance tab. Keep it concise.
 #. Short label in the inline. Keep it concise.
 #. Status label indicating a user is currently active.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:744
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:748
 #: src/features/user/components/modals/tabs/appearance_tab/AppearanceTabInline.tsx:43
 #: src/features/user/components/modals/tabs/AppearanceTab.tsx:51
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:430
@@ -2892,7 +2892,7 @@ msgid "Add a friend to get started."
 msgstr "Aloita lisäämällä kaveri."
 
 #. Setup wizard body for GIF integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:934
+#: src/features/app/components/setup/SetupWizardSteps.tsx:928
 msgid "Add a Klipy API key to enable GIF search at runtime."
 msgstr "Lisää Klipy API -avain ottaaksesi GIF-haun käyttöön ajon aikana."
 
@@ -2929,7 +2929,7 @@ msgid "Add a working email"
 msgstr "Lisää toimiva sähköpostiosoite"
 
 #. Setup wizard body for YouTube integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:942
+#: src/features/app/components/setup/SetupWizardSteps.tsx:936
 msgid "Add a YouTube Data API key to enrich YouTube links."
 msgstr "Lisää YouTube Data API -avain rikastamaan YouTube-linkkejä."
 
@@ -2975,7 +2975,7 @@ msgid "Add another reaction"
 msgstr "Lisää toinen reaktio"
 
 #. Setup wizard body for Bluesky integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:966
+#: src/features/app/components/setup/SetupWizardSteps.tsx:960
 msgid "Add Bluesky OAuth client metadata and a signing key."
 msgstr "Lisää Bluesky OAuth -asiakkaan metatiedot ja allekirjoitusavain."
 
@@ -3125,7 +3125,7 @@ msgid "Add shortcut"
 msgstr "Lisää pikanäppäin"
 
 #. Setup wizard body for SMTP integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:958
+#: src/features/app/components/setup/SetupWizardSteps.tsx:952
 msgid "Add SMTP credentials so the instance can send verification and notification email."
 msgstr "Lisää SMTP-tunnistetiedot, jotta instanssi voi lähettää vahvistus- ja ilmoitussähköposteja."
 
@@ -3152,7 +3152,7 @@ msgid "Add stream"
 msgstr "Lisää striimi"
 
 #. Description for configuring an optional setup wizard integration now.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:926
+#: src/features/app/components/setup/SetupWizardSteps.tsx:920
 msgid "Add the credentials during setup."
 msgstr "Lisää tunnistetiedot asennuksen aikana."
 
@@ -3174,12 +3174,12 @@ msgstr "Lisää ryhmään"
 #. Action that adds the selected media to saved media.
 #. Action that adds the selected media to saved media.
 #: src/features/expressions/components/modals/AddFavoriteMemeModal.tsx:16
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:177
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:178
 msgid "Add to saved media"
 msgstr "Lisää tallennettuun mediaan"
 
 #. Media context menu action that saves a GIF favorite by URL without uploading it.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:169
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:170
 msgid "Add to URL-only GIF favorites"
 msgstr "Lisää GIF-suosikkeihin pelkkänä URL-osoitteena"
 
@@ -3271,7 +3271,7 @@ msgid "Added to favorite GIFs"
 msgstr "Lisätty suosikki-GIFeihin"
 
 #. Toast confirming an item was added to the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:615
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:619
 msgid "Added to favorites"
 msgstr "Lisätty suosikkeihin"
 
@@ -3289,7 +3289,7 @@ msgid "Added: {createdDate} • last used: {lastUsedDate}"
 msgstr "Lisätty: {createdDate} • viimeksi käytetty: {lastUsedDate}"
 
 #. Field label on the details step of the DSA report form. Optional free-text context the reporter wants staff to see.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:72
+#: src/features/moderation/components/report/ReportStepDetails.tsx:71
 msgid "Additional comments (optional)"
 msgstr "Lisäkommentit (valinnainen)"
 
@@ -3452,7 +3452,7 @@ msgstr "Kohdistussäätimet ovat käytettävissä vain leveämmillä näytöill�
 #: src/features/app/config/AuditLogConstants.ts:143
 #: src/features/channel/components/direct_message/DMFriendsView.tsx:41
 #: src/features/channel/components/guild_members_page/GuildMembersPageDescriptors.ts:10
-#: src/features/channel/components/MobileMemesPicker.tsx:42
+#: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
 #: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:11
 #: src/features/discovery/discovery/DiscoveryNavbar.tsx:21
@@ -3550,7 +3550,7 @@ msgstr "Kaikki kielet"
 msgid "All messages"
 msgstr "Kaikki viestit"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:227
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:226
 msgid "All status types"
 msgstr "Kaikki tilatyypit"
 
@@ -3713,7 +3713,7 @@ msgid "Allow transparent desktop window"
 msgstr "Salli läpinäkyvä työpöytäikkuna"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:76
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:78
 msgid "Allow users to send this bot friend requests for manual approval."
 msgstr "Salli käyttäjien lähettää tälle botille kaveripyyntöjä manuaalista hyväksyntää varten."
 
@@ -4015,13 +4015,13 @@ msgstr "Animoidut emojit, GIF-kuvat ja tarrat pysyvät hallinnassasi Animaatio-v
 
 #. Media type chip shown in the media viewer info panel for animated GIFs.
 #. Short label in the channel and chat embed gifv. Keep it concise.
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:67
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:101
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:68
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:102
 msgid "Animated GIF"
 msgstr "Animoitu GIF"
 
 #. Short label in the channel and chat embed gifv. Keep it concise.
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:63
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:64
 msgid "Animated GIF video"
 msgstr "Animoitu GIF-video"
 
@@ -4050,12 +4050,12 @@ msgid "Animated icons require the {animatedIconFeature} community feature."
 msgstr "Animoidut kuvakkeet edellyttävät {animatedIconFeature} -yhteisöominaisuutta."
 
 #. Media type chip shown in the media viewer info panel for animated images.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:109
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:110
 msgid "Animated image"
 msgstr "Animoitu kuva"
 
 #. Accessible label for an animated image (APNG/AVIF) shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:77
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:78
 msgid "Animated image preview"
 msgstr "Animoidun kuvan esikatselu"
 
@@ -4075,7 +4075,7 @@ msgid "Animated uploads require a {premiumProductName} subscription."
 msgstr "Animaatioiden lataaminen vaatii {premiumProductName}-tilauksen."
 
 #. Media type chip shown in the media viewer info panel for short looping video clips.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:105
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:106
 msgid "Animated video"
 msgstr "Animoitu video"
 
@@ -4235,7 +4235,7 @@ msgid "Anyone can request an account, but an administrator must approve it."
 msgstr "Kuka tahansa voi pyytää tiliä, mutta ylläpitäjän on hyväksyttävä se."
 
 #. Label for an integration API key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:979
+#: src/features/app/components/setup/SetupWizardSteps.tsx:973
 msgid "API key"
 msgstr "API-avain"
 
@@ -4279,7 +4279,7 @@ msgid "App zoom"
 msgstr "Sovelluksen zoomaus"
 
 #. Setting label for the global UI zoom level.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:776
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:780
 msgid "App zoom level"
 msgstr "Sovelluksen zoomaustaso"
 
@@ -4349,7 +4349,7 @@ msgid "Application name is required"
 msgstr "Sovelluksen nimi on pakollinen"
 
 #. Short label in the application detail. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:46
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:49
 msgid "Application updated successfully"
 msgstr "Sovellus päivitetty"
 
@@ -4427,7 +4427,7 @@ msgid "Are you sure you want to delete {channelLabel}? This cannot be undone."
 msgstr "Haluatko varmasti poistaa kanavan {channelLabel}? Tätä toimintoa ei voi kumota."
 
 #. placeholder {0}: application.name
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:407
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:410
 msgid "Are you sure you want to delete <0>{0}</0>?"
 msgstr "Haluatko varmasti poistaa sovelluksen <0>{0}</0>?"
 
@@ -4560,6 +4560,10 @@ msgstr "ASCII-hymiöt"
 msgid "Ask before starting calls"
 msgstr "Kysy ennen puheluiden aloittamista"
 
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:91
+msgid "Ask the admin to open a password reset for your account. Once it is open, choose a new password here."
+msgstr "Ask the admin to open a password reset for your account. Once it is open, choose a new password here."
+
 #. Short label in the theme studio. Keep it concise.
 #: src/features/theme_studio/ThemeStudio.tsx:56
 msgid "Assets"
@@ -4587,7 +4591,7 @@ msgstr "liite"
 #. Accessible label for a thumbnail in the media viewer. index1 is the 1-based attachment index.
 #. Accessible label for the active attachment in the media viewer. index1 is the 1-based index.
 #: src/features/messaging/components/modals/media_modal/shared.ts:129
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:73
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:74
 msgid "Attachment {index1}"
 msgstr "Liite {index1}"
 
@@ -4614,12 +4618,12 @@ msgid "Attachment expired"
 msgstr "Liite vanhentunut"
 
 #. Toast shown when an attachment URL is no longer accessible.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:133
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:134
 msgid "Attachment has expired or is unavailable"
 msgstr "Liite on vanhentunut tai ei ole saatavilla"
 
 #. Developer-mode toast confirming an attachment ID was copied.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:161
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:162
 msgid "Attachment ID copied to clipboard"
 msgstr "Liitteen tunnus kopioitu leikepöydälle"
 
@@ -4729,12 +4733,12 @@ msgid "Audio packet loss:"
 msgstr "Äänen pakettihäviö:"
 
 #. Aria label for the inline audio attachment player container.
-#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:34
+#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:35
 msgid "Audio player"
 msgstr "Äänisoitin"
 
 #. Accessible label for an audio clip shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:93
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:94
 msgid "Audio preview"
 msgstr "Äänen esikatselu"
 
@@ -4769,7 +4773,7 @@ msgid "Audio processing (focused voice)"
 msgstr "Äänenkäsittely (kohdennettu ääni)"
 
 #. Aria label on the playback progress slider in the inline audio attachment player.
-#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:38
+#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:39
 msgid "Audio progress"
 msgstr "Äänen toiston edistyminen"
 
@@ -5152,14 +5156,14 @@ msgstr "Profiilikuva on liian suuri. Valitse kuva, jonka koko on alle {imageMaxS
 msgid "Avatar mode selection"
 msgstr "Profiilikuvatilan valinta"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:387
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:386
 msgid "Avatar stacks"
 msgstr "Profiilikuvapinot"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:24
-msgid "Avatar, tag, and rich profile details for your bot."
-msgstr "Botin profiilikuva, tunniste ja kattavat profiilitiedot."
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:25
+msgid "Avatar, username, and rich profile details for your bot."
+msgstr "Avatar, username, and rich profile details for your bot."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:294
@@ -5196,7 +5200,7 @@ msgstr "Poissa juuri nyt"
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:377
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:397
 #: src/features/moderation/components/report_modal/IARModal.tsx:86
-#: src/features/moderation/components/report/ReportStepDetails.tsx:312
+#: src/features/moderation/components/report/ReportStepDetails.tsx:311
 #: src/features/user/components/modals/PhoneAddModal.tsx:411
 #: src/features/user/components/modals/PhoneAddModal.tsx:430
 msgid "Back"
@@ -5212,7 +5216,7 @@ msgstr "Takaisin puheluun"
 msgid "Back to GIF categories"
 msgstr "Takaisin GIF-kategorioihin"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:583
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:586
 msgid "Back to list"
 msgstr "Takaisin luetteloon"
 
@@ -5413,11 +5417,11 @@ msgstr "Porttikielletty"
 msgid "Banned {targetUserTag} from the community"
 msgstr "Käyttäjä {targetUserTag} sai porttikiellon yhteisöön"
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:104
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:102
 msgid "Banned by"
 msgstr "Porttikiellon antaja"
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:86
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:84
 msgid "Banned on"
 msgstr "Porttikielto annettu"
 
@@ -5505,9 +5509,9 @@ msgstr "Paras pakkaus. Käytä vain, kun WebRTC näyttää kooderin ja GPU-rapor
 msgid "Best with the desktop app"
 msgstr "Parhaimmillaan työpöytäsovelluksessa"
 
-#: src/features/ui/components/form/UsernameValidationRules.tsx:42
-msgid "Between 1 and 32 characters"
-msgstr "1–32 merkkiä pitkä"
+#: src/features/ui/components/form/UsernameValidationRules.tsx:45
+msgid "Between 1 and {maxLength} characters"
+msgstr "Between 1 and {maxLength} characters"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/PlutoniumIndex.ts:27
@@ -5652,7 +5656,7 @@ msgstr "Esti jäseneltä viestien lähettämisen, reagoimisen ja äänikanaville
 #. Short label in the account security tab. Keep it concise.
 #. User settings tab listing accounts the current user has blocked.
 #: src/features/user/components/modals/tabs/account_security_tab/AccountSecuritySections.tsx:31
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:210
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:212
 #: src/features/user/components/settings_utils/search_index/BlockedUsersIndex.ts:6
 #: src/features/user/components/settings_utils/section_registry/AccountSecuritySections.ts:155
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:18
@@ -5660,7 +5664,7 @@ msgstr "Esti jäseneltä viestien lähettämisen, reagoimisen ja äänikanaville
 msgid "Blocked users"
 msgstr "Estetyt käyttäjät"
 
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:211
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:213
 msgid "Blocked users can't send you friend requests or message you directly."
 msgstr "Estetyt käyttäjät eivät voi lähettää sinulle kaveripyyntöjä eivätkä yksityisviestejä."
 
@@ -5680,7 +5684,7 @@ msgid "Bluesky connections"
 msgstr "Bluesky-yhteydet"
 
 #. Setup wizard title for Bluesky integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:962
+#: src/features/app/components/setup/SetupWizardSteps.tsx:956
 msgid "Bluesky OAuth"
 msgstr "Bluesky OAuth"
 
@@ -5784,7 +5788,7 @@ msgstr "Botti lisätty"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:28
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:29
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:68
 msgid "Bot avatar"
 msgstr "Botin profiilikuva"
@@ -5795,12 +5799,12 @@ msgid "Bot banner"
 msgstr "Botin banneri"
 
 #. Short label in the bot profile section. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:68
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:70
 msgid "Bot banner preview"
 msgstr "Botin bannerin esikatselu"
 
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:56
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:58
 msgid "Bot bio"
 msgstr "Botin kuvaus"
 
@@ -5842,13 +5846,13 @@ msgstr "Botin käyttöoikeudet eivät voi olla negatiivisia."
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:20
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:21
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:64
 msgid "Bot profile"
 msgstr "Botin profiili"
 
 #. Setup wizard title for CAPTCHA integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:946
+#: src/features/app/components/setup/SetupWizardSteps.tsx:940
 msgid "Bot protection"
 msgstr "Bottisuojaus"
 
@@ -5865,13 +5869,13 @@ msgid "Bot token"
 msgstr "Bottitunnus"
 
 #. Description text in the application detail. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:62
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:65
 msgid "Bot token regenerated. Update any code that uses the old token."
 msgstr "Botin tunnus luotiin uudelleen. Päivitä kaikki vanhaa tunnusta käyttävä koodi."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:48
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:49
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:72
 msgid "Bot username"
 msgstr "Botin käyttäjänimi"
@@ -6203,7 +6207,7 @@ msgstr "Puhelut"
 #. Generic voice/video setting label for the active camera device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the video tab. Keep it concise.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:720
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:724
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:72
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:162
 #: src/features/voice/utils/SettingsDeviceOptions.ts:24
@@ -6263,7 +6267,7 @@ msgstr "Kamera pois päältä"
 
 #. Generic action label that enables the local camera.
 #. Notification sound setting label. Sound played when the user turns their camera on in a call.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:724
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:728
 #: src/features/notification/utils/SoundLabels.ts:52
 msgid "Camera on"
 msgstr "Kamera päällä"
@@ -6372,7 +6376,6 @@ msgstr "Tiedostoja ei voi lähettää tähän"
 #: src/features/user/components/modals/EmailChangeModal.tsx:289
 #: src/features/user/components/modals/EmailChangeModal.tsx:311
 #: src/features/user/components/modals/EmailChangeModal.tsx:326
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:394
 #: src/features/user/components/modals/PasswordChangeModal.tsx:226
 #: src/features/user/components/modals/PasswordChangeModal.tsx:237
 #: src/features/user/components/modals/PasswordChangeModal.tsx:255
@@ -6394,10 +6397,6 @@ msgstr "Peruuta viestin muokkaus"
 msgid "Cancel friend request"
 msgstr "Peruuta kaveripyyntö"
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:145
-msgid "Cancel if you want to choose a different username instead."
-msgstr "Peruuta, jos haluat valita toisen käyttäjänimen."
-
 #. Danger button in the favorite GIF import modal. Stops the active import.
 #: src/features/channel/components/pickers/gif/ImportFavoriteGifsModal.tsx:58
 msgid "Cancel import"
@@ -6415,6 +6414,7 @@ msgstr "Peruuta vastaus"
 
 #. Button or menu action label in the channel and chat mobile friend request item. Keep it concise.
 #: src/features/channel/components/friends/MobileFriendRequestItem.tsx:38
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:134
 msgid "Cancel request"
 msgstr "Peruuta pyyntö"
 
@@ -6751,16 +6751,10 @@ msgstr "Vaihda striimin lähdettä"
 msgid "Change the name shown on your global profile"
 msgstr "Vaihda globaalissa profiilissasi näkyvää nimeä"
 
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:66
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:77
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:97
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:39
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:59
 msgid "Change username"
 msgstr "Vaihda käyttäjänimi"
-
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:48
-msgid "Change username form"
-msgstr "Käyttäjänimen vaihtolomake"
 
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/MessageHistoryCutoffSection.tsx:22
 msgid "Change what users without \"{readMessageHistoryPermissionLabel}\" can see"
@@ -6817,8 +6811,6 @@ msgid "Change your profile picture"
 msgstr "Vaihda profiilikuva"
 
 #. Settings search entry description. One-line summary of what the settings search entry controls.
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:52
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:77
 msgid "Change your username"
 msgstr "Vaihda käyttäjänimesi"
@@ -7033,7 +7025,7 @@ msgid "Channel access"
 msgstr "Kanavan käyttöoikeus"
 
 #. Title of the alert shown when clicking a message link the user does not have permission to view.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:117
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:118
 msgid "Channel access denied"
 msgstr "Kanavan käyttö estetty"
 
@@ -7047,7 +7039,7 @@ msgid "Channel actions"
 msgstr "Kanavan toiminnot"
 
 #. Toast confirming a channel was added to the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:792
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:796
 msgid "Channel added to favorites"
 msgstr "Kanava lisätty suosikkeihin"
 
@@ -7075,7 +7067,7 @@ msgstr "Kanavan virheenkorjaus"
 #. Audit log entry label. Past-tense action describing that a channel was deleted.
 #. Toast confirming a channel was successfully deleted.
 #: src/features/app/config/AuditLogConstants.ts:20
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:760
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:764
 msgid "Channel deleted"
 msgstr "Kanava poistettu"
 
@@ -7098,7 +7090,7 @@ msgstr "Kanavan tunnus kopioitu leikepöydälle"
 
 #. Short label in the messaging mention renderer. Keep it concise.
 #. Type chip suffix in tooltips for inline rendered channel mentions. Lowercase because it follows the channel name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:86
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:87
 #: src/features/messaging/components/markdown/renderers/MentionRenderer.tsx:39
 msgid "channel link"
 msgstr "kanavalinkki"
@@ -7165,7 +7157,7 @@ msgid "Channel record"
 msgstr "Kanavan tietue"
 
 #. Toast confirming a channel was removed from the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:788
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:792
 msgid "Channel removed from favorites"
 msgstr "Kanava poistettu suosikeista"
 
@@ -7288,7 +7280,6 @@ msgstr "Tarkista yhteytesi ja yritä uudelleen."
 
 #. Required-action modal carousel step title for existing-email verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:240
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:55
 #: src/features/auth/flow/IpAuthorizationScreen.tsx:120
 msgid "Check your email"
 msgstr "Tarkista sähköpostisi"
@@ -7477,7 +7468,7 @@ msgid "Choose friends to message."
 msgstr "Valitse kaverit, joille lähetät viestin."
 
 #. Setup wizard body for CAPTCHA integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:950
+#: src/features/app/components/setup/SetupWizardSteps.tsx:944
 msgid "Choose hCaptcha or Cloudflare Turnstile for signup challenges."
 msgstr "Valitse hCaptcha tai Cloudflare Turnstile rekisteröitymishaasteisiin."
 
@@ -7657,7 +7648,7 @@ msgstr "Viimeistele rekisteröinti lunastaaksesi"
 #. Action label on the gift redemption flow.
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:286
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
 #: src/features/expressions/components/pages/GiftLoginPage.tsx:41
 #: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
 msgid "Claim gift"
@@ -7668,7 +7659,7 @@ msgstr "Lunasta lahja"
 #. Title shown when an unclaimed account cannot start a DM or group DM.
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:32
 #: src/features/auth/components/modals/ClaimAccountModal.tsx:41
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:62
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:57
 #: src/features/channel/utils/CreateDMModalUtils.tsx:43
 #: src/features/guild/components/modals/add_guild_modal/GuildCreateForm.tsx:214
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:440
@@ -7695,7 +7686,7 @@ msgid "Claim your account to call"
 msgstr "Viimeistele tilisi rekisteröinti, jotta voit soittaa"
 
 #. Label in the username section.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:21
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:14
 msgid "Claim your account to change your username"
 msgstr "Viimeistele tilisi rekisteröinti, jotta voit vaihtaa käyttäjänimesi"
 
@@ -7733,14 +7724,14 @@ msgstr "Viimeistele tilisi rekisteröinti, niin voit lunastaa tai hallita {premi
 
 #. Helper text on a gift code embed for guest accounts. Prompts account claim before redeeming.
 #: src/features/channel/components/GiftEmbed.tsx:36
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:209
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:208
 msgid "Claim your account to redeem this gift."
 msgstr "Viimeistele tilisi rekisteröinti, jotta voit lunastaa tämän lahjan."
 
 #. Description text in the channel and chat dm welcome section.
 #. Description text in the user profile modal.
 #. Tooltip shown when an unclaimed account tries to send a friend request.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:63
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:58
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:37
 #: src/features/ui/action_menu/items/RelationshipMenuItems.tsx:40
 #: src/features/user/components/modals/UserProfileModal.tsx:122
@@ -8010,7 +8001,7 @@ msgid "Client"
 msgstr "Asiakasohjelma"
 
 #. Label for Bluesky OAuth client name input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1018
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1012
 msgid "Client name"
 msgstr "Asiakkaan nimi"
 
@@ -8022,12 +8013,12 @@ msgid "Client secret"
 msgstr "Asiakassalaisuus"
 
 #. Description text in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:58
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:61
 msgid "Client secret regenerated. Update any code that uses the old secret."
 msgstr "Asiakassalaisuus luotu uudelleen. Päivitä kaikki koodi, joka käyttää vanhaa salaisuutta."
 
 #. Label for Bluesky OAuth client URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1022
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1016
 msgid "Client URL"
 msgstr "Asiakkaan URL"
 
@@ -8075,6 +8066,7 @@ msgstr "Kloonaus on poistettu käytöstä"
 #. Native Window menu item that closes the focused desktop window.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:306
 #: src/features/platform/utils/DesktopLocaleBridge.ts:138
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:190
 msgid "Close"
 msgstr "Sulje"
 
@@ -8180,7 +8172,7 @@ msgid "Cloud upload"
 msgstr "Pilvilataus"
 
 #. Cloudflare Turnstile provider option.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:975
+#: src/features/app/components/setup/SetupWizardSteps.tsx:969
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
@@ -8490,7 +8482,7 @@ msgid "Community debug"
 msgstr "Yhteisön virheenkorjaus"
 
 #. Notification level option indicating the channel inherits the community default.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:764
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:768
 msgid "Community default"
 msgstr "Yhteisön oletus"
 
@@ -8525,11 +8517,11 @@ msgid "Community icon"
 msgstr "Yhteisön kuvake"
 
 #. Field label on the details step of the DSA report form (community report). The reported community's snowflake ID.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:43
+#: src/features/moderation/components/report/ReportStepDetails.tsx:42
 msgid "Community ID"
 msgstr "Yhteisön tunnus"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:237
+#: src/features/moderation/components/report/ReportStepDetails.tsx:236
 msgid "Community ID is required."
 msgstr "Yhteisön tunnus on pakollinen."
 
@@ -8785,7 +8777,7 @@ msgid "Configure keyboard shortcuts"
 msgstr "Määritä pikanäppäimet"
 
 #. Option for configuring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:922
+#: src/features/app/components/setup/SetupWizardSteps.tsx:916
 msgid "Configure now"
 msgstr "Määritä nyt"
 
@@ -8879,7 +8871,9 @@ msgstr "Vahvista uusi ryhmä"
 msgid "Confirm new password"
 msgstr "Vahvista uusi salasana"
 
+#. Label of the password confirmation field on the forgot password page.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:29
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:35
 msgid "Confirm password"
 msgstr "Vahvista salasana"
@@ -9161,8 +9155,7 @@ msgstr "Pikavalikot voi avata vasemmalla napsautuksella (painikkeissa) tai oikea
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthAccountStep.tsx:34
 #: src/features/auth/flow/HandoffApprovalFlow.tsx:109
 #: src/features/connection/components/modals/AddConnectionModal.tsx:384
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:712
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:397
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:716
 #: src/features/user/components/modals/tabs/AuthorizedAppsTab.tsx:182
 msgid "Continue"
 msgstr "Jatka"
@@ -9278,13 +9271,13 @@ msgstr "Tilastojen JSON-tiedot kopioitu leikepöydälle"
 
 #. Generic success toast confirming that content was copied to the clipboard.
 #. Toast shown after copying text to the clipboard succeeds.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:145
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:146
 #: src/features/ui/commands/TextCopyCommands.ts:11
 msgid "Copied to clipboard"
 msgstr "Kopioitu leikepöydälle"
 
 #. Label in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:82
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:85
 msgid "Copied URL to clipboard"
 msgstr "URL-osoite kopioitu leikepöydälle"
 
@@ -9313,12 +9306,12 @@ msgid "Copy attachment ID"
 msgstr "Kopioi liitteen tunnus"
 
 #. Media context menu action that copies an audio attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:61
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:62
 msgid "Copy audio"
 msgstr "Kopioi ääni"
 
 #. Media context menu action that copies the URL of the audio attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:81
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:82
 msgid "Copy audio link"
 msgstr "Kopioi äänilinkki"
 
@@ -9343,7 +9336,7 @@ msgid "Copy banner URL"
 msgstr "Kopioi bannerin URL-osoite"
 
 #. Tray menu item. Copies build / version diagnostics to the clipboard for bug reports.
-#: src/features/app/components/floating/UserAreaPopout.tsx:707
+#: src/features/app/components/floating/UserAreaPopout.tsx:709
 #: src/features/platform/utils/DesktopLocaleBridge.ts:228
 msgid "Copy build info"
 msgstr "Kopioi koontiversion tiedot"
@@ -9374,7 +9367,7 @@ msgid "Copy code"
 msgstr "Kopioi koodi"
 
 #. Developer-mode action that copies a community snowflake/ID to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:728
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:732
 msgid "Copy community ID"
 msgstr "Kopioi yhteisön tunnus"
 
@@ -9406,17 +9399,17 @@ msgid "Copy endpoint"
 msgstr "Kopioi päätepiste"
 
 #. Media context menu action that copies the URL of the file attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:85
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:86
 msgid "Copy file link"
 msgstr "Kopioi tiedoston linkki"
 
 #. Media context menu action that copies a GIF attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:53
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:54
 msgid "Copy GIF"
 msgstr "Kopioi GIF"
 
 #. Media context menu action that copies the URL of the GIF attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:73
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:74
 msgid "Copy GIF link"
 msgstr "Kopioi GIF-linkki"
 
@@ -9441,7 +9434,7 @@ msgid "Copy identifier"
 msgstr "Kopioi tunniste"
 
 #. Media context menu action that copies an image attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:49
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:50
 msgid "Copy image"
 msgstr "Kopioi kuva"
 
@@ -9449,7 +9442,7 @@ msgstr "Kopioi kuva"
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
 #: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:44
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:69
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:70
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:44
 msgid "Copy image link"
 msgstr "Kopioi kuvan linkki"
@@ -9477,7 +9470,7 @@ msgid "Copy invite URL"
 msgstr "Kopioi kutsulinkki"
 
 #. Generic action label that copies a URL to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:740
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:744
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:330
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:145
 msgid "Copy link"
@@ -9494,7 +9487,7 @@ msgid "Copy link to section"
 msgstr "Kopioi linkki osioon"
 
 #. Generic media context menu action label when the specific type is unknown.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:65
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:66
 msgid "Copy media"
 msgstr "Kopioi media"
 
@@ -9510,7 +9503,7 @@ msgstr "Kopioi viesti"
 
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:732
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:736
 #: src/features/input/state/input_keybind/shared.ts:277
 msgid "Copy message ID"
 msgstr "Kopioi viestin tunnus"
@@ -9585,13 +9578,13 @@ msgid "Copy the setup key into your authenticator app."
 msgstr "Kopioi asetusavain todennussovellukseesi."
 
 #. Developer-mode action that copies a user snowflake/ID to the clipboard.
-#: src/features/app/components/floating/UserAreaPopout.tsx:692
+#: src/features/app/components/floating/UserAreaPopout.tsx:694
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:172
 msgid "Copy user ID"
 msgstr "Kopioi käyttäjätunnus"
 
 #. Action that copies a user username (handle) to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:736
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:740
 msgid "Copy username"
 msgstr "Kopioi käyttäjänimi"
 
@@ -9601,16 +9594,16 @@ msgid "Copy value"
 msgstr "Kopioi arvo"
 
 #. Media context menu action that copies a video attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:57
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:58
 msgid "Copy video"
 msgstr "Kopioi video"
 
 #. Media context menu action that copies the URL of the video attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:77
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:78
 msgid "Copy video link"
 msgstr "Kopioi videolinkki"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:720
+#: src/features/app/components/floating/UserAreaPopout.tsx:722
 msgid "Copy voice diagnostics"
 msgstr "Kopioi äänidiagnostiikka"
 
@@ -9625,7 +9618,7 @@ msgid "Copy webhook URL"
 msgstr "Kopioi webhook-URL"
 
 #. Progress toast shown while encoding and copying an image to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:153
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:154
 msgid "Copying image..."
 msgstr "Kopioidaan kuvaa..."
 
@@ -9784,7 +9777,7 @@ msgid "Couldn't crop image"
 msgstr "Kuvan rajaus epäonnistui"
 
 #. Title of the error modal shown when deleting a developer application fails.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:54
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:57
 msgid "Couldn't delete application"
 msgstr "Sovelluksen poistaminen epäonnistui"
 
@@ -9895,7 +9888,7 @@ msgstr "Yhteisöjä ei voitu ladata"
 msgid "Couldn't load invites"
 msgstr "Kutsuja ei voitu ladata"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:574
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:577
 msgid "Couldn't load this application"
 msgstr "Sovellusta ei voitu ladata"
 
@@ -9953,7 +9946,7 @@ msgid "Couldn't refund this purchase"
 msgstr "Ostoksen hyvitys epäonnistui"
 
 #. Title of the error modal shown when regenerating a client secret or bot token fails.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:66
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:69
 msgid "Couldn't regenerate secret"
 msgstr "Salaisuuden luominen uudelleen epäonnistui"
 
@@ -10033,7 +10026,7 @@ msgid "Couldn't send invite"
 msgstr "Kutsua ei voitu lähettää"
 
 #. Toast shown when sending an invite (group DM or community) fails.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:704
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:708
 msgid "Couldn't send invite. Try again."
 msgstr "Kutsua ei voitu lähettää. Yritä uudelleen."
 
@@ -10192,7 +10185,7 @@ msgid "Country"
 msgstr "Maa"
 
 #. Field label on the details step of the DSA report form. The country where the reporter resides, used for the legal declaration.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:62
+#: src/features/moderation/components/report/ReportStepDetails.tsx:61
 msgid "Country of residence"
 msgstr "Asuinmaa"
 
@@ -10235,7 +10228,7 @@ msgid "Create a new group with {userName}"
 msgstr "Luo uusi ryhmä käyttäjän {userName} kanssa"
 
 #. Generic authentication action label for starting or submitting account creation.
-#: src/features/auth/components/pages/RegisterPage.tsx:46
+#: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
 #: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
@@ -10620,11 +10613,6 @@ msgstr "Mukautettu porttikiellon kesto (sekunteina)"
 msgid "Custom date range"
 msgstr "Mukautettu ajanjakso"
 
-#. Error message in the FluxerTag change modal.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:65
-msgid "Custom discriminators are not available on this instance"
-msgstr "Mukautetut tunnisteet eivät ole käytettävissä tässä instanssissa"
-
 #. Accessible label for a custom emoji in the message composer. Preserve {emojiName} and {communityName}.
 #: src/features/lexical/composer/nodes/ComposerCustomEmoji.tsx:21
 msgid "Custom emoji {emojiName} from {communityName}"
@@ -10797,7 +10785,7 @@ msgid "Custom warning text"
 msgstr "Mukautettu varoitusteksti"
 
 #. Last "Custom…" option in dropdown menus that opens a custom-value picker.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:768
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:772
 msgid "Custom…"
 msgstr "Mukautettu…"
 
@@ -10837,15 +10825,6 @@ msgstr "Mukauta, mitkä painikkeet ja ilmaisimet näkyvät medialiitteissä ja u
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:49
 msgid "Customize your profile banner"
 msgstr "Mukauta profiilibanneriasi"
-
-#. Description text in the username section. Preserve {discriminatorLabel}, {premiumProductName}; they are inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:29
-msgid "Customize your tag ({discriminatorLabel}) to your liking with {premiumProductName}"
-msgstr "Muokkaa tunnistettasi ({discriminatorLabel}) mieleiseksesi {premiumProductName}-tilauksella"
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:386
-msgid "Customize your tag or keep it when changing your username"
-msgstr "Muokkaa tunnistettasi tai säilytä se, kun vaihdat käyttäjänimeäsi"
 
 #. Label in the accent color picker. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/my_profile_tab/AccentColorPicker.tsx:16
@@ -10903,7 +10882,7 @@ msgstr "Vaarapainiketta napsautettu."
 #. Short label in the account security tab. Keep it concise. Keep the tone plain and specific.
 #: src/features/theme_studio/sections/ThemeStudioSettingsSection.tsx:357
 #: src/features/user/components/modals/tabs/account_security_tab/AccountSecuritySections.tsx:39
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:698
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:701
 msgid "Danger zone"
 msgstr "Vaaravyöhyke"
 
@@ -10990,10 +10969,8 @@ msgstr "Päivämäärä"
 msgid "Date and time"
 msgstr "Päivämäärä ja aika"
 
-#. Short label in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
 #. Short label in the authentication date of birth field. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:27
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:39
 #: src/features/auth/flow/DateOfBirthField.tsx:16
 #: src/features/auth/flow/DateOfBirthField.tsx:98
@@ -11259,8 +11236,8 @@ msgstr "Delaware"
 #. Tooltip for the custom emoji delete button.
 #: src/features/channel/components/embeds/media/EmbedAudio.tsx:29
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:23
-#: src/features/channel/components/MobileMemesPicker.tsx:88
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:39
+#: src/features/channel/components/MobileMemesPicker.tsx:89
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:40
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
@@ -11289,8 +11266,8 @@ msgstr "Poistetaanko :{emojiName}:? Toimintoa ei voi kumota."
 
 #. Body of the destructive delete confirmation alert in the saved media picker. memeName is the user-chosen name. Keep quotation marks.
 #. Error message in the channel and chat mobile memes picker. Preserve {memeName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/channel/components/MobileMemesPicker.tsx:83
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:34
+#: src/features/channel/components/MobileMemesPicker.tsx:84
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:35
 msgid "Delete \"{memeName}\"? Can't be undone."
 msgstr "Poistetaanko \"{memeName}\"? Toimintoa ei voi kumota."
 
@@ -11336,13 +11313,13 @@ msgid "Delete all messages"
 msgstr "Poista kaikki viestit"
 
 #. Button or menu action label in the application detail. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:50
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:721
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:53
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:724
 msgid "Delete application"
 msgstr "Poista sovellus"
 
 #. Generic action label that removes an attachment from the upload tray / message.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:748
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:752
 msgid "Delete attachment"
 msgstr "Poista liite"
 
@@ -11400,7 +11377,7 @@ msgid "Delete invite"
 msgstr "Poista kutsu"
 
 #. Accessible label for the delete button on a saved media tile in the picker.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:56
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:57
 msgid "Delete media"
 msgstr "Poista media"
 
@@ -11467,8 +11444,8 @@ msgstr "Poista rooli"
 
 #. Accessible label and tooltip for the delete button on a saved media tile in the mobile memes picker.
 #. Title of the destructive delete confirmation alert in the saved media (memes) picker.
-#: src/features/channel/components/MobileMemesPicker.tsx:79
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:30
+#: src/features/channel/components/MobileMemesPicker.tsx:80
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:31
 msgid "Delete saved media"
 msgstr "Poista tallennettu media"
 
@@ -11642,7 +11619,7 @@ msgid "Describe this media for screen readers"
 msgstr "Kuvaile tätä mediaa ruudunlukijoille"
 
 #. Placeholder in the Additional comments textarea on the DSA report form. Prompts the reporter to explain why the content is illegal.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:77
+#: src/features/moderation/components/report/ReportStepDetails.tsx:76
 msgid "Describe what makes the content illegal"
 msgstr "Kuvaile, mikä tekee sisällöstä laitonta"
 
@@ -11850,13 +11827,13 @@ msgstr "Kehittäjän tila"
 #. Short label in the channel and chat utility buttons. Keep it concise.
 #. Title of the info alert shown when clicking an internal developer-tools deep link.
 #: src/features/channel/components/channel_header_components/UtilityButtons.tsx:20
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:129
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:130
 #: src/features/ui/action_menu/items/StaffDeveloperUserControlsMenuItem.tsx:13
 msgid "Developer tools"
 msgstr "Kehittäjän työkalut"
 
 #. Body of the developer-tools info alert. Refers to the staff badge button in the channel header.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:133
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:134
 msgid "Developer tools are available from the staff badge in the channel header."
 msgstr "Kehittäjän työkalut ovat käytettävissä kanavan otsikon henkilöstömerkistä."
 
@@ -11932,19 +11909,19 @@ msgstr "Sanakirjat"
 msgid "Dictionary"
 msgstr "Sanakirja"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:392
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:391
 msgid "Different sizes"
 msgstr "Eri kokoja"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:203
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:202
 msgid "Different sizes (online)"
 msgstr "Eri kokoja (paikalla)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:120
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:119
 msgid "Different sizes (status supported)"
 msgstr "Eri kokoja (tila tuettu)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:287
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:286
 msgid "Different sizes & member counts"
 msgstr "Eri kokoja ja jäsenmääriä"
 
@@ -12251,7 +12228,7 @@ msgid "Disconnected"
 msgstr "Yhteys katkaistu"
 
 #. Label for a community that anyone can find through discovery. Used in the community badge and as the community subtitle in expression info cards. Keep it concise.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:679
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:683
 msgid "Discoverable community"
 msgstr "Löydettävissä oleva yhteisö"
 
@@ -12298,11 +12275,6 @@ msgstr "Löydä-osion tulokset"
 #: src/features/discovery/discovery/DiscoveryNavbar.tsx:33
 msgid "Discovery search"
 msgstr "Löydä-haku"
-
-#. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:52
-msgid "Discriminator"
-msgstr "Tunnistenumero"
 
 #. Generic button label that dismisses a banner, modal, sheet, or prompt without taking the primary action.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:310
@@ -12376,9 +12348,7 @@ msgstr "Näyttötila"
 msgid "Display name"
 msgstr "Näyttönimi"
 
-#. Short label in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:31
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:51
 #: src/features/auth/flow/MockMinimalRegisterForm.tsx:91
 msgid "Display name (optional)"
@@ -12549,7 +12519,7 @@ msgstr "Ei estä. Voit avata keskustelun myöhemmin uudelleen."
 
 #. Generic form-field / table-column label for an internet domain.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:772
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:776
 #: src/features/user/components/settings_utils/search_index/LinkedAccountsIndex.ts:28
 msgid "Domain"
 msgstr "Verkkotunnus"
@@ -12571,7 +12541,7 @@ msgstr "Älä tyhjennä"
 msgid "Don't delete any"
 msgstr "Älä poista mitään"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:106
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:149
 msgid "Don't have an account?"
 msgstr "Eikö sinulla ole tiliä?"
 
@@ -12652,7 +12622,7 @@ msgid "Download <0>fluxer-verification</0> and place it in your <1>.well-known</
 msgstr "Lataa <0>fluxer-verification</0> ja siirrä se <1>.well-known</1>-kansioosi, jotta voimme vahvistaa verkkotunnuksen."
 
 #. Media context menu action that downloads an audio attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:121
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:122
 msgid "Download audio"
 msgstr "Lataa ääni"
 
@@ -12687,7 +12657,7 @@ msgid "Download desktop update {version} ({formatBytes})"
 msgstr "Lataa työpöytäsovelluksen päivitys {version} ({formatBytes})"
 
 #. Media context menu action that downloads a file attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:125
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:126
 msgid "Download file"
 msgstr "Lataa tiedosto"
 
@@ -12696,12 +12666,12 @@ msgid "Download fluxer-verification"
 msgstr "Lataa fluxer-verification"
 
 #. Media context menu action that downloads a GIF attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:113
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:114
 msgid "Download GIF"
 msgstr "Lataa GIF"
 
 #. Image context menu action that downloads the image to disk.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:109
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:110
 msgid "Download image"
 msgstr "Lataa kuva"
 
@@ -12715,7 +12685,7 @@ msgstr "Lataa asennusohjelma"
 #. Tooltip on the download button in the media viewer modal.
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:28
 #: src/features/messaging/components/modals/media_modal/shared.ts:73
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:129
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:130
 msgid "Download media"
 msgstr "Lataa media"
 
@@ -12725,7 +12695,7 @@ msgid "Download package"
 msgstr "Lataa paketti"
 
 #. Media context menu action that downloads a video attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:117
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:118
 msgid "Download video"
 msgstr "Lataa video"
 
@@ -12964,7 +12934,7 @@ msgstr "Muokkaa kohteen {0} käyttöoikeuksia"
 #. Accessible label in the edit alt text modal. Keep it concise.
 #. Action that opens the modal for editing an image or video accessibility description.
 #: src/features/messaging/components/modals/EditAltTextModal.tsx:32
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:165
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:166
 msgid "Edit alt text"
 msgstr "Muokkaa vaihtoehtoista tekstiä"
 
@@ -13054,13 +13024,13 @@ msgid "Edit keyboard shortcut"
 msgstr "Muokkaa pikanäppäintä"
 
 #. Tooltip on the edit button on a saved media tile in the picker.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:48
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:49
 msgid "Edit media"
 msgstr "Muokkaa mediaa"
 
 #. Generic action label that opens the message edit composer.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:708
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:712
 #: src/features/input/state/input_keybind/shared.ts:9
 msgid "Edit message"
 msgstr "Muokkaa viestiä"
@@ -13082,10 +13052,10 @@ msgstr "Muokkaa tai poista muiden jäsenten luomia emojeita ja tarroja."
 msgid "Edit overwrites for roles and members in this channel."
 msgstr "Muokkaa roolien ja jäsenten käyttöoikeuksien ohituksia tällä kanavalla."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:743
+#: src/features/app/components/floating/UserAreaPopout.tsx:745
 #: src/features/app/components/pages/YouPage.tsx:157
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:682
-#: src/features/user/components/modals/UserProfileModal.tsx:587
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
+#: src/features/user/components/modals/UserProfileModal.tsx:586
 #: src/features/user/components/popouts/UserProfilePopout.tsx:432
 msgid "Edit profile"
 msgstr "Muokkaa profiilia"
@@ -13103,8 +13073,8 @@ msgstr "Muokkaa käänteisen kuvahaun hakukonetta"
 #. Accessible label for the edit button on a saved media tile in the picker.
 #. Action that opens the editor for a saved media (favorite meme) entry.
 #. Button or menu action label in the channel and chat mobile memes picker. Keep it concise.
-#: src/features/channel/components/MobileMemesPicker.tsx:93
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:52
+#: src/features/channel/components/MobileMemesPicker.tsx:94
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:53
 #: src/features/expressions/components/modals/EditFavoriteMemeModal.tsx:18
 msgid "Edit saved media"
 msgstr "Muokkaa tallennettua mediaa"
@@ -13190,6 +13160,11 @@ msgstr "Oikeutettu hyvitykseen {windowEndsOn} asti. Tämä peruuttaa myös tilau
 msgid "Email"
 msgstr "Sähköposti"
 
+#. Label of the optional email field on the sign-up form.
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:63
+msgid "Email (optional)"
+msgstr "Email (optional)"
+
 #. Label for the current account email shown in the required-action modal.
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the moderation report step email. Keep it concise. Keep the tone plain and specific.
@@ -13212,7 +13187,7 @@ msgid "Email changed"
 msgstr "Sähköpostiosoite vaihdettu"
 
 #. Setup wizard title for SMTP integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:954
+#: src/features/app/components/setup/SetupWizardSteps.tsx:948
 msgid "Email delivery"
 msgstr "Sähköpostin lähetys"
 
@@ -13517,7 +13492,7 @@ msgid "Enable beta feature"
 msgstr "Ota beetaominaisuus käyttöön"
 
 #. Label for enabling Bluesky OAuth in setup.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1014
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1008
 msgid "Enable Bluesky OAuth"
 msgstr "Ota Bluesky OAuth käyttöön"
 
@@ -13550,7 +13525,7 @@ msgid "Enable developer mode"
 msgstr "Ota kehittäjätila käyttöön"
 
 #. Label for enabling SMTP email delivery in setup.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:982
+#: src/features/app/components/setup/SetupWizardSteps.tsx:976
 msgid "Enable email delivery"
 msgstr "Ota sähköpostien lähetys käyttöön"
 
@@ -13617,7 +13592,7 @@ msgstr "Ota mobiili-ilmoitukset käyttöön"
 
 #. Generic action label / toggle that turns on push or desktop notifications.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:780
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:784
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:127
 msgid "Enable notifications"
 msgstr "Ota ilmoitukset käyttöön"
@@ -13832,7 +13807,7 @@ msgid "English (US)"
 msgstr "englanti (Yhdysvallat)"
 
 #. Generic radio / dropdown option label for an "enhanced" tier.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:784
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:788
 msgid "Enhanced"
 msgstr "Parannettu"
 
@@ -13907,11 +13882,6 @@ msgstr "Anna kelvollinen matkapuhelinnumero."
 #: src/features/user/components/modals/PhoneAddModal.tsx:46
 msgid "Enter a valid phone number"
 msgstr "Anna kelvollinen puhelinnumero"
-
-#. Description text in the channel and chat add friend form. Preserve {exampleFluxerTagFull}; it is inserted by code.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:32
-msgid "Enter a valid username ({exampleFluxerTagFull})."
-msgstr "Anna kelvollinen käyttäjänimi ({exampleFluxerTagFull})."
 
 #. Required-action modal body for entering a replacement email address.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:371
@@ -14061,10 +14031,6 @@ msgstr "Kirjoita käyttäjänimi"
 #: src/features/moderation/components/report/ReportStepVerification.tsx:48
 msgid "Enter verification code"
 msgstr "Anna vahvistuskoodi"
-
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:74
-msgid "Enter your email address and we'll send you a link to reset your password."
-msgstr "Anna sähköpostiosoitteesi, niin lähetämme sinulle linkin salasanan vaihtamista varten."
 
 #. Short label in the inputs tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:26
@@ -14220,6 +14186,11 @@ msgstr "Ilta-aika"
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "Tasoittaa mikrofonisi äänenvoimakkuutta, jotta et ole liian hiljainen."
+
+#. Help text under the bot username field. -BOT is literal and must stay in capitals.
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:53
+msgid "Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it."
+msgstr "Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it."
 
 #. Short label in the text to speech. Keep it concise.
 #: src/features/user/components/modals/tabs/notifications_tab/TextToSpeech.tsx:17
@@ -14507,7 +14478,7 @@ msgid "Expression autocomplete"
 msgstr "Ilmaisujen automaattinen täydennys"
 
 #. Aria label for the expression picker category nav.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:752
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:756
 msgid "Expression picker categories"
 msgstr "Ilmevalitsimen kategoriat"
 
@@ -14594,7 +14565,7 @@ msgstr "Kutsulinkin kopiointi epäonnistui"
 
 #. Error toast shown when copying to the clipboard fails.
 #. Toast shown after copying text to the clipboard fails.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:149
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:150
 #: src/features/ui/commands/TextCopyCommands.ts:15
 msgid "Failed to copy to clipboard"
 msgstr "Kopiointi leikepöydälle epäonnistui"
@@ -14997,7 +14968,7 @@ msgstr "Ominaisuus tilapäisesti pois käytöstä"
 msgid "Features"
 msgstr "Ominaisuudet"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:231
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:230
 msgid "Fetch a URL and inspect the embed payload the chat renderer receives."
 msgstr "Hae URL-osoite ja tarkista upotuksen hyötykuorma, jonka chatin renderöijä saa."
 
@@ -15221,7 +15192,7 @@ msgid "Finnish"
 msgstr "suomi"
 
 #. Placeholder in the Full legal name input on the DSA report form.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:58
+#: src/features/moderation/components/report/ReportStepDetails.tsx:57
 msgid "First and last name"
 msgstr "Etunimi ja sukunimi"
 
@@ -15537,12 +15508,12 @@ msgid "Forgetting authorized IPs..."
 msgstr "Valtuutettujen IP-osoitteiden unohtaminen..."
 
 #. Short label in the authentication forgot password page. Keep the tone plain and specific.
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:20
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:25
 msgid "Forgot password"
 msgstr "Salasana unohtunut"
 
 #. Authentication link label that opens password recovery.
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:71
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:88
 #: src/features/auth/flow/AuthLoginLayout.tsx:63
 msgid "Forgot your password?"
 msgstr "Unohditko salasanasi?"
@@ -15562,7 +15533,7 @@ msgid "Forward"
 msgstr "Välitä"
 
 #. Tooltip / aria label on the forward / fast-forward button in the standalone audio player. {defaultSeekAmount} is an integer second count.
-#: src/features/voice/components/media_player/components/AudioPlayer.tsx:31
+#: src/features/voice/components/media_player/components/AudioPlayer.tsx:32
 msgid "Forward {defaultSeekAmount} seconds"
 msgstr "Kelaa eteenpäin {defaultSeekAmount} sekuntia"
 
@@ -15688,18 +15659,18 @@ msgid "Friend requests"
 msgstr "Kaveripyynnöt"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:84
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:86
 msgid "Friend requests to this bot need manual approval."
 msgstr "Tälle botille lähetetyt kaveripyynnöt vaativat manuaalisen hyväksynnän."
 
 #. Short label in the channel and chat add friend form. Keep it concise.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:41
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:36
 msgid "Friend's username"
 msgstr "Kaverin käyttäjänimi"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:72
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:74
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:84
 msgid "Friendly bot"
 msgstr "Ystävällinen botti"
@@ -15771,8 +15742,8 @@ msgstr "Vain kavereiden puhelut"
 msgid "From"
 msgstr "Lähettäjä"
 
-#. Attribution label on a gift, showing the sender FluxerTag.
-#. Sender label on a gift code embed. creatorTag is the FluxerTag of the gift creator.
+#. Attribution label on a gift, showing the sender username.
+#. Sender label on a gift code embed. creatorTag is the username of the gift creator.
 #: src/features/channel/components/GiftEmbed.tsx:28
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:32
 msgid "From {creatorTag}"
@@ -15789,12 +15760,12 @@ msgid "from <0>{0}</0>"
 msgstr "yhteisöstä <0>{0}</0>"
 
 #. Label for SMTP from email input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:986
+#: src/features/app/components/setup/SetupWizardSteps.tsx:980
 msgid "From email"
 msgstr "Lähettäjän sähköpostiosoite"
 
 #. Label for SMTP from name input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:990
+#: src/features/app/components/setup/SetupWizardSteps.tsx:984
 msgid "From name"
 msgstr "Lähettäjän nimi"
 
@@ -15814,7 +15785,7 @@ msgid "Full dynamic range"
 msgstr "Täysi dynaaminen alue"
 
 #. Field label on the details step of the DSA report form. Required legal name of the reporter for the formal declaration. Sensitive PII; keep tone neutral.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:53
+#: src/features/moderation/components/report/ReportStepDetails.tsx:52
 msgid "Full legal name"
 msgstr "Koko virallinen nimi"
 
@@ -16001,7 +15972,7 @@ msgid "Germany"
 msgstr "Saksa"
 
 #. Generic upsell CTA button to start the Plutonium purchase flow. Preserve {premiumProductName}.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:796
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:800
 msgid "Get {premiumProductName}"
 msgstr "Hanki {premiumProductName}"
 
@@ -16009,16 +15980,6 @@ msgstr "Hanki {premiumProductName}"
 #: src/features/premium/utils/PremiumMessageDescriptors.ts:48
 msgid "Get {premiumProductName} for yourself and unlock higher limits and exclusive features."
 msgstr "Hanki {premiumProductName} itsellesi ja avaa korkeammat rajat ja ainutlaatuiset ominaisuudet."
-
-#. Label in the username section. Preserve {premiumProductName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:34
-msgid "Get {premiumProductName} to customize your tag"
-msgstr "Hanki {premiumProductName} ja mukauta tunnistettasi"
-
-#. Description text in the FluxerTag change modal. Preserve {premiumProductName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:56
-msgid "Get {premiumProductName} to customize your tag or keep it when changing your username"
-msgstr "Hanki {premiumProductName} ja mukauta tunnistettasi tai säilytä se, kun vaihdat käyttäjänimeäsi"
 
 #. Button in the required-action modal. Requests a new inbound SMS challenge code.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:202
@@ -16074,12 +16035,12 @@ msgid "GIF picker loading"
 msgstr "GIF-valitsin latautuu"
 
 #. Accessible label for an animated GIF shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:85
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:86
 msgid "GIF preview"
 msgstr "GIF-esikatselu"
 
 #. Setup wizard title for GIF integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:930
+#: src/features/app/components/setup/SetupWizardSteps.tsx:924
 msgid "GIF search"
 msgstr "GIF-haku"
 
@@ -16101,7 +16062,7 @@ msgstr "GIF-kuvia ei voitu ladata"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subscription status badge meaning premium access came from a gift.
 #: src/features/app/components/dialogs/components/plutonium/SubscriptionCard.tsx:443
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:294
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:293
 #: src/features/user/components/settings_utils/search_index/PlutoniumIndex.ts:79
 msgid "Gift"
 msgstr "Lahja"
@@ -16527,11 +16488,11 @@ msgstr "Ryhmäkeskustelu"
 msgid "Group DM"
 msgstr "Ryhmäkeskustelu"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:277
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:276
 msgid "Group DM avatars"
 msgstr "Ryhmäkeskustelujen avatarit"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:279
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:278
 msgid "Group DM avatars using the same status masks as regular avatars, including stacked layouts and typing states."
 msgstr "Ryhmäkeskustelujen avatarit käyttävät samoja tilanaamioita kuin tavallisetkin avatarit, mukaan lukien pinotut asettelut ja kirjoitustilat."
 
@@ -16576,7 +16537,7 @@ msgstr "Ryhmän nimi"
 msgid "Group name must not exceed 100 characters"
 msgstr "Ryhmän nimi saa olla enintään 100 merkkiä pitkä"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:318
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:317
 msgid "Group online status"
 msgstr "Ryhmän online-tila"
 
@@ -16602,7 +16563,7 @@ msgstr "Ryhmän yksityisyys"
 msgid "Group settings"
 msgstr "Ryhmän asetukset"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:351
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:350
 msgid "Group typing states"
 msgstr "Ryhmän kirjoitustilat"
 
@@ -16749,7 +16710,7 @@ msgid "Hawaii"
 msgstr "Havaiji"
 
 #. hCaptcha provider option.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:974
+#: src/features/app/components/setup/SetupWizardSteps.tsx:968
 msgid "hCaptcha"
 msgstr "hCaptcha"
 
@@ -16949,7 +16910,7 @@ msgid "Hide expiration footnotes"
 msgstr "Piilota vanhenemishuomautukset"
 
 #. Toggle / action label that collapses or hides the favorites section.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:696
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Piilota suosikit"
 
@@ -17179,7 +17140,7 @@ msgstr "Vie hiiri päälle"
 msgid "Hover over buttons to see tooltips in different positions."
 msgstr "Vie hiiren kursori painikkeiden päälle nähdäksesi työkaluvihjeet eri kohdissa."
 
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:386
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:334
 msgid "How about:"
 msgstr "Entä tämä:"
 
@@ -17318,7 +17279,7 @@ msgstr "Identiteetti"
 
 #. Generic presence-status label indicating the user is idle / AFK.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:639
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:643
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:46
 msgid "Idle"
 msgstr "Inaktiivinen"
@@ -17395,14 +17356,6 @@ msgstr "Jos suljet tämän, voit ottaa työpöytäilmoitukset käyttöön myöhe
 #: src/features/voice/components/dialogs/DisablePiPConfirmModal.tsx:56
 msgid "If you don't save this preference, we'll only hide the popout for this session. You can change this any time in {audioVideoSettingsPath}."
 msgstr "Jos et tallenna tätä asetusta, piilotamme kuva kuvassa -ikkunan vain tämän istunnon ajaksi. Voit muuttaa tätä milloin tahansa kohdassa {audioVideoSettingsPath}."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:354
-msgid "If you save this username, your tag will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires on <0>{premiumExpiresAtLabel}</0>, unless it renews."
-msgstr "Jos tallennat tämän käyttäjänimen, tunnuksesi arvotaan uudelleen satunnaisesti, kun {PREMIUM_PRODUCT_NAME} päättyy <0>{premiumExpiresAtLabel}</0>, ellei sitä uusita."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:361
-msgid "If you save this username, your tag will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires, unless it renews."
-msgstr "Jos tallennat tämän käyttäjänimen, tunnuksesi arvotaan uudelleen satunnaisesti, kun {PREMIUM_PRODUCT_NAME} päättyy, ellei sitä uusita."
 
 #: src/features/auth/components/modals/AccountDeleteModal.tsx:64
 msgid "If you want to export your data or delete your messages first, please visit {privacyDashboardPath} before proceeding."
@@ -17497,7 +17450,7 @@ msgstr "Illinois"
 #. Type label for image media.
 #: src/features/channel/components/embeds/media/EmbedImage.tsx:47
 #: src/features/expressions/utils/FavoriteMemeUtils.ts:14
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:113
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:114
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:25
 msgid "Image"
 msgstr "Kuva"
@@ -17508,7 +17461,7 @@ msgid "Image assets"
 msgstr "Kuvaresurssit"
 
 #. Success toast confirming that an image was copied as a bitmap to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:157
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:158
 msgid "Image copied to clipboard"
 msgstr "Kuva kopioitu leikepöydälle"
 
@@ -17542,7 +17495,7 @@ msgid "Image options"
 msgstr "Kuvan asetukset"
 
 #. Accessible label for a static image shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:81
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:82
 msgid "Image preview"
 msgstr "Kuvan esikatselu"
 
@@ -17569,7 +17522,7 @@ msgstr "Kuvan lataus"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the mobile memes picker. Filters to saved images.
-#: src/features/channel/components/MobileMemesPicker.tsx:46
+#: src/features/channel/components/MobileMemesPicker.tsx:47
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:16
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:105
 msgid "Images"
@@ -17713,7 +17666,7 @@ msgstr "Käyttöjärjestelmä-tilassa yllä luetellut sanakirjat ovat ohjeellisi
 msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
 msgstr "Selaimessa push-to-talk toimii vain, kun {PRODUCT_NAME}-välilehti on aktiivinen. Asenna työpöytäsovellus, jos haluat käyttää push-to-talkia koko järjestelmässä."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:721
+#: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "Puhelussa"
 
@@ -18250,7 +18203,7 @@ msgid "Invite background"
 msgstr "Kutsun taustakuva"
 
 #. Field label on the details step of the DSA report form (community report). Optional invite code to the reported community.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:48
+#: src/features/moderation/components/report/ReportStepDetails.tsx:47
 msgid "Invite code (optional)"
 msgstr "Kutsukoodi (valinnainen)"
 
@@ -18294,7 +18247,7 @@ msgid "Invite link is hidden while sharing:"
 msgstr "Kutsulinkki on piilotettu jakamisen aikana:"
 
 #. Inline replacement text shown for invite links while streaming privacy is active.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:145
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:146
 msgid "Invite link masked while sharing"
 msgstr "Kutsulinkki piilotettu jakamisen aikana"
 
@@ -18406,7 +18359,7 @@ msgstr "Kutsuja:"
 #. Generic section / tab label for the invites list.
 #: src/features/channel/components/modals/channel_tabs/ChannelInvitesTab.tsx:191
 #: src/features/guild/components/modals/guild_tabs/GuildInvitesTab.tsx:53
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:684
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:688
 msgid "Invites"
 msgstr "Kutsut"
 
@@ -18595,7 +18548,7 @@ msgid "Join call"
 msgstr "Liity puheluun"
 
 #. Generic action label that accepts a community invite / joins a community.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:675
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:679
 msgid "Join community"
 msgstr "Liity yhteisöön"
 
@@ -18707,7 +18660,7 @@ msgid "Jump to {displayName}"
 msgstr "Siirry kohtaan {displayName}"
 
 #. Accessible label for an inline channel mention link. labelText is the channel display name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:100
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:101
 msgid "Jump to {labelText}"
 msgstr "Siirry kohtaan {labelText}"
 
@@ -18764,12 +18717,12 @@ msgid "Jump to the current call"
 msgstr "Siirry puheluun"
 
 #. Fallback accessible label for an inline channel mention when the target name is not known.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:104
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:105
 msgid "Jump to the linked channel"
 msgstr "Siirry linkitettyyn kanavaan"
 
 #. Fallback accessible label for an inline message link when the target channel is not known.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:96
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:97
 msgid "Jump to the linked message"
 msgstr "Siirry linkitettyyn viestiin"
 
@@ -18779,7 +18732,7 @@ msgid "Jump to the message from {authorNickname}"
 msgstr "Siirry käyttäjän {authorNickname} viestiin"
 
 #. Accessible label for an inline message link that jumps to a specific message in a channel. labelText is the channel display name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:91
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:92
 msgid "Jump to the message in {labelText}"
 msgstr "Siirry viestiin kohteessa {labelText}"
 
@@ -18941,7 +18894,7 @@ msgid "Kick a member from this community."
 msgstr "Poista jäsen tästä yhteisöstä."
 
 #. Moderation action label that removes a member from a community without banning.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:671
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:675
 msgid "Kick member"
 msgstr "Poista jäsen yhteisöstä"
 
@@ -19108,18 +19061,13 @@ msgstr "Poistutaanko {count, plural, one {# yhteisöstä} other {# yhteisöstä}
 msgid "Leave and set aside"
 msgstr "Poistu ja siirrä sivuun"
 
-#. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:63
-msgid "Leave blank for a random username"
-msgstr "Jätä tyhjäksi, jos haluat satunnaisen käyttäjänimen"
-
 #. Destructive button in the mobile direct-call lobby bottom sheet. Disconnects from the call.
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:92
 msgid "Leave call"
 msgstr "Poistu puhelusta"
 
 #. Destructive action label that removes the current user from a community.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:667
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:671
 msgid "Leave community"
 msgstr "Poistu yhteisöstä"
 
@@ -19265,7 +19213,7 @@ msgstr "Antoi jäsenen taas kuulla muita tässä yhteisössä"
 msgid "Lets custom CSS reveal transparent window regions after restarting the desktop app."
 msgstr "Mukautetun CSS:n avulla työpöytäsovelluksen ikkunan alueet voivat olla läpinäkyviä uudelleenkäynnistyksen jälkeen."
 
-#: src/features/ui/components/form/UsernameValidationRules.tsx:47
+#: src/features/ui/components/form/UsernameValidationRules.tsx:50
 msgid "Letters (a-z, A-Z), numbers (0-9), and underscores (_) only"
 msgstr "Vain kirjaimet (a-z, A-Z), numerot (0-9) ja alaviivat (_)"
 
@@ -19427,7 +19375,7 @@ msgid "Link styling"
 msgstr "Linkkien tyyli"
 
 #. Title of the alert shown when clicking an internal link that is not available to the current account.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:137
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:138
 msgid "Link unavailable"
 msgstr "Linkki ei ole saatavilla"
 
@@ -19580,7 +19528,7 @@ msgid "Loading theme..."
 msgstr "Ladataan teemaa..."
 
 #. Generic loading toast or label shown while an operation is in progress.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:141
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:142
 msgid "Loading..."
 msgstr "Ladataan..."
 
@@ -19648,7 +19596,7 @@ msgid "Logo"
 msgstr "Logo"
 
 #. Label for Bluesky OAuth logo URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1026
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1020
 msgid "Logo URL"
 msgstr "Logon URL-osoite"
 
@@ -19809,7 +19757,7 @@ msgstr "Haittaohjelmat, tunnusten varastaminen tai haitalliset tiedostot."
 msgid "Manage"
 msgstr "Hallitse"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:396
+#: src/features/app/components/floating/UserAreaPopout.tsx:398
 #: src/features/auth/components/accounts/AccountSwitcherModal.tsx:78
 msgid "Manage accounts"
 msgstr "Hallinnoi tilejä"
@@ -19966,7 +19914,7 @@ msgstr "Merkitse spoileriksi"
 
 #. Generic action label that flips a channel back to unread.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:663
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:667
 #: src/features/input/state/input_keybind/shared.ts:33
 msgid "Mark as unread"
 msgstr "Merkitse lukemattomaksi"
@@ -20205,7 +20153,7 @@ msgstr "Käyttökertojen enimmäismäärä"
 msgid "Max size: {BACKGROUND_MEDIA_MAX_SIZE_LABEL}."
 msgstr "Suurin koko: {BACKGROUND_MEDIA_MAX_SIZE_LABEL}."
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:451
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:450
 msgid "Max visible count"
 msgstr "Näkyvien enimmäismäärä"
 
@@ -20241,8 +20189,8 @@ msgstr "Voi aiheuttaa yhteensopivuusongelmia katsojille. Pyrimme parantamaan tä
 
 #. Short label in the max favorite memes modal.
 #: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:36
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:220
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:277
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:219
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:276
 msgid "Maybe later"
 msgstr "Ehkä myöhemmin"
 
@@ -20318,7 +20266,7 @@ msgstr "Seuraava kappale"
 #. Accessible label for the overflow menu button in the media viewer modal.
 #. Short label in the channel and chat media action bottom sheet. Keep it concise.
 #: src/features/channel/components/MediaActionBottomSheet.tsx:37
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:69
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:70
 msgid "Media options"
 msgstr "Median asetukset"
 
@@ -20328,7 +20276,7 @@ msgid "Media play/pause"
 msgstr "Toista/keskeytä"
 
 #. Generic accessible label for unknown media in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:97
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:98
 msgid "Media preview"
 msgstr "Median esikatselu"
 
@@ -20361,7 +20309,7 @@ msgstr "Pysäytä toisto"
 msgid "Medium"
 msgstr "Keskitaso"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:150
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:149
 msgid "Medium size (default)"
 msgstr "Keskikokoinen (oletus)"
 
@@ -20519,7 +20467,7 @@ msgstr "Mainitaanko {mention}?"
 msgid "Mention {roleLabel}?"
 msgstr "Mainitaanko {roleLabel}?"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:145
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:144
 msgid "Mention badges"
 msgstr "Mainintamerkit"
 
@@ -20561,7 +20509,7 @@ msgstr "Mainitaanko tämä rooli?"
 #. Generic section / tab label for the mentions inbox.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:136
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:643
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:647
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:166
 msgid "Mentions"
 msgstr "Maininnat"
@@ -20623,9 +20571,9 @@ msgstr "Viesti"
 #: src/features/ui/action_menu/items/ActionsSubmenu.tsx:41
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:715
-#: src/features/user/components/modals/UserProfileModal.tsx:562
-#: src/features/user/components/modals/UserProfileModal.tsx:770
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
+#: src/features/user/components/modals/UserProfileModal.tsx:561
+#: src/features/user/components/modals/UserProfileModal.tsx:769
 #: src/features/user/components/popouts/UserProfilePopout.tsx:418
 #: src/features/user/components/popouts/UserProfilePopout.tsx:448
 #: src/features/user/components/profile/ProfilePreview.tsx:321
@@ -20714,7 +20662,7 @@ msgstr "Viestien poistaminen"
 msgid "Message display mode"
 msgstr "Viestien näyttötila"
 
-#: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:264
+#: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:263
 msgid "Message display settings are only available on desktop."
 msgstr "Viestien näyttöasetukset ovat käytettävissä vain työpöytäsovelluksessa."
 
@@ -20783,12 +20731,12 @@ msgid "Message layout"
 msgstr "Viestin asettelu"
 
 #. Type chip suffix in tooltips for inline rendered message links. Lowercase because it follows the channel name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:81
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:82
 msgid "message link"
 msgstr "viestilinkki"
 
 #. Field label on the details step of the DSA report form (message report). The reporter pastes a direct link to the offending message.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:23
+#: src/features/moderation/components/report/ReportStepDetails.tsx:22
 msgid "Message link"
 msgstr "Viestilinkki"
 
@@ -21102,7 +21050,7 @@ msgstr "Väärin kirjoitetut sanat"
 msgid "Mobile device"
 msgstr "Mobiililaite"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:95
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:94
 msgid "Mobile online status on avatars"
 msgstr "Mobiilin online-tila avatareissa"
 
@@ -21118,7 +21066,7 @@ msgstr "Mobiili-ilmoitukset"
 msgid "Mobile push timeout"
 msgstr "Mobiili-ilmoitusten aikakatkaisu"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:198
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:197
 msgid "Mock avatars"
 msgstr "Testiavatarit"
 
@@ -21164,7 +21112,7 @@ msgstr "Simuloi aikuisille tarkoitetun sisällön mediaportin syy"
 msgid "Mock UK geo"
 msgstr "Simuloi Ison-Britannian sijainti"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:199
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:198
 msgid "Mock user avatars in various sizes and all status permutations."
 msgstr "Käyttäjien testiavatarit eri kokoisina ja kaikilla tilayhdistelmillä."
 
@@ -21562,7 +21510,7 @@ msgid "Mute calls"
 msgstr "Mykistä puhelut"
 
 #. Action label that mutes notifications for a channel category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:575
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:579
 msgid "Mute category"
 msgstr "Mykistä kategoria"
 
@@ -21609,7 +21557,7 @@ msgid "Mute entrance sound"
 msgstr "Mykistä sisääntuloääni"
 
 #. Action label that mutes notifications for the favourites pseudo-guild.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:688
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:692
 msgid "Mute favorites"
 msgstr "Mykistä suosikit"
 
@@ -21738,7 +21686,7 @@ msgstr "Yhteiset kaverit"
 msgid "Mutual friends ({count})"
 msgstr "Yhteiset kaverit ({count})"
 
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:842
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:833
 msgid "Mutual friends ({mutualFriendsCount})"
 msgstr "Yhteiset kaverit ({mutualFriendsCount})"
 
@@ -22029,7 +21977,7 @@ msgid "Nevada"
 msgstr "Nevada"
 
 #. Generic short option label for "never" in time / frequency dropdowns.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:647
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:651
 msgid "Never"
 msgstr "Ei koskaan"
 
@@ -22187,6 +22135,10 @@ msgstr "Uudet asetukset"
 msgid "New settings stay here for 30 days."
 msgstr "Uudet asetukset näkyvät täällä 30 päivän ajan."
 
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:151
+msgid "New username"
+msgstr "New username"
+
 #. Invite page subtext shown during raid protection. Explains that account actions still work, but joining is paused.
 #: src/features/invite/utils/InviteMessageDescriptors.ts:41
 msgid "New users can't join right now. You can still create an account or sign in, then try this link again later."
@@ -22221,7 +22173,7 @@ msgstr "Uusimmat ensin"
 #. Primary button in the required-action modal. Moves to the next carousel step.
 #: src/features/app/components/setup/SelfHostedSetupWizardGate.tsx:81
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:154
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:716
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:720
 msgid "Next"
 msgstr "Seuraava"
 
@@ -22272,7 +22224,7 @@ msgid "No {sendMessagesPermission} permission"
 msgstr "Ei {sendMessagesPermission}-käyttöoikeutta"
 
 #. Inline text shown inside a custom message link pill when the linked message cannot be accessed.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:125
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:126
 msgid "No access"
 msgstr "Ei käyttöoikeutta"
 
@@ -22366,7 +22318,7 @@ msgid "No bookmarks"
 msgstr "Ei kirjanmerkkejä"
 
 #. Empty-state text in the bot profile section. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:64
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:66
 msgid "No bot banner"
 msgstr "Ei bottibanneria"
 
@@ -22392,7 +22344,7 @@ msgid "No category"
 msgstr "Ei kategoriaa"
 
 #. Empty-state text in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:42
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:45
 msgid "No changes to save"
 msgstr "Ei tallennettavia muutoksia"
 
@@ -22458,7 +22410,7 @@ msgstr "Näyttöjä ei löytynyt"
 msgid "No email address set"
 msgstr "Sähköpostiosoitetta ei ole asetettu"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:284
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:283
 msgid "No embeds returned"
 msgstr "Upotuksia ei palautettu"
 
@@ -22602,6 +22554,11 @@ msgstr "Tässä instanssissa ei ole valinnaisia palveluita. Voit ohittaa tämän
 msgid "No part of {query} could be applied. Fix the underlined value or add something to search for."
 msgstr "Mitään osaa hausta \"{query}\" ei voitu käyttää. Korjaa alleviivattu arvo tai lisää jotain haettavaa."
 
+#. Error on the forgot password page when the admin has not opened a password reset for the account. There is no email reset.
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:37
+msgid "No password reset is open for this account. Ask the admin to open one, then try again."
+msgstr "No password reset is open for this account. Ask the admin to open one, then try again."
+
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:189
 msgid "No password set"
 msgstr "Salasanaa ei ole asetettu"
@@ -22652,7 +22609,7 @@ msgstr "Ei vielä esikatselua"
 msgid "No push subscriptions registered yet."
 msgstr "Push-tilauksia ei ole vielä rekisteröity."
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:79
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:77
 msgid "No reason provided"
 msgstr "Syytä ei annettu"
 
@@ -22674,7 +22631,7 @@ msgstr "Vastauksen sisältöä ei saatu"
 #. Empty-state text in the channel and chat memes picker view.
 #. Heading shown when the channel search query returned zero matches.
 #: src/features/channel/components/channel_search_results/ChannelSearchResultsShared.tsx:74
-#: src/features/channel/components/MobileMemesPicker.tsx:66
+#: src/features/channel/components/MobileMemesPicker.tsx:67
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:32
 msgid "No results"
 msgstr "Ei tuloksia"
@@ -22703,7 +22660,7 @@ msgstr "Ei vielä rooleja. Lisää rooleja täältä: {rolesSettingsPath}"
 
 #. Empty state title in the mobile memes picker when the user has saved nothing yet.
 #. Empty-state text in the channel and chat memes picker view.
-#: src/features/channel/components/MobileMemesPicker.tsx:58
+#: src/features/channel/components/MobileMemesPicker.tsx:59
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:24
 msgid "No saved media"
 msgstr "Ei tallennettuja medioita"
@@ -23012,7 +22969,7 @@ msgstr "Ei ole tosi eikä epätosi"
 #: src/features/messaging/utils/markdown/Plaintext.ts:72
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:19
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:79
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:897
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:888
 msgid "Note"
 msgstr "Huomautus"
 
@@ -23054,7 +23011,7 @@ msgstr "Ilmoitus"
 msgid "Notification area"
 msgstr "Ilmoitusalue"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:146
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:145
 msgid "Notification badges showing unread mention counts in different sizes."
 msgstr "Ilmoitusmerkit, jotka näyttävät lukemattomien mainintojen määrän eri kokoisina."
 
@@ -23087,7 +23044,7 @@ msgstr "Ilmoitusäänenvoimakkuus"
 #. Generic section header / tab label for the notifications area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/components/layout/MobileBottomNav.tsx:136
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:700
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:704
 #: src/features/notification/components/pages/NotificationsPage.tsx:61
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedSettingsCategories.ts:18
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:30
@@ -23185,7 +23142,7 @@ msgid "Off"
 msgstr "Pois päältä"
 
 #. Generic presence-status label indicating the user is offline.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:635
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:639
 msgid "Offline"
 msgstr "Offline"
 
@@ -23242,7 +23199,7 @@ msgstr "<0>{listPriceEffectiveDate}</0> tilauksesi siirtyy hinnasta {listPriceCu
 msgid "On click"
 msgstr "Napsautettaessa"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:704
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:707
 msgid "Once deleted, the application and its credentials are permanently removed."
 msgstr "Kun sovellus ja sen tunnistetiedot on poistettu, niitä ei voi enää palauttaa."
 
@@ -23436,7 +23393,7 @@ msgid "Open {displayName}"
 msgstr "Avaa {displayName}"
 
 #. Accessible label for an inline settings deep-link pill. labelText is the resolved settings tab and section breadcrumb.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:108
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:109
 msgid "Open {labelText} in settings"
 msgstr "Avaa {labelText} asetuksissa"
 
@@ -23477,14 +23434,14 @@ msgstr "Avaa sovellusikkuna ja yritä uudelleen."
 #. Button or menu action label in the channel and chat attachment grid item. Keep it concise.
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:74
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:55
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:56
 msgid "Open animated GIF in full view"
 msgstr "Avaa animoitu GIF koko näytöllä"
 
 #. Button or menu action label in the channel and chat attachment grid item. Keep it concise.
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:70
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:51
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:52
 msgid "Open animated GIF video in full view"
 msgstr "Avaa animoitu GIF-video koko näytöllä"
 
@@ -23494,7 +23451,7 @@ msgid "Open audio in full view"
 msgstr "Avaa ääni koko näytöllä"
 
 #. Media context menu action that opens the audio URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:101
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:102
 msgid "Open audio link"
 msgstr "Avaa äänilinkki"
 
@@ -23647,12 +23604,12 @@ msgid "Open favorites menu"
 msgstr "Avaa suosikkivalikko"
 
 #. Media context menu action that opens the file URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:105
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:106
 msgid "Open file link"
 msgstr "Avaa tiedostolinkki"
 
 #. Media context menu action that opens the GIF URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:93
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:94
 msgid "Open GIF link"
 msgstr "Avaa GIF-linkki"
 
@@ -23677,7 +23634,7 @@ msgstr "Avaa kuva selaimessa"
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #. Button or menu action label in the channel and chat embed image. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:78
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:59
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:60
 #: src/features/channel/components/embeds/media/EmbedImage.tsx:43
 msgid "Open image in full view"
 msgstr "Avaa kuva koko näytöllä"
@@ -23686,7 +23643,7 @@ msgstr "Avaa kuva koko näytöllä"
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:48
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:89
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:90
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
 msgstr "Avaa kuvalinkki"
@@ -23863,7 +23820,7 @@ msgid "Open video in full view"
 msgstr "Avaa video koko näytöllä"
 
 #. Media context menu action that opens the video URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:97
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:98
 msgid "Open video link"
 msgstr "Avaa videolinkki"
 
@@ -24129,7 +24086,7 @@ msgstr "Kaiuttimen äänenvoimakkuus"
 msgid "Outside the refund window"
 msgstr "Hyvitysajan ulkopuolella"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:388
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:387
 msgid "Overlapping avatar groups showing multiple users with automatic overflow counts."
 msgstr "Päällekkäiset avatar-ryhmät, joissa näkyy useita käyttäjiä automaattisella ylivuodon laskennalla."
 
@@ -24274,7 +24231,7 @@ msgstr "Pääsyavaimet edellyttävät allekirjoitettua macOS-pakettia, jossa on 
 
 #. Generic form-field label for a password.
 #. Label for SMTP password input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:997
+#: src/features/app/components/setup/SetupWizardSteps.tsx:991
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:210
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:146
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:183
@@ -24296,7 +24253,9 @@ msgstr "Salasanaton"
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
 #. Short label in the authentication email revert page. Keep the tone plain and specific.
 #. Short label in the authentication reset password page. Keep the tone plain and specific.
+#. Validation error on the forgot password page.
 #: src/features/auth/components/pages/EmailRevertPage.tsx:22
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:33
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:23
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:31
 #: src/features/user/components/modals/PasswordChangeModal.tsx:34
@@ -24860,7 +24819,7 @@ msgid "pinned"
 msgstr "kiinnitetty"
 
 #. Generic short toast / status label confirming a DM was pinned.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:651
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:655
 msgid "Pinned DM"
 msgstr "Kiinnitetty yksityisviesti"
 
@@ -25065,7 +25024,7 @@ msgid "Popup"
 msgstr "Ponnahdusikkuna"
 
 #. Label for SMTP port input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:995
+#: src/features/app/components/setup/SetupWizardSteps.tsx:989
 msgid "Port"
 msgstr "Portti"
 
@@ -25258,7 +25217,7 @@ msgstr "Estä jäseniä lähettämästä viestejä, reagoimasta ja liittymästä
 
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:276
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
 msgstr "Esikatselu"
 
@@ -25441,12 +25400,12 @@ msgid "Privacy policy"
 msgstr "Tietosuojakäytäntö"
 
 #. Generic section heading / button label for the privacy settings area.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:659
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:663
 msgid "Privacy settings"
 msgstr "Tietosuoja-asetukset"
 
 #. Label for Bluesky OAuth privacy URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1034
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1028
 msgid "Privacy URL"
 msgstr "Tietosuojakäytännön URL"
 
@@ -25471,7 +25430,7 @@ msgid "Private details"
 msgstr "Yksityiset tiedot"
 
 #. Label for Bluesky OAuth private key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1042
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1036
 msgid "Private key"
 msgstr "Yksityinen avain"
 
@@ -25666,7 +25625,7 @@ msgstr "Pronominit: "
 msgid "Protect your Visionary account by enabling two-factor authentication. Thanks for supporting {productName}!"
 msgstr "Suojaa Visionary-tilisi ottamalla kaksivaiheinen todennus käyttöön. Kiitos, että tuet {productName}ia!"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:216
+#: src/features/moderation/components/report/ReportStepDetails.tsx:215
 msgid "Provide at least a user ID or a user tag."
 msgstr "Anna vähintään käyttäjätunnus tai käyttäjätunniste."
 
@@ -25681,7 +25640,7 @@ msgid "Provide your full legal name for the declaration."
 msgstr "Anna koko virallinen nimesi vakuutusta varten."
 
 #. Label for an integration provider choice.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:970
+#: src/features/app/components/setup/SetupWizardSteps.tsx:964
 msgid "Provider"
 msgstr "Palveluntarjoaja"
 
@@ -25979,7 +25938,7 @@ msgstr "Nopeus"
 msgid "Rate limited"
 msgstr "Nopeusrajoitettu"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:292
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:291
 msgid "Raw embed JSON"
 msgstr "Upotuksen raaka JSON"
 
@@ -26005,7 +25964,7 @@ msgstr "Reagoi emojilla {emojiShortcode}"
 
 #. Generic short section / tab / aria label for emoji reactions.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:655
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:659
 #: src/features/messaging/components/modals/MessageReactionsModal.tsx:144
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:13
 msgid "Reactions"
@@ -26084,7 +26043,7 @@ msgid "Real-time"
 msgstr "Reaaliaikainen"
 
 #: src/features/guild/components/modals/guild_tabs/GuildAuditLogTab.tsx:595
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:74
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:72
 msgid "Reason"
 msgstr "Syy"
 
@@ -26347,7 +26306,7 @@ msgstr "Haluatko hyvittää viimeisimmän ostoksesi?"
 #. Short label in the secrets section. Keep it concise.
 #: src/features/auth/components/modals/BackupCodesModal.tsx:114
 #: src/features/user/components/modals/tabs/applications_tab/application_detail/SecretsSection.tsx:23
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:78
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:81
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:128
 msgid "Regenerate"
 msgstr "Luo uudelleen"
@@ -26358,20 +26317,20 @@ msgid "Regenerate backup codes"
 msgstr "Luo uudet varakoodit"
 
 #. Confirmation prompt in the application detail. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:74
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:77
 msgid "Regenerate bot token?"
 msgstr "Luodaanko bottitunnus uudelleen?"
 
 #. Confirmation prompt in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:70
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:73
 msgid "Regenerate client secret?"
 msgstr "Luodaanko uusi asiakassalaisuus?"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:541
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:544
 msgid "Regenerating will invalidate the current secret. Update any code that uses the old value."
 msgstr "Uudelleenluonti mitätöi nykyisen salaisuuden. Päivitä kaikki koodi, joka käyttää vanhaa arvoa."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:543
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:546
 msgid "Regenerating will invalidate the current token. Update any code that uses the old value."
 msgstr "Uudelleenluonti mitätöi nykyisen tunnuksen. Päivitä kaikki koodi, joka käyttää vanhaa arvoa."
 
@@ -26389,8 +26348,7 @@ msgstr "Rekisteröidyt pääsyavaimet"
 msgid "Registration"
 msgstr "Rekisteröinti"
 
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:211
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:312
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:284
 msgid "Registration is currently closed. Use a registration link from an admin to create an account."
 msgstr "Rekisteröityminen on tällä hetkellä suljettu. Luo tili käyttämällä ylläpitäjältä saatua rekisteröitymislinkkiä."
 
@@ -26638,7 +26596,7 @@ msgid "Remove from group"
 msgstr "Poista ryhmästä"
 
 #. Action that removes the selected media from saved media.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:181
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:182
 msgid "Remove from saved media"
 msgstr "Poista tallennetusta mediasta"
 
@@ -26650,7 +26608,7 @@ msgid "Remove from top"
 msgstr "Älä pysy päällä"
 
 #. Media context menu action that removes a GIF favorite saved by URL.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:173
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:174
 msgid "Remove from URL-only GIF favorites"
 msgstr "Poista URL-osoitteena tallennetuista GIF-suosikeista"
 
@@ -26776,7 +26734,7 @@ msgid "Removed from favorite GIFs"
 msgstr "Poistettu suosikki-GIFeistä"
 
 #. Toast confirming an item was removed from the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:611
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:615
 msgid "Removed from favorites"
 msgstr "Poistettu suosikeista"
 
@@ -26981,6 +26939,16 @@ msgstr "Nimeä kanava uudelleen -lomake"
 msgid "Rename emoji"
 msgstr "Nimeä emoji uudelleen"
 
+#. Toast after a user cancels their pending rename request.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:29
+msgid "Rename request cancelled"
+msgstr "Rename request cancelled"
+
+#. Toast after a user asks for a new username. The admin still has to approve it.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:25
+msgid "Rename request sent"
+msgstr "Rename request sent"
+
 #. Activity log detail line under a community settings update, shown when the community name changed. It continues the entry summary, so it has no subject. It is a past tense record of a change the actor in the summary already made, never an instruction to the reader. Do not write it as a command, a button label or in first or second person. {oldName} is the previous community name and {newName} is the new community name, both shown in bold. The app adds the bold, so do not add ** or <b>.
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogGuildMessages.ts:46
 msgid "Renamed the community from {oldName} to {newName}"
@@ -27039,7 +27007,7 @@ msgstr "Vastaukset"
 
 #. Generic action label that opens the reply composer for a message.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:607
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:611
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:71
 msgid "Reply"
 msgstr "Vastaa"
@@ -27112,7 +27080,7 @@ msgstr "Ilmoita käyttäjäprofiilista"
 msgid "Report community"
 msgstr "Ilmoita yhteisöstä"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:128
+#: src/features/moderation/components/report/ReportStepDetails.tsx:127
 msgid "Report details"
 msgstr "Ilmoituksen tiedot"
 
@@ -27150,10 +27118,10 @@ msgstr "Ilmoituksen tyyppi"
 msgid "Report user"
 msgstr "Ilmoita käyttäjästä"
 
-#. Field label on the details step of the DSA report form (message report). Optional FluxerTag of the user who sent the message.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:28
-msgid "Reported user tag (optional)"
-msgstr "Ilmoitetun käyttäjän tunniste (valinnainen)"
+#. Field label on the details step of the DSA report form (message report). Optional username of the user who sent the message.
+#: src/features/moderation/components/report/ReportStepDetails.tsx:27
+msgid "Reported username (optional)"
+msgstr "Reported username (optional)"
 
 #: src/features/channel/components/embeds/channel_embed/BlueskyEmbed.tsx:45
 msgid "Reposts: <0>{countLabel}</0>"
@@ -27167,6 +27135,16 @@ msgstr "Pyydä ensin uusi koodi."
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:135
 msgid "Request a new reset link"
 msgstr "Pyydä uusi palautuslinkki"
+
+#. Title of the rename request modal.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:37
+msgid "Request a new username"
+msgstr "Request a new username"
+
+#. Accessible label of the rename request form.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:33
+msgid "Request a new username form"
+msgstr "Request a new username form"
 
 #. Form validation error shown when the user tries to submit a code before requesting one.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:112
@@ -27198,7 +27176,7 @@ msgid "Require double-click to join voice channels"
 msgstr "Vaadi kaksoisnapsautus äänikanaville liittymiseen"
 
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:80
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:82
 msgid "Require manual friend approval"
 msgstr "Vaadi kaveripyyntöjen manuaalinen hyväksyntä"
 
@@ -27749,10 +27727,6 @@ msgstr "Tilaa uudelleen"
 msgid "Resumed invites"
 msgstr "Kutsut otettu uudelleen käyttöön"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:62
-msgid "Return to sign-in"
-msgstr "Palaa sisäänkirjautumiseen"
-
 #. Account settings: button that reveals the masked user email address. Verb, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat mature media blur overlay. Keep it concise.
@@ -27789,7 +27763,7 @@ msgstr "Kuvan käänteishaku"
 
 #. Generic action label that runs a reverse-image search on the selected media.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:603
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:607
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:267
 msgid "Reverse image search"
 msgstr "Käänteinen kuvahaku"
@@ -27904,7 +27878,7 @@ msgstr "Poista kaikkien sovellusten käyttöoikeudet"
 #. Short label in the guild bans tab. Keep it concise. Keep the tone plain and specific.
 #: src/features/guild/components/modals/guild_tabs/BannedUserActionsSheet.tsx:23
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:32
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:137
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:135
 #: src/features/ui/action_menu/BannedUserContextMenu.tsx:55
 msgid "Revoke ban"
 msgstr "Kumoa porttikielto"
@@ -27943,7 +27917,7 @@ msgid "Revoked ban for {0}"
 msgstr "Käyttäjän {0} porttikielto kumottu"
 
 #. Tooltip / aria label on the rewind button in the standalone audio player. {defaultSeekAmount} is an integer second count.
-#: src/features/voice/components/media_player/components/AudioPlayer.tsx:26
+#: src/features/voice/components/media_player/components/AudioPlayer.tsx:27
 msgid "Rewind {defaultSeekAmount} seconds"
 msgstr "Kelaa taaksepäin {defaultSeekAmount} sekuntia"
 
@@ -28243,7 +28217,7 @@ msgstr "Tallenna kuvake"
 
 #. Button or menu action label in the channel and chat memes picker view. Keep it concise.
 #. Empty state body in the mobile memes picker explaining how to save media. Tone can be friendly.
-#: src/features/channel/components/MobileMemesPicker.tsx:62
+#: src/features/channel/components/MobileMemesPicker.tsx:63
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:28
 msgid "Save some media from messages to get started!"
 msgstr "Aloita tallentamalla mediaa viesteistä!"
@@ -28325,7 +28299,7 @@ msgstr "Käyttöoikeudet"
 
 #. Section heading for screen-reader related accessibility settings.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:599
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:603
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:51
 msgid "Screen reader"
 msgstr "Näytönlukuohjelma"
@@ -28762,7 +28736,7 @@ msgstr "Hae rooleja tai jäseniä…"
 
 #. Button or menu action label in the channel and chat memes picker header. Keep it concise.
 #. Placeholder text in the mobile memes picker search input.
-#: src/features/channel/components/MobileMemesPicker.tsx:54
+#: src/features/channel/components/MobileMemesPicker.tsx:55
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:24
 msgid "Search saved media"
 msgstr "Hae tallennettuja medioita"
@@ -28892,7 +28866,7 @@ msgid "Secret"
 msgstr "Salaisuus"
 
 #. Label for a CAPTCHA secret key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:981
+#: src/features/app/components/setup/SetupWizardSteps.tsx:975
 msgid "Secret key"
 msgstr "Salainen avain"
 
@@ -28986,7 +28960,7 @@ msgid "Select"
 msgstr "Valitse"
 
 #. Accessible label for a saved media tile in the mobile memes picker. accessibleName is the media filename or alt text.
-#: src/features/channel/components/MobileMemesPicker.tsx:74
+#: src/features/channel/components/MobileMemesPicker.tsx:75
 msgid "Select {accessibleName}"
 msgstr "Valitse {accessibleName}"
 
@@ -29269,7 +29243,7 @@ msgstr "Lähetä-painike"
 msgid "Send code"
 msgstr "Lähetä koodi"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:302
+#: src/features/moderation/components/report/ReportStepDetails.tsx:301
 msgid "Send DSA report"
 msgstr "Lähetä DSA-ilmoitus"
 
@@ -29337,16 +29311,13 @@ msgid "Send report"
 msgstr "Lähetä ilmoitus"
 
 #. Button or menu action label in the channel and chat add friend form. Keep it concise.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:37
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:32
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:193
 msgid "Send request"
 msgstr "Lähetä pyyntö"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:95
-msgid "Send reset link"
-msgstr "Lähetä linkki salasanan vaihtamiseen"
-
 #. Accessible label for a saved media tile in the picker. Activating sends it. memeName is the user-chosen name.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:43
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:44
 msgid "Send saved media {memeName}"
 msgstr "Lähetä tallennettu media {memeName}"
 
@@ -29462,7 +29433,7 @@ msgid "Sensitive media"
 msgstr "Arkaluonteinen media"
 
 #. Generic short status label confirming an item (invite, gift, theme link) was sent.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:804
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:808
 msgid "Sent"
 msgstr "Lähetetty"
 
@@ -29527,7 +29498,7 @@ msgstr "Istunnot"
 msgid "Set a custom role icon"
 msgstr "Asetettu mukautettu roolikuvake"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:601
+#: src/features/app/components/floating/UserAreaPopout.tsx:603
 #: src/features/app/components/shared/custom_status_display/CustomStatusDisplay.tsx:253
 msgid "Set a custom status"
 msgstr "Aseta mukautettu tila"
@@ -29572,6 +29543,7 @@ msgstr "Asetettu tässä"
 msgid "Set mute shortcut"
 msgstr "Aseta mikrofonin mykistyksen pikanäppäin"
 
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:138
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:116
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:144
 msgid "Set new password"
@@ -29714,7 +29686,7 @@ msgid "Set up authenticator app"
 msgstr "Määritä todennussovellus"
 
 #. Option for deferring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:914
+#: src/features/app/components/setup/SetupWizardSteps.tsx:908
 msgid "Set up later"
 msgstr "Määritä myöhemmin"
 
@@ -29755,7 +29727,7 @@ msgid "Settings"
 msgstr "Asetukset"
 
 #. Type chip suffix in tooltips for inline rendered fluxer://settings/user deep links. Lowercase.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:113
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:114
 msgid "settings link"
 msgstr "asetuslinkki"
 
@@ -29838,7 +29810,7 @@ msgstr "Jaa teema"
 msgid "Share voice activity with all friends?"
 msgstr "Jaetaanko äänitoiminta kaikkien kavereiden kanssa?"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:131
+#: src/features/moderation/components/report/ReportStepDetails.tsx:130
 msgid "Share what our team needs to assess this."
 msgstr "Kerro, mitä tiimimme tarvitsee arvioidakseen tämän."
 
@@ -30220,11 +30192,11 @@ msgstr "Näytä näppäimistötilan esittely"
 msgid "Show keyboard shortcuts list"
 msgstr "Näytä pikanäppäinten luettelo"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:473
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:472
 msgid "Show max 3 (+5 badge)"
 msgstr "Näytä enintään 3 (+5-merkki)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:495
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:494
 msgid "Show max 5 (+5 badge)"
 msgstr "Näytä enintään 5 (+5-merkki)"
 
@@ -30519,7 +30491,7 @@ msgstr "Kirjaudu sisään organisaatiosi kertakirjautumispalvelun kautta."
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:195
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:256
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:313
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:595
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:599
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:47
 msgid "Sign out"
 msgstr "Kirjaudu ulos"
@@ -30598,7 +30570,7 @@ msgid "Signed-in devices"
 msgstr "Kirjautuneet laitteet"
 
 #. Label for Bluesky OAuth signing key ID input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1038
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1032
 msgid "Signing key ID"
 msgstr "Allekirjoitusavaimen tunnus"
 
@@ -30680,12 +30652,12 @@ msgstr "Yksikerroksinen"
 msgid "Single line"
 msgstr "Yksi rivi"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:71
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:70
 msgid "Single user (all statuses)"
 msgstr "Yksi käyttäjä (kaikki tilat)"
 
 #. Label for a CAPTCHA site key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:980
+#: src/features/app/components/setup/SetupWizardSteps.tsx:974
 msgid "Site key"
 msgstr "Sivuston avain"
 
@@ -30738,7 +30710,7 @@ msgid "Skip the system leave notice — nobody gets pinged."
 msgstr "Ohita järjestelmän poistumisilmoitus – kukaan ei saa ilmoitusta."
 
 #. Description for deferring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:918
+#: src/features/app/components/setup/SetupWizardSteps.tsx:912
 msgid "Skip this now and configure it from the admin panel."
 msgstr "Ohita tämä nyt ja määritä se hallintapaneelista."
 
@@ -30938,7 +30910,7 @@ msgstr "Pieni toissijainen"
 msgid "Small secondary clicked."
 msgstr "Pientä toissijaista painiketta napsautettu."
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:162
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:161
 msgid "Small size"
 msgstr "Pieni koko"
 
@@ -30976,17 +30948,17 @@ msgid "SMS verification is unavailable right now. Try again later or contact sup
 msgstr "Tekstiviestivahvistus ei ole käytettävissä juuri nyt. Yritä myöhemmin uudelleen tai ota yhteyttä tukeen."
 
 #. Success message after validating SMTP credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1006
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1000
 msgid "SMTP connection verified."
 msgstr "SMTP-yhteys vahvistettu."
 
 #. Label for SMTP host input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:994
+#: src/features/app/components/setup/SetupWizardSteps.tsx:988
 msgid "SMTP host"
 msgstr "SMTP-isäntä"
 
 #. Failure message after validating SMTP credentials when the server returns no error detail.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1010
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1004
 msgid "SMTP validation failed."
 msgstr "SMTP-vahvistus epäonnistui."
 
@@ -31223,7 +31195,7 @@ msgstr "Äänenvoimakkuus"
 
 #. Section heading / tab label for the notification-sounds area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:808
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:812
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:135
 msgid "Sounds"
 msgstr "Äänet"
@@ -31614,7 +31586,7 @@ msgstr "Aloita vedä ja pudota -toiminto"
 msgid "Start mic test"
 msgstr "Aloita mikrofonitesti"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:326
+#: src/features/moderation/components/report/ReportStepDetails.tsx:325
 #: src/features/moderation/components/report/ReportStepEmail.tsx:97
 #: src/features/moderation/components/report/ReportStepVerification.tsx:134
 msgid "Start over"
@@ -31640,7 +31612,7 @@ msgid "Start uploading attachments as soon as they are added to the message inpu
 msgstr "Aloita liitteiden lataaminen heti, kun ne on lisätty viestikenttään"
 
 #. Action label that initiates a video call (DM or group DM).
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:591
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:595
 msgid "Start video call"
 msgstr "Aloita videopuhelu"
 
@@ -31685,7 +31657,7 @@ msgstr "Tilakuvake"
 
 #. Collapsible group heading in the Theme Studio tokens list, for presence and status color tokens.
 #: src/features/theme_studio/sections/TokenGroups.ts:58
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:61
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:60
 msgid "Status indicators"
 msgstr "Tilan ilmaisimet"
 
@@ -31730,7 +31702,7 @@ msgstr "Vaihe 2"
 msgid "Step 3"
 msgstr "Vaihe 3"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:125
+#: src/features/moderation/components/report/ReportStepDetails.tsx:124
 msgid "Step 4"
 msgstr "Vaihe 4"
 
@@ -32231,7 +32203,7 @@ msgid "Suppress all role mentions"
 msgstr "Estä kaikki roolimaininnat"
 
 #. Action label on a message that hides link previews / embeds.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:587
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:591
 msgid "Suppress embeds"
 msgstr "Piilota upotukset"
 
@@ -32294,7 +32266,7 @@ msgstr "ruotsi"
 msgid "Switch account"
 msgstr "Vaihda tiliä"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:677
+#: src/features/app/components/floating/UserAreaPopout.tsx:679
 msgid "Switch accounts"
 msgstr "Vaihda tiliä"
 
@@ -32640,8 +32612,6 @@ msgid "Tables"
 msgstr "Taulukot"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:61
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:73
 msgid "Tag"
 msgstr "Tunniste"
@@ -32790,7 +32760,7 @@ msgid "Terms of service"
 msgstr "Käyttöehdot"
 
 #. Label for Bluesky OAuth terms URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1030
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1024
 msgid "Terms URL"
 msgstr "Käyttöehtojen URL-osoite"
 
@@ -32800,7 +32770,7 @@ msgid "Terrorism or violent extremism"
 msgstr "Terrorismi tai väkivaltainen ekstremismi"
 
 #. Button that validates SMTP credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1002
+#: src/features/app/components/setup/SetupWizardSteps.tsx:996
 msgid "Test SMTP"
 msgstr "Testaa SMTP-yhteys"
 
@@ -32972,7 +32942,7 @@ msgstr "Tämä ei mennyt läpi. Mikään ei muuttunut. Yritä uudelleen."
 msgid "That doesn't look like a valid color. Try hex, rgb(), hsl(), or a CSS color name."
 msgstr "Tuo ei näytä kelvolliselta väriltä. Kokeile heksakoodia, rgb()- tai hsl()-arvoa tai CSS-värinimeä."
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:175
+#: src/features/moderation/components/report/ReportStepDetails.tsx:174
 msgid "That doesn't look like a valid URL."
 msgstr "Tuo ei näytä kelvolliselta URL-osoitteelta."
 
@@ -33013,10 +32983,10 @@ msgstr "Viestiä ei löydy tai sinulla ei ole enää pääsyä keskusteluun."
 msgid "That's all of them."
 msgstr "Siinä kaikki."
 
-#. Description text in the FluxerTag change modal.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:69
-msgid "The #0000 tag is reserved for Visionary subscribers. Visionary is no longer available for purchase."
-msgstr "Tunniste #0000 on varattu Visionary-tilaajille. Visionary ei ole enää ostettavissa."
+#. placeholder {0}: rejectedRequest.requested_username
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:140
+msgid "The admin rejected your request for <0>{0}</0>."
+msgstr "The admin rejected your request for <0>{0}</0>."
 
 #. Error shown when the setup wizard cannot load because the API origin differs from the page origin.
 #: src/features/app/components/setup/SelfHostedSetupWizardGate.tsx:97
@@ -33257,10 +33227,6 @@ msgstr "Järjestelmä poisti roolin {role} käyttäjältä {target}"
 msgid "The upload service rejected this sticker as larger than {maxSize}. Try a smaller file, a simpler image, or a shorter animation."
 msgstr "Latauspalvelu hylkäsi tämän tarran, koska se on suurempi kuin {maxSize}. Kokeile pienempää tiedostoa, yksinkertaisempaa kuvaa tai lyhyempää animaatiota."
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:135
-msgid "The username <0>{fluxerTag}</0> is already taken. Continuing will reroll your tag automatically."
-msgstr "Käyttäjänimi <0>{fluxerTag}</0> on jo varattu. Jos jatkat, tunnisteesi arvotaan automaattisesti uudelleen."
-
 #. Inline error on the verification step of the DSA report flow when the entered code is rejected.
 #: src/features/moderation/components/pages/ReportPage.tsx:89
 msgid "The verification code is invalid or expired."
@@ -33445,7 +33411,7 @@ msgstr "Kolmas osapuoli"
 msgid "This account can't be blocked."
 msgstr "Tätä tiliä ei voi estää."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:416
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:419
 msgid "This action cannot be undone. All associated data, including the bot user, will be permanently deleted."
 msgstr "Tätä toimintoa ei voi kumota. Kaikki siihen liittyvät tiedot, mukaan lukien bottikäyttäjä, poistetaan pysyvästi."
 
@@ -33478,7 +33444,7 @@ msgstr "Tämä selaimen konsoli on kehittäjän työkalu."
 msgid "This call is end-to-end encrypted."
 msgstr "Puhelu on päästä päähän -salattu."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:699
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:702
 msgid "This cannot be undone. Removing the application also deletes its bot."
 msgstr "Tätä toimintoa ei voi kumota. Sovelluksen poistaminen poistaa myös sen botin."
 
@@ -33873,7 +33839,7 @@ msgid "This link channel is marked for mature content and may open material that
 msgstr "Tämä linkkikanava on merkitty aikuisille tarkoitetuksi sisällöksi, ja se voi avata materiaalia, joka voi olla sopimatonta joillekin käyttäjille."
 
 #. Body of the link-unavailable alert.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:141
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:142
 msgid "This link is not available for your account."
 msgstr "Tämä linkki ei ole käytettävissä tililläsi."
 
@@ -34627,7 +34593,7 @@ msgstr "Omistajuus siirretty käyttäjälle {0}"
 
 #. Generic action label that translates a message body.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:583
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:587
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:255
 msgid "Translate"
 msgstr "Käännä"
@@ -34673,7 +34639,7 @@ msgstr "Ilmaisinalueen kuvakkeen muutokset tulevat voimaan vasta uudelleenkäynn
 
 #. Short label in the channel and chat gif picker grid. Keep it concise.
 #. Short label in the channel and chat gif picker header. Keep it concise.
-#: src/features/channel/components/pickers/gif/GifPickerGrid.tsx:25
+#: src/features/channel/components/pickers/gif/GifPickerGrid.tsx:26
 #: src/features/channel/components/pickers/gif/GifPickerHeader.tsx:18
 msgid "Trending GIFs"
 msgstr "Suositut GIFit"
@@ -34767,7 +34733,7 @@ msgstr "Kokeile toista hakua."
 
 #. Empty state body in the mobile memes picker suggesting query changes.
 #. Label in the channel and chat memes picker view.
-#: src/features/channel/components/MobileMemesPicker.tsx:70
+#: src/features/channel/components/MobileMemesPicker.tsx:71
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:36
 msgid "Try a different search term or filter"
 msgstr "Kokeile toista hakusanaa tai suodatinta"
@@ -34804,7 +34770,7 @@ msgstr "Yritä hetken kuluttua uudelleen."
 msgid "Try again later."
 msgstr "Yritä myöhemmin uudelleen."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:575
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:578
 msgid "Try again or go back to the applications list."
 msgstr "Yritä uudelleen tai palaa sovellusluetteloon."
 
@@ -35143,7 +35109,7 @@ msgstr "Vain kirjoitusilmaisin"
 msgid "Typing indicator, status: {effectiveStatusLabel}"
 msgstr "Kirjoitusilmaisin, tila: {effectiveStatusLabel}"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:251
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:250
 msgid "Typing state"
 msgstr "Kirjoitustila"
 
@@ -35258,7 +35224,7 @@ msgstr "Ei käytettävissä"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/channel/components/barriers/BarrierComponents.tsx:376
 #: src/features/relationship/utils/RelationshipMessageDescriptors.ts:45
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:177
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:179
 #: src/features/user/components/settings_utils/search_index/BlockedUsersIndex.ts:22
 msgid "Unblock"
 msgstr "Poista esto"
@@ -35285,7 +35251,7 @@ msgid "Unblock user"
 msgstr "Poista esto"
 
 #. Generic label for items that do not belong to a category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:631
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:635
 msgid "Uncategorized"
 msgstr "Luokittelematon"
 
@@ -35420,7 +35386,7 @@ msgid "Unfurl"
 msgstr "Avaa linkin esikatselu"
 
 #. Settings section label for the embed debugger URL input.
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:230
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:229
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:62
 msgid "Unfurl debugger"
 msgstr "Linkin esikatselun virheenkorjaus"
@@ -35440,9 +35406,9 @@ msgstr "Yleinen vararatkaisu. Huonoin laatu, mutta toimii kaikkialla."
 #. Generic fallback label when a more specific value is unavailable.
 #. Short label in the invite list item. Keep it concise.
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:584
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:756
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:760
 #: src/features/invite/components/InviteListItem.tsx:36
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:114
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:112
 #: src/features/updater/commands/UpdaterModalCommands.tsx:144
 msgid "Unknown"
 msgstr "Tuntematon"
@@ -35666,7 +35632,7 @@ msgid "Unmute all devices"
 msgstr "Poista kaikkien laitteiden mykistys"
 
 #. Action label that unmutes notifications for a channel category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:579
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:583
 msgid "Unmute category"
 msgstr "Poista kategorian mykistys"
 
@@ -35701,7 +35667,7 @@ msgid "Unmute DMs"
 msgstr "Poista yksityisviestien mykistys"
 
 #. Action label that unmutes notifications for the favourites pseudo-guild.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:692
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:696
 msgid "Unmute favorites"
 msgstr "Poista suosikkien mykistys"
 
@@ -35784,7 +35750,7 @@ msgid "Unpin this message?"
 msgstr "Poistetaanko viestin kiinnitys?"
 
 #. Generic short toast / status label confirming a DM was unpinned.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:627
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:631
 msgid "Unpinned DM"
 msgstr "Yksityisviestin kiinnitys poistettu"
 
@@ -36236,7 +36202,7 @@ msgid "URL"
 msgstr "URL"
 
 #. Success toast confirming that a media URL was copied as text fallback.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:137
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:138
 msgid "URL copied to clipboard"
 msgstr "URL kopioitu leikepöydälle"
 
@@ -36587,7 +36553,7 @@ msgid "Use this when troubleshooting the client or collecting logs. It may add v
 msgstr "Käytä tätä vianmääritykseen tai lokien keräämiseen. Se voi lisätä yksityiskohtaisia viestejä selaimen konsoliin nykyiselle asiakasohjelmalle."
 
 #. Label for SMTP TLS toggle.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:998
+#: src/features/app/components/setup/SetupWizardSteps.tsx:992
 msgid "Use TLS"
 msgstr "Käytä TLS:ää"
 
@@ -36666,12 +36632,12 @@ msgid "User controls"
 msgstr "Käyttäjäsäätimet"
 
 #. Title of the developer-mode user debug modal.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:571
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:575
 msgid "User debug"
 msgstr "Käyttäjän virheenkorjaus"
 
 #. Field label on the details step of the DSA report form (user report). Optional Fluxer user snowflake ID. "ID" is conventional.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:33
+#: src/features/moderation/components/report/ReportStepDetails.tsx:32
 msgid "User ID (optional)"
 msgstr "Käyttäjätunnus (valinnainen)"
 
@@ -36730,11 +36696,6 @@ msgstr "Käyttäjätiedot"
 msgid "User settings"
 msgstr "Käyttäjäasetukset"
 
-#. Field label on the details step of the DSA report form (user report). Optional FluxerTag of the reported user.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:38
-msgid "User tag (optional)"
-msgstr "Käyttäjätunniste (valinnainen)"
-
 #. Voice menu slider label for the saved volume of a specific user.
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:243
 msgid "User volume"
@@ -36743,31 +36704,25 @@ msgstr "Käyttäjän äänenvoimakkuus"
 #. Generic form-field label for a username.
 #. Label for SMTP username input.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:996
+#: src/features/app/components/setup/SetupWizardSteps.tsx:990
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:567
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:218
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:56
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:29
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:53
 msgid "Username"
 msgstr "Käyttäjänimi"
 
-#. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:59
+#. Field label on the details step of the DSA report form (user report). Optional username of the reported user.
+#: src/features/moderation/components/report/ReportStepDetails.tsx:37
 msgid "Username (optional)"
 msgstr "Käyttäjänimi (valinnainen)"
 
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:40
-msgid "Username already taken"
-msgstr "Käyttäjänimi on jo varattu"
-
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:44
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:45
 msgid "Username can only contain letters, numbers, and underscores"
 msgstr "Käyttäjänimi voi sisältää vain kirjaimia, numeroita ja alaviivoja"
 
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:32
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:33
 msgid "Username is required"
 msgstr "Käyttäjänimi on pakollinen"
 
@@ -36777,23 +36732,19 @@ msgid "Username must be {maxUsernameLength} characters or fewer"
 msgstr "Käyttäjänimen on oltava enintään {maxUsernameLength} merkkiä pitkä"
 
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:36
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:37
 msgid "Username must be at least 1 character"
 msgstr "Käyttäjänimen on oltava vähintään 1 merkki pitkä"
 
-#. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:40
-msgid "Username must be at most 32 characters"
-msgstr "Käyttäjänimen pituus saa olla enintään 32 merkkiä"
+#. Label in the bot profile section. Preserve {maxLength}; it is inserted by code. -BOT is literal.
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:41
+msgid "Username must be at most {maxLength} characters before -BOT"
+msgstr "Username must be at most {maxLength} characters before -BOT"
 
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:44
-msgid "Username updated"
-msgstr "Käyttäjänimi päivitetty"
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:211
-msgid "Usernames can only contain letters (a-z, A-Z), numbers (0-9), and underscores. Usernames are case-insensitive."
-msgstr "Käyttäjänimet voivat sisältää vain kirjaimia (a-z, A-Z), numeroita (0-9) ja alaviivoja. Käyttäjänimissä ei huomioida kirjainkokoa."
+#. Label of the sign-in field that accepts either a username or an email address.
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:571
+msgid "Username or email"
+msgstr "Username or email"
 
 #. Section header in the message search popout listing matching users for from: / mentions: filters. Title Case.
 #. Section heading in the channel and chat autocomplete for user suggestions.
@@ -37032,7 +36983,7 @@ msgstr "Vahvista, että olet ihminen"
 #. Title of the error modal shown when an unverified account tries to start a DM.
 #. Title shown when an unverified account cannot start a DM or group DM.
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:40
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:79
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:74
 #: src/features/channel/utils/CreateDMModalUtils.tsx:51
 #: src/features/moderation/components/report/ReportStepEmail.tsx:43
 msgid "Verify your email"
@@ -37091,11 +37042,6 @@ msgstr "Vahvista sähköpostiosoitteesi ensin"
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:69
 msgid "Verify your email or phone to continue using {productName}."
 msgstr "Vahvista sähköpostiosoitteesi tai puhelinnumerosi jatkaaksesi {productName}-palvelun käyttöä."
-
-#. Label in the username section.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:25
-msgid "Verify your email to change your username"
-msgstr "Vahvista sähköpostiosoitteesi vaihtaaksesi käyttäjänimesi"
 
 #. Required-action modal body for first-time email verification. Product name is interpolated.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:53
@@ -37184,7 +37130,7 @@ msgstr "Video"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Tooltip on the channel header button that starts a video call in a DM or group DM.
 #: src/features/channel/components/channel_header/shared.ts:43
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:766
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:757
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:199
 msgid "Video call"
@@ -37224,7 +37170,7 @@ msgstr "Videon pakettihäviö:"
 #. Accessible label for a video thumbnail in the media viewer thumbnail strip.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/messaging/components/modals/media_modal/shared.ts:133
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:89
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:90
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:182
 msgid "Video preview"
 msgstr "Videon esikatselu"
@@ -37280,7 +37226,7 @@ msgstr "Videon lataus"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the mobile memes picker. Filters to saved videos.
-#: src/features/channel/components/MobileMemesPicker.tsx:50
+#: src/features/channel/components/MobileMemesPicker.tsx:51
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:20
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:109
 msgid "Videos"
@@ -37514,7 +37460,7 @@ msgid "Viewer leaves stream"
 msgstr "Katsoja poistuu lähetyksestä"
 
 #. Field label on the details step of the DSA illegal-content report form. The category dropdown narrows the type of violation. Legal/sensitive flow; keep tone formal.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:18
+#: src/features/moderation/components/report/ReportStepDetails.tsx:17
 msgid "Violation category"
 msgstr "Rikkeen luokka"
 
@@ -37605,7 +37551,7 @@ msgctxt "accessibility-settings-section"
 msgid "Visual"
 msgstr "Visuaaliset asetukset"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:63
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:62
 msgid "Visual indicators showing user status, rendered using the same masked status badges as avatars: online, idle, do not disturb, invisible, and offline."
 msgstr "Visuaaliset ilmaisimet, jotka näyttävät käyttäjän tilan. Ne renderöidään samoilla maskatuilla tilamerkeillä kuin avatarit: paikalla, inaktiivinen, älä häiritse, näkymätön ja offline."
 
@@ -37681,7 +37627,7 @@ msgid "Voice and video shortcuts"
 msgstr "Ääni- ja videopikanäppäimet"
 
 #. Short label for a voice call (lobby header, DM action, settings section).
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:744
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:735
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:35
 msgid "Voice call"
 msgstr "Äänipuhelu"
@@ -37777,7 +37723,7 @@ msgid "Voice message"
 msgstr "Ääniviesti"
 
 #. Short label in the channel and chat voice message player. Keep it concise.
-#: src/features/channel/components/embeds/media/VoiceMessagePlayer.tsx:30
+#: src/features/channel/components/embeds/media/VoiceMessagePlayer.tsx:31
 msgid "Voice message player"
 msgstr "Ääniviestisoitin"
 
@@ -37918,6 +37864,12 @@ msgstr "Odotetaan hitaan tilan päättymistä kanavalla {forwardChannelDisplayNa
 #: src/features/messaging/components/modals/ForwardModal.tsx:82
 msgid "Waiting for slowmode in one or more selected channels to expire."
 msgstr "Odotetaan hitaan tilan päättymistä yhdessä tai useammassa valitussa kanavassa."
+
+#. placeholder {0}: pendingRequest.requested_username
+#. placeholder {1}: getFormattedDateTime(pendingRequest.created_at)
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:119
+msgid "Waiting for the admin: <0>{0}</0>, asked on {1}. A new request replaces it."
+msgstr "Waiting for the admin: <0>{0}</0>, asked on {1}. A new request replaces it."
 
 #. Label in the messages tab.
 #: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:48
@@ -38197,10 +38149,6 @@ msgstr "Olemme tehneet merkittäviä muutoksia <0>käyttöehtoihimme</0> ja <1>t
 msgid "We've made significant changes to our <0>Terms of service</0>. Review it before continuing to use {productName}."
 msgstr "Olemme tehneet merkittäviä muutoksia <0>käyttöehtoihimme</0>. Tarkista ne, ennen kuin jatkat {productName}-palvelun käyttöä."
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:58
-msgid "We've sent password reset instructions to your email. Check your inbox for the reset link."
-msgstr "Olemme lähettäneet salasanan palautusohjeet sähköpostiisi. Etsi palautuslinkki saapuneiden viestien joukosta."
-
 #. Nagbar body shown when the user must accept updated policies before continuing.
 #: src/features/app/components/layout/app_layout/nagbars/TermsAcceptanceNagbar.tsx:15
 msgid "We've updated our policies. Review and accept them to continue."
@@ -38407,10 +38355,8 @@ msgstr "Länsi-Virginia"
 msgid "What kind of rule was broken?"
 msgstr "Minkälaista sääntöä rikottiin?"
 
-#. Question prompt in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Question prompt in the authentication auth register form core. Keep the tone plain and specific.
 #. Question prompt in the authentication mock minimal register form. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:35
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:55
 #: src/features/auth/flow/MockMinimalRegisterForm.tsx:29
 msgid "What should people call you?"
@@ -39092,16 +39038,8 @@ msgstr "Et voi poistaa tätä käyttöoikeutta, koska poistaisit sen itseltäsi"
 msgid "You changed your nickname in this community from **{previousNickname}** to **{newNickname}**."
 msgstr "Muutit lempinimesi tässä yhteisössä nimestä **{previousNickname}** nimeen **{newNickname}**."
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:367
-msgid "You changed your tag while on {PREMIUM_PRODUCT_NAME}. It will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires on <0>{premiumExpiresAtLabel}</0>, unless it renews."
-msgstr "Vaihdoit tunnisteesi {PREMIUM_PRODUCT_NAME}-tilauksen aikana. Tunniste arvotaan uudelleen satunnaisesti, kun {PREMIUM_PRODUCT_NAME}-tilauksesi päättyy <0>{premiumExpiresAtLabel}</0>, ellei sitä uusita."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:374
-msgid "You changed your tag while on {PREMIUM_PRODUCT_NAME}. It will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires, unless it renews."
-msgstr "Vaihdoit tunnisteesi {PREMIUM_PRODUCT_NAME}-tilauksen aikana. Tunniste arvotaan uudelleen satunnaisesti, kun {PREMIUM_PRODUCT_NAME}-tilauksesi päättyy, ellei sitä uusita."
-
 #. Body of the access-denied alert for clicked message links.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:121
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:122
 msgid "You do not have access to the channel where this message was sent."
 msgstr "Sinulla ei ole pääsyä kanavalle, jolle tämä viesti lähetettiin."
 
@@ -39313,7 +39251,7 @@ msgstr "Sinun on vahvistettava puhelinnumero lähettääksesi viestejä tässä 
 msgid "You need to verify your email address before you can create a community."
 msgstr "Vahvista sähköpostiosoitteesi, ennen kuin voit luoda yhteisön."
 
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:80
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:75
 msgid "You need to verify your email address before you can send friend requests."
 msgstr "Vahvista sähköpostiosoitteesi, ennen kuin voit lähettää kaveripyyntöjä."
 
@@ -39335,6 +39273,11 @@ msgstr "Sinun on vahvistettava sähköpostiosoitteesi lähettääksesi viestejä
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:60
 msgid "You or someone you're adding already has the maximum number of group DMs open. Leave one and try again."
 msgstr "Sinulla tai jollakulla lisäämistäsi henkilöistä on jo avoinna suurin sallittu määrä ryhmäkeskusteluja. Poistu yhdestä ja yritä uudelleen."
+
+#. Placeholder of the required username field on the sign-up form. The username is the login ID.
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:59
+msgid "You sign in with it"
+msgstr "You sign in with it"
 
 #. Confirmation line in the required-action modal explaining that communities the user owns are kept rather than left. ownedNames is a comma-separated list inserted by code.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:316
@@ -39663,8 +39606,7 @@ msgstr "Tilisi rekisteröintiä ei ole vielä viimeistelty. Ilman sähköpostios
 msgid "Your account is too new to send messages in this community."
 msgstr "Tilisi on liian uusi viestien lähettämiseen tässä yhteisössä."
 
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:220
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:321
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:293
 msgid "Your account request is pending approval. You can sign in after an admin approves it."
 msgstr "Tilipyyntösi odottaa hyväksyntää. Voit kirjautua sisään, kun ylläpitäjä on hyväksynyt sen."
 
@@ -39894,7 +39836,7 @@ msgstr "Odottava laskutusmuutos on peruutettu."
 msgid "Your personal space for quick access to channels, DMs, and groups you love. Press the star on any channel to add it here."
 msgstr "Henkilökohtainen tilasi, josta löydät nopeasti suosikkikanavasi, -yksityisviestisi ja -ryhmäsi. Lisää kanava tähän napsauttamalla sen vieressä olevaa tähteä."
 
-#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:130
+#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:132
 msgid "Your private space"
 msgstr "Yksityinen tilasi"
 
@@ -40006,9 +39948,14 @@ msgid "Your theme CSS is too large to share. Trim it down and try again."
 msgstr "Teeman CSS-tiedosto on liian suuri jaettavaksi. Lyhennä sitä ja yritä uudelleen."
 
 #. Field label on the details step of the DSA report form. Optional Fluxer username of the reporter so staff can follow up.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:67
+#: src/features/moderation/components/report/ReportStepDetails.tsx:66
 msgid "Your username (optional)"
 msgstr "Käyttäjänimesi (valinnainen)"
+
+#. placeholder {0}: user.username
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:110
+msgid "Your username is <0>{0}</0>. A new username is a request: the name is held for you until the admin approves or rejects it. Usernames are case-insensitive."
+msgstr "Your username is <0>{0}</0>. A new username is a request: the name is held for you until the admin approves or rejects it. Usernames are case-insensitive."
 
 #. Success toast after removing a community vanity invite URL.
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:54
@@ -40032,7 +39979,7 @@ msgid "YouTube enrichment"
 msgstr "YouTube-rikastaminen"
 
 #. Setup wizard title for YouTube integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:938
+#: src/features/app/components/setup/SetupWizardSteps.tsx:932
 msgid "YouTube previews"
 msgstr "YouTube-esikatselut"
 
@@ -40057,7 +40004,7 @@ msgstr "Zoomaa"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:623
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:627
 #: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
@@ -40068,7 +40015,7 @@ msgstr "Lähennä"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:619
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:623
 #: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86

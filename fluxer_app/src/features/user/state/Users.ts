@@ -20,7 +20,6 @@ const CURRENT_USER_PRIVATE_WIRE_KEYS = [
 	'premium_billing_cycle',
 	'premium_lifetime_sequence',
 	'premium_grace_ends_at',
-	'premium_discriminator',
 	'premium_badge_hidden',
 	'premium_badge_masked',
 	'premium_badge_timestamp_hidden',
@@ -85,7 +84,7 @@ class Users {
 	}
 
 	getUserByTag(tag: string): User | undefined {
-		return this.usersList.find((user) => user.tag === tag);
+		return this.usersList.find((user) => user.username === tag);
 	}
 
 	getUsers(): ReadonlyArray<User> {

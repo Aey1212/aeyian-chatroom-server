@@ -16,6 +16,10 @@ import {ListUserGuildsResponse} from '@fluxer/schema/src/domains/admin/AdminGuil
 import {SearchUsersResponse} from '@fluxer/schema/src/domains/admin/AdminSchemas';
 import {
 	AdminAclListResponse,
+	AdminLockedUsernamesResponse,
+	AdminPasswordResetModeRequest,
+	AdminPasswordResetModeResponse,
+	AdminReleaseUsernameResponse,
 	AdminUserAclsRequest,
 	AdminUserBanRequest,
 	AdminUserBotStatusRequest,
@@ -29,6 +33,9 @@ import {
 	AdminUserFlagsUpdateRequest,
 	AdminUserGuildListQuery,
 	AdminUserListQuery,
+	AdminUsernameChangeDecisionResponse,
+	AdminUsernameChangeRequestsResponse,
+	AdminUsernameParam,
 	AdminUserPhoneVerificationRequest,
 	AdminUserPremiumFlagsUpdateRequest,
 	AdminUserRelationshipCategoryQuery,
@@ -119,7 +126,7 @@ export function UserAdminController(app: HonoApp) {
 			security: 'adminApiKey',
 			tags: 'Admin',
 			description:
-				'Lists and searches users. Exactly one selector is honoured, in this precedence order: user_id, resolve, email, last_active_ip, then the indexed q search. The resolve selector takes one exact identifier, which may be a username#discriminator tag, a user ID, an email address, or a Stripe subscription ID. The email and user_id selectors ignore limit and offset. Requires USER_LOOKUP permission.',
+				'Lists and searches users. Exactly one selector is honoured, in this precedence order: user_id, resolve, email, last_active_ip, then the indexed q search. The resolve selector takes one exact identifier, which may be a username, a user ID, an email address, or a Stripe subscription ID. The email and user_id selectors ignore limit and offset. Requires USER_LOOKUP permission.',
 		}),
 		async (ctx) => {
 			const adminService = ctx.get('adminService');
@@ -690,6 +697,169 @@ export function UserAdminController(app: HonoApp) {
 					adminUserId,
 					auditLogReason,
 					adminUserAcls,
+				),
+			);
+		},
+	);
+	app.put(
+		'/admin/users/:user_id/password-reset-mode',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
+		requireAdminACL(AdminACLs.USER_UPDATE_EMAIL),
+		Validator('param', UserIdParam),
+		Validator('json', AdminPasswordResetModeRequest),
+		OpenAPI({
+			operationId: 'set_admin_user_password_reset_mode',
+			summary: 'Open or close a password reset',
+			responseSchema: AdminPasswordResetModeResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'Open a password reset for an account so its owner can choose a new password without email (it closes when used), or close it again. Creates audit log entry. Requires USER_UPDATE_EMAIL permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const {user_id: userId} = ctx.req.valid('param');
+			const {open} = ctx.req.valid('json');
+			return ctx.json(
+				await adminService.userService.profileService.setPasswordResetOpen(
+					createUserID(userId),
+					open,
+					ctx.get('adminUserId'),
+					ctx.get('auditLogReason'),
+				),
+			);
+		},
+	);
+	app.get(
+		'/admin/username-change-requests',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_LOOKUP),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		OpenAPI({
+			operationId: 'list_admin_username_change_requests',
+			summary: 'List pending rename requests',
+			responseSchema: AdminUsernameChangeRequestsResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'List pending rename requests, oldest first. Each requested name is held until the request is approved or rejected. Requires USER_UPDATE_USERNAME permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const response = await adminService.userService.profileService.listUsernameChangeRequests();
+			await recordAdminRead(ctx, {
+				targetType: 'username',
+				targetId: 0n,
+				action: AdminAuditReadActions.LIST_USERNAME_CHANGE_REQUESTS,
+				metadata: {entry_count: response.requests.length},
+			});
+			return ctx.json(response);
+		},
+	);
+	app.post(
+		'/admin/username-change-requests/:user_id/approve',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		Validator('param', UserIdParam),
+		OpenAPI({
+			operationId: 'approve_admin_username_change_request',
+			summary: 'Approve a rename request',
+			responseSchema: AdminUsernameChangeDecisionResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'Approve the pending rename request of a user: the held name becomes their username. Returns applied false when no request is pending. Creates audit log entry. Requires USER_UPDATE_USERNAME permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const {user_id: userId} = ctx.req.valid('param');
+			return ctx.json(
+				await adminService.userService.profileService.approveUsernameChangeRequest(
+					createUserID(userId),
+					ctx.get('adminUserId'),
+					ctx.get('auditLogReason'),
+				),
+			);
+		},
+	);
+	app.post(
+		'/admin/username-change-requests/:user_id/reject',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		Validator('param', UserIdParam),
+		OpenAPI({
+			operationId: 'reject_admin_username_change_request',
+			summary: 'Reject a rename request',
+			responseSchema: AdminUsernameChangeDecisionResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'Reject the pending rename request of a user and give the held name back. Returns applied false when no request is pending. Creates audit log entry. Requires USER_UPDATE_USERNAME permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const {user_id: userId} = ctx.req.valid('param');
+			return ctx.json(
+				await adminService.userService.profileService.rejectUsernameChangeRequest(
+					createUserID(userId),
+					ctx.get('adminUserId'),
+					ctx.get('auditLogReason'),
+				),
+			);
+		},
+	);
+	app.get(
+		'/admin/usernames/locked',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_LOOKUP),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		OpenAPI({
+			operationId: 'list_admin_locked_usernames',
+			summary: 'List locked usernames',
+			responseSchema: AdminLockedUsernamesResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				'List the usernames of deleted accounts. A deleted account keeps its name locked so nobody can register it until an admin releases it. Requires USER_UPDATE_USERNAME permission.',
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const response = await adminService.usernameService.listLockedUsernames();
+			await recordAdminRead(ctx, {
+				targetType: 'username',
+				targetId: 0n,
+				action: AdminAuditReadActions.LIST_LOCKED_USERNAMES,
+				metadata: {entry_count: response.usernames.length},
+			});
+			return ctx.json(response);
+		},
+	);
+	app.post(
+		'/admin/usernames/locked/:username/release',
+		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
+		requireAdminACL(AdminACLs.USER_UPDATE_USERNAME),
+		Validator('param', AdminUsernameParam),
+		OpenAPI({
+			operationId: 'release_admin_locked_username',
+			summary: 'Release a locked username',
+			responseSchema: AdminReleaseUsernameResponse,
+			statusCode: 200,
+			security: 'adminApiKey',
+			tags: 'Admin',
+			description:
+				"Make a deleted account's locked username available to register again. Returns released false when the name is not locked. Creates audit log entry. Requires USER_UPDATE_USERNAME permission.",
+		}),
+		async (ctx) => {
+			const adminService = ctx.get('adminService');
+			const {username} = ctx.req.valid('param');
+			return ctx.json(
+				await adminService.usernameService.releaseLockedUsername(
+					username,
+					ctx.get('adminUserId'),
+					ctx.get('auditLogReason'),
 				),
 			);
 		},

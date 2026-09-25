@@ -179,7 +179,7 @@ const MESSAGE = {
 };
 
 function user(id: string): UserPartial {
-	return {id, username: id, discriminator: '0', global_name: null, avatar: null, avatar_color: null, flags: 0};
+	return {id, username: id, global_name: null, avatar: null, avatar_color: null, flags: 0};
 }
 
 function dm(id: string, lastMessageId: string | null): WireChannel {

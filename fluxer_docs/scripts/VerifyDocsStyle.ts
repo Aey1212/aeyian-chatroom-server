@@ -269,7 +269,6 @@ const TABLE_COUNT_FLOOR = 1800;
 const ACCEPTED_TABLE_FINDINGS = new Map<string, Readonly<Partial<Record<TableRule, number>>>>([
 	['admin-api/applications.mdx', {'table-identifier': 1}],
 	['admin-api/bulk-jobs.mdx', {'table-fit': 1}],
-	['admin-api/discovery.mdx', {'table-identifier': 1}],
 	['admin-api/guilds.mdx', {'table-identifier': 3}],
 	['admin-api/index.mdx', {'table-fit': 1, 'table-identifier': 3}],
 	['admin-api/instance.mdx', {'table-fit': 1, 'table-identifier': 5}],

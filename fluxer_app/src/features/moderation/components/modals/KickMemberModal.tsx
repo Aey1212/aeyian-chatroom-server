@@ -20,7 +20,7 @@ const KICK_DESCRIPTOR = msg({
 const logger = new Logger('KickMemberModal');
 export const KickMemberModal: React.FC<{guildId: string; targetUser: User}> = observer(({guildId, targetUser}) => {
 	const {i18n} = useLingui();
-	const targetUserTag = DisplayNameUtils.formatTagForStreamerMode(targetUser.tag);
+	const targetUserTag = DisplayNameUtils.formatUsernameForStreamerMode(targetUser.username);
 	const handleKick = async () => {
 		try {
 			await GuildMemberCommands.kick(guildId, targetUser.id);

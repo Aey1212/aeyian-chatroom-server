@@ -47,7 +47,6 @@ function mapSearchableMember(hit: SearchableGuildMember): GuildMemberSearchResul
 		guild_id: hit.guildId,
 		user_id: hit.userId,
 		username: hit.username,
-		discriminator: hit.discriminator,
 		global_name: hit.globalName,
 		nickname: hit.nickname,
 		role_ids: hit.roleIds,

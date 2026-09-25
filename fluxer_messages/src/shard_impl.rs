@@ -52,7 +52,6 @@ const MESSAGE_FLAG_SUPPRESS_EMBEDS: i64 = 1 << 2;
 const USER_FLAG_DELETED: i64 = 1_i64 << 34;
 const FLUXER_SYSTEM_USER_ID: i64 = 0;
 const FLUXER_SYSTEM_USERNAME: &str = "Fluxer";
-const FLUXER_SYSTEM_DISCRIMINATOR: &str = "0000";
 const DELETED_USER_USERNAME: &str = "DeletedUser";
 const DELETED_USER_GLOBAL_NAME: &str = "Deleted User";
 const BUCKET_SCAN_CONCURRENCY: usize = 16;
@@ -207,7 +206,6 @@ struct AttachmentDecayKvRow {
 struct UserPartialServiceResponse {
     user_id: i64,
     username: String,
-    discriminator: i32,
     global_name: Option<String>,
     avatar_hash: Option<String>,
     bot: Option<bool>,
@@ -1179,7 +1177,6 @@ impl<T: Transport> MessagesShard<T> {
             return ApiUserPartialResponse {
                 id: webhook_id.to_string(),
                 username: webhook_name,
-                discriminator: "0000".to_owned(),
                 global_name: None,
                 avatar: message.webhook_avatar_hash.clone(),
                 avatar_color: None,
@@ -2708,7 +2705,6 @@ fn map_user_partial(partial: UserPartialServiceResponse) -> ApiUserPartialRespon
     ApiUserPartialResponse {
         id: partial.user_id.to_string(),
         username: partial.username,
-        discriminator: format!("{:04}", partial.discriminator),
         global_name: partial.global_name,
         avatar: partial.avatar_hash,
         avatar_color: partial.avatar_color,
@@ -2723,7 +2719,6 @@ fn fluxer_system_user() -> ApiUserPartialResponse {
     ApiUserPartialResponse {
         id: FLUXER_SYSTEM_USER_ID.to_string(),
         username: FLUXER_SYSTEM_USERNAME.to_owned(),
-        discriminator: FLUXER_SYSTEM_DISCRIMINATOR.to_owned(),
         global_name: None,
         avatar: None,
         avatar_color: None,
@@ -2741,7 +2736,6 @@ fn deleted_user(user_id: i64) -> ApiUserPartialResponse {
     ApiUserPartialResponse {
         id: user_id.to_string(),
         username: DELETED_USER_USERNAME.to_owned(),
-        discriminator: "0000".to_owned(),
         global_name: Some(DELETED_USER_GLOBAL_NAME.to_owned()),
         avatar: None,
         avatar_color: None,
@@ -3271,7 +3265,6 @@ mod tests {
         let mapped = map_user_partial(UserPartialServiceResponse {
             user_id: 0,
             username: DELETED_USER_USERNAME.to_owned(),
-            discriminator: 0,
             global_name: Some(DELETED_USER_GLOBAL_NAME.to_owned()),
             avatar_hash: None,
             bot: Some(true),
@@ -3283,7 +3276,6 @@ mod tests {
 
         assert_eq!(mapped.id, "0");
         assert_eq!(mapped.username, "Fluxer");
-        assert_eq!(mapped.discriminator, "0000");
         assert_eq!(mapped.global_name, None);
         assert_eq!(mapped.bot, Some(true));
         assert_eq!(mapped.system, Some(true));
@@ -3320,7 +3312,6 @@ mod tests {
         let mapped = map_user_partial(UserPartialServiceResponse {
             user_id: 42,
             username: "Ada".to_owned(),
-            discriminator: 7,
             global_name: Some("Ada Lovelace".to_owned()),
             avatar_hash: Some("avatar_hash".to_owned()),
             bot: Some(false),
@@ -3332,7 +3323,6 @@ mod tests {
 
         assert_eq!(mapped.id, "42");
         assert_eq!(mapped.username, "Ada");
-        assert_eq!(mapped.discriminator, "0007");
         assert_eq!(mapped.global_name, Some("Ada Lovelace".to_owned()));
         assert_eq!(mapped.avatar, Some("avatar_hash".to_owned()));
         assert_eq!(mapped.flags, 0);

@@ -483,7 +483,6 @@ base_session_data(Ready) ->
         user_data => #{
             <<"id">> => <<"1">>,
             <<"username">> => <<"self">>,
-            <<"discriminator">> => <<"0001">>,
             <<"avatar">> => null,
             <<"flags">> => 0
         },

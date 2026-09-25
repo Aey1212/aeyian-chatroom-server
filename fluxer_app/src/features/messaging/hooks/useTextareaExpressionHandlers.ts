@@ -159,7 +159,7 @@ export const useTextareaExpressionHandlers = ({
 			}
 			const prevValue = textareaRef.current?.value ?? previousValueRef.current;
 			const actualText = `<@${userId}>`;
-			const displayText = `@${NicknameUtils.formatUserTagForStreamerMode(user)}`;
+			const displayText = `@${NicknameUtils.formatUserNameForStreamerMode(user)}`;
 			const needsSpace = prevValue.length > 0 && !prevValue.endsWith(' ');
 			const prefix = prevValue.length === 0 ? '' : needsSpace ? ' ' : '';
 			const insertPosition = prevValue.length + prefix.length;

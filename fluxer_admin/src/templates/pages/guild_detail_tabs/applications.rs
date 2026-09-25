@@ -39,17 +39,15 @@ pub fn applications_tab(
 }
 
 fn application_card(base: &str, app: &Application) -> Markup {
-    let bot_display = match (&app.bot_user_id, &app.bot_username, &app.bot_discriminator) {
-        (Some(bid), Some(bname), Some(bdisc)) => {
+    let bot_display = match (&app.bot_user_id, &app.bot_username) {
+        (Some(bid), Some(bname)) => {
             let display = match &app.bot_global_name {
-                Some(gn) if !gn.trim().is_empty() => {
-                    format!("{} ({}#{})", gn, bname, bdisc)
-                }
-                _ => format!("{}#{}", bname, bdisc),
+                Some(gn) if !gn.trim().is_empty() => format!("{} ({})", gn, bname),
+                _ => bname.clone(),
             };
             Some((bid.clone(), display))
         }
-        (Some(bid), _, _) => Some((bid.clone(), bid.clone())),
+        (Some(bid), _) => Some((bid.clone(), bid.clone())),
         _ => None,
     };
 

@@ -8,16 +8,25 @@ import {EMAIL_CLEARABLE_SUSPICIOUS_ACTIVITY_FLAGS} from '@app/api/auth/AuthEmail
 import {createUserID, type UserID} from '@app/api/BrandedTypes';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import {GuildMemberSearchIndexService} from '@app/api/guild/services/member/GuildMemberSearchIndexService';
-import type {IDiscriminatorService} from '@app/api/infrastructure/DiscriminatorService';
 import type {EntityAssetService, PreparedAssetUpload} from '@app/api/infrastructure/EntityAssetService';
 import {Logger} from '@app/api/Logger';
 import type {User} from '@app/api/models/User';
+import {applyUsernameChange} from '@app/api/user/UsernameChange';
+import {UsernameChangeRequestRepository} from '@app/api/user/UsernameChangeRequestRepository';
+import {type IUsernameRegistry, normalizeUsername} from '@app/api/user/UsernameRegistry';
+import {
+	BOT_USERNAME_BASE_MAX_LENGTH,
+	BOT_USERNAME_SUFFIX,
+	PASSWORD_RESET_OPEN_TRAIT,
+} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {AccessDeniedError} from '@fluxer/errors/src/domains/core/AccessDeniedError';
 import {InputValidationError} from '@fluxer/errors/src/domains/core/InputValidationError';
-import {TagAlreadyTakenError} from '@fluxer/errors/src/domains/user/TagAlreadyTakenError';
 import {UnknownUserError} from '@fluxer/errors/src/domains/user/UnknownUserError';
 import type {
+	AdminPasswordResetModeResponse,
+	AdminUsernameChangeDecisionResponse,
+	AdminUsernameChangeRequestsResponse,
 	ChangeDobRequest,
 	ChangeEmailRequest,
 	ChangeUsernameRequest,
@@ -30,7 +39,7 @@ import {types} from 'cassandra-driver';
 
 interface AdminUserProfileServiceDeps {
 	apiContext: ApiContext;
-	discriminatorService: IDiscriminatorService;
+	usernameRegistry: IUsernameRegistry;
 	entityAssetService: EntityAssetService;
 	auditService: AdminAuditService;
 	updatePropagator: AdminUserUpdatePropagator;
@@ -39,6 +48,7 @@ interface AdminUserProfileServiceDeps {
 
 export class AdminUserProfileService {
 	private readonly searchIndexService: GuildMemberSearchIndexService;
+	private readonly usernameChangeRequests = new UsernameChangeRequestRepository();
 
 	constructor(private readonly deps: AdminUserProfileServiceDeps) {
 		this.searchIndexService = new GuildMemberSearchIndexService();
@@ -223,56 +233,159 @@ export class AdminUserProfileService {
 		auditLogReason: string | null,
 		acls: ReadonlySet<string>,
 	) {
-		const {
-			users: userRepository,
-			cache: cacheService,
-			contactChangeLog: contactChangeLogService,
-		} = this.deps.apiContext.services;
-		const {discriminatorService, auditService, updatePropagator} = this.deps;
+		const {users: userRepository, cache: cacheService} = this.deps.apiContext.services;
+		const {usernameRegistry} = this.deps;
 		const userId = createUserID(data.user_id);
 		const user = await userRepository.findUnique(userId);
 		if (!user) {
 			throw new UnknownUserError();
 		}
-		const discriminatorResult = await discriminatorService.generateDiscriminator({
-			username: data.username,
-			requestedDiscriminator: data.discriminator,
-			user,
-		});
-		if (!discriminatorResult.available || discriminatorResult.discriminator === -1) {
-			throw new TagAlreadyTakenError();
+		// A bot keeps its -BOT suffix; the admin names the part before it.
+		if (user.isBot && data.username.length > BOT_USERNAME_BASE_MAX_LENGTH) {
+			throw InputValidationError.fromCode('username', ValidationErrorCodes.USERNAME_LENGTH_INVALID);
 		}
-		const updatedUser = await userRepository.patchUpsert(
-			userId,
-			{
-				username: data.username,
-				discriminator: discriminatorResult.discriminator,
-			},
-			user.toRow(),
+		const newUsername = user.isBot ? `${data.username}${BOT_USERNAME_SUFFIX}` : data.username;
+		const updatedUser = await applyUsernameChange({usernameRegistry, userRepository}, user, newUsername);
+		await this.afterUsernameChange(user, updatedUser, adminUserId, auditLogReason, 'change_username');
+		return {
+			user: await mapUserToAdminResponse(updatedUser, cacheService, acls),
+		};
+	}
+
+	async listUsernameChangeRequests(): Promise<AdminUsernameChangeRequestsResponse> {
+		const {users: userRepository} = this.deps.apiContext.services;
+		const pending = await this.usernameChangeRequests.listPending();
+		const requests = await Promise.all(
+			pending.map(async (entry) => {
+				const [request, user] = await Promise.all([
+					this.usernameChangeRequests.get(entry.user_id),
+					userRepository.findUnique(entry.user_id),
+				]);
+				return request?.status === 'pending'
+					? {
+							user_id: entry.user_id.toString(),
+							current_username: user?.username ?? null,
+							requested_username: request.requested_username,
+							created_at: request.created_at.toISOString(),
+						}
+					: null;
+			}),
 		);
-		await updatePropagator.propagateUserUpdate({userId, oldUser: user, updatedUser: updatedUser});
+		return {requests: requests.filter((request) => request !== null)};
+	}
+
+	async approveUsernameChangeRequest(
+		userId: UserID,
+		adminUserId: UserID,
+		auditLogReason: string | null,
+	): Promise<AdminUsernameChangeDecisionResponse> {
+		const {users: userRepository} = this.deps.apiContext.services;
+		const request = await this.usernameChangeRequests.get(userId);
+		if (request?.status !== 'pending') {
+			return {applied: false};
+		}
+		const user = await userRepository.findUnique(userId);
+		if (!user) {
+			await this.deps.usernameRegistry.releaseHold(request.requested_username, userId);
+			await this.usernameChangeRequests.close(request, 'rejected', adminUserId);
+			return {applied: false};
+		}
+		const caseOnly = normalizeUsername(user.username) === normalizeUsername(request.requested_username);
+		const updatedUser = await applyUsernameChange(
+			{usernameRegistry: this.deps.usernameRegistry, userRepository},
+			user,
+			request.requested_username,
+			{viaHold: !caseOnly},
+		);
+		await this.usernameChangeRequests.close(request, 'approved', adminUserId);
+		await this.afterUsernameChange(user, updatedUser, adminUserId, auditLogReason, 'approve_username_change_request');
+		return {applied: true};
+	}
+
+	async rejectUsernameChangeRequest(
+		userId: UserID,
+		adminUserId: UserID,
+		auditLogReason: string | null,
+	): Promise<AdminUsernameChangeDecisionResponse> {
+		const {users: userRepository} = this.deps.apiContext.services;
+		const request = await this.usernameChangeRequests.get(userId);
+		if (request?.status !== 'pending') {
+			return {applied: false};
+		}
+		const user = await userRepository.findUnique(userId);
+		const caseOnly =
+			user !== null && normalizeUsername(user.username) === normalizeUsername(request.requested_username);
+		if (!caseOnly) {
+			await this.deps.usernameRegistry.releaseHold(request.requested_username, userId);
+		}
+		await this.usernameChangeRequests.close(request, 'rejected', adminUserId);
+		await this.deps.auditService.createAuditLog({
+			adminUserId,
+			targetType: 'user',
+			targetId: BigInt(userId),
+			action: 'reject_username_change_request',
+			auditLogReason,
+			metadata: new Map([['requested_username', request.requested_username]]),
+		});
+		return {applied: true};
+	}
+
+	async setPasswordResetOpen(
+		userId: UserID,
+		open: boolean,
+		adminUserId: UserID,
+		auditLogReason: string | null,
+	): Promise<AdminPasswordResetModeResponse> {
+		const {users: userRepository} = this.deps.apiContext.services;
+		const user = await userRepository.findUnique(userId);
+		if (!user) {
+			throw new UnknownUserError();
+		}
+		const traits = user.traits;
+		if (open) {
+			traits.add(PASSWORD_RESET_OPEN_TRAIT);
+		} else {
+			traits.delete(PASSWORD_RESET_OPEN_TRAIT);
+		}
+		await userRepository.patchUpsert(userId, {traits: traits.size > 0 ? traits : null}, user.toRow());
+		await this.deps.auditService.createAuditLog({
+			adminUserId,
+			targetType: 'user',
+			targetId: BigInt(userId),
+			action: open ? 'open_password_reset' : 'close_password_reset',
+			auditLogReason,
+			metadata: new Map(),
+		});
+		return {open};
+	}
+
+	private async afterUsernameChange(
+		user: User,
+		updatedUser: User,
+		adminUserId: UserID,
+		auditLogReason: string | null,
+		action: string,
+	): Promise<void> {
+		const {contactChangeLog: contactChangeLogService} = this.deps.apiContext.services;
+		await this.deps.updatePropagator.propagateUserUpdate({userId: user.id, oldUser: user, updatedUser});
 		await contactChangeLogService.recordDiff({
 			oldUser: user,
 			newUser: updatedUser,
 			reason: 'admin_action',
 			actorUserId: adminUserId,
 		});
-		await auditService.createAuditLog({
+		await this.deps.auditService.createAuditLog({
 			adminUserId,
 			targetType: 'user',
-			targetId: BigInt(userId),
-			action: 'change_username',
+			targetId: BigInt(user.id),
+			action,
 			auditLogReason,
 			metadata: new Map([
 				['old_username', user.username],
-				['new_username', data.username],
-				['discriminator', discriminatorResult.discriminator.toString()],
+				['new_username', updatedUser.username],
 			]),
 		});
 		void this.reindexGuildMembersForUser(updatedUser);
-		return {
-			user: await mapUserToAdminResponse(updatedUser, cacheService, acls),
-		};
 	}
 
 	async changeEmail(

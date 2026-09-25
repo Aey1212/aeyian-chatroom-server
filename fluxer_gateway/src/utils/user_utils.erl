@@ -10,7 +10,6 @@ partial_user_fields() ->
     [
         <<"id">>,
         <<"username">>,
-        <<"discriminator">>,
         <<"global_name">>,
         <<"avatar">>,
         <<"avatar_color">>,
@@ -64,20 +63,17 @@ normalize_user_valid_test() ->
     User = #{
         <<"id">> => <<"123">>,
         <<"username">> => <<"testuser">>,
-        <<"discriminator">> => <<"0001">>,
         <<"email">> => <<"test@example.com">>
     },
     Result = normalize_user(User),
     ?assertEqual(123, maps:get(<<"id">>, Result)),
     ?assertEqual(<<"testuser">>, maps:get(<<"username">>, Result)),
-    ?assertEqual(<<"0001">>, maps:get(<<"discriminator">>, Result)),
     ?assertEqual(error, maps:find(<<"email">>, Result)).
 
 normalize_user_all_fields_test() ->
     User = #{
         <<"id">> => <<"123">>,
         <<"username">> => <<"test">>,
-        <<"discriminator">> => <<"0">>,
         <<"global_name">> => <<"Test User">>,
         <<"avatar">> => <<"abc123">>,
         <<"avatar_color">> => 16#ff0000,
@@ -86,14 +82,13 @@ normalize_user_all_fields_test() ->
         <<"flags">> => 0
     },
     Result = normalize_user(User),
-    ?assertEqual(9, maps:size(Result)),
+    ?assertEqual(8, maps:size(Result)),
     ?assertEqual(16#ff0000, maps:get(<<"avatar_color">>, Result)).
 
 normalize_user_passes_mention_flags_test() ->
     User = #{
         <<"id">> => <<"123">>,
         <<"username">> => <<"test">>,
-        <<"discriminator">> => <<"0">>,
         <<"mention_flags">> => 1
     },
     Result = normalize_user(User),
@@ -121,7 +116,7 @@ normalize_user_empty_map_test() ->
 partial_user_fields_test() ->
     Fields = partial_user_fields(),
     ?assert(is_list(Fields)),
-    ?assertEqual(10, length(Fields)),
+    ?assertEqual(9, length(Fields)),
     ?assert(lists:member(<<"id">>, Fields)),
     ?assert(lists:member(<<"username">>, Fields)),
     ?assert(lists:member(<<"flags">>, Fields)).

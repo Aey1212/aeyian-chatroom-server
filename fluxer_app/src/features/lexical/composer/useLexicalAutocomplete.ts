@@ -88,7 +88,7 @@ import * as PermissionUtils from '@app/features/permissions/utils/PermissionUtil
 import {ComponentBus} from '@app/features/platform/utils/ComponentBus';
 import type {User} from '@app/features/user/models/User';
 import Users from '@app/features/user/state/Users';
-import {formatUserTagForStreamerMode} from '@app/features/user/utils/DisplayNameUtils';
+import {formatUserNameForStreamerMode} from '@app/features/user/utils/DisplayNameUtils';
 import {Permissions} from '@fluxer/constants/src/ChannelConstants';
 import type {UserId} from '@fluxer/schema/src/branded/WireIds';
 import type {I18n} from '@lingui/core';
@@ -946,7 +946,7 @@ function optionToPayload(option: AutocompleteOption, channel: Channel | null): C
 			kind: 'mention',
 			mentionType: 'user',
 			id: user.id,
-			display: `@${formatUserTagForStreamerMode(user)}`,
+			display: `@${formatUserNameForStreamerMode(user)}`,
 			wire: `<@${user.id}>`,
 		};
 	}
@@ -956,7 +956,7 @@ function optionToPayload(option: AutocompleteOption, channel: Channel | null): C
 			kind: 'mention',
 			mentionType: 'user',
 			id: option.user.id,
-			display: `@${formatUserTagForStreamerMode(option.user)}`,
+			display: `@${formatUserNameForStreamerMode(option.user)}`,
 			wire: `<@${option.user.id}>`,
 		};
 	}

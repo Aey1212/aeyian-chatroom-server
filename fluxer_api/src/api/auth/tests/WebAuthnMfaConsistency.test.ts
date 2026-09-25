@@ -71,7 +71,7 @@ describe('WebAuthn MFA Consistency Tests', () => {
 		const login = await createBuilderWithoutAuth<LoginMfaResponse>(harness)
 			.post('/auth/login')
 			.body({
-				email: account.email,
+				login: account.email,
 				password: account.password,
 			})
 			.execute();
@@ -160,7 +160,7 @@ describe('WebAuthn MFA Consistency Tests', () => {
 		const login = await createBuilderWithoutAuth<LoginMfaResponse>(harness)
 			.post('/auth/login')
 			.body({
-				email: account.email,
+				login: account.email,
 				password: account.password,
 			})
 			.execute();
@@ -251,7 +251,7 @@ describe('WebAuthn MFA Consistency Tests', () => {
 		const login = await createBuilderWithoutAuth<LoginMfaResponse>(harness)
 			.post('/auth/login')
 			.body({
-				email: account.email,
+				login: account.email,
 				password: account.password,
 			})
 			.execute();
@@ -297,7 +297,7 @@ describe('WebAuthn MFA Consistency Tests', () => {
 		const login2 = await createBuilderWithoutAuth<LoginMfaResponse>(harness)
 			.post('/auth/login')
 			.body({
-				email: account.email,
+				login: account.email,
 				password: account.password,
 			})
 			.execute();

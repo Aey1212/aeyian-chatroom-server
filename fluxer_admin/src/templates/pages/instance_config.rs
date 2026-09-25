@@ -1690,11 +1690,7 @@ fn registration_url_uses_text(url: &RegistrationUrlResponse) -> String {
 }
 
 fn pending_registration_account_name(pending: &PendingRegistrationResponse) -> String {
-    if pending.discriminator == 0 {
-        pending.username.clone()
-    } else {
-        format!("{}#{:04}", pending.username, pending.discriminator)
-    }
+    pending.username.clone()
 }
 
 fn sso_config_section(base: &str, csrf_token: &str, sso: &SsoConfigResponse) -> Markup {

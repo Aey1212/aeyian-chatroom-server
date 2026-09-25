@@ -9,7 +9,6 @@ use crate::{
         resource_link::{ResourceType, resource_link},
         table::{table_body, table_cell, table_head, table_header_cell, table_row},
     },
-    utils::bigint::format_discriminator,
 };
 use maud::{Markup, html};
 
@@ -44,11 +43,7 @@ fn type_label(target_type: &str) -> String {
 }
 
 fn user_label(user: &AuditLogUserSummary) -> String {
-    let tag = format!(
-        "{}#{}",
-        user.username,
-        format_discriminator(&user.discriminator)
-    );
+    let tag = user.username.clone();
     match user
         .global_name
         .as_ref()

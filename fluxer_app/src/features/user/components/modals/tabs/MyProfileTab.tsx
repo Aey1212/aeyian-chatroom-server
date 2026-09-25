@@ -779,7 +779,6 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 									{!isPerGuildProfile && (
 										<UsernameSection
 											isClaimed={isClaimed}
-											isEmailVerified={user.verified !== false}
 											user={user}
 											data-flx="user.my-profile-tab.my-profile-tab-component.username-section"
 										/>

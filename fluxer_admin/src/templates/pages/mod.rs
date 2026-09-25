@@ -34,6 +34,7 @@ pub mod url_domain_bans;
 pub mod user_detail;
 pub mod user_detail_tabs;
 pub mod user_peek;
+pub mod usernames;
 pub mod users_list;
 pub mod voice_regions;
 pub mod voice_servers;

@@ -56,7 +56,6 @@ interface GuildEnrichment {
 	owner_id: string;
 	owner_username: string | null;
 	owner_global_name: string | null;
-	owner_discriminator: string | null;
 	member_count: number;
 	nsfw_level: number | null;
 	features: Array<string>;
@@ -94,7 +93,6 @@ async function enrichGuilds(
 			owner_id: guild.ownerId.toString(),
 			owner_username: owner?.username ?? null,
 			owner_global_name: owner?.globalName ?? null,
-			owner_discriminator: owner ? String(owner.discriminator).padStart(4, '0') : null,
 			member_count: guild.memberCount,
 			nsfw_level: guild.nsfwLevel,
 			features: mapGuildFeatures(guild.features),
@@ -112,7 +110,6 @@ function mapPendingResponse(row: GuildDiscoveryRow, enrichment: GuildEnrichment 
 		guild_owner_id: enrichment?.owner_id ?? '0',
 		guild_owner_username: enrichment?.owner_username ?? null,
 		guild_owner_global_name: enrichment?.owner_global_name ?? null,
-		guild_owner_discriminator: enrichment?.owner_discriminator ?? null,
 		guild_member_count: enrichment?.member_count ?? 0,
 		guild_nsfw_level: enrichment?.nsfw_level ?? null,
 		guild_features: enrichment?.features ?? [],

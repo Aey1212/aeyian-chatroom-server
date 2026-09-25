@@ -79,12 +79,14 @@ export const ChannelInfoHeader: React.FC<ChannelInfoHeaderProps> = ({
 								>
 									{recipientDisplayName}
 								</span>
-								<span
-									className={styles.channelInfoDiscriminator}
-									data-flx="channel.channel-details-bottom-sheet.channel-info-discriminator"
-								>
-									{NicknameUtils.formatUserTagForStreamerMode(recipient)}
-								</span>
+								{recipient.username !== recipientDisplayName && (
+									<span
+										className={styles.channelInfoHandle}
+										data-flx="channel.channel-details-bottom-sheet.channel-info-handle"
+									>
+										{NicknameUtils.formatUserNameForStreamerMode(recipient)}
+									</span>
+								)}
 							</div>
 							{recipient.bot && (
 								<UserTag

@@ -17,6 +17,7 @@ mod search;
 mod system;
 mod system_dm;
 mod user_detail;
+mod usernames;
 mod voice;
 
 pub use admin_api_keys::*;
@@ -36,4 +37,5 @@ pub use search::*;
 pub use system::*;
 pub use system_dm::*;
 pub use user_detail::*;
+pub use usernames::*;
 pub use voice::*;

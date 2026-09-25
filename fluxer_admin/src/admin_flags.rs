@@ -123,10 +123,6 @@ pub const USER_FLAGS: &[U64Flag] = &[
 
 pub const PREMIUM_FLAGS: &[I32Flag] = &[
     I32Flag {
-        name: "DISCRIMINATOR",
-        value: 1 << 0,
-    },
-    I32Flag {
         name: "BADGE_HIDDEN",
         value: 1 << 1,
     },

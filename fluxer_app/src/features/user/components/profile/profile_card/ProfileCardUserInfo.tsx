@@ -114,7 +114,7 @@ export const ProfileCardUserInfo: React.FC<ProfileCardUserInfoProps> = observer(
 								className={styles.usernameButton}
 								data-flx="user.profile.profile-card.profile-card-user-info.username-button.username-click"
 							>
-								{NicknameUtils.formatTagForStreamerMode(user.tag)}
+								{NicknameUtils.formatUsernameForStreamerMode(user.username)}
 							</button>
 						</FocusRing>
 						{usernameActions}

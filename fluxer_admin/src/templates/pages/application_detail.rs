@@ -113,7 +113,6 @@ fn overview_card(config: &AdminConfig, app: &Application, can_list_by_owner: boo
     let owner_display = format_user_display(
         app.owner_global_name.as_deref(),
         app.owner_username.as_deref(),
-        app.owner_discriminator.as_deref(),
     );
     section_card_simple(
         "Overview",
@@ -153,11 +152,8 @@ fn bot_display_markup(config: &AdminConfig, app: &Application) -> Markup {
     let base = &config.base_path;
     match &app.bot_user_id {
         Some(bot_id) => {
-            let bot_display = format_user_display(
-                app.bot_global_name.as_deref(),
-                app.bot_username.as_deref(),
-                app.bot_discriminator.as_deref(),
-            );
+            let bot_display =
+                format_user_display(app.bot_global_name.as_deref(), app.bot_username.as_deref());
             html! {
                 div class="space-y-1" {
                     a href={(base) "/users/" (bot_id)}

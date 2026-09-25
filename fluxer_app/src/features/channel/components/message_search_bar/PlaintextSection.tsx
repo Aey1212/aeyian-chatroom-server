@@ -132,7 +132,7 @@ export const PlaintextSection: React.FC<PlaintextSectionProps> = observer(
 											className={`${styles.minW0} ${styles.overflowHidden}`}
 											data-flx="channel.message-search-bar.plaintext-section.min-w0"
 										>
-											{NicknameUtils.formatUserTagForStreamerMode(row.user)}
+											{NicknameUtils.formatUserNameForStreamerMode(row.user)}
 										</span>
 									</span>
 								) : (

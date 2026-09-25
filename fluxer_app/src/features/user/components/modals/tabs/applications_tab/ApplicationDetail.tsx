@@ -23,7 +23,10 @@ import {SectionCard} from '@app/features/user/components/modals/tabs/application
 import type {ApplicationDetailFormValues} from '@app/features/user/components/modals/tabs/applications_tab/application_detail/ApplicationDetailTypes';
 import {ApplicationHeader} from '@app/features/user/components/modals/tabs/applications_tab/application_detail/ApplicationHeader';
 import {ApplicationInfoSection} from '@app/features/user/components/modals/tabs/applications_tab/application_detail/ApplicationInfoSection';
-import {BotProfileSection} from '@app/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection';
+import {
+	BotProfileSection,
+	botUsernameBase,
+} from '@app/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection';
 import {OAuthBuilderSection} from '@app/features/user/components/modals/tabs/applications_tab/application_detail/OAuthBuilderSection';
 import {SecretsSection} from '@app/features/user/components/modals/tabs/applications_tab/application_detail/SecretsSection';
 import * as AvatarUtils from '@app/features/user/utils/AvatarUtils';
@@ -157,7 +160,7 @@ export const ApplicationDetail: React.FC<ApplicationDetailProps> = observer(
 				botManualFriendRequestApproval: isManualApprovalFlagSet(app.bot?.flags),
 				builderScopes: builderScopeMap,
 				builderPermissions: {},
-				username: app.bot?.username || '',
+				username: botUsernameBase(app.bot?.username),
 				bio: app.bot?.bio ?? '',
 			};
 		}, []);
@@ -252,7 +255,7 @@ export const ApplicationDetail: React.FC<ApplicationDetailProps> = observer(
 					const currentBot = application.bot;
 					const avatarCleared = hasClearedAvatar;
 					const bannerCleared = hasClearedBanner;
-					if (dirtyFields.username && data.username && data.username !== currentBot.username) {
+					if (dirtyFields.username && data.username && data.username !== botUsernameBase(currentBot.username)) {
 						botBody.username = data.username;
 					}
 					const shouldSendAvatar = dirtyFields.avatar || avatarCleared;

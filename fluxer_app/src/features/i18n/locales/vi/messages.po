@@ -28,7 +28,7 @@ msgid "(edited)"
 msgstr "(đã chỉnh sửa)"
 
 #: src/features/app/components/pages/YouPage.tsx:189
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:903
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:894
 msgid "(only visible to you)"
 msgstr "(chỉ mình bạn thấy)"
 
@@ -872,11 +872,11 @@ msgstr "Hiện tại, {communityName} chỉ dành cho nhân viên của {product
 msgid "{count, plural, =0 {∞ No limit} one {# participant} other {# participants}}"
 msgstr "{count, plural, =0 {∞ Không giới hạn} one {# người tham gia} other {# người tham gia}}"
 
-#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:193
+#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:141
 msgid "{count, plural, one {... (# line left)} other {... (# lines left)}}"
 msgstr "{count, plural, one {... (# dòng còn lại)} other {... (# dòng còn lại)}}"
 
-#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:210
+#: src/features/channel/components/embeds/attachments/TextualAttachmentPreview.tsx:158
 msgid "{count, plural, one {... (# row left)} other {... (# rows left)}}"
 msgstr "{count, plural, one {... (# hàng còn lại)} other {... (# hàng còn lại)}}"
 
@@ -1074,7 +1074,7 @@ msgstr "{count, plural, one {Mở rộng (# hàng)} other {Mở rộng (# hàng)
 msgid "{count, plural, one {Expand # other device} other {Expand # other devices}}"
 msgstr "{count, plural, one {Mở rộng # thiết bị khác} other {Mở rộng # thiết bị khác}}"
 
-#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:109
+#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:111
 msgid "{count, plural, one {Group DM · # member} other {Group DM · # members}}"
 msgstr "{count, plural, one {Tin nhắn nhóm · # thành viên} other {Tin nhắn nhóm · # thành viên}}"
 
@@ -1471,7 +1471,7 @@ msgid "{memberCount} {rawMemberCount, plural, one {member} other {members}}"
 msgstr "{memberCount} {rawMemberCount, plural, one {thành viên} other {thành viên}}"
 
 #. Generic aria-label for an unread-mentions badge. Preserve {mentionCount}.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:800
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:804
 msgid "{mentionCount, plural, one {# mention} other {# mentions}}"
 msgstr "{mentionCount, plural, other {# lượt nhắc đến}}"
 
@@ -2233,11 +2233,11 @@ msgstr "15 phút"
 msgid "2 clicks"
 msgstr "2 lần nhấp"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:332
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:331
 msgid "2 members (online)"
 msgstr "2 thành viên (đang hoạt động)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:366
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:365
 msgid "2 members (typing)"
 msgstr "2 thành viên (đang nhập)"
 
@@ -2280,11 +2280,11 @@ msgstr "Yêu cầu 2FA"
 msgid "3 days"
 msgstr "3 ngày"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:346
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:345
 msgid "3 members (online)"
 msgstr "3 thành viên (đang hoạt động)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:381
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:380
 msgid "3 members (typing)"
 msgstr "3 thành viên (đang nhập)"
 
@@ -2304,7 +2304,7 @@ msgstr "30 FPS"
 msgid "30 minutes"
 msgstr "30 phút"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:300
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:299
 msgid "32px, 2 members"
 msgstr "32px, 2 thành viên"
 
@@ -2312,7 +2312,7 @@ msgstr "32px, 2 thành viên"
 msgid "404: page not found"
 msgstr "404: không tìm thấy trang"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:313
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:312
 msgid "40px, 3 members"
 msgstr "40px, 3 thành viên"
 
@@ -2435,7 +2435,7 @@ msgid "a forwarded message"
 msgstr "một tin nhắn được chuyển tiếp"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:60
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:62
 msgid "A helpful bot that does amazing things!"
 msgstr "Một bot hữu ích có thể làm được nhiều điều tuyệt vời!"
 
@@ -2530,7 +2530,7 @@ msgstr "Giới thiệu về {appName}"
 #. Short label in the user profile shared popout. Keep it concise.
 #: src/features/app/components/pages/YouPage.tsx:166
 #: src/features/user/components/modals/tabs/my_profile_tab/BioEditor.tsx:26
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:787
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:778
 #: src/features/user/components/popouts/UserProfileShared.tsx:41
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:133
 msgid "About me"
@@ -2751,8 +2751,8 @@ msgstr "Thao tác"
 msgid "Active"
 msgstr "Đang hoạt động"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:356
-#: src/features/auth/components/accounts/AccountRow.tsx:136
+#: src/features/app/components/floating/UserAreaPopout.tsx:358
+#: src/features/auth/components/accounts/AccountRow.tsx:140
 msgid "Active account"
 msgstr "Tài khoản đang hoạt động"
 
@@ -2791,7 +2791,7 @@ msgstr "Người đăng ký gói tháng đang hoạt động (đã lên lịch h
 #. Short label in the appearance tab. Keep it concise.
 #. Short label in the inline. Keep it concise.
 #. Status label indicating a user is currently active.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:744
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:748
 #: src/features/user/components/modals/tabs/appearance_tab/AppearanceTabInline.tsx:43
 #: src/features/user/components/modals/tabs/AppearanceTab.tsx:51
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:430
@@ -2892,7 +2892,7 @@ msgid "Add a friend to get started."
 msgstr "Thêm bạn bè để bắt đầu."
 
 #. Setup wizard body for GIF integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:934
+#: src/features/app/components/setup/SetupWizardSteps.tsx:928
 msgid "Add a Klipy API key to enable GIF search at runtime."
 msgstr "Thêm khóa API Klipy để cho phép tìm kiếm GIF trong thời gian chạy."
 
@@ -2929,7 +2929,7 @@ msgid "Add a working email"
 msgstr "Thêm email còn hoạt động"
 
 #. Setup wizard body for YouTube integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:942
+#: src/features/app/components/setup/SetupWizardSteps.tsx:936
 msgid "Add a YouTube Data API key to enrich YouTube links."
 msgstr "Thêm khóa YouTube Data API để bổ sung thông tin cho các liên kết YouTube."
 
@@ -2975,7 +2975,7 @@ msgid "Add another reaction"
 msgstr "Thêm cảm xúc khác"
 
 #. Setup wizard body for Bluesky integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:966
+#: src/features/app/components/setup/SetupWizardSteps.tsx:960
 msgid "Add Bluesky OAuth client metadata and a signing key."
 msgstr "Thêm siêu dữ liệu ứng dụng OAuth Bluesky và khóa ký."
 
@@ -3125,7 +3125,7 @@ msgid "Add shortcut"
 msgstr "Thêm phím tắt"
 
 #. Setup wizard body for SMTP integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:958
+#: src/features/app/components/setup/SetupWizardSteps.tsx:952
 msgid "Add SMTP credentials so the instance can send verification and notification email."
 msgstr "Thêm thông tin xác thực SMTP để máy chủ có thể gửi email xác minh và thông báo."
 
@@ -3152,7 +3152,7 @@ msgid "Add stream"
 msgstr "Thêm luồng phát"
 
 #. Description for configuring an optional setup wizard integration now.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:926
+#: src/features/app/components/setup/SetupWizardSteps.tsx:920
 msgid "Add the credentials during setup."
 msgstr "Thêm thông tin xác thực trong quá trình thiết lập."
 
@@ -3174,12 +3174,12 @@ msgstr "Thêm vào nhóm"
 #. Action that adds the selected media to saved media.
 #. Action that adds the selected media to saved media.
 #: src/features/expressions/components/modals/AddFavoriteMemeModal.tsx:16
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:177
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:178
 msgid "Add to saved media"
 msgstr "Thêm vào media đã lưu"
 
 #. Media context menu action that saves a GIF favorite by URL without uploading it.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:169
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:170
 msgid "Add to URL-only GIF favorites"
 msgstr "Thêm vào GIF yêu thích lưu theo URL"
 
@@ -3271,7 +3271,7 @@ msgid "Added to favorite GIFs"
 msgstr "Đã thêm vào GIF yêu thích"
 
 #. Toast confirming an item was added to the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:615
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:619
 msgid "Added to favorites"
 msgstr "Đã thêm vào mục yêu thích"
 
@@ -3289,7 +3289,7 @@ msgid "Added: {createdDate} • last used: {lastUsedDate}"
 msgstr "Đã thêm: {createdDate} • dùng lần cuối: {lastUsedDate}"
 
 #. Field label on the details step of the DSA report form. Optional free-text context the reporter wants staff to see.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:72
+#: src/features/moderation/components/report/ReportStepDetails.tsx:71
 msgid "Additional comments (optional)"
 msgstr "Bình luận thêm (không bắt buộc)"
 
@@ -3452,7 +3452,7 @@ msgstr "Tùy chọn căn chỉnh chỉ khả dụng trên màn hình rộng hơn
 #: src/features/app/config/AuditLogConstants.ts:143
 #: src/features/channel/components/direct_message/DMFriendsView.tsx:41
 #: src/features/channel/components/guild_members_page/GuildMembersPageDescriptors.ts:10
-#: src/features/channel/components/MobileMemesPicker.tsx:42
+#: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
 #: src/features/discovery/components/bottomsheets/DiscoveryCategoryBottomSheet.tsx:11
 #: src/features/discovery/discovery/DiscoveryNavbar.tsx:21
@@ -3550,7 +3550,7 @@ msgstr "Tất cả ngôn ngữ"
 msgid "All messages"
 msgstr "Tất cả tin nhắn"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:227
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:226
 msgid "All status types"
 msgstr "Tất cả các loại trạng thái"
 
@@ -3713,7 +3713,7 @@ msgid "Allow transparent desktop window"
 msgstr "Cho phép cửa sổ trong suốt trên máy tính"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:76
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:78
 msgid "Allow users to send this bot friend requests for manual approval."
 msgstr "Cho phép người dùng gửi lời mời kết bạn đến bot này để phê duyệt thủ công."
 
@@ -4015,13 +4015,13 @@ msgstr "Biểu tượng cảm xúc động, ảnh GIF và nhãn dán vẫn nằm
 
 #. Media type chip shown in the media viewer info panel for animated GIFs.
 #. Short label in the channel and chat embed gifv. Keep it concise.
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:67
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:101
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:68
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:102
 msgid "Animated GIF"
 msgstr "Ảnh GIF động"
 
 #. Short label in the channel and chat embed gifv. Keep it concise.
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:63
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:64
 msgid "Animated GIF video"
 msgstr "Video GIF động"
 
@@ -4050,12 +4050,12 @@ msgid "Animated icons require the {animatedIconFeature} community feature."
 msgstr "Biểu tượng động yêu cầu tính năng cộng đồng {animatedIconFeature}."
 
 #. Media type chip shown in the media viewer info panel for animated images.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:109
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:110
 msgid "Animated image"
 msgstr "Ảnh động"
 
 #. Accessible label for an animated image (APNG/AVIF) shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:77
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:78
 msgid "Animated image preview"
 msgstr "Xem trước ảnh động"
 
@@ -4075,7 +4075,7 @@ msgid "Animated uploads require a {premiumProductName} subscription."
 msgstr "Việc tải lên ảnh động yêu cầu gói đăng ký {premiumProductName}."
 
 #. Media type chip shown in the media viewer info panel for short looping video clips.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:105
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:106
 msgid "Animated video"
 msgstr "Video động"
 
@@ -4235,7 +4235,7 @@ msgid "Anyone can request an account, but an administrator must approve it."
 msgstr "Bất kỳ ai cũng có thể yêu cầu tài khoản, nhưng quản trị viên phải phê duyệt."
 
 #. Label for an integration API key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:979
+#: src/features/app/components/setup/SetupWizardSteps.tsx:973
 msgid "API key"
 msgstr "Khóa API"
 
@@ -4279,7 +4279,7 @@ msgid "App zoom"
 msgstr "Thu phóng ứng dụng"
 
 #. Setting label for the global UI zoom level.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:776
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:780
 msgid "App zoom level"
 msgstr "Mức thu phóng ứng dụng"
 
@@ -4349,7 +4349,7 @@ msgid "Application name is required"
 msgstr "Tên ứng dụng là bắt buộc"
 
 #. Short label in the application detail. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:46
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:49
 msgid "Application updated successfully"
 msgstr "Đã cập nhật ứng dụng thành công"
 
@@ -4427,7 +4427,7 @@ msgid "Are you sure you want to delete {channelLabel}? This cannot be undone."
 msgstr "Bạn có chắc chắn muốn xóa {channelLabel} không? Thao tác này không thể hoàn tác."
 
 #. placeholder {0}: application.name
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:407
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:410
 msgid "Are you sure you want to delete <0>{0}</0>?"
 msgstr "Bạn có chắc chắn muốn xóa <0>{0}</0> không?"
 
@@ -4560,6 +4560,10 @@ msgstr "Biểu tượng cảm xúc ASCII"
 msgid "Ask before starting calls"
 msgstr "Hỏi trước khi bắt đầu cuộc gọi"
 
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:91
+msgid "Ask the admin to open a password reset for your account. Once it is open, choose a new password here."
+msgstr "Ask the admin to open a password reset for your account. Once it is open, choose a new password here."
+
 #. Short label in the theme studio. Keep it concise.
 #: src/features/theme_studio/ThemeStudio.tsx:56
 msgid "Assets"
@@ -4587,7 +4591,7 @@ msgstr "tệp đính kèm"
 #. Accessible label for a thumbnail in the media viewer. index1 is the 1-based attachment index.
 #. Accessible label for the active attachment in the media viewer. index1 is the 1-based index.
 #: src/features/messaging/components/modals/media_modal/shared.ts:129
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:73
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:74
 msgid "Attachment {index1}"
 msgstr "Tệp đính kèm {index1}"
 
@@ -4614,12 +4618,12 @@ msgid "Attachment expired"
 msgstr "Tệp đính kèm đã hết hạn"
 
 #. Toast shown when an attachment URL is no longer accessible.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:133
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:134
 msgid "Attachment has expired or is unavailable"
 msgstr "Tệp đính kèm đã hết hạn hoặc không khả dụng"
 
 #. Developer-mode toast confirming an attachment ID was copied.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:161
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:162
 msgid "Attachment ID copied to clipboard"
 msgstr "Đã sao chép ID tệp đính kèm vào bảng tạm"
 
@@ -4729,12 +4733,12 @@ msgid "Audio packet loss:"
 msgstr "Mất gói âm thanh:"
 
 #. Aria label for the inline audio attachment player container.
-#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:34
+#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:35
 msgid "Audio player"
 msgstr "Trình phát âm thanh"
 
 #. Accessible label for an audio clip shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:93
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:94
 msgid "Audio preview"
 msgstr "Xem trước âm thanh"
 
@@ -4769,7 +4773,7 @@ msgid "Audio processing (focused voice)"
 msgstr "Xử lý âm thanh (giọng nói tập trung)"
 
 #. Aria label on the playback progress slider in the inline audio attachment player.
-#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:38
+#: src/features/voice/components/media_player/components/InlineAudioPlayer.tsx:39
 msgid "Audio progress"
 msgstr "Tiến độ âm thanh"
 
@@ -5152,14 +5156,14 @@ msgstr "Ảnh đại diện quá lớn. Hãy chọn ảnh có kích thước dư
 msgid "Avatar mode selection"
 msgstr "Chọn chế độ ảnh đại diện"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:387
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:386
 msgid "Avatar stacks"
 msgstr "Ảnh đại diện xếp chồng"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:24
-msgid "Avatar, tag, and rich profile details for your bot."
-msgstr "Ảnh đại diện, thẻ và thông tin chi tiết phong phú cho bot của bạn."
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:25
+msgid "Avatar, username, and rich profile details for your bot."
+msgstr "Avatar, username, and rich profile details for your bot."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:294
@@ -5196,7 +5200,7 @@ msgstr "Đang vắng mặt"
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:377
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:397
 #: src/features/moderation/components/report_modal/IARModal.tsx:86
-#: src/features/moderation/components/report/ReportStepDetails.tsx:312
+#: src/features/moderation/components/report/ReportStepDetails.tsx:311
 #: src/features/user/components/modals/PhoneAddModal.tsx:411
 #: src/features/user/components/modals/PhoneAddModal.tsx:430
 msgid "Back"
@@ -5212,7 +5216,7 @@ msgstr "Quay lại cuộc gọi"
 msgid "Back to GIF categories"
 msgstr "Quay lại danh mục GIF"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:583
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:586
 msgid "Back to list"
 msgstr "Quay lại danh sách"
 
@@ -5413,11 +5417,11 @@ msgstr "Đã cấm"
 msgid "Banned {targetUserTag} from the community"
 msgstr "Đã cấm {targetUserTag} khỏi cộng đồng"
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:104
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:102
 msgid "Banned by"
 msgstr "Bị cấm bởi"
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:86
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:84
 msgid "Banned on"
 msgstr "Bị cấm vào"
 
@@ -5505,9 +5509,9 @@ msgstr "Nén tốt nhất. Chỉ dùng khi WebRTC hiển thị bộ mã hóa và
 msgid "Best with the desktop app"
 msgstr "Dùng tốt nhất với ứng dụng máy tính"
 
-#: src/features/ui/components/form/UsernameValidationRules.tsx:42
-msgid "Between 1 and 32 characters"
-msgstr "Từ 1 đến 32 ký tự"
+#: src/features/ui/components/form/UsernameValidationRules.tsx:45
+msgid "Between 1 and {maxLength} characters"
+msgstr "Between 1 and {maxLength} characters"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/PlutoniumIndex.ts:27
@@ -5652,7 +5656,7 @@ msgstr "Đã chặn thành viên gửi tin nhắn, bày tỏ cảm xúc và tham
 #. Short label in the account security tab. Keep it concise.
 #. User settings tab listing accounts the current user has blocked.
 #: src/features/user/components/modals/tabs/account_security_tab/AccountSecuritySections.tsx:31
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:210
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:212
 #: src/features/user/components/settings_utils/search_index/BlockedUsersIndex.ts:6
 #: src/features/user/components/settings_utils/section_registry/AccountSecuritySections.ts:155
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:18
@@ -5660,7 +5664,7 @@ msgstr "Đã chặn thành viên gửi tin nhắn, bày tỏ cảm xúc và tham
 msgid "Blocked users"
 msgstr "Người dùng bị chặn"
 
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:211
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:213
 msgid "Blocked users can't send you friend requests or message you directly."
 msgstr "Người dùng bị chặn không thể gửi lời mời kết bạn hoặc nhắn tin trực tiếp cho bạn."
 
@@ -5680,7 +5684,7 @@ msgid "Bluesky connections"
 msgstr "Kết nối Bluesky"
 
 #. Setup wizard title for Bluesky integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:962
+#: src/features/app/components/setup/SetupWizardSteps.tsx:956
 msgid "Bluesky OAuth"
 msgstr "OAuth Bluesky"
 
@@ -5784,7 +5788,7 @@ msgstr "Đã thêm bot"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:28
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:29
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:68
 msgid "Bot avatar"
 msgstr "Ảnh đại diện bot"
@@ -5795,12 +5799,12 @@ msgid "Bot banner"
 msgstr "Ảnh bìa bot"
 
 #. Short label in the bot profile section. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:68
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:70
 msgid "Bot banner preview"
 msgstr "Xem trước ảnh bìa bot"
 
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:56
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:58
 msgid "Bot bio"
 msgstr "Tiểu sử bot"
 
@@ -5842,13 +5846,13 @@ msgstr "Quyền của bot không thể là số âm."
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:20
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:21
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:64
 msgid "Bot profile"
 msgstr "Hồ sơ bot"
 
 #. Setup wizard title for CAPTCHA integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:946
+#: src/features/app/components/setup/SetupWizardSteps.tsx:940
 msgid "Bot protection"
 msgstr "Chống bot"
 
@@ -5865,13 +5869,13 @@ msgid "Bot token"
 msgstr "Token bot"
 
 #. Description text in the application detail. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:62
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:65
 msgid "Bot token regenerated. Update any code that uses the old token."
 msgstr "Đã tạo lại token bot. Hãy cập nhật mọi đoạn mã đang dùng token cũ."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:48
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:49
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:72
 msgid "Bot username"
 msgstr "Tên người dùng bot"
@@ -6203,7 +6207,7 @@ msgstr "Cuộc gọi"
 #. Generic voice/video setting label for the active camera device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the video tab. Keep it concise.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:720
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:724
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:72
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:162
 #: src/features/voice/utils/SettingsDeviceOptions.ts:24
@@ -6263,7 +6267,7 @@ msgstr "Tắt camera"
 
 #. Generic action label that enables the local camera.
 #. Notification sound setting label. Sound played when the user turns their camera on in a call.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:724
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:728
 #: src/features/notification/utils/SoundLabels.ts:52
 msgid "Camera on"
 msgstr "Bật camera"
@@ -6372,7 +6376,6 @@ msgstr "Không thể tải tệp lên ở đây"
 #: src/features/user/components/modals/EmailChangeModal.tsx:289
 #: src/features/user/components/modals/EmailChangeModal.tsx:311
 #: src/features/user/components/modals/EmailChangeModal.tsx:326
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:394
 #: src/features/user/components/modals/PasswordChangeModal.tsx:226
 #: src/features/user/components/modals/PasswordChangeModal.tsx:237
 #: src/features/user/components/modals/PasswordChangeModal.tsx:255
@@ -6394,10 +6397,6 @@ msgstr "Hủy chỉnh sửa tin nhắn"
 msgid "Cancel friend request"
 msgstr "Hủy lời mời kết bạn"
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:145
-msgid "Cancel if you want to choose a different username instead."
-msgstr "Hủy nếu bạn muốn chọn tên người dùng khác."
-
 #. Danger button in the favorite GIF import modal. Stops the active import.
 #: src/features/channel/components/pickers/gif/ImportFavoriteGifsModal.tsx:58
 msgid "Cancel import"
@@ -6415,6 +6414,7 @@ msgstr "Hủy trả lời"
 
 #. Button or menu action label in the channel and chat mobile friend request item. Keep it concise.
 #: src/features/channel/components/friends/MobileFriendRequestItem.tsx:38
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:134
 msgid "Cancel request"
 msgstr "Hủy lời mời"
 
@@ -6751,16 +6751,10 @@ msgstr "Đổi nguồn chia sẻ màn hình"
 msgid "Change the name shown on your global profile"
 msgstr "Đổi tên hiển thị trên hồ sơ chung của bạn"
 
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:66
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:77
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:97
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:39
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:59
 msgid "Change username"
 msgstr "Đổi tên người dùng"
-
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:48
-msgid "Change username form"
-msgstr "Biểu mẫu đổi tên người dùng"
 
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/MessageHistoryCutoffSection.tsx:22
 msgid "Change what users without \"{readMessageHistoryPermissionLabel}\" can see"
@@ -6817,8 +6811,6 @@ msgid "Change your profile picture"
 msgstr "Đổi ảnh đại diện"
 
 #. Settings search entry description. One-line summary of what the settings search entry controls.
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:52
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:77
 msgid "Change your username"
 msgstr "Đổi tên người dùng"
@@ -7033,7 +7025,7 @@ msgid "Channel access"
 msgstr "Quyền truy cập kênh"
 
 #. Title of the alert shown when clicking a message link the user does not have permission to view.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:117
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:118
 msgid "Channel access denied"
 msgstr "Không thể truy cập kênh"
 
@@ -7047,7 +7039,7 @@ msgid "Channel actions"
 msgstr "Thao tác kênh"
 
 #. Toast confirming a channel was added to the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:792
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:796
 msgid "Channel added to favorites"
 msgstr "Đã thêm kênh vào mục yêu thích"
 
@@ -7075,7 +7067,7 @@ msgstr "Gỡ lỗi kênh"
 #. Audit log entry label. Past-tense action describing that a channel was deleted.
 #. Toast confirming a channel was successfully deleted.
 #: src/features/app/config/AuditLogConstants.ts:20
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:760
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:764
 msgid "Channel deleted"
 msgstr "Đã xóa kênh"
 
@@ -7098,7 +7090,7 @@ msgstr "Đã sao chép ID kênh vào bảng tạm"
 
 #. Short label in the messaging mention renderer. Keep it concise.
 #. Type chip suffix in tooltips for inline rendered channel mentions. Lowercase because it follows the channel name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:86
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:87
 #: src/features/messaging/components/markdown/renderers/MentionRenderer.tsx:39
 msgid "channel link"
 msgstr "liên kết kênh"
@@ -7165,7 +7157,7 @@ msgid "Channel record"
 msgstr "Bản ghi kênh"
 
 #. Toast confirming a channel was removed from the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:788
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:792
 msgid "Channel removed from favorites"
 msgstr "Đã xóa kênh khỏi mục yêu thích"
 
@@ -7288,7 +7280,6 @@ msgstr "Kiểm tra kết nối của bạn, sau đó thử lại."
 
 #. Required-action modal carousel step title for existing-email verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:240
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:55
 #: src/features/auth/flow/IpAuthorizationScreen.tsx:120
 msgid "Check your email"
 msgstr "Kiểm tra email của bạn"
@@ -7477,7 +7468,7 @@ msgid "Choose friends to message."
 msgstr "Chọn bạn bè để nhắn tin."
 
 #. Setup wizard body for CAPTCHA integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:950
+#: src/features/app/components/setup/SetupWizardSteps.tsx:944
 msgid "Choose hCaptcha or Cloudflare Turnstile for signup challenges."
 msgstr "Chọn hCaptcha hoặc Cloudflare Turnstile cho các thử thách đăng ký."
 
@@ -7657,7 +7648,7 @@ msgstr "Xác nhận tài khoản để đổi quà"
 #. Action label on the gift redemption flow.
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:286
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
 #: src/features/expressions/components/pages/GiftLoginPage.tsx:41
 #: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
 msgid "Claim gift"
@@ -7668,7 +7659,7 @@ msgstr "Nhận quà"
 #. Title shown when an unclaimed account cannot start a DM or group DM.
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:32
 #: src/features/auth/components/modals/ClaimAccountModal.tsx:41
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:62
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:57
 #: src/features/channel/utils/CreateDMModalUtils.tsx:43
 #: src/features/guild/components/modals/add_guild_modal/GuildCreateForm.tsx:214
 #: src/features/guild/components/modals/add_guild_modal/TemplateImportForm.tsx:440
@@ -7695,7 +7686,7 @@ msgid "Claim your account to call"
 msgstr "Xác nhận tài khoản để gọi"
 
 #. Label in the username section.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:21
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:14
 msgid "Claim your account to change your username"
 msgstr "Xác nhận tài khoản để đổi tên người dùng"
 
@@ -7733,14 +7724,14 @@ msgstr "Xác nhận tài khoản của bạn để đổi hoặc quản lý mã 
 
 #. Helper text on a gift code embed for guest accounts. Prompts account claim before redeeming.
 #: src/features/channel/components/GiftEmbed.tsx:36
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:209
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:208
 msgid "Claim your account to redeem this gift."
 msgstr "Xác nhận tài khoản để nhận quà này."
 
 #. Description text in the channel and chat dm welcome section.
 #. Description text in the user profile modal.
 #. Tooltip shown when an unclaimed account tries to send a friend request.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:63
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:58
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:37
 #: src/features/ui/action_menu/items/RelationshipMenuItems.tsx:40
 #: src/features/user/components/modals/UserProfileModal.tsx:122
@@ -8010,7 +8001,7 @@ msgid "Client"
 msgstr "Ứng dụng khách"
 
 #. Label for Bluesky OAuth client name input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1018
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1012
 msgid "Client name"
 msgstr "Tên ứng dụng khách"
 
@@ -8022,12 +8013,12 @@ msgid "Client secret"
 msgstr "Mã bí mật của máy khách"
 
 #. Description text in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:58
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:61
 msgid "Client secret regenerated. Update any code that uses the old secret."
 msgstr "Đã tạo lại mã bí mật của máy khách. Hãy cập nhật bất kỳ mã nào đang sử dụng mã bí mật cũ."
 
 #. Label for Bluesky OAuth client URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1022
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1016
 msgid "Client URL"
 msgstr "URL ứng dụng khách"
 
@@ -8075,6 +8066,7 @@ msgstr "Đã tắt tính năng nhân bản"
 #. Native Window menu item that closes the focused desktop window.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:306
 #: src/features/platform/utils/DesktopLocaleBridge.ts:138
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:190
 msgid "Close"
 msgstr "Đóng"
 
@@ -8180,7 +8172,7 @@ msgid "Cloud upload"
 msgstr "Tải lên đám mây"
 
 #. Cloudflare Turnstile provider option.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:975
+#: src/features/app/components/setup/SetupWizardSteps.tsx:969
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
@@ -8490,7 +8482,7 @@ msgid "Community debug"
 msgstr "Gỡ lỗi cộng đồng"
 
 #. Notification level option indicating the channel inherits the community default.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:764
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:768
 msgid "Community default"
 msgstr "Mặc định của cộng đồng"
 
@@ -8525,11 +8517,11 @@ msgid "Community icon"
 msgstr "Biểu tượng cộng đồng"
 
 #. Field label on the details step of the DSA report form (community report). The reported community's snowflake ID.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:43
+#: src/features/moderation/components/report/ReportStepDetails.tsx:42
 msgid "Community ID"
 msgstr "ID cộng đồng"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:237
+#: src/features/moderation/components/report/ReportStepDetails.tsx:236
 msgid "Community ID is required."
 msgstr "Cần có ID cộng đồng."
 
@@ -8785,7 +8777,7 @@ msgid "Configure keyboard shortcuts"
 msgstr "Cấu hình phím tắt"
 
 #. Option for configuring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:922
+#: src/features/app/components/setup/SetupWizardSteps.tsx:916
 msgid "Configure now"
 msgstr "Cấu hình ngay"
 
@@ -8879,7 +8871,9 @@ msgstr "Xác nhận nhóm mới"
 msgid "Confirm new password"
 msgstr "Xác nhận mật khẩu mới"
 
+#. Label of the password confirmation field on the forgot password page.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:29
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:35
 msgid "Confirm password"
 msgstr "Xác nhận mật khẩu"
@@ -9161,8 +9155,7 @@ msgstr "Bạn có thể mở menu ngữ cảnh bằng cách nhấp chuột trái
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthAccountStep.tsx:34
 #: src/features/auth/flow/HandoffApprovalFlow.tsx:109
 #: src/features/connection/components/modals/AddConnectionModal.tsx:384
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:712
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:397
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:716
 #: src/features/user/components/modals/tabs/AuthorizedAppsTab.tsx:182
 msgid "Continue"
 msgstr "Tiếp tục"
@@ -9278,13 +9271,13 @@ msgstr "Đã sao chép JSON thống kê vào bảng nhớ tạm"
 
 #. Generic success toast confirming that content was copied to the clipboard.
 #. Toast shown after copying text to the clipboard succeeds.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:145
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:146
 #: src/features/ui/commands/TextCopyCommands.ts:11
 msgid "Copied to clipboard"
 msgstr "Đã sao chép vào bảng nhớ tạm"
 
 #. Label in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:82
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:85
 msgid "Copied URL to clipboard"
 msgstr "Đã sao chép URL vào bảng nhớ tạm"
 
@@ -9313,12 +9306,12 @@ msgid "Copy attachment ID"
 msgstr "Sao chép ID tệp đính kèm"
 
 #. Media context menu action that copies an audio attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:61
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:62
 msgid "Copy audio"
 msgstr "Sao chép âm thanh"
 
 #. Media context menu action that copies the URL of the audio attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:81
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:82
 msgid "Copy audio link"
 msgstr "Sao chép liên kết âm thanh"
 
@@ -9343,7 +9336,7 @@ msgid "Copy banner URL"
 msgstr "Sao chép URL ảnh bìa"
 
 #. Tray menu item. Copies build / version diagnostics to the clipboard for bug reports.
-#: src/features/app/components/floating/UserAreaPopout.tsx:707
+#: src/features/app/components/floating/UserAreaPopout.tsx:709
 #: src/features/platform/utils/DesktopLocaleBridge.ts:228
 msgid "Copy build info"
 msgstr "Sao chép thông tin bản dựng"
@@ -9374,7 +9367,7 @@ msgid "Copy code"
 msgstr "Sao chép mã"
 
 #. Developer-mode action that copies a community snowflake/ID to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:728
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:732
 msgid "Copy community ID"
 msgstr "Sao chép ID cộng đồng"
 
@@ -9406,17 +9399,17 @@ msgid "Copy endpoint"
 msgstr "Sao chép điểm cuối"
 
 #. Media context menu action that copies the URL of the file attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:85
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:86
 msgid "Copy file link"
 msgstr "Sao chép liên kết tệp"
 
 #. Media context menu action that copies a GIF attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:53
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:54
 msgid "Copy GIF"
 msgstr "Sao chép ảnh GIF"
 
 #. Media context menu action that copies the URL of the GIF attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:73
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:74
 msgid "Copy GIF link"
 msgstr "Sao chép liên kết GIF"
 
@@ -9441,7 +9434,7 @@ msgid "Copy identifier"
 msgstr "Sao chép ID"
 
 #. Media context menu action that copies an image attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:49
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:50
 msgid "Copy image"
 msgstr "Sao chép ảnh"
 
@@ -9449,7 +9442,7 @@ msgstr "Sao chép ảnh"
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
 #: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:44
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:69
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:70
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:44
 msgid "Copy image link"
 msgstr "Sao chép liên kết hình ảnh"
@@ -9477,7 +9470,7 @@ msgid "Copy invite URL"
 msgstr "Sao chép URL mời"
 
 #. Generic action label that copies a URL to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:740
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:744
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:330
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:145
 msgid "Copy link"
@@ -9494,7 +9487,7 @@ msgid "Copy link to section"
 msgstr "Sao chép liên kết đến phần này"
 
 #. Generic media context menu action label when the specific type is unknown.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:65
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:66
 msgid "Copy media"
 msgstr "Sao chép phương tiện"
 
@@ -9510,7 +9503,7 @@ msgstr "Sao chép tin nhắn"
 
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:732
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:736
 #: src/features/input/state/input_keybind/shared.ts:277
 msgid "Copy message ID"
 msgstr "Sao chép ID tin nhắn"
@@ -9585,13 +9578,13 @@ msgid "Copy the setup key into your authenticator app."
 msgstr "Sao chép khóa thiết lập vào ứng dụng xác thực của bạn."
 
 #. Developer-mode action that copies a user snowflake/ID to the clipboard.
-#: src/features/app/components/floating/UserAreaPopout.tsx:692
+#: src/features/app/components/floating/UserAreaPopout.tsx:694
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:172
 msgid "Copy user ID"
 msgstr "Sao chép ID người dùng"
 
 #. Action that copies a user username (handle) to the clipboard.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:736
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:740
 msgid "Copy username"
 msgstr "Sao chép tên người dùng"
 
@@ -9601,16 +9594,16 @@ msgid "Copy value"
 msgstr "Sao chép giá trị"
 
 #. Media context menu action that copies a video attachment to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:57
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:58
 msgid "Copy video"
 msgstr "Sao chép video"
 
 #. Media context menu action that copies the URL of the video attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:77
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:78
 msgid "Copy video link"
 msgstr "Sao chép liên kết video"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:720
+#: src/features/app/components/floating/UserAreaPopout.tsx:722
 msgid "Copy voice diagnostics"
 msgstr "Sao chép chẩn đoán thoại"
 
@@ -9625,7 +9618,7 @@ msgid "Copy webhook URL"
 msgstr "Sao chép URL webhook"
 
 #. Progress toast shown while encoding and copying an image to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:153
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:154
 msgid "Copying image..."
 msgstr "Đang sao chép ảnh..."
 
@@ -9784,7 +9777,7 @@ msgid "Couldn't crop image"
 msgstr "Không thể cắt ảnh"
 
 #. Title of the error modal shown when deleting a developer application fails.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:54
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:57
 msgid "Couldn't delete application"
 msgstr "Không thể xóa ứng dụng"
 
@@ -9895,7 +9888,7 @@ msgstr "Không thể tải cộng đồng"
 msgid "Couldn't load invites"
 msgstr "Không thể tải lời mời"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:574
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:577
 msgid "Couldn't load this application"
 msgstr "Không thể tải ứng dụng này"
 
@@ -9953,7 +9946,7 @@ msgid "Couldn't refund this purchase"
 msgstr "Không thể hoàn tiền giao dịch mua này"
 
 #. Title of the error modal shown when regenerating a client secret or bot token fails.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:66
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:69
 msgid "Couldn't regenerate secret"
 msgstr "Không thể tạo lại khóa bí mật"
 
@@ -10033,7 +10026,7 @@ msgid "Couldn't send invite"
 msgstr "Không gửi được lời mời"
 
 #. Toast shown when sending an invite (group DM or community) fails.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:704
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:708
 msgid "Couldn't send invite. Try again."
 msgstr "Không gửi được lời mời. Vui lòng thử lại."
 
@@ -10192,7 +10185,7 @@ msgid "Country"
 msgstr "Quốc gia"
 
 #. Field label on the details step of the DSA report form. The country where the reporter resides, used for the legal declaration.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:62
+#: src/features/moderation/components/report/ReportStepDetails.tsx:61
 msgid "Country of residence"
 msgstr "Quốc gia cư trú"
 
@@ -10235,7 +10228,7 @@ msgid "Create a new group with {userName}"
 msgstr "Tạo nhóm mới với {userName}"
 
 #. Generic authentication action label for starting or submitting account creation.
-#: src/features/auth/components/pages/RegisterPage.tsx:46
+#: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
 #: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
@@ -10620,11 +10613,6 @@ msgstr "Thời lượng cấm tùy chỉnh (giây)"
 msgid "Custom date range"
 msgstr "Khoảng thời gian tùy chỉnh"
 
-#. Error message in the FluxerTag change modal.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:65
-msgid "Custom discriminators are not available on this instance"
-msgstr "Mã phân biệt tùy chỉnh không khả dụng trên máy chủ này"
-
 #. Accessible label for a custom emoji in the message composer. Preserve {emojiName} and {communityName}.
 #: src/features/lexical/composer/nodes/ComposerCustomEmoji.tsx:21
 msgid "Custom emoji {emojiName} from {communityName}"
@@ -10797,7 +10785,7 @@ msgid "Custom warning text"
 msgstr "Văn bản cảnh báo tùy chỉnh"
 
 #. Last "Custom…" option in dropdown menus that opens a custom-value picker.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:768
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:772
 msgid "Custom…"
 msgstr "Tùy chỉnh…"
 
@@ -10837,15 +10825,6 @@ msgstr "Tùy chỉnh các nút và chỉ báo hiển thị trên tệp media đ�
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:49
 msgid "Customize your profile banner"
 msgstr "Tùy chỉnh ảnh bìa hồ sơ của bạn"
-
-#. Description text in the username section. Preserve {discriminatorLabel}, {premiumProductName}; they are inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:29
-msgid "Customize your tag ({discriminatorLabel}) to your liking with {premiumProductName}"
-msgstr "Tùy chỉnh thẻ của bạn ({discriminatorLabel}) theo ý muốn với {premiumProductName}"
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:386
-msgid "Customize your tag or keep it when changing your username"
-msgstr "Tùy chỉnh hoặc giữ nguyên thẻ khi đổi tên người dùng"
 
 #. Label in the accent color picker. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/my_profile_tab/AccentColorPicker.tsx:16
@@ -10903,7 +10882,7 @@ msgstr "Đã nhấp vào nút nguy hiểm."
 #. Short label in the account security tab. Keep it concise. Keep the tone plain and specific.
 #: src/features/theme_studio/sections/ThemeStudioSettingsSection.tsx:357
 #: src/features/user/components/modals/tabs/account_security_tab/AccountSecuritySections.tsx:39
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:698
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:701
 msgid "Danger zone"
 msgstr "Khu vực nguy hiểm"
 
@@ -10990,10 +10969,8 @@ msgstr "Ngày"
 msgid "Date and time"
 msgstr "Ngày và giờ"
 
-#. Short label in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
 #. Short label in the authentication date of birth field. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:27
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:39
 #: src/features/auth/flow/DateOfBirthField.tsx:16
 #: src/features/auth/flow/DateOfBirthField.tsx:98
@@ -11259,8 +11236,8 @@ msgstr "Delaware"
 #. Tooltip for the custom emoji delete button.
 #: src/features/channel/components/embeds/media/EmbedAudio.tsx:29
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:23
-#: src/features/channel/components/MobileMemesPicker.tsx:88
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:39
+#: src/features/channel/components/MobileMemesPicker.tsx:89
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:40
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
@@ -11289,8 +11266,8 @@ msgstr "Xóa :{emojiName}:? Không thể hoàn tác."
 
 #. Body of the destructive delete confirmation alert in the saved media picker. memeName is the user-chosen name. Keep quotation marks.
 #. Error message in the channel and chat mobile memes picker. Preserve {memeName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/channel/components/MobileMemesPicker.tsx:83
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:34
+#: src/features/channel/components/MobileMemesPicker.tsx:84
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:35
 msgid "Delete \"{memeName}\"? Can't be undone."
 msgstr "Xóa \"{memeName}\"? Không thể hoàn tác."
 
@@ -11336,13 +11313,13 @@ msgid "Delete all messages"
 msgstr "Xóa tất cả tin nhắn"
 
 #. Button or menu action label in the application detail. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:50
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:721
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:53
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:724
 msgid "Delete application"
 msgstr "Xóa ứng dụng"
 
 #. Generic action label that removes an attachment from the upload tray / message.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:748
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:752
 msgid "Delete attachment"
 msgstr "Xóa tệp đính kèm"
 
@@ -11400,7 +11377,7 @@ msgid "Delete invite"
 msgstr "Xóa lời mời"
 
 #. Accessible label for the delete button on a saved media tile in the picker.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:56
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:57
 msgid "Delete media"
 msgstr "Xóa media"
 
@@ -11467,8 +11444,8 @@ msgstr "Xóa vai trò"
 
 #. Accessible label and tooltip for the delete button on a saved media tile in the mobile memes picker.
 #. Title of the destructive delete confirmation alert in the saved media (memes) picker.
-#: src/features/channel/components/MobileMemesPicker.tsx:79
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:30
+#: src/features/channel/components/MobileMemesPicker.tsx:80
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:31
 msgid "Delete saved media"
 msgstr "Xóa media đã lưu"
 
@@ -11642,7 +11619,7 @@ msgid "Describe this media for screen readers"
 msgstr "Mô tả media này cho trình đọc màn hình"
 
 #. Placeholder in the Additional comments textarea on the DSA report form. Prompts the reporter to explain why the content is illegal.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:77
+#: src/features/moderation/components/report/ReportStepDetails.tsx:76
 msgid "Describe what makes the content illegal"
 msgstr "Mô tả điều khiến nội dung này vi phạm pháp luật"
 
@@ -11850,13 +11827,13 @@ msgstr "Trạng thái nhà phát triển"
 #. Short label in the channel and chat utility buttons. Keep it concise.
 #. Title of the info alert shown when clicking an internal developer-tools deep link.
 #: src/features/channel/components/channel_header_components/UtilityButtons.tsx:20
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:129
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:130
 #: src/features/ui/action_menu/items/StaffDeveloperUserControlsMenuItem.tsx:13
 msgid "Developer tools"
 msgstr "Công cụ nhà phát triển"
 
 #. Body of the developer-tools info alert. Refers to the staff badge button in the channel header.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:133
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:134
 msgid "Developer tools are available from the staff badge in the channel header."
 msgstr "Công cụ nhà phát triển có sẵn từ huy hiệu nhân viên trong tiêu đề kênh."
 
@@ -11932,19 +11909,19 @@ msgstr "Từ điển"
 msgid "Dictionary"
 msgstr "Từ điển"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:392
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:391
 msgid "Different sizes"
 msgstr "Kích cỡ khác nhau"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:203
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:202
 msgid "Different sizes (online)"
 msgstr "Các kích cỡ khác nhau (đang trực tuyến)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:120
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:119
 msgid "Different sizes (status supported)"
 msgstr "Kích cỡ khác nhau (hỗ trợ trạng thái)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:287
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:286
 msgid "Different sizes & member counts"
 msgstr "Kích cỡ & số lượng thành viên khác nhau"
 
@@ -12251,7 +12228,7 @@ msgid "Disconnected"
 msgstr "Đã ngắt kết nối"
 
 #. Label for a community that anyone can find through discovery. Used in the community badge and as the community subtitle in expression info cards. Keep it concise.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:679
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:683
 msgid "Discoverable community"
 msgstr "Cộng đồng có trong Khám phá"
 
@@ -12298,11 +12275,6 @@ msgstr "Kết quả Khám phá"
 #: src/features/discovery/discovery/DiscoveryNavbar.tsx:33
 msgid "Discovery search"
 msgstr "Tìm kiếm Khám phá"
-
-#. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:52
-msgid "Discriminator"
-msgstr "Mã phân biệt"
 
 #. Generic button label that dismisses a banner, modal, sheet, or prompt without taking the primary action.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:310
@@ -12376,9 +12348,7 @@ msgstr "Chế độ hiển thị"
 msgid "Display name"
 msgstr "Tên hiển thị"
 
-#. Short label in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:31
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:51
 #: src/features/auth/flow/MockMinimalRegisterForm.tsx:91
 msgid "Display name (optional)"
@@ -12549,7 +12519,7 @@ msgstr "Không chặn. Bạn có thể mở lại sau."
 
 #. Generic form-field / table-column label for an internet domain.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:772
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:776
 #: src/features/user/components/settings_utils/search_index/LinkedAccountsIndex.ts:28
 msgid "Domain"
 msgstr "Tên miền"
@@ -12571,7 +12541,7 @@ msgstr "Không xóa"
 msgid "Don't delete any"
 msgstr "Không xóa gì cả"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:106
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:149
 msgid "Don't have an account?"
 msgstr "Chưa có tài khoản?"
 
@@ -12652,7 +12622,7 @@ msgid "Download <0>fluxer-verification</0> and place it in your <1>.well-known</
 msgstr "Tải xuống <0>fluxer-verification</0> và đặt vào thư mục <1>.well-known</1> để chúng tôi có thể xác minh tên miền."
 
 #. Media context menu action that downloads an audio attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:121
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:122
 msgid "Download audio"
 msgstr "Tải âm thanh"
 
@@ -12687,7 +12657,7 @@ msgid "Download desktop update {version} ({formatBytes})"
 msgstr "Tải bản cập nhật {version} cho máy tính ({formatBytes})"
 
 #. Media context menu action that downloads a file attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:125
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:126
 msgid "Download file"
 msgstr "Tải tệp"
 
@@ -12696,12 +12666,12 @@ msgid "Download fluxer-verification"
 msgstr "Tải xuống fluxer-verification"
 
 #. Media context menu action that downloads a GIF attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:113
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:114
 msgid "Download GIF"
 msgstr "Tải GIF"
 
 #. Image context menu action that downloads the image to disk.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:109
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:110
 msgid "Download image"
 msgstr "Tải ảnh"
 
@@ -12715,7 +12685,7 @@ msgstr "Tải trình cài đặt"
 #. Tooltip on the download button in the media viewer modal.
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:28
 #: src/features/messaging/components/modals/media_modal/shared.ts:73
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:129
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:130
 msgid "Download media"
 msgstr "Tải phương tiện"
 
@@ -12725,7 +12695,7 @@ msgid "Download package"
 msgstr "Tải gói"
 
 #. Media context menu action that downloads a video attachment.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:117
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:118
 msgid "Download video"
 msgstr "Tải video"
 
@@ -12964,7 +12934,7 @@ msgstr "Chỉnh sửa quyền truy cập cho {0}"
 #. Accessible label in the edit alt text modal. Keep it concise.
 #. Action that opens the modal for editing an image or video accessibility description.
 #: src/features/messaging/components/modals/EditAltTextModal.tsx:32
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:165
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:166
 msgid "Edit alt text"
 msgstr "Chỉnh sửa văn bản thay thế"
 
@@ -13054,13 +13024,13 @@ msgid "Edit keyboard shortcut"
 msgstr "Chỉnh sửa phím tắt"
 
 #. Tooltip on the edit button on a saved media tile in the picker.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:48
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:49
 msgid "Edit media"
 msgstr "Chỉnh sửa phương tiện"
 
 #. Generic action label that opens the message edit composer.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:708
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:712
 #: src/features/input/state/input_keybind/shared.ts:9
 msgid "Edit message"
 msgstr "Chỉnh sửa tin nhắn"
@@ -13082,10 +13052,10 @@ msgstr "Chỉnh sửa hoặc xóa biểu tượng cảm xúc và nhãn dán do t
 msgid "Edit overwrites for roles and members in this channel."
 msgstr "Chỉnh sửa quyền ghi đè cho vai trò và thành viên trong kênh này."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:743
+#: src/features/app/components/floating/UserAreaPopout.tsx:745
 #: src/features/app/components/pages/YouPage.tsx:157
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:682
-#: src/features/user/components/modals/UserProfileModal.tsx:587
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
+#: src/features/user/components/modals/UserProfileModal.tsx:586
 #: src/features/user/components/popouts/UserProfilePopout.tsx:432
 msgid "Edit profile"
 msgstr "Chỉnh sửa hồ sơ"
@@ -13103,8 +13073,8 @@ msgstr "Chỉnh sửa công cụ tìm kiếm hình ảnh ngược"
 #. Accessible label for the edit button on a saved media tile in the picker.
 #. Action that opens the editor for a saved media (favorite meme) entry.
 #. Button or menu action label in the channel and chat mobile memes picker. Keep it concise.
-#: src/features/channel/components/MobileMemesPicker.tsx:93
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:52
+#: src/features/channel/components/MobileMemesPicker.tsx:94
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:53
 #: src/features/expressions/components/modals/EditFavoriteMemeModal.tsx:18
 msgid "Edit saved media"
 msgstr "Chỉnh sửa media đã lưu"
@@ -13190,6 +13160,11 @@ msgstr "Đủ điều kiện hoàn tiền đến {windowEndsOn}. Thao tác này 
 msgid "Email"
 msgstr "Email"
 
+#. Label of the optional email field on the sign-up form.
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:63
+msgid "Email (optional)"
+msgstr "Email (optional)"
+
 #. Label for the current account email shown in the required-action modal.
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the moderation report step email. Keep it concise. Keep the tone plain and specific.
@@ -13212,7 +13187,7 @@ msgid "Email changed"
 msgstr "Đã đổi email"
 
 #. Setup wizard title for SMTP integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:954
+#: src/features/app/components/setup/SetupWizardSteps.tsx:948
 msgid "Email delivery"
 msgstr "Gửi email"
 
@@ -13517,7 +13492,7 @@ msgid "Enable beta feature"
 msgstr "Bật tính năng thử nghiệm"
 
 #. Label for enabling Bluesky OAuth in setup.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1014
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1008
 msgid "Enable Bluesky OAuth"
 msgstr "Bật OAuth của Bluesky"
 
@@ -13550,7 +13525,7 @@ msgid "Enable developer mode"
 msgstr "Bật chế độ nhà phát triển"
 
 #. Label for enabling SMTP email delivery in setup.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:982
+#: src/features/app/components/setup/SetupWizardSteps.tsx:976
 msgid "Enable email delivery"
 msgstr "Bật gửi email"
 
@@ -13617,7 +13592,7 @@ msgstr "Bật thông báo đẩy trên di động"
 
 #. Generic action label / toggle that turns on push or desktop notifications.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:780
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:784
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:127
 msgid "Enable notifications"
 msgstr "Bật thông báo"
@@ -13832,7 +13807,7 @@ msgid "English (US)"
 msgstr "Tiếng Anh (Mỹ)"
 
 #. Generic radio / dropdown option label for an "enhanced" tier.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:784
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:788
 msgid "Enhanced"
 msgstr "Nâng cao"
 
@@ -13907,11 +13882,6 @@ msgstr "Nhập số điện thoại di động hợp lệ."
 #: src/features/user/components/modals/PhoneAddModal.tsx:46
 msgid "Enter a valid phone number"
 msgstr "Nhập số điện thoại hợp lệ"
-
-#. Description text in the channel and chat add friend form. Preserve {exampleFluxerTagFull}; it is inserted by code.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:32
-msgid "Enter a valid username ({exampleFluxerTagFull})."
-msgstr "Nhập tên người dùng hợp lệ ({exampleFluxerTagFull})."
 
 #. Required-action modal body for entering a replacement email address.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:371
@@ -14061,10 +14031,6 @@ msgstr "Nhập tên người dùng"
 #: src/features/moderation/components/report/ReportStepVerification.tsx:48
 msgid "Enter verification code"
 msgstr "Nhập mã xác minh"
-
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:74
-msgid "Enter your email address and we'll send you a link to reset your password."
-msgstr "Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu."
 
 #. Short label in the inputs tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:26
@@ -14220,6 +14186,11 @@ msgstr "Buổi tối"
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "Làm đều âm lượng mic của bạn để không bị quá nhỏ."
+
+#. Help text under the bot username field. -BOT is literal and must stay in capitals.
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:53
+msgid "Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it."
+msgstr "Every bot username ends in -BOT. A new name is sent to the admin as a request and is held for your bot until the admin approves or rejects it."
 
 #. Short label in the text to speech. Keep it concise.
 #: src/features/user/components/modals/tabs/notifications_tab/TextToSpeech.tsx:17
@@ -14507,7 +14478,7 @@ msgid "Expression autocomplete"
 msgstr "Tự động hoàn tất biểu cảm"
 
 #. Aria label for the expression picker category nav.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:752
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:756
 msgid "Expression picker categories"
 msgstr "Danh mục biểu cảm"
 
@@ -14594,7 +14565,7 @@ msgstr "Không thể sao chép liên kết mời"
 
 #. Error toast shown when copying to the clipboard fails.
 #. Toast shown after copying text to the clipboard fails.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:149
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:150
 #: src/features/ui/commands/TextCopyCommands.ts:15
 msgid "Failed to copy to clipboard"
 msgstr "Sao chép vào bảng tạm thất bại"
@@ -14997,7 +14968,7 @@ msgstr "Tính năng tạm thời bị tắt"
 msgid "Features"
 msgstr "Tính năng"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:231
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:230
 msgid "Fetch a URL and inspect the embed payload the chat renderer receives."
 msgstr "Lấy một URL và kiểm tra nội dung nhúng mà trình hiển thị trò chuyện nhận được."
 
@@ -15221,7 +15192,7 @@ msgid "Finnish"
 msgstr "Tiếng Phần Lan"
 
 #. Placeholder in the Full legal name input on the DSA report form.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:58
+#: src/features/moderation/components/report/ReportStepDetails.tsx:57
 msgid "First and last name"
 msgstr "Họ và tên"
 
@@ -15537,12 +15508,12 @@ msgid "Forgetting authorized IPs..."
 msgstr "Đang quên các IP được ủy quyền..."
 
 #. Short label in the authentication forgot password page. Keep the tone plain and specific.
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:20
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:25
 msgid "Forgot password"
 msgstr "Quên mật khẩu"
 
 #. Authentication link label that opens password recovery.
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:71
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:88
 #: src/features/auth/flow/AuthLoginLayout.tsx:63
 msgid "Forgot your password?"
 msgstr "Quên mật khẩu?"
@@ -15562,7 +15533,7 @@ msgid "Forward"
 msgstr "Chuyển tiếp"
 
 #. Tooltip / aria label on the forward / fast-forward button in the standalone audio player. {defaultSeekAmount} is an integer second count.
-#: src/features/voice/components/media_player/components/AudioPlayer.tsx:31
+#: src/features/voice/components/media_player/components/AudioPlayer.tsx:32
 msgid "Forward {defaultSeekAmount} seconds"
 msgstr "Tua tới {defaultSeekAmount} giây"
 
@@ -15688,18 +15659,18 @@ msgid "Friend requests"
 msgstr "Lời mời kết bạn"
 
 #. Description text in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:84
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:86
 msgid "Friend requests to this bot need manual approval."
 msgstr "Lời mời kết bạn với bot này cần được phê duyệt thủ công."
 
 #. Short label in the channel and chat add friend form. Keep it concise.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:41
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:36
 msgid "Friend's username"
 msgstr "Tên người dùng của bạn bè"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:72
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:74
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:84
 msgid "Friendly bot"
 msgstr "Bot thân thiện"
@@ -15771,8 +15742,8 @@ msgstr "Chỉ bạn bè mới gọi được"
 msgid "From"
 msgstr "Từ"
 
-#. Attribution label on a gift, showing the sender FluxerTag.
-#. Sender label on a gift code embed. creatorTag is the FluxerTag of the gift creator.
+#. Attribution label on a gift, showing the sender username.
+#. Sender label on a gift code embed. creatorTag is the username of the gift creator.
 #: src/features/channel/components/GiftEmbed.tsx:28
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:32
 msgid "From {creatorTag}"
@@ -15789,12 +15760,12 @@ msgid "from <0>{0}</0>"
 msgstr "từ <0>{0}</0>"
 
 #. Label for SMTP from email input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:986
+#: src/features/app/components/setup/SetupWizardSteps.tsx:980
 msgid "From email"
 msgstr "Địa chỉ email người gửi"
 
 #. Label for SMTP from name input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:990
+#: src/features/app/components/setup/SetupWizardSteps.tsx:984
 msgid "From name"
 msgstr "Tên người gửi"
 
@@ -15814,7 +15785,7 @@ msgid "Full dynamic range"
 msgstr "Dải tương phản động đầy đủ"
 
 #. Field label on the details step of the DSA report form. Required legal name of the reporter for the formal declaration. Sensitive PII; keep tone neutral.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:53
+#: src/features/moderation/components/report/ReportStepDetails.tsx:52
 msgid "Full legal name"
 msgstr "Họ và tên đầy đủ"
 
@@ -16001,7 +15972,7 @@ msgid "Germany"
 msgstr "Đức"
 
 #. Generic upsell CTA button to start the Plutonium purchase flow. Preserve {premiumProductName}.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:796
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:800
 msgid "Get {premiumProductName}"
 msgstr "Nhận {premiumProductName}"
 
@@ -16009,16 +15980,6 @@ msgstr "Nhận {premiumProductName}"
 #: src/features/premium/utils/PremiumMessageDescriptors.ts:48
 msgid "Get {premiumProductName} for yourself and unlock higher limits and exclusive features."
 msgstr "Nâng cấp lên {premiumProductName} cho chính bạn để mở khóa giới hạn cao hơn và các tính năng độc quyền."
-
-#. Label in the username section. Preserve {premiumProductName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:34
-msgid "Get {premiumProductName} to customize your tag"
-msgstr "Nâng cấp lên {premiumProductName} để tùy chỉnh thẻ của bạn"
-
-#. Description text in the FluxerTag change modal. Preserve {premiumProductName}; it is inserted by code. Keep the tone plain and specific.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:56
-msgid "Get {premiumProductName} to customize your tag or keep it when changing your username"
-msgstr "Nâng cấp lên {premiumProductName} để tùy chỉnh thẻ hoặc giữ lại thẻ khi đổi tên người dùng"
 
 #. Button in the required-action modal. Requests a new inbound SMS challenge code.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:202
@@ -16074,12 +16035,12 @@ msgid "GIF picker loading"
 msgstr "Đang tải trình chọn GIF"
 
 #. Accessible label for an animated GIF shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:85
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:86
 msgid "GIF preview"
 msgstr "Xem trước GIF"
 
 #. Setup wizard title for GIF integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:930
+#: src/features/app/components/setup/SetupWizardSteps.tsx:924
 msgid "GIF search"
 msgstr "Tìm kiếm GIF"
 
@@ -16101,7 +16062,7 @@ msgstr "Không thể tải GIF"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subscription status badge meaning premium access came from a gift.
 #: src/features/app/components/dialogs/components/plutonium/SubscriptionCard.tsx:443
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:294
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:293
 #: src/features/user/components/settings_utils/search_index/PlutoniumIndex.ts:79
 msgid "Gift"
 msgstr "Quà tặng"
@@ -16527,11 +16488,11 @@ msgstr "Tin nhắn nhóm"
 msgid "Group DM"
 msgstr "Tin nhắn nhóm"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:277
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:276
 msgid "Group DM avatars"
 msgstr "Ảnh đại diện tin nhắn nhóm"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:279
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:278
 msgid "Group DM avatars using the same status masks as regular avatars, including stacked layouts and typing states."
 msgstr "Ảnh đại diện tin nhắn nhóm sử dụng cùng mặt nạ trạng thái như ảnh đại diện thông thường, bao gồm cả bố cục xếp chồng và trạng thái đang nhập."
 
@@ -16576,7 +16537,7 @@ msgstr "Tên nhóm"
 msgid "Group name must not exceed 100 characters"
 msgstr "Tên nhóm không được vượt quá 100 ký tự"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:318
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:317
 msgid "Group online status"
 msgstr "Trạng thái trực tuyến của nhóm"
 
@@ -16602,7 +16563,7 @@ msgstr "Quyền riêng tư nhóm"
 msgid "Group settings"
 msgstr "Cài đặt nhóm"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:351
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:350
 msgid "Group typing states"
 msgstr "Trạng thái đang nhập của nhóm"
 
@@ -16749,7 +16710,7 @@ msgid "Hawaii"
 msgstr "Hawaii"
 
 #. hCaptcha provider option.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:974
+#: src/features/app/components/setup/SetupWizardSteps.tsx:968
 msgid "hCaptcha"
 msgstr "hCaptcha"
 
@@ -16949,7 +16910,7 @@ msgid "Hide expiration footnotes"
 msgstr "Ẩn chú thích hết hạn"
 
 #. Toggle / action label that collapses or hides the favorites section.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:696
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Ẩn mục yêu thích"
 
@@ -17179,7 +17140,7 @@ msgstr "Di chuột vào đây"
 msgid "Hover over buttons to see tooltips in different positions."
 msgstr "Di chuột qua các nút để xem chú giải công cụ ở các vị trí khác nhau."
 
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:386
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:334
 msgid "How about:"
 msgstr "Bạn có thể thử:"
 
@@ -17318,7 +17279,7 @@ msgstr "Danh tính"
 
 #. Generic presence-status label indicating the user is idle / AFK.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:639
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:643
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:46
 msgid "Idle"
 msgstr "Không hoạt động"
@@ -17395,14 +17356,6 @@ msgstr "Nếu bạn bỏ qua thông báo này, bạn luôn có thể bật lại
 #: src/features/voice/components/dialogs/DisablePiPConfirmModal.tsx:56
 msgid "If you don't save this preference, we'll only hide the popout for this session. You can change this any time in {audioVideoSettingsPath}."
 msgstr "Nếu bạn không lưu tùy chọn này, chúng tôi sẽ chỉ ẩn cửa sổ bật lên cho phiên này. Bạn có thể thay đổi điều này bất cứ lúc nào trong {audioVideoSettingsPath}."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:354
-msgid "If you save this username, your tag will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires on <0>{premiumExpiresAtLabel}</0>, unless it renews."
-msgstr "Nếu bạn lưu tên người dùng này, thẻ của bạn sẽ được tạo ngẫu nhiên lại khi gói {PREMIUM_PRODUCT_NAME} của bạn hết hạn vào <0>{premiumExpiresAtLabel}</0>, trừ khi gói được gia hạn."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:361
-msgid "If you save this username, your tag will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires, unless it renews."
-msgstr "Nếu bạn lưu tên người dùng này, thẻ của bạn sẽ được tạo ngẫu nhiên lại khi gói {PREMIUM_PRODUCT_NAME} của bạn hết hạn, trừ khi gói được gia hạn."
 
 #: src/features/auth/components/modals/AccountDeleteModal.tsx:64
 msgid "If you want to export your data or delete your messages first, please visit {privacyDashboardPath} before proceeding."
@@ -17497,7 +17450,7 @@ msgstr "Illinois"
 #. Type label for image media.
 #: src/features/channel/components/embeds/media/EmbedImage.tsx:47
 #: src/features/expressions/utils/FavoriteMemeUtils.ts:14
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:113
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:114
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:25
 msgid "Image"
 msgstr "Hình ảnh"
@@ -17508,7 +17461,7 @@ msgid "Image assets"
 msgstr "Tài nguyên hình ảnh"
 
 #. Success toast confirming that an image was copied as a bitmap to the clipboard.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:157
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:158
 msgid "Image copied to clipboard"
 msgstr "Đã sao chép ảnh vào bảng nhớ tạm"
 
@@ -17542,7 +17495,7 @@ msgid "Image options"
 msgstr "Tùy chọn hình ảnh"
 
 #. Accessible label for a static image shown in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:81
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:82
 msgid "Image preview"
 msgstr "Xem trước hình ảnh"
 
@@ -17569,7 +17522,7 @@ msgstr "Tải ảnh lên"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the mobile memes picker. Filters to saved images.
-#: src/features/channel/components/MobileMemesPicker.tsx:46
+#: src/features/channel/components/MobileMemesPicker.tsx:47
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:16
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:105
 msgid "Images"
@@ -17713,7 +17666,7 @@ msgstr "Ở chế độ \"Hệ điều hành\", các từ điển được liệ
 msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
 msgstr "Trong trình duyệt, tính năng nhấn để nói chỉ hoạt động khi tab {PRODUCT_NAME} đang hoạt động. Hãy cài đặt ứng dụng máy tính để dùng nhấn để nói trên toàn hệ thống."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:721
+#: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "Trong cuộc gọi"
 
@@ -18250,7 +18203,7 @@ msgid "Invite background"
 msgstr "Ảnh nền lời mời"
 
 #. Field label on the details step of the DSA report form (community report). Optional invite code to the reported community.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:48
+#: src/features/moderation/components/report/ReportStepDetails.tsx:47
 msgid "Invite code (optional)"
 msgstr "Mã mời (không bắt buộc)"
 
@@ -18294,7 +18247,7 @@ msgid "Invite link is hidden while sharing:"
 msgstr "Liên kết mời bị ẩn khi đang chia sẻ:"
 
 #. Inline replacement text shown for invite links while streaming privacy is active.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:145
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:146
 msgid "Invite link masked while sharing"
 msgstr "Đã ẩn liên kết mời khi đang chia sẻ"
 
@@ -18406,7 +18359,7 @@ msgstr "Người mời:"
 #. Generic section / tab label for the invites list.
 #: src/features/channel/components/modals/channel_tabs/ChannelInvitesTab.tsx:191
 #: src/features/guild/components/modals/guild_tabs/GuildInvitesTab.tsx:53
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:684
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:688
 msgid "Invites"
 msgstr "Lời mời"
 
@@ -18595,7 +18548,7 @@ msgid "Join call"
 msgstr "Tham gia cuộc gọi"
 
 #. Generic action label that accepts a community invite / joins a community.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:675
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:679
 msgid "Join community"
 msgstr "Tham gia cộng đồng"
 
@@ -18707,7 +18660,7 @@ msgid "Jump to {displayName}"
 msgstr "Chuyển đến {displayName}"
 
 #. Accessible label for an inline channel mention link. labelText is the channel display name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:100
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:101
 msgid "Jump to {labelText}"
 msgstr "Chuyển đến {labelText}"
 
@@ -18764,12 +18717,12 @@ msgid "Jump to the current call"
 msgstr "Chuyển đến cuộc gọi hiện tại"
 
 #. Fallback accessible label for an inline channel mention when the target name is not known.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:104
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:105
 msgid "Jump to the linked channel"
 msgstr "Chuyển đến kênh được liên kết"
 
 #. Fallback accessible label for an inline message link when the target channel is not known.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:96
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:97
 msgid "Jump to the linked message"
 msgstr "Chuyển đến tin nhắn được liên kết"
 
@@ -18779,7 +18732,7 @@ msgid "Jump to the message from {authorNickname}"
 msgstr "Chuyển đến tin nhắn từ {authorNickname}"
 
 #. Accessible label for an inline message link that jumps to a specific message in a channel. labelText is the channel display name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:91
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:92
 msgid "Jump to the message in {labelText}"
 msgstr "Chuyển đến tin nhắn trong {labelText}"
 
@@ -18941,7 +18894,7 @@ msgid "Kick a member from this community."
 msgstr "Đuổi một thành viên khỏi cộng đồng này."
 
 #. Moderation action label that removes a member from a community without banning.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:671
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:675
 msgid "Kick member"
 msgstr "Đuổi thành viên"
 
@@ -19108,18 +19061,13 @@ msgstr "Rời khỏi {count, plural, one {# cộng đồng} other {# cộng đ�
 msgid "Leave and set aside"
 msgstr "Rời khỏi và tạm gác lại"
 
-#. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:63
-msgid "Leave blank for a random username"
-msgstr "Để trống nếu muốn tên người dùng ngẫu nhiên"
-
 #. Destructive button in the mobile direct-call lobby bottom sheet. Disconnects from the call.
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:92
 msgid "Leave call"
 msgstr "Rời cuộc gọi"
 
 #. Destructive action label that removes the current user from a community.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:667
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:671
 msgid "Leave community"
 msgstr "Rời khỏi cộng đồng"
 
@@ -19265,7 +19213,7 @@ msgstr "Đã cho phép thành viên nghe lại người khác trong cộng đồ
 msgid "Lets custom CSS reveal transparent window regions after restarting the desktop app."
 msgstr "Cho phép CSS tùy chỉnh hiển thị các vùng cửa sổ trong suốt sau khi khởi động lại ứng dụng trên máy tính."
 
-#: src/features/ui/components/form/UsernameValidationRules.tsx:47
+#: src/features/ui/components/form/UsernameValidationRules.tsx:50
 msgid "Letters (a-z, A-Z), numbers (0-9), and underscores (_) only"
 msgstr "Chỉ dùng chữ cái (a-z, A-Z), số (0-9) và dấu gạch dưới (_)"
 
@@ -19427,7 +19375,7 @@ msgid "Link styling"
 msgstr "Kiểu liên kết"
 
 #. Title of the alert shown when clicking an internal link that is not available to the current account.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:137
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:138
 msgid "Link unavailable"
 msgstr "Liên kết không khả dụng"
 
@@ -19580,7 +19528,7 @@ msgid "Loading theme..."
 msgstr "Đang tải chủ đề..."
 
 #. Generic loading toast or label shown while an operation is in progress.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:141
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:142
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -19648,7 +19596,7 @@ msgid "Logo"
 msgstr "Logo"
 
 #. Label for Bluesky OAuth logo URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1026
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1020
 msgid "Logo URL"
 msgstr "URL logo"
 
@@ -19809,7 +19757,7 @@ msgstr "Phần mềm độc hại, đánh cắp thông tin đăng nhập hoặc 
 msgid "Manage"
 msgstr "Quản lý"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:396
+#: src/features/app/components/floating/UserAreaPopout.tsx:398
 #: src/features/auth/components/accounts/AccountSwitcherModal.tsx:78
 msgid "Manage accounts"
 msgstr "Quản lý tài khoản"
@@ -19966,7 +19914,7 @@ msgstr "Đánh dấu là spoiler"
 
 #. Generic action label that flips a channel back to unread.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:663
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:667
 #: src/features/input/state/input_keybind/shared.ts:33
 msgid "Mark as unread"
 msgstr "Đánh dấu là chưa đọc"
@@ -20205,7 +20153,7 @@ msgstr "Số lượt dùng tối đa"
 msgid "Max size: {BACKGROUND_MEDIA_MAX_SIZE_LABEL}."
 msgstr "Kích thước tối đa: {BACKGROUND_MEDIA_MAX_SIZE_LABEL}."
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:451
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:450
 msgid "Max visible count"
 msgstr "Số lượng hiển thị tối đa"
 
@@ -20241,8 +20189,8 @@ msgstr "Có thể gây ra sự cố tương thích cho người xem. Chúng tôi
 
 #. Short label in the max favorite memes modal.
 #: src/features/app/components/alerts/MaxFavoriteMemesModal.tsx:36
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:220
-#: src/features/expressions/components/modals/GiftAcceptModal.tsx:277
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:219
+#: src/features/expressions/components/modals/GiftAcceptModal.tsx:276
 msgid "Maybe later"
 msgstr "Để sau"
 
@@ -20318,7 +20266,7 @@ msgstr "Bản nhạc tiếp theo"
 #. Accessible label for the overflow menu button in the media viewer modal.
 #. Short label in the channel and chat media action bottom sheet. Keep it concise.
 #: src/features/channel/components/MediaActionBottomSheet.tsx:37
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:69
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:70
 msgid "Media options"
 msgstr "Tùy chọn phương tiện"
 
@@ -20328,7 +20276,7 @@ msgid "Media play/pause"
 msgstr "Phát/tạm dừng"
 
 #. Generic accessible label for unknown media in the media viewer.
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:97
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:98
 msgid "Media preview"
 msgstr "Xem trước phương tiện"
 
@@ -20361,7 +20309,7 @@ msgstr "Dừng phát"
 msgid "Medium"
 msgstr "Trung bình"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:150
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:149
 msgid "Medium size (default)"
 msgstr "Cỡ vừa (mặc định)"
 
@@ -20519,7 +20467,7 @@ msgstr "Nhắc đến {mention}?"
 msgid "Mention {roleLabel}?"
 msgstr "Nhắc đến {roleLabel}?"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:145
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:144
 msgid "Mention badges"
 msgstr "Huy hiệu nhắc đến"
 
@@ -20561,7 +20509,7 @@ msgstr "Nhắc đến vai trò này?"
 #. Generic section / tab label for the mentions inbox.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:136
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:643
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:647
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:166
 msgid "Mentions"
 msgstr "Lượt nhắc đến"
@@ -20623,9 +20571,9 @@ msgstr "Tin nhắn"
 #: src/features/ui/action_menu/items/ActionsSubmenu.tsx:41
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:715
-#: src/features/user/components/modals/UserProfileModal.tsx:562
-#: src/features/user/components/modals/UserProfileModal.tsx:770
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
+#: src/features/user/components/modals/UserProfileModal.tsx:561
+#: src/features/user/components/modals/UserProfileModal.tsx:769
 #: src/features/user/components/popouts/UserProfilePopout.tsx:418
 #: src/features/user/components/popouts/UserProfilePopout.tsx:448
 #: src/features/user/components/profile/ProfilePreview.tsx:321
@@ -20714,7 +20662,7 @@ msgstr "Xóa tin nhắn"
 msgid "Message display mode"
 msgstr "Chế độ hiển thị tin nhắn"
 
-#: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:264
+#: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:263
 msgid "Message display settings are only available on desktop."
 msgstr "Cài đặt hiển thị tin nhắn chỉ có trên máy tính."
 
@@ -20783,12 +20731,12 @@ msgid "Message layout"
 msgstr "Bố cục tin nhắn"
 
 #. Type chip suffix in tooltips for inline rendered message links. Lowercase because it follows the channel name.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:81
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:82
 msgid "message link"
 msgstr "liên kết tin nhắn"
 
 #. Field label on the details step of the DSA report form (message report). The reporter pastes a direct link to the offending message.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:23
+#: src/features/moderation/components/report/ReportStepDetails.tsx:22
 msgid "Message link"
 msgstr "Liên kết tin nhắn"
 
@@ -21102,7 +21050,7 @@ msgstr "Lỗi chính tả"
 msgid "Mobile device"
 msgstr "Thiết bị di động"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:95
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:94
 msgid "Mobile online status on avatars"
 msgstr "Trạng thái trực tuyến trên di động ở ảnh đại diện"
 
@@ -21118,7 +21066,7 @@ msgstr "Thông báo đẩy trên di động"
 msgid "Mobile push timeout"
 msgstr "Thời gian chờ thông báo đẩy trên di động"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:198
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:197
 msgid "Mock avatars"
 msgstr "Ảnh đại diện giả lập"
 
@@ -21164,7 +21112,7 @@ msgstr "Giả lập lý do chặn nội dung người lớn"
 msgid "Mock UK geo"
 msgstr "Giả lập vị trí địa lý Anh"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:199
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:198
 msgid "Mock user avatars in various sizes and all status permutations."
 msgstr "Ảnh đại diện giả lập ở nhiều kích cỡ và mọi tổ hợp trạng thái."
 
@@ -21562,7 +21510,7 @@ msgid "Mute calls"
 msgstr "Tắt tiếng cuộc gọi"
 
 #. Action label that mutes notifications for a channel category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:575
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:579
 msgid "Mute category"
 msgstr "Tắt thông báo danh mục"
 
@@ -21609,7 +21557,7 @@ msgid "Mute entrance sound"
 msgstr "Tắt âm thanh vào phòng"
 
 #. Action label that mutes notifications for the favourites pseudo-guild.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:688
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:692
 msgid "Mute favorites"
 msgstr "Tắt thông báo mục yêu thích"
 
@@ -21738,7 +21686,7 @@ msgstr "Bạn chung"
 msgid "Mutual friends ({count})"
 msgstr "Bạn chung ({count})"
 
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:842
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:833
 msgid "Mutual friends ({mutualFriendsCount})"
 msgstr "Bạn chung ({mutualFriendsCount})"
 
@@ -22029,7 +21977,7 @@ msgid "Nevada"
 msgstr "Nevada"
 
 #. Generic short option label for "never" in time / frequency dropdowns.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:647
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:651
 msgid "Never"
 msgstr "Không bao giờ"
 
@@ -22187,6 +22135,10 @@ msgstr "Cài đặt mới"
 msgid "New settings stay here for 30 days."
 msgstr "Các cài đặt mới sẽ được giữ lại trong 30 ngày."
 
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:151
+msgid "New username"
+msgstr "New username"
+
 #. Invite page subtext shown during raid protection. Explains that account actions still work, but joining is paused.
 #: src/features/invite/utils/InviteMessageDescriptors.ts:41
 msgid "New users can't join right now. You can still create an account or sign in, then try this link again later."
@@ -22221,7 +22173,7 @@ msgstr "Mới nhất trước"
 #. Primary button in the required-action modal. Moves to the next carousel step.
 #: src/features/app/components/setup/SelfHostedSetupWizardGate.tsx:81
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:154
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:716
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:720
 msgid "Next"
 msgstr "Tiếp"
 
@@ -22272,7 +22224,7 @@ msgid "No {sendMessagesPermission} permission"
 msgstr "Không có quyền {sendMessagesPermission}"
 
 #. Inline text shown inside a custom message link pill when the linked message cannot be accessed.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:125
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:126
 msgid "No access"
 msgstr "Không có quyền truy cập"
 
@@ -22366,7 +22318,7 @@ msgid "No bookmarks"
 msgstr "Không có tin nhắn đã lưu"
 
 #. Empty-state text in the bot profile section. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:64
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:66
 msgid "No bot banner"
 msgstr "Không có ảnh bìa bot"
 
@@ -22392,7 +22344,7 @@ msgid "No category"
 msgstr "Không có danh mục"
 
 #. Empty-state text in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:42
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:45
 msgid "No changes to save"
 msgstr "Không có thay đổi nào để lưu"
 
@@ -22458,7 +22410,7 @@ msgstr "Không tìm thấy màn hình nào"
 msgid "No email address set"
 msgstr "Chưa đặt địa chỉ email"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:284
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:283
 msgid "No embeds returned"
 msgstr "Không có nhúng nào được trả về"
 
@@ -22602,6 +22554,11 @@ msgstr "Không có dịch vụ tùy chọn nào khả dụng trên máy chủ n�
 msgid "No part of {query} could be applied. Fix the underlined value or add something to search for."
 msgstr "Không thể áp dụng phần nào trong {query}. Hãy sửa giá trị được gạch chân hoặc thêm nội dung để tìm kiếm."
 
+#. Error on the forgot password page when the admin has not opened a password reset for the account. There is no email reset.
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:37
+msgid "No password reset is open for this account. Ask the admin to open one, then try again."
+msgstr "No password reset is open for this account. Ask the admin to open one, then try again."
+
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:189
 msgid "No password set"
 msgstr "Chưa đặt mật khẩu"
@@ -22652,7 +22609,7 @@ msgstr "Chưa có bản xem trước"
 msgid "No push subscriptions registered yet."
 msgstr "Chưa có đăng ký thông báo đẩy nào."
 
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:79
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:77
 msgid "No reason provided"
 msgstr "Không có lý do"
 
@@ -22674,7 +22631,7 @@ msgstr "Không nhận được nội dung phản hồi"
 #. Empty-state text in the channel and chat memes picker view.
 #. Heading shown when the channel search query returned zero matches.
 #: src/features/channel/components/channel_search_results/ChannelSearchResultsShared.tsx:74
-#: src/features/channel/components/MobileMemesPicker.tsx:66
+#: src/features/channel/components/MobileMemesPicker.tsx:67
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:32
 msgid "No results"
 msgstr "Không có kết quả"
@@ -22703,7 +22660,7 @@ msgstr "Chưa có vai trò nào. Thêm vai trò trong {rolesSettingsPath}"
 
 #. Empty state title in the mobile memes picker when the user has saved nothing yet.
 #. Empty-state text in the channel and chat memes picker view.
-#: src/features/channel/components/MobileMemesPicker.tsx:58
+#: src/features/channel/components/MobileMemesPicker.tsx:59
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:24
 msgid "No saved media"
 msgstr "Chưa có media đã lưu"
@@ -23012,7 +22969,7 @@ msgstr "Không phải đúng hoặc sai"
 #: src/features/messaging/utils/markdown/Plaintext.ts:72
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:19
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:79
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:897
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:888
 msgid "Note"
 msgstr "Ghi chú"
 
@@ -23054,7 +23011,7 @@ msgstr "Thông báo"
 msgid "Notification area"
 msgstr "Khu vực thông báo"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:146
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:145
 msgid "Notification badges showing unread mention counts in different sizes."
 msgstr "Huy hiệu thông báo hiển thị số lượng lượt nhắc chưa đọc với nhiều kích cỡ khác nhau."
 
@@ -23087,7 +23044,7 @@ msgstr "Âm lượng thông báo"
 #. Generic section header / tab label for the notifications area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/components/layout/MobileBottomNav.tsx:136
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:700
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:704
 #: src/features/notification/components/pages/NotificationsPage.tsx:61
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedSettingsCategories.ts:18
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:30
@@ -23185,7 +23142,7 @@ msgid "Off"
 msgstr "Tắt"
 
 #. Generic presence-status label indicating the user is offline.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:635
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:639
 msgid "Offline"
 msgstr "Ngoại tuyến"
 
@@ -23242,7 +23199,7 @@ msgstr "Vào <0>{listPriceEffectiveDate}</0>, gói đăng ký của bạn sẽ c
 msgid "On click"
 msgstr "Khi nhấp"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:704
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:707
 msgid "Once deleted, the application and its credentials are permanently removed."
 msgstr "Sau khi xóa, ứng dụng và thông tin đăng nhập của ứng dụng sẽ bị gỡ vĩnh viễn."
 
@@ -23436,7 +23393,7 @@ msgid "Open {displayName}"
 msgstr "Mở {displayName}"
 
 #. Accessible label for an inline settings deep-link pill. labelText is the resolved settings tab and section breadcrumb.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:108
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:109
 msgid "Open {labelText} in settings"
 msgstr "Mở {labelText} trong cài đặt"
 
@@ -23477,14 +23434,14 @@ msgstr "Mở một cửa sổ ứng dụng, rồi thử lại."
 #. Button or menu action label in the channel and chat attachment grid item. Keep it concise.
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:74
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:55
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:56
 msgid "Open animated GIF in full view"
 msgstr "Mở ảnh GIF động ở chế độ xem đầy đủ"
 
 #. Button or menu action label in the channel and chat attachment grid item. Keep it concise.
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:70
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:51
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:52
 msgid "Open animated GIF video in full view"
 msgstr "Mở video GIF động ở chế độ xem đầy đủ"
 
@@ -23494,7 +23451,7 @@ msgid "Open audio in full view"
 msgstr "Mở âm thanh ở chế độ xem đầy đủ"
 
 #. Media context menu action that opens the audio URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:101
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:102
 msgid "Open audio link"
 msgstr "Mở liên kết âm thanh"
 
@@ -23647,12 +23604,12 @@ msgid "Open favorites menu"
 msgstr "Mở menu yêu thích"
 
 #. Media context menu action that opens the file URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:105
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:106
 msgid "Open file link"
 msgstr "Mở liên kết tệp"
 
 #. Media context menu action that opens the GIF URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:93
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:94
 msgid "Open GIF link"
 msgstr "Mở liên kết GIF"
 
@@ -23677,7 +23634,7 @@ msgstr "Mở ảnh trong trình duyệt"
 #. Button or menu action label in the channel and chat embed gifv. Keep it concise.
 #. Button or menu action label in the channel and chat embed image. Keep it concise.
 #: src/features/channel/components/embeds/attachments/AttachmentGridItem.tsx:78
-#: src/features/channel/components/embeds/media/EmbedGifv.tsx:59
+#: src/features/channel/components/embeds/media/EmbedGifv.tsx:60
 #: src/features/channel/components/embeds/media/EmbedImage.tsx:43
 msgid "Open image in full view"
 msgstr "Mở ảnh ở chế độ xem đầy đủ"
@@ -23686,7 +23643,7 @@ msgstr "Mở ảnh ở chế độ xem đầy đủ"
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:48
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:89
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:90
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
 msgstr "Mở liên kết hình ảnh"
@@ -23863,7 +23820,7 @@ msgid "Open video in full view"
 msgstr "Mở video ở chế độ xem đầy đủ"
 
 #. Media context menu action that opens the video URL in an external browser.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:97
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:98
 msgid "Open video link"
 msgstr "Mở liên kết video"
 
@@ -24129,7 +24086,7 @@ msgstr "Âm lượng đầu ra"
 msgid "Outside the refund window"
 msgstr "Ngoài thời gian hoàn tiền"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:388
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:387
 msgid "Overlapping avatar groups showing multiple users with automatic overflow counts."
 msgstr "Các nhóm ảnh đại diện xếp chồng hiển thị nhiều người dùng kèm số người còn lại được đếm tự động."
 
@@ -24274,7 +24231,7 @@ msgstr "Khóa truy cập yêu cầu gói macOS đã ký có mã định danh ứ
 
 #. Generic form-field label for a password.
 #. Label for SMTP password input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:997
+#: src/features/app/components/setup/SetupWizardSteps.tsx:991
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:210
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:146
 #: src/features/user/components/modals/tabs/account_security_tab/AccountTab.tsx:183
@@ -24296,7 +24253,9 @@ msgstr "Không mật khẩu"
 #. Short label in the authentication auth register form core. Keep the tone plain and specific.
 #. Short label in the authentication email revert page. Keep the tone plain and specific.
 #. Short label in the authentication reset password page. Keep the tone plain and specific.
+#. Validation error on the forgot password page.
 #: src/features/auth/components/pages/EmailRevertPage.tsx:22
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:33
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:23
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:31
 #: src/features/user/components/modals/PasswordChangeModal.tsx:34
@@ -24860,7 +24819,7 @@ msgid "pinned"
 msgstr "đã ghim"
 
 #. Generic short toast / status label confirming a DM was pinned.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:651
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:655
 msgid "Pinned DM"
 msgstr "Đã ghim tin nhắn trực tiếp"
 
@@ -25065,7 +25024,7 @@ msgid "Popup"
 msgstr "Cửa sổ bật lên"
 
 #. Label for SMTP port input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:995
+#: src/features/app/components/setup/SetupWizardSteps.tsx:989
 msgid "Port"
 msgstr "Cổng"
 
@@ -25258,7 +25217,7 @@ msgstr "Ngăn thành viên gửi tin nhắn, bày tỏ cảm xúc và tham gia k
 
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:276
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
 msgstr "Xem trước"
 
@@ -25441,12 +25400,12 @@ msgid "Privacy policy"
 msgstr "Chính sách quyền riêng tư"
 
 #. Generic section heading / button label for the privacy settings area.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:659
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:663
 msgid "Privacy settings"
 msgstr "Cài đặt quyền riêng tư"
 
 #. Label for Bluesky OAuth privacy URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1034
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1028
 msgid "Privacy URL"
 msgstr "URL quyền riêng tư"
 
@@ -25471,7 +25430,7 @@ msgid "Private details"
 msgstr "Thông tin riêng tư"
 
 #. Label for Bluesky OAuth private key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1042
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1036
 msgid "Private key"
 msgstr "Khóa riêng"
 
@@ -25666,7 +25625,7 @@ msgstr "Đại từ: "
 msgid "Protect your Visionary account by enabling two-factor authentication. Thanks for supporting {productName}!"
 msgstr "Bảo vệ tài khoản Visionary của bạn bằng cách bật xác thực hai yếu tố. Cảm ơn bạn đã ủng hộ {productName}!"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:216
+#: src/features/moderation/components/report/ReportStepDetails.tsx:215
 msgid "Provide at least a user ID or a user tag."
 msgstr "Cung cấp ít nhất một ID người dùng hoặc thẻ người dùng."
 
@@ -25681,7 +25640,7 @@ msgid "Provide your full legal name for the declaration."
 msgstr "Cung cấp họ tên đầy đủ của bạn để khai báo."
 
 #. Label for an integration provider choice.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:970
+#: src/features/app/components/setup/SetupWizardSteps.tsx:964
 msgid "Provider"
 msgstr "Nhà cung cấp"
 
@@ -25979,7 +25938,7 @@ msgstr "Tốc độ"
 msgid "Rate limited"
 msgstr "Bị giới hạn tốc độ"
 
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:292
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:291
 msgid "Raw embed JSON"
 msgstr "JSON thô của nội dung nhúng"
 
@@ -26005,7 +25964,7 @@ msgstr "Thả cảm xúc bằng {emojiShortcode}"
 
 #. Generic short section / tab / aria label for emoji reactions.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:655
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:659
 #: src/features/messaging/components/modals/MessageReactionsModal.tsx:144
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:13
 msgid "Reactions"
@@ -26084,7 +26043,7 @@ msgid "Real-time"
 msgstr "Thời gian thực"
 
 #: src/features/guild/components/modals/guild_tabs/GuildAuditLogTab.tsx:595
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:74
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:72
 msgid "Reason"
 msgstr "Lý do"
 
@@ -26347,7 +26306,7 @@ msgstr "Hoàn tiền giao dịch gần đây nhất của bạn?"
 #. Short label in the secrets section. Keep it concise.
 #: src/features/auth/components/modals/BackupCodesModal.tsx:114
 #: src/features/user/components/modals/tabs/applications_tab/application_detail/SecretsSection.tsx:23
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:78
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:81
 #: src/features/user/components/settings_utils/search_index/ApplicationsIndex.ts:128
 msgid "Regenerate"
 msgstr "Tạo lại"
@@ -26358,20 +26317,20 @@ msgid "Regenerate backup codes"
 msgstr "Tạo lại mã dự phòng"
 
 #. Confirmation prompt in the application detail. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:74
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:77
 msgid "Regenerate bot token?"
 msgstr "Tạo lại token bot?"
 
 #. Confirmation prompt in the application detail.
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:70
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:73
 msgid "Regenerate client secret?"
 msgstr "Tạo lại mã bí mật của máy khách?"
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:541
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:544
 msgid "Regenerating will invalidate the current secret. Update any code that uses the old value."
 msgstr "Việc tạo lại sẽ làm mất hiệu lực mã bí mật hiện tại. Hãy cập nhật mọi đoạn mã đang dùng giá trị cũ."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:543
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:546
 msgid "Regenerating will invalidate the current token. Update any code that uses the old value."
 msgstr "Việc tạo lại sẽ làm mất hiệu lực token hiện tại. Hãy cập nhật mọi đoạn mã đang dùng giá trị cũ."
 
@@ -26389,8 +26348,7 @@ msgstr "Khóa truy cập đã đăng ký"
 msgid "Registration"
 msgstr "Đăng ký"
 
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:211
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:312
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:284
 msgid "Registration is currently closed. Use a registration link from an admin to create an account."
 msgstr "Hiện tại đăng ký đang đóng. Hãy dùng liên kết đăng ký từ quản trị viên để tạo tài khoản."
 
@@ -26638,7 +26596,7 @@ msgid "Remove from group"
 msgstr "Xóa khỏi nhóm"
 
 #. Action that removes the selected media from saved media.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:181
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:182
 msgid "Remove from saved media"
 msgstr "Xóa khỏi media đã lưu"
 
@@ -26650,7 +26608,7 @@ msgid "Remove from top"
 msgstr "Bỏ hiển thị trên cùng"
 
 #. Media context menu action that removes a GIF favorite saved by URL.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:173
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:174
 msgid "Remove from URL-only GIF favorites"
 msgstr "Xóa khỏi GIF yêu thích lưu theo URL"
 
@@ -26776,7 +26734,7 @@ msgid "Removed from favorite GIFs"
 msgstr "Đã xóa khỏi GIF yêu thích"
 
 #. Toast confirming an item was removed from the favorites list.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:611
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:615
 msgid "Removed from favorites"
 msgstr "Đã xóa khỏi mục yêu thích"
 
@@ -26981,6 +26939,16 @@ msgstr "Biểu mẫu đổi tên kênh"
 msgid "Rename emoji"
 msgstr "Đổi tên biểu tượng cảm xúc"
 
+#. Toast after a user cancels their pending rename request.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:29
+msgid "Rename request cancelled"
+msgstr "Rename request cancelled"
+
+#. Toast after a user asks for a new username. The admin still has to approve it.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:25
+msgid "Rename request sent"
+msgstr "Rename request sent"
+
 #. Activity log detail line under a community settings update, shown when the community name changed. It continues the entry summary, so it has no subject. It is a past tense record of a change the actor in the summary already made, never an instruction to the reader. Do not write it as a command, a button label or in first or second person. {oldName} is the previous community name and {newName} is the new community name, both shown in bold. The app adds the bold, so do not add ** or <b>.
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogGuildMessages.ts:46
 msgid "Renamed the community from {oldName} to {newName}"
@@ -27039,7 +27007,7 @@ msgstr "Trả lời"
 
 #. Generic action label that opens the reply composer for a message.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:607
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:611
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:71
 msgid "Reply"
 msgstr "Trả lời"
@@ -27112,7 +27080,7 @@ msgstr "Báo cáo hồ sơ người dùng"
 msgid "Report community"
 msgstr "Báo cáo cộng đồng"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:128
+#: src/features/moderation/components/report/ReportStepDetails.tsx:127
 msgid "Report details"
 msgstr "Chi tiết báo cáo"
 
@@ -27150,10 +27118,10 @@ msgstr "Loại báo cáo"
 msgid "Report user"
 msgstr "Báo cáo người dùng"
 
-#. Field label on the details step of the DSA report form (message report). Optional FluxerTag of the user who sent the message.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:28
-msgid "Reported user tag (optional)"
-msgstr "Thẻ người dùng bị báo cáo (tùy chọn)"
+#. Field label on the details step of the DSA report form (message report). Optional username of the user who sent the message.
+#: src/features/moderation/components/report/ReportStepDetails.tsx:27
+msgid "Reported username (optional)"
+msgstr "Reported username (optional)"
 
 #: src/features/channel/components/embeds/channel_embed/BlueskyEmbed.tsx:45
 msgid "Reposts: <0>{countLabel}</0>"
@@ -27167,6 +27135,16 @@ msgstr "Yêu cầu mã mới trước."
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:135
 msgid "Request a new reset link"
 msgstr "Yêu cầu liên kết đặt lại mới"
+
+#. Title of the rename request modal.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:37
+msgid "Request a new username"
+msgstr "Request a new username"
+
+#. Accessible label of the rename request form.
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:33
+msgid "Request a new username form"
+msgstr "Request a new username form"
 
 #. Form validation error shown when the user tries to submit a code before requesting one.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:112
@@ -27198,7 +27176,7 @@ msgid "Require double-click to join voice channels"
 msgstr "Yêu cầu nhấp đúp để vào kênh thoại"
 
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:80
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:82
 msgid "Require manual friend approval"
 msgstr "Yêu cầu duyệt bạn bè thủ công"
 
@@ -27749,10 +27727,6 @@ msgstr "Đăng ký lại"
 msgid "Resumed invites"
 msgstr "Đã bật lại lời mời"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:62
-msgid "Return to sign-in"
-msgstr "Quay lại đăng nhập"
-
 #. Account settings: button that reveals the masked user email address. Verb, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat mature media blur overlay. Keep it concise.
@@ -27789,7 +27763,7 @@ msgstr "Tìm kiếm bằng hình ảnh"
 
 #. Generic action label that runs a reverse-image search on the selected media.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:603
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:607
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:267
 msgid "Reverse image search"
 msgstr "Tìm kiếm hình ảnh ngược"
@@ -27904,7 +27878,7 @@ msgstr "Thu hồi tất cả ứng dụng"
 #. Short label in the guild bans tab. Keep it concise. Keep the tone plain and specific.
 #: src/features/guild/components/modals/guild_tabs/BannedUserActionsSheet.tsx:23
 #: src/features/guild/components/modals/guild_tabs/GuildBansTab.tsx:32
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:137
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:135
 #: src/features/ui/action_menu/BannedUserContextMenu.tsx:55
 msgid "Revoke ban"
 msgstr "Bỏ cấm"
@@ -27943,7 +27917,7 @@ msgid "Revoked ban for {0}"
 msgstr "Đã thu hồi lệnh cấm đối với {0}"
 
 #. Tooltip / aria label on the rewind button in the standalone audio player. {defaultSeekAmount} is an integer second count.
-#: src/features/voice/components/media_player/components/AudioPlayer.tsx:26
+#: src/features/voice/components/media_player/components/AudioPlayer.tsx:27
 msgid "Rewind {defaultSeekAmount} seconds"
 msgstr "Tua lại {defaultSeekAmount} giây"
 
@@ -28243,7 +28217,7 @@ msgstr "Lưu biểu tượng"
 
 #. Button or menu action label in the channel and chat memes picker view. Keep it concise.
 #. Empty state body in the mobile memes picker explaining how to save media. Tone can be friendly.
-#: src/features/channel/components/MobileMemesPicker.tsx:62
+#: src/features/channel/components/MobileMemesPicker.tsx:63
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:28
 msgid "Save some media from messages to get started!"
 msgstr "Lưu một vài media từ tin nhắn để bắt đầu!"
@@ -28325,7 +28299,7 @@ msgstr "Phạm vi"
 
 #. Section heading for screen-reader related accessibility settings.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:599
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:603
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:51
 msgid "Screen reader"
 msgstr "Trình đọc màn hình"
@@ -28762,7 +28736,7 @@ msgstr "Tìm kiếm vai trò hoặc thành viên…"
 
 #. Button or menu action label in the channel and chat memes picker header. Keep it concise.
 #. Placeholder text in the mobile memes picker search input.
-#: src/features/channel/components/MobileMemesPicker.tsx:54
+#: src/features/channel/components/MobileMemesPicker.tsx:55
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:24
 msgid "Search saved media"
 msgstr "Tìm kiếm media đã lưu"
@@ -28892,7 +28866,7 @@ msgid "Secret"
 msgstr "Bí mật"
 
 #. Label for a CAPTCHA secret key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:981
+#: src/features/app/components/setup/SetupWizardSteps.tsx:975
 msgid "Secret key"
 msgstr "Khóa bí mật"
 
@@ -28986,7 +28960,7 @@ msgid "Select"
 msgstr "Chọn"
 
 #. Accessible label for a saved media tile in the mobile memes picker. accessibleName is the media filename or alt text.
-#: src/features/channel/components/MobileMemesPicker.tsx:74
+#: src/features/channel/components/MobileMemesPicker.tsx:75
 msgid "Select {accessibleName}"
 msgstr "Chọn {accessibleName}"
 
@@ -29269,7 +29243,7 @@ msgstr "Nút gửi"
 msgid "Send code"
 msgstr "Gửi mã"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:302
+#: src/features/moderation/components/report/ReportStepDetails.tsx:301
 msgid "Send DSA report"
 msgstr "Gửi báo cáo DSA"
 
@@ -29337,16 +29311,13 @@ msgid "Send report"
 msgstr "Gửi báo cáo"
 
 #. Button or menu action label in the channel and chat add friend form. Keep it concise.
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:37
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:32
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:193
 msgid "Send request"
 msgstr "Gửi lời mời"
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:95
-msgid "Send reset link"
-msgstr "Gửi liên kết đặt lại mật khẩu"
-
 #. Accessible label for a saved media tile in the picker. Activating sends it. memeName is the user-chosen name.
-#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:43
+#: src/features/channel/components/pickers/memes/MemeGridItem.tsx:44
 msgid "Send saved media {memeName}"
 msgstr "Gửi media đã lưu {memeName}"
 
@@ -29462,7 +29433,7 @@ msgid "Sensitive media"
 msgstr "Media nhạy cảm"
 
 #. Generic short status label confirming an item (invite, gift, theme link) was sent.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:804
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:808
 msgid "Sent"
 msgstr "Đã gửi"
 
@@ -29527,7 +29498,7 @@ msgstr "Phiên hoạt động"
 msgid "Set a custom role icon"
 msgstr "Đã đặt biểu tượng tùy chỉnh cho vai trò"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:601
+#: src/features/app/components/floating/UserAreaPopout.tsx:603
 #: src/features/app/components/shared/custom_status_display/CustomStatusDisplay.tsx:253
 msgid "Set a custom status"
 msgstr "Đặt trạng thái tùy chỉnh"
@@ -29572,6 +29543,7 @@ msgstr "Đặt tại đây"
 msgid "Set mute shortcut"
 msgstr "Đặt phím tắt tắt micrô"
 
+#: src/features/auth/components/pages/ForgotPasswordPage.tsx:138
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:116
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:144
 msgid "Set new password"
@@ -29714,7 +29686,7 @@ msgid "Set up authenticator app"
 msgstr "Thiết lập ứng dụng xác thực"
 
 #. Option for deferring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:914
+#: src/features/app/components/setup/SetupWizardSteps.tsx:908
 msgid "Set up later"
 msgstr "Thiết lập sau"
 
@@ -29755,7 +29727,7 @@ msgid "Settings"
 msgstr "Cài đặt"
 
 #. Type chip suffix in tooltips for inline rendered fluxer://settings/user deep links. Lowercase.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:113
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:114
 msgid "settings link"
 msgstr "liên kết cài đặt"
 
@@ -29838,7 +29810,7 @@ msgstr "Chia sẻ chủ đề"
 msgid "Share voice activity with all friends?"
 msgstr "Chia sẻ hoạt động trò chuyện thoại với tất cả bạn bè?"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:131
+#: src/features/moderation/components/report/ReportStepDetails.tsx:130
 msgid "Share what our team needs to assess this."
 msgstr "Chia sẻ những gì đội ngũ của chúng tôi cần để đánh giá vấn đề này."
 
@@ -30220,11 +30192,11 @@ msgstr "Hiện giới thiệu chế độ bàn phím"
 msgid "Show keyboard shortcuts list"
 msgstr "Hiện danh sách phím tắt"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:473
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:472
 msgid "Show max 3 (+5 badge)"
 msgstr "Hiển thị tối đa 3 (huy hiệu +5)"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:495
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:494
 msgid "Show max 5 (+5 badge)"
 msgstr "Hiển thị tối đa 5 (huy hiệu +5)"
 
@@ -30519,7 +30491,7 @@ msgstr "Đăng nhập bằng nhà cung cấp đăng nhập một lần của t�
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:195
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:256
 #: src/features/auth/utils/AccountSwitcherModalUtils.tsx:313
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:595
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:599
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:47
 msgid "Sign out"
 msgstr "Đăng xuất"
@@ -30598,7 +30570,7 @@ msgid "Signed-in devices"
 msgstr "Thiết bị đã đăng nhập"
 
 #. Label for Bluesky OAuth signing key ID input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1038
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1032
 msgid "Signing key ID"
 msgstr "ID khóa ký"
 
@@ -30680,12 +30652,12 @@ msgstr "Một lớp"
 msgid "Single line"
 msgstr "Một dòng"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:71
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:70
 msgid "Single user (all statuses)"
 msgstr "Một người dùng (tất cả trạng thái)"
 
 #. Label for a CAPTCHA site key input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:980
+#: src/features/app/components/setup/SetupWizardSteps.tsx:974
 msgid "Site key"
 msgstr "Khóa trang"
 
@@ -30738,7 +30710,7 @@ msgid "Skip the system leave notice — nobody gets pinged."
 msgstr "Bỏ qua thông báo rời nhóm của hệ thống, không ai bị làm phiền."
 
 #. Description for deferring an optional setup wizard integration.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:918
+#: src/features/app/components/setup/SetupWizardSteps.tsx:912
 msgid "Skip this now and configure it from the admin panel."
 msgstr "Bỏ qua bây giờ và cấu hình từ bảng quản trị."
 
@@ -30938,7 +30910,7 @@ msgstr "Thứ cấp nhỏ"
 msgid "Small secondary clicked."
 msgstr "Đã nhấp vào nút phụ nhỏ."
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:162
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:161
 msgid "Small size"
 msgstr "Cỡ nhỏ"
 
@@ -30976,17 +30948,17 @@ msgid "SMS verification is unavailable right now. Try again later or contact sup
 msgstr "Xác minh SMS hiện không khả dụng. Vui lòng thử lại sau hoặc liên hệ với bộ phận hỗ trợ."
 
 #. Success message after validating SMTP credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1006
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1000
 msgid "SMTP connection verified."
 msgstr "Đã xác minh kết nối SMTP."
 
 #. Label for SMTP host input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:994
+#: src/features/app/components/setup/SetupWizardSteps.tsx:988
 msgid "SMTP host"
 msgstr "Máy chủ SMTP"
 
 #. Failure message after validating SMTP credentials when the server returns no error detail.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1010
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1004
 msgid "SMTP validation failed."
 msgstr "Xác minh SMTP không thành công."
 
@@ -31223,7 +31195,7 @@ msgstr "Âm lượng"
 
 #. Section heading / tab label for the notification-sounds area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:808
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:812
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:135
 msgid "Sounds"
 msgstr "Âm thanh"
@@ -31614,7 +31586,7 @@ msgstr "Bắt đầu kéo và thả"
 msgid "Start mic test"
 msgstr "Bắt đầu kiểm tra micrô"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:326
+#: src/features/moderation/components/report/ReportStepDetails.tsx:325
 #: src/features/moderation/components/report/ReportStepEmail.tsx:97
 #: src/features/moderation/components/report/ReportStepVerification.tsx:134
 msgid "Start over"
@@ -31640,7 +31612,7 @@ msgid "Start uploading attachments as soon as they are added to the message inpu
 msgstr "Bắt đầu tải lên các tệp đính kèm ngay khi chúng được thêm vào ô nhập liệu tin nhắn"
 
 #. Action label that initiates a video call (DM or group DM).
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:591
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:595
 msgid "Start video call"
 msgstr "Bắt đầu cuộc gọi video"
 
@@ -31685,7 +31657,7 @@ msgstr "Biểu tượng trạng thái"
 
 #. Collapsible group heading in the Theme Studio tokens list, for presence and status color tokens.
 #: src/features/theme_studio/sections/TokenGroups.ts:58
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:61
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:60
 msgid "Status indicators"
 msgstr "Chỉ báo trạng thái"
 
@@ -31730,7 +31702,7 @@ msgstr "Bước 2"
 msgid "Step 3"
 msgstr "Bước 3"
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:125
+#: src/features/moderation/components/report/ReportStepDetails.tsx:124
 msgid "Step 4"
 msgstr "Bước 4"
 
@@ -32231,7 +32203,7 @@ msgid "Suppress all role mentions"
 msgstr "Tắt tất cả thông báo nhắc đến vai trò"
 
 #. Action label on a message that hides link previews / embeds.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:587
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:591
 msgid "Suppress embeds"
 msgstr "Ẩn nội dung nhúng"
 
@@ -32294,7 +32266,7 @@ msgstr "Tiếng Thụy Điển"
 msgid "Switch account"
 msgstr "Chuyển tài khoản"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:677
+#: src/features/app/components/floating/UserAreaPopout.tsx:679
 msgid "Switch accounts"
 msgstr "Chuyển tài khoản"
 
@@ -32640,8 +32612,6 @@ msgid "Tables"
 msgstr "Bảng"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:61
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:73
 msgid "Tag"
 msgstr "Thẻ"
@@ -32790,7 +32760,7 @@ msgid "Terms of service"
 msgstr "Điều khoản dịch vụ"
 
 #. Label for Bluesky OAuth terms URL input.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1030
+#: src/features/app/components/setup/SetupWizardSteps.tsx:1024
 msgid "Terms URL"
 msgstr "URL điều khoản"
 
@@ -32800,7 +32770,7 @@ msgid "Terrorism or violent extremism"
 msgstr "Khủng bố hoặc chủ nghĩa cực đoan bạo lực"
 
 #. Button that validates SMTP credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:1002
+#: src/features/app/components/setup/SetupWizardSteps.tsx:996
 msgid "Test SMTP"
 msgstr "Kiểm tra SMTP"
 
@@ -32972,7 +32942,7 @@ msgstr "Đã xảy ra lỗi. Không có gì thay đổi. Thử lại."
 msgid "That doesn't look like a valid color. Try hex, rgb(), hsl(), or a CSS color name."
 msgstr "Màu này không hợp lệ. Hãy thử dùng mã hex, rgb(), hsl() hoặc tên màu CSS."
 
-#: src/features/moderation/components/report/ReportStepDetails.tsx:175
+#: src/features/moderation/components/report/ReportStepDetails.tsx:174
 msgid "That doesn't look like a valid URL."
 msgstr "Đây không phải là một URL hợp lệ."
 
@@ -33013,10 +32983,10 @@ msgstr "Tin nhắn đó không còn tồn tại hoặc bạn đã mất quyền 
 msgid "That's all of them."
 msgstr "Đã hết tin nhắn đã lưu."
 
-#. Description text in the FluxerTag change modal.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:69
-msgid "The #0000 tag is reserved for Visionary subscribers. Visionary is no longer available for purchase."
-msgstr "Thẻ #0000 được dành riêng cho người đăng ký Visionary. Visionary hiện không còn được bán."
+#. placeholder {0}: rejectedRequest.requested_username
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:140
+msgid "The admin rejected your request for <0>{0}</0>."
+msgstr "The admin rejected your request for <0>{0}</0>."
 
 #. Error shown when the setup wizard cannot load because the API origin differs from the page origin.
 #: src/features/app/components/setup/SelfHostedSetupWizardGate.tsx:97
@@ -33257,10 +33227,6 @@ msgstr "Hệ thống đã gỡ bỏ vai trò {role} khỏi {target}"
 msgid "The upload service rejected this sticker as larger than {maxSize}. Try a smaller file, a simpler image, or a shorter animation."
 msgstr "Dịch vụ tải lên đã từ chối nhãn dán này vì lớn hơn {maxSize}. Hãy thử một tệp nhỏ hơn, một hình ảnh đơn giản hơn hoặc một ảnh động ngắn hơn."
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:135
-msgid "The username <0>{fluxerTag}</0> is already taken. Continuing will reroll your tag automatically."
-msgstr "Tên người dùng <0>{fluxerTag}</0> đã có người sử dụng. Tiếp tục sẽ tự động đổi thẻ của bạn."
-
 #. Inline error on the verification step of the DSA report flow when the entered code is rejected.
 #: src/features/moderation/components/pages/ReportPage.tsx:89
 msgid "The verification code is invalid or expired."
@@ -33445,7 +33411,7 @@ msgstr "Bên thứ ba"
 msgid "This account can't be blocked."
 msgstr "Không thể chặn tài khoản này."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:416
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:419
 msgid "This action cannot be undone. All associated data, including the bot user, will be permanently deleted."
 msgstr "Thao tác này không thể hoàn tác. Toàn bộ dữ liệu liên quan, bao gồm cả người dùng bot, sẽ bị xóa vĩnh viễn."
 
@@ -33478,7 +33444,7 @@ msgstr "Bảng điều khiển trình duyệt này là công cụ dành cho nhà
 msgid "This call is end-to-end encrypted."
 msgstr "Cuộc gọi này được mã hóa đầu cuối."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:699
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:702
 msgid "This cannot be undone. Removing the application also deletes its bot."
 msgstr "Thao tác này không thể hoàn tác. Việc gỡ ứng dụng cũng sẽ xóa bot của ứng dụng."
 
@@ -33873,7 +33839,7 @@ msgid "This link channel is marked for mature content and may open material that
 msgstr "Kênh liên kết này được đánh dấu là có nội dung người lớn và có thể mở ra nội dung không phù hợp với một số người dùng."
 
 #. Body of the link-unavailable alert.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:141
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:142
 msgid "This link is not available for your account."
 msgstr "Liên kết này không khả dụng cho tài khoản của bạn."
 
@@ -34627,7 +34593,7 @@ msgstr "Đã chuyển quyền sở hữu cho {0}"
 
 #. Generic action label that translates a message body.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:583
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:587
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:255
 msgid "Translate"
 msgstr "Dịch"
@@ -34673,7 +34639,7 @@ msgstr "Các thay đổi đối với biểu tượng khay chỉ áp dụng sau 
 
 #. Short label in the channel and chat gif picker grid. Keep it concise.
 #. Short label in the channel and chat gif picker header. Keep it concise.
-#: src/features/channel/components/pickers/gif/GifPickerGrid.tsx:25
+#: src/features/channel/components/pickers/gif/GifPickerGrid.tsx:26
 #: src/features/channel/components/pickers/gif/GifPickerHeader.tsx:18
 msgid "Trending GIFs"
 msgstr "GIF thịnh hành"
@@ -34767,7 +34733,7 @@ msgstr "Thử một truy vấn tìm kiếm khác."
 
 #. Empty state body in the mobile memes picker suggesting query changes.
 #. Label in the channel and chat memes picker view.
-#: src/features/channel/components/MobileMemesPicker.tsx:70
+#: src/features/channel/components/MobileMemesPicker.tsx:71
 #: src/features/channel/components/pickers/memes/MemesPickerView.tsx:36
 msgid "Try a different search term or filter"
 msgstr "Thử từ khóa hoặc bộ lọc khác"
@@ -34804,7 +34770,7 @@ msgstr "Thử lại sau giây lát."
 msgid "Try again later."
 msgstr "Thử lại sau."
 
-#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:575
+#: src/features/user/components/modals/tabs/applications_tab/ApplicationDetail.tsx:578
 msgid "Try again or go back to the applications list."
 msgstr "Thử lại hoặc quay lại danh sách ứng dụng."
 
@@ -35143,7 +35109,7 @@ msgstr "Chỉ hiện chỉ báo đang nhập"
 msgid "Typing indicator, status: {effectiveStatusLabel}"
 msgstr "Chỉ báo đang nhập, trạng thái: {effectiveStatusLabel}"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:251
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:250
 msgid "Typing state"
 msgstr "Trạng thái đang nhập"
 
@@ -35258,7 +35224,7 @@ msgstr "Không khả dụng"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/channel/components/barriers/BarrierComponents.tsx:376
 #: src/features/relationship/utils/RelationshipMessageDescriptors.ts:45
-#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:177
+#: src/features/user/components/modals/tabs/BlockedUsersTab.tsx:179
 #: src/features/user/components/settings_utils/search_index/BlockedUsersIndex.ts:22
 msgid "Unblock"
 msgstr "Bỏ chặn"
@@ -35285,7 +35251,7 @@ msgid "Unblock user"
 msgstr "Bỏ chặn người dùng"
 
 #. Generic label for items that do not belong to a category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:631
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:635
 msgid "Uncategorized"
 msgstr "Chưa phân loại"
 
@@ -35420,7 +35386,7 @@ msgid "Unfurl"
 msgstr "Hiện bản xem trước"
 
 #. Settings section label for the embed debugger URL input.
-#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:230
+#: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:229
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:62
 msgid "Unfurl debugger"
 msgstr "Trình gỡ lỗi bản xem trước"
@@ -35440,9 +35406,9 @@ msgstr "Dự phòng chung. Chất lượng thấp nhất nhưng dùng được �
 #. Generic fallback label when a more specific value is unavailable.
 #. Short label in the invite list item. Keep it concise.
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:584
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:756
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:760
 #: src/features/invite/components/InviteListItem.tsx:36
-#: src/features/moderation/components/modals/BanDetailsModal.tsx:114
+#: src/features/moderation/components/modals/BanDetailsModal.tsx:112
 #: src/features/updater/commands/UpdaterModalCommands.tsx:144
 msgid "Unknown"
 msgstr "Không rõ"
@@ -35666,7 +35632,7 @@ msgid "Unmute all devices"
 msgstr "Bật micrô trên tất cả thiết bị"
 
 #. Action label that unmutes notifications for a channel category.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:579
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:583
 msgid "Unmute category"
 msgstr "Bật thông báo danh mục"
 
@@ -35701,7 +35667,7 @@ msgid "Unmute DMs"
 msgstr "Bật thông báo tất cả tin nhắn trực tiếp"
 
 #. Action label that unmutes notifications for the favourites pseudo-guild.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:692
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:696
 msgid "Unmute favorites"
 msgstr "Bật thông báo mục yêu thích"
 
@@ -35784,7 +35750,7 @@ msgid "Unpin this message?"
 msgstr "Bỏ ghim tin nhắn này?"
 
 #. Generic short toast / status label confirming a DM was unpinned.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:627
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:631
 msgid "Unpinned DM"
 msgstr "Đã bỏ ghim tin nhắn trực tiếp"
 
@@ -36236,7 +36202,7 @@ msgid "URL"
 msgstr "URL"
 
 #. Success toast confirming that a media URL was copied as text fallback.
-#: src/features/ui/action_menu/items/MediaMenuData.tsx:137
+#: src/features/ui/action_menu/items/MediaMenuData.tsx:138
 msgid "URL copied to clipboard"
 msgstr "Đã sao chép URL vào bảng nhớ tạm"
 
@@ -36587,7 +36553,7 @@ msgid "Use this when troubleshooting the client or collecting logs. It may add v
 msgstr "Dùng khi khắc phục sự cố ứng dụng hoặc thu thập nhật ký. Thao tác này có thể thêm các thông báo chi tiết vào bảng điều khiển của trình duyệt cho ứng dụng hiện tại."
 
 #. Label for SMTP TLS toggle.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:998
+#: src/features/app/components/setup/SetupWizardSteps.tsx:992
 msgid "Use TLS"
 msgstr "Sử dụng TLS"
 
@@ -36666,12 +36632,12 @@ msgid "User controls"
 msgstr "Điều khiển người dùng"
 
 #. Title of the developer-mode user debug modal.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:571
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:575
 msgid "User debug"
 msgstr "Gỡ lỗi người dùng"
 
 #. Field label on the details step of the DSA report form (user report). Optional Fluxer user snowflake ID. "ID" is conventional.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:33
+#: src/features/moderation/components/report/ReportStepDetails.tsx:32
 msgid "User ID (optional)"
 msgstr "ID người dùng (tùy chọn)"
 
@@ -36730,11 +36696,6 @@ msgstr "Bản ghi người dùng"
 msgid "User settings"
 msgstr "Cài đặt người dùng"
 
-#. Field label on the details step of the DSA report form (user report). Optional FluxerTag of the reported user.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:38
-msgid "User tag (optional)"
-msgstr "Thẻ người dùng (tùy chọn)"
-
 #. Voice menu slider label for the saved volume of a specific user.
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:243
 msgid "User volume"
@@ -36743,31 +36704,25 @@ msgstr "Âm lượng người dùng"
 #. Generic form-field label for a username.
 #. Label for SMTP username input.
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:996
+#: src/features/app/components/setup/SetupWizardSteps.tsx:990
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:567
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:218
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:56
+#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:29
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:53
 msgid "Username"
 msgstr "Tên người dùng"
 
-#. Short label in the authentication auth register form core. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:59
+#. Field label on the details step of the DSA report form (user report). Optional username of the reported user.
+#: src/features/moderation/components/report/ReportStepDetails.tsx:37
 msgid "Username (optional)"
 msgstr "Tên người dùng (tùy chọn)"
 
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:40
-msgid "Username already taken"
-msgstr "Tên người dùng đã được sử dụng"
-
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:44
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:45
 msgid "Username can only contain letters, numbers, and underscores"
 msgstr "Tên người dùng chỉ có thể chứa chữ cái, số và dấu gạch dưới"
 
 #. Short label in the bot profile section. Keep it concise.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:32
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:33
 msgid "Username is required"
 msgstr "Cần có tên người dùng"
 
@@ -36777,23 +36732,19 @@ msgid "Username must be {maxUsernameLength} characters or fewer"
 msgstr "Tên người dùng phải có {maxUsernameLength} ký tự trở xuống"
 
 #. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:36
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:37
 msgid "Username must be at least 1 character"
 msgstr "Tên người dùng phải có ít nhất 1 ký tự"
 
-#. Label in the bot profile section.
-#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:40
-msgid "Username must be at most 32 characters"
-msgstr "Tên người dùng phải có tối đa 32 ký tự"
+#. Label in the bot profile section. Preserve {maxLength}; it is inserted by code. -BOT is literal.
+#: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:41
+msgid "Username must be at most {maxLength} characters before -BOT"
+msgstr "Username must be at most {maxLength} characters before -BOT"
 
-#. Short label in the FluxerTag change modal. Keep it concise.
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:44
-msgid "Username updated"
-msgstr "Đã cập nhật tên người dùng"
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:211
-msgid "Usernames can only contain letters (a-z, A-Z), numbers (0-9), and underscores. Usernames are case-insensitive."
-msgstr "Tên người dùng chỉ có thể chứa chữ cái (a-z, A-Z), số (0-9) và dấu gạch dưới. Tên người dùng không phân biệt chữ hoa, chữ thường."
+#. Label of the sign-in field that accepts either a username or an email address.
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:571
+msgid "Username or email"
+msgstr "Username or email"
 
 #. Section header in the message search popout listing matching users for from: / mentions: filters. Title Case.
 #. Section heading in the channel and chat autocomplete for user suggestions.
@@ -37032,7 +36983,7 @@ msgstr "Xác minh bạn không phải robot"
 #. Title of the error modal shown when an unverified account tries to start a DM.
 #. Title shown when an unverified account cannot start a DM or group DM.
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:40
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:79
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:74
 #: src/features/channel/utils/CreateDMModalUtils.tsx:51
 #: src/features/moderation/components/report/ReportStepEmail.tsx:43
 msgid "Verify your email"
@@ -37091,11 +37042,6 @@ msgstr "Xác minh email của bạn trước"
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:69
 msgid "Verify your email or phone to continue using {productName}."
 msgstr "Xác minh email hoặc số điện thoại của bạn để tiếp tục sử dụng {productName}."
-
-#. Label in the username section.
-#: src/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection.tsx:25
-msgid "Verify your email to change your username"
-msgstr "Xác minh email để đổi tên người dùng"
 
 #. Required-action modal body for first-time email verification. Product name is interpolated.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:53
@@ -37184,7 +37130,7 @@ msgstr "Video"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Tooltip on the channel header button that starts a video call in a DM or group DM.
 #: src/features/channel/components/channel_header/shared.ts:43
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:766
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:757
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:199
 msgid "Video call"
@@ -37224,7 +37170,7 @@ msgstr "Mất gói video:"
 #. Accessible label for a video thumbnail in the media viewer thumbnail strip.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/messaging/components/modals/media_modal/shared.ts:133
-#: src/features/messaging/components/modals/MediaViewerModal.tsx:89
+#: src/features/messaging/components/modals/MediaViewerModal.tsx:90
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:182
 msgid "Video preview"
 msgstr "Xem trước video"
@@ -37280,7 +37226,7 @@ msgstr "Tải video lên"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the channel and chat memes picker header. Keep it concise.
 #. Tab label in the mobile memes picker. Filters to saved videos.
-#: src/features/channel/components/MobileMemesPicker.tsx:50
+#: src/features/channel/components/MobileMemesPicker.tsx:51
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:20
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:109
 msgid "Videos"
@@ -37514,7 +37460,7 @@ msgid "Viewer leaves stream"
 msgstr "Người xem rời khỏi luồng trực tiếp"
 
 #. Field label on the details step of the DSA illegal-content report form. The category dropdown narrows the type of violation. Legal/sensitive flow; keep tone formal.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:18
+#: src/features/moderation/components/report/ReportStepDetails.tsx:17
 msgid "Violation category"
 msgstr "Danh mục vi phạm"
 
@@ -37605,7 +37551,7 @@ msgctxt "accessibility-settings-section"
 msgid "Visual"
 msgstr "Hiển thị"
 
-#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:63
+#: src/features/user/components/modals/tabs/component_gallery_tab/IndicatorsTab.tsx:62
 msgid "Visual indicators showing user status, rendered using the same masked status badges as avatars: online, idle, do not disturb, invisible, and offline."
 msgstr "Các chỉ báo trực quan hiển thị trạng thái người dùng, được vẽ bằng cùng loại huy hiệu trạng thái có mặt nạ như ảnh đại diện: trực tuyến, không hoạt động, không làm phiền, ẩn và ngoại tuyến."
 
@@ -37681,7 +37627,7 @@ msgid "Voice and video shortcuts"
 msgstr "Phím tắt thoại và video"
 
 #. Short label for a voice call (lobby header, DM action, settings section).
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:744
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:735
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:35
 msgid "Voice call"
 msgstr "Cuộc gọi thoại"
@@ -37777,7 +37723,7 @@ msgid "Voice message"
 msgstr "Tin nhắn thoại"
 
 #. Short label in the channel and chat voice message player. Keep it concise.
-#: src/features/channel/components/embeds/media/VoiceMessagePlayer.tsx:30
+#: src/features/channel/components/embeds/media/VoiceMessagePlayer.tsx:31
 msgid "Voice message player"
 msgstr "Trình phát tin nhắn thoại"
 
@@ -37918,6 +37864,12 @@ msgstr "Đang chờ chế độ chậm trong {forwardChannelDisplayName} hết h
 #: src/features/messaging/components/modals/ForwardModal.tsx:82
 msgid "Waiting for slowmode in one or more selected channels to expire."
 msgstr "Đang chờ chế độ chậm trong một hoặc nhiều kênh đã chọn hết hạn."
+
+#. placeholder {0}: pendingRequest.requested_username
+#. placeholder {1}: getFormattedDateTime(pendingRequest.created_at)
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:119
+msgid "Waiting for the admin: <0>{0}</0>, asked on {1}. A new request replaces it."
+msgstr "Waiting for the admin: <0>{0}</0>, asked on {1}. A new request replaces it."
 
 #. Label in the messages tab.
 #: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:48
@@ -38197,10 +38149,6 @@ msgstr "Chúng tôi đã thực hiện những thay đổi quan trọng đối v
 msgid "We've made significant changes to our <0>Terms of service</0>. Review it before continuing to use {productName}."
 msgstr "Chúng tôi đã thực hiện những thay đổi quan trọng đối với <0>Điều khoản dịch vụ</0> của mình. Vui lòng xem lại trước khi tiếp tục sử dụng {productName}."
 
-#: src/features/auth/components/pages/ForgotPasswordPage.tsx:58
-msgid "We've sent password reset instructions to your email. Check your inbox for the reset link."
-msgstr "Chúng tôi đã gửi hướng dẫn đặt lại mật khẩu đến email của bạn. Hãy kiểm tra hộp thư đến để tìm liên kết đặt lại."
-
 #. Nagbar body shown when the user must accept updated policies before continuing.
 #: src/features/app/components/layout/app_layout/nagbars/TermsAcceptanceNagbar.tsx:15
 msgid "We've updated our policies. Review and accept them to continue."
@@ -38407,10 +38355,8 @@ msgstr "West Virginia"
 msgid "What kind of rule was broken?"
 msgstr "Loại quy tắc nào đã bị vi phạm?"
 
-#. Question prompt in the authentication auth minimal register form core. Keep the tone plain and specific.
 #. Question prompt in the authentication auth register form core. Keep the tone plain and specific.
 #. Question prompt in the authentication mock minimal register form. Keep the tone plain and specific.
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:35
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:55
 #: src/features/auth/flow/MockMinimalRegisterForm.tsx:29
 msgid "What should people call you?"
@@ -39092,16 +39038,8 @@ msgstr "Bạn không thể xóa quyền này vì nó sẽ xóa quyền của ch�
 msgid "You changed your nickname in this community from **{previousNickname}** to **{newNickname}**."
 msgstr "Bạn đã đổi biệt danh của mình trong cộng đồng này từ **{previousNickname}** thành **{newNickname}**."
 
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:367
-msgid "You changed your tag while on {PREMIUM_PRODUCT_NAME}. It will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires on <0>{premiumExpiresAtLabel}</0>, unless it renews."
-msgstr "Bạn đã đổi thẻ khi đang dùng {PREMIUM_PRODUCT_NAME}. Thẻ sẽ được tạo ngẫu nhiên lại khi gói {PREMIUM_PRODUCT_NAME} của bạn hết hạn vào <0>{premiumExpiresAtLabel}</0>, trừ khi gói được gia hạn."
-
-#: src/features/user/components/modals/FluxerTagChangeModal.tsx:374
-msgid "You changed your tag while on {PREMIUM_PRODUCT_NAME}. It will reroll randomly when your {PREMIUM_PRODUCT_NAME} expires, unless it renews."
-msgstr "Bạn đã đổi thẻ khi đang dùng {PREMIUM_PRODUCT_NAME}. Thẻ sẽ được tạo ngẫu nhiên lại khi gói {PREMIUM_PRODUCT_NAME} của bạn hết hạn, trừ khi gói được gia hạn."
-
 #. Body of the access-denied alert for clicked message links.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:121
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:122
 msgid "You do not have access to the channel where this message was sent."
 msgstr "Bạn không có quyền truy cập vào kênh chứa tin nhắn này."
 
@@ -39313,7 +39251,7 @@ msgstr "Bạn cần xác minh số điện thoại để gửi tin nhắn trong 
 msgid "You need to verify your email address before you can create a community."
 msgstr "Bạn cần xác minh địa chỉ email trước khi tạo cộng đồng."
 
-#: src/features/channel/components/direct_message/AddFriendForm.tsx:80
+#: src/features/channel/components/direct_message/AddFriendForm.tsx:75
 msgid "You need to verify your email address before you can send friend requests."
 msgstr "Bạn cần xác minh địa chỉ email trước khi gửi lời mời kết bạn."
 
@@ -39335,6 +39273,11 @@ msgstr "Bạn cần xác minh email để gửi tin nhắn trong cộng đồng 
 #: src/features/app/components/alerts/DmActionErrorModal.tsx:60
 msgid "You or someone you're adding already has the maximum number of group DMs open. Leave one and try again."
 msgstr "Bạn hoặc người mà bạn đang thêm đã mở số lượng tin nhắn nhóm tối đa. Hãy rời khỏi một nhóm rồi thử lại."
+
+#. Placeholder of the required username field on the sign-up form. The username is the login ID.
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:59
+msgid "You sign in with it"
+msgstr "You sign in with it"
 
 #. Confirmation line in the required-action modal explaining that communities the user owns are kept rather than left. ownedNames is a comma-separated list inserted by code.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:316
@@ -39663,8 +39606,7 @@ msgstr "Tài khoản của bạn chưa được xác nhận. Nếu không có em
 msgid "Your account is too new to send messages in this community."
 msgstr "Tài khoản của bạn còn quá mới để gửi tin nhắn trong cộng đồng này."
 
-#: src/features/auth/flow/AuthMinimalRegisterFormCore.tsx:220
-#: src/features/auth/flow/AuthRegisterFormCore.tsx:321
+#: src/features/auth/flow/AuthRegisterFormCore.tsx:293
 msgid "Your account request is pending approval. You can sign in after an admin approves it."
 msgstr "Yêu cầu tài khoản của bạn đang chờ phê duyệt. Bạn có thể đăng nhập sau khi quản trị viên phê duyệt."
 
@@ -39894,7 +39836,7 @@ msgstr "Thay đổi thanh toán đang chờ của bạn đã bị hủy."
 msgid "Your personal space for quick access to channels, DMs, and groups you love. Press the star on any channel to add it here."
 msgstr "Không gian riêng của bạn để truy cập nhanh vào các kênh, tin nhắn trực tiếp và nhóm yêu thích. Nhấn vào biểu tượng ngôi sao trên bất kỳ kênh nào để thêm vào đây."
 
-#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:130
+#: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelInfoHeader.tsx:132
 msgid "Your private space"
 msgstr "Không gian riêng tư của bạn"
 
@@ -40006,9 +39948,14 @@ msgid "Your theme CSS is too large to share. Trim it down and try again."
 msgstr "CSS chủ đề của bạn quá lớn để chia sẻ. Hãy cắt bớt và thử lại."
 
 #. Field label on the details step of the DSA report form. Optional Fluxer username of the reporter so staff can follow up.
-#: src/features/moderation/components/report/ReportStepDetails.tsx:67
+#: src/features/moderation/components/report/ReportStepDetails.tsx:66
 msgid "Your username (optional)"
 msgstr "Tên người dùng của bạn (không bắt buộc)"
+
+#. placeholder {0}: user.username
+#: src/features/user/components/modals/UsernameChangeRequestModal.tsx:110
+msgid "Your username is <0>{0}</0>. A new username is a request: the name is held for you until the admin approves or rejects it. Usernames are case-insensitive."
+msgstr "Your username is <0>{0}</0>. A new username is a request: the name is held for you until the admin approves or rejects it. Usernames are case-insensitive."
 
 #. Success toast after removing a community vanity invite URL.
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:54
@@ -40032,7 +39979,7 @@ msgid "YouTube enrichment"
 msgstr "Bổ sung thông tin YouTube"
 
 #. Setup wizard title for YouTube integration credentials.
-#: src/features/app/components/setup/SetupWizardSteps.tsx:938
+#: src/features/app/components/setup/SetupWizardSteps.tsx:932
 msgid "YouTube previews"
 msgstr "Xem trước YouTube"
 
@@ -40057,7 +40004,7 @@ msgstr "Thu phóng cửa sổ"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:623
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:627
 #: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
@@ -40068,7 +40015,7 @@ msgstr "Phóng to"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/i18n/utils/CommonMessageDescriptors.ts:619
+#: src/features/i18n/utils/CommonMessageDescriptors.ts:623
 #: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86

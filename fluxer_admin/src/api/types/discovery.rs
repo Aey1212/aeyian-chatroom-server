@@ -10,7 +10,6 @@ pub struct DiscoveryPendingApplication {
     pub guild_owner_id: Option<String>,
     pub guild_owner_username: Option<String>,
     pub guild_owner_global_name: Option<String>,
-    pub guild_owner_discriminator: Option<String>,
     pub guild_member_count: Option<u64>,
     pub guild_nsfw_level: Option<i32>,
     #[serde(default)]
@@ -33,7 +32,6 @@ pub struct DiscoveryListedGuild {
     pub guild_owner_id: Option<String>,
     pub guild_owner_username: Option<String>,
     pub guild_owner_global_name: Option<String>,
-    pub guild_owner_discriminator: Option<String>,
     pub guild_member_count: Option<u64>,
     pub guild_nsfw_level: Option<i32>,
     #[serde(default)]
