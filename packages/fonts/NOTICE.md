@@ -30,3 +30,9 @@ were changed:
 The `gasp` table was normalised, and the JP, KR, SC and TC families were split
 into subsets. The copyright, licence, trademark, manufacturer, designer and
 vendor name records are unchanged.
+
+## Display-name fonts
+
+The fonts in `name-fonts/` are separate font families that users can pick for their
+display name. Each is licensed under the SIL Open Font License, Version 1.1; see
+`name-fonts/NOTICE.md` and the per-font licence texts in `name-fonts/licenses/`.

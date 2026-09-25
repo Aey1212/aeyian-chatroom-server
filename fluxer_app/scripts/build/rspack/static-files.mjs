@@ -9,7 +9,10 @@ const STATIC_CDN_ENDPOINT_PLACEHOLDER = '{{STATIC_CDN_ENDPOINT}}';
 const FONT_LICENSE_FILES = [
 	{source: 'NOTICE.md', asset: 'assets/fonts-NOTICE.txt'},
 	{source: 'LICENSE-IBM-PLEX.txt', asset: 'assets/fonts-LICENSE-IBM-PLEX.txt'},
+	{source: 'name-fonts/NOTICE.md', asset: 'assets/name-fonts-NOTICE.txt'},
 ];
+
+const NAME_FONT_LICENSES_DIR = 'name-fonts/licenses';
 
 function resolveStaticCdnEndpoint(staticCdnEndpoint) {
 	const value = staticCdnEndpoint?.trim().replace(/\/+$/, '');
@@ -100,6 +103,13 @@ export class StaticFilesPlugin {
 				);
 			}
 			compilation.emitAsset(asset, new sources.RawSource(fs.readFileSync(sourcePath)));
+		}
+		const licensesDir = path.join(this.fontsDir, NAME_FONT_LICENSES_DIR);
+		for (const file of fs.readdirSync(licensesDir)) {
+			compilation.emitAsset(
+				`assets/name-fonts-licenses/${file}`,
+				new sources.RawSource(fs.readFileSync(path.join(licensesDir, file))),
+			);
 		}
 	}
 
