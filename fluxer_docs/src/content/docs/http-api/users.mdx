@@ -26,8 +26,7 @@ The public account representation embedded by messages, relationships, guild mem
 | Field | Type | Description |
 | --- | --- | --- |
 | id | snowflake | The [snowflake](/snowflakes/) that identifies the account |
-| username | string | The account username (1-32 ASCII letters, digits, or underscores) |
-| discriminator | string | The account discriminator, four decimal digits with leading zeroes |
+| username | string | The account username, unique ignoring letter case (1-32 characters, a bot's ends in `-BOT`) |
 | global_name | ?string | The display name of the account, or null when none is set |
 | avatar<sup>1</sup> | ?string | The image hash of the account avatar, or null when none is set |
 | avatar_color | ?integer | The packed 24-bit RGB colour derived from the stored avatar, or null |
@@ -44,7 +43,6 @@ The public account representation embedded by messages, relationships, guild mem
 {
   "id": "1501314428688998182",
   "username": "aria",
-  "discriminator": "0042",
   "global_name": "Aria",
   "avatar": "a_2f1c9d7be4a350c8",
   "avatar_color": 5793266,
@@ -53,7 +51,7 @@ The public account representation embedded by messages, relationships, guild mem
 ```
 
 :::note[A deleted account keeps a renderable shape]
-A completed deletion returns the username `DeletedUser`, the discriminator `0000`, the global name `Deleted User`, null `avatar` and `avatar_color`, `flags` of `0`, and no `mention_flags`. The `bot` field keeps its account value.
+A completed deletion returns the username `DeletedUser`, the global name `Deleted User`, null `avatar` and `avatar_color`, `flags` of `0`, and no `mention_flags`. The `bot` field keeps its account value.
 :::
 
 :::note[Substituted values appear only when deletion completes]
@@ -94,8 +92,7 @@ The private representation of the current account, returned by [Get current user
 | Field | Type | Description |
 | --- | --- | --- |
 | id | snowflake | The [snowflake](/snowflakes/) that identifies the account |
-| username | string | The account username (1-32 ASCII letters, digits, or underscores) |
-| discriminator | string | The account discriminator, four decimal digits with leading zeroes |
+| username | string | The account username, unique ignoring letter case (1-32 characters, a bot's ends in `-BOT`) |
 | global_name | ?string | The display name of the account, or null when none is set |
 | avatar<sup>1</sup> | ?string | The image hash of the account avatar, or null when none is set |
 | avatar_color | ?integer | The packed 24-bit RGB colour derived from the stored avatar, or null |
@@ -127,7 +124,6 @@ The private representation of the current account, returned by [Get current user
 | premium_billing_cycle<sup>3</sup> | ?string | The premium billing cycle, or null |
 | premium_lifetime_sequence<sup>3</sup> | ?integer | The lifetime premium sequence, or null |
 | premium_grace_ends_at<sup>12</sup> | ?ISO8601 timestamp | The end of the post-cancellation grace interval, or null when the account is not in grace |
-| premium_discriminator<sup>13</sup> | boolean | Whether the current discriminator was selected under a premium entitlement |
 | premium_badge_hidden<sup>3</sup> | boolean | Whether the premium badge is hidden from the public profile |
 | premium_badge_masked<sup>3</sup> | boolean | Whether a lifetime badge is presented as an ordinary subscription badge |
 | premium_badge_timestamp_hidden<sup>3</sup> | boolean | Whether the premium activation time is hidden from the public profile |
@@ -135,15 +131,15 @@ The private representation of the current account, returned by [Get current user
 | premium_purchase_disabled<sup>3</sup> | boolean | Whether premium purchasing is disabled for the account |
 | premium_enabled_override<sup>3</sup> | boolean | Whether an administrative override grants premium entitlements |
 | premium_perks_disabled<sup>3</sup> | boolean | Whether premium entitlements are suspended for the account |
-| force_inbound_phone_verification?<sup>14</sup> | boolean | The debugging switch that forces the inbound phone verification flow |
+| force_inbound_phone_verification?<sup>13</sup> | boolean | The debugging switch that forces the inbound phone verification flow |
 | password_last_changed_at<sup>3</sup> | ?ISO8601 timestamp | The time of the most recent password change, or null |
-| last_voice_activity_sharing_change_at<sup>15</sup> | ?ISO8601 timestamp | The time of the most recent bulk voice activity sharing change, or null |
-| required_actions<sup>3</sup> <sup>16</sup> | array[string] | The ordered [required actions](#required-actions) the account must complete before unrestricted use |
-| nsfw_allowed<sup>3</sup> <sup>17</sup> | boolean | Whether the account can access age-restricted content |
-| has_dismissed_premium_onboarding<sup>3</sup> <sup>18</sup> | boolean | Whether premium onboarding was dismissed |
+| last_voice_activity_sharing_change_at<sup>14</sup> | ?ISO8601 timestamp | The time of the most recent bulk voice activity sharing change, or null |
+| required_actions<sup>3</sup> <sup>15</sup> | array[string] | The ordered [required actions](#required-actions) the account must complete before unrestricted use |
+| nsfw_allowed<sup>3</sup> <sup>16</sup> | boolean | Whether the account can access age-restricted content |
+| has_dismissed_premium_onboarding<sup>3</sup> <sup>17</sup> | boolean | Whether premium onboarding was dismissed |
 | has_ever_purchased<sup>3</sup> | boolean | Whether the account has completed a purchase |
-| has_unread_gift_inventory<sup>3</sup> <sup>19</sup> | boolean | Whether the gift inventory has unread items |
-| unread_gift_inventory_count<sup>3</sup> <sup>19</sup> | integer | The number of unread gift inventory items |
+| has_unread_gift_inventory<sup>3</sup> <sup>18</sup> | boolean | Whether the gift inventory has unread items |
+| unread_gift_inventory_count<sup>3</sup> <sup>18</sup> | integer | The number of unread gift inventory items |
 | pending_bulk_message_deletion<sup>3</sup> | ?[pending bulk message deletion](#pending-bulk-message-deletion-object) object | The message deletion the account scheduled for itself, or null when none is pending |
 | age_verified_adult? | boolean | Whether adult age verification is complete, omitted when false |
 | terms_agreed_at | ?ISO8601 timestamp | The time of the most recent terms acceptance, or null |
@@ -173,19 +169,17 @@ The private representation of the current account, returned by [Get current user
 
 <sup>12</sup> After `premium_until` passes, premium entitlements stay active until this time. While the value is null, they stay active for 3 days after `premium_until`
 
-<sup>13</sup> The flag is set when the account changes its username or discriminator while holding non-lifetime premium, and after that premium access ends, Fluxer replaces the discriminator with a newly generated one the next time the account starts a Gateway session
+<sup>13</sup> The field is declared but never populated, so it is absent from every response
 
-<sup>14</sup> The field is declared but never populated, so it is absent from every response
+<sup>14</sup> The value drives the 24-hour cooldown on changing the default voice activity sharing state
 
-<sup>15</sup> The value drives the 24-hour cooldown on changing the default voice activity sharing state
+<sup>15</sup> The array is empty when the account has no stored suspicious activity flag, when it has no email address, or when the account policy exempts its email address from required actions
 
-<sup>16</sup> The array is empty when the account has no stored suspicious activity flag, when it has no email address, or when the account policy exempts its email address from required actions
+<sup>16</sup> A bot account is always permitted, and a user account is permitted only when its recorded date of birth places it at 18 years or older
 
-<sup>17</sup> A bot account is always permitted, and a user account is permitted only when its recorded date of birth places it at 18 years or older
+<sup>17</sup> The value is false while premium entitlements are not active, even when a dismissal was recorded earlier
 
-<sup>18</sup> The value is false while premium entitlements are not active, even when a dismissal was recorded earlier
-
-<sup>19</sup> Reports whether unread gifts exist and how many. An account with no gifts reports `false` and `0`
+<sup>18</sup> Reports whether unread gifts exist and how many. An account with no gifts reports `false` and `0`
 
 :::note[A bearer read returns zero values]
 `acls`, `traits`, and `required_actions` become empty arrays. `email_bounced` and `authenticator_types` are dropped. Every field marked <sup>3</sup> above that is a boolean becomes `false`, every timestamp or nullable field becomes `null`, and `unread_gift_inventory_count` becomes `0`.
@@ -646,24 +640,21 @@ When the target's premium access and its grace period have both ended, reading t
 
 100 requests per 10 seconds for each authenticated user and target user ID, on the `user:profile::target_id` bucket.
 
-## Check user tag
+## Check username
 
-<RouteHeader method="GET" path="/v1/users/check-tag" bot />
+<RouteHeader method="GET" path="/v1/users/check-username" bot />
 
-Reports whether a username and discriminator pair is unavailable.
+Reports whether a username is unavailable.
 
 ### Query parameters
 
 | Field | Type | Description |
 | --- | --- | --- |
 | username<sup>1</sup> | string | The username after trimming (1-32 ASCII letters, digits, or underscores) |
-| discriminator<sup>2</sup> | string | The discriminator (1-4 decimal digits) |
 
 <sup>1</sup> The value cannot be `everyone` or `here` and cannot contain `fluxer` or `system message`, all compared case-insensitively
 
-<sup>2</sup> The value is parsed as a decimal integer before the lookup, so `7`, `07`, and `0007` describe the same tag
-
-The caller's current tag returns `false`. The username comparison is case-insensitive and the discriminator is compared as an integer.
+The comparison ignores letter case. A username is taken while an account uses it, while it stays locked after a deleted account or a rename left it behind, and while a pending [rename request](/http-api/users/current-user/#request-a-new-username) holds it. The caller's own current username returns `false`.
 
 A reserved username fails validation with `USERNAME_RESERVED_VALUE` or `USERNAME_CANNOT_CONTAIN_RESERVED_TERMS`, and no `taken` value comes back for it.
 
@@ -671,18 +662,14 @@ A reserved username fails validation with `USERNAME_RESERVED_VALUE` or `USERNAME
 
 | Field | Type | Description |
 | --- | --- | --- |
-| taken | boolean | Whether the normalised tag is unavailable |
-
-:::caution[`true` also comes from transient conditions]
-A tag claimed by a registration still in progress reads as taken for up to 30 seconds. A lookup that waits more than 10 seconds on a busy username also reads as taken.
-:::
+| taken | boolean | Whether the username is unavailable |
 
 ### Response
 
 | Status | Body | Condition |
 | --- | --- | --- |
-| 200 | response body | Tag availability was returned |
+| 200 | response body | Username availability was returned |
 
 ### Rate limit
 
-60 requests per 10 seconds for each authenticated user, on the `user:check_tag` bucket.
+60 requests per 10 seconds for each authenticated user, on the `user:check_username` bucket.

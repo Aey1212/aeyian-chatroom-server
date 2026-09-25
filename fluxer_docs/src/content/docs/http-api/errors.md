@@ -360,10 +360,6 @@ This community doesn't meet the minimum member count for discovery
 
 This community isn't listed in discovery
 
-### `DISCRIMINATOR_REQUIRED`
-
-Discriminator is required
-
 ### `DONATION_AMOUNT_INVALID`
 
 Donation amount is invalid
@@ -760,9 +756,9 @@ No passkeys are registered
 
 Invalid request
 
-### `NO_USERS_WITH_FLUXERTAG_EXIST`
+### `NO_USER_WITH_USERNAME_EXISTS`
 
-There are too many users with this username
+User wasn't found.
 
 ### `NSFW_CONTENT_AGE_RESTRICTED`
 
@@ -984,10 +980,6 @@ Stripe webhook signature is missing
 
 Sudo mode is required
 
-### `TAG_ALREADY_TAKEN`
-
-This tag is already taken
-
 ### `TEMPORARY_INVITE_REQUIRES_PRESENCE`
 
 Temporary invite requires presence
@@ -1144,6 +1136,10 @@ Unknown webhook
 
 We couldn't update the resource
 
+### `USERNAME_ALREADY_TAKEN`
+
+This username is not available.
+
 ### `USERNAME_NOT_AVAILABLE`
 
 This username is not available
@@ -1257,10 +1253,6 @@ Base64 string length must be between {min} and {maxLength} characters
 
 You've changed your bio too often recently
 
-### `BOT_DISCRIMINATOR_CANNOT_BE_CHANGED`
-
-Bot discriminator can't be changed
-
 ### `BOT_SEARCH_SCOPE_UNAVAILABLE`
 
 Bots can only search within a single community or channel
@@ -1325,10 +1317,6 @@ Categories can't have parents
 
 Categories can't have a parent channel
 
-### `CHANGING_DISCRIMINATOR_REQUIRES_PREMIUM`
-
-Changing your discriminator requires Premium
-
 ### `CHANNEL_DOES_NOT_EXIST`
 
 Channel not found
@@ -1388,14 +1376,6 @@ Custom sticker wasn't found
 ### `DISCOVERABLE_GUILD_VERIFICATION_LEVEL_TOO_LOW`
 
 Discoverable communities must have a verification level of at least Low
-
-### `DISCRIMINATOR_INVALID_FORMAT`
-
-`Discriminator must be {min}–{max} digits`
-
-### `DISCRIMINATOR_OUT_OF_RANGE`
-
-Discriminator must be between {min} and {max}
 
 ### `DUPLICATE_ATTACHMENT_IDS_NOT_ALLOWED`
 
@@ -1913,9 +1893,9 @@ Your SSO provider didn't return an email address
 
 SSO test code is missing the email payload
 
-### `SSO_UNABLE_TO_ALLOCATE_DISCRIMINATOR`
+### `SSO_UNABLE_TO_ALLOCATE_USERNAME`
 
-We couldn't allocate a discriminator for your SSO account
+This username is not available.
 
 ### `STRING_LENGTH_EXACT`
 
@@ -1932,10 +1912,6 @@ System channel must be in this community
 ### `SYSTEM_CHANNEL_MUST_BE_TEXT`
 
 System channel must be a text channel
-
-### `TAG_ALREADY_TAKEN`
-
-This tag is already taken
 
 ### `THIS_VANITY_URL_IS_ALREADY_TAKEN`
 
@@ -1961,14 +1937,6 @@ Too many embeds
 
 Too many files
 
-### `TOO_MANY_USERS_WITH_THIS_USERNAME`
-
-There are too many users with this username
-
-### `TOO_MANY_USERS_WITH_USERNAME_TRY_DIFFERENT`
-
-There are too many users with this username
-
 ### `TOTP_NOT_ENABLED`
 
 Authenticator app two-factor isn't enabled for this account
@@ -1993,13 +1961,13 @@ URL must be between {min} and {max} characters
 
 URL must resolve to a publicly routable address
 
+### `USERNAME_ALREADY_TAKEN`
+
+This username is not available.
+
 ### `USERNAME_CANNOT_CONTAIN_RESERVED_TERMS`
 
 Username can't contain "fluxer" or "system message"
-
-### `USERNAME_CHANGED_TOO_MANY_TIMES`
-
-You've changed your username too often recently
 
 ### `USERNAME_INVALID_CHARACTERS`
 
@@ -2060,10 +2028,6 @@ Verification code has expired
 ### `VERIFICATION_CODE_NOT_ISSUED`
 
 No verification code has been issued
-
-### `VISIONARY_REQUIRED_FOR_DISCRIMINATOR`
-
-You must be on the Visionary lifetime plan to use that discriminator
 
 ### `VOICE_ACTIVITY_SHARING_ON_COOLDOWN`
 

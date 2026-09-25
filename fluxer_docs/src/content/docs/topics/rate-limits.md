@@ -168,13 +168,11 @@ The Resend IP authorisation cooldown has no `X-RateLimit-*` header. It has a `Re
 
 | Operation | Allowance | Validation code |
 | --- | --- | --- |
-| [Modify current user](/http-api/users/current-user/#modify-current-user) | 5 per 3 hours on the resulting username or discriminator | `USERNAME_CHANGED_TOO_MANY_TIMES` |
 | [Modify current user](/http-api/users/current-user/#modify-current-user) | 25 per 30 minutes on the biography, when the submitted value differs | `BIO_CHANGED_TOO_MANY_TIMES` |
 | [Modify current user](/http-api/users/current-user/#modify-current-user) | 25 per 30 minutes on the pronouns, when the submitted value differs | `PRONOUNS_CHANGED_TOO_MANY_TIMES` |
 | [Modify current user](/http-api/users/current-user/#modify-current-user) | 25 per 30 minutes on the accent colour, when the submitted value differs | `ACCENT_COLOR_CHANGED_TOO_MANY_TIMES` |
 | [Modify current user](/http-api/users/current-user/#modify-current-user) | 25 per 30 minutes on any non-null avatar | `AVATAR_CHANGED_TOO_MANY_TIMES` |
 | [Modify current user](/http-api/users/current-user/#modify-current-user) | 25 per 30 minutes on any banner value past the entitlement check | `BANNER_CHANGED_TOO_MANY_TIMES` |
-| [Update bot profile](/http-api/applications/#update-bot-profile) | 5 per 3 hours on the bot's resulting username or discriminator | `USERNAME_CHANGED_TOO_MANY_TIMES` |
 | [Modify current guild member](/http-api/guild-members/#modify-current-guild-member) | 25 per 30 minutes on the guild avatar, whenever supplied | `AVATAR_CHANGED_TOO_MANY_TIMES` |
 | [Modify current guild member](/http-api/guild-members/#modify-current-guild-member) | 25 per 30 minutes on the guild banner, whenever supplied | `BANNER_CHANGED_TOO_MANY_TIMES` |
 | [Modify current guild member](/http-api/guild-members/#modify-current-guild-member) | 25 per 30 minutes on the guild biography, when the submitted value differs | `BIO_CHANGED_TOO_MANY_TIMES` |

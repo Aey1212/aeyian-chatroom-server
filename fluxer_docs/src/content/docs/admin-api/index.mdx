@@ -134,7 +134,6 @@ An entry has no request method, request path, status, duration, IP address, or f
   "admin_user": {
     "id": "1489200013322551296",
     "username": "operator",
-    "discriminator": "0042",
     "global_name": "Operator"
   },
   "target_type": "user",
@@ -142,7 +141,6 @@ An entry has no request method, request path, status, duration, IP address, or f
   "target_user": {
     "id": "1493004551122763776",
     "username": "subject",
-    "discriminator": "0007",
     "global_name": null
   },
   "target_guild": null,
@@ -155,8 +153,7 @@ An entry has no request method, request path, status, duration, IP address, or f
   "audit_log_reason": "Impersonation report 4821",
   "metadata": {
     "old_username": "subj3ct",
-    "new_username": "subject",
-    "discriminator": "7"
+    "new_username": "subject"
   },
   "created_at": "2026-05-14T09:12:44.183000+00:00"
 }
@@ -170,10 +167,7 @@ An entry has no request method, request path, status, duration, IP address, or f
 | --- | --- | --- |
 | id | snowflake | The ID of the account |
 | username | string | The username of the account |
-| discriminator<sup>1</sup> | string | The four-digit discriminator of the account |
 | global_name | ?string | The display name of the account, or null when none is set |
-
-<sup>1</sup> Left-padded with zeroes to four digits, unlike the unpadded integer `discriminator` of the [Admin user object](/admin-api/users/#admin-user-object)
 
 ### Admin guild summary object
 
@@ -290,12 +284,14 @@ An entry with one of these actions has `access` set to `read`.
 | list_guild_members | The members of a guild were listed |
 | list_guild_memory_stats | Guild memory statistics were listed |
 | list_guild_stickers | The stickers of a guild were listed |
+| list_locked_usernames | The locked usernames were listed |
 | list_user_applications | The applications an account owns were read |
 | list_user_change_log | The contact change log of an account was read |
 | list_user_dm_channels | The direct message channels of an account were read |
 | list_user_guilds | The guild memberships of an account were read |
 | list_user_relationships | The relationships of an account were read |
 | list_user_sessions | An account's login sessions were read |
+| list_username_change_requests | The pending rename requests were listed |
 | list_voice_regions | Voice regions were listed |
 | list_voice_servers | The voice servers of a region were listed |
 | list_webauthn_credentials | An account's WebAuthn credentials were read |
@@ -315,6 +311,7 @@ An entry with any other action has `access` set to `write`.
 | add_suspicious_email_domain | A domain was added to the suspicious email domain list |
 | approve_discovery_application | A discovery application was approved |
 | approve_registration | A pending registration was approved |
+| approve_username_change_request | A rename request was approved and the account renamed |
 | auto_resolve_reports_on_deletion | Reports against an account were resolved automatically as part of its deletion |
 | ban_avatar_hash | An avatar hash was added to the avatar blocklist |
 | ban_email | An address was added to the email blocklist |
@@ -339,8 +336,9 @@ An entry with any other action has `access` set to `write`.
 | cancel_job | Cancellation of a job was requested |
 | change_dob | A date of birth was changed |
 | change_email | An email address was changed |
-| change_username | A username or discriminator was changed |
+| change_username | An admin renamed an account directly |
 | clear_fields<sup>1</sup> | Profile fields of an account, or fields of a guild, were cleared |
+| close_password_reset | An open password reset was closed |
 | create_admin_api_key | An Admin API key was created |
 | create_registration_url | A registration URL was issued |
 | create_voice_region | A voice region was created |
@@ -362,6 +360,7 @@ An entry with any other action has `access` set to `write`.
 | mark_suspicious_ip_skipped_invalid | The address could not be parsed, so no marker was written |
 | mark_suspicious_ip_skipped_ipinfo_unavailable | IP intelligence was unavailable, so no marker was written |
 | mark_suspicious_ip_skipped_trusted_commercial_privacy_provider | The address belongs to a trusted commercial privacy provider, so no marker was written |
+| open_password_reset | A password reset was opened for an account |
 | purge_asset | A stored media asset was purged |
 | purge_guild_emoji_asset | A guild emoji asset was purged |
 | purge_guild_sticker_asset | A guild sticker asset was purged |
@@ -370,6 +369,8 @@ An entry with any other action has `access` set to `write`.
 | queue_refresh_index | A search index rebuild was requested |
 | reject_discovery_application | A discovery application was rejected |
 | reject_registration | A pending registration was rejected |
+| reject_username_change_request | A rename request was rejected and its username given back |
+| release_locked_username | A locked username was released for registration |
 | reload_guild | One guild was reloaded on the main Gateway |
 | reload_guilds | Many guilds were reloaded on the main Gateway |
 | remove_discovery_listing | A guild was removed from discovery |
@@ -608,14 +609,14 @@ The registry is returned in this order by [List ACLs](#list-acls). A value outsi
 | user:temp_ban | Applies and removes an account ban |
 | user:update:bot_status | Updates bot and system account state |
 | user:update:dob | Updates dates of birth |
-| user:update:email | Updates the email address, marks the address verified, resends verification, and sends a password reset |
+| user:update:email | Changes and verifies the email address, resends verification, and sends or opens a password reset |
 | user:update:flags | Updates account flags and premium flags, and ends every login session of an account |
 | user:update:mfa | Reads and removes a user's WebAuthn credentials, and removes MFA state |
 | user:update:phone | Updates verified phone state |
 | user:update:profile | Clears profile fields |
 | user:update:suspicious_activity | Replaces suspicious activity flags |
 | user:update:traits | Replaces account traits |
-| user:update:username | Updates usernames and discriminators |
+| user:update:username | Renames accounts, decides rename requests, and lists and releases locked usernames |
 | voice:region:create | Creates [voice](/admin-api/voice/) regions |
 | voice:region:delete | Deletes voice regions |
 | voice:region:list | Reads voice regions |

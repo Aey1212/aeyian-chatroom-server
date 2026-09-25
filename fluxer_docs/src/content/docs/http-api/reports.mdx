@@ -455,7 +455,7 @@ A ticket that is unknown or past its one hour expiry returns 400 `INVALID_DSA_TI
 | additional_info? | string | The free-text context supplied by the reporter (0-1000 characters) |
 | reporter_full_legal_name | string | The full legal name of the person filing the notice (1-160 characters) |
 | reporter_country_of_residence | string | [EU country code](#eu-country-codes) of the reporter's residence |
-| reporter_fluxer_tag?<sup>1</sup> | string | The reporter's own tag in `username#1234` form (3-37 characters) |
+| reporter_username?<sup>1</sup> | string | The reporter's own username (1-32 characters) |
 
 <sup>1</sup> Validated for shape and then discarded, so Fluxer never resolves it against an account and no moderator sees it
 
@@ -464,11 +464,11 @@ A ticket that is unknown or past its one hour expiry returns 400 `INVALID_DSA_TI
 | Field | Type | Description |
 | --- | --- | --- |
 | message_link<sup>1</sup> | string | The link to the reported message (1-2048 characters) |
-| reported_user_tag?<sup>2</sup> | string | The message author's tag in `username#1234` form (3-37 characters) |
+| reported_user_username?<sup>2</sup> | string | The message author's username (1-32 characters) |
 
 <sup>1</sup> Parsed as an absolute URL whose path is `/channels/&lt;guild_id&gt;/&lt;channel_id&gt;/&lt;message_id&gt;`. Fluxer ignores the origin and the guild segment, and reads only the channel and message segments
 
-<sup>2</sup> When supplied it resolves to exactly the account that authored the linked message. A mismatch returns 400 `INVALID_DSA_REPORT_TARGET`, and a tag that resolves to no account returns 404 `UNKNOWN_USER`
+<sup>2</sup> When supplied it resolves to exactly the account that authored the linked message. A mismatch returns 400 `INVALID_DSA_REPORT_TARGET`, and a username that resolves to no account returns 404 `UNKNOWN_USER`
 
 A value that is not an absolute URL, whose path holds fewer than four segments, whose first segment is not `channels`, or whose third or fourth segment is not a decimal snowflake, returns 404 `UNKNOWN_MESSAGE`.
 
@@ -481,9 +481,9 @@ The guild need not be discoverable, the channel need not be readable by the defa
 | Field | Type | Description |
 | --- | --- | --- |
 | user_id?<sup>1</sup> | snowflake | The ID of the reported user |
-| user_tag?<sup>1</sup> | string | The reported user's tag in `username#1234` form (3-37 characters) |
+| username?<sup>1</sup> | string | The reported user's username (1-32 characters) |
 
-<sup>1</sup> Supply at least one of the two. A body that supplies neither returns 400 `INVALID_FORM_BODY`, and an ID or tag that resolves to no account returns 404 `UNKNOWN_USER`
+<sup>1</sup> Supply at least one of the two. A body that supplies neither returns 400 `INVALID_FORM_BODY`, and an ID or username that resolves to no account returns 404 `UNKNOWN_USER`
 
 When both are supplied they must resolve to the same account. A mismatch returns 400 `INVALID_DSA_REPORT_TARGET`.
 
@@ -503,7 +503,7 @@ An unknown code returns 404 `UNKNOWN_INVITE`. A code that resolves to an invite 
 | Status | Body | Condition |
 | --- | --- | --- |
 | 200 | [report](#report-object) object | The notice was recorded |
-| 400 | [error response](/http-api/#error-response) | The ticket is unknown or expired and the request returns `INVALID_DSA_TICKET`, or a supplied Fluxer tag or invite code is malformed or does not match the reported message author, user, or guild and the request returns `INVALID_DSA_REPORT_TARGET` |
+| 400 | [error response](/http-api/#error-response) | The ticket is unknown or expired and the request returns `INVALID_DSA_TICKET`, or a supplied username or invite code is malformed or does not match the reported message author, user, or guild and the request returns `INVALID_DSA_REPORT_TARGET` |
 | 403 | [error response](/http-api/#error-response) | A body string is blocked by content moderation and the request returns `CONTENT_BLOCKED` |
 | 404 | [error response](/http-api/#error-response) | The referenced channel, message, user, guild, or invite does not exist |
 
@@ -511,7 +511,7 @@ An unknown code returns 404 `UNKNOWN_INVITE`. A code that resolves to an invite 
 
 The operation resolves the target, deletes the ticket, and writes one report under a newly generated [snowflake](/snowflakes/). A message notice captures the same conversation window as [Report message](#report-message), including the byte copy of every attachment, and applies no permission filtering to it. A user notice records the reported user's ID and avatar hash and nothing else about the target. A guild notice records the guild's ID, name, icon hash, NSFW flag, content warning state, and the sanitised invite code when one was supplied.
 
-Every notice also records `additional_info`, the reporter's legal name, country of residence, and the verified address behind the ticket. A notice has no account ID even when the request presented a credential, and it discards `reporter_fluxer_tag`.
+Every notice also records `additional_info`, the reporter's legal name, country of residence, and the verified address behind the ticket. A notice has no account ID even when the request presented a credential, and it discards `reporter_username`.
 
 ### Rate limit
 

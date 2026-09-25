@@ -48,7 +48,7 @@ A relationship record belongs to one account and names one other account. Every 
 {
   "id": "1501314428688998182",
   "type": 1,
-  "user": {"id": "1501314428688998182", "username": "aria", "discriminator": "0042"},
+  "user": {"id": "1501314428688998182", "username": "aria"},
   "since": "2026-01-14T09:31:00.000Z",
   "nickname": "climbing partner",
   "share_voice_activity": true,
@@ -110,37 +110,34 @@ The operation is not paged, and the whole set comes back in one response. The or
 
 40 requests per 10 seconds for each authenticated user, on the `user:relationships:list` bucket.
 
-## Send friend request by tag
+## Send friend request by username
 
 <RouteHeader method="POST" path="/v1/users/@me/relationships" />
 
-Sends a friend request to the account identified by username and discriminator. Returns a [relationship](#relationship-object) object on success.
+Sends a friend request to the account identified by username. Returns a [relationship](#relationship-object) object on success.
 
 ### Limitations
 
-- An unresolved tag returns 400 `NO_USERS_WITH_FLUXERTAG_EXIST`.
+- An unresolved username returns 400 `NO_USER_WITH_USERNAME_EXISTS`.
 - A resolved deleted account returns 400 `FRIEND_REQUEST_BLOCKED`.
 - An existing friendship returns 400 `ALREADY_FRIENDS`.
 
-Fluxer resolves the tag to exactly one account before any relationship rule runs. Every remaining admission rule is the one described under [Send friend request by user ID](#send-friend-request-by-user-id).
+Fluxer resolves the username to exactly one account, ignoring letter case, before any relationship rule runs. Every remaining admission rule is the one described under [Send friend request by user ID](#send-friend-request-by-user-id).
 
 ### JSON body
 
 | Field | Type | Description |
 | --- | --- | --- |
 | username<sup>1</sup> | string | The username of the target account |
-| discriminator<sup>2</sup> | string \| integer | The discriminator of the target account |
 
-<sup>1</sup> Trimmed before validation, then 1 to 32 characters of ASCII letters, digits, and underscores. It cannot be `everyone` or `here`, or contain `fluxer` or `system message`, in any casing
-
-<sup>2</sup> An integer and a decimal string of 1 to 4 digits are both accepted, and `0007` and `7` resolve the same account
+<sup>1</sup> Trimmed before validation, then 1 to 32 characters of ASCII letters, digits, and underscores, optionally ending in the `-BOT` suffix of a bot username
 
 ### Response
 
 | Status | Body | Condition |
 | --- | --- | --- |
 | 200 | [relationship](#relationship-object) object | A pending request, an existing relationship, or an accepted friendship was returned |
-| 400 | [error response](/http-api/#error-response) | The tag is unresolved, the caller or target is ineligible, target or block policy rejects the request, deployment policy disables the operation, or the [relationship limit](#relationship-limit) is reached |
+| 400 | [error response](/http-api/#error-response) | The username is unresolved, the caller or target is ineligible, target or block policy rejects the request, deployment policy disables the operation, or the [relationship limit](#relationship-limit) is reached |
 | 403 | [error response](/http-api/#error-response) | The caller's email address is unverified and the request returns `FRIEND_REQUEST_EMAIL_VERIFICATION_REQUIRED` |
 | 404 | [error response](/http-api/#error-response) | The caller or resolved target no longer exists, or the pending request being accepted has been withdrawn |
 
@@ -217,7 +214,7 @@ Staff forced acceptance replaces every existing record between the two accounts,
 
 ### Rate limit
 
-10 requests per minute for each authenticated user, on the `user:friend_request:send` bucket, shared with [Send friend request by tag](#send-friend-request-by-tag).
+10 requests per minute for each authenticated user, on the `user:friend_request:send` bucket, shared with [Send friend request by username](#send-friend-request-by-username).
 
 ## Accept request or block user
 

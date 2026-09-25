@@ -30,7 +30,6 @@ The compact guild representation returned by [List guilds](#list-guilds) and by 
 | owner_id | snowflake | The ID of the owner |
 | owner_username<sup>1</sup> | ?string | The username of the owner |
 | owner_global_name<sup>1</sup> | ?string | The display name of the owner |
-| owner_discriminator<sup>1</sup> | ?string | The owner discriminator, zero-padded to four digits |
 | icon | ?string | The icon hash, or null when unset |
 | banner | ?string | The banner hash, or null when unset |
 | member_count<sup>2</sup> | integer | The recorded member count |
@@ -59,7 +58,6 @@ The compact guild representation returned by [List guilds](#list-guilds) and by 
   "owner_id": "1483920011884392448",
   "owner_username": null,
   "owner_global_name": null,
-  "owner_discriminator": null,
   "icon": "b7f1c2d3e4a5968778695a4b3c2d1e0f",
   "banner": null,
   "member_count": 4182,
@@ -79,7 +77,6 @@ The full guild representation returned by [Get guild](#get-guild). It embeds eve
 | owner_id | snowflake | The ID of the owner |
 | owner_username<sup>1</sup> | ?string | The username of the owner |
 | owner_global_name<sup>1</sup> | ?string | The display name of the owner |
-| owner_discriminator<sup>1</sup> | ?string | The owner discriminator, zero-padded to four digits |
 | name | string | The name of the guild (1-100 characters) |
 | vanity_url_code | ?string | The custom invite code, or null when the guild owns none |
 | icon | ?string | The icon hash, or null when unset |

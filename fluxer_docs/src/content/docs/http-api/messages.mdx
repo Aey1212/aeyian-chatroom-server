@@ -67,7 +67,7 @@ A message object is the full stored form of one post in a channel.
 
 <sup>7</sup> The key is absent when the message has no reply reference, present and null when the reply target no longer resolves, and present with the message when it does. A client must tell absent apart from null by key presence
 
-A webhook-authored message has no stored author user. Fluxer builds its author from the webhook, with the webhook ID as `id`, the stored webhook name as `username`, the discriminator `0000`, the stored webhook avatar hash as `avatar`, and `bot` true. A message whose stored author ID no longer resolves to an account is served with a deleted-user placeholder. The placeholder has that ID, the discriminator `0000`, and no avatar.
+A webhook-authored message has no stored author user. Fluxer builds its author from the webhook, with the webhook ID as `id`, the stored webhook name as `username`, the stored webhook avatar hash as `avatar`, and `bot` true. A message whose stored author ID no longer resolves to an account is served with a deleted-user placeholder. The placeholder has that ID and no avatar.
 
 `mentions`, `mention_roles`, `embeds`, `attachments`, and `stickers` are always present and can be empty. A field marked `?` above is omitted from the object when it has no value. `referenced_message` is the one optional field that can also be present and null. A message whose author user and webhook are both absent is omitted from every read.
 
@@ -84,7 +84,6 @@ A reply reference resolves into `referenced_message`, and a forward has none. Fl
   "author": {
     "id": "1501314428688990000",
     "username": "ada",
-    "discriminator": "0001",
     "avatar": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
   },
   "type": 0,
