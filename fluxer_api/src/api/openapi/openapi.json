@@ -24381,7 +24381,7 @@
 						"description": "Account-wide reply mention preference (NO_PREFERENCE, PREFER_MENTION, PREFER_NO_MENTION)"
 					},
 					"name_style": {
-						"anyOf": [{"$ref": "#/components/schemas/NameStyleSchemaInput"}, {"type": "null"}],
+						"anyOf": [{"$ref": "#/components/schemas/NameStyleRequestSchema"}, {"type": "null"}],
 						"description": "Font, colors and effect of the display name; null resets it"
 					},
 					"email_token": {"description": "Email change token for updating email", "type": "string"},
@@ -29054,9 +29054,19 @@
 					"secondary_color": {
 						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
 						"description": "Second color as an integer, used by the gradient, glow and shimmer effects"
+					},
+					"gradient_direction": {
+						"description": "Direction of the gradient effect",
+						"$ref": "#/components/schemas/NameGradientDirectionSchema"
+					},
+					"intensity": {
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 100,
+						"description": "Strength of the glow and shimmer effects, 0-100"
 					}
 				},
-				"required": ["font", "effect", "primary_color", "secondary_color"],
+				"required": ["font", "effect", "primary_color", "secondary_color", "gradient_direction", "intensity"],
 				"additionalProperties": false,
 				"description": "Font, colors and effect of a display name"
 			},
@@ -29090,6 +29100,13 @@
 					},
 					{"name": "SPAMMER", "value": "64", "description": "User is flagged as a spammer"}
 				]
+			},
+			"NameGradientDirectionSchema": {
+				"description": "Direction of a gradient display name",
+				"x-enumNames": ["HORIZONTAL", "VERTICAL"],
+				"x-enumDescriptions": ["From the start of the name to its end", "From the top of the letters to their bottom"],
+				"enum": ["horizontal", "vertical"],
+				"type": "string"
 			},
 			"ColorType": {"type": "integer", "minimum": 0, "maximum": 16777215},
 			"NameStyleEffectSchema": {
@@ -33364,7 +33381,7 @@
 				"required": ["src", "proxy_src", "width", "height"],
 				"additionalProperties": false
 			},
-			"NameStyleSchemaInput": {
+			"NameStyleRequestSchema": {
 				"type": "object",
 				"properties": {
 					"font": {
@@ -33379,6 +33396,16 @@
 					"secondary_color": {
 						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
 						"description": "Second color as an integer, used by the gradient, glow and shimmer effects"
+					},
+					"gradient_direction": {
+						"description": "Direction of the gradient effect (default horizontal)",
+						"$ref": "#/components/schemas/NameGradientDirectionSchema"
+					},
+					"intensity": {
+						"description": "Strength of the glow and shimmer effects, 0-100 (default 60)",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 100
 					}
 				},
 				"required": ["font", "effect", "primary_color", "secondary_color"],

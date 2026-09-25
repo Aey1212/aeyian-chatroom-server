@@ -16,7 +16,11 @@
 }
 
 .gradient {
-	background-image: linear-gradient(90deg, var(--name-c1), var(--name-c2));
+	background-image: linear-gradient(
+		var(--name-angle, 90deg),
+		var(--name-c1) var(--name-stop-a, 0%),
+		var(--name-c2) var(--name-stop-b, 100%)
+	);
 }
 
 .holographic {
@@ -25,21 +29,23 @@
 	background-position: 0% 50%;
 }
 
+/* The shine rests a third of the way into the name so it shows without hovering. */
 .shimmer {
 	background-image: linear-gradient(
 		100deg,
 		var(--name-c1) 0%,
-		var(--name-c1) 40%,
+		var(--name-c1) calc(50% - var(--name-shine-width, 10%)),
 		var(--name-c2) 50%,
-		var(--name-c1) 60%,
+		var(--name-c1) calc(50% + var(--name-shine-width, 10%)),
 		var(--name-c1) 100%
 	);
-	background-size: 250% 100%;
-	background-position: 100% 50%;
+	background-size: 300% 100%;
+	background-position: 60% 50%;
 }
 
 .glow {
-	filter: drop-shadow(0 0 0.2em var(--name-glow));
+	filter: drop-shadow(0 0 var(--name-glow-r1, 0.2em) var(--name-glow))
+		drop-shadow(0 0 var(--name-glow-r2, 0.45em) var(--name-glow));
 }
 
 @keyframes nameHolographic {
@@ -64,10 +70,12 @@
 @keyframes nameGlow {
 	0%,
 	100% {
-		filter: drop-shadow(0 0 0.15em var(--name-glow));
+		filter: drop-shadow(0 0 var(--name-glow-r1, 0.2em) var(--name-glow))
+			drop-shadow(0 0 var(--name-glow-r2, 0.45em) var(--name-glow));
 	}
 	50% {
-		filter: drop-shadow(0 0 0.45em var(--name-glow));
+		filter: drop-shadow(0 0 calc(var(--name-glow-r1, 0.2em) * 1.6) var(--name-glow))
+			drop-shadow(0 0 calc(var(--name-glow-r2, 0.45em) * 1.6) var(--name-glow));
 	}
 }
 

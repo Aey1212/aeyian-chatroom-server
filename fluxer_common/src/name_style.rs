@@ -10,6 +10,20 @@ pub struct NameStyle {
     pub effect: String,
     pub primary_color: Option<i32>,
     pub secondary_color: Option<i32>,
+    #[serde(default = "default_gradient_direction")]
+    pub gradient_direction: String,
+    #[serde(default = "default_intensity")]
+    pub intensity: i32,
+}
+
+const DEFAULT_INTENSITY: i32 = 60;
+
+fn default_gradient_direction() -> String {
+    "horizontal".to_owned()
+}
+
+fn default_intensity() -> i32 {
+    DEFAULT_INTENSITY
 }
 
 impl NameStyle {
@@ -37,6 +51,21 @@ mod tests {
         assert_eq!(style.effect, "gradient");
         assert_eq!(style.primary_color, Some(0xff0000));
         assert_eq!(style.secondary_color, Some(0xff));
+        assert_eq!(style.gradient_direction, "horizontal");
+        assert_eq!(style.intensity, 60);
+    }
+
+    #[test]
+    fn keeps_direction_and_intensity() {
+        let style = NameStyle::parse_stored(Some(
+            r#"{"font":null,"effect":"glow","primary_color":null,"secondary_color":255,"gradient_direction":"vertical","intensity":90}"#,
+        ))
+        .expect("style");
+        assert_eq!(style.gradient_direction, "vertical");
+        assert_eq!(style.intensity, 90);
+        let json = serde_json::to_value(&style).unwrap();
+        assert_eq!(json["intensity"], 90);
+        assert_eq!(json["gradient_direction"], "vertical");
     }
 
     #[test]

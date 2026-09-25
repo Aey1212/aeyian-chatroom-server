@@ -3,7 +3,11 @@
 import * as ColorUtils from '@app/features/theme/utils/ColorUtils';
 import {ensureNameFontFaces, getNameFont, nameFontFamily} from '@app/features/user/name_style/NameFonts';
 import styles from '@app/features/user/name_style/NamePaint.module.css';
-import {NameStyleEffects} from '@fluxer/constants/src/NameStyleConstants';
+import {
+	DEFAULT_NAME_EFFECT_INTENSITY,
+	NameGradientDirections,
+	NameStyleEffects,
+} from '@fluxer/constants/src/NameStyleConstants';
 import type {NameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {clsx} from 'clsx';
 import type React from 'react';
@@ -40,6 +44,26 @@ function hex(color: number): string {
 	return ColorUtils.int2hex(color);
 }
 
+function strength(intensity: number | undefined): number {
+	return Math.min(Math.max((intensity ?? DEFAULT_NAME_EFFECT_INTENSITY) / 100, 0), 1);
+}
+
+// Two stacked shadows: a tight core and a wide halo, both growing with the intensity.
+function applyGlow(style: CssVars, color: string, intensity: number | undefined): void {
+	const t = strength(intensity);
+	style['--name-glow'] = `color-mix(in srgb, ${color} ${Math.round(55 + 45 * t)}%, transparent)`;
+	style['--name-glow-r1'] = `${(0.05 + 0.2 * t).toFixed(3)}em`;
+	style['--name-glow-r2'] = `${(0.12 + 0.6 * t).toFixed(3)}em`;
+}
+
+// The shine band widens and brightens with the intensity.
+function applyShimmer(style: CssVars, base: string, shine: string, intensity: number | undefined): void {
+	const t = strength(intensity);
+	style['--name-c1'] = base;
+	style['--name-c2'] = `color-mix(in srgb, ${shine} ${Math.round(65 + 35 * t)}%, ${base})`;
+	style['--name-shine-width'] = `${(7 + 17 * t).toFixed(1)}%`;
+}
+
 // Fonts such as Bangers and Cinzel carry dotted capitals only for Turkish (OpenType `locl`).
 export function nameLanguage(text: string | undefined): string | undefined {
 	return text && TURKISH_ONLY_LETTERS.test(text) ? 'tr' : undefined;
@@ -72,17 +96,16 @@ export function resolveNamePaint({nameStyle, role, colorOverride, text}: NamePai
 			style['--name-c2'] = hex(role.secondaryColor);
 			if (effect === NameStyleEffects.GLOW) {
 				classes.push(styles.glow);
-				style['--name-glow'] = primary;
+				applyGlow(style, primary, nameStyle?.intensity);
 			}
 		} else if (effect === NameStyleEffects.SHIMMER) {
 			classes.push(styles.clipped, styles.shimmer);
-			style['--name-c1'] = primary;
-			style['--name-c2'] = DEFAULT_SHIMMER_HIGHLIGHT;
+			applyShimmer(style, primary, DEFAULT_SHIMMER_HIGHLIGHT, nameStyle?.intensity);
 		} else {
 			style.color = primary;
 			if (effect === NameStyleEffects.GLOW) {
 				classes.push(styles.glow);
-				style['--name-glow'] = primary;
+				applyGlow(style, primary, nameStyle?.intensity);
 			}
 		}
 	} else if (nameStyle) {
@@ -94,6 +117,12 @@ export function resolveNamePaint({nameStyle, role, colorOverride, text}: NamePai
 					classes.push(styles.clipped, styles.gradient);
 					style['--name-c1'] = primary;
 					style['--name-c2'] = secondary;
+					if (nameStyle.gradient_direction === NameGradientDirections.VERTICAL) {
+						// Letters fill the middle of the line box, so the colour change is kept inside them.
+						style['--name-angle'] = '180deg';
+						style['--name-stop-a'] = '25%';
+						style['--name-stop-b'] = '80%';
+					}
 				} else if (nameStyle.primary_color !== null) {
 					style.color = primary;
 				}
@@ -101,12 +130,11 @@ export function resolveNamePaint({nameStyle, role, colorOverride, text}: NamePai
 			case NameStyleEffects.GLOW:
 				if (nameStyle.primary_color !== null) style.color = primary;
 				classes.push(styles.glow);
-				style['--name-glow'] = secondary ?? primary;
+				applyGlow(style, secondary ?? primary, nameStyle.intensity);
 				break;
 			case NameStyleEffects.SHIMMER:
 				classes.push(styles.clipped, styles.shimmer);
-				style['--name-c1'] = primary;
-				style['--name-c2'] = secondary ?? DEFAULT_SHIMMER_HIGHLIGHT;
+				applyShimmer(style, primary, secondary ?? DEFAULT_SHIMMER_HIGHLIGHT, nameStyle.intensity);
 				break;
 			default:
 				if (nameStyle.primary_color !== null) style.color = primary;

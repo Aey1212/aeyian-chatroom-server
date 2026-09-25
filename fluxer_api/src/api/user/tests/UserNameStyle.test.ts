@@ -5,7 +5,7 @@ import {type ApiTestHarness, createApiTestHarness} from '@app/api/test/ApiTestHa
 import {HTTP_STATUS} from '@app/api/test/TestConstants';
 import {createBuilder} from '@app/api/test/TestRequestBuilder';
 import {fetchUser, fetchUserMe} from '@app/api/user/tests/UserTestUtils';
-import type {NameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import type {NameStyle, NameStyleRequest} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import type {UserPrivateResponse} from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 import {afterAll, beforeAll, beforeEach, describe, expect, test} from 'vitest';
 
@@ -14,9 +14,11 @@ const GRADIENT_STYLE: NameStyle = {
 	effect: 'gradient',
 	primary_color: 0xff0000,
 	secondary_color: 0x0000ff,
+	gradient_direction: 'vertical',
+	intensity: 80,
 };
 
-async function setNameStyle(harness: ApiTestHarness, account: TestAccount, nameStyle: NameStyle | null) {
+async function setNameStyle(harness: ApiTestHarness, account: TestAccount, nameStyle: NameStyleRequest | null) {
 	return createBuilder<UserPrivateResponse>(harness, account.token)
 		.patch('/users/@me')
 		.body({name_style: nameStyle})
@@ -74,6 +76,23 @@ describe('Display name styles', () => {
 		expect(defaults.name_style).toBeUndefined();
 	});
 
+	test('direction and intensity default when a client leaves them out', async () => {
+		const updated = await setNameStyle(harness, account, {
+			font: null,
+			effect: 'glow',
+			primary_color: null,
+			secondary_color: 0x00ff00,
+		});
+		expect(updated.name_style).toEqual({
+			font: null,
+			effect: 'glow',
+			primary_color: null,
+			secondary_color: 0x00ff00,
+			gradient_direction: 'horizontal',
+			intensity: 60,
+		});
+	});
+
 	test('other profile updates keep the style', async () => {
 		await setNameStyle(harness, account, GRADIENT_STYLE);
 		const updated = await createBuilder<UserPrivateResponse>(harness, account.token)
@@ -89,6 +108,9 @@ describe('Display name styles', () => {
 		['an unknown effect', {...GRADIENT_STYLE, effect: 'sparkle'}],
 		['a color above 0xFFFFFF', {...GRADIENT_STYLE, primary_color: 0x1000000}],
 		['a negative color', {...GRADIENT_STYLE, secondary_color: -1}],
+		['an intensity above 100', {...GRADIENT_STYLE, intensity: 101}],
+		['a fractional intensity', {...GRADIENT_STYLE, intensity: 50.5}],
+		['an unknown gradient direction', {...GRADIENT_STYLE, gradient_direction: 'diagonal'}],
 	])('rejects %s', async (_label, nameStyle) => {
 		await createBuilder(harness, account.token)
 			.patch('/users/@me')

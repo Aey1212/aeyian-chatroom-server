@@ -13979,9 +13979,19 @@
 						"nullable": true,
 						"description": "Second color as an integer, used by the gradient, glow and shimmer effects",
 						"allOf": [{"$ref": "#/components/schemas/ColorType"}]
+					},
+					"gradient_direction": {
+						"description": "Direction of the gradient effect",
+						"allOf": [{"$ref": "#/components/schemas/NameGradientDirectionSchema"}]
+					},
+					"intensity": {
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 100,
+						"description": "Strength of the glow and shimmer effects, 0-100"
 					}
 				},
-				"required": ["font", "effect", "primary_color", "secondary_color"],
+				"required": ["font", "effect", "primary_color", "secondary_color", "gradient_direction", "intensity"],
 				"additionalProperties": false,
 				"description": "Font, colors and effect of a display name"
 			},
@@ -14015,6 +14025,13 @@
 					},
 					{"name": "SPAMMER", "value": "64", "description": "User is flagged as a spammer"}
 				]
+			},
+			"NameGradientDirectionSchema": {
+				"description": "Direction of a gradient display name",
+				"x-enumNames": ["HORIZONTAL", "VERTICAL"],
+				"x-enumDescriptions": ["From the start of the name to its end", "From the top of the letters to their bottom"],
+				"enum": ["horizontal", "vertical"],
+				"type": "string"
 			},
 			"ColorType": {"type": "integer", "minimum": 0, "maximum": 16777215},
 			"NameStyleEffectSchema": {

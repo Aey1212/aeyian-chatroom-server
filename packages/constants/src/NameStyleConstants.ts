@@ -61,3 +61,19 @@ export const NAME_STYLE_EFFECTS = Object.values(NameStyleEffects) as ReadonlyArr
 export function isNameStyleEffect(value: unknown): value is NameStyleEffect {
 	return typeof value === 'string' && (NAME_STYLE_EFFECTS as ReadonlyArray<string>).includes(value);
 }
+
+export const NameGradientDirections = {
+	HORIZONTAL: 'horizontal',
+	VERTICAL: 'vertical',
+} as const;
+
+export type NameGradientDirection = ValueOf<typeof NameGradientDirections>;
+
+export function isNameGradientDirection(value: unknown): value is NameGradientDirection {
+	return value === NameGradientDirections.HORIZONTAL || value === NameGradientDirections.VERTICAL;
+}
+
+// Strength of the glow and shimmer effects, 0-100.
+export const NAME_EFFECT_INTENSITY_MIN = 0;
+export const NAME_EFFECT_INTENSITY_MAX = 100;
+export const DEFAULT_NAME_EFFECT_INTENSITY = 60;
