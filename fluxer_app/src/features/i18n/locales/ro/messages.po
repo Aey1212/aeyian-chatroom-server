@@ -938,7 +938,7 @@ msgstr "{count, plural, one {# mesaj blocat} few {# mesaje blocate} other {# de 
 msgid "{count, plural, one {# community found} other {# communities found}}"
 msgstr "{count, plural, one {# comunitate găsită} few {# comunități găsite} other {# de comunități găsite}}"
 
-#: src/features/app/components/layout/GuildsLayout.tsx:1939
+#: src/features/app/components/layout/GuildsLayout.tsx:1921
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# comunitate este temporar indisponibilă din cauza unei defecțiuni a condensatorului de flux.} few {# comunități sunt temporar indisponibile din cauza unei defecțiuni a condensatorului de flux.} other {# de comunități sunt temporar indisponibile din cauza unei defecțiuni a condensatorului de flux.}}"
 
@@ -1340,7 +1340,7 @@ msgid "{fourHours} hours"
 msgstr "{fourHours} ore"
 
 #. Footer summary frame-rate label in the screen share picker. {fps} is the integer frame rate. FPS is a technical token.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:253
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:252
 msgid "{fps} FPS"
 msgstr "{fps} FPS"
 
@@ -1721,7 +1721,7 @@ msgid "{productName} needs camera access to list your devices."
 msgstr "{productName} are nevoie de acces la cameră pentru a-ți afișa dispozitivele."
 
 #. Voice settings notice shown when microphone permission has not been granted.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:138
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
 msgid "{productName} needs microphone access to list your devices."
 msgstr "{productName} are nevoie de acces la microfon pentru a-ți afișa dispozitivele."
 
@@ -2838,7 +2838,7 @@ msgid "Activity sharing"
 msgstr "Partajarea activității"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:465
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:444
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:102
 msgid "Activity threshold"
 msgstr "Prag de activitate"
@@ -3311,7 +3311,7 @@ msgid "Adds H.264 for mixed clients. Requires more encoding."
 msgstr "Adaugă H.264 pentru clienți de tipuri diferite. Necesită codificare suplimentară."
 
 #. Description for the custom profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:96
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:94
 msgid "Adjust each setting yourself: noise suppression, echo cancellation, and gain."
 msgstr "Ajustează manual fiecare setare: suprimarea zgomotului, anularea ecoului și amplificarea."
 
@@ -3580,11 +3580,11 @@ msgstr "Permite {everyoneMention} și {hereMention}"
 msgid "Allow {PRODUCT_NAME} to access your camera in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 msgstr "Permite aplicației {PRODUCT_NAME} să îți acceseze camera în {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:533
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:512
 msgid "Allow {PRODUCT_NAME} to access your microphone in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 msgstr "Permite aplicației {PRODUCT_NAME} să îți acceseze microfonul în {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:538
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:517
 msgid "Allow {PRODUCT_NAME} to access your microphone. Check your browser's address bar or settings."
 msgstr "Permite aplicației {PRODUCT_NAME} să îți acceseze microfonul. Verifică bara de adrese sau setările browserului."
 
@@ -3687,7 +3687,7 @@ msgstr "Permite membrilor fără permisiunea {readMessageHistoryPermissionLabel}
 msgid "Allow mentions for this role"
 msgstr "Permite menționări pentru acest rol"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:558
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:537
 msgid "Allow microphone"
 msgstr "Permite accesul la microfon"
 
@@ -4269,7 +4269,7 @@ msgid "App state"
 msgstr "Stare aplicație"
 
 #. Fallback label for an app window card in the screen-share picker when the OS does not give us a window title.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:141
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:140
 msgid "App window"
 msgstr "Fereastră aplicație"
 
@@ -4362,7 +4362,7 @@ msgstr "Aplicație actualizată cu succes"
 #: src/features/user/components/settings_utils/search_index/SharedDescriptors.ts:29
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:66
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:184
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:183
 msgid "Applications"
 msgstr "Aplicații"
 
@@ -4383,8 +4383,8 @@ msgstr "Aplică"
 
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:45
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:25
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:44
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:24
 msgid "Apply theme"
 msgstr "Aplică tema"
 
@@ -4713,7 +4713,7 @@ msgid "Audio level"
 msgstr "Nivel audio"
 
 #. Footer summary status shown when capture-device audio is disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:258
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:257
 msgid "Audio muted"
 msgstr "Audio dezactivat"
 
@@ -4953,8 +4953,8 @@ msgid "Auto-detect language"
 msgstr "Detectare automată a limbii"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:116
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:452
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:110
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:431
 msgid "Auto-set activity threshold"
 msgstr "Setează automat pragul de activitate"
 
@@ -5503,11 +5503,6 @@ msgstr "Beneficii"
 #: src/features/voice/utils/ScreenShareCodecPolicy.ts:9
 msgid "Best compression. Use it only when WebRTC exposes an encoder and the GPU report says it is hardware-backed."
 msgstr "Cea mai bună compresie. Folosește-o doar când WebRTC expune un codificator și raportul GPU indică faptul că este susținut hardware."
-
-#. CTA card title in the screen-share picker promoting the desktop app for richer screen sharing.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:12
-msgid "Best with the desktop app"
-msgstr "Funcționează cel mai bine cu aplicația desktop"
 
 #: src/features/ui/components/form/UsernameValidationRules.tsx:45
 msgid "Between 1 and {maxLength} characters"
@@ -6216,12 +6211,12 @@ msgid "Camera"
 msgstr "Cameră"
 
 #. Title shown in the screen-share Devices tab before camera preview permission is granted.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:156
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:155
 msgid "Camera access is needed for device previews"
 msgstr "Este necesar accesul la cameră pentru previzualizarea dispozitivelor"
 
 #. Description shown after camera preview permission is denied or unavailable.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:164
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:163
 msgid "Camera access was not granted. Update camera permissions, then try again."
 msgstr "Accesul la cameră nu a fost acordat. Actualizează permisiunile camerei și încearcă din nou."
 
@@ -6742,7 +6737,7 @@ msgid "Change stream"
 msgstr "Schimbă fluxul"
 
 #. Modal title for the screen-share picker when switching an ongoing stream to a new source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:217
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:216
 msgid "Change stream source"
 msgstr "Schimbă sursa fluxului"
 
@@ -7522,7 +7517,7 @@ msgid "Choose payment method"
 msgstr "Alege metoda de plată"
 
 #. Modal title for the screen-share picker when starting a new screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:221
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:220
 msgid "Choose something to share"
 msgstr "Alege ce să partajezi"
 
@@ -7649,8 +7644,8 @@ msgstr "Revendică contul pentru a-l valorifica"
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:41
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:40
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:28
 msgid "Claim gift"
 msgstr "Revendică cadoul"
 
@@ -7898,7 +7893,7 @@ msgid "Clear trusted domains ({trustedDomainsCount})"
 msgstr "Șterge domeniile de încredere ({trustedDomainsCount})"
 
 #. Footer summary description for the text-focused screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:245
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:244
 msgid "Clearer text"
 msgstr "Text mai clar"
 
@@ -8543,7 +8538,7 @@ msgid "Community members"
 msgstr "Membrii comunității"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the community-membership CTA banner.
-#: src/features/devtools/components/NagbarControls.ts:12
+#: src/features/devtools/components/NagbarControls.ts:7
 msgid "Community membership CTA nagbar"
 msgstr "Bara de notificare CTA pentru calitatea de membru al comunității"
 
@@ -8553,7 +8548,7 @@ msgid "Community message notifications"
 msgstr "Notificări pentru mesajele comunității"
 
 #. Developer control label for the community MFA requirement banner.
-#: src/features/devtools/components/NagbarControls.ts:76
+#: src/features/devtools/components/NagbarControls.ts:71
 msgid "Community MFA requirement nagbar"
 msgstr "Bara de notificare pentru cerința MFA a comunității"
 
@@ -8908,11 +8903,11 @@ msgstr "Conectează o cameră și încearcă din nou."
 msgid "Connect a camera or virtual capture device, then try again."
 msgstr "Conectează o cameră sau un dispozitiv de captură virtual, apoi încearcă din nou."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:133
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:132
 msgid "Connect a display, then try again."
 msgstr "Conectează un ecran, apoi încearcă din nou."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:543
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:522
 msgid "Connect a microphone and try again."
 msgstr "Conectează un microfon și încearcă din nou."
 
@@ -9623,7 +9618,7 @@ msgid "Copying image..."
 msgstr "Se copiază imaginea..."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the corrupted-installation banner.
-#: src/features/devtools/components/NagbarControls.ts:17
+#: src/features/devtools/components/NagbarControls.ts:12
 msgid "Corrupted installation nagbar"
 msgstr "Bara de notificare pentru instalare coruptă"
 
@@ -10231,11 +10226,11 @@ msgstr "Creează un grup nou cu {userName}"
 #: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:118
 msgid "Create account"
 msgstr "Creează cont"
 
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:123
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:112
 msgid "Create account to claim gift"
 msgstr "Creează un cont pentru a revendica cadoul"
 
@@ -10562,12 +10557,12 @@ msgid "Current uses:"
 msgstr "Utilizări curente:"
 
 #. Developer nagbar status: the banner is dismissed in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:109
+#: src/features/devtools/components/NagbarControls.ts:104
 msgid "Currently dismissed"
 msgstr "Ascuns în prezent"
 
 #. Developer nagbar status: the banner is showing in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:113
+#: src/features/devtools/components/NagbarControls.ts:108
 msgid "Currently showing"
 msgstr "Afișat în prezent"
 
@@ -10582,7 +10577,7 @@ msgstr "Momentan: {mutedText}"
 #: src/features/user/components/modals/tabs/notifications_tab/NotificationsTabSounds.tsx:186
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:94
 #: src/features/voice/components/bottomsheets/VoiceSettingsBottomSheets.tsx:45
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:237
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:236
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:97
 msgid "Custom"
 msgstr "Personalizat"
@@ -10596,7 +10591,7 @@ msgstr "Personalizat"
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:91
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:89
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:42
 #: src/features/voice/components/VoiceSettingsMenus.tsx:70
 msgctxt "voice-processing-profile"
@@ -11144,7 +11139,7 @@ msgid "Default"
 msgstr "Implicit"
 
 #. Fallback label for the system default camera in the screen-share devices tab.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:152
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:151
 msgid "Default camera"
 msgstr "Cameră implicită"
 
@@ -11701,18 +11696,13 @@ msgstr "Desktop inactiv"
 msgid "Desktop device"
 msgstr "Dispozitiv desktop"
 
-#. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the desktop-download banner.
-#: src/features/devtools/components/NagbarControls.ts:7
-msgid "Desktop download nagbar"
-msgstr "Bara de notificare pentru descărcarea aplicației desktop"
-
 #. Settings search entry description. One-line summary of what the settings search entry controls.
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:78
 msgid "Desktop inactivity before mobile push"
 msgstr "Inactivitate pe desktop înainte de notificarea push pe mobil"
 
 #. Developer control label for the desktop-notification banner.
-#: src/features/devtools/components/NagbarControls.ts:40
+#: src/features/devtools/components/NagbarControls.ts:35
 msgid "Desktop notification nagbar"
 msgstr "Bara de notificare desktop"
 
@@ -11890,7 +11880,7 @@ msgstr "Dispozitiv:"
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:11
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:82
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:57
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:192
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:191
 msgid "Devices"
 msgstr "Dispozitive"
 
@@ -11998,7 +11988,7 @@ msgstr "Încărcare directă activă"
 #. Short footer action in the screen-share picker that disables screen-share preview frame uploads.
 #: src/features/user/components/modals/tabs/account_security_tab/SecurityTab.tsx:238
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:138
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:278
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:277
 msgid "Disable"
 msgstr "Dezactivează"
 
@@ -12170,7 +12160,7 @@ msgid "Disabled value"
 msgstr "Valoare dezactivată"
 
 #. Explains what happens after disabling screen-share preview uploads. Refers to already-uploaded preview thumbnails.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:326
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:325
 msgid "Disabling previews stops future preview uploads. Existing preview images may remain visible until the stream ends or the preview refreshes."
 msgstr "Dezactivarea previzualizărilor oprește încărcările viitoare de previzualizări. Imaginile de previzualizare existente pot rămâne vizibile până la încheierea transmiterii sau până la actualizarea previzualizării."
 
@@ -12314,7 +12304,7 @@ msgid "Display"
 msgstr "Afișare"
 
 #. Fallback label for a display / monitor card in the screen-share picker when the OS does not give us a display name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:146
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:145
 msgctxt "display-screen"
 msgid "Display"
 msgstr "Ecran"
@@ -12611,9 +12601,7 @@ msgid "Download"
 msgstr "Descarcă"
 
 #. Nagbar button label that downloads the desktop app. productName is the app name.
-#. Short label in the sidebar navigation download button. Preserve {productName}; it is inserted by code.
 #: src/features/app/components/layout/app_layout/nagbars/CorruptedInstallationNagbar.tsx:17
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:26
 msgid "Download {productName}"
 msgstr "Descarcă {productName}"
 
@@ -12630,11 +12618,6 @@ msgstr "Descarcă audio"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:91
 msgid "Download button"
 msgstr "Buton de descărcare"
-
-#. Button or menu action label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:104
-msgid "Download desktop app"
-msgstr "Descarcă aplicația pentru desktop"
 
 #. Tooltip on the channel header updater icon prompting download of an update with no version or size info.
 #: src/features/channel/components/channel_header_components/UpdaterIcon.tsx:54
@@ -13227,7 +13210,7 @@ msgid "Email us and a person will review your account. Tell us you cannot verify
 msgstr "Trimite-ne un e-mail și o persoană îți va verifica contul. Spune-ne că nu poți verifica prin SMS și ne vom ocupa noi de restul. Răspunsurile vin prin e-mail, deci nu este instant."
 
 #. Developer control label for the email-verification banner.
-#: src/features/devtools/components/NagbarControls.ts:36
+#: src/features/devtools/components/NagbarControls.ts:31
 msgid "Email verification nagbar"
 msgstr "Bara de notificare pentru verificarea e-mailului"
 
@@ -13443,7 +13426,7 @@ msgid "Enable"
 msgstr "Activează"
 
 #. Voice settings CTA label for opening a platform permission prompt.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:124
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:118
 msgid "Enable {permissionName} permission"
 msgstr "Activează permisiunea {permissionName}"
 
@@ -13502,7 +13485,7 @@ msgid "Enable browser notifications"
 msgstr "Activează notificările în browser"
 
 #. Description shown before the user explicitly requests camera preview permission.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:160
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:159
 msgid "Enable camera access to preview cameras and capture devices before choosing one to stream."
 msgstr "Activează accesul la cameră pentru a previzualiza camerele și dispozitivele de captură înainte de a alege unul pentru a-l transmite."
 
@@ -13618,7 +13601,7 @@ msgid "Enable or disable built-in translators. Enabled translators appear in the
 msgstr "Activează sau dezactivează traducătorii încorporați. Traducătorii activați apar în meniul contextual al mesajelor când este selectat text."
 
 #. Button that explicitly requests camera permission for device previews.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:168
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:167
 msgid "Enable previews"
 msgstr "Activează previzualizările"
 
@@ -14053,7 +14036,7 @@ msgid "Entertainment"
 msgstr "Divertisment"
 
 #. Tab label in the screen-share picker. Lists shareable monitors / displays.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:188
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:187
 msgid "Entire screen"
 msgstr "Întregul ecran"
 
@@ -14072,7 +14055,7 @@ msgstr "Sunetul întregului sistem"
 #. Voice menu submenu label that contains per-user entrance sound mute and volume controls.
 #: src/features/ui/action_menu/items/VoiceParticipantMenuData.tsx:181
 #: src/features/ui/action_menu/items/VoiceParticipantMenuItems.tsx:310
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:189
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:183
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:150
 msgid "Entrance sound"
 msgstr "Sunet de intrare"
@@ -14182,7 +14165,7 @@ msgstr "Seara"
 
 #. Description for the automatic gain control toggle in the voice processing settings.
 #. Description for the automatic gain control toggle in the voice processing settings.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:173
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:167
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "Nivelează volumul microfonului, ca să nu se audă prea încet."
@@ -14657,7 +14640,7 @@ msgid "Failed to load invites. Try again."
 msgstr "Nu s-au putut încărca invitațiile. Încearcă din nou."
 
 #. Error text shown in the screen-share picker when the list of shareable windows/displays fails to load.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:120
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:119
 msgid "Failed to load shareable sources."
 msgstr "Nu s-au putut încărca sursele partajabile."
 
@@ -15392,12 +15375,12 @@ msgid "For your security, please confirm it's you to continue."
 msgstr "Pentru siguranța ta, te rugăm să confirmi că ești tu pentru a continua."
 
 #. Developer nagbar override status: the banner is forced to hide.
-#: src/features/devtools/components/NagbarControls.ts:97
+#: src/features/devtools/components/NagbarControls.ts:92
 msgid "Force disabled"
 msgstr "Dezactivat forțat"
 
 #. Developer nagbar override status: the banner is forced to show.
-#: src/features/devtools/components/NagbarControls.ts:93
+#: src/features/devtools/components/NagbarControls.ts:88
 msgid "Force enabled"
 msgstr "Activat forțat"
 
@@ -15903,7 +15886,7 @@ msgstr "Controller Y / Triunghi"
 #. Footer summary label for the gaming screen-share quality preset.
 #. Streaming preset label in the stream settings menu. Higher frame rate, optimized for video games.
 #: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:76
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:229
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:228
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:70
 msgid "Gaming"
 msgstr "Jocuri"
@@ -15996,16 +15979,6 @@ msgstr "Primești notificări când îți sosesc mesaje. S-ar putea să fie nevo
 #: src/features/user/components/modals/tabs/notifications_tab/Notifications.tsx:48
 msgid "Get notified when you receive messages. You may need to allow notifications in your browser settings. For per-channel/per-community controls, right-click a community icon and open notification settings."
 msgstr "Primești notificări când îți sosesc mesaje. S-ar putea să fie nevoie să permiți notificările în setările browserului. Pentru controlul pe canal sau pe comunitate, dă clic dreapta pe pictograma unei comunități și deschide setările de notificare."
-
-#. Nagbar body encouraging web users to download the desktop app. productName is the app name.
-#: src/features/app/components/layout/app_layout/nagbars/DesktopDownloadNagbar.tsx:17
-msgid "Get the {productName} desktop app for system-wide push-to-talk and a few other goodies."
-msgstr "Obține aplicația desktop {productName} pentru funcția push-to-talk la nivel de sistem și alte câteva avantaje."
-
-#. CTA button label in the screen-share picker. Opens the desktop download page.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:20
-msgid "Get the desktop app"
-msgstr "Descarcă aplicația pentru desktop"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Type label for GIF media.
@@ -16126,7 +16099,7 @@ msgid "Gift inventory flow"
 msgstr "Flux inventar cadouri"
 
 #. Developer control label for the gift-inventory banner.
-#: src/features/devtools/components/NagbarControls.ts:56
+#: src/features/devtools/components/NagbarControls.ts:51
 msgid "Gift inventory nagbar"
 msgstr "Bara de notificări pentru inventarul de cadouri"
 
@@ -16895,10 +16868,6 @@ msgstr "Ascunde chatul"
 msgid "Hide community owner crown"
 msgstr "Ascunde coroana proprietarului comunității"
 
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:62
-msgid "Hide download button"
-msgstr "Ascunde butonul de descărcare"
-
 #. Short label in the shared app expiry footnote context menu.
 #: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
@@ -17229,7 +17198,7 @@ msgstr "Am nevoie de o altă metodă"
 
 #. Short label in the voice tab. Keep it concise.
 #: src/features/channel/components/MatureContentChannelGate.tsx:180
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:102
 msgid "I understand"
 msgstr "Am înțeles"
 
@@ -17653,10 +17622,6 @@ msgstr "În"
 msgid "In \"Operating system\" mode, dictionaries listed above are advisory. {PRODUCT_NAME} will pass these language tags to your OS spellchecker when supported. Tags it doesn't recognize are ignored."
 msgstr "În modul „Sistem de operare”, dicționarele enumerate mai sus sunt consultative. {PRODUCT_NAME} va transmite aceste etichete de limbă verificatorului ortografic al sistemului tău de operare, atunci când este acceptat. Etichetele pe care nu le recunoaște sunt ignorate."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:310
-msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
-msgstr "Într-un browser, push-to-talk funcționează doar când fila {PRODUCT_NAME} este activă. Instalează aplicația desktop pentru push-to-talk la nivel de sistem."
-
 #: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "Într-un apel"
@@ -17944,7 +17909,7 @@ msgid "Input access was changed. Fully quit and restart {productName} so system-
 msgstr "Accesul la intrare a fost modificat. Închide complet și repornește {productName} pentru ca scurtăturile la nivel de sistem să-l poată utiliza."
 
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:177
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:171
 msgid "Input and output"
 msgstr "Intrare și ieșire"
 
@@ -18001,11 +17966,6 @@ msgstr "Insert"
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/ChannelOverviewTopicEditor.tsx:44
 msgid "Insert emoji"
 msgstr "Inserează emoji"
-
-#. CTA card body in the screen-share picker promoting the desktop app. {productName} is Fluxer.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:16
-msgid "Install {productName} for the full source picker and smoother screen-sharing controls."
-msgstr "Instalează {productName} pentru selectorul complet de surse și controale mai fluide pentru partajarea ecranului."
 
 #. Label for the installed desktop version in the Linux update modal.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:136
@@ -18398,7 +18358,7 @@ msgid "Invites disabled"
 msgstr "Invitații dezactivate"
 
 #. Developer control label for the invites-disabled banner.
-#: src/features/devtools/components/NagbarControls.ts:72
+#: src/features/devtools/components/NagbarControls.ts:67
 msgid "Invites disabled nagbar"
 msgstr "Bara de notificare „Invitații dezactivate”"
 
@@ -18636,10 +18596,6 @@ msgstr "Salt între canalele necitite"
 msgid "Jump between unread channels with mentions"
 msgstr "Salt între canalele necitite cu mențiuni"
 
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:75
-msgid "Jump straight to the app to continue."
-msgstr "Treci direct la aplicație pentru a continua."
-
 #. Tooltip / aria label on a button that jumps to the channel. {channelSourceLabel} is the channel or DM name.
 #: src/features/voice/components/voice_connection_status/VoiceConnectionStatusInner.tsx:87
 msgid "Jump to {channelSourceLabel}"
@@ -18800,7 +18756,7 @@ msgid "Keep these safe. Regenerating will break existing integrations."
 msgstr "Păstrează-le în siguranță. Regenerarea va întrerupe integrările existente."
 
 #. Description for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:79
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:77
 msgid "Keep transmitting briefly after release."
 msgstr "Continuă transmisia pentru scurt timp după eliberare."
 
@@ -19028,7 +18984,7 @@ msgid "Layout"
 msgstr "Aspect"
 
 #. Accessible label for the screen-share picker footer info button.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:282
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:281
 msgid "Learn about screen share previews"
 msgstr "Află mai multe despre previzualizarea partajării ecranului"
 
@@ -19617,7 +19573,7 @@ msgid "Look and feel"
 msgstr "Aspect și stil"
 
 #. placeholder {0}: externalProcessor.name
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:652
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:631
 msgid "Looks like you're using {0}. Stacking {PRODUCT_NAME}'s processing on top can cause pumping or distortion. Direct input passes your audio through untouched."
 msgstr "Se pare că folosești {0}. Suprapunerea procesării audio de la {PRODUCT_NAME} poate cauza distorsiuni sau efecte de pompare. Intrarea directă transmite sunetul netratat."
 
@@ -20870,7 +20826,7 @@ msgstr "Microfon"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:185
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:179
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:142
 msgid "Mic test"
 msgstr "Test microfon"
@@ -21989,7 +21945,7 @@ msgid "New"
 msgstr "Nou"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:135
+#: src/features/app/components/layout/GuildsLayout.tsx:132
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Nou"
@@ -22254,7 +22210,7 @@ msgstr "Nu au fost găsite setări avansate"
 msgid "No AFK channel"
 msgstr "Fără canal AFK"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:124
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:123
 msgid "No application windows found"
 msgstr "Nu au fost găsite ferestre de aplicații"
 
@@ -22393,7 +22349,7 @@ msgstr "Fără descriere."
 msgid "No desktop update is available."
 msgstr "Nicio actualizare pentru desktop nu este disponibilă."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:130
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:129
 msgid "No displays found"
 msgstr "Nu s-a găsit niciun ecran"
 
@@ -22517,7 +22473,7 @@ msgstr "Niciun rezultat găsit"
 msgid "No mentions yet"
 msgstr "Încă nu există mențiuni"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:528
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:507
 msgid "No microphone found"
 msgstr "Nu s-a găsit niciun microfon"
 
@@ -23198,7 +23154,7 @@ msgstr "Odată ștearsă, aplicația și credențialele ei sunt eliminate defini
 msgid "Once deletion is processed, you cannot recover access to your account"
 msgstr "După procesarea ștergerii, nu vei mai putea recupera accesul la contul tău"
 
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:134
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:123
 msgid "Once your account is created, we'll take you back to the theme so you can apply it."
 msgstr "După crearea contului, te vom duce înapoi la temă pentru a o putea aplica."
 
@@ -23398,11 +23354,6 @@ msgstr "Deschide {landmarkName}"
 msgid "Open {macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName}, then allow {productName}. If {productName2} is already enabled, fully quit and restart {productName3} so macOS applies the permission."
 msgstr "Deschide {macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName}, apoi permite accesul pentru {productName}. Dacă {productName2} este deja activat, închide complet și repornește {productName3} pentru ca macOS să aplice permisiunea."
 
-#. Button label that opens the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:27
-msgid "Open {productName}"
-msgstr "Deschide {productName}"
-
 #. Button or menu action label in the channel and chat gif picker grid item. Keep it concise. Preserve {title}; it is inserted by code.
 #: src/features/channel/components/pickers/gif/GifPickerGridItem.tsx:37
 msgid "Open {title}"
@@ -23418,7 +23369,7 @@ msgstr "Deschide @{displayName}"
 msgid "Open advanced media settings"
 msgstr "Deschide setările avansate pentru media"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:127
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:126
 msgid "Open an application window, then try again."
 msgstr "Deschide o fereastră de aplicație, apoi încearcă din nou."
 
@@ -23481,7 +23432,7 @@ msgid "Open browser"
 msgstr "Deschide browserul"
 
 #. Primary button in the screen-share picker on web. Hands off to the browser's native getDisplayMedia picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:208
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:207
 msgid "Open browser picker"
 msgstr "Deschide selectorul de browser"
 
@@ -23634,11 +23585,6 @@ msgstr "Deschide imaginea în vizualizare completă"
 msgid "Open image link"
 msgstr "Deschide linkul imaginii"
 
-#. Title in a web prompt that opens the same flow in the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:23
-msgid "Open in {productName} for desktop"
-msgstr "Deschide în {productName} pentru desktop"
-
 #. Media viewer action that opens the current media in the system default browser.
 #: src/features/messaging/components/modals/media_modal/shared.ts:77
 msgid "Open in browser"
@@ -23744,7 +23690,7 @@ msgid "Open system DM"
 msgstr "Deschide DM-ul de sistem"
 
 #. Primary button in the screen-share picker on Linux/Wayland. Hands off to the OS xdg-desktop-portal picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:213
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:212
 msgid "Open system picker"
 msgstr "Deschide selectorul de sistem"
 
@@ -25106,12 +25052,12 @@ msgid "Premium badge"
 msgstr "Insignă Premium"
 
 #. Developer control label for the premium-expired banner.
-#: src/features/devtools/components/NagbarControls.ts:48
+#: src/features/devtools/components/NagbarControls.ts:43
 msgid "Premium expired nagbar"
 msgstr "Bara de notificare pentru abonamentul Premium expirat"
 
 #. Developer control label for the premium grace-period banner.
-#: src/features/devtools/components/NagbarControls.ts:44
+#: src/features/devtools/components/NagbarControls.ts:39
 msgid "Premium grace period nagbar"
 msgstr "Bara de notificare pentru perioada de grație Premium"
 
@@ -25121,7 +25067,7 @@ msgid "Premium model"
 msgstr "Model premium"
 
 #. Developer control label for the premium-onboarding banner.
-#: src/features/devtools/components/NagbarControls.ts:52
+#: src/features/devtools/components/NagbarControls.ts:47
 msgid "Premium onboarding nagbar"
 msgstr "Bara de notificare pentru integrarea Premium"
 
@@ -25231,17 +25177,17 @@ msgid "Preview hidden"
 msgstr "Previzualizare ascunsă"
 
 #. Privacy explanation for screen-share previews in a one-to-one DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:320
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:319
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. Disable previews if you do not want screen-share frames uploaded for thumbnails."
 msgstr "Imaginile de previzualizare sunt stocate temporar de către {productName} pentru a fi afișate și nu sunt criptate cap la cap. Dezactivează previzualizările dacă nu dorești ca imaginile din timpul partajării ecranului să fie încărcate pentru generarea miniaturilor."
 
 #. Privacy explanation for screen-share previews in a group DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:314
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:313
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People in this group DM do not need to be actively watching your stream to see the thumbnail."
 msgstr "Imaginile de previzualizare sunt stocate temporar de către {productName} pentru a fi afișate și nu sunt criptate cap la cap. Persoanele din acest DM de grup nu trebuie să urmărească activ streamul tău pentru a vedea miniatura."
 
 #. Privacy explanation for screen-share previews in a guild voice channel. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:308
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:307
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People still need permission to connect, but they do not need to be actively watching your stream."
 msgstr "Imaginile de previzualizare sunt stocate temporar de către {productName} pentru a fi afișate și nu sunt criptate cap la cap. Persoanele au nevoie totuși de permisiune pentru a se conecta, dar nu trebuie să urmărească activ streamul tău."
 
@@ -25786,18 +25732,18 @@ msgid "Push to talk key"
 msgstr "Tastă push-to-talk"
 
 #. Switch label in the voice tab toggling push-to-talk mode. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:112
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:349
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:106
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:337
 #: src/features/voice/components/VoiceSettingsMenus.tsx:419
 msgid "Push-to-talk"
 msgstr "Push-to-talk"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:100
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:98
 msgid "Push-to-talk (limited)"
 msgstr "Push-to-talk (limitat)"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:674
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:653
 msgid "Push-to-talk is ignored in direct input. Switch to focused voice or custom to use it."
 msgstr "Push-to-talk este ignorat în modul intrare directă. Comută pe voce focalizată sau pe profilul personalizat ca să îl poți folosi."
 
@@ -25807,12 +25753,12 @@ msgid "Push-to-talk is on. Hold {pushToTalkHint} to speak."
 msgstr "Push-to-talk este activat. Ține apăsat {pushToTalkHint} ca să vorbești."
 
 #. Voice settings warning shown when macOS Input Monitoring is required for system-wide push-to-talk. {productName} is the app name and {permissionName} is the macOS permission name.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:126
 msgid "Push-to-talk only works while {productName} is focused until {permissionName} is enabled. After changing the permission, fully quit and restart {productName} so system-wide hotkeys can use it."
 msgstr "Push-to-talk funcționează doar când {productName} este în prim-plan, până la activarea {permissionName}. După modificarea permisiunii, închide complet și repornește {productName} pentru ca tastele rapide la nivel de sistem să o poată utiliza."
 
 #. Voice settings warning shown when push-to-talk is enabled in a browser.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:128
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:122
 msgid "Push-to-talk only works while the browser tab is focused."
 msgstr "Push-to-talk funcționează doar când fila browserului este activă."
 
@@ -26107,7 +26053,7 @@ msgid "Recommended"
 msgstr "Recomandat"
 
 #. Description for the focused voice profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:83
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:81
 msgid "Recommended. Cleans up your mic for clear speech."
 msgstr "Recomandat. Îți curăță sunetul microfonului pentru o voce clară."
 
@@ -26364,7 +26310,7 @@ msgstr "Relativ"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:75
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:73
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:94
 msgid "Release delay"
 msgstr "Întârziere la eliberare"
@@ -28262,7 +28208,7 @@ msgid "Scan the QR code with your authenticator app."
 msgstr "Scanează codul QR cu aplicația ta de autentificare."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the scheduled-maintenance banner.
-#: src/features/devtools/components/NagbarControls.ts:22
+#: src/features/devtools/components/NagbarControls.ts:17
 msgid "Scheduled maintenance nagbar"
 msgstr "Bară de notificare pentru mentenanță programată"
 
@@ -28312,7 +28258,7 @@ msgstr "Este necesară permisiunea de înregistrare a ecranului"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Streaming preset label in the stream settings menu. Optimized for sharp text in screen shares.
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:222
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:233
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:232
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:83
 msgid "Screen share"
 msgstr "Partajare ecran"
@@ -28328,7 +28274,7 @@ msgid "Screen share audio boost"
 msgstr "Amplificare audio partajare ecran"
 
 #. Error modal title shown when the selected native screen-share audio route cannot start safely.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:176
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:175
 msgid "Screen share audio couldn't start"
 msgstr "Nu s-a putut porni sunetul partajării ecranului"
 
@@ -28369,17 +28315,17 @@ msgid "Screen share preview behavior"
 msgstr "Comportamentul previzualizării la partajarea ecranului"
 
 #. Title of an informational modal explaining screen-share preview frame uploads.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:286
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:285
 msgid "Screen share previews"
 msgstr "Previzualizări pentru partajarea ecranului"
 
 #. Compact footer status in the screen-share picker when preview frame uploads are disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:274
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:273
 msgid "Screen share previews are disabled."
 msgstr "Previzualizările pentru partajarea ecranului sunt dezactivate."
 
 #. Compact footer status in the screen-share picker when preview frame uploads are enabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:270
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:269
 msgid "Screen share previews are enabled."
 msgstr "Previzualizările pentru partajarea ecranului sunt activate."
 
@@ -28941,7 +28887,7 @@ msgstr "Previzualizare la derulare"
 
 #. Hover action on a device card that selects the device without starting the stream.
 #: src/features/app/components/dialogs/components/PricingCard.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:200
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:199
 msgid "Select"
 msgstr "Selectează"
 
@@ -29063,7 +29009,7 @@ msgid "Select the account you want to sign in with on the desktop app."
 msgstr "Selectează contul cu care vrei să te conectezi în aplicația desktop."
 
 #. Aria label for the voice processing radio group in the voice settings tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:120
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:114
 msgid "Select voice processing mode"
 msgstr "Selectează modul de procesare a vocii"
 
@@ -29391,7 +29337,7 @@ msgid "Sends raw mic audio with no processing."
 msgstr "Trimite sunetul brut al microfonului, fără procesare."
 
 #. Description for the direct input profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:87
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:85
 msgid "Sends your audio untouched. Best if you're using external audio software."
 msgstr "Trimite sunetul tău nemodificat. Cel mai bine dacă folosești software audio extern."
 
@@ -29455,7 +29401,7 @@ msgid "Service error"
 msgstr "Eroare de serviciu"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the service incident banner.
-#: src/features/devtools/components/NagbarControls.ts:27
+#: src/features/devtools/components/NagbarControls.ts:22
 msgid "Service incident nagbar"
 msgstr "Notificare incident serviciu"
 
@@ -29768,7 +29714,7 @@ msgid "Share gift"
 msgstr "Trimite cadou"
 
 #. Hover action on an application or display card that starts sharing that source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:196
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:195
 msgid "Share screen"
 msgstr "Partajează ecranul"
 
@@ -29832,8 +29778,8 @@ msgstr "Partajează activitatea vocală cu prietenii"
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:25
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:41
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:33
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:40
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:32
 msgid "Shared theme"
 msgstr "Temă partajată"
 
@@ -29906,7 +29852,7 @@ msgstr "Coduri scurte"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindRow.tsx:121
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:364
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:352
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:38
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:110
 msgid "Shortcut"
@@ -30924,7 +30870,7 @@ msgid "Smooth scrolling"
 msgstr "Derulare lină"
 
 #. Footer summary description for the gaming screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:241
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:240
 msgid "Smoother video"
 msgstr "Video mai fluid"
 
@@ -31131,11 +31077,9 @@ msgid "Something went wrong. Try again later."
 msgstr "Ceva nu a mers bine. Încearcă din nou mai târziu."
 
 #. Generic required-action error fallback.
-#. Inline error in the web deep-link prompt when opening the desktop app fails.
 #. Toast error shown when the mature content check request fails unexpectedly.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:18
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:564
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:31
 msgid "Something went wrong. Try again."
 msgstr "Ceva nu a mers bine. Încearcă din nou."
 
@@ -31196,7 +31140,7 @@ msgstr "Sunete"
 #. Resolution option in the stream settings menu meaning the original source resolution (no downscale).
 #. Short label in the video tab for the native source resolution option. Keep it concise.
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:68
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:249
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:248
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:105
 msgid "Source"
 msgstr "Sursă"
@@ -31962,7 +31906,7 @@ msgstr "Împiedică sunetul din difuzoare să ajungă în microfon."
 #. Primary footer action that starts streaming the selected capture device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:236
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:204
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:203
 msgid "Stream"
 msgstr "Stream"
 
@@ -32001,7 +31945,7 @@ msgid "Stream quality"
 msgstr "Calitatea streamului"
 
 #. Toolbar / menu button label in the screen-share picker. Opens the stream quality settings popover.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:225
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:224
 msgid "Stream settings"
 msgstr "Setări stream"
 
@@ -32300,7 +32244,7 @@ msgstr "Treci la aspectul confortabil"
 msgid "Switch to dense layout"
 msgstr "Treci la aspectul compact"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:647
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:626
 msgid "Switch to direct input"
 msgstr "Treci la intrarea directă"
 
@@ -32501,7 +32445,7 @@ msgstr "Anunțuri de sistem de la personalul {productName}. Nu poți răspunde a
 
 #. Audio device option label meaning the OS default audio input device.
 #. Footer summary fallback for the default capture-device audio input.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:262
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:261
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:137
 msgid "System default"
 msgstr "Implicit din sistem"
@@ -32736,7 +32680,7 @@ msgid "Tennessee"
 msgstr "Tennessee"
 
 #. Developer control label for the terms-acceptance banner.
-#: src/features/devtools/components/NagbarControls.ts:64
+#: src/features/devtools/components/NagbarControls.ts:59
 msgid "Terms acceptance nagbar"
 msgstr "Bara de notificare pentru acceptarea termenilor"
 
@@ -33010,7 +32954,7 @@ msgid "The bot has been added."
 msgstr "Botul a fost adăugat."
 
 #. Status shown when a device preview has not released the camera before the bounded handoff deadline.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:172
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:171
 msgid "The camera preview is still stopping. Try streaming again in a moment."
 msgstr "Previzualizarea camerei încă se oprește. Încearcă din nou să transmiți în câteva momente."
 
@@ -33277,8 +33221,8 @@ msgstr "Fișiere temă"
 msgid "Theme library"
 msgstr "Bibliotecă de teme"
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:175
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:169
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:69
 msgid "Theme not found"
 msgstr "Temă negăsită"
 
@@ -33666,8 +33610,8 @@ msgstr "Acest fișier are {fileSize}, depășind limita de {maxSize}. Stickerele
 msgid "This friends list needs more power"
 msgstr "Lista asta de prieteni are nevoie de mai multă energie"
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:177
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:84
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:170
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:83
 msgid "This gift code has already been claimed."
 msgstr "Acest cod cadou a fost deja revendicat."
 
@@ -33678,8 +33622,8 @@ msgstr "Acest cod cadou a fost deja revendicat."
 msgid "This gift code is invalid or already claimed."
 msgstr "Acest cod cadou este nevalid sau a fost deja revendicat."
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:166
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:73
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:159
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:72
 msgid "This gift code may be invalid, expired, or already redeemed."
 msgstr "Acest cod cadou poate fi nevalid, expirat sau deja folosit."
 
@@ -33922,7 +33866,7 @@ msgid "This phone number has already been used. Try another number or contact su
 msgstr "Acest număr de telefon a fost deja utilizat. Încearcă un alt număr sau contactează asistența."
 
 #. Empty state in the screen-share picker shown to web users. Explains that this advanced picker requires the desktop app.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:136
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:135
 msgid "This picker is only available in the desktop app."
 msgstr "Acest selector este disponibil doar în aplicația desktop."
 
@@ -34016,8 +33960,8 @@ msgstr "Această temă este prea mare pentru a fi partajată"
 msgid "This theme link is missing data."
 msgstr "Acest link de temă nu are date."
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:176
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:71
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:170
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
 msgid "This theme may have been removed or the link is invalid."
 msgstr "Această temă este posibil să fi fost eliminată sau linkul este invalid."
 
@@ -34849,7 +34793,7 @@ msgid "Turn off anything you're not comfortable with. Some features may stop wor
 msgstr "Dezactivează tot ce nu-ți convine. Este posibil ca unele funcții să nu mai funcționeze."
 
 #. Error modal body shown after a native screen-share audio route fails to start.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:180
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:179
 msgid "Turn off audio sharing for this source or try again in a moment."
 msgstr "Dezactivează partajarea audio pentru această sursă sau încearcă din nou peste o clipă."
 
@@ -35241,7 +35185,7 @@ msgid "Unclaimed account"
 msgstr "Cont nerevendicat"
 
 #. Developer control label for the unclaimed-account banner.
-#: src/features/devtools/components/NagbarControls.ts:32
+#: src/features/devtools/components/NagbarControls.ts:27
 msgid "Unclaimed account nagbar"
 msgstr "Bara de notificare pentru cont nerevendicat"
 
@@ -35686,7 +35630,7 @@ msgstr "Grup fără nume"
 
 #. Fallback label for an audio input device whose name is not reported by the OS.
 #. Footer summary fallback for an audio input without a reported name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:266
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:265
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:141
 msgid "Unnamed input"
 msgstr "Intrare fără nume"
@@ -36098,7 +36042,7 @@ msgid "Upload new emoji and stickers, and manage your own creations."
 msgstr "Încarcă emoji și stickere noi și gestionează-ți propriile creații."
 
 #. Description for the screen-share preview toggle in the informational modal.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:332
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:331
 msgid "Upload preview frames for screen shares."
 msgstr "Încarcă cadrele de previzualizare pentru partajarea ecranului."
 
@@ -36748,27 +36692,27 @@ msgid "Uses:"
 msgstr "Utilizări:"
 
 #. Developer nagbar status: banner follows real account state.
-#: src/features/devtools/components/NagbarControls.ts:101
+#: src/features/devtools/components/NagbarControls.ts:96
 msgid "Using actual account state"
 msgstr "Se folosește starea reală a contului"
 
 #. Developer nagbar status: banner follows real gift inventory state.
-#: src/features/devtools/components/NagbarControls.ts:121
+#: src/features/devtools/components/NagbarControls.ts:116
 msgid "Using actual gift inventory state"
 msgstr "Se folosește starea reală a inventarului de cadouri"
 
 #. Developer nagbar status: banner follows real premium subscription state.
-#: src/features/devtools/components/NagbarControls.ts:117
+#: src/features/devtools/components/NagbarControls.ts:112
 msgid "Using actual premium state"
 msgstr "Se folosește starea reală de premium"
 
 #. Developer nagbar status: banner follows the real app state.
-#: src/features/devtools/components/NagbarControls.ts:125
+#: src/features/devtools/components/NagbarControls.ts:120
 msgid "Using actual state"
 msgstr "Se folosește starea reală"
 
 #. Developer nagbar status: banner follows real email verification state.
-#: src/features/devtools/components/NagbarControls.ts:105
+#: src/features/devtools/components/NagbarControls.ts:100
 msgid "Using actual verification state"
 msgstr "Se folosește starea reală de verificare"
 
@@ -37477,7 +37421,7 @@ msgid "Visionary (lifetime {premiumProductName})"
 msgstr "Visionary ({premiumProductName} pe viață)"
 
 #. Developer control label for the Visionary two-factor-authentication banner.
-#: src/features/devtools/components/NagbarControls.ts:60
+#: src/features/devtools/components/NagbarControls.ts:55
 msgid "Visionary 2FA nagbar"
 msgstr "Bara de notificare 2FA Visionary"
 
@@ -37710,7 +37654,7 @@ msgid "Voice participants"
 msgstr "Participanți la apelul vocal"
 
 #. Voice settings radio group label for microphone processing profile.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:642
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:621
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:55
 msgid "Voice processing"
 msgstr "Procesarea vocii"
@@ -37735,7 +37679,7 @@ msgid "Voice region"
 msgstr "Regiune vocală"
 
 #. Developer control label for the voice-session-restore banner.
-#: src/features/devtools/components/NagbarControls.ts:68
+#: src/features/devtools/components/NagbarControls.ts:63
 msgid "Voice session restore nagbar"
 msgstr "Bara de notificare pentru restaurarea sesiunii vocale"
 
@@ -37766,7 +37710,7 @@ msgstr "Anulată"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:373
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:181
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:175
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:86
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:174
 msgid "Volume"
@@ -38380,17 +38324,17 @@ msgid "When posted as links in chat"
 msgstr "Când sunt postate ca linkuri în chat"
 
 #. Explanation of screen-share preview uploads in a group DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:296
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:295
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so other people in this group DM can see a thumbnail before they watch."
 msgstr "Când previzualizările sunt activate, {productName} încarcă ocazional cadre JPEG din partajarea ecranului tău, astfel încât ceilalți participanți din acest DM de grup să poată vedea o miniatură înainte de a viziona."
 
 #. Explanation of screen-share preview uploads in a guild voice channel. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:290
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:289
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so people with permission to connect to this voice channel can see a thumbnail before they watch."
 msgstr "Când previzualizările sunt activate, {productName} încarcă ocazional cadre JPEG din partajarea ecranului tău, astfel încât persoanele care au permisiunea de a se conecta la acest canal vocal să poată vedea o miniatură înainte de a viziona."
 
 #. Explanation of screen-share preview uploads in a one-to-one DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:302
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:301
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so the other person in this DM can see a thumbnail before they watch."
 msgstr "Când previzualizările sunt activate, {productName} încarcă ocazional cadre JPEG din partajarea ecranului tău, astfel încât cealaltă persoană din acest DM să poată vedea o miniatură înainte de a viziona."
 
@@ -38434,7 +38378,7 @@ msgstr "Ce conversații"
 msgid "Which rule was broken?"
 msgstr "Ce regulă a fost încălcată?"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:358
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:346
 msgid "While push-to-talk is on, your shortcut controls your microphone, so the mute button is disabled."
 msgstr "Cât timp push-to-talk este activat, microfonul este controlat de scurtătură, așa că butonul de dezactivare a microfonului nu este disponibil."
 
@@ -39479,8 +39423,8 @@ msgstr "Ai fost invitat să te alături unui DM de grup de către"
 #. Short label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Short label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:84
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:37
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:29
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:36
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:28
 msgid "You've got CSS!"
 msgstr "Ai primit CSS!"
 

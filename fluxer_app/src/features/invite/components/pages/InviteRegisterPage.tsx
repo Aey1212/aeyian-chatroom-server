@@ -9,7 +9,6 @@ import {AuthMinimalRegisterFormCore} from '@app/features/auth/flow/AuthMinimalRe
 import sharedStyles from '@app/features/auth/flow/AuthPageStyles.module.css';
 import {AuthRouterLink} from '@app/features/auth/flow/AuthRouterLink';
 import {AuthSsoPanel, isRuntimeSsoEnforced} from '@app/features/auth/flow/AuthSsoPanel';
-import {DesktopDeepLinkPrompt} from '@app/features/auth/flow/DesktopDeepLinkPrompt';
 import {GuildInviteHeader, InviteHeader} from '@app/features/auth/flow/InviteHeader';
 import {useAuthLayoutContext} from '@app/features/auth/state/AuthLayoutContext';
 import {safeRedirectTarget} from '@app/features/auth/utils/SafeRedirect';
@@ -104,11 +103,6 @@ const InviteRegisterPage = observer(function InviteRegisterPage() {
 	if (isInvitesDisabled && !isGroupDM) {
 		return (
 			<div className={sharedStyles.container} data-flx="invite.invite-register-page.div">
-				<DesktopDeepLinkPrompt
-					code={code}
-					kind="invite"
-					data-flx="invite.invite-register-page.desktop-deep-link-prompt"
-				/>
 				{guildInvite ? (
 					<GuildInviteHeader invite={guildInvite} data-flx="invite.invite-register-page.guild-invite-header" />
 				) : null}
@@ -150,11 +144,6 @@ const InviteRegisterPage = observer(function InviteRegisterPage() {
 	if (isRuntimeSsoEnforced()) {
 		return (
 			<>
-				<DesktopDeepLinkPrompt
-					code={code}
-					kind="invite"
-					data-flx="invite.invite-register-page.desktop-deep-link-prompt.sso"
-				/>
 				<InviteHeader invite={invite} data-flx="invite.invite-register-page.invite-header.sso" />
 				<div className={sharedStyles.container} data-flx="invite.invite-register-page.sso-container">
 					<AuthSsoPanel
@@ -169,11 +158,6 @@ const InviteRegisterPage = observer(function InviteRegisterPage() {
 	}
 	return (
 		<>
-			<DesktopDeepLinkPrompt
-				code={code}
-				kind="invite"
-				data-flx="invite.invite-register-page.desktop-deep-link-prompt--2"
-			/>
 			<InviteHeader invite={invite} data-flx="invite.invite-register-page.invite-header" />
 			<div className={sharedStyles.container} data-flx="invite.invite-register-page.div--4">
 				<AuthMinimalRegisterFormCore

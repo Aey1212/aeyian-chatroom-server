@@ -938,7 +938,7 @@ msgstr "{count, plural, one {#개 차단된 메시지} other {#개 차단된 메
 msgid "{count, plural, one {# community found} other {# communities found}}"
 msgstr "{count, plural, one {#개 커뮤니티 찾음} other {#개 커뮤니티 찾음}}"
 
-#: src/features/app/components/layout/GuildsLayout.tsx:1939
+#: src/features/app/components/layout/GuildsLayout.tsx:1921
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {#개 커뮤니티가 플럭스 캐패시터 오작동으로 인해 일시적으로 이용할 수 없습니다.} other {#개 커뮤니티가 플럭스 캐패시터 오작동으로 인해 일시적으로 이용할 수 없습니다.}}"
 
@@ -1340,7 +1340,7 @@ msgid "{fourHours} hours"
 msgstr "{fourHours}시간"
 
 #. Footer summary frame-rate label in the screen share picker. {fps} is the integer frame rate. FPS is a technical token.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:253
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:252
 msgid "{fps} FPS"
 msgstr "{fps} FPS"
 
@@ -1721,7 +1721,7 @@ msgid "{productName} needs camera access to list your devices."
 msgstr "{productName}에서 기기 목록을 보려면 카메라 접근 권한이 필요합니다."
 
 #. Voice settings notice shown when microphone permission has not been granted.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:138
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
 msgid "{productName} needs microphone access to list your devices."
 msgstr "{productName}에서 기기 목록을 보려면 마이크 접근 권한이 필요합니다."
 
@@ -2838,7 +2838,7 @@ msgid "Activity sharing"
 msgstr "활동 공유"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:465
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:444
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:102
 msgid "Activity threshold"
 msgstr "활동 임계값"
@@ -3311,7 +3311,7 @@ msgid "Adds H.264 for mixed clients. Requires more encoding."
 msgstr "여러 종류의 클라이언트를 위해 H.264를 추가합니다. 더 많은 인코딩 작업이 필요합니다."
 
 #. Description for the custom profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:96
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:94
 msgid "Adjust each setting yourself: noise suppression, echo cancellation, and gain."
 msgstr "노이즈 억제, 에코 제거, 게인 등 각 설정을 직접 조정하세요."
 
@@ -3580,11 +3580,11 @@ msgstr "{everyoneMention} 및 {hereMention} 허용"
 msgid "Allow {PRODUCT_NAME} to access your camera in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 msgstr "{PRODUCT_NAME}이(가) {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}에서 카메라에 접근하도록 허용하세요."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:533
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:512
 msgid "Allow {PRODUCT_NAME} to access your microphone in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 msgstr "{PRODUCT_NAME}이(가) 마이크에 접근하도록 허용하려면 {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}에서 설정해 주세요."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:538
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:517
 msgid "Allow {PRODUCT_NAME} to access your microphone. Check your browser's address bar or settings."
 msgstr "{PRODUCT_NAME}에서 마이크에 접근하도록 허용해 주세요. 브라우저 주소 표시줄 또는 설정을 확인하세요."
 
@@ -3687,7 +3687,7 @@ msgstr "{readMessageHistoryPermissionLabel} 권한이 없는 멤버가 특정 �
 msgid "Allow mentions for this role"
 msgstr "이 역할에 대한 멘션 허용"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:558
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:537
 msgid "Allow microphone"
 msgstr "마이크 허용"
 
@@ -4269,7 +4269,7 @@ msgid "App state"
 msgstr "앱 상태"
 
 #. Fallback label for an app window card in the screen-share picker when the OS does not give us a window title.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:141
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:140
 msgid "App window"
 msgstr "앱 창"
 
@@ -4362,7 +4362,7 @@ msgstr "애플리케이션이 업데이트되었습니다"
 #: src/features/user/components/settings_utils/search_index/SharedDescriptors.ts:29
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:66
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:184
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:183
 msgid "Applications"
 msgstr "앱"
 
@@ -4383,8 +4383,8 @@ msgstr "적용"
 
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:45
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:25
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:44
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:24
 msgid "Apply theme"
 msgstr "테마 적용"
 
@@ -4713,7 +4713,7 @@ msgid "Audio level"
 msgstr "오디오 레벨"
 
 #. Footer summary status shown when capture-device audio is disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:258
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:257
 msgid "Audio muted"
 msgstr "오디오 음소거됨"
 
@@ -4953,8 +4953,8 @@ msgid "Auto-detect language"
 msgstr "언어 자동 감지"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:116
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:452
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:110
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:431
 msgid "Auto-set activity threshold"
 msgstr "활동 임계값 자동 설정"
 
@@ -5503,11 +5503,6 @@ msgstr "혜택"
 #: src/features/voice/utils/ScreenShareCodecPolicy.ts:9
 msgid "Best compression. Use it only when WebRTC exposes an encoder and the GPU report says it is hardware-backed."
 msgstr "최적 압축. WebRTC에서 인코더를 노출하고 GPU 보고서에서 하드웨어 지원으로 표시되는 경우에만 사용하세요."
-
-#. CTA card title in the screen-share picker promoting the desktop app for richer screen sharing.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:12
-msgid "Best with the desktop app"
-msgstr "데스크톱 앱 사용을 권장합니다"
 
 #: src/features/ui/components/form/UsernameValidationRules.tsx:45
 msgid "Between 1 and {maxLength} characters"
@@ -6216,12 +6211,12 @@ msgid "Camera"
 msgstr "카메라"
 
 #. Title shown in the screen-share Devices tab before camera preview permission is granted.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:156
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:155
 msgid "Camera access is needed for device previews"
 msgstr "카메라 접근 권한이 있어야 기기 미리보기를 할 수 있습니다"
 
 #. Description shown after camera preview permission is denied or unavailable.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:164
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:163
 msgid "Camera access was not granted. Update camera permissions, then try again."
 msgstr "카메라 접근 권한이 부여되지 않았습니다. 카메라 권한을 업데이트한 후 다시 시도하세요."
 
@@ -6742,7 +6737,7 @@ msgid "Change stream"
 msgstr "스트림 변경"
 
 #. Modal title for the screen-share picker when switching an ongoing stream to a new source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:217
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:216
 msgid "Change stream source"
 msgstr "스트림 소스 변경"
 
@@ -7522,7 +7517,7 @@ msgid "Choose payment method"
 msgstr "결제 수단 선택"
 
 #. Modal title for the screen-share picker when starting a new screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:221
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:220
 msgid "Choose something to share"
 msgstr "공유할 항목 선택"
 
@@ -7649,8 +7644,8 @@ msgstr "선물 받으려면 계정을 등록하세요"
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:41
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:40
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:28
 msgid "Claim gift"
 msgstr "선물 받기"
 
@@ -7898,7 +7893,7 @@ msgid "Clear trusted domains ({trustedDomainsCount})"
 msgstr "신뢰하는 도메인 지우기 ({trustedDomainsCount})"
 
 #. Footer summary description for the text-focused screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:245
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:244
 msgid "Clearer text"
 msgstr "더 선명한 텍스트"
 
@@ -8543,7 +8538,7 @@ msgid "Community members"
 msgstr "커뮤니티 멤버"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the community-membership CTA banner.
-#: src/features/devtools/components/NagbarControls.ts:12
+#: src/features/devtools/components/NagbarControls.ts:7
 msgid "Community membership CTA nagbar"
 msgstr "커뮤니티 가입 유도 알림 표시줄"
 
@@ -8553,7 +8548,7 @@ msgid "Community message notifications"
 msgstr "커뮤니티 메시지 알림"
 
 #. Developer control label for the community MFA requirement banner.
-#: src/features/devtools/components/NagbarControls.ts:76
+#: src/features/devtools/components/NagbarControls.ts:71
 msgid "Community MFA requirement nagbar"
 msgstr "커뮤니티 MFA 필수 알림 표시줄"
 
@@ -8908,11 +8903,11 @@ msgstr "카메라를 연결하고 다시 시도하세요."
 msgid "Connect a camera or virtual capture device, then try again."
 msgstr "카메라 또는 가상 캡처 장치를 연결한 후 다시 시도하세요."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:133
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:132
 msgid "Connect a display, then try again."
 msgstr "디스플레이를 연결한 다음 다시 시도하세요."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:543
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:522
 msgid "Connect a microphone and try again."
 msgstr "마이크를 연결하고 다시 시도하세요."
 
@@ -9623,7 +9618,7 @@ msgid "Copying image..."
 msgstr "이미지 복사 중..."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the corrupted-installation banner.
-#: src/features/devtools/components/NagbarControls.ts:17
+#: src/features/devtools/components/NagbarControls.ts:12
 msgid "Corrupted installation nagbar"
 msgstr "설치 손상 알림바"
 
@@ -10231,11 +10226,11 @@ msgstr "{userName}님과 새 그룹 만들기"
 #: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:118
 msgid "Create account"
 msgstr "계정 만들기"
 
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:123
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:112
 msgid "Create account to claim gift"
 msgstr "계정 만들고 선물 받기"
 
@@ -10562,12 +10557,12 @@ msgid "Current uses:"
 msgstr "현재 사용 횟수:"
 
 #. Developer nagbar status: the banner is dismissed in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:109
+#: src/features/devtools/components/NagbarControls.ts:104
 msgid "Currently dismissed"
 msgstr "현재 닫힘"
 
 #. Developer nagbar status: the banner is showing in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:113
+#: src/features/devtools/components/NagbarControls.ts:108
 msgid "Currently showing"
 msgstr "현재 표시 중"
 
@@ -10582,7 +10577,7 @@ msgstr "현재: {mutedText}"
 #: src/features/user/components/modals/tabs/notifications_tab/NotificationsTabSounds.tsx:186
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:94
 #: src/features/voice/components/bottomsheets/VoiceSettingsBottomSheets.tsx:45
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:237
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:236
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:97
 msgid "Custom"
 msgstr "사용자 지정"
@@ -10596,7 +10591,7 @@ msgstr "사용자 지정"
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:91
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:89
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:42
 #: src/features/voice/components/VoiceSettingsMenus.tsx:70
 msgctxt "voice-processing-profile"
@@ -11144,7 +11139,7 @@ msgid "Default"
 msgstr "기본"
 
 #. Fallback label for the system default camera in the screen-share devices tab.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:152
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:151
 msgid "Default camera"
 msgstr "기본 카메라"
 
@@ -11701,18 +11696,13 @@ msgstr "데스크톱 자리 비움"
 msgid "Desktop device"
 msgstr "데스크톱 기기"
 
-#. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the desktop-download banner.
-#: src/features/devtools/components/NagbarControls.ts:7
-msgid "Desktop download nagbar"
-msgstr "데스크톱 다운로드 알림 표시줄"
-
 #. Settings search entry description. One-line summary of what the settings search entry controls.
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:78
 msgid "Desktop inactivity before mobile push"
 msgstr "모바일 푸시 알림 전 데스크톱 비활성 시간"
 
 #. Developer control label for the desktop-notification banner.
-#: src/features/devtools/components/NagbarControls.ts:40
+#: src/features/devtools/components/NagbarControls.ts:35
 msgid "Desktop notification nagbar"
 msgstr "데스크톱 알림 표시줄"
 
@@ -11890,7 +11880,7 @@ msgstr "기기:"
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:11
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:82
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:57
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:192
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:191
 msgid "Devices"
 msgstr "기기"
 
@@ -11998,7 +11988,7 @@ msgstr "바로 업로드 활성화됨"
 #. Short footer action in the screen-share picker that disables screen-share preview frame uploads.
 #: src/features/user/components/modals/tabs/account_security_tab/SecurityTab.tsx:238
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:138
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:278
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:277
 msgid "Disable"
 msgstr "비활성화"
 
@@ -12170,7 +12160,7 @@ msgid "Disabled value"
 msgstr "비활성화된 값"
 
 #. Explains what happens after disabling screen-share preview uploads. Refers to already-uploaded preview thumbnails.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:326
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:325
 msgid "Disabling previews stops future preview uploads. Existing preview images may remain visible until the stream ends or the preview refreshes."
 msgstr "미리보기 기능을 사용 중지하면 이후 미리보기 업로드가 중단됩니다. 기존 미리보기 이미지는 스트림이 종료되거나 미리보기가 새로 고쳐질 때까지 계속 표시될 수 있습니다."
 
@@ -12314,7 +12304,7 @@ msgid "Display"
 msgstr "표시"
 
 #. Fallback label for a display / monitor card in the screen-share picker when the OS does not give us a display name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:146
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:145
 msgctxt "display-screen"
 msgid "Display"
 msgstr "화면"
@@ -12611,9 +12601,7 @@ msgid "Download"
 msgstr "다운로드"
 
 #. Nagbar button label that downloads the desktop app. productName is the app name.
-#. Short label in the sidebar navigation download button. Preserve {productName}; it is inserted by code.
 #: src/features/app/components/layout/app_layout/nagbars/CorruptedInstallationNagbar.tsx:17
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:26
 msgid "Download {productName}"
 msgstr "{productName} 다운로드"
 
@@ -12630,11 +12618,6 @@ msgstr "오디오 다운로드"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:91
 msgid "Download button"
 msgstr "다운로드 버튼"
-
-#. Button or menu action label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:104
-msgid "Download desktop app"
-msgstr "데스크톱 앱 다운로드"
 
 #. Tooltip on the channel header updater icon prompting download of an update with no version or size info.
 #: src/features/channel/components/channel_header_components/UpdaterIcon.tsx:54
@@ -13227,7 +13210,7 @@ msgid "Email us and a person will review your account. Tell us you cannot verify
 msgstr "이메일로 문의하시면 담당자가 계정을 검토합니다. SMS 인증이 불가능하다고 알려주시면 저희가 처리하겠습니다. 답장은 이메일로 발송되므로 즉시 확인은 어렵습니다."
 
 #. Developer control label for the email-verification banner.
-#: src/features/devtools/components/NagbarControls.ts:36
+#: src/features/devtools/components/NagbarControls.ts:31
 msgid "Email verification nagbar"
 msgstr "이메일 인증 알림 표시줄"
 
@@ -13443,7 +13426,7 @@ msgid "Enable"
 msgstr "활성화"
 
 #. Voice settings CTA label for opening a platform permission prompt.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:124
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:118
 msgid "Enable {permissionName} permission"
 msgstr "{permissionName} 권한 허용"
 
@@ -13502,7 +13485,7 @@ msgid "Enable browser notifications"
 msgstr "브라우저 알림 켜기"
 
 #. Description shown before the user explicitly requests camera preview permission.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:160
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:159
 msgid "Enable camera access to preview cameras and capture devices before choosing one to stream."
 msgstr "스트리밍할 카메라 및 캡처 장치를 선택하기 전에 미리 보려면 카메라 액세스를 허용하세요."
 
@@ -13618,7 +13601,7 @@ msgid "Enable or disable built-in translators. Enabled translators appear in the
 msgstr "내장 번역기를 켜거나 끌 수 있습니다. 번역기를 켜면 텍스트 선택 시 메시지 상황별 메뉴에 표시됩니다."
 
 #. Button that explicitly requests camera permission for device previews.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:168
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:167
 msgid "Enable previews"
 msgstr "미리보기 사용"
 
@@ -14053,7 +14036,7 @@ msgid "Entertainment"
 msgstr "엔터테인먼트"
 
 #. Tab label in the screen-share picker. Lists shareable monitors / displays.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:188
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:187
 msgid "Entire screen"
 msgstr "전체 화면"
 
@@ -14072,7 +14055,7 @@ msgstr "시스템 오디오 전체"
 #. Voice menu submenu label that contains per-user entrance sound mute and volume controls.
 #: src/features/ui/action_menu/items/VoiceParticipantMenuData.tsx:181
 #: src/features/ui/action_menu/items/VoiceParticipantMenuItems.tsx:310
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:189
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:183
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:150
 msgid "Entrance sound"
 msgstr "입장음"
@@ -14182,7 +14165,7 @@ msgstr "저녁 시간"
 
 #. Description for the automatic gain control toggle in the voice processing settings.
 #. Description for the automatic gain control toggle in the voice processing settings.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:173
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:167
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "마이크 볼륨을 일정하게 조절하여 너무 작게 들리지 않도록 합니다."
@@ -14657,7 +14640,7 @@ msgid "Failed to load invites. Try again."
 msgstr "초대를 불러오지 못했습니다. 다시 시도해 주세요."
 
 #. Error text shown in the screen-share picker when the list of shareable windows/displays fails to load.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:120
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:119
 msgid "Failed to load shareable sources."
 msgstr "공유 가능한 소스를 불러오지 못했습니다."
 
@@ -15392,12 +15375,12 @@ msgid "For your security, please confirm it's you to continue."
 msgstr "안전을 위해 본인 확인 후 계속해 주세요."
 
 #. Developer nagbar override status: the banner is forced to hide.
-#: src/features/devtools/components/NagbarControls.ts:97
+#: src/features/devtools/components/NagbarControls.ts:92
 msgid "Force disabled"
 msgstr "강제 비활성화됨"
 
 #. Developer nagbar override status: the banner is forced to show.
-#: src/features/devtools/components/NagbarControls.ts:93
+#: src/features/devtools/components/NagbarControls.ts:88
 msgid "Force enabled"
 msgstr "강제 활성화됨"
 
@@ -15903,7 +15886,7 @@ msgstr "게임패드 Y / △"
 #. Footer summary label for the gaming screen-share quality preset.
 #. Streaming preset label in the stream settings menu. Higher frame rate, optimized for video games.
 #: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:76
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:229
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:228
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:70
 msgid "Gaming"
 msgstr "게임"
@@ -15996,16 +15979,6 @@ msgstr "메시지가 오면 알림을 받습니다. 기기 설정에서 {product
 #: src/features/user/components/modals/tabs/notifications_tab/Notifications.tsx:48
 msgid "Get notified when you receive messages. You may need to allow notifications in your browser settings. For per-channel/per-community controls, right-click a community icon and open notification settings."
 msgstr "메시지가 오면 알림을 받습니다. 브라우저 설정에서 알림을 허용해야 할 수도 있습니다. 채널/커뮤니티별로 설정하려면 커뮤니티 아이콘을 마우스 오른쪽 버튼으로 클릭한 뒤 알림 설정을 여세요."
-
-#. Nagbar body encouraging web users to download the desktop app. productName is the app name.
-#: src/features/app/components/layout/app_layout/nagbars/DesktopDownloadNagbar.tsx:17
-msgid "Get the {productName} desktop app for system-wide push-to-talk and a few other goodies."
-msgstr "시스템 전체 푸시 투 토크 및 기타 유용한 기능을 사용하려면 {productName} 데스크톱 앱을 다운로드하세요."
-
-#. CTA button label in the screen-share picker. Opens the desktop download page.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:20
-msgid "Get the desktop app"
-msgstr "데스크톱 앱 다운로드"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Type label for GIF media.
@@ -16126,7 +16099,7 @@ msgid "Gift inventory flow"
 msgstr "선물함 플로우"
 
 #. Developer control label for the gift-inventory banner.
-#: src/features/devtools/components/NagbarControls.ts:56
+#: src/features/devtools/components/NagbarControls.ts:51
 msgid "Gift inventory nagbar"
 msgstr "선물함 알림 표시줄"
 
@@ -16895,10 +16868,6 @@ msgstr "채팅 숨기기"
 msgid "Hide community owner crown"
 msgstr "커뮤니티 소유자 크라운 숨기기"
 
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:62
-msgid "Hide download button"
-msgstr "다운로드 버튼 숨기기"
-
 #. Short label in the shared app expiry footnote context menu.
 #: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
@@ -17229,7 +17198,7 @@ msgstr "다른 방법이 필요해요"
 
 #. Short label in the voice tab. Keep it concise.
 #: src/features/channel/components/MatureContentChannelGate.tsx:180
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:102
 msgid "I understand"
 msgstr "확인했습니다"
 
@@ -17653,10 +17622,6 @@ msgstr "채널 내"
 msgid "In \"Operating system\" mode, dictionaries listed above are advisory. {PRODUCT_NAME} will pass these language tags to your OS spellchecker when supported. Tags it doesn't recognize are ignored."
 msgstr "\"운영체제\" 모드에서는 위에 나열된 사전이 권장 사항입니다. {PRODUCT_NAME}은 지원되는 경우 이러한 언어 태그를 OS 맞춤법 검사기에 전달합니다. 인식하지 못하는 태그는 무시됩니다."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:310
-msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
-msgstr "브라우저에서는 {PRODUCT_NAME} 탭이 활성화된 경우에만 PTT(Push-to-talk)가 작동합니다. 시스템 전체에서 PTT를 사용하려면 데스크톱 앱을 설치하세요."
-
 #: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "통화 중"
@@ -17944,7 +17909,7 @@ msgid "Input access was changed. Fully quit and restart {productName} so system-
 msgstr "입력 접근 권한이 변경되었습니다. 시스템 전체 단축키를 사용할 수 있도록 {productName}을(를) 완전히 종료한 후 다시 시작하세요."
 
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:177
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:171
 msgid "Input and output"
 msgstr "입력 및 출력"
 
@@ -18001,11 +17966,6 @@ msgstr "Insert"
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/ChannelOverviewTopicEditor.tsx:44
 msgid "Insert emoji"
 msgstr "이모티콘 삽입"
-
-#. CTA card body in the screen-share picker promoting the desktop app. {productName} is Fluxer.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:16
-msgid "Install {productName} for the full source picker and smoother screen-sharing controls."
-msgstr "전체 소스 선택 도구와 더 원활한 화면 공유 제어 기능을 사용하려면 {productName}을(를) 설치하세요."
 
 #. Label for the installed desktop version in the Linux update modal.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:136
@@ -18398,7 +18358,7 @@ msgid "Invites disabled"
 msgstr "초대 비활성화됨"
 
 #. Developer control label for the invites-disabled banner.
-#: src/features/devtools/components/NagbarControls.ts:72
+#: src/features/devtools/components/NagbarControls.ts:67
 msgid "Invites disabled nagbar"
 msgstr "초대 비활성화 알림 표시줄"
 
@@ -18636,10 +18596,6 @@ msgstr "읽지 않은 채널로 이동"
 msgid "Jump between unread channels with mentions"
 msgstr "멘션이 있는 읽지 않은 채널로 이동"
 
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:75
-msgid "Jump straight to the app to continue."
-msgstr "앱으로 바로 이동하여 계속하세요."
-
 #. Tooltip / aria label on a button that jumps to the channel. {channelSourceLabel} is the channel or DM name.
 #: src/features/voice/components/voice_connection_status/VoiceConnectionStatusInner.tsx:87
 msgid "Jump to {channelSourceLabel}"
@@ -18800,7 +18756,7 @@ msgid "Keep these safe. Regenerating will break existing integrations."
 msgstr "안전하게 보관하세요. 재생성하면 기존 연동이 중단됩니다."
 
 #. Description for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:79
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:77
 msgid "Keep transmitting briefly after release."
 msgstr "버튼을 놓은 후에도 잠시 동안 전송을 유지합니다."
 
@@ -19028,7 +18984,7 @@ msgid "Layout"
 msgstr "레이아웃"
 
 #. Accessible label for the screen-share picker footer info button.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:282
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:281
 msgid "Learn about screen share previews"
 msgstr "화면 공유 미리보기에 대해 자세히 알아보세요"
 
@@ -19617,7 +19573,7 @@ msgid "Look and feel"
 msgstr "모양 및 느낌"
 
 #. placeholder {0}: externalProcessor.name
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:652
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:631
 msgid "Looks like you're using {0}. Stacking {PRODUCT_NAME}'s processing on top can cause pumping or distortion. Direct input passes your audio through untouched."
 msgstr "{0}을(를) 사용 중이신 것 같습니다. {PRODUCT_NAME}의 처리를 추가하면 펌핑 또는 왜곡이 발생할 수 있습니다. 직접 입력은 오디오를 그대로 통과시킵니다."
 
@@ -20870,7 +20826,7 @@ msgstr "마이크"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:185
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:179
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:142
 msgid "Mic test"
 msgstr "마이크 테스트"
@@ -21989,7 +21945,7 @@ msgid "New"
 msgstr "새 메시지"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:135
+#: src/features/app/components/layout/GuildsLayout.tsx:132
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "신규"
@@ -22254,7 +22210,7 @@ msgstr "고급 설정이 없습니다"
 msgid "No AFK channel"
 msgstr "AFK 채널 없음"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:124
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:123
 msgid "No application windows found"
 msgstr "애플리케이션 창을 찾을 수 없습니다"
 
@@ -22393,7 +22349,7 @@ msgstr "설명 없음."
 msgid "No desktop update is available."
 msgstr "사용 가능한 데스크톱 업데이트가 없습니다."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:130
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:129
 msgid "No displays found"
 msgstr "디스플레이를 찾을 수 없습니다"
 
@@ -22517,7 +22473,7 @@ msgstr "일치하는 항목 없음"
 msgid "No mentions yet"
 msgstr "아직 멘션이 없습니다"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:528
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:507
 msgid "No microphone found"
 msgstr "마이크를 찾을 수 없습니다"
 
@@ -23198,7 +23154,7 @@ msgstr "삭제하면 애플리케이션과 자격 증명이 영구적으로 제�
 msgid "Once deletion is processed, you cannot recover access to your account"
 msgstr "계정 삭제가 처리되면 다시 복구할 수 없습니다"
 
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:134
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:123
 msgid "Once your account is created, we'll take you back to the theme so you can apply it."
 msgstr "계정을 만들면 테마를 적용할 수 있도록 다시 테마 페이지로 돌아갑니다."
 
@@ -23398,11 +23354,6 @@ msgstr "{landmarkName} 열기"
 msgid "Open {macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName}, then allow {productName}. If {productName2} is already enabled, fully quit and restart {productName3} so macOS applies the permission."
 msgstr "{macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName} 순서로 이동한 다음 {productName} 앱을 허용하세요. {productName2} 앱이 이미 허용되어 있다면, macOS가 권한을 적용하도록 {productName3} 앱을 완전히 종료했다가 다시 실행하세요."
 
-#. Button label that opens the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:27
-msgid "Open {productName}"
-msgstr "{productName} 열기"
-
 #. Button or menu action label in the channel and chat gif picker grid item. Keep it concise. Preserve {title}; it is inserted by code.
 #: src/features/channel/components/pickers/gif/GifPickerGridItem.tsx:37
 msgid "Open {title}"
@@ -23418,7 +23369,7 @@ msgstr "@{displayName} 열기"
 msgid "Open advanced media settings"
 msgstr "고급 미디어 설정 열기"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:127
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:126
 msgid "Open an application window, then try again."
 msgstr "애플리케이션 창을 열고 다시 시도하세요."
 
@@ -23481,7 +23432,7 @@ msgid "Open browser"
 msgstr "브라우저 열기"
 
 #. Primary button in the screen-share picker on web. Hands off to the browser's native getDisplayMedia picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:208
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:207
 msgid "Open browser picker"
 msgstr "브라우저 선택기 열기"
 
@@ -23634,11 +23585,6 @@ msgstr "이미지 전체 화면으로 보기"
 msgid "Open image link"
 msgstr "이미지 링크 열기"
 
-#. Title in a web prompt that opens the same flow in the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:23
-msgid "Open in {productName} for desktop"
-msgstr "데스크톱용 {productName}에서 열기"
-
 #. Media viewer action that opens the current media in the system default browser.
 #: src/features/messaging/components/modals/media_modal/shared.ts:77
 msgid "Open in browser"
@@ -23744,7 +23690,7 @@ msgid "Open system DM"
 msgstr "시스템 DM 열기"
 
 #. Primary button in the screen-share picker on Linux/Wayland. Hands off to the OS xdg-desktop-portal picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:213
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:212
 msgid "Open system picker"
 msgstr "시스템 선택기 열기"
 
@@ -25106,12 +25052,12 @@ msgid "Premium badge"
 msgstr "프리미엄 배지"
 
 #. Developer control label for the premium-expired banner.
-#: src/features/devtools/components/NagbarControls.ts:48
+#: src/features/devtools/components/NagbarControls.ts:43
 msgid "Premium expired nagbar"
 msgstr "프리미엄 만료 알림 표시줄"
 
 #. Developer control label for the premium grace-period banner.
-#: src/features/devtools/components/NagbarControls.ts:44
+#: src/features/devtools/components/NagbarControls.ts:39
 msgid "Premium grace period nagbar"
 msgstr "프리미엄 유예 기간 알림 표시줄"
 
@@ -25121,7 +25067,7 @@ msgid "Premium model"
 msgstr "프리미엄 모델"
 
 #. Developer control label for the premium-onboarding banner.
-#: src/features/devtools/components/NagbarControls.ts:52
+#: src/features/devtools/components/NagbarControls.ts:47
 msgid "Premium onboarding nagbar"
 msgstr "프리미엄 온보딩 알림 표시줄"
 
@@ -25231,17 +25177,17 @@ msgid "Preview hidden"
 msgstr "미리보기 숨김"
 
 #. Privacy explanation for screen-share previews in a one-to-one DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:320
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:319
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. Disable previews if you do not want screen-share frames uploaded for thumbnails."
 msgstr "미리보기 이미지는 전송을 위해 {productName}에 일시적으로 저장되며, 종단 간 암호화되지는 않습니다. 화면 공유 프레임이 썸네일로 업로드되지 않게 하려면 미리보기를 비활성화하세요."
 
 #. Privacy explanation for screen-share previews in a group DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:314
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:313
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People in this group DM do not need to be actively watching your stream to see the thumbnail."
 msgstr "미리보기 이미지는 전송을 위해 {productName}에 일시적으로 저장되며, 종단 간 암호화되지는 않습니다. 이 그룹 DM의 사용자는 스트림을 보고 있지 않아도 썸네일을 볼 수 있습니다."
 
 #. Privacy explanation for screen-share previews in a guild voice channel. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:308
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:307
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People still need permission to connect, but they do not need to be actively watching your stream."
 msgstr "미리보기 이미지는 전송을 위해 {productName}에 일시적으로 저장되며, 종단 간 암호화되지는 않습니다. 연결 권한은 여전히 필요하지만, 스트림을 보고 있지 않아도 됩니다."
 
@@ -25786,18 +25732,18 @@ msgid "Push to talk key"
 msgstr "눌러서 말하기 키"
 
 #. Switch label in the voice tab toggling push-to-talk mode. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:112
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:349
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:106
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:337
 #: src/features/voice/components/VoiceSettingsMenus.tsx:419
 msgid "Push-to-talk"
 msgstr "눌러서 말하기"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:100
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:98
 msgid "Push-to-talk (limited)"
 msgstr "눌러서 말하기 (제한됨)"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:674
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:653
 msgid "Push-to-talk is ignored in direct input. Switch to focused voice or custom to use it."
 msgstr "원본 입력에서는 눌러서 말하기가 무시됩니다. 사용하려면 음성 포커스 또는 사용자 지정으로 전환하세요."
 
@@ -25807,12 +25753,12 @@ msgid "Push-to-talk is on. Hold {pushToTalkHint} to speak."
 msgstr "눌러서 말하기가 켜져 있습니다. {pushToTalkHint} 키를 누른 채 말하세요."
 
 #. Voice settings warning shown when macOS Input Monitoring is required for system-wide push-to-talk. {productName} is the app name and {permissionName} is the macOS permission name.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:126
 msgid "Push-to-talk only works while {productName} is focused until {permissionName} is enabled. After changing the permission, fully quit and restart {productName} so system-wide hotkeys can use it."
 msgstr "{permissionName}을(를) 활성화하기 전까지는 {productName}이(가) 포커스된 상태에서만 눌러서 말하기가 작동합니다. 권한을 변경한 후에는 {productName}을(를) 완전히 종료하고 다시 시작해야 시스템 전체 단축키를 사용할 수 있습니다."
 
 #. Voice settings warning shown when push-to-talk is enabled in a browser.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:128
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:122
 msgid "Push-to-talk only works while the browser tab is focused."
 msgstr "눌러서 말하기는 브라우저 탭이 활성화된 상태에서만 작동합니다."
 
@@ -26107,7 +26053,7 @@ msgid "Recommended"
 msgstr "권장"
 
 #. Description for the focused voice profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:83
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:81
 msgid "Recommended. Cleans up your mic for clear speech."
 msgstr "권장. 마이크 소리를 다듬어 말소리를 선명하게 만듭니다."
 
@@ -26364,7 +26310,7 @@ msgstr "상대 시간"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:75
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:73
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:94
 msgid "Release delay"
 msgstr "해제 지연 시간"
@@ -28262,7 +28208,7 @@ msgid "Scan the QR code with your authenticator app."
 msgstr "인증 앱으로 QR 코드를 스캔하세요."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the scheduled-maintenance banner.
-#: src/features/devtools/components/NagbarControls.ts:22
+#: src/features/devtools/components/NagbarControls.ts:17
 msgid "Scheduled maintenance nagbar"
 msgstr "예정된 점검 알림바"
 
@@ -28312,7 +28258,7 @@ msgstr "화면 녹화 권한 필요"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Streaming preset label in the stream settings menu. Optimized for sharp text in screen shares.
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:222
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:233
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:232
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:83
 msgid "Screen share"
 msgstr "화면 공유"
@@ -28328,7 +28274,7 @@ msgid "Screen share audio boost"
 msgstr "화면 공유 오디오 증폭"
 
 #. Error modal title shown when the selected native screen-share audio route cannot start safely.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:176
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:175
 msgid "Screen share audio couldn't start"
 msgstr "화면 공유 오디오를 시작할 수 없습니다"
 
@@ -28369,17 +28315,17 @@ msgid "Screen share preview behavior"
 msgstr "화면 공유 미리보기 동작"
 
 #. Title of an informational modal explaining screen-share preview frame uploads.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:286
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:285
 msgid "Screen share previews"
 msgstr "화면 공유 미리보기"
 
 #. Compact footer status in the screen-share picker when preview frame uploads are disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:274
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:273
 msgid "Screen share previews are disabled."
 msgstr "화면 공유 미리보기가 비활성화되었습니다."
 
 #. Compact footer status in the screen-share picker when preview frame uploads are enabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:270
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:269
 msgid "Screen share previews are enabled."
 msgstr "화면 공유 미리보기가 활성화되었습니다."
 
@@ -28941,7 +28887,7 @@ msgstr "탐색 미리보기"
 
 #. Hover action on a device card that selects the device without starting the stream.
 #: src/features/app/components/dialogs/components/PricingCard.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:200
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:199
 msgid "Select"
 msgstr "선택"
 
@@ -29063,7 +29009,7 @@ msgid "Select the account you want to sign in with on the desktop app."
 msgstr "데스크톱 앱에 로그인할 계정을 선택하세요."
 
 #. Aria label for the voice processing radio group in the voice settings tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:120
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:114
 msgid "Select voice processing mode"
 msgstr "음성 처리 모드 선택"
 
@@ -29391,7 +29337,7 @@ msgid "Sends raw mic audio with no processing."
 msgstr "처리되지 않은 마이크 오디오를 전송합니다."
 
 #. Description for the direct input profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:87
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:85
 msgid "Sends your audio untouched. Best if you're using external audio software."
 msgstr "오디오를 그대로 보냅니다. 외부 오디오 소프트웨어를 사용하는 경우에 가장 적합합니다."
 
@@ -29455,7 +29401,7 @@ msgid "Service error"
 msgstr "서비스 오류"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the service incident banner.
-#: src/features/devtools/components/NagbarControls.ts:27
+#: src/features/devtools/components/NagbarControls.ts:22
 msgid "Service incident nagbar"
 msgstr "서비스 장애 알림"
 
@@ -29768,7 +29714,7 @@ msgid "Share gift"
 msgstr "선물 공유"
 
 #. Hover action on an application or display card that starts sharing that source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:196
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:195
 msgid "Share screen"
 msgstr "화면 공유"
 
@@ -29832,8 +29778,8 @@ msgstr "친구와 음성 활동 공유하기"
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:25
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:41
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:33
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:40
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:32
 msgid "Shared theme"
 msgstr "공유된 테마"
 
@@ -29906,7 +29852,7 @@ msgstr "단축 코드"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindRow.tsx:121
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:364
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:352
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:38
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:110
 msgid "Shortcut"
@@ -30924,7 +30870,7 @@ msgid "Smooth scrolling"
 msgstr "부드러운 스크롤"
 
 #. Footer summary description for the gaming screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:241
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:240
 msgid "Smoother video"
 msgstr "더 부드러운 영상"
 
@@ -31131,11 +31077,9 @@ msgid "Something went wrong. Try again later."
 msgstr "문제가 발생했습니다. 나중에 다시 시도해 주세요."
 
 #. Generic required-action error fallback.
-#. Inline error in the web deep-link prompt when opening the desktop app fails.
 #. Toast error shown when the mature content check request fails unexpectedly.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:18
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:564
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:31
 msgid "Something went wrong. Try again."
 msgstr "문제가 발생했습니다. 다시 시도해 주세요."
 
@@ -31196,7 +31140,7 @@ msgstr "소리"
 #. Resolution option in the stream settings menu meaning the original source resolution (no downscale).
 #. Short label in the video tab for the native source resolution option. Keep it concise.
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:68
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:249
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:248
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:105
 msgid "Source"
 msgstr "원본"
@@ -31962,7 +31906,7 @@ msgstr "스피커 소리가 마이크로 다시 들어가는 것을 방지합니
 #. Primary footer action that starts streaming the selected capture device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:236
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:204
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:203
 msgid "Stream"
 msgstr "스트리밍 시작"
 
@@ -32001,7 +31945,7 @@ msgid "Stream quality"
 msgstr "스트림 품질"
 
 #. Toolbar / menu button label in the screen-share picker. Opens the stream quality settings popover.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:225
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:224
 msgid "Stream settings"
 msgstr "스트림 설정"
 
@@ -32300,7 +32244,7 @@ msgstr "편안한 레이아웃으로 전환"
 msgid "Switch to dense layout"
 msgstr "간결한 레이아웃으로 전환"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:647
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:626
 msgid "Switch to direct input"
 msgstr "직접 입력으로 전환"
 
@@ -32501,7 +32445,7 @@ msgstr "{productName} 직원의 시스템 공지입니다. 여기에 답장할 �
 
 #. Audio device option label meaning the OS default audio input device.
 #. Footer summary fallback for the default capture-device audio input.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:262
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:261
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:137
 msgid "System default"
 msgstr "시스템 기본값"
@@ -32736,7 +32680,7 @@ msgid "Tennessee"
 msgstr "테네시"
 
 #. Developer control label for the terms-acceptance banner.
-#: src/features/devtools/components/NagbarControls.ts:64
+#: src/features/devtools/components/NagbarControls.ts:59
 msgid "Terms acceptance nagbar"
 msgstr "약관 동의 알림 표시줄"
 
@@ -33010,7 +32954,7 @@ msgid "The bot has been added."
 msgstr "봇이 추가되었습니다."
 
 #. Status shown when a device preview has not released the camera before the bounded handoff deadline.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:172
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:171
 msgid "The camera preview is still stopping. Try streaming again in a moment."
 msgstr "카메라 미리보기가 아직 중지 중입니다. 잠시 후 다시 스트리밍해 보세요."
 
@@ -33277,8 +33221,8 @@ msgstr "테마 파일"
 msgid "Theme library"
 msgstr "테마 라이브러리"
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:175
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:169
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:69
 msgid "Theme not found"
 msgstr "테마를 찾을 수 없습니다"
 
@@ -33666,8 +33610,8 @@ msgstr "이 파일은 {fileSize}이며, 제한 크기인 {maxSize}를 초과합�
 msgid "This friends list needs more power"
 msgstr "친구 목록에 더 많은 친구가 필요해요"
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:177
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:84
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:170
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:83
 msgid "This gift code has already been claimed."
 msgstr "이미 사용된 선물 코드입니다."
 
@@ -33678,8 +33622,8 @@ msgstr "이미 사용된 선물 코드입니다."
 msgid "This gift code is invalid or already claimed."
 msgstr "선물 코드가 유효하지 않거나 이미 사용되었습니다."
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:166
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:73
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:159
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:72
 msgid "This gift code may be invalid, expired, or already redeemed."
 msgstr "선물 코드가 유효하지 않거나, 만료되었거나, 이미 사용되었을 수 있습니다."
 
@@ -33922,7 +33866,7 @@ msgid "This phone number has already been used. Try another number or contact su
 msgstr "이 전화번호는 이미 사용 중입니다. 다른 번호를 사용해 보거나 고객지원팀에 문의하세요."
 
 #. Empty state in the screen-share picker shown to web users. Explains that this advanced picker requires the desktop app.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:136
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:135
 msgid "This picker is only available in the desktop app."
 msgstr "이 선택 도구는 데스크톱 앱에서만 사용할 수 있습니다."
 
@@ -34016,8 +33960,8 @@ msgstr "이 테마는 너무 커서 공유할 수 없습니다"
 msgid "This theme link is missing data."
 msgstr "테마 링크에 데이터가 없습니다."
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:176
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:71
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:170
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
 msgid "This theme may have been removed or the link is invalid."
 msgstr "테마가 삭제되었거나 링크가 유효하지 않습니다."
 
@@ -34849,7 +34793,7 @@ msgid "Turn off anything you're not comfortable with. Some features may stop wor
 msgstr "원하지 않는 항목은 꺼 주세요. 일부 기능이 작동하지 않을 수 있습니다."
 
 #. Error modal body shown after a native screen-share audio route fails to start.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:180
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:179
 msgid "Turn off audio sharing for this source or try again in a moment."
 msgstr "이 소스의 오디오 공유를 끄거나 잠시 후 다시 시도하세요."
 
@@ -35241,7 +35185,7 @@ msgid "Unclaimed account"
 msgstr "미등록 계정"
 
 #. Developer control label for the unclaimed-account banner.
-#: src/features/devtools/components/NagbarControls.ts:32
+#: src/features/devtools/components/NagbarControls.ts:27
 msgid "Unclaimed account nagbar"
 msgstr "미등록 계정 알림 표시줄"
 
@@ -35686,7 +35630,7 @@ msgstr "이름 없는 그룹"
 
 #. Fallback label for an audio input device whose name is not reported by the OS.
 #. Footer summary fallback for an audio input without a reported name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:266
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:265
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:141
 msgid "Unnamed input"
 msgstr "이름 없는 입력"
@@ -36098,7 +36042,7 @@ msgid "Upload new emoji and stickers, and manage your own creations."
 msgstr "새로운 이모티콘과 스티커를 업로드하고 직접 만든 콘텐츠를 관리하세요."
 
 #. Description for the screen-share preview toggle in the informational modal.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:332
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:331
 msgid "Upload preview frames for screen shares."
 msgstr "화면 공유 미리보기 프레임을 업로드합니다."
 
@@ -36748,27 +36692,27 @@ msgid "Uses:"
 msgstr "사용 횟수:"
 
 #. Developer nagbar status: banner follows real account state.
-#: src/features/devtools/components/NagbarControls.ts:101
+#: src/features/devtools/components/NagbarControls.ts:96
 msgid "Using actual account state"
 msgstr "실제 계정 상태 사용 중"
 
 #. Developer nagbar status: banner follows real gift inventory state.
-#: src/features/devtools/components/NagbarControls.ts:121
+#: src/features/devtools/components/NagbarControls.ts:116
 msgid "Using actual gift inventory state"
 msgstr "실제 선물 재고 상태 사용 중"
 
 #. Developer nagbar status: banner follows real premium subscription state.
-#: src/features/devtools/components/NagbarControls.ts:117
+#: src/features/devtools/components/NagbarControls.ts:112
 msgid "Using actual premium state"
 msgstr "실제 프리미엄 상태 사용 중"
 
 #. Developer nagbar status: banner follows the real app state.
-#: src/features/devtools/components/NagbarControls.ts:125
+#: src/features/devtools/components/NagbarControls.ts:120
 msgid "Using actual state"
 msgstr "실제 상태 사용 중"
 
 #. Developer nagbar status: banner follows real email verification state.
-#: src/features/devtools/components/NagbarControls.ts:105
+#: src/features/devtools/components/NagbarControls.ts:100
 msgid "Using actual verification state"
 msgstr "실제 인증 상태 사용 중"
 
@@ -37477,7 +37421,7 @@ msgid "Visionary (lifetime {premiumProductName})"
 msgstr "Visionary (평생 {premiumProductName})"
 
 #. Developer control label for the Visionary two-factor-authentication banner.
-#: src/features/devtools/components/NagbarControls.ts:60
+#: src/features/devtools/components/NagbarControls.ts:55
 msgid "Visionary 2FA nagbar"
 msgstr "Visionary 2단계 인증 알림 표시줄"
 
@@ -37710,7 +37654,7 @@ msgid "Voice participants"
 msgstr "음성 참여자"
 
 #. Voice settings radio group label for microphone processing profile.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:642
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:621
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:55
 msgid "Voice processing"
 msgstr "음성 처리"
@@ -37735,7 +37679,7 @@ msgid "Voice region"
 msgstr "음성 지역"
 
 #. Developer control label for the voice-session-restore banner.
-#: src/features/devtools/components/NagbarControls.ts:68
+#: src/features/devtools/components/NagbarControls.ts:63
 msgid "Voice session restore nagbar"
 msgstr "음성 세션 복원 알림 표시줄"
 
@@ -37766,7 +37710,7 @@ msgstr "무효"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:373
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:181
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:175
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:86
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:174
 msgid "Volume"
@@ -38380,17 +38324,17 @@ msgid "When posted as links in chat"
 msgstr "채팅방에 링크로 공유할 때"
 
 #. Explanation of screen-share preview uploads in a group DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:296
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:295
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so other people in this group DM can see a thumbnail before they watch."
 msgstr "미리보기를 켜면 {productName}에서 화면 공유 중 JPEG 프레임을 가끔 업로드하여, 이 그룹 DM에 있는 다른 사람들이 시청 전에 미리보기 이미지를 볼 수 있습니다."
 
 #. Explanation of screen-share preview uploads in a guild voice channel. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:290
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:289
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so people with permission to connect to this voice channel can see a thumbnail before they watch."
 msgstr "미리보기를 켜면 {productName}에서 화면 공유 중 JPEG 프레임을 가끔 업로드하여, 이 음성 채널에 접속할 권한이 있는 사람들이 시청 전에 미리보기 이미지를 볼 수 있습니다."
 
 #. Explanation of screen-share preview uploads in a one-to-one DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:302
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:301
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so the other person in this DM can see a thumbnail before they watch."
 msgstr "미리보기를 켜면 {productName}에서 화면 공유 중 JPEG 프레임을 가끔 업로드하여, 이 DM의 상대방이 시청 전에 미리보기 이미지를 볼 수 있습니다."
 
@@ -38434,7 +38378,7 @@ msgstr "대화 선택"
 msgid "Which rule was broken?"
 msgstr "어떤 규칙이 위반되었나요?"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:358
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:346
 msgid "While push-to-talk is on, your shortcut controls your microphone, so the mute button is disabled."
 msgstr "눌러서 말하기가 켜져 있는 동안에는 단축키로 마이크를 제어하므로 음소거 버튼이 비활성화됩니다."
 
@@ -39479,8 +39423,8 @@ msgstr "다음 사용자가 그룹 DM에 초대했습니다"
 #. Short label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Short label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:84
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:37
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:29
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:36
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:28
 msgid "You've got CSS!"
 msgstr "CSS가 도착했습니다!"
 

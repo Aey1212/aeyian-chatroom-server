@@ -80,7 +80,6 @@ import {isScreenShareAudioCaptureError} from '@app/features/voice/utils/ScreenSh
 import {formatScreenShareAudioSummary} from '@app/features/voice/utils/ScreenShareAudioSummary';
 import {
 	getDisplayShareEnvironment,
-	shouldShowDesktopDownloadCta,
 	supportsDeviceScreenShare,
 	usesNativeDisplaySharePicker,
 } from '@app/features/voice/utils/ScreenShareEnvironment';
@@ -1015,7 +1014,6 @@ const ScreenSharePickerModalLoadedContent = observer(
 		});
 		const hasHigherVideoQuality = useHasHigherVideoQuality();
 		const usesNativeDisplayPicker = usesNativeDisplaySharePicker(displayShareEnvironment);
-		const showDesktopDownloadCta = shouldShowDesktopDownloadCta(displayShareEnvironment);
 		const [desktopSources, setDesktopSources] = useState<Array<DesktopSource>>(
 			() => initialDesktopSources?.map(normaliseDesktopSource) ?? [],
 		);
@@ -1556,7 +1554,6 @@ const ScreenSharePickerModalLoadedContent = observer(
 							pickerActionLabel={pickerActionLabel}
 							onPickerAction={() => void handleStartSelection(NATIVE_DISPLAY_SELECTION_ID)}
 							pickerActionPending={nativeDisplayPending}
-							showDesktopDownloadCta={showDesktopDownloadCta}
 							data-flx="voice.screen-share-picker-modal.screen-share-picker-modal-loaded-content.native-display-picker-state"
 						/>
 					) : showEmptyState && activeCards.length === 0 ? (

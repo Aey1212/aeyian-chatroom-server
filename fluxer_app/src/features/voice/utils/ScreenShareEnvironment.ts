@@ -44,10 +44,6 @@ export function canRestartDisplayShareWithoutPreselectedSource(environment: Disp
 	return environment !== 'desktop-custom';
 }
 
-export function shouldShowDesktopDownloadCta(environment: DisplayShareEnvironment): boolean {
-	return environment === 'web';
-}
-
 export function supportsDeviceScreenShare(): boolean {
 	return getElectronAPI() != null;
 }

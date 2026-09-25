@@ -9,7 +9,6 @@ import {AuthMinimalRegisterFormCore} from '@app/features/auth/flow/AuthMinimalRe
 import {AuthPageHeader} from '@app/features/auth/flow/AuthPageHeader';
 import sharedStyles from '@app/features/auth/flow/AuthPageStyles.module.css';
 import {AuthSsoPanel, isRuntimeSsoEnforced} from '@app/features/auth/flow/AuthSsoPanel';
-import {DesktopDeepLinkPrompt} from '@app/features/auth/flow/DesktopDeepLinkPrompt';
 import {safeRedirectTarget} from '@app/features/auth/utils/SafeRedirect';
 import {setPathQueryParams} from '@app/features/messaging/utils/MessagingUrlUtils';
 import {useLocation, useParams} from '@app/features/platform/components/router/RouterReact';
@@ -76,11 +75,6 @@ const ThemeRegisterPage = observer(function ThemeRegisterPage() {
 	if (isRuntimeSsoEnforced()) {
 		return (
 			<div className={sharedStyles.container} data-flx="theme.theme-register-page.sso-container">
-				<DesktopDeepLinkPrompt
-					code={themeId}
-					kind="theme"
-					data-flx="theme.theme-register-page.desktop-deep-link-prompt.sso"
-				/>
 				<AuthPageHeader
 					icon={
 						<div className={sharedStyles.themeIconSpot} data-flx="theme.theme-register-page.div.sso">
@@ -106,11 +100,6 @@ const ThemeRegisterPage = observer(function ThemeRegisterPage() {
 	}
 	return (
 		<div className={sharedStyles.container} data-flx="theme.theme-register-page.div">
-			<DesktopDeepLinkPrompt
-				code={themeId}
-				kind="theme"
-				data-flx="theme.theme-register-page.desktop-deep-link-prompt"
-			/>
 			<AuthPageHeader
 				icon={
 					<div className={sharedStyles.themeIconSpot} data-flx="theme.theme-register-page.div--2">

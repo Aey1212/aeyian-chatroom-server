@@ -5,7 +5,6 @@ import styles from '@app/features/app/components/layout/app_layout/NagbarContain
 import {BuildEnvironmentNagbar} from '@app/features/app/components/layout/app_layout/nagbars/BuildEnvironmentNagbar';
 import {ConnectionNagbar} from '@app/features/app/components/layout/app_layout/nagbars/ConnectionNagbar';
 import {CorruptedInstallationNagbar} from '@app/features/app/components/layout/app_layout/nagbars/CorruptedInstallationNagbar';
-import {DesktopDownloadNagbar} from '@app/features/app/components/layout/app_layout/nagbars/DesktopDownloadNagbar';
 import {DesktopNotificationNagbar} from '@app/features/app/components/layout/app_layout/nagbars/DesktopNotificationNagbar';
 import {DesktopUpdateReadyNagbar} from '@app/features/app/components/layout/app_layout/nagbars/DesktopUpdateReadyNagbar';
 import {EmailVerificationNagbar} from '@app/features/app/components/layout/app_layout/nagbars/EmailVerificationNagbar';
@@ -164,14 +163,6 @@ export const NagbarContainer: React.FC<NagbarContainerProps> = observer(({nagbar
 								key={nagbar.type}
 								isMobile={mobileLayout.enabled}
 								data-flx="app.app-layout.nagbar-container.gift-inventory-nagbar"
-							/>
-						);
-					case NagbarType.DESKTOP_DOWNLOAD:
-						return (
-							<DesktopDownloadNagbar
-								key={nagbar.type}
-								isMobile={mobileLayout.enabled}
-								data-flx="app.app-layout.nagbar-container.desktop-download-nagbar"
 							/>
 						);
 					case NagbarType.DESKTOP_UPDATE_READY:

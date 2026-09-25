@@ -13,7 +13,6 @@ import {
 	isHandoffRequest,
 	useDesktopHandoffFlow,
 } from '@app/features/auth/flow/auth_login_core/useDesktopHandoffFlow';
-import {DesktopDeepLinkPrompt} from '@app/features/auth/flow/DesktopDeepLinkPrompt';
 import {ConnectedHandoffApprovalFlow} from '@app/features/auth/flow/HandoffApprovalFlow';
 import {GuildInviteHeader, InviteHeader} from '@app/features/auth/flow/InviteHeader';
 import MfaScreen from '@app/features/auth/flow/MfaScreen';
@@ -77,12 +76,6 @@ const InviteLoginPage = observer(function InviteLoginPage({code, invite}: Invite
 			inviteCode={code}
 			extraTopContent={
 				<>
-					<DesktopDeepLinkPrompt
-						code={code}
-						kind="invite"
-						preferLogin={true}
-						data-flx="invite.invite-login-page.desktop-deep-link-prompt"
-					/>
 					<InviteHeader invite={invite} data-flx="invite.invite-login-page.invite-header" />
 				</>
 			}
@@ -205,12 +198,6 @@ const InviteLoginPageContainer = observer(() => {
 	if (isInvitesDisabled && !isGroupDM) {
 		return (
 			<div className={sharedStyles.container} data-flx="invite.invite-login-page.invite-login-page-container.div">
-				<DesktopDeepLinkPrompt
-					code={code}
-					kind="invite"
-					preferLogin={true}
-					data-flx="invite.invite-login-page.invite-login-page-container.desktop-deep-link-prompt"
-				/>
 				{guildInvite ? (
 					<GuildInviteHeader
 						invite={guildInvite}

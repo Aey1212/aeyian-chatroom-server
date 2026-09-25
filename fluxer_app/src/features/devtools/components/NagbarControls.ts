@@ -4,11 +4,6 @@ import type {Nagbar, NagbarToggleKey} from '@app/features/ui/state/Nagbar';
 import type {MessageDescriptor} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
 
-const DESKTOP_DOWNLOAD_NAGBAR_DESCRIPTOR = msg({
-	message: 'Desktop download nagbar',
-	comment:
-		'Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the desktop-download banner.',
-});
 const COMMUNITY_MEMBERSHIP_CTA_NAGBAR_DESCRIPTOR = msg({
 	message: 'Community membership CTA nagbar',
 	comment:
@@ -278,25 +273,6 @@ export const getNagbarControls = (): Array<NagbarControlDefinition> => [
 		useActualDisabled: (state) => !state.forceTermsAcceptance && !state.forceHideTermsAcceptance,
 		forceShowDisabled: (state) => state.forceTermsAcceptance,
 		forceHideDisabled: (state) => state.forceHideTermsAcceptance,
-	},
-	{
-		key: 'forceDesktopDownload',
-		label: DESKTOP_DOWNLOAD_NAGBAR_DESCRIPTOR,
-		forceKey: 'forceDesktopDownload',
-		forceHideKey: 'forceHideDesktopDownload',
-		resetKeys: ['forceDesktopDownload', 'desktopDownloadDismissed'],
-		status: (state) =>
-			state.forceDesktopDownload
-				? FORCE_ENABLED
-				: state.forceHideDesktopDownload
-					? FORCE_DISABLED
-					: state.desktopDownloadDismissed
-						? CURRENTLY_DISMISSED
-						: USING_ACTUAL_STATE,
-		useActualDisabled: (state) =>
-			!state.forceDesktopDownload && !state.desktopDownloadDismissed && !state.forceHideDesktopDownload,
-		forceShowDisabled: (state) => state.forceDesktopDownload,
-		forceHideDisabled: (state) => state.forceHideDesktopDownload,
 	},
 	{
 		key: 'forceGuildMembershipCta',

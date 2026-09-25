@@ -221,7 +221,6 @@ export interface RememberedSkeletonGuildRailLayout {
 	readonly favoritesVisible: boolean;
 	readonly discoveryVisible: boolean;
 	readonly addGuildVisible: boolean;
-	readonly downloadVisible: boolean;
 	readonly selectedItemIndex: number;
 	readonly organizedItems: ReadonlyArray<RememberedSkeletonGuildRailItem>;
 	readonly scrollTopPx: number;
@@ -620,7 +619,6 @@ const GUILD_RAIL_KEYS = new Set([
 	'favoritesVisible',
 	'discoveryVisible',
 	'addGuildVisible',
-	'downloadVisible',
 	'selectedItemIndex',
 	'organizedItems',
 	'scrollTopPx',
@@ -983,7 +981,6 @@ function parseGuildRailLayout(value: unknown, now: number): OptionalParseResult<
 		typeof value.favoritesVisible !== 'boolean' ||
 		typeof value.discoveryVisible !== 'boolean' ||
 		typeof value.addGuildVisible !== 'boolean' ||
-		typeof value.downloadVisible !== 'boolean' ||
 		value.discoveryVisible !== value.addGuildVisible ||
 		(!value.fluxerVisible && inlineDmRowCount > 0) ||
 		!Array.isArray(value.organizedItems) ||
@@ -1036,7 +1033,6 @@ function parseGuildRailLayout(value: unknown, now: number): OptionalParseResult<
 			favoritesVisible: value.favoritesVisible,
 			discoveryVisible: value.discoveryVisible,
 			addGuildVisible: value.addGuildVisible,
-			downloadVisible: value.downloadVisible,
 			selectedItemIndex,
 			organizedItems: Object.freeze(organizedItems),
 			scrollTopPx,
@@ -1783,7 +1779,6 @@ function upgradeLegacyGuildRail(guildRail: Record<string, unknown>): Record<stri
 		favoritesVisible: guildRail.favoritesVisible,
 		discoveryVisible: guildRail.discoveryVisible,
 		addGuildVisible: guildRail.addGuildVisible,
-		downloadVisible: guildRail.downloadVisible,
 		selectedItemIndex: guildRail.selectedItemIndex ?? SKELETON_NO_SELECTED_RAIL_ITEM_INDEX,
 		organizedItems: upgradeLegacyGuildRailItems(guildRail.organizedItems),
 		scrollTopPx: guildRail.scrollTopPx ?? 0,
@@ -2388,7 +2383,6 @@ function commitGuildRailLayout(layout: RememberedSkeletonGuildRailLayout): void 
 		previous.favoritesVisible === layout.favoritesVisible &&
 		previous.discoveryVisible === layout.discoveryVisible &&
 		previous.addGuildVisible === layout.addGuildVisible &&
-		previous.downloadVisible === layout.downloadVisible &&
 		previous.selectedItemIndex === layout.selectedItemIndex &&
 		previous.scrollTopPx === layout.scrollTopPx &&
 		areGuildRailItemsEqual(previous.organizedItems, layout.organizedItems)
@@ -2829,7 +2823,6 @@ export function reportSkeletonGuildRailLayout(layout: Omit<RememberedSkeletonGui
 		typeof layout.favoritesVisible !== 'boolean' ||
 		typeof layout.discoveryVisible !== 'boolean' ||
 		typeof layout.addGuildVisible !== 'boolean' ||
-		typeof layout.downloadVisible !== 'boolean' ||
 		layout.discoveryVisible !== layout.addGuildVisible ||
 		(!layout.fluxerVisible && inlineDmRowCount > 0) ||
 		!Array.isArray(layout.organizedItems) ||
@@ -2921,7 +2914,6 @@ export function reportSkeletonGuildRailLayout(layout: Omit<RememberedSkeletonGui
 		favoritesVisible: layout.favoritesVisible,
 		discoveryVisible: layout.discoveryVisible,
 		addGuildVisible: layout.addGuildVisible,
-		downloadVisible: layout.downloadVisible,
 		selectedItemIndex,
 		organizedItems: Object.freeze(organizedItems),
 		scrollTopPx:

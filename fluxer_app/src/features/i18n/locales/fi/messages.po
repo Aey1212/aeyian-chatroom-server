@@ -938,7 +938,7 @@ msgstr "{count, plural, one {# estetty viesti} other {# estettyä viestiä}}"
 msgid "{count, plural, one {# community found} other {# communities found}}"
 msgstr "{count, plural, one {# yhteisö löytyi} other {# yhteisöä löytyi}}"
 
-#: src/features/app/components/layout/GuildsLayout.tsx:1939
+#: src/features/app/components/layout/GuildsLayout.tsx:1921
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# yhteisö on tilapäisesti pois käytöstä toimintahäiriön vuoksi.} other {# yhteisöä on tilapäisesti pois käytöstä toimintahäiriön vuoksi.}}"
 
@@ -1340,7 +1340,7 @@ msgid "{fourHours} hours"
 msgstr "{fourHours} tuntia"
 
 #. Footer summary frame-rate label in the screen share picker. {fps} is the integer frame rate. FPS is a technical token.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:253
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:252
 msgid "{fps} FPS"
 msgstr "{fps} FPS"
 
@@ -1721,7 +1721,7 @@ msgid "{productName} needs camera access to list your devices."
 msgstr "{productName} tarvitsee kameran käyttöoikeuden, jotta se voi näyttää laitteesi."
 
 #. Voice settings notice shown when microphone permission has not been granted.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:138
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
 msgid "{productName} needs microphone access to list your devices."
 msgstr "{productName} tarvitsee mikrofonin käyttöoikeuden, jotta se voi näyttää laitteesi."
 
@@ -2838,7 +2838,7 @@ msgid "Activity sharing"
 msgstr "Aktiviteetin jakaminen"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:465
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:444
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:102
 msgid "Activity threshold"
 msgstr "Aktiivisuuskynnys"
@@ -3311,7 +3311,7 @@ msgid "Adds H.264 for mixed clients. Requires more encoding."
 msgstr "Lisää H.264-tuen erilaisille asiakasohjelmille. Vaatii enemmän koodausta."
 
 #. Description for the custom profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:96
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:94
 msgid "Adjust each setting yourself: noise suppression, echo cancellation, and gain."
 msgstr "Säädä kaikki asetukset itse: melunvaimennus, kaiunpoisto ja vahvistus."
 
@@ -3580,11 +3580,11 @@ msgstr "Salli {everyoneMention} ja {hereMention}"
 msgid "Allow {PRODUCT_NAME} to access your camera in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 msgstr "Salli {PRODUCT_NAME}-sovelluksen käyttää kameraasi kohdassa {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:533
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:512
 msgid "Allow {PRODUCT_NAME} to access your microphone in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 msgstr "Salli {PRODUCT_NAME}-sovelluksen käyttää mikrofonia kohdassa {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:538
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:517
 msgid "Allow {PRODUCT_NAME} to access your microphone. Check your browser's address bar or settings."
 msgstr "Salli {PRODUCT_NAME}-sovelluksen käyttää mikrofonia. Tarkista selaimesi osoitepalkki tai asetukset."
 
@@ -3687,7 +3687,7 @@ msgstr "Salli jäsenten, joilla ei ole {readMessageHistoryPermissionLabel} -käy
 msgid "Allow mentions for this role"
 msgstr "Salli maininnat tälle roolille"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:558
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:537
 msgid "Allow microphone"
 msgstr "Salli mikrofonin käyttö"
 
@@ -4269,7 +4269,7 @@ msgid "App state"
 msgstr "Sovelluksen tila"
 
 #. Fallback label for an app window card in the screen-share picker when the OS does not give us a window title.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:141
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:140
 msgid "App window"
 msgstr "Sovellusikkuna"
 
@@ -4362,7 +4362,7 @@ msgstr "Sovellus päivitetty"
 #: src/features/user/components/settings_utils/search_index/SharedDescriptors.ts:29
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:66
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:184
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:183
 msgid "Applications"
 msgstr "Sovellukset"
 
@@ -4383,8 +4383,8 @@ msgstr "Käytä"
 
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:45
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:25
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:44
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:24
 msgid "Apply theme"
 msgstr "Käytä teemaa"
 
@@ -4713,7 +4713,7 @@ msgid "Audio level"
 msgstr "Äänenvoimakkuus"
 
 #. Footer summary status shown when capture-device audio is disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:258
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:257
 msgid "Audio muted"
 msgstr "Ääni mykistetty"
 
@@ -4953,8 +4953,8 @@ msgid "Auto-detect language"
 msgstr "Tunnista kieli automaattisesti"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:116
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:452
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:110
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:431
 msgid "Auto-set activity threshold"
 msgstr "Aseta aktiivisuuskynnys automaattisesti"
 
@@ -5503,11 +5503,6 @@ msgstr "Edut"
 #: src/features/voice/utils/ScreenShareCodecPolicy.ts:9
 msgid "Best compression. Use it only when WebRTC exposes an encoder and the GPU report says it is hardware-backed."
 msgstr "Paras pakkaus. Käytä vain, kun WebRTC näyttää kooderin ja GPU-raportti vahvistaa sen olevan laitteistopohjainen."
-
-#. CTA card title in the screen-share picker promoting the desktop app for richer screen sharing.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:12
-msgid "Best with the desktop app"
-msgstr "Parhaimmillaan työpöytäsovelluksessa"
 
 #: src/features/ui/components/form/UsernameValidationRules.tsx:45
 msgid "Between 1 and {maxLength} characters"
@@ -6216,12 +6211,12 @@ msgid "Camera"
 msgstr "Kamera"
 
 #. Title shown in the screen-share Devices tab before camera preview permission is granted.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:156
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:155
 msgid "Camera access is needed for device previews"
 msgstr "Kameran käyttöä tarvitaan laitteiden esikatseluun"
 
 #. Description shown after camera preview permission is denied or unavailable.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:164
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:163
 msgid "Camera access was not granted. Update camera permissions, then try again."
 msgstr "Kameran käyttöoikeutta ei myönnetty. Päivitä kameran käyttöoikeudet ja yritä uudelleen."
 
@@ -6742,7 +6737,7 @@ msgid "Change stream"
 msgstr "Vaihda striimi"
 
 #. Modal title for the screen-share picker when switching an ongoing stream to a new source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:217
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:216
 msgid "Change stream source"
 msgstr "Vaihda striimin lähdettä"
 
@@ -7522,7 +7517,7 @@ msgid "Choose payment method"
 msgstr "Valitse maksutapa"
 
 #. Modal title for the screen-share picker when starting a new screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:221
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:220
 msgid "Choose something to share"
 msgstr "Valitse jaettava sisältö"
 
@@ -7649,8 +7644,8 @@ msgstr "Viimeistele rekisteröinti lunastaaksesi"
 #. Primary button label on a redeemable gift code embed.
 #: src/features/channel/components/GiftEmbed.tsx:52
 #: src/features/expressions/components/modals/GiftAcceptModal.tsx:285
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:41
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:29
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:40
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:28
 msgid "Claim gift"
 msgstr "Lunasta lahja"
 
@@ -7898,7 +7893,7 @@ msgid "Clear trusted domains ({trustedDomainsCount})"
 msgstr "Tyhjennä luotetut verkkotunnukset ({trustedDomainsCount})"
 
 #. Footer summary description for the text-focused screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:245
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:244
 msgid "Clearer text"
 msgstr "Selkeämpi teksti"
 
@@ -8543,7 +8538,7 @@ msgid "Community members"
 msgstr "Yhteisön jäsenet"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the community-membership CTA banner.
-#: src/features/devtools/components/NagbarControls.ts:12
+#: src/features/devtools/components/NagbarControls.ts:7
 msgid "Community membership CTA nagbar"
 msgstr "Yhteisön jäsenyyden toimintakehotteen ilmoituspalkki"
 
@@ -8553,7 +8548,7 @@ msgid "Community message notifications"
 msgstr "Yhteisön viesti-ilmoitukset"
 
 #. Developer control label for the community MFA requirement banner.
-#: src/features/devtools/components/NagbarControls.ts:76
+#: src/features/devtools/components/NagbarControls.ts:71
 msgid "Community MFA requirement nagbar"
 msgstr "Yhteisön MFA-vaatimuksen ilmoituspalkki"
 
@@ -8908,11 +8903,11 @@ msgstr "Liitä kamera ja yritä uudelleen."
 msgid "Connect a camera or virtual capture device, then try again."
 msgstr "Liitä kamera tai virtuaalinen tallennuslaite ja yritä sitten uudelleen."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:133
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:132
 msgid "Connect a display, then try again."
 msgstr "Liitä näyttö ja yritä uudelleen."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:543
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:522
 msgid "Connect a microphone and try again."
 msgstr "Liitä mikrofoni ja yritä uudelleen."
 
@@ -9623,7 +9618,7 @@ msgid "Copying image..."
 msgstr "Kopioidaan kuvaa..."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the corrupted-installation banner.
-#: src/features/devtools/components/NagbarControls.ts:17
+#: src/features/devtools/components/NagbarControls.ts:12
 msgid "Corrupted installation nagbar"
 msgstr "Ilmoitus vioittuneesta asennuksesta"
 
@@ -10231,11 +10226,11 @@ msgstr "Luo uusi ryhmä käyttäjän {userName} kanssa"
 #: src/features/auth/components/pages/RegisterPage.tsx:40
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:82
 #: src/features/invite/components/modals/InvitePagePreviewModal.tsx:162
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:129
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:118
 msgid "Create account"
 msgstr "Luo tili"
 
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:123
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:112
 msgid "Create account to claim gift"
 msgstr "Luo tili lunastaaksesi lahjan"
 
@@ -10562,12 +10557,12 @@ msgid "Current uses:"
 msgstr "Nykyiset käyttökerrat:"
 
 #. Developer nagbar status: the banner is dismissed in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:109
+#: src/features/devtools/components/NagbarControls.ts:104
 msgid "Currently dismissed"
 msgstr "Tällä hetkellä suljettu"
 
 #. Developer nagbar status: the banner is showing in the current real state.
-#: src/features/devtools/components/NagbarControls.ts:113
+#: src/features/devtools/components/NagbarControls.ts:108
 msgid "Currently showing"
 msgstr "Tällä hetkellä näkyvissä"
 
@@ -10582,7 +10577,7 @@ msgstr "Tällä hetkellä: {mutedText}"
 #: src/features/user/components/modals/tabs/notifications_tab/NotificationsTabSounds.tsx:186
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:94
 #: src/features/voice/components/bottomsheets/VoiceSettingsBottomSheets.tsx:45
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:237
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:236
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:97
 msgid "Custom"
 msgstr "Mukautettu"
@@ -10596,7 +10591,7 @@ msgstr "Mukautettu"
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:91
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:89
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:42
 #: src/features/voice/components/VoiceSettingsMenus.tsx:70
 msgctxt "voice-processing-profile"
@@ -11144,7 +11139,7 @@ msgid "Default"
 msgstr "Oletus"
 
 #. Fallback label for the system default camera in the screen-share devices tab.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:152
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:151
 msgid "Default camera"
 msgstr "Oletuskamera"
 
@@ -11701,18 +11696,13 @@ msgstr "Poissa työpöydän äärestä"
 msgid "Desktop device"
 msgstr "Työpöytälaite"
 
-#. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the desktop-download banner.
-#: src/features/devtools/components/NagbarControls.ts:7
-msgid "Desktop download nagbar"
-msgstr "Työpöytäversion latauksen ilmoituspalkki"
-
 #. Settings search entry description. One-line summary of what the settings search entry controls.
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:78
 msgid "Desktop inactivity before mobile push"
 msgstr "Työpöytäsovelluksen käyttämättömyysaika ennen mobiili-ilmoitusta"
 
 #. Developer control label for the desktop-notification banner.
-#: src/features/devtools/components/NagbarControls.ts:40
+#: src/features/devtools/components/NagbarControls.ts:35
 msgid "Desktop notification nagbar"
 msgstr "Työpöytäilmoitusten ilmoituspalkki"
 
@@ -11890,7 +11880,7 @@ msgstr "Laite:"
 #: src/features/user/components/settings_utils/search_index/DevicesIndex.ts:11
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:82
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:57
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:192
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:191
 msgid "Devices"
 msgstr "Laitteet"
 
@@ -11998,7 +11988,7 @@ msgstr "Suora lataus käytössä"
 #. Short footer action in the screen-share picker that disables screen-share preview frame uploads.
 #: src/features/user/components/modals/tabs/account_security_tab/SecurityTab.tsx:238
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:138
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:278
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:277
 msgid "Disable"
 msgstr "Poista käytöstä"
 
@@ -12170,7 +12160,7 @@ msgid "Disabled value"
 msgstr "Arvo pois käytöstä"
 
 #. Explains what happens after disabling screen-share preview uploads. Refers to already-uploaded preview thumbnails.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:326
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:325
 msgid "Disabling previews stops future preview uploads. Existing preview images may remain visible until the stream ends or the preview refreshes."
 msgstr "Esikatselujen poistaminen käytöstä estää uusien esikatselukuvien lataamisen. Aiemmin ladatut esikatselukuvat voivat edelleen näkyä, kunnes suoratoisto päättyy tai esikatselu päivittyy."
 
@@ -12314,7 +12304,7 @@ msgid "Display"
 msgstr "Näyttö"
 
 #. Fallback label for a display / monitor card in the screen-share picker when the OS does not give us a display name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:146
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:145
 msgctxt "display-screen"
 msgid "Display"
 msgstr "Näyttö"
@@ -12611,9 +12601,7 @@ msgid "Download"
 msgstr "Lataa"
 
 #. Nagbar button label that downloads the desktop app. productName is the app name.
-#. Short label in the sidebar navigation download button. Preserve {productName}; it is inserted by code.
 #: src/features/app/components/layout/app_layout/nagbars/CorruptedInstallationNagbar.tsx:17
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:26
 msgid "Download {productName}"
 msgstr "Lataa {productName}"
 
@@ -12630,11 +12618,6 @@ msgstr "Lataa ääni"
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:91
 msgid "Download button"
 msgstr "Lataa-painike"
-
-#. Button or menu action label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:104
-msgid "Download desktop app"
-msgstr "Lataa työpöytäsovellus"
 
 #. Tooltip on the channel header updater icon prompting download of an update with no version or size info.
 #: src/features/channel/components/channel_header_components/UpdaterIcon.tsx:54
@@ -13227,7 +13210,7 @@ msgid "Email us and a person will review your account. Tell us you cannot verify
 msgstr "Lähetä meille sähköpostia, niin ihminen tarkistaa tilisi. Kerro, ettet voi vahvistaa tekstiviestillä, niin hoidamme loput. Vastaukset tulevat sähköpostitse, joten vastaus ei tule heti."
 
 #. Developer control label for the email-verification banner.
-#: src/features/devtools/components/NagbarControls.ts:36
+#: src/features/devtools/components/NagbarControls.ts:31
 msgid "Email verification nagbar"
 msgstr "Sähköpostivahvistuksen ilmoituspalkki"
 
@@ -13443,7 +13426,7 @@ msgid "Enable"
 msgstr "Ota käyttöön"
 
 #. Voice settings CTA label for opening a platform permission prompt.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:124
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:118
 msgid "Enable {permissionName} permission"
 msgstr "Ota käyttöön {permissionName}-käyttöoikeus"
 
@@ -13502,7 +13485,7 @@ msgid "Enable browser notifications"
 msgstr "Ota selainilmoitukset käyttöön"
 
 #. Description shown before the user explicitly requests camera preview permission.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:160
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:159
 msgid "Enable camera access to preview cameras and capture devices before choosing one to stream."
 msgstr "Salli kameran käyttö, niin voit esikatsella kameroita ja tallennuslaitteita ennen kuin valitset striimattavan."
 
@@ -13618,7 +13601,7 @@ msgid "Enable or disable built-in translators. Enabled translators appear in the
 msgstr "Ota käyttöön tai poista käytöstä sisäänrakennetut kääntäjät. Käytössä olevat kääntäjät näkyvät viestin pikavalikossa, kun teksti on valittuna."
 
 #. Button that explicitly requests camera permission for device previews.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:168
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:167
 msgid "Enable previews"
 msgstr "Ota esikatselut käyttöön"
 
@@ -14053,7 +14036,7 @@ msgid "Entertainment"
 msgstr "Viihde"
 
 #. Tab label in the screen-share picker. Lists shareable monitors / displays.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:188
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:187
 msgid "Entire screen"
 msgstr "Koko näyttö"
 
@@ -14072,7 +14055,7 @@ msgstr "Koko järjestelmän ääni"
 #. Voice menu submenu label that contains per-user entrance sound mute and volume controls.
 #: src/features/ui/action_menu/items/VoiceParticipantMenuData.tsx:181
 #: src/features/ui/action_menu/items/VoiceParticipantMenuItems.tsx:310
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:189
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:183
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:150
 msgid "Entrance sound"
 msgstr "Sisääntuloääni"
@@ -14182,7 +14165,7 @@ msgstr "Ilta-aika"
 
 #. Description for the automatic gain control toggle in the voice processing settings.
 #. Description for the automatic gain control toggle in the voice processing settings.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:173
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:167
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "Tasoittaa mikrofonisi äänenvoimakkuutta, jotta et ole liian hiljainen."
@@ -14657,7 +14640,7 @@ msgid "Failed to load invites. Try again."
 msgstr "Kutsujen lataus epäonnistui. Yritä uudelleen."
 
 #. Error text shown in the screen-share picker when the list of shareable windows/displays fails to load.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:120
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:119
 msgid "Failed to load shareable sources."
 msgstr "Jaettavia lähteitä ei voitu ladata."
 
@@ -15392,12 +15375,12 @@ msgid "For your security, please confirm it's you to continue."
 msgstr "Vahvista turvallisuussyistä henkilöllisyytesi, jotta voit jatkaa."
 
 #. Developer nagbar override status: the banner is forced to hide.
-#: src/features/devtools/components/NagbarControls.ts:97
+#: src/features/devtools/components/NagbarControls.ts:92
 msgid "Force disabled"
 msgstr "Pakotettu pois käytöstä"
 
 #. Developer nagbar override status: the banner is forced to show.
-#: src/features/devtools/components/NagbarControls.ts:93
+#: src/features/devtools/components/NagbarControls.ts:88
 msgid "Force enabled"
 msgstr "Pakotettu käyttöön"
 
@@ -15903,7 +15886,7 @@ msgstr "Ohjaimen Y / kolmio"
 #. Footer summary label for the gaming screen-share quality preset.
 #. Streaming preset label in the stream settings menu. Higher frame rate, optimized for video games.
 #: src/features/guild/components/modals/guild_tabs/GuildDiscoveryTab.tsx:76
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:229
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:228
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:70
 msgid "Gaming"
 msgstr "Pelaaminen"
@@ -15996,16 +15979,6 @@ msgstr "Saat ilmoituksia, kun vastaanotat viestejä. Sinun on ehkä sallittava {
 #: src/features/user/components/modals/tabs/notifications_tab/Notifications.tsx:48
 msgid "Get notified when you receive messages. You may need to allow notifications in your browser settings. For per-channel/per-community controls, right-click a community icon and open notification settings."
 msgstr "Saat ilmoituksia, kun vastaanotat viestejä. Sinun on ehkä sallittava ilmoitukset selaimesi asetuksista. Kanava- ja yhteisökohtaiset asetukset löydät napsauttamalla yhteisön kuvaketta hiiren kakkospainikkeella ja avaamalla ilmoitusasetukset."
-
-#. Nagbar body encouraging web users to download the desktop app. productName is the app name.
-#: src/features/app/components/layout/app_layout/nagbars/DesktopDownloadNagbar.tsx:17
-msgid "Get the {productName} desktop app for system-wide push-to-talk and a few other goodies."
-msgstr "Hanki {productName}-työpöytäsovellus, niin saat järjestelmänlaajuisen paina ja puhu -toiminnon ja muita herkkuja."
-
-#. CTA button label in the screen-share picker. Opens the desktop download page.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:20
-msgid "Get the desktop app"
-msgstr "Hanki työpöytäsovellus"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Type label for GIF media.
@@ -16126,7 +16099,7 @@ msgid "Gift inventory flow"
 msgstr "Lahjavaraston kulku"
 
 #. Developer control label for the gift-inventory banner.
-#: src/features/devtools/components/NagbarControls.ts:56
+#: src/features/devtools/components/NagbarControls.ts:51
 msgid "Gift inventory nagbar"
 msgstr "Lahjavaraston ilmoituspalkki"
 
@@ -16895,10 +16868,6 @@ msgstr "Piilota chat"
 msgid "Hide community owner crown"
 msgstr "Piilota yhteisön omistajan kruunu"
 
-#: src/features/app/components/layout/sidebar_nav/DownloadButton.tsx:62
-msgid "Hide download button"
-msgstr "Piilota latauspainike"
-
 #. Short label in the shared app expiry footnote context menu.
 #: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
@@ -17229,7 +17198,7 @@ msgstr "Tarvitsen toisen tavan"
 
 #. Short label in the voice tab. Keep it concise.
 #: src/features/channel/components/MatureContentChannelGate.tsx:180
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:102
 msgid "I understand"
 msgstr "Ymmärrän"
 
@@ -17653,10 +17622,6 @@ msgstr "Kanavalla"
 msgid "In \"Operating system\" mode, dictionaries listed above are advisory. {PRODUCT_NAME} will pass these language tags to your OS spellchecker when supported. Tags it doesn't recognize are ignored."
 msgstr "Käyttöjärjestelmä-tilassa yllä luetellut sanakirjat ovat ohjeellisia. {PRODUCT_NAME} välittää nämä kielitunnisteet käyttöjärjestelmän oikolukijalle, jos se tukee niitä. Tunnisteet, joita se ei tunnista, ohitetaan."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:310
-msgid "In a browser, push-to-talk only works while the {PRODUCT_NAME} tab is focused. Install the desktop app for system-wide push-to-talk."
-msgstr "Selaimessa push-to-talk toimii vain, kun {PRODUCT_NAME}-välilehti on aktiivinen. Asenna työpöytäsovellus, jos haluat käyttää push-to-talkia koko järjestelmässä."
-
 #: src/features/app/components/floating/UserAreaPopout.tsx:723
 msgid "In a call"
 msgstr "Puhelussa"
@@ -17944,7 +17909,7 @@ msgid "Input access was changed. Fully quit and restart {productName} so system-
 msgstr "Syötteen käyttöoikeutta muutettiin. Sulje {productName} kokonaan ja käynnistä se uudelleen, jotta järjestelmänlaajuiset pikanäppäimet voivat käyttää sitä."
 
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:177
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:171
 msgid "Input and output"
 msgstr "Tulo ja lähtö"
 
@@ -18001,11 +17966,6 @@ msgstr "Insert"
 #: src/features/channel/components/modals/channel_tabs/channel_overview_tab/ChannelOverviewTopicEditor.tsx:44
 msgid "Insert emoji"
 msgstr "Lisää emoji"
-
-#. CTA card body in the screen-share picker promoting the desktop app. {productName} is Fluxer.
-#: src/features/voice/components/modals/screen_share_picker_modal/DesktopDownloadCta.tsx:16
-msgid "Install {productName} for the full source picker and smoother screen-sharing controls."
-msgstr "Asenna {productName}, niin saat käyttöösi täyden lähdevalitsimen ja sujuvammat näytönjaon hallintatoiminnot."
 
 #. Label for the installed desktop version in the Linux update modal.
 #: src/features/updater/commands/UpdaterModalCommands.tsx:136
@@ -18398,7 +18358,7 @@ msgid "Invites disabled"
 msgstr "Kutsut poissa käytöstä"
 
 #. Developer control label for the invites-disabled banner.
-#: src/features/devtools/components/NagbarControls.ts:72
+#: src/features/devtools/components/NagbarControls.ts:67
 msgid "Invites disabled nagbar"
 msgstr "Kutsut poissa käytöstä -ilmoituspalkki"
 
@@ -18636,10 +18596,6 @@ msgstr "Siirry lukemattomien kanavien välillä"
 msgid "Jump between unread channels with mentions"
 msgstr "Siirry lukemattomien kanavien välillä, joissa on mainintoja"
 
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:75
-msgid "Jump straight to the app to continue."
-msgstr "Jatka suoraan sovelluksessa."
-
 #. Tooltip / aria label on a button that jumps to the channel. {channelSourceLabel} is the channel or DM name.
 #: src/features/voice/components/voice_connection_status/VoiceConnectionStatusInner.tsx:87
 msgid "Jump to {channelSourceLabel}"
@@ -18800,7 +18756,7 @@ msgid "Keep these safe. Regenerating will break existing integrations."
 msgstr "Pidä nämä turvassa. Uuden luominen rikkoo olemassa olevat integraatiot."
 
 #. Description for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:79
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:77
 msgid "Keep transmitting briefly after release."
 msgstr "Jatka lähettämistä hetken näppäimen vapauttamisen jälkeen."
 
@@ -19028,7 +18984,7 @@ msgid "Layout"
 msgstr "Asettelu"
 
 #. Accessible label for the screen-share picker footer info button.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:282
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:281
 msgid "Learn about screen share previews"
 msgstr "Lue lisää näytönjakamisen esikatsauksista"
 
@@ -19617,7 +19573,7 @@ msgid "Look and feel"
 msgstr "Ulkoasu ja tuntuma"
 
 #. placeholder {0}: externalProcessor.name
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:652
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:631
 msgid "Looks like you're using {0}. Stacking {PRODUCT_NAME}'s processing on top can cause pumping or distortion. Direct input passes your audio through untouched."
 msgstr "Näyttää siltä, että käytät ohjelmaa {0}. Jos lisäät {PRODUCT_NAME}-käsittelyn sen päälle, ääni voi pumpata tai vääristyä. Suora syöte välittää äänen muokkaamattomana."
 
@@ -20870,7 +20826,7 @@ msgstr "Mikrofoni"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:185
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:179
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:142
 msgid "Mic test"
 msgstr "Mikrofonitesti"
@@ -21989,7 +21945,7 @@ msgid "New"
 msgstr "Uudet"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:135
+#: src/features/app/components/layout/GuildsLayout.tsx:132
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Uusi"
@@ -22254,7 +22210,7 @@ msgstr "Lisäasetuksia ei löytynyt"
 msgid "No AFK channel"
 msgstr "Ei poissaolokanavaa"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:124
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:123
 msgid "No application windows found"
 msgstr "Sovellusikkunoita ei löytynyt"
 
@@ -22393,7 +22349,7 @@ msgstr "Ei kuvausta."
 msgid "No desktop update is available."
 msgstr "Työpöytäversioon ei ole saatavilla päivitystä."
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:130
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:129
 msgid "No displays found"
 msgstr "Näyttöjä ei löytynyt"
 
@@ -22517,7 +22473,7 @@ msgstr "Ei tuloksia"
 msgid "No mentions yet"
 msgstr "Ei vielä mainintoja"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:528
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:507
 msgid "No microphone found"
 msgstr "Mikrofonia ei löydy"
 
@@ -23198,7 +23154,7 @@ msgstr "Kun sovellus ja sen tunnistetiedot on poistettu, niitä ei voi enää pa
 msgid "Once deletion is processed, you cannot recover access to your account"
 msgstr "Kun poisto on käsitelty, et voi enää palauttaa pääsyä tilillesi"
 
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:134
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:123
 msgid "Once your account is created, we'll take you back to the theme so you can apply it."
 msgstr "Kun tilisi on luotu, palaat teemaan ja voit ottaa sen käyttöön."
 
@@ -23398,11 +23354,6 @@ msgstr "Avaa {landmarkName}"
 msgid "Open {macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName}, then allow {productName}. If {productName2} is already enabled, fully quit and restart {productName3} so macOS applies the permission."
 msgstr "Avaa {macosSystemSettingsName} → {macosPrivacyAndSecuritySettingsName} → {macosScreenRecordingPermissionName} ja anna sitten lupa sovellukselle {productName}. Jos {productName2} on jo sallittu, sulje {productName3} kokonaan ja käynnistä se uudelleen, jotta macOS ottaa luvan käyttöön."
 
-#. Button label that opens the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:27
-msgid "Open {productName}"
-msgstr "Avaa {productName}"
-
 #. Button or menu action label in the channel and chat gif picker grid item. Keep it concise. Preserve {title}; it is inserted by code.
 #: src/features/channel/components/pickers/gif/GifPickerGridItem.tsx:37
 msgid "Open {title}"
@@ -23418,7 +23369,7 @@ msgstr "Avaa @{displayName}"
 msgid "Open advanced media settings"
 msgstr "Avaa median lisäasetukset"
 
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:127
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:126
 msgid "Open an application window, then try again."
 msgstr "Avaa sovellusikkuna ja yritä uudelleen."
 
@@ -23481,7 +23432,7 @@ msgid "Open browser"
 msgstr "Avaa selain"
 
 #. Primary button in the screen-share picker on web. Hands off to the browser's native getDisplayMedia picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:208
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:207
 msgid "Open browser picker"
 msgstr "Avaa selainvalitsin"
 
@@ -23634,11 +23585,6 @@ msgstr "Avaa kuva koko näytöllä"
 msgid "Open image link"
 msgstr "Avaa kuvalinkki"
 
-#. Title in a web prompt that opens the same flow in the desktop app. productName is the app name.
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:23
-msgid "Open in {productName} for desktop"
-msgstr "Avaa {productName}-työpöytäsovelluksessa"
-
 #. Media viewer action that opens the current media in the system default browser.
 #: src/features/messaging/components/modals/media_modal/shared.ts:77
 msgid "Open in browser"
@@ -23744,7 +23690,7 @@ msgid "Open system DM"
 msgstr "Avaa järjestelmän yksityisviesti"
 
 #. Primary button in the screen-share picker on Linux/Wayland. Hands off to the OS xdg-desktop-portal picker.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:213
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:212
 msgid "Open system picker"
 msgstr "Avaa järjestelmän valitsin"
 
@@ -25106,12 +25052,12 @@ msgid "Premium badge"
 msgstr "Premium-merkki"
 
 #. Developer control label for the premium-expired banner.
-#: src/features/devtools/components/NagbarControls.ts:48
+#: src/features/devtools/components/NagbarControls.ts:43
 msgid "Premium expired nagbar"
 msgstr "Plutonium-tilaus vanhentunut -ilmoituspalkki"
 
 #. Developer control label for the premium grace-period banner.
-#: src/features/devtools/components/NagbarControls.ts:44
+#: src/features/devtools/components/NagbarControls.ts:39
 msgid "Premium grace period nagbar"
 msgstr "Plutonium-lisäajan ilmoituspalkki"
 
@@ -25121,7 +25067,7 @@ msgid "Premium model"
 msgstr "Premium-malli"
 
 #. Developer control label for the premium-onboarding banner.
-#: src/features/devtools/components/NagbarControls.ts:52
+#: src/features/devtools/components/NagbarControls.ts:47
 msgid "Premium onboarding nagbar"
 msgstr "Plutonium-perehdytyksen ilmoituspalkki"
 
@@ -25231,17 +25177,17 @@ msgid "Preview hidden"
 msgstr "Esikatselu piilotettu"
 
 #. Privacy explanation for screen-share previews in a one-to-one DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:320
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:319
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. Disable previews if you do not want screen-share frames uploaded for thumbnails."
 msgstr "Esikatselukuvat tallennetaan väliaikaisesti palveluun {productName}, jotta ne voidaan näyttää, eikä niitä ole salattu päästä päähän. Poista esikatselut käytöstä, jos et halua, että näytön jakamisesta ladataan kuvia pikkukuvia varten."
 
 #. Privacy explanation for screen-share previews in a group DM call. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:314
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:313
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People in this group DM do not need to be actively watching your stream to see the thumbnail."
 msgstr "Esikatselukuvat tallennetaan väliaikaisesti palveluun {productName}, jotta ne voidaan näyttää, eikä niitä ole salattu päästä päähän. Tämän ryhmäkeskustelun osallistujien ei tarvitse katsoa lähetystäsi nähdäkseen pikkukuvan."
 
 #. Privacy explanation for screen-share previews in a guild voice channel. productName is the app name. Refers to preview thumbnail images generated from a screen share.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:308
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:307
 msgid "Preview images are stored by {productName} temporarily for delivery and are not end-to-end encrypted. People still need permission to connect, but they do not need to be actively watching your stream."
 msgstr "Esikatselukuvat tallennetaan väliaikaisesti palveluun {productName}, jotta ne voidaan näyttää, eikä niitä ole salattu päästä päähän. Käyttäjät tarvitsevat edelleen oikeuden liittyä kanavaan, mutta heidän ei tarvitse katsoa lähetystäsi aktiivisesti."
 
@@ -25786,18 +25732,18 @@ msgid "Push to talk key"
 msgstr "Puhu painamalla -näppäin"
 
 #. Switch label in the voice tab toggling push-to-talk mode. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:112
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:349
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:106
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:337
 #: src/features/voice/components/VoiceSettingsMenus.tsx:419
 msgid "Push-to-talk"
 msgstr "Push-to-talk"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:100
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:98
 msgid "Push-to-talk (limited)"
 msgstr "Puhu painamalla (rajoitettu)"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:674
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:653
 msgid "Push-to-talk is ignored in direct input. Switch to focused voice or custom to use it."
 msgstr "Push-to-talk ohitetaan suorassa syötteessä. Käytä sitä vaihtamalla kohdennettuun ääneen tai mukautettuun tilaan."
 
@@ -25807,12 +25753,12 @@ msgid "Push-to-talk is on. Hold {pushToTalkHint} to speak."
 msgstr "Push-to-talk on käytössä. Pidä {pushToTalkHint} pohjassa puhuaksesi."
 
 #. Voice settings warning shown when macOS Input Monitoring is required for system-wide push-to-talk. {productName} is the app name and {permissionName} is the macOS permission name.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:126
 msgid "Push-to-talk only works while {productName} is focused until {permissionName} is enabled. After changing the permission, fully quit and restart {productName} so system-wide hotkeys can use it."
 msgstr "Push-to-talk toimii vain, kun {productName} on aktiivisena, kunnes {permissionName} on otettu käyttöön. Kun olet muuttanut lupaa, sulje ja käynnistä {productName} uudelleen, jotta järjestelmänlaajuiset pikanäppäimet voivat käyttää sitä."
 
 #. Voice settings warning shown when push-to-talk is enabled in a browser.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:128
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:122
 msgid "Push-to-talk only works while the browser tab is focused."
 msgstr "Push-to-talk toimii vain, kun selainvälilehti on aktiivinen."
 
@@ -26107,7 +26053,7 @@ msgid "Recommended"
 msgstr "Suositeltu"
 
 #. Description for the focused voice profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:83
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:81
 msgid "Recommended. Cleans up your mic for clear speech."
 msgstr "Suositeltu. Puhdistaa mikrofonin selkeää puhetta varten."
 
@@ -26364,7 +26310,7 @@ msgstr "Suhteellinen"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:75
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:73
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:94
 msgid "Release delay"
 msgstr "Vapautusviive"
@@ -28262,7 +28208,7 @@ msgid "Scan the QR code with your authenticator app."
 msgstr "Skannaa QR-koodi todennussovelluksellasi."
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the scheduled-maintenance banner.
-#: src/features/devtools/components/NagbarControls.ts:22
+#: src/features/devtools/components/NagbarControls.ts:17
 msgid "Scheduled maintenance nagbar"
 msgstr "Ajastetun huollon ilmoituspalkki"
 
@@ -28312,7 +28258,7 @@ msgstr "Näytön tallennukseen tarvitaan lupa"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Streaming preset label in the stream settings menu. Optimized for sharp text in screen shares.
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:222
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:233
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:232
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:83
 msgid "Screen share"
 msgstr "Näytön jako"
@@ -28328,7 +28274,7 @@ msgid "Screen share audio boost"
 msgstr "Näytön jaon äänen tehostus"
 
 #. Error modal title shown when the selected native screen-share audio route cannot start safely.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:176
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:175
 msgid "Screen share audio couldn't start"
 msgstr "Näytön jaon äänen käynnistäminen epäonnistui"
 
@@ -28369,17 +28315,17 @@ msgid "Screen share preview behavior"
 msgstr "Näytön jakamisen esikatselun toiminta"
 
 #. Title of an informational modal explaining screen-share preview frame uploads.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:286
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:285
 msgid "Screen share previews"
 msgstr "Näytönjakamisen esikatselut"
 
 #. Compact footer status in the screen-share picker when preview frame uploads are disabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:274
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:273
 msgid "Screen share previews are disabled."
 msgstr "Näytönjakamisen esikatselut ovat poissa käytöstä."
 
 #. Compact footer status in the screen-share picker when preview frame uploads are enabled.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:270
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:269
 msgid "Screen share previews are enabled."
 msgstr "Näytönjakamisen esikatselut ovat käytössä."
 
@@ -28941,7 +28887,7 @@ msgstr "Esikatselu"
 
 #. Hover action on a device card that selects the device without starting the stream.
 #: src/features/app/components/dialogs/components/PricingCard.tsx:65
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:200
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:199
 msgid "Select"
 msgstr "Valitse"
 
@@ -29063,7 +29009,7 @@ msgid "Select the account you want to sign in with on the desktop app."
 msgstr "Valitse tili, jolla haluat kirjautua sisään työpöytäsovellukseen."
 
 #. Aria label for the voice processing radio group in the voice settings tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:120
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:114
 msgid "Select voice processing mode"
 msgstr "Valitse äänenkäsittelytila"
 
@@ -29391,7 +29337,7 @@ msgid "Sends raw mic audio with no processing."
 msgstr "Lähettää mikrofonin raa'an äänen ilman käsittelyä."
 
 #. Description for the direct input profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:87
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:85
 msgid "Sends your audio untouched. Best if you're using external audio software."
 msgstr "Lähettää äänesi muokkaamattomana. Paras, jos käytät ulkoista ääniohjelmistoa."
 
@@ -29455,7 +29401,7 @@ msgid "Service error"
 msgstr "Palveluvirhe"
 
 #. Developer / debug surface — keep terse and technical. Label in the developer Nagbar controls panel for the service incident banner.
-#: src/features/devtools/components/NagbarControls.ts:27
+#: src/features/devtools/components/NagbarControls.ts:22
 msgid "Service incident nagbar"
 msgstr "Palvelun häiriöilmoitus"
 
@@ -29768,7 +29714,7 @@ msgid "Share gift"
 msgstr "Jaa lahja"
 
 #. Hover action on an application or display card that starts sharing that source.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:196
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:195
 msgid "Share screen"
 msgstr "Jaa näyttö"
 
@@ -29832,8 +29778,8 @@ msgstr "Jaa äänitoimintasi kavereiden kanssa"
 #. Button or menu action label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:25
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:41
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:33
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:40
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:32
 msgid "Shared theme"
 msgstr "Jaettu teema"
 
@@ -29906,7 +29852,7 @@ msgstr "Pikakoodit"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindRow.tsx:121
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:364
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:352
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:38
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:110
 msgid "Shortcut"
@@ -30924,7 +30870,7 @@ msgid "Smooth scrolling"
 msgstr "Tasainen vieritys"
 
 #. Footer summary description for the gaming screen-share quality preset.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:241
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:240
 msgid "Smoother video"
 msgstr "Sujuvampi video"
 
@@ -31131,11 +31077,9 @@ msgid "Something went wrong. Try again later."
 msgstr "Jokin meni pieleen. Yritä myöhemmin uudelleen."
 
 #. Generic required-action error fallback.
-#. Inline error in the web deep-link prompt when opening the desktop app fails.
 #. Toast error shown when the mature content check request fails unexpectedly.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:18
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:564
-#: src/features/auth/flow/DesktopDeepLinkPrompt.tsx:31
 msgid "Something went wrong. Try again."
 msgstr "Jokin meni pieleen. Yritä uudelleen."
 
@@ -31196,7 +31140,7 @@ msgstr "Äänet"
 #. Resolution option in the stream settings menu meaning the original source resolution (no downscale).
 #. Short label in the video tab for the native source resolution option. Keep it concise.
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:68
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:249
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:248
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:105
 msgid "Source"
 msgstr "Alkuperäinen"
@@ -31962,7 +31906,7 @@ msgstr "Estää kaiuttimien äänen kiertämisen takaisin mikrofoniin."
 #. Primary footer action that starts streaming the selected capture device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:236
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:204
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:203
 msgid "Stream"
 msgstr "Striimi"
 
@@ -32001,7 +31945,7 @@ msgid "Stream quality"
 msgstr "Striimin laatu"
 
 #. Toolbar / menu button label in the screen-share picker. Opens the stream quality settings popover.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:225
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:224
 msgid "Stream settings"
 msgstr "Striimin asetukset"
 
@@ -32300,7 +32244,7 @@ msgstr "Vaihda väljään asetteluun"
 msgid "Switch to dense layout"
 msgstr "Vaihda tiiviiseen asetteluun"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:647
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:626
 msgid "Switch to direct input"
 msgstr "Vaihda suoraan syöttöön"
 
@@ -32501,7 +32445,7 @@ msgstr "{productName}-henkilökunnan järjestelmäilmoituksia. Tähän ei voi va
 
 #. Audio device option label meaning the OS default audio input device.
 #. Footer summary fallback for the default capture-device audio input.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:262
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:261
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:137
 msgid "System default"
 msgstr "Järjestelmän oletus"
@@ -32736,7 +32680,7 @@ msgid "Tennessee"
 msgstr "Tennessee"
 
 #. Developer control label for the terms-acceptance banner.
-#: src/features/devtools/components/NagbarControls.ts:64
+#: src/features/devtools/components/NagbarControls.ts:59
 msgid "Terms acceptance nagbar"
 msgstr "Käyttöehtojen hyväksymisen ilmoituspalkki"
 
@@ -33010,7 +32954,7 @@ msgid "The bot has been added."
 msgstr "Botti lisätty."
 
 #. Status shown when a device preview has not released the camera before the bounded handoff deadline.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:172
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:171
 msgid "The camera preview is still stopping. Try streaming again in a moment."
 msgstr "Kameran esikatselu on vielä pysähtymässä. Yritä striimata uudelleen hetken kuluttua."
 
@@ -33277,8 +33221,8 @@ msgstr "Teematiedostot"
 msgid "Theme library"
 msgstr "Teemakirjasto"
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:175
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:169
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:69
 msgid "Theme not found"
 msgstr "Teemaa ei löydy"
 
@@ -33666,8 +33610,8 @@ msgstr "Tiedoston koko on {fileSize}, ja raja on {maxSize}. Animoitujen tarrojen
 msgid "This friends list needs more power"
 msgstr "Tämä kaverilista kaipaa lisää virtaa"
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:177
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:84
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:170
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:83
 msgid "This gift code has already been claimed."
 msgstr "Tämä lahjakoodi on jo lunastettu."
 
@@ -33678,8 +33622,8 @@ msgstr "Tämä lahjakoodi on jo lunastettu."
 msgid "This gift code is invalid or already claimed."
 msgstr "Tämä lahjakoodi on virheellinen tai jo käytetty."
 
-#: src/features/expressions/components/pages/GiftLoginPage.tsx:166
-#: src/features/expressions/components/pages/GiftRegisterPage.tsx:73
+#: src/features/expressions/components/pages/GiftLoginPage.tsx:159
+#: src/features/expressions/components/pages/GiftRegisterPage.tsx:72
 msgid "This gift code may be invalid, expired, or already redeemed."
 msgstr "Tämä lahjakoodi voi olla virheellinen, vanhentunut tai jo käytetty."
 
@@ -33922,7 +33866,7 @@ msgid "This phone number has already been used. Try another number or contact su
 msgstr "Tätä puhelinnumeroa on jo käytetty. Kokeile toista numeroa tai ota yhteyttä tukeen."
 
 #. Empty state in the screen-share picker shown to web users. Explains that this advanced picker requires the desktop app.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:136
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:135
 msgid "This picker is only available in the desktop app."
 msgstr "Tämä valitsin on käytettävissä vain työpöytäsovelluksessa."
 
@@ -34016,8 +33960,8 @@ msgstr "Teema on liian suuri jaettavaksi"
 msgid "This theme link is missing data."
 msgstr "Teemalinkistä puuttuu tietoja."
 
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:176
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:71
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:170
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:70
 msgid "This theme may have been removed or the link is invalid."
 msgstr "Tämä teema on ehkä poistettu tai linkki on virheellinen."
 
@@ -34849,7 +34793,7 @@ msgid "Turn off anything you're not comfortable with. Some features may stop wor
 msgstr "Poista käytöstä kaikki, mistä et pidä. Jotkin ominaisuudet eivät ehkä toimi."
 
 #. Error modal body shown after a native screen-share audio route fails to start.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:180
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:179
 msgid "Turn off audio sharing for this source or try again in a moment."
 msgstr "Poista tämän lähteen äänen jakaminen tai yritä uudelleen hetken kuluttua."
 
@@ -35241,7 +35185,7 @@ msgid "Unclaimed account"
 msgstr "Lunastamaton tili"
 
 #. Developer control label for the unclaimed-account banner.
-#: src/features/devtools/components/NagbarControls.ts:32
+#: src/features/devtools/components/NagbarControls.ts:27
 msgid "Unclaimed account nagbar"
 msgstr "Lunastamaton tili -ilmoituspalkki"
 
@@ -35686,7 +35630,7 @@ msgstr "Nimetön ryhmä"
 
 #. Fallback label for an audio input device whose name is not reported by the OS.
 #. Footer summary fallback for an audio input without a reported name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:266
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:265
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:141
 msgid "Unnamed input"
 msgstr "Nimetön syöttölaite"
@@ -36098,7 +36042,7 @@ msgid "Upload new emoji and stickers, and manage your own creations."
 msgstr "Lataa uusia emojeita ja tarroja sekä hallinnoi omia luomuksiasi."
 
 #. Description for the screen-share preview toggle in the informational modal.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:332
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:331
 msgid "Upload preview frames for screen shares."
 msgstr "Lataa esikatselukuvia näytönjakoja varten."
 
@@ -36748,27 +36692,27 @@ msgid "Uses:"
 msgstr "Käyttökerrat:"
 
 #. Developer nagbar status: banner follows real account state.
-#: src/features/devtools/components/NagbarControls.ts:101
+#: src/features/devtools/components/NagbarControls.ts:96
 msgid "Using actual account state"
 msgstr "Käytetään todellista tilin tilaa"
 
 #. Developer nagbar status: banner follows real gift inventory state.
-#: src/features/devtools/components/NagbarControls.ts:121
+#: src/features/devtools/components/NagbarControls.ts:116
 msgid "Using actual gift inventory state"
 msgstr "Käytetään todellista lahjavaraston tilaa"
 
 #. Developer nagbar status: banner follows real premium subscription state.
-#: src/features/devtools/components/NagbarControls.ts:117
+#: src/features/devtools/components/NagbarControls.ts:112
 msgid "Using actual premium state"
 msgstr "Käytetään todellista premium-tilaa"
 
 #. Developer nagbar status: banner follows the real app state.
-#: src/features/devtools/components/NagbarControls.ts:125
+#: src/features/devtools/components/NagbarControls.ts:120
 msgid "Using actual state"
 msgstr "Käytetään todellista tilaa"
 
 #. Developer nagbar status: banner follows real email verification state.
-#: src/features/devtools/components/NagbarControls.ts:105
+#: src/features/devtools/components/NagbarControls.ts:100
 msgid "Using actual verification state"
 msgstr "Käytetään todellista vahvistustilaa"
 
@@ -37477,7 +37421,7 @@ msgid "Visionary (lifetime {premiumProductName})"
 msgstr "Visionary (elinikäinen {premiumProductName})"
 
 #. Developer control label for the Visionary two-factor-authentication banner.
-#: src/features/devtools/components/NagbarControls.ts:60
+#: src/features/devtools/components/NagbarControls.ts:55
 msgid "Visionary 2FA nagbar"
 msgstr "Visionary 2FA -ilmoituspalkki"
 
@@ -37710,7 +37654,7 @@ msgid "Voice participants"
 msgstr "Äänipuhelun osallistujat"
 
 #. Voice settings radio group label for microphone processing profile.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:642
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:621
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:55
 msgid "Voice processing"
 msgstr "Äänenkäsittely"
@@ -37735,7 +37679,7 @@ msgid "Voice region"
 msgstr "Puhealue"
 
 #. Developer control label for the voice-session-restore banner.
-#: src/features/devtools/components/NagbarControls.ts:68
+#: src/features/devtools/components/NagbarControls.ts:63
 msgid "Voice session restore nagbar"
 msgstr "Äänipuhelun palautusilmoituspalkki"
 
@@ -37766,7 +37710,7 @@ msgstr "Mitätöity"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:373
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:181
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:175
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:86
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:174
 msgid "Volume"
@@ -38380,17 +38324,17 @@ msgid "When posted as links in chat"
 msgstr "Kun media jaetaan linkkeinä keskustelussa"
 
 #. Explanation of screen-share preview uploads in a group DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:296
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:295
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so other people in this group DM can see a thumbnail before they watch."
 msgstr "Kun esikatselut on käytössä, {productName} lataa ajoittain JPEG-kuvia jaetusta näytöstäsi, jotta muut tämän ryhmäkeskustelun osallistujat voivat nähdä pienen kuvan ennen videon katsomista."
 
 #. Explanation of screen-share preview uploads in a guild voice channel. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:290
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:289
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so people with permission to connect to this voice channel can see a thumbnail before they watch."
 msgstr "Kun esikatselut on käytössä, {productName} lataa ajoittain JPEG-kuvia näytön jaosta, jotta henkilöt, joilla on lupa yhdistää tähän äänikanavaan, voivat nähdä pienen kuvan ennen videon katsomista."
 
 #. Explanation of screen-share preview uploads in a one-to-one DM call. productName is the app name; JPEG is an image format name.
-#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:302
+#: src/features/voice/components/modals/ScreenSharePickerModal.tsx:301
 msgid "When previews are enabled, {productName} uploads occasional JPEG frames from your screen share so the other person in this DM can see a thumbnail before they watch."
 msgstr "Kun esikatselut on käytössä, {productName} lataa ajoittain JPEG-kuvia näytön jaosta, jotta toinen henkilö tässä yksityisviestissä voi nähdä pienen kuvan ennen videon katsomista."
 
@@ -38434,7 +38378,7 @@ msgstr "Mitkä keskustelut"
 msgid "Which rule was broken?"
 msgstr "Mitä sääntöä rikottiin?"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:358
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:346
 msgid "While push-to-talk is on, your shortcut controls your microphone, so the mute button is disabled."
 msgstr "Kun paina ja puhu -toiminto on käytössä, pikanäppäin ohjaa mikrofonia, joten mykistyspainike on poissa käytöstä."
 
@@ -39479,8 +39423,8 @@ msgstr "Sinut on kutsunut ryhmäkeskusteluun käyttäjä"
 #. Short label in the theme login page. Keep it concise. Keep the tone plain and specific.
 #. Short label in the theme register page. Keep it concise.
 #: src/features/channel/components/ThemeEmbed.tsx:84
-#: src/features/theme/components/pages/ThemeLoginPage.tsx:37
-#: src/features/theme/components/pages/ThemeRegisterPage.tsx:29
+#: src/features/theme/components/pages/ThemeLoginPage.tsx:36
+#: src/features/theme/components/pages/ThemeRegisterPage.tsx:28
 msgid "You've got CSS!"
 msgstr "Sinulle on CSS:ää!"
 

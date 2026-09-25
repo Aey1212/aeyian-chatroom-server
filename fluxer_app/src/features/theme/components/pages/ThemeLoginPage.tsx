@@ -13,7 +13,6 @@ import {
 	isHandoffRequest,
 	useDesktopHandoffFlow,
 } from '@app/features/auth/flow/auth_login_core/useDesktopHandoffFlow';
-import {DesktopDeepLinkPrompt} from '@app/features/auth/flow/DesktopDeepLinkPrompt';
 import {ConnectedHandoffApprovalFlow} from '@app/features/auth/flow/HandoffApprovalFlow';
 import MfaScreen from '@app/features/auth/flow/MfaScreen';
 import AccountManager from '@app/features/auth/state/AccountManager';
@@ -72,11 +71,6 @@ const ThemeLoginPage = observer(function ThemeLoginPage() {
 			desktopHandoff={isHandoff}
 			extraTopContent={
 				<>
-					<DesktopDeepLinkPrompt
-						code={themeId}
-						kind="theme"
-						data-flx="theme.theme-login-page.desktop-deep-link-prompt"
-					/>
 					<AuthPageHeader
 						icon={
 							<div className={sharedStyles.themeIconSpot} data-flx="theme.theme-login-page.div">

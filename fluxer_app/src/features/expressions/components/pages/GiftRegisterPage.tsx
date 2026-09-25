@@ -8,7 +8,6 @@ import {AuthLoadingState} from '@app/features/auth/flow/AuthLoadingState';
 import {AuthMinimalRegisterFormCore} from '@app/features/auth/flow/AuthMinimalRegisterFormCore';
 import sharedStyles from '@app/features/auth/flow/AuthPageStyles.module.css';
 import {AuthSsoPanel, isRuntimeSsoEnforced} from '@app/features/auth/flow/AuthSsoPanel';
-import {DesktopDeepLinkPrompt} from '@app/features/auth/flow/DesktopDeepLinkPrompt';
 import {GiftHeader} from '@app/features/auth/flow/GiftHeader';
 import {safeRedirectTarget} from '@app/features/auth/utils/SafeRedirect';
 import * as GiftCommands from '@app/features/gift/commands/GiftCommands';
@@ -89,11 +88,6 @@ const GiftRegisterPage = observer(function GiftRegisterPage() {
 	if (isRuntimeSsoEnforced()) {
 		return (
 			<>
-				<DesktopDeepLinkPrompt
-					code={code}
-					kind="gift"
-					data-flx="expressions.gift-register-page.desktop-deep-link-prompt.sso"
-				/>
 				<GiftHeader gift={gift} variant="register" data-flx="expressions.gift-register-page.gift-header.sso" />
 				<div className={sharedStyles.container} data-flx="expressions.gift-register-page.sso-container">
 					<AuthSsoPanel
@@ -112,11 +106,6 @@ const GiftRegisterPage = observer(function GiftRegisterPage() {
 	}
 	return (
 		<>
-			<DesktopDeepLinkPrompt
-				code={code}
-				kind="gift"
-				data-flx="expressions.gift-register-page.desktop-deep-link-prompt"
-			/>
 			<GiftHeader gift={gift} variant="register" data-flx="expressions.gift-register-page.gift-header" />
 			<div className={sharedStyles.container} data-flx="expressions.gift-register-page.div">
 				<AuthMinimalRegisterFormCore
