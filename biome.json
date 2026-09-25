@@ -178,6 +178,7 @@
 			"!**/fluxer_app/src/features/ui/components/SVGMasks.tsx",
 			"!fluxer_static",
 			"!packages/fonts",
+			"!tools/fonts/name-fonts.lock.json",
 			"!fluxer_admin/static/htmx.min.js",
 			"!fluxer_api/src/api/openapi/openapi.json",
 			"!fluxer_api/pkgs/email/src/email_i18n/locales",

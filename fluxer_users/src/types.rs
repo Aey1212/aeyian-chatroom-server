@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+use fluxer_common::name_style::NameStyle;
 #[cfg(test)]
 use fluxer_common::user_flags::{USER_FLAG_PARTNER, USER_FLAG_STAFF_HIDDEN};
-use fluxer_common::name_style::NameStyle;
 use fluxer_common::user_flags::{USER_FLAG_STAFF, visible_user_flags};
 use serde::{Deserialize, Deserializer, Serialize};
 

@@ -3795,7 +3795,7 @@ msgstr "Uvijek animiraj"
 #. Label for the switch that keeps glow, shimmer and holographic names moving all the time.
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:94
 msgid "Always animate name effects"
-msgstr ""
+msgstr "Always animate name effects"
 
 #. Description shown for stickers when always-animate overrides reduced motion.
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:90
@@ -7267,7 +7267,7 @@ msgstr "Kineski (pojednostavljeni)"
 #. Writing system covered by a font.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:98
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Chinese (Simplified)"
 
 #. Short label in the language and locale names. Keep it concise.
 #: src/features/user/utils/LocaleUtils.ts:142
@@ -7277,7 +7277,7 @@ msgstr "Kineski (tradicionalni)"
 #. Writing system covered by a font.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:102
 msgid "Chinese (Traditional)"
-msgstr ""
+msgstr "Chinese (Traditional)"
 
 #. Slash-command argument type name, spoken by screen readers for an argument picked from a fixed list.
 #: src/features/lexical/composer/nodes/SlashSlotNode.ts:51
@@ -8266,7 +8266,7 @@ msgstr "Shema boja"
 #. Label above the solid, gradient and holographic choice in the role editor.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:21
 msgid "Color style"
-msgstr ""
+msgstr "Color style"
 
 #. Accessible label for the current color input value.
 #: src/features/ui/components/form/ColorPickerField.tsx:19
@@ -10751,7 +10751,7 @@ msgstr "Cipar"
 #. Writing system covered by a font.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:87
 msgid "Cyrillic"
-msgstr ""
+msgstr "Cyrillic"
 
 #. Short label in the language and locale names. Keep it concise.
 #: src/features/user/utils/LocaleUtils.ts:18
@@ -11679,7 +11679,7 @@ msgstr "Prepoznaj tijekom tipkanja"
 #. Writing system covered by a font.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:93
 msgid "Devanagari"
-msgstr ""
+msgstr "Devanagari"
 
 #. Advanced settings category tag.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
@@ -12978,7 +12978,7 @@ msgstr "Uređivanje poruke"
 #. Label above the display name effect choice.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:39
 msgid "Effect"
-msgstr ""
+msgstr "Effect"
 
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:184
 msgid "Eligible for a refund until {windowEndsOn}."
@@ -16057,12 +16057,12 @@ msgstr "Globalni prečac"
 #. Display name effect: a soft glow around the name.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:67
 msgid "Glow"
-msgstr ""
+msgstr "Glow"
 
 #. Label for the glow color of a display name.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:45
 msgid "Glow color"
-msgstr ""
+msgstr "Glow color"
 
 #. Generic back-navigation label in modals, settings tabs, and nested flows.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:107
@@ -16193,7 +16193,7 @@ msgstr "Poček (i dalje imate pristup)"
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:26
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:66
 msgid "Gradient"
-msgstr ""
+msgstr "Gradient"
 
 #. Button label that starts the native macOS permission request.
 #: src/features/permissions/system/components/modals/MacPermissionsModal.tsx:72
@@ -16425,7 +16425,7 @@ msgstr "Korisničko ime"
 #. Font picker filter: handwriting and script fonts.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:75
 msgid "Handwriting"
-msgstr ""
+msgstr "Handwriting"
 
 #. Report category label, community variant. Keep tone plain.
 #: src/features/moderation/components/report/OptionDescriptors.ts:86
@@ -16906,7 +16906,7 @@ msgstr "Držite za snimanje. Povucite gore za zaključavanje ili otpustite za sl
 #. Role color style: a shiny three-color gradient that moves on hover.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:27
 msgid "Holographic"
-msgstr ""
+msgstr "Holographic"
 
 #. Action label in quick switcher for navigating to the Home tab.
 #: src/features/app/components/layout/MobileBottomNav.tsx:110
@@ -16960,7 +16960,7 @@ msgstr "Zadržite pokazivač iznad gumba za prikaz opisa alata na različitim po
 #. Hint under the display name preview for animated effects.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:54
 msgid "Hover the preview to see the effect move."
-msgstr ""
+msgstr "Hover the preview to see the effect move."
 
 #: src/features/auth/flow/AuthRegisterFormCore.tsx:334
 msgid "How about:"
@@ -18798,12 +18798,12 @@ msgstr "Kasnije"
 #. Writing system covered by a font.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:82
 msgid "Latin"
-msgstr ""
+msgstr "Latin"
 
 #. Writing system covered by a font: accented Latin letters.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:85
 msgid "Latin Extended"
-msgstr ""
+msgstr "Latin Extended"
 
 #. Country name. EU member state in the illegal-content report country dropdown.
 #: src/features/moderation/components/report/OptionDescriptors.ts:171
@@ -19497,7 +19497,7 @@ msgstr "Pošta"
 #. Label for the first display name color.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:40
 msgid "Main color"
-msgstr ""
+msgstr "Main color"
 
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:103
@@ -20251,7 +20251,7 @@ msgstr "Članovi s dopuštenjem \"{mentionEveryonePermissionLabel}\" uvijek mogu
 #. Hint next to the role name preview in the role editor.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:33
 msgid "Members with this role look like this. Hover to see a holographic role move."
-msgstr ""
+msgstr "Members with this role look like this. Hover to see a holographic role move."
 
 #. Description text in the message history threshold content. Preserve {readMessageHistoryPermissionLabel}; it is inserted by code. Keep the tone plain and specific.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/MessageHistoryThresholdContent.tsx:45
@@ -20977,7 +20977,7 @@ msgstr "Moderator"
 #. Font picker filter: monospaced fonts.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:77
 msgid "Mono"
-msgstr ""
+msgstr "Mono"
 
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:138
@@ -21623,12 +21623,12 @@ msgstr "Naziv"
 #. Accessible label for the display name effect tabs.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:59
 msgid "Name effects"
-msgstr ""
+msgstr "Name effects"
 
 #. Warning under the switch that keeps animated display names moving all the time.
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:98
 msgid "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
-msgstr ""
+msgstr "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
 
 #. Form validation error shown when the name field is empty.
 #. Form validation error shown when the name field is empty.
@@ -21670,7 +21670,7 @@ msgstr "Obrazac za imenovanje pristupnog ključa"
 #. Profile settings section title for the display name font, colors and effect.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:24
 msgid "Name style"
-msgstr ""
+msgstr "Name style"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:272
@@ -24443,7 +24443,7 @@ msgstr "Fotografija"
 #. Profile settings section description for the display name style.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:28
 msgid "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
-msgstr ""
+msgstr "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
 
 #. Title of the picker modal when choosing a reverse image search provider.
 #: src/features/search/components/modals/SearchProviderPickerModal.tsx:19
@@ -24653,7 +24653,7 @@ msgstr "PiP"
 #. Font picker filter: pixel and retro fonts.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:76
 msgid "Pixel"
-msgstr ""
+msgstr "Pixel"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:69
@@ -26028,7 +26028,7 @@ msgstr "Smanjeno kretanje je uključeno, tako da su animacije sadržaja pauziran
 #. Description for the animated names switch while reduced motion is active.
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:103
 msgid "Reduced motion is on, so name effects stay still."
-msgstr ""
+msgstr "Reduced motion is on, so name effects stay still."
 
 #. Short label in the theme studio assets section. Keep it concise.
 #: src/features/theme_studio/sections/AssetsSection.tsx:32
@@ -27176,7 +27176,7 @@ msgstr "Poništi položaj medija"
 #. Button that returns the display name to the default font, colors and effect.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:50
 msgid "Reset name style"
-msgstr ""
+msgstr "Reset name style"
 
 #. Short label in the authentication reset password page. Keep the tone plain and specific.
 #: src/features/auth/components/pages/ResetPasswordPage.tsx:19
@@ -27897,7 +27897,7 @@ msgstr "Očisti poveznicu"
 #. Font picker filter: sans-serif fonts.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:72
 msgid "Sans"
-msgstr ""
+msgstr "Sans"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:99
@@ -28587,7 +28587,7 @@ msgstr "Traženje osoba..."
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:31
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:41
 msgid "Second color"
-msgstr ""
+msgstr "Second color"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:112
 msgid "Second option"
@@ -29217,7 +29217,7 @@ msgstr "Serijsko slanje"
 #. Font picker filter: serif fonts.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:73
 msgid "Serif"
-msgstr ""
+msgstr "Serif"
 
 #: src/features/connection/components/modals/AddConnectionModal.tsx:327
 msgid "Serve the token file"
@@ -29660,12 +29660,12 @@ msgstr "Shift proširenje"
 #. Display name effect: a light that sweeps across the name.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:68
 msgid "Shimmer"
-msgstr ""
+msgstr "Shimmer"
 
 #. Label for the color of the light that sweeps across a shimmering display name.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:46
 msgid "Shine color"
-msgstr ""
+msgstr "Shine color"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:109
@@ -30761,7 +30761,7 @@ msgstr "Rasprodano"
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:25
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:65
 msgid "Solid"
-msgstr ""
+msgstr "Solid"
 
 #. Title of the error modal shown after some emoji uploads fail.
 #: src/features/guild/components/modals/guild_tabs/GuildEmojiTab.tsx:69
@@ -33153,7 +33153,7 @@ msgstr "Trenutačno ne prihvaćaju zahtjeve za prijateljstvo."
 #. Third color of a holographic role.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:32
 msgid "Third color"
-msgstr ""
+msgstr "Third color"
 
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:113
 msgid "Third option"
