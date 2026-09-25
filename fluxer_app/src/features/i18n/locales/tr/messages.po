@@ -938,7 +938,7 @@ msgstr "{count, plural, one {# engellenen mesaj} other {# engellenen mesaj}}"
 msgid "{count, plural, one {# community found} other {# communities found}}"
 msgstr "{count, plural, one {# topluluk bulundu} other {# topluluk bulundu}}"
 
-#: src/features/app/components/layout/GuildsLayout.tsx:1953
+#: src/features/app/components/layout/GuildsLayout.tsx:1939
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# topluluk, flux kapasitörü arızası nedeniyle geçici olarak kullanılamıyor.} other {# topluluk, flux kapasitörü arızası nedeniyle geçici olarak kullanılamıyor.}}"
 
@@ -5729,7 +5729,7 @@ msgstr "Yer işareti sınırına ulaşıldı"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:526
-#: src/features/input/state/input_keybind/shared.ts:265
+#: src/features/input/state/input_keybind/shared.ts:261
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:66
 msgid "Bookmark message"
 msgstr "Mesajı yer işaretlerine ekle"
@@ -6542,7 +6542,7 @@ msgid "Category"
 msgstr "Kategori"
 
 #. Title in a modal shown before opening a category with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:187
+#: src/features/channel/components/MatureContentChannelGate.tsx:160
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:39
 msgid "Category content warning"
 msgstr "Kategori içeriği uyarısı"
@@ -7049,7 +7049,7 @@ msgid "Channel badges"
 msgstr "Kanal rozetleri"
 
 #. Title in a modal shown before opening a channel with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:189
+#: src/features/channel/components/MatureContentChannelGate.tsx:162
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:43
 msgid "Channel content warning"
 msgstr "Kanal içeriği uyarısı"
@@ -8459,7 +8459,7 @@ msgid "Community badges"
 msgstr "Topluluk rozetleri"
 
 #. Title in a modal shown before opening a community with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:185
+#: src/features/channel/components/MatureContentChannelGate.tsx:158
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:35
 msgid "Community content warning"
 msgstr "Topluluk içeriği uyarısı"
@@ -8701,7 +8701,7 @@ msgstr "{productName} uygulamasını kullanmaya devam etmek için aşağıdaki d
 msgid "Complete payment"
 msgstr "Ödemeyi tamamla"
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:67
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:64
 msgid "Complete the mature content check to unlock mature media."
 msgstr "Yetişkinlere yönelik medyanın kilidini açmak için yetişkin içeriği kontrolünü tamamlayın."
 
@@ -9504,7 +9504,7 @@ msgstr "Mesajı kopyala"
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:736
-#: src/features/input/state/input_keybind/shared.ts:277
+#: src/features/input/state/input_keybind/shared.ts:273
 msgid "Copy message ID"
 msgstr "Mesaj kimliğini kopyala"
 
@@ -9512,7 +9512,7 @@ msgstr "Mesaj kimliğini kopyala"
 #. IAR modal: quick-action card title.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:518
-#: src/features/input/state/input_keybind/shared.ts:273
+#: src/features/input/state/input_keybind/shared.ts:269
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:389
 msgid "Copy message link"
 msgstr "Mesaj bağlantısını kopyala"
@@ -12205,7 +12205,7 @@ msgstr "{channel} kanalından ayrıl"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Tray menu item. Leaves the current voice call when the channel name is unavailable.
-#: src/features/input/state/input_keybind/shared.ts:317
+#: src/features/input/state/input_keybind/shared.ts:313
 #: src/features/platform/utils/DesktopLocaleBridge.ts:220
 msgid "Disconnect from voice"
 msgstr "Sesten ayrıl"
@@ -12831,11 +12831,11 @@ msgstr "Öğeyi bırak"
 msgid "Drop to upload background"
 msgstr "Arka planı yüklemek için bırakın"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:85
+#: src/features/channel/components/MatureContentChannelGate.tsx:82
 msgid "Due to mature content laws in {regionName}, mature content is blocked until you complete the mature content check."
 msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nedeniyle, yetişkinlere yönelik içerik kontrolünü tamamlayana kadar bu tür içerikler engellenir."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:95
+#: src/features/channel/components/MatureContentChannelGate.tsx:92
 msgid "Due to mature content laws in {regionName}, mature content is not available from here. Mature content checks are available only in the UK."
 msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nedeniyle, buradan yetişkinlere yönelik içeriklere erişilemiyor. Yetişkinlere yönelik içerik kontrolleri yalnızca Birleşik Krallık'ta mevcuttur."
 
@@ -12849,7 +12849,7 @@ msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nede
 msgid "Due to mature content laws in {regionName}, this content is not available from here. Mature content checks are available only in the UK."
 msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nedeniyle bu içerik buradan kullanılamaz. Yetişkinlere yönelik içerik kontrolleri yalnızca Birleşik Krallık'ta mevcuttur."
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:61
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:58
 msgid "Due to mature content laws in {regionName}, this media is not available from your current region."
 msgstr "{regionName} bölgesindeki yetişkinlere yönelik içerik yasaları nedeniyle bu medya, bulunduğunuz bölgeden kullanılamıyor."
 
@@ -14373,7 +14373,7 @@ msgid "Expired between {earliest} and {latest}"
 msgstr "{earliest} ile {latest} arasında sona erdi"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:15
+#: src/features/app/components/shared/ExpiryFootnote.tsx:12
 msgid "Expired on {date}"
 msgstr "{date} tarihinde sona erdi"
 
@@ -14406,7 +14406,7 @@ msgid "Expires in {remaining}s"
 msgstr "{remaining} sn içinde sona eriyor"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:19
+#: src/features/app/components/shared/ExpiryFootnote.tsx:16
 msgid "Expires on {date}"
 msgstr "{date} tarihinde sona eriyor"
 
@@ -16780,11 +16780,6 @@ msgstr "Merhaba, {username}! Aramıza hoş geldin."
 msgid "Help"
 msgstr "Yardım"
 
-#. Short label in the sidebar navigation help button.
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:27
-msgid "Help center"
-msgstr "Yardım merkezi"
-
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:348
 msgid "Help translate {PRODUCT_NAME} into your language on <0>{I18N_WEBLATE_DOMAIN}</0>."
 msgstr "{PRODUCT_NAME}'i <0>{I18N_WEBLATE_DOMAIN}</0> üzerinde dilinize çevirmemize yardım edin."
@@ -16905,7 +16900,7 @@ msgid "Hide download button"
 msgstr "İndirme düğmesini gizle"
 
 #. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:13
+#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
 msgstr "Süre sonu dipnotlarını gizle"
 
@@ -16913,10 +16908,6 @@ msgstr "Süre sonu dipnotlarını gizle"
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Favorileri gizle"
-
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:63
-msgid "Hide help center button"
-msgstr "Yardım merkezi düğmesini gizle"
 
 #. Short label in the system welcome section. Keep it concise.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:32
@@ -17237,7 +17228,7 @@ msgid "I need another way"
 msgstr "Başka bir yola ihtiyacım var"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/channel/components/MatureContentChannelGate.tsx:207
+#: src/features/channel/components/MatureContentChannelGate.tsx:180
 #: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
 msgid "I understand"
 msgstr "Anladım"
@@ -20044,15 +20035,15 @@ msgstr "Massachusetts"
 msgid "Master volume"
 msgstr "Ana ses düzeyi"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:141
+#: src/features/channel/components/MatureContentChannelGate.tsx:130
 msgid "Mature category"
 msgstr "Yetişkinlere özel kategori"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:163
+#: src/features/channel/components/MatureContentChannelGate.tsx:144
 msgid "Mature channel"
 msgstr "Yetişkinlere özel kanal"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:118
+#: src/features/channel/components/MatureContentChannelGate.tsx:115
 msgid "Mature community"
 msgstr "Yetişkinlere özel topluluk"
 
@@ -20093,7 +20084,7 @@ msgstr "Yetişkin içeriği kontrolü gönderildi"
 
 #. Body copy in the mature content check modal when the check is unavailable.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:36
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:71
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:68
 msgid "Mature content checks are currently available only in the UK."
 msgstr "Yetişkinlere yönelik içerik kontrolleri şu anda yalnızca Birleşik Krallık'ta mevcuttur."
 
@@ -20134,7 +20125,7 @@ msgstr "Uygun kısıtlama olmadan yetişkinlere yönelik içerik."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the mature media gate details modal. Keep it concise.
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:26
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:23
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:184
 msgid "Mature media"
 msgstr "Yetişkinlere uygun medya"
@@ -21998,7 +21989,7 @@ msgid "New"
 msgstr "Yeni"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:136
+#: src/features/app/components/layout/GuildsLayout.tsx:135
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Yeni"
@@ -23618,11 +23609,6 @@ msgstr "GIF bağlantısını aç"
 msgid "Open group details for {groupDMName}"
 msgstr "{groupDMName} için grup ayrıntılarını aç"
 
-#. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:233
-msgid "Open help"
-msgstr "Yardımı aç"
-
 #. Action that opens the image URL in an external browser.
 #. Action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/ReverseImageSearchMenuItems.tsx:29
@@ -23772,7 +23758,7 @@ msgid "Open the ban dialog for this community."
 msgstr "Bu topluluk için yasaklama iletişim kutusunu açın."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:241
+#: src/features/input/state/input_keybind/shared.ts:237
 msgid "Open the context menu"
 msgstr "Bağlam menüsünü aç"
 
@@ -23795,7 +23781,7 @@ msgid "Open the verification email and use the link inside. This window updates 
 msgstr "Doğrulama e-postasını açın ve içindeki bağlantıyı kullanın. Bağlantı açıldıktan sonra bu pencere güncellenecektir."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:249
+#: src/features/input/state/input_keybind/shared.ts:245
 msgid "Open theme studio popout"
 msgstr "Tema stüdyosu açılır penceresini aç"
 
@@ -23853,7 +23839,7 @@ msgid "Open your phone's messaging app and start a new text message."
 msgstr "Telefonunuzun mesajlaşma uygulamasını açın ve yeni bir kısa mesaj başlatın."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:245
+#: src/features/input/state/input_keybind/shared.ts:241
 msgid "Open your settings"
 msgstr "Ayarları aç"
 
@@ -25771,21 +25757,21 @@ msgid "Push timeout"
 msgstr "Anlık bildirim zaman aşımı"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:297
+#: src/features/input/state/input_keybind/shared.ts:293
 msgid "Push to mute"
 msgstr "Sesi kapatmak için basılı tut"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/input/state/input_keybind/shared.ts:289
+#: src/features/input/state/input_keybind/shared.ts:285
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:162
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:86
 msgid "Push to talk"
 msgstr "Bas konuş"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:293
+#: src/features/input/state/input_keybind/shared.ts:289
 msgid "Push to talk (priority)"
 msgstr "Bas konuş (öncelikli)"
 
@@ -27476,7 +27462,7 @@ msgstr "Varsayılanlara sıfırla"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Label for controls that reset app zoom to 100%, including the app zoom slider button.
-#: src/features/input/state/input_keybind/shared.ts:261
+#: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/user/components/modals/tabs/appearance_tab/ScalingTab.tsx:38
 msgid "Reset zoom"
 msgstr "Yakınlaştırmayı sıfırla"
@@ -28678,7 +28664,7 @@ msgstr "Dilleri ara…"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:137
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:480
 #: src/features/channel/components/message_search_bar/MessageSearchBar.tsx:56
-#: src/features/input/state/input_keybind/shared.ts:237
+#: src/features/input/state/input_keybind/shared.ts:233
 msgid "Search messages"
 msgstr "Mesajları ara"
 
@@ -29366,7 +29352,7 @@ msgstr "Doğrulama kodu gönder"
 #. Plus menu item that opens the desktop voice message composer to record and send a voice clip.
 #: src/features/channel/components/textarea/TextareaPlusMenu.tsx:35
 #: src/features/channel/components/VoiceMessageRecorder.tsx:69
-#: src/features/input/state/input_keybind/shared.ts:285
+#: src/features/input/state/input_keybind/shared.ts:281
 msgid "Send voice message"
 msgstr "Sesli mesaj gönder"
 
@@ -32405,7 +32391,7 @@ msgid "Switch to…"
 msgstr "Şuraya geç…"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:313
+#: src/features/input/state/input_keybind/shared.ts:309
 msgid "Switch voice channel"
 msgstr "Sesli kanalı değiştir"
 
@@ -33459,7 +33445,7 @@ msgid "This category already contains the maximum of {maxChannelsPerCategory} ch
 msgstr "Bu kategori zaten maksimum {maxChannelsPerCategory} kanal içeriyor."
 
 #. Body in the channel gate modal for a mature category when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:254
+#: src/features/channel/components/MatureContentChannelGate.tsx:227
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:76
 msgid "This category is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Bu kategori yetişkinlere yönelik içerik olarak işaretlenmiştir ve bazı kullanıcılar için uygunsuz olabilecek materyaller içerebilir."
@@ -33487,7 +33473,7 @@ msgid "This channel doesn't have any invite links yet. Create one to invite peop
 msgstr "Bu kanalın henüz davet bağlantısı yok. Bu kanala kişi davet etmek için bir tane oluşturun."
 
 #. Body in the channel gate modal for a mature text channel when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:282
+#: src/features/channel/components/MatureContentChannelGate.tsx:255
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:91
 msgid "This channel is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Bu kanal yetişkinlere yönelik içerik olarak işaretlenmiştir ve bazı kullanıcılar için uygunsuz olabilecek materyaller içerebilir."
@@ -33576,7 +33562,7 @@ msgid "This community is full"
 msgstr "Bu topluluk dolu"
 
 #. Body in the channel gate modal for a mature community when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:225
+#: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Bu topluluk yetişkinlere yönelik içerik olarak işaretlenmiştir ve bazı kullanıcılar için uygunsuz olabilecek materyaller içerebilir."
@@ -33844,35 +33830,26 @@ msgid "This link is not available for your account."
 msgstr "Bu bağlantı hesabınız için kullanılamıyor."
 
 #. Body in the channel gate modal when the current user cannot access a mature category.
+#: src/features/channel/components/MatureContentChannelGate.tsx:136
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:63
 msgid "This mature category is not available to your account."
 msgstr "Bu yetişkinlere özel kategori hesabınız için kullanılamıyor."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:147
-msgid "This mature category is not available to your account. <0>Learn more</0>"
-msgstr "Bu yetişkinlere özel kategori hesabınız için kullanılamıyor. <0>Daha fazla bilgi edinin</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature channel.
+#: src/features/channel/components/MatureContentChannelGate.tsx:150
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:67
 msgid "This mature channel is not available to your account."
 msgstr "Bu yetişkinlere özel kanal hesabınız için kullanılamıyor."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:169
-msgid "This mature channel is not available to your account. <0>Learn more</0>"
-msgstr "Bu yetişkinlere özel kanal hesabınız için kullanılamıyor. <0>Daha fazla bilgi edinin</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature community.
+#: src/features/channel/components/MatureContentChannelGate.tsx:121
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:59
 msgid "This mature community is not available to your account."
 msgstr "Bu yetişkinlere özel topluluk hesabınız için kullanılamıyor."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:124
-msgid "This mature community is not available to your account. <0>Learn more</0>"
-msgstr "Bu yetişkinlere özel topluluk hesabınız için kullanılamıyor. <0>Daha fazla bilgi edinin</0>"
-
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:106
-msgid "This mature media is not available to your account. <0>Learn more</0>"
-msgstr "Bu yetişkinlere özel medya hesabınız için kullanılamıyor. <0>Daha fazla bilgi edinin</0>"
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:103
+msgid "This mature media is not available to your account."
+msgstr "Bu yetişkinlere özel medya hesabınız için kullanılamıyor."
 
 #. Body of the error modal shown when a voice moderation action targets a member who no longer exists.
 #: src/features/app/components/alerts/VoiceMemberModerationFailedModal.tsx:33
@@ -34364,7 +34341,7 @@ msgid "Toggle between last community and DMs"
 msgstr "Son topluluk ve DM'ler arasında geçiş yap"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:309
+#: src/features/input/state/input_keybind/shared.ts:305
 msgid "Toggle camera"
 msgstr "Kamerayı aç/kapat"
 
@@ -34384,7 +34361,7 @@ msgid "Toggle developer tools"
 msgstr "Geliştirici araçlarını aç/kapat"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:269
+#: src/features/input/state/input_keybind/shared.ts:265
 msgid "Toggle embed suppression"
 msgstr "Gömülü içeriği gizle/göster"
 
@@ -34416,7 +34393,7 @@ msgid "Toggle quick switcher"
 msgstr "Hızlı geçişi aç/kapat"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:281
+#: src/features/input/state/input_keybind/shared.ts:277
 msgid "Toggle saved media"
 msgstr "Kayıtlı medyayı aç/kapat"
 
@@ -34460,7 +34437,7 @@ msgid "Toggle the sticker picker"
 msgstr "Çıkartma seçiciyi aç/kapat"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:305
+#: src/features/input/state/input_keybind/shared.ts:301
 msgid "Toggle voice activity"
 msgstr "Ses etkinliğini aç/kapat"
 
@@ -37367,11 +37344,6 @@ msgstr "Hediyeleri görüntüle"
 msgid "View global profile"
 msgstr "Genel profili görüntüle"
 
-#. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:17
-msgid "View help article"
-msgstr "Yardım makalesini görüntüle"
-
 #. Button on the connection banner when an incident is ongoing. Opens that incident on the status page.
 #: src/features/app/hooks/useConnectionNotice.ts:48
 msgid "View incident details"
@@ -37605,7 +37577,7 @@ msgid "Voice activity on active now"
 msgstr "Şu an aktif'te ses etkinliği"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:301
+#: src/features/input/state/input_keybind/shared.ts:297
 msgid "Voice activity priority"
 msgstr "Ses etkinliği önceliği"
 
@@ -40005,7 +39977,7 @@ msgstr "Büyüt"
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:627
-#: src/features/input/state/input_keybind/shared.ts:253
+#: src/features/input/state/input_keybind/shared.ts:249
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
 msgid "Zoom in"
@@ -40016,7 +39988,7 @@ msgstr "Yakınlaştır"
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:623
-#: src/features/input/state/input_keybind/shared.ts:257
+#: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86
 msgid "Zoom out"

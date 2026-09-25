@@ -39,7 +39,6 @@ import {
 	MOVE_BACK_THROUGH_VIEWED_CHANNEL_HISTORY_DESCRIPTOR,
 	MOVE_DESCRIPTOR,
 	MOVE_FORWARD_THROUGH_VIEWED_CHANNEL_HISTORY_DESCRIPTOR,
-	OPEN_HELP_DESCRIPTOR,
 	OPEN_THE_CONTEXT_MENU_DESCRIPTOR,
 	OPEN_THEME_STUDIO_POPOUT_DESCRIPTOR,
 	OPEN_YOUR_SETTINGS_DESCRIPTOR,
@@ -174,7 +173,6 @@ const KEYBIND_COMMAND_VALUES = [
 	'voice_start_dm_call',
 	'voice_toggle_soundboard',
 	'voice_toggle_compact_call_view',
-	'misc_help',
 	'misc_search',
 	'misc_open_context_menu',
 	'message_bookmark',
@@ -799,12 +797,6 @@ const getDefaultKeybinds = (
 			preventDefaultInEditable: true,
 			assignable: true,
 			section: 'voice_and_video',
-		},
-		{
-			action: 'misc_help',
-			label: i18n._(OPEN_HELP_DESCRIPTOR),
-			combo: {key: 'h', ctrlOrMeta: true, shift: true},
-			section: 'misc',
 		},
 		{
 			action: 'misc_search',

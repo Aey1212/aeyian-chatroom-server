@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import * as Modal from '@app/features/app/components/dialogs/Modal';
-import {ExternalLink} from '@app/features/app/components/shared/ExternalLink';
-import {HelpCenterArticleSlug} from '@app/features/app/config/HelpCenterConstants';
 import {MatureContentCheckModal} from '@app/features/auth/components/modals/MatureContentCheckModal';
 import {MatureContentGateReason} from '@app/features/guild/state/GuildMatureContentAgree';
 import {
@@ -16,7 +14,6 @@ import {
 import {Button} from '@app/features/ui/button/Button';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {modal} from '@app/features/ui/commands/ModalCommands';
-import * as HelpCenterUtils from '@app/features/ui/utils/HelpCenterUtils';
 import {getRegionDisplayName} from '@app/features/user/utils/UserGeo';
 import {msg} from '@lingui/core/macro';
 import {Trans, useLingui} from '@lingui/react/macro';
@@ -103,15 +100,7 @@ export const MatureMediaGateDetailsModal = observer(({reason}: MatureMediaGateDe
 			<Modal.Content data-flx="moderation.mature-media-gate-details-modal.modal-content--2">
 				<Modal.ContentLayout data-flx="moderation.mature-media-gate-details-modal.modal-content-layout--2">
 					<Modal.Description data-flx="moderation.mature-media-gate-details-modal.modal-description--4">
-						<Trans>
-							This mature media is not available to your account.{' '}
-							<ExternalLink
-								href={HelpCenterUtils.getURL(HelpCenterArticleSlug.ChangeDateOfBirth)}
-								data-flx="moderation.mature-media-gate-details-modal.external-link"
-							>
-								Learn more
-							</ExternalLink>
-						</Trans>
+						<Trans>This mature media is not available to your account.</Trans>
 					</Modal.Description>
 				</Modal.ContentLayout>
 			</Modal.Content>

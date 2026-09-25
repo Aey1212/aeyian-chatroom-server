@@ -119,7 +119,7 @@ export const UserProfileBadges: React.FC<UserProfileBadgesProps> = observer(
 			}
 			if (!selfHosted && profile?.premiumType && profile.premiumType !== UserPremiumTypes.NONE) {
 				let tooltipText = PREMIUM_PRODUCT_FULL_NAME;
-				let badgeUrl = Routes.plutonium();
+				const badgeUrl = Routes.plutonium();
 				if (profile.premiumType === UserPremiumTypes.LIFETIME) {
 					if (profile.premiumSince) {
 						const premiumSinceFormatted = DateUtils.getFormattedShortDate(profile.premiumSince);
@@ -127,7 +127,6 @@ export const UserProfileBadges: React.FC<UserProfileBadgesProps> = observer(
 					} else {
 						tooltipText = i18n._(VISIONARY_DESCRIPTOR, {productName: PRODUCT_NAME});
 					}
-					badgeUrl = Routes.helpArticle('visionary');
 				} else if (profile.premiumSince) {
 					const premiumSinceFormatted = DateUtils.getFormattedShortDate(profile.premiumSince);
 					tooltipText = i18n._(SUBSCRIBER_SINCE_DESCRIPTOR, {

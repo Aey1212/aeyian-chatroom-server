@@ -938,7 +938,7 @@ msgstr "{count, plural, one {# užblokuota žinutė} few {# užblokuotos žinut�
 msgid "{count, plural, one {# community found} other {# communities found}}"
 msgstr "{count, plural, one {Rasta # bendruomenė} few {Rastos # bendruomenės} other {Rasta # bendruomenių}}"
 
-#: src/features/app/components/layout/GuildsLayout.tsx:1953
+#: src/features/app/components/layout/GuildsLayout.tsx:1939
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# bendruomenė laikinai nepasiekiama dėl srauto kondensatoriaus gedimo.} few {# bendruomenės laikinai nepasiekiamos dėl srauto kondensatoriaus gedimo.} other {# bendruomenių laikinai nepasiekiama dėl srauto kondensatoriaus gedimo.}}"
 
@@ -5729,7 +5729,7 @@ msgstr "Pasiektas žymių limitas"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:526
-#: src/features/input/state/input_keybind/shared.ts:265
+#: src/features/input/state/input_keybind/shared.ts:261
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:66
 msgid "Bookmark message"
 msgstr "Pažymėti žinutę"
@@ -6542,7 +6542,7 @@ msgid "Category"
 msgstr "Kategorija"
 
 #. Title in a modal shown before opening a category with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:187
+#: src/features/channel/components/MatureContentChannelGate.tsx:160
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:39
 msgid "Category content warning"
 msgstr "Kategorijos turinio įspėjimas"
@@ -7049,7 +7049,7 @@ msgid "Channel badges"
 msgstr "Kanalo ženkleliai"
 
 #. Title in a modal shown before opening a channel with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:189
+#: src/features/channel/components/MatureContentChannelGate.tsx:162
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:43
 msgid "Channel content warning"
 msgstr "Kanalo turinio įspėjimas"
@@ -8459,7 +8459,7 @@ msgid "Community badges"
 msgstr "Bendruomenių ženkleliai"
 
 #. Title in a modal shown before opening a community with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:185
+#: src/features/channel/components/MatureContentChannelGate.tsx:158
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:35
 msgid "Community content warning"
 msgstr "Bendruomenės turinio įspėjimas"
@@ -8701,7 +8701,7 @@ msgstr "Norėdami toliau naudotis „{productName}“, atlikite vieną iš tolia
 msgid "Complete payment"
 msgstr "Užbaigti mokėjimą"
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:67
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:64
 msgid "Complete the mature content check to unlock mature media."
 msgstr "Užbaikite brandaus turinio patikrą, kad atrakintumėte brandžią mediją."
 
@@ -9504,7 +9504,7 @@ msgstr "Kopijuoti žinutę"
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:736
-#: src/features/input/state/input_keybind/shared.ts:277
+#: src/features/input/state/input_keybind/shared.ts:273
 msgid "Copy message ID"
 msgstr "Kopijuoti žinutės ID"
 
@@ -9512,7 +9512,7 @@ msgstr "Kopijuoti žinutės ID"
 #. IAR modal: quick-action card title.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:518
-#: src/features/input/state/input_keybind/shared.ts:273
+#: src/features/input/state/input_keybind/shared.ts:269
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:389
 msgid "Copy message link"
 msgstr "Kopijuoti žinutės nuorodą"
@@ -12205,7 +12205,7 @@ msgstr "Atsijungti nuo „{channel}“"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Tray menu item. Leaves the current voice call when the channel name is unavailable.
-#: src/features/input/state/input_keybind/shared.ts:317
+#: src/features/input/state/input_keybind/shared.ts:313
 #: src/features/platform/utils/DesktopLocaleBridge.ts:220
 msgid "Disconnect from voice"
 msgstr "Atsijungti nuo balso pokalbio"
@@ -12831,11 +12831,11 @@ msgstr "Numesti elementą"
 msgid "Drop to upload background"
 msgstr "Nuvilkite, kad įkeltumėte foną"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:85
+#: src/features/channel/components/MatureContentChannelGate.tsx:82
 msgid "Due to mature content laws in {regionName}, mature content is blocked until you complete the mature content check."
 msgstr "Dėl brandaus turinio įstatymų, galiojančių regione „{regionName}“, brandus turinys blokuojamas, kol neatliksite brandaus turinio patikros."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:95
+#: src/features/channel/components/MatureContentChannelGate.tsx:92
 msgid "Due to mature content laws in {regionName}, mature content is not available from here. Mature content checks are available only in the UK."
 msgstr "Dėl brandaus turinio įstatymų, galiojančių regione „{regionName}“, brandus turinys iš čia nepasiekiamas. Brandaus turinio patikros galimos tik Jungtinėje Karalystėje."
 
@@ -12849,7 +12849,7 @@ msgstr "Dėl brandaus turinio įstatymų, galiojančių regione „{regionName}�
 msgid "Due to mature content laws in {regionName}, this content is not available from here. Mature content checks are available only in the UK."
 msgstr "Dėl brandaus turinio įstatymų, galiojančių regione „{regionName}“, šis turinys iš čia nepasiekiamas. Brandaus turinio patikros galimos tik Jungtinėje Karalystėje."
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:61
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:58
 msgid "Due to mature content laws in {regionName}, this media is not available from your current region."
 msgstr "Dėl brandaus turinio įstatymų, galiojančių regione „{regionName}“, ši medija nepasiekiama jūsų dabartiniame regione."
 
@@ -14373,7 +14373,7 @@ msgid "Expired between {earliest} and {latest}"
 msgstr "Baigėsi tarp {earliest} ir {latest}"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:15
+#: src/features/app/components/shared/ExpiryFootnote.tsx:12
 msgid "Expired on {date}"
 msgstr "Baigėsi {date}"
 
@@ -14406,7 +14406,7 @@ msgid "Expires in {remaining}s"
 msgstr "Baigs galioti po {remaining} s"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:19
+#: src/features/app/components/shared/ExpiryFootnote.tsx:16
 msgid "Expires on {date}"
 msgstr "Baigiasi {date}"
 
@@ -16780,11 +16780,6 @@ msgstr "Sveiki, {username}! Malonu, kad prisijungėte."
 msgid "Help"
 msgstr "Pagalba"
 
-#. Short label in the sidebar navigation help button.
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:27
-msgid "Help center"
-msgstr "Pagalbos centras"
-
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:348
 msgid "Help translate {PRODUCT_NAME} into your language on <0>{I18N_WEBLATE_DOMAIN}</0>."
 msgstr "Padėkite išversti {PRODUCT_NAME} į savo kalbą svetainėje <0>{I18N_WEBLATE_DOMAIN}</0>."
@@ -16905,7 +16900,7 @@ msgid "Hide download button"
 msgstr "Slėpti atsisiuntimo mygtuką"
 
 #. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:13
+#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
 msgstr "Slėpti galiojimo pabaigos išnašas"
 
@@ -16913,10 +16908,6 @@ msgstr "Slėpti galiojimo pabaigos išnašas"
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Slėpti mėgstamiausius"
-
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:63
-msgid "Hide help center button"
-msgstr "Slėpti pagalbos centro mygtuką"
 
 #. Short label in the system welcome section. Keep it concise.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:32
@@ -17237,7 +17228,7 @@ msgid "I need another way"
 msgstr "Man reikia kito būdo"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/channel/components/MatureContentChannelGate.tsx:207
+#: src/features/channel/components/MatureContentChannelGate.tsx:180
 #: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
 msgid "I understand"
 msgstr "Supratau"
@@ -20044,15 +20035,15 @@ msgstr "Masačusetsas"
 msgid "Master volume"
 msgstr "Pagrindinis garsumas"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:141
+#: src/features/channel/components/MatureContentChannelGate.tsx:130
 msgid "Mature category"
 msgstr "Brandaus turinio kategorija"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:163
+#: src/features/channel/components/MatureContentChannelGate.tsx:144
 msgid "Mature channel"
 msgstr "Brandaus turinio kanalas"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:118
+#: src/features/channel/components/MatureContentChannelGate.tsx:115
 msgid "Mature community"
 msgstr "Brandaus turinio bendruomenė"
 
@@ -20093,7 +20084,7 @@ msgstr "Brandaus turinio patikra išsiųsta"
 
 #. Body copy in the mature content check modal when the check is unavailable.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:36
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:71
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:68
 msgid "Mature content checks are currently available only in the UK."
 msgstr "Brandaus turinio patikros šiuo metu galimos tik JK."
 
@@ -20134,7 +20125,7 @@ msgstr "Brandus turinys be tinkamo filtravimo."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the mature media gate details modal. Keep it concise.
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:26
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:23
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:184
 msgid "Mature media"
 msgstr "Brandi medija"
@@ -21998,7 +21989,7 @@ msgid "New"
 msgstr "Nauja"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:136
+#: src/features/app/components/layout/GuildsLayout.tsx:135
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Nauja"
@@ -23618,11 +23609,6 @@ msgstr "Atidaryti GIF nuorodą"
 msgid "Open group details for {groupDMName}"
 msgstr "Atidaryti grupės „{groupDMName}“ išsamią informaciją"
 
-#. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:233
-msgid "Open help"
-msgstr "Atidaryti žinyną"
-
 #. Action that opens the image URL in an external browser.
 #. Action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/ReverseImageSearchMenuItems.tsx:29
@@ -23772,7 +23758,7 @@ msgid "Open the ban dialog for this community."
 msgstr "Atidaryti užblokavimo dialogo langą šioje bendruomenėje."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:241
+#: src/features/input/state/input_keybind/shared.ts:237
 msgid "Open the context menu"
 msgstr "Atidaryti kontekstinį meniu"
 
@@ -23795,7 +23781,7 @@ msgid "Open the verification email and use the link inside. This window updates 
 msgstr "Atidarykite patvirtinimo el. laišką ir pasinaudokite jame esančia nuoroda. Šis langas atsinaujins atidarius nuorodą."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:249
+#: src/features/input/state/input_keybind/shared.ts:245
 msgid "Open theme studio popout"
 msgstr "Atidaryti temų studijos iššokantįjį langą"
 
@@ -23853,7 +23839,7 @@ msgid "Open your phone's messaging app and start a new text message."
 msgstr "Atidarykite telefono žinučių programėlę ir pradėkite naują tekstinę žinutę."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:245
+#: src/features/input/state/input_keybind/shared.ts:241
 msgid "Open your settings"
 msgstr "Atidaryti savo nustatymus"
 
@@ -25771,21 +25757,21 @@ msgid "Push timeout"
 msgstr "Pranešimų delsos laikas"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:297
+#: src/features/input/state/input_keybind/shared.ts:293
 msgid "Push to mute"
 msgstr "Nutildyti paspaudus"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/input/state/input_keybind/shared.ts:289
+#: src/features/input/state/input_keybind/shared.ts:285
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:162
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:86
 msgid "Push to talk"
 msgstr "Kalbėti paspaudus"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:293
+#: src/features/input/state/input_keybind/shared.ts:289
 msgid "Push to talk (priority)"
 msgstr "Kalbėti paspaudus (prioritetinis)"
 
@@ -27476,7 +27462,7 @@ msgstr "Atkurti numatytuosius nustatymus"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Label for controls that reset app zoom to 100%, including the app zoom slider button.
-#: src/features/input/state/input_keybind/shared.ts:261
+#: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/user/components/modals/tabs/appearance_tab/ScalingTab.tsx:38
 msgid "Reset zoom"
 msgstr "Atkurti mastelį"
@@ -28678,7 +28664,7 @@ msgstr "Ieškoti kalbų…"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:137
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:480
 #: src/features/channel/components/message_search_bar/MessageSearchBar.tsx:56
-#: src/features/input/state/input_keybind/shared.ts:237
+#: src/features/input/state/input_keybind/shared.ts:233
 msgid "Search messages"
 msgstr "Ieškoti žinučių"
 
@@ -29366,7 +29352,7 @@ msgstr "Siųsti patvirtinimo kodą"
 #. Plus menu item that opens the desktop voice message composer to record and send a voice clip.
 #: src/features/channel/components/textarea/TextareaPlusMenu.tsx:35
 #: src/features/channel/components/VoiceMessageRecorder.tsx:69
-#: src/features/input/state/input_keybind/shared.ts:285
+#: src/features/input/state/input_keybind/shared.ts:281
 msgid "Send voice message"
 msgstr "Siųsti balso žinutę"
 
@@ -32405,7 +32391,7 @@ msgid "Switch to…"
 msgstr "Perjungti į…"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:313
+#: src/features/input/state/input_keybind/shared.ts:309
 msgid "Switch voice channel"
 msgstr "Perjungti balso kanalą"
 
@@ -33459,7 +33445,7 @@ msgid "This category already contains the maximum of {maxChannelsPerCategory} ch
 msgstr "Šioje kategorijoje jau yra didžiausias leistinas kanalų skaičius: {maxChannelsPerCategory}."
 
 #. Body in the channel gate modal for a mature category when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:254
+#: src/features/channel/components/MatureContentChannelGate.tsx:227
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:76
 msgid "This category is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Ši kategorija pažymėta kaip skirta brandžiam turiniui ir joje gali būti medžiagos, kuri kai kuriems naudotojams gali būti netinkama."
@@ -33487,7 +33473,7 @@ msgid "This channel doesn't have any invite links yet. Create one to invite peop
 msgstr "Šis kanalas dar neturi jokių kvietimo nuorodų. Sukurkite ją, kad pakviestumėte žmones į šį kanalą."
 
 #. Body in the channel gate modal for a mature text channel when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:282
+#: src/features/channel/components/MatureContentChannelGate.tsx:255
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:91
 msgid "This channel is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Šis kanalas pažymėtas kaip skirtas brandžiam turiniui ir jame gali būti medžiagos, kuri kai kuriems naudotojams gali būti netinkama."
@@ -33576,7 +33562,7 @@ msgid "This community is full"
 msgstr "Ši bendruomenė pilna"
 
 #. Body in the channel gate modal for a mature community when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:225
+#: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Ši bendruomenė pažymėta kaip skirta brandžiam turiniui ir joje gali būti medžiagos, kuri kai kuriems naudotojams gali būti netinkama."
@@ -33844,35 +33830,26 @@ msgid "This link is not available for your account."
 msgstr "Ši nuoroda nepasiekiama jūsų paskyrai."
 
 #. Body in the channel gate modal when the current user cannot access a mature category.
+#: src/features/channel/components/MatureContentChannelGate.tsx:136
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:63
 msgid "This mature category is not available to your account."
 msgstr "Ši brandaus turinio kategorija nepasiekiama jūsų paskyrai."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:147
-msgid "This mature category is not available to your account. <0>Learn more</0>"
-msgstr "Ši brandaus turinio kategorija nepasiekiama jūsų paskyrai. <0>Sužinoti daugiau</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature channel.
+#: src/features/channel/components/MatureContentChannelGate.tsx:150
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:67
 msgid "This mature channel is not available to your account."
 msgstr "Šis brandaus turinio kanalas nepasiekiamas jūsų paskyrai."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:169
-msgid "This mature channel is not available to your account. <0>Learn more</0>"
-msgstr "Šis brandaus turinio kanalas nepasiekiamas jūsų paskyrai. <0>Sužinoti daugiau</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature community.
+#: src/features/channel/components/MatureContentChannelGate.tsx:121
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:59
 msgid "This mature community is not available to your account."
 msgstr "Ši brandaus turinio bendruomenė nepasiekiama jūsų paskyrai."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:124
-msgid "This mature community is not available to your account. <0>Learn more</0>"
-msgstr "Ši brandaus turinio bendruomenė nepasiekiama jūsų paskyrai. <0>Sužinoti daugiau</0>"
-
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:106
-msgid "This mature media is not available to your account. <0>Learn more</0>"
-msgstr "Ši brandi medija nepasiekiama jūsų paskyrai. <0>Sužinoti daugiau</0>"
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:103
+msgid "This mature media is not available to your account."
+msgstr "Ši brandi medija nepasiekiama jūsų paskyrai."
 
 #. Body of the error modal shown when a voice moderation action targets a member who no longer exists.
 #: src/features/app/components/alerts/VoiceMemberModerationFailedModal.tsx:33
@@ -34364,7 +34341,7 @@ msgid "Toggle between last community and DMs"
 msgstr "Perjungti tarp paskutinės bendruomenės ir tiesioginių žinučių"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:309
+#: src/features/input/state/input_keybind/shared.ts:305
 msgid "Toggle camera"
 msgstr "Perjungti kamerą"
 
@@ -34384,7 +34361,7 @@ msgid "Toggle developer tools"
 msgstr "Perjungti kūrėjo įrankius"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:269
+#: src/features/input/state/input_keybind/shared.ts:265
 msgid "Toggle embed suppression"
 msgstr "Perjungti įterptųjų elementų slopinimą"
 
@@ -34416,7 +34393,7 @@ msgid "Toggle quick switcher"
 msgstr "Perjungti greitąjį perjungiklį"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:281
+#: src/features/input/state/input_keybind/shared.ts:277
 msgid "Toggle saved media"
 msgstr "Perjungti išsaugotą mediją"
 
@@ -34460,7 +34437,7 @@ msgid "Toggle the sticker picker"
 msgstr "Perjungti lipdukų parinkiklį"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:305
+#: src/features/input/state/input_keybind/shared.ts:301
 msgid "Toggle voice activity"
 msgstr "Perjungti balso aktyvumą"
 
@@ -37367,11 +37344,6 @@ msgstr "Peržiūrėti dovanas"
 msgid "View global profile"
 msgstr "Peržiūrėti visuotinį profilį"
 
-#. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:17
-msgid "View help article"
-msgstr "Peržiūrėti pagalbos straipsnį"
-
 #. Button on the connection banner when an incident is ongoing. Opens that incident on the status page.
 #: src/features/app/hooks/useConnectionNotice.ts:48
 msgid "View incident details"
@@ -37605,7 +37577,7 @@ msgid "Voice activity on active now"
 msgstr "Balso aktyvumas skiltyje „Aktyvūs dabar“"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:301
+#: src/features/input/state/input_keybind/shared.ts:297
 msgid "Voice activity priority"
 msgstr "Balso aktyvumo prioritetas"
 
@@ -40005,7 +39977,7 @@ msgstr "Padidinti"
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:627
-#: src/features/input/state/input_keybind/shared.ts:253
+#: src/features/input/state/input_keybind/shared.ts:249
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
 msgid "Zoom in"
@@ -40016,7 +39988,7 @@ msgstr "Didinti"
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:623
-#: src/features/input/state/input_keybind/shared.ts:257
+#: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86
 msgid "Zoom out"

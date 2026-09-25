@@ -2,10 +2,7 @@
 
 import styles from '@app/features/app/components/shared/ExpiryFootnote.module.css';
 import {ExpiryFootnoteContextMenu} from '@app/features/app/components/shared/ExpiryFootnoteContextMenu';
-import {HelpCenterArticleSlug} from '@app/features/app/config/HelpCenterConstants';
 import * as ContextMenuCommands from '@app/features/ui/commands/ContextMenuCommands';
-import FocusRing from '@app/features/ui/focus_ring/FocusRing';
-import * as HelpCenterUtils from '@app/features/ui/utils/HelpCenterUtils';
 import {getFormattedShortDate} from '@app/features/user/utils/DateFormatting';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
@@ -31,8 +28,7 @@ interface ExpiryFootnoteProps {
 
 export const ExpiryFootnote: FC<ExpiryFootnoteProps> = ({expiresAt, isExpired, label, className, inline = false}) => {
 	const {i18n} = useLingui();
-	const helpUrl = HelpCenterUtils.getURL(HelpCenterArticleSlug.AttachmentExpiry);
-	const handleContextMenu = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
+	const handleContextMenu = useCallback((event: MouseEvent<HTMLSpanElement>) => {
 		ContextMenuCommands.openFromEvent(event, () => (
 			<ExpiryFootnoteContextMenu data-flx="app.expiry-footnote.handle-context-menu.expiry-footnote-context-menu" />
 		));
@@ -47,18 +43,14 @@ export const ExpiryFootnote: FC<ExpiryFootnoteProps> = ({expiresAt, isExpired, l
 		}
 	}
 	return (
-		<FocusRing data-flx="app.expiry-footnote.focus-ring">
-			<a
-				className={clsx(inline ? styles.inlineFootnote : styles.footnote, className)}
-				href={helpUrl}
-				onContextMenu={handleContextMenu}
-				target="_blank"
-				rel="noreferrer"
-				data-message-copy-hidden="true"
-				data-flx="app.expiry-footnote.inline-footnote.context-menu"
-			>
-				{resolved}
-			</a>
-		</FocusRing>
+		// biome-ignore lint/a11y/noStaticElementInteractions: right-click is a shortcut to hide these notes; the same switch is in Advanced settings.
+		<span
+			className={clsx(inline ? styles.inlineFootnote : styles.footnote, className)}
+			onContextMenu={handleContextMenu}
+			data-message-copy-hidden="true"
+			data-flx="app.expiry-footnote.inline-footnote.context-menu"
+		>
+			{resolved}
+		</span>
 	);
 };

@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {Routes} from '@app/app/Routes';
 import Accessibility from '@app/features/accessibility/state/Accessibility';
 import {ConfirmModal} from '@app/features/app/components/dialogs/ConfirmModal';
 import type {HandlerHost} from '@app/features/app/keybindings/keybind_manager/handlers/types';
@@ -24,7 +23,6 @@ import Keybind, {type KeybindCommand} from '@app/features/input/state/InputKeybi
 import MessageEdit from '@app/features/messaging/state/MessageEdit';
 import SavedMessages from '@app/features/messaging/state/SavedMessages';
 import {focusChannelTextareaFromKeybind} from '@app/features/messaging/utils/ChannelTextareaFocusUtils';
-import {openExternalUrlWithWarning} from '@app/features/messaging/utils/ExternalLinkUtils';
 import {buildChannelLink} from '@app/features/messaging/utils/MessageLinkUtils';
 import {goToMessage} from '@app/features/messaging/utils/MessageNavigator';
 import Navigation from '@app/features/navigation/state/Navigation';
@@ -122,10 +120,6 @@ export function registerDefaultKeybindHandlers(host: HandlerHost, i18n: I18n): v
 			modal(() => React.createElement(KeyboardShortcutsCheatsheetModal)),
 			KEYBOARD_SHORTCUTS_CHEATSHEET_MODAL_KEY,
 		);
-	});
-	host.register('misc_help', ({type}) => {
-		if (type !== 'press') return;
-		openExternalUrlWithWarning(Routes.help());
 	});
 	host.register('misc_search', ({type}) => {
 		if (type !== 'press') return;

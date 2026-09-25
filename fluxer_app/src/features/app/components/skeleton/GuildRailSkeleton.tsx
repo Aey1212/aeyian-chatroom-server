@@ -26,7 +26,6 @@ import {
 	type Icon,
 	type IconWeight,
 	PlusIcon,
-	QuestionMarkIcon,
 	StarIcon,
 } from '@phosphor-icons/react';
 import type React from 'react';
@@ -472,22 +471,18 @@ export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({
 	const discoveryVisible = rememberedLayout?.discoveryVisible ?? communityActionsAvailable;
 	const addGuildVisible = rememberedLayout?.addGuildVisible ?? communityActionsAvailable;
 	const downloadVisible = rememberedLayout?.downloadVisible ?? SHOWS_DOWNLOAD_ACTION;
-	const helpVisible = rememberedLayout?.helpVisible ?? true;
 	const hasGuildItems = outageVisible || organizedItems.length > 0;
 	const fluxerIsLastTopRow = fluxerVisible && !favoritesVisible && inlineDmRowCount === 0;
-	const hasBottomRailButtons = discoveryVisible || addGuildVisible || downloadVisible || helpVisible;
+	const hasBottomRailButtons = discoveryVisible || addGuildVisible || downloadVisible;
 	const itemsEndWithoutGap = outageVisible && organizedItems.length === 0 && hasBottomRailButtons;
 	let guildsSectionTrailingGap: boolean;
-	if (helpVisible) {
-		guildsSectionTrailingGap = false;
-	} else if (discoveryVisible || addGuildVisible || downloadVisible) {
+	if (discoveryVisible || addGuildVisible || downloadVisible) {
 		guildsSectionTrailingGap = true;
 	} else {
 		guildsSectionTrailingGap = organizedItems.length > 0;
 	}
 	const topRowCount = (fluxerVisible ? 1 : 0) + (favoritesVisible ? 1 : 0) + inlineDmRowCount;
-	const bottomButtonCount =
-		(discoveryVisible ? 1 : 0) + (addGuildVisible ? 1 : 0) + (downloadVisible ? 1 : 0) + (helpVisible ? 1 : 0);
+	const bottomButtonCount = (discoveryVisible ? 1 : 0) + (addGuildVisible ? 1 : 0) + (downloadVisible ? 1 : 0);
 	const scrollTop = resolveDrawableRailScrollTopPx({
 		bottomButtonCount,
 		organizedItems,
@@ -578,12 +573,6 @@ export const GuildRailSkeleton: React.FC<GuildRailSkeletonProps> = ({
 							<RailActionButton
 								icon={DownloadSimpleIcon}
 								data-flx="app.skeleton.guild-rail-skeleton.rail-action-button--3"
-							/>
-						)}
-						{helpVisible && (
-							<RailActionButton
-								icon={QuestionMarkIcon}
-								data-flx="app.skeleton.guild-rail-skeleton.rail-action-button--4"
 							/>
 						)}
 					</flx-app-guild-rail-skeleton-guilds-section>

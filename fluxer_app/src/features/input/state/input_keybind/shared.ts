@@ -230,10 +230,6 @@ export const EXPAND_OR_COLLAPSE_COMPACT_CALL_VIEW_DESCRIPTOR = msg({
 	message: 'Expand or collapse compact call view',
 	comment: 'Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.',
 });
-export const OPEN_HELP_DESCRIPTOR = msg({
-	message: 'Open help',
-	comment: 'Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.',
-});
 export const SEARCH_MESSAGES_DESCRIPTOR = msg({
 	message: 'Search messages',
 	comment: 'Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.',

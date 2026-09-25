@@ -938,7 +938,7 @@ msgstr "{count, plural, one {# blokirana poruka} few {# blokirane poruke} other 
 msgid "{count, plural, one {# community found} other {# communities found}}"
 msgstr "{count, plural, one {# zajednica pronađena} few {# zajednice pronađene} other {# zajednica pronađeno}}"
 
-#: src/features/app/components/layout/GuildsLayout.tsx:1953
+#: src/features/app/components/layout/GuildsLayout.tsx:1939
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# zajednica privremeno nije dostupna zbog kvara na protočnom kondenzatoru.} few {# zajednice privremeno nisu dostupne zbog kvara na protočnom kondenzatoru.} other {# zajednica privremeno nije dostupno zbog kvara na protočnom kondenzatoru.}}"
 
@@ -5729,7 +5729,7 @@ msgstr "Dosegnuto ograničenje oznaka"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:526
-#: src/features/input/state/input_keybind/shared.ts:265
+#: src/features/input/state/input_keybind/shared.ts:261
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:66
 msgid "Bookmark message"
 msgstr "Označi poruku"
@@ -6542,7 +6542,7 @@ msgid "Category"
 msgstr "Kategorija"
 
 #. Title in a modal shown before opening a category with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:187
+#: src/features/channel/components/MatureContentChannelGate.tsx:160
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:39
 msgid "Category content warning"
 msgstr "Upozorenje o sadržaju kategorije"
@@ -7049,7 +7049,7 @@ msgid "Channel badges"
 msgstr "Oznake kanala"
 
 #. Title in a modal shown before opening a channel with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:189
+#: src/features/channel/components/MatureContentChannelGate.tsx:162
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:43
 msgid "Channel content warning"
 msgstr "Upozorenje o sadržaju kanala"
@@ -8459,7 +8459,7 @@ msgid "Community badges"
 msgstr "Značke zajednice"
 
 #. Title in a modal shown before opening a community with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:185
+#: src/features/channel/components/MatureContentChannelGate.tsx:158
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:35
 msgid "Community content warning"
 msgstr "Upozorenje o sadržaju zajednice"
@@ -8701,7 +8701,7 @@ msgstr "Dovršite jedan od načina provjere u nastavku kako biste nastavili kori
 msgid "Complete payment"
 msgstr "Dovrši plaćanje"
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:67
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:64
 msgid "Complete the mature content check to unlock mature media."
 msgstr "Dovršite provjeru sadržaja za odrasle kako biste otključali medije za odrasle."
 
@@ -9504,7 +9504,7 @@ msgstr "Kopiraj poruku"
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:736
-#: src/features/input/state/input_keybind/shared.ts:277
+#: src/features/input/state/input_keybind/shared.ts:273
 msgid "Copy message ID"
 msgstr "Kopiraj ID poruke"
 
@@ -9512,7 +9512,7 @@ msgstr "Kopiraj ID poruke"
 #. IAR modal: quick-action card title.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:518
-#: src/features/input/state/input_keybind/shared.ts:273
+#: src/features/input/state/input_keybind/shared.ts:269
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:389
 msgid "Copy message link"
 msgstr "Kopiraj poveznicu poruke"
@@ -12205,7 +12205,7 @@ msgstr "Prekini vezu s kanalom {channel}"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Tray menu item. Leaves the current voice call when the channel name is unavailable.
-#: src/features/input/state/input_keybind/shared.ts:317
+#: src/features/input/state/input_keybind/shared.ts:313
 #: src/features/platform/utils/DesktopLocaleBridge.ts:220
 msgid "Disconnect from voice"
 msgstr "Prekini vezu s glasovnim pozivom"
@@ -12831,11 +12831,11 @@ msgstr "Ispusti stavku"
 msgid "Drop to upload background"
 msgstr "Ispustite za prijenos pozadine"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:85
+#: src/features/channel/components/MatureContentChannelGate.tsx:82
 msgid "Due to mature content laws in {regionName}, mature content is blocked until you complete the mature content check."
 msgstr "Zbog zakona o sadržaju za odrasle u regiji {regionName}, sadržaj za odrasle je blokiran dok ne dovršite provjeru sadržaja za odrasle."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:95
+#: src/features/channel/components/MatureContentChannelGate.tsx:92
 msgid "Due to mature content laws in {regionName}, mature content is not available from here. Mature content checks are available only in the UK."
 msgstr "Zbog zakona o sadržaju za odrasle u regiji {regionName}, sadržaj za odrasle ovdje nije dostupan. Provjere sadržaja za odrasle dostupne su samo u Ujedinjenom Kraljevstvu."
 
@@ -12849,7 +12849,7 @@ msgstr "Zbog zakona o sadržaju za odrasle u regiji {regionName}, ovaj je sadrž
 msgid "Due to mature content laws in {regionName}, this content is not available from here. Mature content checks are available only in the UK."
 msgstr "Zbog zakona o sadržaju za odrasle u regiji {regionName}, ovaj sadržaj ovdje nije dostupan. Provjere sadržaja za odrasle dostupne su samo u Ujedinjenom Kraljevstvu."
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:61
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:58
 msgid "Due to mature content laws in {regionName}, this media is not available from your current region."
 msgstr "Zbog zakona o sadržaju za odrasle u regiji {regionName}, ovaj medij nije dostupan u vašoj trenutačnoj regiji."
 
@@ -14373,7 +14373,7 @@ msgid "Expired between {earliest} and {latest}"
 msgstr "Isteklo između {earliest} i {latest}"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:15
+#: src/features/app/components/shared/ExpiryFootnote.tsx:12
 msgid "Expired on {date}"
 msgstr "Isteklo {date}"
 
@@ -14406,7 +14406,7 @@ msgid "Expires in {remaining}s"
 msgstr "Istječe za {remaining} s"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:19
+#: src/features/app/components/shared/ExpiryFootnote.tsx:16
 msgid "Expires on {date}"
 msgstr "Istječe {date}"
 
@@ -16780,11 +16780,6 @@ msgstr "Pozdrav, {username}! Lijepo je što ste s nama."
 msgid "Help"
 msgstr "Pomoć"
 
-#. Short label in the sidebar navigation help button.
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:27
-msgid "Help center"
-msgstr "Centar za pomoć"
-
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:348
 msgid "Help translate {PRODUCT_NAME} into your language on <0>{I18N_WEBLATE_DOMAIN}</0>."
 msgstr "Pomozite prevesti {PRODUCT_NAME} na vaš jezik na <0>{I18N_WEBLATE_DOMAIN}</0>."
@@ -16905,7 +16900,7 @@ msgid "Hide download button"
 msgstr "Sakrij gumb za preuzimanje"
 
 #. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:13
+#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
 msgstr "Sakrij bilješke o isteku"
 
@@ -16913,10 +16908,6 @@ msgstr "Sakrij bilješke o isteku"
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Sakrij favorite"
-
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:63
-msgid "Hide help center button"
-msgstr "Sakrij gumb centra za pomoć"
 
 #. Short label in the system welcome section. Keep it concise.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:32
@@ -17237,7 +17228,7 @@ msgid "I need another way"
 msgstr "Trebam drugi način"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/channel/components/MatureContentChannelGate.tsx:207
+#: src/features/channel/components/MatureContentChannelGate.tsx:180
 #: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
 msgid "I understand"
 msgstr "Razumijem"
@@ -20044,15 +20035,15 @@ msgstr "Massachusetts"
 msgid "Master volume"
 msgstr "Glavna glasnoća"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:141
+#: src/features/channel/components/MatureContentChannelGate.tsx:130
 msgid "Mature category"
 msgstr "Kategorija za odrasle"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:163
+#: src/features/channel/components/MatureContentChannelGate.tsx:144
 msgid "Mature channel"
 msgstr "Kanal za odrasle"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:118
+#: src/features/channel/components/MatureContentChannelGate.tsx:115
 msgid "Mature community"
 msgstr "Zajednica za odrasle"
 
@@ -20093,7 +20084,7 @@ msgstr "Provjera sadržaja za odrasle poslana"
 
 #. Body copy in the mature content check modal when the check is unavailable.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:36
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:71
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:68
 msgid "Mature content checks are currently available only in the UK."
 msgstr "Provjere sadržaja za odrasle trenutačno su dostupne samo u Ujedinjenom Kraljevstvu."
 
@@ -20134,7 +20125,7 @@ msgstr "Sadržaj za odrasle bez odgovarajuće zaštite."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the mature media gate details modal. Keep it concise.
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:26
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:23
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:184
 msgid "Mature media"
 msgstr "Mediji za odrasle"
@@ -21998,7 +21989,7 @@ msgid "New"
 msgstr "Novo"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:136
+#: src/features/app/components/layout/GuildsLayout.tsx:135
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Novo"
@@ -23618,11 +23609,6 @@ msgstr "Otvori GIF poveznicu"
 msgid "Open group details for {groupDMName}"
 msgstr "Otvori pojedinosti grupe za {groupDMName}"
 
-#. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:233
-msgid "Open help"
-msgstr "Otvori pomoć"
-
 #. Action that opens the image URL in an external browser.
 #. Action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/ReverseImageSearchMenuItems.tsx:29
@@ -23772,7 +23758,7 @@ msgid "Open the ban dialog for this community."
 msgstr "Otvorite dijaloški okvir za zabranu u ovoj zajednici."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:241
+#: src/features/input/state/input_keybind/shared.ts:237
 msgid "Open the context menu"
 msgstr "Otvori kontekstni izbornik"
 
@@ -23795,7 +23781,7 @@ msgid "Open the verification email and use the link inside. This window updates 
 msgstr "Otvorite e-poštu za potvrdu i upotrijebite poveznicu unutar nje. Ovaj će se prozor ažurirati nakon otvaranja poveznice."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:249
+#: src/features/input/state/input_keybind/shared.ts:245
 msgid "Open theme studio popout"
 msgstr "Otvori skočni prozor studija tema"
 
@@ -23853,7 +23839,7 @@ msgid "Open your phone's messaging app and start a new text message."
 msgstr "Otvorite aplikaciju za poruke na telefonu i započnite novu tekstualnu poruku."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:245
+#: src/features/input/state/input_keybind/shared.ts:241
 msgid "Open your settings"
 msgstr "Otvori postavke"
 
@@ -25771,21 +25757,21 @@ msgid "Push timeout"
 msgstr "Istek obavijesti"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:297
+#: src/features/input/state/input_keybind/shared.ts:293
 msgid "Push to mute"
 msgstr "Pritisni za isključivanje mikrofona"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/input/state/input_keybind/shared.ts:289
+#: src/features/input/state/input_keybind/shared.ts:285
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:162
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:86
 msgid "Push to talk"
 msgstr "Pritisni za govor"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:293
+#: src/features/input/state/input_keybind/shared.ts:289
 msgid "Push to talk (priority)"
 msgstr "Pritisni za govor (prioritetno)"
 
@@ -27476,7 +27462,7 @@ msgstr "Vrati na zadano"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Label for controls that reset app zoom to 100%, including the app zoom slider button.
-#: src/features/input/state/input_keybind/shared.ts:261
+#: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/user/components/modals/tabs/appearance_tab/ScalingTab.tsx:38
 msgid "Reset zoom"
 msgstr "Poništi zumiranje"
@@ -28678,7 +28664,7 @@ msgstr "Pretražite jezike…"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:137
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:480
 #: src/features/channel/components/message_search_bar/MessageSearchBar.tsx:56
-#: src/features/input/state/input_keybind/shared.ts:237
+#: src/features/input/state/input_keybind/shared.ts:233
 msgid "Search messages"
 msgstr "Pretraži poruke"
 
@@ -29366,7 +29352,7 @@ msgstr "Pošalji kod za provjeru"
 #. Plus menu item that opens the desktop voice message composer to record and send a voice clip.
 #: src/features/channel/components/textarea/TextareaPlusMenu.tsx:35
 #: src/features/channel/components/VoiceMessageRecorder.tsx:69
-#: src/features/input/state/input_keybind/shared.ts:285
+#: src/features/input/state/input_keybind/shared.ts:281
 msgid "Send voice message"
 msgstr "Pošalji glasovnu poruku"
 
@@ -32405,7 +32391,7 @@ msgid "Switch to…"
 msgstr "Prebaci na…"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:313
+#: src/features/input/state/input_keybind/shared.ts:309
 msgid "Switch voice channel"
 msgstr "Prebaci glasovni kanal"
 
@@ -33459,7 +33445,7 @@ msgid "This category already contains the maximum of {maxChannelsPerCategory} ch
 msgstr "Ova kategorija već sadrži maksimalan broj od {maxChannelsPerCategory} kanala."
 
 #. Body in the channel gate modal for a mature category when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:254
+#: src/features/channel/components/MatureContentChannelGate.tsx:227
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:76
 msgid "This category is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Ova je kategorija označena kao sadržaj za odrasle i može sadržavati materijal koji možda nije prikladan za neke korisnike."
@@ -33487,7 +33473,7 @@ msgid "This channel doesn't have any invite links yet. Create one to invite peop
 msgstr "Ovaj kanal još nema poveznica za pozivnice. Stvorite jednu kako biste pozvali ljude u ovaj kanal."
 
 #. Body in the channel gate modal for a mature text channel when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:282
+#: src/features/channel/components/MatureContentChannelGate.tsx:255
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:91
 msgid "This channel is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Ovaj je kanal označen kao sadržaj za odrasle i može sadržavati materijal koji možda nije prikladan za neke korisnike."
@@ -33576,7 +33562,7 @@ msgid "This community is full"
 msgstr "Ova je zajednica puna"
 
 #. Body in the channel gate modal for a mature community when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:225
+#: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Ova je zajednica označena kao sadržaj za odrasle i može sadržavati materijal koji možda nije prikladan za neke korisnike."
@@ -33844,35 +33830,26 @@ msgid "This link is not available for your account."
 msgstr "Ova poveznica nije dostupna za vaš račun."
 
 #. Body in the channel gate modal when the current user cannot access a mature category.
+#: src/features/channel/components/MatureContentChannelGate.tsx:136
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:63
 msgid "This mature category is not available to your account."
 msgstr "Ova kategorija za odrasle nije dostupna vašem računu."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:147
-msgid "This mature category is not available to your account. <0>Learn more</0>"
-msgstr "Ova kategorija za odrasle nije dostupna vašem računu. <0>Saznajte više</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature channel.
+#: src/features/channel/components/MatureContentChannelGate.tsx:150
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:67
 msgid "This mature channel is not available to your account."
 msgstr "Ovaj kanal za odrasle nije dostupan vašem računu."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:169
-msgid "This mature channel is not available to your account. <0>Learn more</0>"
-msgstr "Ovaj kanal za odrasle nije dostupan vašem računu. <0>Saznajte više</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature community.
+#: src/features/channel/components/MatureContentChannelGate.tsx:121
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:59
 msgid "This mature community is not available to your account."
 msgstr "Ova zajednica za odrasle nije dostupna vašem računu."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:124
-msgid "This mature community is not available to your account. <0>Learn more</0>"
-msgstr "Ova zajednica za odrasle nije dostupna vašem računu. <0>Saznajte više</0>"
-
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:106
-msgid "This mature media is not available to your account. <0>Learn more</0>"
-msgstr "Ovi mediji za odrasle nisu dostupni vašem računu. <0>Saznajte više</0>"
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:103
+msgid "This mature media is not available to your account."
+msgstr "Ovi mediji za odrasle nisu dostupni vašem računu."
 
 #. Body of the error modal shown when a voice moderation action targets a member who no longer exists.
 #: src/features/app/components/alerts/VoiceMemberModerationFailedModal.tsx:33
@@ -34364,7 +34341,7 @@ msgid "Toggle between last community and DMs"
 msgstr "Prebaci se između posljednje zajednice i izravnih poruka"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:309
+#: src/features/input/state/input_keybind/shared.ts:305
 msgid "Toggle camera"
 msgstr "Uključi/isključi kameru"
 
@@ -34384,7 +34361,7 @@ msgid "Toggle developer tools"
 msgstr "Uključi/isključi razvojne alate"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:269
+#: src/features/input/state/input_keybind/shared.ts:265
 msgid "Toggle embed suppression"
 msgstr "Uključi/isključi potiskivanje ugrađenog sadržaja"
 
@@ -34416,7 +34393,7 @@ msgid "Toggle quick switcher"
 msgstr "Uključi/isključi brzi preklopnik"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:281
+#: src/features/input/state/input_keybind/shared.ts:277
 msgid "Toggle saved media"
 msgstr "Uključi/isključi spremljene medije"
 
@@ -34460,7 +34437,7 @@ msgid "Toggle the sticker picker"
 msgstr "Uključi/isključi birač naljepnica"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:305
+#: src/features/input/state/input_keybind/shared.ts:301
 msgid "Toggle voice activity"
 msgstr "Uključi/isključi glasovnu aktivnost"
 
@@ -37367,11 +37344,6 @@ msgstr "Prikaži poklone"
 msgid "View global profile"
 msgstr "Prikaži globalni profil"
 
-#. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:17
-msgid "View help article"
-msgstr "Prikaži članak pomoći"
-
 #. Button on the connection banner when an incident is ongoing. Opens that incident on the status page.
 #: src/features/app/hooks/useConnectionNotice.ts:48
 msgid "View incident details"
@@ -37605,7 +37577,7 @@ msgid "Voice activity on active now"
 msgstr "Glasovna aktivnost u odjeljku „Aktivno sada”"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:301
+#: src/features/input/state/input_keybind/shared.ts:297
 msgid "Voice activity priority"
 msgstr "Prioritet glasovne aktivnosti"
 
@@ -40005,7 +39977,7 @@ msgstr "Zumiraj"
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:627
-#: src/features/input/state/input_keybind/shared.ts:253
+#: src/features/input/state/input_keybind/shared.ts:249
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
 msgid "Zoom in"
@@ -40016,7 +39988,7 @@ msgstr "Povećaj prikaz"
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:623
-#: src/features/input/state/input_keybind/shared.ts:257
+#: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86
 msgid "Zoom out"

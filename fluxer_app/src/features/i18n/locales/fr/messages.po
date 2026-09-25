@@ -938,7 +938,7 @@ msgstr "{count, plural, one {# message bloqué} other {# messages bloqués}}"
 msgid "{count, plural, one {# community found} other {# communities found}}"
 msgstr "{count, plural, one {# communauté trouvée} other {# communautés trouvées}}"
 
-#: src/features/app/components/layout/GuildsLayout.tsx:1953
+#: src/features/app/components/layout/GuildsLayout.tsx:1939
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {# communauté est temporairement indisponible en raison d'un dysfonctionnement du condensateur de flux.} other {# communautés sont temporairement indisponibles en raison d'un dysfonctionnement du condensateur de flux.}}"
 
@@ -5729,7 +5729,7 @@ msgstr "Limite de messages enregistrés atteinte"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:526
-#: src/features/input/state/input_keybind/shared.ts:265
+#: src/features/input/state/input_keybind/shared.ts:261
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:66
 msgid "Bookmark message"
 msgstr "Enregistrer le message"
@@ -6542,7 +6542,7 @@ msgid "Category"
 msgstr "Catégorie"
 
 #. Title in a modal shown before opening a category with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:187
+#: src/features/channel/components/MatureContentChannelGate.tsx:160
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:39
 msgid "Category content warning"
 msgstr "Avertissement relatif au contenu de la catégorie"
@@ -7049,7 +7049,7 @@ msgid "Channel badges"
 msgstr "Badges de salon"
 
 #. Title in a modal shown before opening a channel with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:189
+#: src/features/channel/components/MatureContentChannelGate.tsx:162
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:43
 msgid "Channel content warning"
 msgstr "Avertissement sur le contenu du salon"
@@ -8459,7 +8459,7 @@ msgid "Community badges"
 msgstr "Badges de communauté"
 
 #. Title in a modal shown before opening a community with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:185
+#: src/features/channel/components/MatureContentChannelGate.tsx:158
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:35
 msgid "Community content warning"
 msgstr "Avertissement concernant le contenu de la communauté"
@@ -8701,7 +8701,7 @@ msgstr "Pour continuer à utiliser {productName}, veuillez suivre l'une des mét
 msgid "Complete payment"
 msgstr "Finaliser le paiement"
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:67
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:64
 msgid "Complete the mature content check to unlock mature media."
 msgstr "Effectuez la vérification pour accéder aux médias réservés aux adultes."
 
@@ -9504,7 +9504,7 @@ msgstr "Copier le message"
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:736
-#: src/features/input/state/input_keybind/shared.ts:277
+#: src/features/input/state/input_keybind/shared.ts:273
 msgid "Copy message ID"
 msgstr "Copier l'ID du message"
 
@@ -9512,7 +9512,7 @@ msgstr "Copier l'ID du message"
 #. IAR modal: quick-action card title.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:518
-#: src/features/input/state/input_keybind/shared.ts:273
+#: src/features/input/state/input_keybind/shared.ts:269
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:389
 msgid "Copy message link"
 msgstr "Copier le lien du message"
@@ -12205,7 +12205,7 @@ msgstr "Se déconnecter de {channel}"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Tray menu item. Leaves the current voice call when the channel name is unavailable.
-#: src/features/input/state/input_keybind/shared.ts:317
+#: src/features/input/state/input_keybind/shared.ts:313
 #: src/features/platform/utils/DesktopLocaleBridge.ts:220
 msgid "Disconnect from voice"
 msgstr "Se déconnecter de l'appel vocal"
@@ -12831,11 +12831,11 @@ msgstr "Déposer l'objet"
 msgid "Drop to upload background"
 msgstr "Déposer pour importer un arrière-plan"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:85
+#: src/features/channel/components/MatureContentChannelGate.tsx:82
 msgid "Due to mature content laws in {regionName}, mature content is blocked until you complete the mature content check."
 msgstr "En raison de la législation sur les contenus pour adultes dans votre région ({regionName}), ces contenus sont bloqués jusqu’à ce que vous effectuiez la vérification d’accès."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:95
+#: src/features/channel/components/MatureContentChannelGate.tsx:92
 msgid "Due to mature content laws in {regionName}, mature content is not available from here. Mature content checks are available only in the UK."
 msgstr "En raison de la législation sur les contenus pour adultes dans votre région ({regionName}), ces contenus ne sont pas accessibles depuis votre position actuelle. La vérification d’accès est disponible uniquement au Royaume-Uni."
 
@@ -12849,7 +12849,7 @@ msgstr "En raison de la législation sur les contenus pour adultes dans votre r�
 msgid "Due to mature content laws in {regionName}, this content is not available from here. Mature content checks are available only in the UK."
 msgstr "En raison de la législation sur les contenus pour adultes dans votre région ({regionName}), ce contenu n’est pas accessible depuis votre position actuelle. La vérification d’accès est disponible uniquement au Royaume-Uni."
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:61
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:58
 msgid "Due to mature content laws in {regionName}, this media is not available from your current region."
 msgstr "En raison de la législation sur les contenus pour adultes dans votre région ({regionName}), ce média n’est pas accessible depuis votre position actuelle."
 
@@ -14373,7 +14373,7 @@ msgid "Expired between {earliest} and {latest}"
 msgstr "Expiré entre le {earliest} et le {latest}"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:15
+#: src/features/app/components/shared/ExpiryFootnote.tsx:12
 msgid "Expired on {date}"
 msgstr "Expiré le {date}"
 
@@ -14406,7 +14406,7 @@ msgid "Expires in {remaining}s"
 msgstr "Expire dans {remaining} s"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:19
+#: src/features/app/components/shared/ExpiryFootnote.tsx:16
 msgid "Expires on {date}"
 msgstr "Expire le {date}"
 
@@ -16780,11 +16780,6 @@ msgstr "Bonjour, {username} ! Nous sommes ravis de vous compter parmi nous."
 msgid "Help"
 msgstr "Aide"
 
-#. Short label in the sidebar navigation help button.
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:27
-msgid "Help center"
-msgstr "Centre d'aide"
-
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:348
 msgid "Help translate {PRODUCT_NAME} into your language on <0>{I18N_WEBLATE_DOMAIN}</0>."
 msgstr "Aidez à traduire {PRODUCT_NAME} dans votre langue sur <0>{I18N_WEBLATE_DOMAIN}</0>."
@@ -16905,7 +16900,7 @@ msgid "Hide download button"
 msgstr "Masquer le bouton de téléchargement"
 
 #. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:13
+#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
 msgstr "Masquer les notes de bas de page d'expiration"
 
@@ -16913,10 +16908,6 @@ msgstr "Masquer les notes de bas de page d'expiration"
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "Masquer les favoris"
-
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:63
-msgid "Hide help center button"
-msgstr "Masquer le bouton du centre d'aide"
 
 #. Short label in the system welcome section. Keep it concise.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:32
@@ -17237,7 +17228,7 @@ msgid "I need another way"
 msgstr "J'ai besoin d'une autre option"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/channel/components/MatureContentChannelGate.tsx:207
+#: src/features/channel/components/MatureContentChannelGate.tsx:180
 #: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
 msgid "I understand"
 msgstr "J'ai compris"
@@ -20044,15 +20035,15 @@ msgstr "Massachusetts"
 msgid "Master volume"
 msgstr "Volume principal"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:141
+#: src/features/channel/components/MatureContentChannelGate.tsx:130
 msgid "Mature category"
 msgstr "Catégorie réservée aux adultes"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:163
+#: src/features/channel/components/MatureContentChannelGate.tsx:144
 msgid "Mature channel"
 msgstr "Salon réservé aux adultes"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:118
+#: src/features/channel/components/MatureContentChannelGate.tsx:115
 msgid "Mature community"
 msgstr "Communauté réservée aux adultes"
 
@@ -20093,7 +20084,7 @@ msgstr "Vérification d’accès aux contenus pour adultes envoyée"
 
 #. Body copy in the mature content check modal when the check is unavailable.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:36
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:71
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:68
 msgid "Mature content checks are currently available only in the UK."
 msgstr "La vérification d’accès aux contenus pour adultes est actuellement disponible uniquement au Royaume-Uni."
 
@@ -20134,7 +20125,7 @@ msgstr "Contenu pour adultes sans restriction d’accès appropriée."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the mature media gate details modal. Keep it concise.
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:26
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:23
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:184
 msgid "Mature media"
 msgstr "Médias pour adultes"
@@ -21998,7 +21989,7 @@ msgid "New"
 msgstr "Nouveau"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:136
+#: src/features/app/components/layout/GuildsLayout.tsx:135
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "Nouveau"
@@ -23618,11 +23609,6 @@ msgstr "Ouvrir le lien GIF"
 msgid "Open group details for {groupDMName}"
 msgstr "Ouvrir les détails du groupe pour {groupDMName}"
 
-#. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:233
-msgid "Open help"
-msgstr "Ouvrir l'aide"
-
 #. Action that opens the image URL in an external browser.
 #. Action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/ReverseImageSearchMenuItems.tsx:29
@@ -23772,7 +23758,7 @@ msgid "Open the ban dialog for this community."
 msgstr "Ouvrir la boîte de dialogue de bannissement pour cette communauté."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:241
+#: src/features/input/state/input_keybind/shared.ts:237
 msgid "Open the context menu"
 msgstr "Ouvrir le menu contextuel"
 
@@ -23795,7 +23781,7 @@ msgid "Open the verification email and use the link inside. This window updates 
 msgstr "Ouvrez l'e-mail de vérification et utilisez le lien qu'il contient. Cette fenêtre se mettra à jour une fois le lien ouvert."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:249
+#: src/features/input/state/input_keybind/shared.ts:245
 msgid "Open theme studio popout"
 msgstr "Ouvrir la fenêtre contextuelle du studio de thèmes"
 
@@ -23853,7 +23839,7 @@ msgid "Open your phone's messaging app and start a new text message."
 msgstr "Ouvrez l’application de SMS de votre téléphone et commencez un nouveau message."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:245
+#: src/features/input/state/input_keybind/shared.ts:241
 msgid "Open your settings"
 msgstr "Ouvrir vos réglages"
 
@@ -25771,21 +25757,21 @@ msgid "Push timeout"
 msgstr "Délai avant les notifications push"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:297
+#: src/features/input/state/input_keybind/shared.ts:293
 msgid "Push to mute"
 msgstr "Appuyer pour couper le micro"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/input/state/input_keybind/shared.ts:289
+#: src/features/input/state/input_keybind/shared.ts:285
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:162
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:86
 msgid "Push to talk"
 msgstr "Appuyer pour parler"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:293
+#: src/features/input/state/input_keybind/shared.ts:289
 msgid "Push to talk (priority)"
 msgstr "Appuyer pour parler (priorité)"
 
@@ -27476,7 +27462,7 @@ msgstr "Rétablir les valeurs par défaut"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Label for controls that reset app zoom to 100%, including the app zoom slider button.
-#: src/features/input/state/input_keybind/shared.ts:261
+#: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/user/components/modals/tabs/appearance_tab/ScalingTab.tsx:38
 msgid "Reset zoom"
 msgstr "Réinitialiser le zoom"
@@ -28678,7 +28664,7 @@ msgstr "Rechercher des langues…"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:137
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:480
 #: src/features/channel/components/message_search_bar/MessageSearchBar.tsx:56
-#: src/features/input/state/input_keybind/shared.ts:237
+#: src/features/input/state/input_keybind/shared.ts:233
 msgid "Search messages"
 msgstr "Rechercher des messages"
 
@@ -29366,7 +29352,7 @@ msgstr "Envoyer le code de vérification"
 #. Plus menu item that opens the desktop voice message composer to record and send a voice clip.
 #: src/features/channel/components/textarea/TextareaPlusMenu.tsx:35
 #: src/features/channel/components/VoiceMessageRecorder.tsx:69
-#: src/features/input/state/input_keybind/shared.ts:285
+#: src/features/input/state/input_keybind/shared.ts:281
 msgid "Send voice message"
 msgstr "Envoyer un message vocal"
 
@@ -32405,7 +32391,7 @@ msgid "Switch to…"
 msgstr "Passer à…"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:313
+#: src/features/input/state/input_keybind/shared.ts:309
 msgid "Switch voice channel"
 msgstr "Changer de salon vocal"
 
@@ -33459,7 +33445,7 @@ msgid "This category already contains the maximum of {maxChannelsPerCategory} ch
 msgstr "Cette catégorie contient déjà le nombre maximal de {maxChannelsPerCategory} salons."
 
 #. Body in the channel gate modal for a mature category when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:254
+#: src/features/channel/components/MatureContentChannelGate.tsx:227
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:76
 msgid "This category is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Cette catégorie est réservée aux adultes et peut contenir des éléments inappropriés pour certains utilisateurs."
@@ -33487,7 +33473,7 @@ msgid "This channel doesn't have any invite links yet. Create one to invite peop
 msgstr "Ce salon n’a pas encore de liens d’invitation. Créez-en un pour inviter des personnes à le rejoindre."
 
 #. Body in the channel gate modal for a mature text channel when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:282
+#: src/features/channel/components/MatureContentChannelGate.tsx:255
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:91
 msgid "This channel is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Ce salon est réservé aux adultes et peut contenir des éléments inappropriés pour certains utilisateurs."
@@ -33576,7 +33562,7 @@ msgid "This community is full"
 msgstr "Cette communauté est pleine"
 
 #. Body in the channel gate modal for a mature community when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:225
+#: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "Cette communauté est réservée aux adultes et peut contenir des éléments inappropriés pour certains utilisateurs."
@@ -33844,35 +33830,26 @@ msgid "This link is not available for your account."
 msgstr "Ce lien n'est pas disponible pour votre compte."
 
 #. Body in the channel gate modal when the current user cannot access a mature category.
+#: src/features/channel/components/MatureContentChannelGate.tsx:136
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:63
 msgid "This mature category is not available to your account."
 msgstr "Cette catégorie réservée aux adultes n’est pas accessible avec votre compte."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:147
-msgid "This mature category is not available to your account. <0>Learn more</0>"
-msgstr "Cette catégorie réservée aux adultes n’est pas accessible avec votre compte. <0>En savoir plus</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature channel.
+#: src/features/channel/components/MatureContentChannelGate.tsx:150
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:67
 msgid "This mature channel is not available to your account."
 msgstr "Ce salon réservé aux adultes n’est pas accessible avec votre compte."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:169
-msgid "This mature channel is not available to your account. <0>Learn more</0>"
-msgstr "Ce salon réservé aux adultes n’est pas accessible avec votre compte. <0>En savoir plus</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature community.
+#: src/features/channel/components/MatureContentChannelGate.tsx:121
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:59
 msgid "This mature community is not available to your account."
 msgstr "Cette communauté réservée aux adultes n’est pas accessible avec votre compte."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:124
-msgid "This mature community is not available to your account. <0>Learn more</0>"
-msgstr "Cette communauté réservée aux adultes n’est pas accessible avec votre compte. <0>En savoir plus</0>"
-
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:106
-msgid "This mature media is not available to your account. <0>Learn more</0>"
-msgstr "Ce média pour adultes n’est pas accessible avec votre compte. <0>En savoir plus</0>"
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:103
+msgid "This mature media is not available to your account."
+msgstr "Ce média pour adultes n’est pas accessible avec votre compte."
 
 #. Body of the error modal shown when a voice moderation action targets a member who no longer exists.
 #: src/features/app/components/alerts/VoiceMemberModerationFailedModal.tsx:33
@@ -34364,7 +34341,7 @@ msgid "Toggle between last community and DMs"
 msgstr "Basculer entre la dernière communauté et les MP"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:309
+#: src/features/input/state/input_keybind/shared.ts:305
 msgid "Toggle camera"
 msgstr "Activer/désactiver la caméra"
 
@@ -34384,7 +34361,7 @@ msgid "Toggle developer tools"
 msgstr "Ouvrir/fermer les outils de développement"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:269
+#: src/features/input/state/input_keybind/shared.ts:265
 msgid "Toggle embed suppression"
 msgstr "Masquer/afficher les contenus intégrés"
 
@@ -34416,7 +34393,7 @@ msgid "Toggle quick switcher"
 msgstr "Ouvrir/fermer le Sélecteur rapide"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:281
+#: src/features/input/state/input_keybind/shared.ts:277
 msgid "Toggle saved media"
 msgstr "Afficher/masquer les médias enregistrés"
 
@@ -34460,7 +34437,7 @@ msgid "Toggle the sticker picker"
 msgstr "Ouvrir/fermer le sélecteur de stickers"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:305
+#: src/features/input/state/input_keybind/shared.ts:301
 msgid "Toggle voice activity"
 msgstr "Activer/désactiver l'activité vocale"
 
@@ -37367,11 +37344,6 @@ msgstr "Voir les cadeaux"
 msgid "View global profile"
 msgstr "Voir le profil global"
 
-#. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:17
-msgid "View help article"
-msgstr "Afficher l'article d'aide"
-
 #. Button on the connection banner when an incident is ongoing. Opens that incident on the status page.
 #: src/features/app/hooks/useConnectionNotice.ts:48
 msgid "View incident details"
@@ -37605,7 +37577,7 @@ msgid "Voice activity on active now"
 msgstr "Activité vocale dans « Actif en ce moment »"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:301
+#: src/features/input/state/input_keybind/shared.ts:297
 msgid "Voice activity priority"
 msgstr "Priorité à l'activité vocale"
 
@@ -40005,7 +39977,7 @@ msgstr "Zoom"
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:627
-#: src/features/input/state/input_keybind/shared.ts:253
+#: src/features/input/state/input_keybind/shared.ts:249
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
 msgid "Zoom in"
@@ -40016,7 +39988,7 @@ msgstr "Zoom avant"
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:623
-#: src/features/input/state/input_keybind/shared.ts:257
+#: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86
 msgid "Zoom out"

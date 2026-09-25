@@ -938,7 +938,7 @@ msgstr "{count, plural, one {#개 차단된 메시지} other {#개 차단된 메
 msgid "{count, plural, one {# community found} other {# communities found}}"
 msgstr "{count, plural, one {#개 커뮤니티 찾음} other {#개 커뮤니티 찾음}}"
 
-#: src/features/app/components/layout/GuildsLayout.tsx:1953
+#: src/features/app/components/layout/GuildsLayout.tsx:1939
 msgid "{count, plural, one {# community is temporarily unavailable due to a flux capacitor malfunction.} other {# communities are temporarily unavailable due to a flux capacitor malfunction.}}"
 msgstr "{count, plural, one {#개 커뮤니티가 플럭스 캐패시터 오작동으로 인해 일시적으로 이용할 수 없습니다.} other {#개 커뮤니티가 플럭스 캐패시터 오작동으로 인해 일시적으로 이용할 수 없습니다.}}"
 
@@ -5729,7 +5729,7 @@ msgstr "북마크 한도에 도달했습니다"
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:526
-#: src/features/input/state/input_keybind/shared.ts:265
+#: src/features/input/state/input_keybind/shared.ts:261
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:66
 msgid "Bookmark message"
 msgstr "메시지 북마크"
@@ -6542,7 +6542,7 @@ msgid "Category"
 msgstr "카테고리"
 
 #. Title in a modal shown before opening a category with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:187
+#: src/features/channel/components/MatureContentChannelGate.tsx:160
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:39
 msgid "Category content warning"
 msgstr "카테고리 콘텐츠 경고"
@@ -7049,7 +7049,7 @@ msgid "Channel badges"
 msgstr "채널 배지"
 
 #. Title in a modal shown before opening a channel with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:189
+#: src/features/channel/components/MatureContentChannelGate.tsx:162
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:43
 msgid "Channel content warning"
 msgstr "채널 콘텐츠 경고"
@@ -8459,7 +8459,7 @@ msgid "Community badges"
 msgstr "커뮤니티 배지"
 
 #. Title in a modal shown before opening a community with a custom content warning.
-#: src/features/channel/components/MatureContentChannelGate.tsx:185
+#: src/features/channel/components/MatureContentChannelGate.tsx:158
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:35
 msgid "Community content warning"
 msgstr "커뮤니티 콘텐츠 경고"
@@ -8701,7 +8701,7 @@ msgstr "{productName}을(를) 계속 사용하려면 아래 인증 경로 중 �
 msgid "Complete payment"
 msgstr "결제 완료하기"
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:67
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:64
 msgid "Complete the mature content check to unlock mature media."
 msgstr "성인 콘텐츠 확인을 완료하여 성인 미디어를 잠금 해제하세요."
 
@@ -9504,7 +9504,7 @@ msgstr "메시지 복사"
 #. Developer-mode action that copies a message snowflake/ID to the clipboard.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:736
-#: src/features/input/state/input_keybind/shared.ts:277
+#: src/features/input/state/input_keybind/shared.ts:273
 msgid "Copy message ID"
 msgstr "메시지 ID 복사"
 
@@ -9512,7 +9512,7 @@ msgstr "메시지 ID 복사"
 #. IAR modal: quick-action card title.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:518
-#: src/features/input/state/input_keybind/shared.ts:273
+#: src/features/input/state/input_keybind/shared.ts:269
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:389
 msgid "Copy message link"
 msgstr "메시지 링크 복사"
@@ -12205,7 +12205,7 @@ msgstr "{channel}에서 연결 끊기"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Tray menu item. Leaves the current voice call when the channel name is unavailable.
-#: src/features/input/state/input_keybind/shared.ts:317
+#: src/features/input/state/input_keybind/shared.ts:313
 #: src/features/platform/utils/DesktopLocaleBridge.ts:220
 msgid "Disconnect from voice"
 msgstr "음성 연결 끊기"
@@ -12831,11 +12831,11 @@ msgstr "항목 놓기"
 msgid "Drop to upload background"
 msgstr "배경을 업로드하려면 여기에 놓으세요"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:85
+#: src/features/channel/components/MatureContentChannelGate.tsx:82
 msgid "Due to mature content laws in {regionName}, mature content is blocked until you complete the mature content check."
 msgstr "{regionName}의 성인 콘텐츠 관련 법규에 따라, 성인 콘텐츠 확인을 완료하기 전까지는 성인 콘텐츠가 차단됩니다."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:95
+#: src/features/channel/components/MatureContentChannelGate.tsx:92
 msgid "Due to mature content laws in {regionName}, mature content is not available from here. Mature content checks are available only in the UK."
 msgstr "{regionName}의 성인 콘텐츠 관련 법률에 따라, 여기서는 성인 콘텐츠를 이용할 수 없습니다. 성인 콘텐츠 확인 기능은 영국에서만 이용할 수 있습니다."
 
@@ -12849,7 +12849,7 @@ msgstr "{regionName}의 성인 콘텐츠 관련 법률에 따라, 성인 콘텐�
 msgid "Due to mature content laws in {regionName}, this content is not available from here. Mature content checks are available only in the UK."
 msgstr "{regionName}의 성인 콘텐츠 관련 법규로 인해 이 콘텐츠는 여기에서 이용할 수 없습니다. 성인 콘텐츠 확인은 영국에서만 가능합니다."
 
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:61
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:58
 msgid "Due to mature content laws in {regionName}, this media is not available from your current region."
 msgstr "{regionName}의 성인 콘텐츠 관련 법규에 따라 현재 지역에서는 이 미디어를 이용할 수 없습니다."
 
@@ -14373,7 +14373,7 @@ msgid "Expired between {earliest} and {latest}"
 msgstr "{earliest} ~ {latest} 만료됨"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:15
+#: src/features/app/components/shared/ExpiryFootnote.tsx:12
 msgid "Expired on {date}"
 msgstr "{date}에 만료됨"
 
@@ -14406,7 +14406,7 @@ msgid "Expires in {remaining}s"
 msgstr "{remaining}초 후 만료"
 
 #. Short label in the shared app expiry footnote. Preserve {date}; it is inserted by code.
-#: src/features/app/components/shared/ExpiryFootnote.tsx:19
+#: src/features/app/components/shared/ExpiryFootnote.tsx:16
 msgid "Expires on {date}"
 msgstr "{date} 만료"
 
@@ -16780,11 +16780,6 @@ msgstr "안녕하세요, {username}님! 만나서 반갑습니다."
 msgid "Help"
 msgstr "도움말"
 
-#. Short label in the sidebar navigation help button.
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:27
-msgid "Help center"
-msgstr "고객센터"
-
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:348
 msgid "Help translate {PRODUCT_NAME} into your language on <0>{I18N_WEBLATE_DOMAIN}</0>."
 msgstr "<0>{I18N_WEBLATE_DOMAIN}</0>에서 {PRODUCT_NAME}을(를) 여러분의 언어로 번역하는 데 참여해 보세요."
@@ -16905,7 +16900,7 @@ msgid "Hide download button"
 msgstr "다운로드 버튼 숨기기"
 
 #. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:13
+#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:10
 msgid "Hide expiration footnotes"
 msgstr "만료 각주 숨기기"
 
@@ -16913,10 +16908,6 @@ msgstr "만료 각주 숨기기"
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:700
 msgid "Hide favorites"
 msgstr "즐겨찾기 숨기기"
-
-#: src/features/app/components/layout/sidebar_nav/HelpButton.tsx:63
-msgid "Hide help center button"
-msgstr "고객센터 버튼 숨기기"
 
 #. Short label in the system welcome section. Keep it concise.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection.tsx:32
@@ -17237,7 +17228,7 @@ msgid "I need another way"
 msgstr "다른 방법이 필요해요"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/channel/components/MatureContentChannelGate.tsx:207
+#: src/features/channel/components/MatureContentChannelGate.tsx:180
 #: src/features/user/components/modals/tabs/UserVoiceTab.tsx:108
 msgid "I understand"
 msgstr "확인했습니다"
@@ -20044,15 +20035,15 @@ msgstr "매사추세츠"
 msgid "Master volume"
 msgstr "마스터 볼륨"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:141
+#: src/features/channel/components/MatureContentChannelGate.tsx:130
 msgid "Mature category"
 msgstr "성인 카테고리"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:163
+#: src/features/channel/components/MatureContentChannelGate.tsx:144
 msgid "Mature channel"
 msgstr "성인 채널"
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:118
+#: src/features/channel/components/MatureContentChannelGate.tsx:115
 msgid "Mature community"
 msgstr "성인 커뮤니티"
 
@@ -20093,7 +20084,7 @@ msgstr "성인 콘텐츠 확인 요청을 보냈습니다"
 
 #. Body copy in the mature content check modal when the check is unavailable.
 #: src/features/auth/components/modals/MatureContentCheckModal.tsx:36
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:71
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:68
 msgid "Mature content checks are currently available only in the UK."
 msgstr "성인 콘텐츠 확인 기능은 현재 영국에서만 이용할 수 있습니다."
 
@@ -20134,7 +20125,7 @@ msgstr "적절한 연령 제한이 없는 성인 콘텐츠입니다."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the mature media gate details modal. Keep it concise.
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:26
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:23
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:184
 msgid "Mature media"
 msgstr "성인 미디어"
@@ -21998,7 +21989,7 @@ msgid "New"
 msgstr "새 메시지"
 
 #. Small badge on a new or recently added app navigation item.
-#: src/features/app/components/layout/GuildsLayout.tsx:136
+#: src/features/app/components/layout/GuildsLayout.tsx:135
 msgctxt "navigation-badge"
 msgid "New"
 msgstr "신규"
@@ -23618,11 +23609,6 @@ msgstr "GIF 링크 열기"
 msgid "Open group details for {groupDMName}"
 msgstr "{groupDMName} 그룹 정보 열기"
 
-#. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:233
-msgid "Open help"
-msgstr "도움말 열기"
-
 #. Action that opens the image URL in an external browser.
 #. Action that opens the image URL in an external browser.
 #: src/features/ui/action_menu/items/ReverseImageSearchMenuItems.tsx:29
@@ -23772,7 +23758,7 @@ msgid "Open the ban dialog for this community."
 msgstr "이 커뮤니티의 차단 대화 상자를 엽니다."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:241
+#: src/features/input/state/input_keybind/shared.ts:237
 msgid "Open the context menu"
 msgstr "상황별 메뉴 열기"
 
@@ -23795,7 +23781,7 @@ msgid "Open the verification email and use the link inside. This window updates 
 msgstr "인증 이메일을 열고 안에 있는 링크를 사용하세요. 링크를 열면 이 창이 업데이트됩니다."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:249
+#: src/features/input/state/input_keybind/shared.ts:245
 msgid "Open theme studio popout"
 msgstr "테마 스튜디오 팝업 열기"
 
@@ -23853,7 +23839,7 @@ msgid "Open your phone's messaging app and start a new text message."
 msgstr "휴대폰 메시지 앱을 열고 새 문자 메시지를 시작하세요."
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:245
+#: src/features/input/state/input_keybind/shared.ts:241
 msgid "Open your settings"
 msgstr "설정 열기"
 
@@ -25771,21 +25757,21 @@ msgid "Push timeout"
 msgstr "푸시 대기 시간"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:297
+#: src/features/input/state/input_keybind/shared.ts:293
 msgid "Push to mute"
 msgstr "눌러서 음소거"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/input/state/input_keybind/shared.ts:289
+#: src/features/input/state/input_keybind/shared.ts:285
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:162
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:86
 msgid "Push to talk"
 msgstr "눌러서 말하기"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:293
+#: src/features/input/state/input_keybind/shared.ts:289
 msgid "Push to talk (priority)"
 msgstr "눌러서 말하기 (우선순위)"
 
@@ -27476,7 +27462,7 @@ msgstr "기본값으로 재설정"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #. Label for controls that reset app zoom to 100%, including the app zoom slider button.
-#: src/features/input/state/input_keybind/shared.ts:261
+#: src/features/input/state/input_keybind/shared.ts:257
 #: src/features/user/components/modals/tabs/appearance_tab/ScalingTab.tsx:38
 msgid "Reset zoom"
 msgstr "확대/축소 초기화"
@@ -28678,7 +28664,7 @@ msgstr "언어 검색…"
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:137
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:480
 #: src/features/channel/components/message_search_bar/MessageSearchBar.tsx:56
-#: src/features/input/state/input_keybind/shared.ts:237
+#: src/features/input/state/input_keybind/shared.ts:233
 msgid "Search messages"
 msgstr "메시지 검색"
 
@@ -29366,7 +29352,7 @@ msgstr "인증 코드 전송"
 #. Plus menu item that opens the desktop voice message composer to record and send a voice clip.
 #: src/features/channel/components/textarea/TextareaPlusMenu.tsx:35
 #: src/features/channel/components/VoiceMessageRecorder.tsx:69
-#: src/features/input/state/input_keybind/shared.ts:285
+#: src/features/input/state/input_keybind/shared.ts:281
 msgid "Send voice message"
 msgstr "음성 메시지 보내기"
 
@@ -32405,7 +32391,7 @@ msgid "Switch to…"
 msgstr "채널 이동…"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:313
+#: src/features/input/state/input_keybind/shared.ts:309
 msgid "Switch voice channel"
 msgstr "음성 채널 전환"
 
@@ -33459,7 +33445,7 @@ msgid "This category already contains the maximum of {maxChannelsPerCategory} ch
 msgstr "이 카테고리에는 이미 최대 {maxChannelsPerCategory}개의 채널이 있습니다."
 
 #. Body in the channel gate modal for a mature category when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:254
+#: src/features/channel/components/MatureContentChannelGate.tsx:227
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:76
 msgid "This category is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "이 카테고리는 성인 콘텐츠로 표시되어 있으며 일부 사용자에게 부적절할 수 있는 자료를 포함할 수 있습니다."
@@ -33487,7 +33473,7 @@ msgid "This channel doesn't have any invite links yet. Create one to invite peop
 msgstr "이 채널에는 아직 초대 링크가 없습니다. 링크를 만들어 사람들을 이 채널로 초대해 보세요."
 
 #. Body in the channel gate modal for a mature text channel when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:282
+#: src/features/channel/components/MatureContentChannelGate.tsx:255
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:91
 msgid "This channel is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "이 채널은 성인 콘텐츠로 표시되어 있으며 일부 사용자에게 부적절할 수 있는 자료를 포함할 수 있습니다."
@@ -33576,7 +33562,7 @@ msgid "This community is full"
 msgstr "이 커뮤니티는 가득 찼습니다"
 
 #. Body in the channel gate modal for a mature community when no custom warning is set.
-#: src/features/channel/components/MatureContentChannelGate.tsx:225
+#: src/features/channel/components/MatureContentChannelGate.tsx:198
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:71
 msgid "This community is marked for mature content and may contain material that may be inappropriate for some users."
 msgstr "이 커뮤니티는 성인 콘텐츠로 표시되어 있으며 일부 사용자에게 부적절할 수 있는 자료를 포함할 수 있습니다."
@@ -33844,35 +33830,26 @@ msgid "This link is not available for your account."
 msgstr "회원님의 계정에서는 이 링크를 사용할 수 없습니다."
 
 #. Body in the channel gate modal when the current user cannot access a mature category.
+#: src/features/channel/components/MatureContentChannelGate.tsx:136
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:63
 msgid "This mature category is not available to your account."
 msgstr "이 성인 카테고리는 회원님의 계정에서 이용할 수 없습니다."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:147
-msgid "This mature category is not available to your account. <0>Learn more</0>"
-msgstr "이 성인 카테고리는 회원님의 계정에서 이용할 수 없습니다. <0>자세히 알아보기</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature channel.
+#: src/features/channel/components/MatureContentChannelGate.tsx:150
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:67
 msgid "This mature channel is not available to your account."
 msgstr "이 성인 채널은 회원님의 계정에서 이용할 수 없습니다."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:169
-msgid "This mature channel is not available to your account. <0>Learn more</0>"
-msgstr "이 성인 채널은 회원님의 계정에서 이용할 수 없습니다. <0>자세히 알아보기</0>"
-
 #. Body in the channel gate modal when the current user cannot access a mature community.
+#: src/features/channel/components/MatureContentChannelGate.tsx:121
 #: src/features/channel/components/modals/ChannelAccessGateModal.tsx:59
 msgid "This mature community is not available to your account."
 msgstr "이 성인 커뮤니티는 회원님의 계정에서 이용할 수 없습니다."
 
-#: src/features/channel/components/MatureContentChannelGate.tsx:124
-msgid "This mature community is not available to your account. <0>Learn more</0>"
-msgstr "이 성인 커뮤니티는 회원님의 계정에서 이용할 수 없습니다. <0>자세히 알아보기</0>"
-
-#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:106
-msgid "This mature media is not available to your account. <0>Learn more</0>"
-msgstr "이 성인용 미디어는 회원님의 계정에서 이용할 수 없습니다. <0>자세히 알아보기</0>"
+#: src/features/moderation/components/modals/MatureMediaGateDetailsModal.tsx:103
+msgid "This mature media is not available to your account."
+msgstr "이 성인용 미디어는 회원님의 계정에서 이용할 수 없습니다."
 
 #. Body of the error modal shown when a voice moderation action targets a member who no longer exists.
 #: src/features/app/components/alerts/VoiceMemberModerationFailedModal.tsx:33
@@ -34364,7 +34341,7 @@ msgid "Toggle between last community and DMs"
 msgstr "마지막 커뮤니티와 DM 간 전환"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:309
+#: src/features/input/state/input_keybind/shared.ts:305
 msgid "Toggle camera"
 msgstr "카메라 켜기/끄기"
 
@@ -34384,7 +34361,7 @@ msgid "Toggle developer tools"
 msgstr "개발자 도구 전환"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:269
+#: src/features/input/state/input_keybind/shared.ts:265
 msgid "Toggle embed suppression"
 msgstr "임베드 숨기기/보이기 전환"
 
@@ -34416,7 +34393,7 @@ msgid "Toggle quick switcher"
 msgstr "빠른 전환 열기/닫기"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:281
+#: src/features/input/state/input_keybind/shared.ts:277
 msgid "Toggle saved media"
 msgstr "저장된 미디어 전환"
 
@@ -34460,7 +34437,7 @@ msgid "Toggle the sticker picker"
 msgstr "스티커 선택기 전환"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:305
+#: src/features/input/state/input_keybind/shared.ts:301
 msgid "Toggle voice activity"
 msgstr "음성 자동 감지 전환"
 
@@ -37367,11 +37344,6 @@ msgstr "선물 보기"
 msgid "View global profile"
 msgstr "글로벌 프로필 보기"
 
-#. Short label in the shared app expiry footnote context menu.
-#: src/features/app/components/shared/ExpiryFootnoteContextMenu.tsx:17
-msgid "View help article"
-msgstr "도움말 보기"
-
 #. Button on the connection banner when an incident is ongoing. Opens that incident on the status page.
 #: src/features/app/hooks/useConnectionNotice.ts:48
 msgid "View incident details"
@@ -37605,7 +37577,7 @@ msgid "Voice activity on active now"
 msgstr "활동 중에 음성 활동 표시"
 
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
-#: src/features/input/state/input_keybind/shared.ts:301
+#: src/features/input/state/input_keybind/shared.ts:297
 msgid "Voice activity priority"
 msgstr "음성 활동 우선순위"
 
@@ -40005,7 +39977,7 @@ msgstr "확대/축소"
 #. Native View menu item that increases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:627
-#: src/features/input/state/input_keybind/shared.ts:253
+#: src/features/input/state/input_keybind/shared.ts:249
 #: src/features/platform/utils/DesktopLocaleBridge.ts:112
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:82
 msgid "Zoom in"
@@ -40016,7 +39988,7 @@ msgstr "확대"
 #. Native View menu item that decreases UI zoom level.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:623
-#: src/features/input/state/input_keybind/shared.ts:257
+#: src/features/input/state/input_keybind/shared.ts:253
 #: src/features/platform/utils/DesktopLocaleBridge.ts:116
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:86
 msgid "Zoom out"
