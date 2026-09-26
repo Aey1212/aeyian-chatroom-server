@@ -18,7 +18,7 @@ import {
 } from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {SudoVerificationSchema} from '@fluxer/schema/src/domains/auth/AuthSchemas';
-import {NameStyleSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {NameStyleRequestSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {
 	isValidSyncedPreferencesEncoding,
 	SYNCED_PREFERENCES_MAX_ENCODED_LENGTH,
@@ -94,7 +94,9 @@ export const UserUpdateRequest = z
 			MentionReplyPreferencesSchema,
 			'Account-wide reply mention preference (NO_PREFERENCE, PREFER_MENTION, PREFER_NO_MENTION)',
 		),
-		name_style: NameStyleSchema.nullable().describe('Font, colors and effect of the display name; null resets it'),
+		name_style: NameStyleRequestSchema.nullable().describe(
+			'Font, colors and effect of the display name; null resets it',
+		),
 	})
 	.partial();
 

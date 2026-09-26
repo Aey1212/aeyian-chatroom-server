@@ -71,6 +71,10 @@ How clients paint the account's display name. Every font is free for every accou
 | effect | string | A [name effect](#name-effects) |
 | primary_color | ?integer | The main colour as a packed 24-bit RGB integer, or null for the default text colour |
 | secondary_color | ?integer | The second colour used by `gradient`, `glow`, and `shimmer`, or null |
+| gradient_direction<sup>1</sup> | string | `horizontal` (start to end of the name) or `vertical` (top to bottom of the letters) |
+| intensity<sup>1</sup> | integer | Strength of `glow` and `shimmer`, 0-100 |
+
+<sup>1</sup> Optional when [modifying the current user](/http-api/users/current-user/#modify-current-user): `gradient_direction` defaults to `horizontal` and `intensity` to `60`
 
 A style whose font and colours are all null and whose effect is `solid` is the default style and is stored as no style.
 
@@ -81,7 +85,9 @@ A style whose font and colours are all null and whose effect is `solid` is the d
   "font": "bangers",
   "effect": "gradient",
   "primary_color": 16711680,
-  "secondary_color": 255
+  "secondary_color": 255,
+  "gradient_direction": "horizontal",
+  "intensity": 60
 }
 ```
 

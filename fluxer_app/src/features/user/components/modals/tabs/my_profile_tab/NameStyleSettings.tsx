@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {ColorPickerField} from '@app/features/ui/components/form/ColorPickerField';
+import {Slider} from '@app/features/ui/components/Slider';
 import {SegmentedTabs} from '@app/features/ui/segmented_tabs/SegmentedTabs';
 import styles from '@app/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.module.css';
 import {
@@ -12,7 +13,14 @@ import {
 	nameFontFamily,
 } from '@app/features/user/name_style/NameFonts';
 import {nameLanguage, resolveNamePaint} from '@app/features/user/name_style/NamePaint';
-import {type NameFontId, type NameStyleEffect, NameStyleEffects} from '@fluxer/constants/src/NameStyleConstants';
+import {
+	DEFAULT_NAME_EFFECT_INTENSITY,
+	type NameFontId,
+	type NameGradientDirection,
+	NameGradientDirections,
+	type NameStyleEffect,
+	NameStyleEffects,
+} from '@fluxer/constants/src/NameStyleConstants';
 import {type NameStyle, normalizeNameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import type {MessageDescriptor} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
@@ -46,6 +54,22 @@ const GLOW_COLOR_DESCRIPTOR = msg({message: 'Glow color', comment: 'Label for th
 const SHINE_COLOR_DESCRIPTOR = msg({
 	message: 'Shine color',
 	comment: 'Label for the color of the light that sweeps across a shimmering display name.',
+});
+const DIRECTION_DESCRIPTOR = msg({
+	message: 'Direction',
+	comment: 'Label above the horizontal or vertical choice for a gradient display name.',
+});
+const HORIZONTAL_DESCRIPTOR = msg({
+	message: 'Horizontal',
+	comment: 'Gradient direction: the color changes from the start of the name to its end.',
+});
+const VERTICAL_DESCRIPTOR = msg({
+	message: 'Vertical',
+	comment: 'Gradient direction: the color changes from the top of the letters to their bottom.',
+});
+const INTENSITY_DESCRIPTOR = msg({
+	message: 'Intensity',
+	comment: 'Label of the slider that sets how strong the glow or shimmer of a display name is.',
 });
 const RESET_NAME_STYLE_DESCRIPTOR = msg({
 	message: 'Reset name style',
@@ -122,8 +146,14 @@ function withChanges(value: NameStyle | null, changes: Partial<NameStyle>): Name
 		effect: value?.effect ?? NameStyleEffects.SOLID,
 		primary_color: value?.primary_color ?? null,
 		secondary_color: value?.secondary_color ?? null,
+		gradient_direction: value?.gradient_direction ?? NameGradientDirections.HORIZONTAL,
+		intensity: value?.intensity ?? DEFAULT_NAME_EFFECT_INTENSITY,
 		...changes,
 	});
+}
+
+function formatPercent(value: number): string {
+	return `${Math.round(value)}%`;
 }
 
 export const NameStyleSettings = observer(({value, onChange, displayName, disabled}: NameStyleSettingsProps) => {
@@ -136,6 +166,17 @@ export const NameStyleSettings = observer(({value, onChange, displayName, disabl
 		() => (category === 'all' ? NAME_FONTS : NAME_FONTS.filter((font) => font.category === category)),
 		[category],
 	);
+	const directionTabs = useMemo(
+		() => [
+			{id: NameGradientDirections.HORIZONTAL, label: i18n._(HORIZONTAL_DESCRIPTOR)},
+			{id: NameGradientDirections.VERTICAL, label: i18n._(VERTICAL_DESCRIPTOR)},
+		],
+		[i18n.locale],
+	);
+	const intensity = value?.intensity ?? DEFAULT_NAME_EFFECT_INTENSITY;
+	const setIntensity = (next: number) => {
+		if (!disabled) onChange(withChanges(value, {intensity: Math.round(next)}));
+	};
 	const effectTabs = useMemo(
 		() => (Object.keys(EFFECT_LABELS) as Array<NameStyleEffect>).map((id) => ({id, label: i18n._(EFFECT_LABELS[id])})),
 		[i18n.locale],
@@ -266,6 +307,40 @@ export const NameStyleSettings = observer(({value, onChange, displayName, disabl
 				onTabChange={(next) => !disabled && selectEffect(next)}
 				ariaLabel={i18n._(EFFECTS_DESCRIPTOR)}
 			/>
+			{effect === NameStyleEffects.GRADIENT && (
+				<>
+					<div className={styles.fieldLabel} data-flx="user.my-profile-tab.name-style-settings.direction-field-label">
+						{i18n._(DIRECTION_DESCRIPTOR)}
+					</div>
+					<SegmentedTabs<NameGradientDirection>
+						tabs={directionTabs}
+						selectedTab={value?.gradient_direction ?? NameGradientDirections.HORIZONTAL}
+						onTabChange={(next) => !disabled && onChange(withChanges(value, {gradient_direction: next}))}
+						ariaLabel={i18n._(DIRECTION_DESCRIPTOR)}
+					/>
+				</>
+			)}
+			{(effect === NameStyleEffects.GLOW || effect === NameStyleEffects.SHIMMER) && (
+				<>
+					<div className={styles.fieldLabel} data-flx="user.my-profile-tab.name-style-settings.intensity-field-label">
+						{i18n._(INTENSITY_DESCRIPTOR)}
+					</div>
+					<Slider
+						value={intensity}
+						defaultValue={intensity}
+						factoryDefaultValue={DEFAULT_NAME_EFFECT_INTENSITY}
+						minValue={0}
+						maxValue={100}
+						step={1}
+						disabled={disabled}
+						ariaLabel={i18n._(INTENSITY_DESCRIPTOR)}
+						onValueRender={formatPercent}
+						asValueChanges={setIntensity}
+						onValueChange={setIntensity}
+						data-flx="user.my-profile-tab.name-style-settings.intensity-slider"
+					/>
+				</>
+			)}
 			<div className={styles.colors} data-flx="user.my-profile-tab.name-style-settings.colors">
 				<ColorPickerField
 					label={i18n._(MAIN_COLOR_DESCRIPTOR)}

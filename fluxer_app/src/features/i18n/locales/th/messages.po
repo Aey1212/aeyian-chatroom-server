@@ -3410,7 +3410,7 @@ msgstr "การควบคุมการจัดเรียงมีให
 #: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:131
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:38
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:46
 msgid "All"
 msgstr "ทั้งหมด"
 
@@ -4350,7 +4350,7 @@ msgstr "อนุมัติ"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:90
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:114
 #: src/features/user/utils/LocaleUtils.ts:10
 msgid "Arabic"
 msgstr "อาหรับ"
@@ -7265,7 +7265,7 @@ msgid "Chinese (simplified)"
 msgstr "จีน (ตัวย่อ)"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:98
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:122
 msgid "Chinese (Simplified)"
 msgstr "Chinese (Simplified)"
 
@@ -7275,7 +7275,7 @@ msgid "Chinese (traditional)"
 msgstr "จีน (ตัวเต็ม)"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:102
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:126
 msgid "Chinese (Traditional)"
 msgstr "Chinese (Traditional)"
 
@@ -10749,7 +10749,7 @@ msgid "Cyprus"
 msgstr "ไซปรัส"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:87
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:111
 msgid "Cyrillic"
 msgstr "Cyrillic"
 
@@ -11028,7 +11028,7 @@ msgstr "เส้นแบ่งตกแต่ง"
 #: src/features/ui/action_menu/items/SearchMenuData.tsx:43
 #: src/features/ui/action_menu/items/SearchProviderMenuItems.tsx:14
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:117
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:34
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:42
 msgid "Default"
 msgstr "ค่าเริ่มต้น"
 
@@ -11677,7 +11677,7 @@ msgid "Detect while typing"
 msgstr "ตรวจจับขณะพิมพ์"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:93
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:117
 msgid "Devanagari"
 msgstr "Devanagari"
 
@@ -11876,6 +11876,11 @@ msgstr "ข้อความส่วนตัวจากผู้อื่น
 #: src/features/messaging/components/modals/UploadDropModal.tsx:32
 msgid "Direct upload active"
 msgstr "เปิดอัปโหลดโดยตรงอยู่"
+
+#. Label above the horizontal or vertical choice for a gradient display name.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:58
+msgid "Direction"
+msgstr "Direction"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short footer action in the screen-share picker that disables screen-share preview frame uploads.
@@ -12148,7 +12153,7 @@ msgstr "ล้างการกล่าวถึง"
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:179
 #: src/features/user/components/modals/tabs/chat_settings_tab/ChatSettingsTabInline.tsx:12
 #: src/features/user/components/modals/tabs/ChatSettingsTab.tsx:12
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:74
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:98
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:154
 msgid "Display"
 msgstr "การแสดงผล"
@@ -12976,7 +12981,7 @@ msgid "Editing message"
 msgstr "กำลังแก้ไขข้อความ"
 
 #. Label above the display name effect choice.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:39
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:47
 msgid "Effect"
 msgstr "Effect"
 
@@ -15122,14 +15127,14 @@ msgstr "ใช้ระดับเสียงหลัก • {effectiveValue}
 
 #. Label above the display name font picker.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:33
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:41
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:170
 msgid "Font"
 msgstr "แบบอักษร"
 
 #. Accessible label for the list of display name fonts.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:58
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:82
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:9
 msgid "Fonts"
 msgstr "แบบอักษร"
@@ -16055,12 +16060,12 @@ msgid "Global shortcut"
 msgstr "ปุ่มลัดทั่วทั้งระบบ"
 
 #. Display name effect: a soft glow around the name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:67
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:91
 msgid "Glow"
 msgstr "Glow"
 
 #. Label for the glow color of a display name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:45
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:53
 msgid "Glow color"
 msgstr "Glow color"
 
@@ -16191,7 +16196,7 @@ msgstr "ช่วงผ่อนผัน (ยังคงเข้าถึง�
 #. Display name effect: a gradient between two colors.
 #. Role color style: a gradient between two colors.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:26
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:66
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:90
 msgid "Gradient"
 msgstr "Gradient"
 
@@ -16246,7 +16251,7 @@ msgstr "กรีซ"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:88
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:112
 #: src/features/user/utils/LocaleUtils.ts:30
 msgid "Greek"
 msgstr "กรีก"
@@ -16423,7 +16428,7 @@ msgid "Handle"
 msgstr "ชื่อผู้ใช้"
 
 #. Font picker filter: handwriting and script fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:75
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:99
 msgid "Handwriting"
 msgstr "Handwriting"
 
@@ -16581,7 +16586,7 @@ msgstr "หัวใจ"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:91
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:115
 #: src/features/user/utils/LocaleUtils.ts:58
 msgid "Hebrew"
 msgstr "ฮีบรู"
@@ -16924,6 +16929,11 @@ msgstr "Home"
 msgid "Home screen"
 msgstr "หน้าจอหลัก"
 
+#. Gradient direction: the color changes from the start of the name to its end.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:62
+msgid "Horizontal"
+msgstr "Horizontal"
+
 #. Short label in the connection add connection modal.
 #: src/features/connection/components/modals/AddConnectionModal.tsx:69
 msgid "Host"
@@ -16958,7 +16968,7 @@ msgid "Hover over buttons to see tooltips in different positions."
 msgstr "วางเมาส์เหนือปุ่มเพื่อดูคำแนะนำในตำแหน่งต่างๆ"
 
 #. Hint under the display name preview for animated effects.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:54
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:78
 msgid "Hover the preview to see the effect move."
 msgstr "Hover the preview to see the effect move."
 
@@ -17871,6 +17881,11 @@ msgstr "จำนวนเต็ม"
 msgid "Integrations"
 msgstr "การผสานรวม"
 
+#. Label of the slider that sets how strong the glow or shimmer of a display name is.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:70
+msgid "Intensity"
+msgstr "Intensity"
+
 #: src/features/user/components/modals/tabs/component_gallery_tab/SelectionsTab.tsx:265
 msgid "Interactive checkbox"
 msgstr "ช่องทำเครื่องหมายแบบโต้ตอบ"
@@ -18304,7 +18319,7 @@ msgstr "อิตาลี"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:94
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:118
 #: src/features/user/utils/LocaleUtils.ts:82
 msgid "Japanese"
 msgstr "ญี่ปุ่น"
@@ -18718,7 +18733,7 @@ msgstr "GIF จาก Klipy"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:95
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:119
 #: src/features/user/utils/LocaleUtils.ts:86
 msgid "Korean"
 msgstr "เกาหลี"
@@ -18796,12 +18811,12 @@ msgid "Later"
 msgstr "ภายหลัง"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:82
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:106
 msgid "Latin"
 msgstr "Latin"
 
 #. Writing system covered by a font: accented Latin letters.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:85
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:109
 msgid "Latin Extended"
 msgstr "Latin Extended"
 
@@ -19495,7 +19510,7 @@ msgid "Mail"
 msgstr "อีเมล"
 
 #. Label for the first display name color.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:40
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:48
 msgid "Main color"
 msgstr "Main color"
 
@@ -20975,7 +20990,7 @@ msgid "Moderator"
 msgstr "ผู้ดูแล"
 
 #. Font picker filter: monospaced fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:77
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:101
 msgid "Mono"
 msgstr "Mono"
 
@@ -21621,7 +21636,7 @@ msgid "Name"
 msgstr "ชื่อ"
 
 #. Accessible label for the display name effect tabs.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:59
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:83
 msgid "Name effects"
 msgstr "Name effects"
 
@@ -21668,7 +21683,7 @@ msgid "Name passkey form"
 msgstr "แบบฟอร์มตั้งชื่อพาสคีย์"
 
 #. Profile settings section title for the display name font, colors and effect.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:24
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:32
 msgid "Name style"
 msgstr "Name style"
 
@@ -24441,7 +24456,7 @@ msgid "Photo"
 msgstr "รูปภาพ"
 
 #. Profile settings section description for the display name style.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:28
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:36
 msgid "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
 msgstr "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
 
@@ -24651,7 +24666,7 @@ msgid "PiP"
 msgstr "PiP"
 
 #. Font picker filter: pixel and retro fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:76
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:100
 msgid "Pixel"
 msgstr "Pixel"
 
@@ -27174,7 +27189,7 @@ msgid "Reset media position"
 msgstr "รีเซ็ตตำแหน่งสื่อ"
 
 #. Button that returns the display name to the default font, colors and effect.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:50
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:74
 msgid "Reset name style"
 msgstr "Reset name style"
 
@@ -27895,7 +27910,7 @@ msgid "Sanitize link"
 msgstr "ล้างลิงก์"
 
 #. Font picker filter: sans-serif fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:72
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:96
 msgid "Sans"
 msgstr "Sans"
 
@@ -28585,7 +28600,7 @@ msgstr "กำลังค้นหาผู้คน..."
 #. Label for the second display name color, used by gradient, glow and shimmer.
 #. Second color of a gradient role.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:31
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:41
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:49
 msgid "Second color"
 msgstr "Second color"
 
@@ -29215,7 +29230,7 @@ msgid "Serial send"
 msgstr "ส่งทีละไฟล์"
 
 #. Font picker filter: serif fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:73
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:97
 msgid "Serif"
 msgstr "Serif"
 
@@ -29658,12 +29673,12 @@ msgid "Shift expand"
 msgstr "Shift ขยาย"
 
 #. Display name effect: a light that sweeps across the name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:68
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:92
 msgid "Shimmer"
 msgstr "Shimmer"
 
 #. Label for the color of the light that sweeps across a shimmering display name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:46
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:54
 msgid "Shine color"
 msgstr "Shine color"
 
@@ -30759,7 +30774,7 @@ msgstr "หมดแล้ว"
 #. Display name effect: one color.
 #. Role color style: one color.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:25
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:65
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:89
 msgid "Solid"
 msgstr "Solid"
 
@@ -32670,7 +32685,7 @@ msgstr "การแจ้งเตือนแบบอ่านออกเส
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:92
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:116
 #: src/features/user/utils/LocaleUtils.ts:122
 msgid "Thai"
 msgstr "ไทย"
@@ -36816,6 +36831,11 @@ msgstr "เวอร์มอนต์"
 msgid "Version"
 msgstr "เวอร์ชัน"
 
+#. Gradient direction: the color changes from the top of the letters to their bottom.
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:66
+msgid "Vertical"
+msgstr "Vertical"
+
 #. Activity log value naming the highest member verification level of a community.
 #. Member verification level option in the community moderation settings tab. Short standalone severity label.
 #: src/features/guild/components/modals/guild_tabs/GuildModerationTab.tsx:84
@@ -36959,7 +36979,7 @@ msgstr "วิดีโอ"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:89
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:113
 #: src/features/user/utils/LocaleUtils.ts:134
 msgid "Vietnamese"
 msgstr "เวียดนาม"
