@@ -16,7 +16,17 @@ describe('AssetFormatPolicy', () => {
 	describe('ASSET_FORMAT_POLICY', () => {
 		it('exposes an entry for every documented asset kind', () => {
 			expect(Object.keys(ASSET_FORMAT_POLICY).sort()).toEqual(
-				['attachment', 'avatar', 'banner', 'cosmetic', 'embed_splash', 'emoji', 'guild_icon', 'splash', 'sticker'].sort(),
+				[
+					'attachment',
+					'avatar',
+					'banner',
+					'cosmetic',
+					'embed_splash',
+					'emoji',
+					'guild_icon',
+					'splash',
+					'sticker',
+				].sort(),
 			);
 		});
 		it('keeps animated-only assets out of static-only kinds', () => {
