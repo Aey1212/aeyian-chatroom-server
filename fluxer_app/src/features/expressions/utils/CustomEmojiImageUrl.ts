@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import {getBuiltinEmojiUrl} from '@app/features/emoji/builtin/BuiltinEmojiAssets';
 import {setUrlQueryParams} from '@app/features/messaging/utils/MessagingUrlUtils';
 import * as AvatarUtils from '@app/features/user/utils/AvatarUtils';
 
@@ -15,6 +16,10 @@ export function buildCustomEmojiURL({
 	animated: boolean;
 	size?: number;
 }): string {
+	const builtinUrl = getBuiltinEmojiUrl(id);
+	if (builtinUrl) {
+		return builtinUrl;
+	}
 	const base = AvatarUtils.getEmojiURL({id, animated});
 	if (!base) {
 		return base;

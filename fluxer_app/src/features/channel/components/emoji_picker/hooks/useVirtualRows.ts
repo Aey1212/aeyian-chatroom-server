@@ -2,10 +2,10 @@
 
 import {EMOJIS_PER_ROW} from '@app/features/channel/components/emoji_picker/EmojiPickerConstants';
 import type {VirtualRow} from '@app/features/channel/components/emoji_picker/VirtualRow';
+import {getEmojiSectionName} from '@app/features/emoji/builtin/BuiltinEmojiSection';
 import EmojiPicker from '@app/features/emoji/state/EmojiPicker';
 import type {FlatEmoji} from '@app/features/emoji/types/EmojiTypes';
 import UnicodeEmojis from '@app/features/expressions/utils/UnicodeEmojis';
-import Guilds from '@app/features/guild/state/Guilds';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
 import {useMemo} from 'react';
@@ -79,12 +79,11 @@ export function useVirtualRows(
 				}
 			}
 			for (const [guildId, emojis] of customEmojisByGuildId.entries()) {
-				const guild = Guilds.getGuild(guildId)!;
 				const isGuildCollapsed = EmojiPicker.isCategoryCollapsed(guildId);
 				rows.push({
 					type: 'header',
 					category: guildId,
-					name: guild.name,
+					name: getEmojiSectionName(i18n, guildId),
 					guildId,
 					index: currentIndex++,
 				});

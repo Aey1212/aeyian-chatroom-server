@@ -8,6 +8,7 @@ import {resolveLimitSafe} from '@app/api/limits/LimitConfigUtils';
 import {createLimitMatchContext} from '@app/api/limits/LimitMatchContextBuilder';
 import type {GuildEmoji} from '@app/api/models/GuildEmoji';
 import type {IUserAccountRepository} from '@app/api/user/repositories/IUserAccountRepository';
+import {isBuiltinEmojiId} from '@fluxer/constants/src/BuiltinEmojiConstants';
 import {Permissions} from '@fluxer/constants/src/ChannelConstants';
 
 type EmojiGuildRepository = Pick<IGuildRepositoryAggregate, 'getEmoji' | 'getEmojiById'>;
@@ -129,7 +130,7 @@ async function batchFetchEmojis(
 	guildId: GuildID | null,
 	guildRepository: EmojiGuildRepository,
 ): Promise<Array<EmojiLookupResult>> {
-	const uniqueEmojiIds = [...new Set(matches.map((m) => m.emojiId))];
+	const uniqueEmojiIds = [...new Set(matches.map((m) => m.emojiId))].filter((emojiId) => !isBuiltinEmojiId(emojiId));
 	const lookupResults = await Promise.all(
 		uniqueEmojiIds.map(async (emojiId) => {
 			const [guildEmoji, globalEmoji] = await Promise.all([
@@ -143,7 +144,9 @@ async function batchFetchEmojis(
 	for (const result of lookupResults) {
 		lookupMap.set(result.emojiId, result);
 	}
-	return matches.map((match) => lookupMap.get(match.emojiId)!);
+	return matches.map(
+		(match) => lookupMap.get(match.emojiId) ?? {emojiId: match.emojiId, guildEmoji: null, globalEmoji: null},
+	);
 }
 
 interface Replacement {
@@ -191,6 +194,8 @@ async function shouldReplaceEmoji(params: {
 	canUseExternalEmojis: boolean | null;
 }): Promise<boolean> {
 	const {lookup, guildId, isWebhook, hasGlobalExpressions, canUseExternalEmojis} = params;
+	// Built-in emojis ship with the app and work everywhere.
+	if (isBuiltinEmojiId(lookup.emojiId)) return false;
 	if (!guildId) {
 		if (!lookup.globalEmoji) return true;
 		if (!isWebhook && hasGlobalExpressions === 0) return true;

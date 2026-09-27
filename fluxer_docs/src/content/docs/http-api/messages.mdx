@@ -1916,6 +1916,7 @@ Adds the authenticated identity's reaction. Returns 204 with an empty body. Emit
 - Creating a new emoji reaction group in a guild requires [ADD_REACTIONS](/http-api/permissions/), while adding to an existing group does not.
 - A custom emoji whose source guild is not the channel's guild requires the `feature_global_expressions` entitlement, and a caller without it receives the field code `CUSTOM_EMOJIS_REQUIRE_PREMIUM_OUTSIDE_SOURCE`.
 - In a guild channel a custom emoji also requires [USE_EXTERNAL_EMOJIS](/http-api/permissions/).
+- A built-in emoji (an emoji that ships with the app, such as `aeyian_flag:1`) is exempt from both checks and works in every channel, including DMs. Built-in emojis use small reserved IDs that no generated snowflake reaches.
 - A non-bot caller must have started a session, and one that has not receives the field code `MUST_START_SESSION_BEFORE_SENDING`.
 - An unclaimed account can react only in its personal notes channel, and elsewhere receives 400 `UNCLAIMED_ACCOUNT_CANNOT_ADD_REACTIONS`.
 - This route applies no direct message send policy.

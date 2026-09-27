@@ -5,12 +5,12 @@ import {type AutocompleteOption, isEmoji, isMeme, isSticker} from '@app/features
 import styles from '@app/features/channel/components/AutocompleteEmoji.module.css';
 import {AutocompleteItem} from '@app/features/channel/components/AutocompleteItem';
 import {AutocompleteMemePreview} from '@app/features/channel/components/AutocompleteMemePreview';
+import {getEmojiSectionName} from '@app/features/emoji/builtin/BuiltinEmojiSection';
 import * as EmojiPickerCommands from '@app/features/emoji/commands/EmojiPickerCommands';
 import {useStickerAnimation} from '@app/features/emoji/hooks/useStickerAnimation';
 import type {FlatEmoji} from '@app/features/emoji/types/EmojiTypes';
 import type {GuildSticker} from '@app/features/expressions/models/GuildSticker';
 import {getEmojiDisplayData} from '@app/features/expressions/utils/SkinToneUtils';
-import Guilds from '@app/features/guild/state/Guilds';
 import {
 	EMOJIS_DESCRIPTOR,
 	MEDIA_DESCRIPTOR,
@@ -123,7 +123,7 @@ export const AutocompleteEmoji = observer(
 									name={`:${option.emoji.name}:`}
 									description={
 										option.emoji.guildId
-											? Guilds.getGuild(option.emoji.guildId)?.name
+											? getEmojiSectionName(i18n, option.emoji.guildId)
 											: i18n._(DEFAULT_EMOJI_DESCRIPTOR)
 									}
 									icon={

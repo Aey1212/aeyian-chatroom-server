@@ -1249,7 +1249,7 @@ msgid "{eightHours} hours"
 msgstr "{eightHours} ώρες"
 
 #. Error message in the messaging emoji renderer.
-#: src/features/messaging/components/markdown/renderers/EmojiRenderer.tsx:29
+#: src/features/messaging/components/markdown/renderers/EmojiRenderer.tsx:30
 msgid "{emojiName} (failed to load)"
 msgstr "{emojiName} (αποτυχία φόρτωσης)"
 
@@ -3334,6 +3334,11 @@ msgstr "Προηγμένες ρυθμίσεις βίντεο"
 #: src/features/theme_studio/sections/ThemeStudioSettingsSection.tsx:300
 msgid "Aero Snap and Snap Layouts can stop working while transparency is enabled."
 msgstr "Το Aero Snap και τα Snap Layouts ενδέχεται να σταματήσουν να λειτουργούν όταν είναι ενεργοποιημένη η διαφάνεια."
+
+#. Name of the emoji section with the emojis that come with the app. A proper name; keep it as is.
+#: src/features/emoji/builtin/BuiltinEmojiSection.tsx:11
+msgid "Aeyian"
+msgstr "Aeyian"
 
 #. Label in the idle settings section.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/IdleSettingsSection.tsx:24
@@ -9320,12 +9325,12 @@ msgid "Copy emoji"
 msgstr "Αντιγραφή emoji"
 
 #. Developer-mode action that copies the emoji ID to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:32
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:33
 msgid "Copy emoji ID"
 msgstr "Αντιγραφή αναγνωριστικού emoji"
 
 #. Action that copies the emoji URL to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:36
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:37
 msgid "Copy emoji URL"
 msgstr "Αντιγραφή URL emoji"
 
@@ -9377,7 +9382,7 @@ msgstr "Αντιγραφή εικόνας"
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:44
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:45
 #: src/features/ui/action_menu/items/MediaMenuData.tsx:70
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:44
 msgid "Copy image link"
@@ -14761,7 +14766,7 @@ msgid "Favorite DM"
 msgstr "Προσθήκη DM στα αγαπημένα"
 
 #. Emoji context menu action that adds the emoji to favorites.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:28
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:29
 msgid "Favorite emoji"
 msgstr "Προσθήκη emoji στα αγαπημένα"
 
@@ -15465,7 +15470,7 @@ msgstr "Γαλλικά"
 #. Short label in the channel and chat emoji picker category list. Keep it concise.
 #. Short label in the use virtual rows hook. Keep it concise.
 #. Short label in the use virtual rows hook. Keep it concise.
-#: src/features/channel/components/emoji_picker/EmojiPickerCategoryList.tsx:16
+#: src/features/channel/components/emoji_picker/EmojiPickerCategoryList.tsx:15
 #: src/features/channel/components/emoji_picker/hooks/useVirtualRows.ts:17
 #: src/features/channel/components/sticker_picker/hooks/useVirtualRows.ts:14
 msgid "Frequently used"
@@ -21104,7 +21109,7 @@ msgid "More button"
 msgstr "Κουμπί \"Περισσότερα\""
 
 #. Submenu label that contains additional emoji context menu actions.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:52
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:53
 msgid "More emoji actions"
 msgstr "Περισσότερες ενέργειες emoji"
 
@@ -23439,7 +23444,7 @@ msgid "Open DMs only"
 msgstr "Μόνο ανοιχτά DM"
 
 #. Action that opens the emoji URL in an external browser.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:40
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:41
 msgid "Open emoji in browser"
 msgstr "Άνοιγμα emoji στο πρόγραμμα περιήγησης"
 
@@ -23492,7 +23497,7 @@ msgstr "Άνοιγμα εικόνας σε πλήρη προβολή"
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:48
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:49
 #: src/features/ui/action_menu/items/MediaMenuData.tsx:90
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
@@ -35180,7 +35185,7 @@ msgid "Unfavorite DM"
 msgstr "Αφαίρεση DM από τα αγαπημένα"
 
 #. Emoji context menu action that removes the emoji from favorites.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:24
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:25
 msgid "Unfavorite emoji"
 msgstr "Αφαίρεση emoji από τα αγαπημένα"
 
@@ -35395,7 +35400,7 @@ msgid "Unlock all custom emojis and stickers across all communities with {premiu
 msgstr "Ξεκλειδώστε όλα τα προσαρμοσμένα emoji και αυτοκόλλητα σε όλες τις κοινότητες με το {premiumProductName}"
 
 #. Premium upsell shown when sending custom emoji in a DM without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:16
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:17
 msgid "Unlock custom emojis in DMs with {premiumProductName}"
 msgstr "Ξεκλειδώστε προσαρμοσμένα emoji σε DM με το {premiumProductName}"
 
@@ -35414,7 +35419,7 @@ msgid "Unlock more backgrounds with {premiumProductName}"
 msgstr "Ξεκλειδώστε περισσότερα φόντα με το {premiumProductName}"
 
 #. Premium upsell shown when sending custom stickers in a DM without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:28
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:29
 msgid "Unlock stickers in DMs with {premiumProductName}"
 msgstr "Ξεκλειδώστε αυτοκόλλητα σε DM με το {premiumProductName}"
 
@@ -36205,7 +36210,7 @@ msgid "Use emoji from other communities in this channel."
 msgstr "Χρήση emoji από άλλες κοινότητες σε αυτό το κανάλι."
 
 #. Premium upsell shown when sending external emoji without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:24
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:25
 msgid "Use emoji from other communities with {premiumProductName}"
 msgstr "Χρησιμοποιήστε emoji από άλλες κοινότητες με το {premiumProductName}"
 
@@ -36318,7 +36323,7 @@ msgid "Use stickers from other communities in this channel."
 msgstr "Χρήση αυτοκόλλητων από άλλες κοινότητες σε αυτό το κανάλι."
 
 #. Premium upsell shown when sending external stickers without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:36
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:37
 msgid "Use stickers from other communities with {premiumProductName}"
 msgstr "Χρησιμοποιήστε αυτοκόλλητα από άλλες κοινότητες με το {premiumProductName}"
 
@@ -39024,12 +39029,12 @@ msgid "You need the \"{manageWebhooksPermissionLabel}\" permission to view and e
 msgstr "Χρειάζεστε το δικαίωμα «{manageWebhooksPermissionLabel}» για να δείτε και να επεξεργαστείτε τα webhook αυτής της κοινότητας."
 
 #. Permission error shown when sending external emoji without the required permission.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:20
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:21
 msgid "You need the \"{permissionLabel}\" permission to use emoji from other communities here."
 msgstr "Χρειάζεστε το δικαίωμα «{permissionLabel}» για να χρησιμοποιήσετε emoji από άλλες κοινότητες εδώ."
 
 #. Permission error shown when sending external stickers without the required permission.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:32
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:33
 msgid "You need the \"{permissionLabel}\" permission to use stickers from other communities here."
 msgstr "Χρειάζεστε το δικαίωμα «{permissionLabel}» για να χρησιμοποιήσετε αυτοκόλλητα από άλλες κοινότητες εδώ."
 

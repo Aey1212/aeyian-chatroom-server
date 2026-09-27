@@ -20,6 +20,7 @@ import {MessageContextMenu} from '@app/features/ui/action_menu/MessageContextMen
 import * as ContextMenuCommands from '@app/features/ui/commands/ContextMenuCommands';
 import MobileLayout from '@app/features/ui/state/MobileLayout';
 import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
+import {isBuiltinEmojiId} from '@fluxer/constants/src/BuiltinEmojiConstants';
 import {msg} from '@lingui/core/macro';
 import {clsx} from 'clsx';
 import {observer} from 'mobx-react-lite';
@@ -45,9 +46,10 @@ export const EmojiRenderer = observer(function EmojiRenderer({
 }: RendererProps<EmojiNode>): React.ReactElement {
 	const {shouldJumboEmojis, messageId, channelId, disableAnimatedEmoji} = options;
 	const isPlainEmoji = options.disableInteractions === true || options.disableEmojiInteractions === true;
-	const shouldDisableInfoCard = isPlainEmoji || options.disableEmojiInfoCard === true;
 	const i18n = options.i18n!;
 	const emojiData = getEmojiRenderData(node, disableAnimatedEmoji);
+	// Built-in emojis come with the app, so there is no source server to show.
+	const shouldDisableInfoCard = isPlainEmoji || options.disableEmojiInfoCard === true || isBuiltinEmojiId(emojiData.id);
 	const isMobile = MobileLayout.enabled;
 	const [bottomSheetState, setBottomSheetState] = useState<EmojiBottomSheetState>({
 		isOpen: false,

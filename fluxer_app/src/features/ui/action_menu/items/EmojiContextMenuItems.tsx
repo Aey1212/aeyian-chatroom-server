@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import {isBuiltinEmojiSection} from '@app/features/emoji/builtin/BuiltinEmojiSection';
 import * as EmojiPickerCommands from '@app/features/emoji/commands/EmojiPickerCommands';
 import EmojiPicker from '@app/features/emoji/state/EmojiPicker';
 import type {FlatEmoji} from '@app/features/emoji/types/EmojiTypes';
@@ -61,7 +62,8 @@ interface EmojiContextMenuItemsProps {
 
 const useEmojiHandlers = (emoji: FlatEmoji, onClose: () => void) => {
 	const {i18n} = useLingui();
-	const canFavorite = !emoji.id || Boolean(emoji.guildId && Guilds.getGuild(emoji.guildId));
+	const canFavorite =
+		!emoji.id || isBuiltinEmojiSection(emoji.guildId) || Boolean(emoji.guildId && Guilds.getGuild(emoji.guildId));
 	const isFavorite = canFavorite ? EmojiPicker.isFavorite(emoji) : false;
 	const reverseImageSearchUrl = emoji.id
 		? AvatarUtils.getEmojiURL({id: emoji.id, animated: emoji.animated})

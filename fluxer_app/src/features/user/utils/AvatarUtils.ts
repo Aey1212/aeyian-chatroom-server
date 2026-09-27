@@ -2,6 +2,7 @@
 
 import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
 import DeveloperOptions from '@app/features/devtools/state/DeveloperOptions';
+import {getBuiltinEmojiUrl} from '@app/features/emoji/builtin/BuiltinEmojiAssets';
 import {
 	buildMediaProxyURL,
 	LARGEST_MEDIA_PROXY_IMAGE_SIZE,
@@ -481,6 +482,8 @@ export function getEmojiURL({id, animated, isAnimatable}: {id: string; animated?
 	if (DeveloperOptions.forceRenderPlaceholders) {
 		return '';
 	}
+	const builtinUrl = getBuiltinEmojiUrl(id);
+	if (builtinUrl) return builtinUrl;
 	const animatedFlag = isAnimatable === false ? false : animated === true;
 	const key = `${RuntimeConfig.mediaEndpoint}:${animatedFlag ? 'a' : 's'}:${id}`;
 	const cached = EMOJI_URL_CACHE.get(key);
