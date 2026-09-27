@@ -6,6 +6,7 @@ pub mod auth;
 pub mod bans;
 mod bans_actions;
 pub mod codes;
+pub mod cosmetics;
 mod guild_tabs;
 pub mod guilds;
 pub mod jobs;
@@ -70,6 +71,7 @@ pub fn build_router(config: AdminConfig) -> Router {
         .merge(voice::router())
         .merge(admin::router())
         .merge(usernames::router())
+        .merge(cosmetics::router())
         .route("/", get(dashboard))
         .route("/dashboard", get(dashboard))
         .layer(from_fn(middleware::htmx::flash_redirect_to_toast))

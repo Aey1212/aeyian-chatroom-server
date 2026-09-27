@@ -12,6 +12,7 @@ pub const ARCHIVE_VIEW_ALL: &str = "archive:view_all";
 pub const ASSET_PURGE: &str = "asset:purge";
 pub const AUDIT_LOG_VIEW: &str = "audit_log:view";
 pub const AUTHENTICATE: &str = "admin:authenticate";
+pub const COSMETICS_MANAGE: &str = "cosmetics:manage";
 pub const JOBS_VIEW: &str = "jobs:view";
 pub const JOBS_CANCEL: &str = "jobs:cancel";
 pub const BAN_EMAIL_ADD: &str = "ban:email:add";
@@ -122,6 +123,7 @@ pub const ALL_ACLS: &[&str] = &[
     ASSET_PURGE,
     AUDIT_LOG_VIEW,
     AUTHENTICATE,
+    COSMETICS_MANAGE,
     JOBS_VIEW,
     JOBS_CANCEL,
     BAN_EMAIL_ADD,
