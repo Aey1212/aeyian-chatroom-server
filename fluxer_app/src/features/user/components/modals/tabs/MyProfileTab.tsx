@@ -35,6 +35,7 @@ import {AccentColorPicker} from '@app/features/user/components/modals/tabs/my_pr
 import {AvatarUploader} from '@app/features/user/components/modals/tabs/my_profile_tab/AvatarUploader';
 import {BannerUploader} from '@app/features/user/components/modals/tabs/my_profile_tab/BannerUploader';
 import {BIO_MARKDOWN_PARSER_FLAGS, BioEditor} from '@app/features/user/components/modals/tabs/my_profile_tab/BioEditor';
+import {CosmeticSettings} from '@app/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings';
 import {UsernameSection} from '@app/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection';
 import {NameStyleSettings} from '@app/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings';
 import {PerGuildPremiumUpsell} from '@app/features/user/components/modals/tabs/my_profile_tab/PerGuildPremiumUpsell';
@@ -193,6 +194,8 @@ interface FormInputs {
 	name_style: NameStyle | null;
 	theme_colors: ReadonlyArray<number> | null;
 	profile_frame: string | null;
+	avatar_frame: string | null;
+	nameplate: string | null;
 	timezone: string | null;
 	timezone_privacy_flags: number;
 	nick?: string | null;
@@ -268,6 +271,8 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 			name_style: user?.nameStyle ?? null,
 			theme_colors: user?.themeColors ?? null,
 			profile_frame: user?.profileFrame ?? null,
+			avatar_frame: user?.avatarFrame ?? null,
+			nameplate: user?.nameplate ?? null,
 			timezone: user?.timezone ?? null,
 			timezone_privacy_flags: user?.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 			nick: null,
@@ -322,6 +327,8 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 			name_style: user.nameStyle ?? null,
 			theme_colors: user.themeColors ?? null,
 			profile_frame: user.profileFrame ?? null,
+			avatar_frame: user.avatarFrame ?? null,
+			nameplate: user.nameplate ?? null,
 			timezone: user.timezone ?? null,
 			timezone_privacy_flags: user.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 			premium_badge_hidden: user.premiumBadgeHidden ?? false,
@@ -532,6 +539,8 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 						name_style: user.nameStyle ?? null,
 						theme_colors: user.themeColors ?? null,
 						profile_frame: user.profileFrame ?? null,
+						avatar_frame: user.avatarFrame ?? null,
+						nameplate: user.nameplate ?? null,
 						timezone: user.timezone ?? null,
 						timezone_privacy_flags: user.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 						nick: data.nick,
@@ -552,6 +561,8 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 					name_style: data.name_style,
 					theme_colors: data.theme_colors,
 					profile_frame: data.profile_frame,
+					avatar_frame: data.avatar_frame,
+					nameplate: data.nameplate,
 				};
 				assignProfileAssetUploadPatch(updateData, 'avatar', avatarAsset);
 				assignProfileAssetUploadPatch(updateData, 'banner', bannerAsset);
@@ -586,6 +597,8 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 						name_style: newUser.name_style ?? null,
 						theme_colors: newUser.theme_colors ?? null,
 						profile_frame: newUser.profile_frame ?? null,
+						avatar_frame: newUser.avatar_frame ?? null,
+						nameplate: newUser.nameplate ?? null,
 						timezone: newUser.timezone ?? null,
 						timezone_privacy_flags: newUser.timezone_privacy_flags ?? ProfileFieldPrivacyFlags.EVERYONE,
 						nick: null,
@@ -957,6 +970,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 										previewNameStyle={!isPerGuildProfile ? form.watch('name_style') : undefined}
 										previewThemeColors={!isPerGuildProfile ? form.watch('theme_colors') : undefined}
 										previewProfileFrame={!isPerGuildProfile ? form.watch('profile_frame') : undefined}
+										previewAvatarFrame={!isPerGuildProfile ? form.watch('avatar_frame') : undefined}
 										previewTimezoneOffset={previewTimezoneOffset}
 										previewGlobalName={!isPerGuildProfile ? form.watch('global_name') : undefined}
 										previewNick={isPerGuildProfile ? form.watch('nick') : undefined}
@@ -983,6 +997,17 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 							frame={form.watch('profile_frame')}
 							onThemeColorsChange={(value) => form.setValue('theme_colors', value, {shouldDirty: true})}
 							onFrameChange={(value) => form.setValue('profile_frame', value, {shouldDirty: true})}
+							disabled={isProfileCustomizationLocked}
+						/>
+					)}
+					{!isPerGuildProfile && (
+						<CosmeticSettings
+							user={user}
+							avatarFrame={form.watch('avatar_frame')}
+							nameplate={form.watch('nameplate')}
+							displayName={form.watch('global_name') || user.username}
+							onAvatarFrameChange={(value) => form.setValue('avatar_frame', value, {shouldDirty: true})}
+							onNameplateChange={(value) => form.setValue('nameplate', value, {shouldDirty: true})}
 							disabled={isProfileCustomizationLocked}
 						/>
 					)}

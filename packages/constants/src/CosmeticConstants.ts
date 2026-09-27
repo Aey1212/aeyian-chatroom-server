@@ -9,10 +9,6 @@ export const CosmeticKinds = {
 
 export type CosmeticKind = ValueOf<typeof CosmeticKinds>;
 
-export function isCosmeticKind(value: unknown): value is CosmeticKind {
-	return value === CosmeticKinds.AVATAR_FRAME || value === CosmeticKinds.NAMEPLATE;
-}
-
 // Drawn in code by the app (fluxer_app/src/features/user/cosmetics/). Uploaded cosmetics use snowflake ids.
 export const BUILTIN_AVATAR_FRAME_IDS = [
 	'halo',

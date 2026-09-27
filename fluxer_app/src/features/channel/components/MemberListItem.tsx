@@ -17,6 +17,7 @@ import {FocusRingWrapper} from '@app/features/ui/components/FocusRingWrapper';
 import {ListStatusAwareAvatar} from '@app/features/ui/components/StatusAwareAvatar';
 import {useTextOverflow} from '@app/features/ui/hooks/useTextOverflow';
 import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
+import {Nameplate} from '@app/features/user/cosmetics/Nameplate';
 import type {User} from '@app/features/user/models/User';
 import {memberNamePaint} from '@app/features/user/name_style/NamePaint';
 import type {CustomStatus} from '@app/features/user/state/CustomStatus';
@@ -199,6 +200,7 @@ export const MemberListItem: React.FC<MemberListItemProps> = observer((props) =>
 				data-member-list-focus-item="true"
 				data-flx="channel.member-list-item.button.context-menu"
 			>
+				<Nameplate nameplateId={user.nameplate} />
 				<div className={styles.grid} data-flx="channel.member-list-item.grid">
 					<span className={styles.content} data-flx="channel.member-list-item.content">
 						<div className={styles.avatarContainer} data-flx="channel.member-list-item.avatar-container">

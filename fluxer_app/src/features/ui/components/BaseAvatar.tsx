@@ -116,6 +116,8 @@ interface BaseAvatarProps {
 	disableStatusTooltip?: boolean;
 	isMobileStatus?: boolean;
 	animateStatusCutout?: boolean;
+	// Drawn over the avatar, under the status badge (the avatar frame).
+	decoration?: React.ReactNode;
 	customStatusBadge?: React.ReactNode;
 	customStatusBadgeColor?: string;
 	customStatusBadgeLabel?: string | null;
@@ -147,6 +149,7 @@ export const BaseAvatar = React.forwardRef<HTMLDivElement, BaseAvatarProps>(
 			disableStatusTooltip = false,
 			isMobileStatus = false,
 			animateStatusCutout = false,
+			decoration,
 			customStatusBadge,
 			customStatusBadgeColor,
 			customStatusBadgeLabel,
@@ -435,6 +438,7 @@ export const BaseAvatar = React.forwardRef<HTMLDivElement, BaseAvatarProps>(
 						data-flx="ui.base-avatar.hover-overlay"
 					/>
 				</svg>
+				{decoration}
 				{statusBadge &&
 					(isTyping || disableStatusTooltip ? (
 						statusBadge

@@ -949,8 +949,8 @@ msgid "{count, plural, one {# image} other {# images}}"
 msgstr "{count, plural, one {# imagen} other {# imágenes}}"
 
 #: src/features/channel/components/ChannelSourcePreview.tsx:245
-#: src/features/channel/components/direct_message/DMListItem.tsx:448
-#: src/features/channel/components/direct_message/DMListItem.tsx:613
+#: src/features/channel/components/direct_message/DMListItem.tsx:450
+#: src/features/channel/components/direct_message/DMListItem.tsx:617
 #: src/features/guild/components/bottomsheets/GuildHeaderBottomSheet.tsx:118
 #: src/features/user/components/modals/MutualItemsSheet.tsx:159
 #: src/features/user/components/modals/user_profile_modal/MutualGroupItem.tsx:26
@@ -2337,6 +2337,11 @@ msgstr "60 segundos"
 msgid "7 days"
 msgstr "7 días"
 
+#. Profile settings section description for the nameplate.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:39
+msgid "A background behind your name in the member list and in direct messages."
+msgstr "A background behind your name in the member list and in direct messages."
+
 #. Required-action error when the API requires a captcha for phone verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:560
 msgid "A browser check is required before phone verification. Try again from the sign-in page or contact support."
@@ -2376,6 +2381,11 @@ msgstr "Una pegatina personalizada de esta comunidad. Puedes usarla en esta comu
 #: src/features/search/utils/SearchUtils.ts:73
 msgid "a date or date range"
 msgstr "una fecha o un rango de fechas"
+
+#. Profile settings section description for the avatar frame.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:27
+msgid "A decoration around your avatar, shown wherever your avatar appears."
+msgstr "A decoration around your avatar, shown wherever your avatar appears."
 
 #. Description of a built-in unicode emoji in the emoji info card. productName is the Fluxer product name.
 #: src/features/expressions/components/ExpressionInfoCard.tsx:22
@@ -4761,7 +4771,9 @@ msgstr "audio subido"
 msgid "Audio upload"
 msgstr "Audio subido"
 
+#. Nameplate name: shifting northern-lights colours.
 #. Profile frame name: shifting northern-lights colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:58
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:45
 msgid "Aurora"
 msgstr "Aurora"
@@ -5098,6 +5110,16 @@ msgstr "Avatar"
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:82
 msgid "Avatar file is too large. Choose a file smaller than {imageMaxSizeLabel}."
 msgstr "El archivo del avatar es demasiado grande. Elige un archivo de menos de {imageMaxSizeLabel}."
+
+#. Profile settings section title for the decoration drawn around the round avatar.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:23
+msgid "Avatar frame"
+msgstr "Avatar frame"
+
+#. Accessible label for the list of avatar frames.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:31
+msgid "Avatar frames"
+msgstr "Avatar frames"
 
 #. Webhook avatar upload error. IMAGE_MAX_SIZE_LABEL is a formatted file-size limit.
 #: src/features/webhook/components/WebhookListItem.tsx:39
@@ -7575,7 +7597,9 @@ msgstr "Elige tu idioma"
 msgid "Choose your profile accent color"
 msgstr "Elige el color de énfasis de tu perfil"
 
+#. Nameplate name: teal circuit-board lines.
 #. Profile frame name: green circuit-board lines.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:63
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:53
 msgid "Circuit"
 msgstr "Circuit"
@@ -8029,7 +8053,7 @@ msgid "Close account"
 msgstr "Cerrar cuenta"
 
 #. Accessible label and tooltip for the close-DM button on a DM list row.
-#: src/features/channel/components/direct_message/DMListItem.tsx:85
+#: src/features/channel/components/direct_message/DMListItem.tsx:86
 msgid "Close direct message with {displayName}"
 msgstr "Cerrar mensaje directo con {displayName}"
 
@@ -8522,7 +8546,7 @@ msgstr "Nombre de la comunidad"
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:129
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:130
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:113
 msgid "Community nickname"
 msgstr "Apodo en la comunidad"
@@ -8547,7 +8571,7 @@ msgstr "Personalizaciones por comunidad"
 #. Tooltip on the owner crown icon next to a member name on the community members page.
 #: src/features/channel/components/bottomsheets/ChannelDetailsBottomSheetMemberList.tsx:42
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:73
-#: src/features/channel/components/MemberListItem.tsx:37
+#: src/features/channel/components/MemberListItem.tsx:38
 msgid "Community owner"
 msgstr "Propietario de la comunidad"
 
@@ -8570,7 +8594,7 @@ msgid "Community profile"
 msgstr "Perfil en la comunidad"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:76
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:77
 msgid "Community profile updated"
 msgstr "Perfil en la comunidad actualizado"
 
@@ -12219,7 +12243,7 @@ msgstr "Modo de visualización"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the my profile tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:22
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:141
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:142
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:61
 msgid "Display name"
 msgstr "Nombre visible"
@@ -12358,7 +12382,7 @@ msgstr "¿Quieres bloquear también los mensajes directos de los miembros de tus
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:149
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:150
 msgid "Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985."
 msgstr "Doc, soy del futuro. Vine aquí en una máquina del tiempo que tú inventaste. Ahora, necesito tu ayuda para volver al año 1985."
 
@@ -12978,7 +13002,7 @@ msgid "Edit translation provider"
 msgstr "Editar proveedor de traducción"
 
 #. Button or menu action label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:96
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:97
 msgid "Edit your profile appearance and see a live preview"
 msgstr "Edita el aspecto de tu perfil y mira una previsualización en vivo"
 
@@ -13176,7 +13200,9 @@ msgstr "Elementos incrustados suprimidos"
 msgid "Embeds unsuppressed"
 msgstr "Contenido incrustado restaurado"
 
+#. Nameplate name: glowing fire colours with sparks.
 #. Profile frame name: glowing fire colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:64
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:49
 msgid "Ember"
 msgstr "Ember"
@@ -15047,6 +15073,11 @@ msgstr "Primera opción"
 msgid "Flags"
 msgstr "Banderas"
 
+#. Avatar frame name: a flickering ring of fire.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:50
+msgid "Flames"
+msgstr "Flames"
+
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:53
 msgctxt "us-state"
@@ -15620,7 +15651,9 @@ msgstr "Nombre del remitente"
 msgid "From user"
 msgstr "De usuario"
 
+#. Avatar frame name: icy blue and white.
 #. Profile frame name: icy blue and white.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:51
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:50
 msgid "Frost"
 msgstr "Frost"
@@ -15654,6 +15687,13 @@ msgstr "Sal y reinicia {productName} completamente para que macOS aplique este p
 #: src/features/user/components/settings_utils/search_index/VoiceVideoIndex.ts:52
 msgid "Gain control"
 msgstr "Control de ganancia"
+
+#. Avatar frame name: deep space colours with stars.
+#. Nameplate name: deep space colours with stars.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:54
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:61
+msgid "Galaxy"
+msgstr "Galaxy"
 
 #. Folder icon option in the community-folder settings modal: a game controller shape.
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:57
@@ -16407,7 +16447,7 @@ msgstr "Estado en línea del grupo"
 #. Channel details bottom sheet label or action (channel type, settings, toast, confirmation, or notification option).
 #. Short label in the direct message member list item. Keep it concise.
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:152
-#: src/features/channel/components/MemberListItem.tsx:41
+#: src/features/channel/components/MemberListItem.tsx:42
 msgid "Group owner"
 msgstr "Propietario del grupo"
 
@@ -16459,6 +16499,11 @@ msgstr "Transmisión de respaldo H.264 en simulcast"
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedVideoControls.tsx:178
 msgid "H.265 (requires opt-in)"
 msgstr "H.265 (requiere activación)"
+
+#. Avatar frame name: a glowing golden ring.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:47
+msgid "Halo"
+msgstr "Halo"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the connection add connection modal.
@@ -20450,7 +20495,7 @@ msgstr "Mensaje"
 #: src/features/user/components/modals/UserProfileModal.tsx:771
 #: src/features/user/components/popouts/UserProfilePopout.tsx:425
 #: src/features/user/components/popouts/UserProfilePopout.tsx:455
-#: src/features/user/components/profile/ProfilePreview.tsx:341
+#: src/features/user/components/profile/ProfilePreview.tsx:352
 msgctxt "message-action"
 msgid "Message"
 msgstr "Enviar mensaje"
@@ -20871,6 +20916,11 @@ msgstr "Minnesota"
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:52
 msgid "Minors at risk, mature content in the wrong place, or unwanted conduct."
 msgstr "Menores en riesgo, contenido para adultos en el lugar equivocado o conducta no deseada."
+
+#. Nameplate name: fresh mint green.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:65
+msgid "Mint"
+msgstr "Mint"
 
 #. Camera settings menu checkbox for flipping the local camera preview horizontally.
 #. Switch label in the camera preview modal for flipping the local camera preview horizontally.
@@ -21484,7 +21534,7 @@ msgstr "Silenciar audio de la transmisión"
 #: src/features/app/components/layout/ChannelItem.tsx:112
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:62
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:39
-#: src/features/channel/components/direct_message/DMListItem.tsx:77
+#: src/features/channel/components/direct_message/DMListItem.tsx:78
 msgid "muted"
 msgstr "silenciado"
 
@@ -21734,6 +21784,16 @@ msgstr "Formulario para nombrar la clave de acceso"
 msgid "Name style"
 msgstr "Name style"
 
+#. Profile settings section title for the background drawn behind your name in lists.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:35
+msgid "Nameplate"
+msgstr "Nameplate"
+
+#. Accessible label for the list of nameplates.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:43
+msgid "Nameplates"
+msgstr "Nameplates"
+
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:272
 msgid "Narrate"
@@ -21819,7 +21879,9 @@ msgstr "Neko"
 msgid "Neko cat that chases your cursor"
 msgstr "Gato Neko que persigue tu cursor"
 
+#. Avatar frame name: a glowing neon tube.
 #. Profile frame name: glowing neon tube.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:48
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:47
 msgid "Neon"
 msgstr "Neon"
@@ -22724,6 +22786,7 @@ msgid "Non-convert"
 msgstr "No convertir"
 
 #. Activity log value naming the lowest member verification level of a community, where no verification is required.
+#. Cosmetic choice that shows nothing.
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #. Library picker entry meaning no sound is selected for this scope.
 #. Member verification level option in the community moderation settings tab. Short standalone label for the lowest level (no verification).
@@ -22735,6 +22798,7 @@ msgstr "No convertir"
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogSharedMessages.ts:52
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:37
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:146
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:44
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:41
 #: src/features/user/components/modals/tabs/privacy_safety_tab/data_request_modal/DataRequestModal.tsx:220
 #: src/features/voice/components/AudioSourcePickerLinux.tsx:261
@@ -22993,6 +23057,11 @@ msgstr "Constructor de URL de OAuth2"
 #: src/features/expressions/utils/UnicodeEmojis.ts:41
 msgid "Objects"
 msgstr "Objetos"
+
+#. Nameplate name: deep blue water with ripples.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:60
+msgid "Ocean"
+msgstr "Ocean"
 
 #. Activity log value meaning the explicit content filter of a community is turned off.
 #. Channel overview settings tab label, control, or validation message (name, topic, slowmode, voice region, mature content gate).
@@ -23806,6 +23875,11 @@ msgstr "o envía una invitación a un amigo:"
 #: src/features/expressions/components/modals/GiftSendToFriendModal.tsx:131
 msgid "or send the gift link to a friend:"
 msgstr "o envía el enlace de regalo a un amigo:"
+
+#. Avatar frame name: a thin dotted ring that circles the avatar.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:53
+msgid "Orbit"
+msgstr "Orbit"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:41
@@ -24665,7 +24739,7 @@ msgid "Ping: {latency}ms"
 msgstr "Ping: {latency} ms"
 
 #. Screen-reader fragment announcing that the DM list row is pinned. Lowercase fragment.
-#: src/features/channel/components/direct_message/DMListItem.tsx:81
+#: src/features/channel/components/direct_message/DMListItem.tsx:82
 msgid "pinned"
 msgstr "fijado"
 
@@ -25343,18 +25417,18 @@ msgstr "Color del perfil"
 
 #. Settings section label for editing profile appearance and identity.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:108
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:109
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:6
 msgid "Profile customization"
 msgstr "Personalización del perfil"
 
 #. Label in the my profile tab. Preserve {selectedGuildName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:104
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:105
 msgid "Profile customization for {selectedGuildName}"
 msgstr "Personalización del perfil para {selectedGuildName}"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:100
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:101
 msgid "Profile customization form"
 msgstr "Formulario de personalización del perfil"
 
@@ -25434,7 +25508,7 @@ msgid "Profile type"
 msgstr "Tipo de perfil"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:80
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:81
 msgid "Profile updated"
 msgstr "Perfil actualizado"
 
@@ -25471,7 +25545,7 @@ msgstr "Preguntar al detectar nuevos dispositivos de audio"
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:145
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:146
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:177
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:160
 msgid "Pronouns"
@@ -25784,6 +25858,11 @@ msgstr "Grupo de botones de opción"
 #: src/features/moderation/components/report/OptionDescriptors.ts:94
 msgid "Raid coordination"
 msgstr "Coordinación de raids"
+
+#. Avatar frame name: a ring in every colour of the rainbow.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:49
+msgid "Rainbow"
+msgstr "Rainbow"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:171
@@ -27975,7 +28054,11 @@ msgstr "Ruso"
 msgid "Safety"
 msgstr "Seguridad"
 
+#. Avatar frame name: cherry-blossom pink.
+#. Nameplate name: cherry-blossom pink with petals.
 #. Profile frame name: cherry-blossom pink.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:52
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:62
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:51
 msgid "Sakura"
 msgstr "Sakura"
@@ -28958,7 +29041,7 @@ msgstr "Texto seleccionable"
 #: src/features/app/components/layout/ChannelItem.tsx:96
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:54
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:35
-#: src/features/channel/components/direct_message/DMListItem.tsx:69
+#: src/features/channel/components/direct_message/DMListItem.tsx:70
 msgid "selected"
 msgstr "seleccionado"
 
@@ -29289,7 +29372,7 @@ msgid "Sent"
 msgstr "Enviado"
 
 #. DM list row preview text when the most recent message has only attachments.
-#: src/features/channel/components/direct_message/DMListItem.tsx:65
+#: src/features/channel/components/direct_message/DMListItem.tsx:66
 msgid "Sent an attachment"
 msgstr "Adjunto enviado"
 
@@ -32047,6 +32130,11 @@ msgstr "Sugerencias"
 msgid "Summary"
 msgstr "Resumen"
 
+#. Nameplate name: orange, pink and violet evening sky.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:59
+msgid "Sunset"
+msgstr "Sunset"
+
 #. Switch label in the community notification settings modal. Suppresses @everyone and @here notifications in this community. The two placeholders render the literal @everyone and @here tokens and must not be translated.
 #. Toggle label that suppresses @everyone and @here mentions; placeholders are the localized mention tags.
 #. Toggle label that suppresses @everyone and @here mentions; placeholders are the localized mention tags.
@@ -33730,7 +33818,7 @@ msgid "This message no longer exists."
 msgstr "Este mensaje ya no existe."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:133
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:134
 msgid "This nickname will only be visible in this community"
 msgstr "Este apodo solo será visible en esta comunidad"
 
@@ -35610,7 +35698,7 @@ msgstr "MD de grupo desfijado"
 #: src/features/app/components/layout/sidebar_nav/GuildFolderItem.tsx:89
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:58
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:27
-#: src/features/channel/components/direct_message/DMListItem.tsx:73
+#: src/features/channel/components/direct_message/DMListItem.tsx:74
 msgid "unread"
 msgstr "no leído"
 
@@ -36838,22 +36926,22 @@ msgid "Verify your email before adding an authenticator app."
 msgstr "Verifica tu correo electrónico antes de añadir una aplicación de autenticación."
 
 #. Description text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:120
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:121
 msgid "Verify your email before changing your community nickname, avatar, banner, bio, pronouns, or accent color."
 msgstr "Verifica tu correo electrónico antes de cambiar tu apodo de comunidad, avatar, banner, biografía, pronombres o color de énfasis."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:124
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:125
 msgid "Verify your email before changing your username, display name, avatar, banner, bio, pronouns, time zone, or {premiumProductName} badge privacy."
 msgstr "Verifica tu correo electrónico antes de cambiar tu nombre de usuario, nombre visible, avatar, banner, biografía, pronombres, zona horaria o la privacidad de la insignia de {premiumProductName}."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:88
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:89
 msgid "Verify your email before editing this community profile. You can still preview it here."
 msgstr "Verifica tu correo electrónico antes de editar este perfil de comunidad. Aún puedes previsualizarlo aquí."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:92
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:93
 msgid "Verify your email before editing your profile. You can still preview it here."
 msgstr "Verifica tu correo electrónico antes de editar tu perfil. Puedes previsualizarlo aquí."
 
@@ -36880,12 +36968,12 @@ msgid "Verify your email to continue using {productName}."
 msgstr "Verifica tu correo electrónico para seguir usando {productName}."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:112
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:113
 msgid "Verify your email to edit this community profile"
 msgstr "Verifica tu correo para editar este perfil de la comunidad"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:116
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:117
 msgid "Verify your email to edit your profile"
 msgstr "Verifica tu correo para editar tu perfil"
 
@@ -38534,7 +38622,7 @@ msgstr "Ayer a las {timeString}"
 
 #. First-person prefix used in DM list row preview when the current user is the message author.
 #: src/features/app/components/layout/MobileBottomNav.tsx:153
-#: src/features/channel/components/direct_message/DMListItem.tsx:61
+#: src/features/channel/components/direct_message/DMListItem.tsx:62
 msgid "You"
 msgstr "Tú"
 
@@ -38696,7 +38784,7 @@ msgid "You can't befriend yourself"
 msgstr "No puedes ser tu propio amigo"
 
 #. Label in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:137
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:138
 msgid "You can't change your nickname here"
 msgstr "No puedes cambiar tu apodo aquí"
 
@@ -38928,7 +39016,7 @@ msgid "You have unsaved changes."
 msgstr "Tienes cambios sin guardar."
 
 #. Warning text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:84
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:85
 msgid "You have unsaved changes. Save or reset before leaving."
 msgstr "Tienes cambios sin guardar. Guarda o restablece antes de salir."
 
