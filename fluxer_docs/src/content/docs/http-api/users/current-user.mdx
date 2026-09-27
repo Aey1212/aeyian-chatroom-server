@@ -75,6 +75,8 @@ The username is not a field here. An account asks for a new one with [Request a 
 | accent_color? | ?integer | Packed 24-bit RGB colour (0-16777215), or null to clear |
 | theme_colors? | ?array[integer] | Exactly two [profile theme](/http-api/users/#profile-themes-and-frames) colours (0-16777215), top then bottom, or null to clear |
 | profile_frame? | ?string | A [profile frame](/http-api/users/#profile-themes-and-frames) ID, or null to clear |
+| avatar_frame? | ?string | An avatar frame [cosmetic](/http-api/users/#cosmetics) ID, or null to clear |
+| nameplate? | ?string | A nameplate [cosmetic](/http-api/users/#cosmetics) ID, or null to clear |
 | timezone?<sup>8</sup> <sup>9</sup> | ?string | Supported IANA timezone identifier (1-128 characters), or null to clear |
 | timezone_privacy_flags?<sup>8</sup> | integer | [Profile field privacy flags](/http-api/users/#profile-field-privacy-flags) applied to the profile timezone |
 | premium_badge_hidden? | boolean | Whether to hide the premium badge from the public profile |

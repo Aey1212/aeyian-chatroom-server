@@ -8,6 +8,7 @@ import {Config} from '@app/api/Config';
 import {ChannelController} from '@app/api/channel/ChannelController';
 import type {APIConfig} from '@app/api/config/APIConfig';
 import {ConnectionController} from '@app/api/connection/ConnectionController';
+import {CosmeticController} from '@app/api/cosmetics/CosmeticController';
 import {DonationController} from '@app/api/donation/DonationController';
 import {DownloadController} from '@app/api/download/DownloadController';
 import {ExperimentController} from '@app/api/experiment/ExperimentController';
@@ -68,6 +69,7 @@ export function registerControllers(routes: HonoApp, config: APIConfig): void {
 		TestHarnessController(routes);
 	}
 	UserController(routes);
+	CosmeticController(routes);
 	if (config.sms.enabled) {
 		registerInboundSmsWebhook(routes);
 	}

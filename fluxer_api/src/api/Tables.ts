@@ -149,6 +149,7 @@ import {
 	type WebhookRow,
 } from '@app/api/database/types/ChannelTypes';
 import {USER_CONNECTION_STORAGE_COLUMNS, type UserConnectionStorageRow} from '@app/api/database/types/ConnectionTypes';
+import {COSMETIC_COLUMNS, type CosmeticRow} from '@app/api/database/types/CosmeticTypes';
 import {
 	NCMEC_ATTACHMENT_SUBMISSION_COLUMNS,
 	NCMEC_USER_WORKFLOW_COLUMNS,
@@ -359,6 +360,12 @@ export const UserDmHistory = defineTable<UserDmHistoryRow, 'user_id' | 'channel_
 	name: 'user_dm_history',
 	columns: USER_DM_HISTORY_COLUMNS,
 	primaryKey: ['user_id', 'channel_id'],
+});
+export const Cosmetics = defineTable<CosmeticRow, 'bucket' | 'cosmetic_id', 'bucket'>({
+	name: 'cosmetics',
+	columns: COSMETIC_COLUMNS,
+	primaryKey: ['bucket', 'cosmetic_id'],
+	partitionKey: ['bucket'],
 });
 export const Usernames = defineTable<UsernameRow, 'username_lower'>({
 	name: 'usernames',

@@ -117,6 +117,7 @@ pub fn classify_route(path: &str) -> RequestKind {
         || path.starts_with("/splashes/")
         || path.starts_with("/embed-splashes/")
         || path.starts_with("/emojis/")
+        || path.starts_with("/cosmetics/")
         || path.starts_with("/stickers/")
     {
         return RequestKind::AssetImage;

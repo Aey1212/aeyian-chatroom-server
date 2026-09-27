@@ -215,6 +215,8 @@ export async function processUserDeletion(
 		name_style: null,
 		theme_colors: null,
 		profile_frame: null,
+		avatar_frame: null,
+		nameplate: null,
 		last_voice_activity_sharing_change_at: null,
 		version: 1,
 	});

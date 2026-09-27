@@ -18,6 +18,7 @@ import {
 } from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {SudoVerificationSchema} from '@fluxer/schema/src/domains/auth/AuthSchemas';
+import {CosmeticRefType} from '@fluxer/schema/src/domains/cosmetics/CosmeticSchemas';
 import {NameStyleRequestSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {ProfileFrameIdSchema, ProfileThemeColorsSchema} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 import {
@@ -79,6 +80,12 @@ export const UserUpdateRequest = z
 			'Two profile theme colours (top, bottom) as integers, or null to clear',
 		),
 		profile_frame: ProfileFrameIdSchema.nullish().describe('Profile frame id, or null to clear'),
+		avatar_frame: CosmeticRefType.nullish().describe(
+			'Avatar frame: a built-in id or an uploaded cosmetic ID, or null to clear',
+		),
+		nameplate: CosmeticRefType.nullish().describe(
+			'Nameplate: a built-in id or an uploaded cosmetic ID, or null to clear',
+		),
 		timezone: createStringType(1, 128)
 			.nullish()
 			.describe('Staff-only IANA timezone identifier saved for profile local time. Ignored for non-staff users.'),

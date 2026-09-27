@@ -8681,6 +8681,14 @@
 				{
 					"name": "profile_frame",
 					"type": "text"
+				},
+				{
+					"name": "avatar_frame",
+					"type": "text"
+				},
+				{
+					"name": "nameplate",
+					"type": "text"
 				}
 			],
 			"primary_key": "((user_id))",
@@ -9155,6 +9163,41 @@
 			],
 			"primary_key": "((status), created_at, user_id)",
 			"options": "CLUSTERING ORDER BY (created_at ASC, user_id ASC)"
+		},
+		{
+			"name": "cosmetics",
+			"columns": [
+				{
+					"name": "bucket",
+					"type": "int"
+				},
+				{
+					"name": "cosmetic_id",
+					"type": "bigint"
+				},
+				{
+					"name": "kind",
+					"type": "text"
+				},
+				{
+					"name": "name",
+					"type": "text"
+				},
+				{
+					"name": "animated",
+					"type": "boolean"
+				},
+				{
+					"name": "creator_id",
+					"type": "bigint"
+				},
+				{
+					"name": "created_at",
+					"type": "timestamp"
+				}
+			],
+			"primary_key": "((bucket), cosmetic_id)",
+			"options": ""
 		}
 	],
 	"indexes": [

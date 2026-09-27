@@ -73,6 +73,7 @@ An asset request snaps `size` to the ladder and then clamps the result into the 
 | Banner<sup>1</sup> | banners, splashes, embed splashes, guild member banners | 480 through 2400 |
 | Emoji | emojis | 32 through 512 |
 | Sticker | stickers | 128 through 512 |
+| Cosmetic | cosmetics | 32 through 1200 |
 
 <sup>1</sup> The banner maximum of 2400 is not a ladder rung and is reachable only by clamping, so 3072 and every larger request collapse onto it
 

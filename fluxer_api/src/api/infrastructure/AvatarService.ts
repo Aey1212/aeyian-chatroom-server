@@ -253,6 +253,46 @@ export class AvatarService {
 		});
 	}
 
+	// Avatar frames and nameplates from the admin Cosmetics page. Admins pick the shape; only the format
+	// and the size are checked here.
+	async processCosmetic(params: {errorPath: string; base64Image: string}): Promise<{
+		imageBuffer: Uint8Array;
+		animated: boolean;
+		contentType: string;
+	}> {
+		const {errorPath, base64Image} = params;
+		const base64Data = base64Image.includes(',') ? base64Image.split(',')[1] : base64Image;
+		const imageBuffer = new Uint8Array(Buffer.from(base64Data, 'base64'));
+		const maxSize = getPolicy('cosmetic').maxBytes;
+		if (imageBuffer.length > maxSize) {
+			throw InputValidationError.fromCode(errorPath, ValidationErrorCodes.IMAGE_SIZE_EXCEEDS_LIMIT, {maxSize});
+		}
+		const metadata = this.requireAllowedMetadata({
+			metadata: await this.mediaService.getMetadata({
+				type: 'base64',
+				base64: base64Data,
+				version: 2,
+				nsfw: 'allow',
+			}),
+			kind: 'cosmetic',
+			errorPath,
+		});
+		return {imageBuffer, animated: metadata.animated ?? false, contentType: metadata.content_type};
+	}
+
+	async uploadCosmetic(params: {cosmeticId: bigint; imageBuffer: Uint8Array; contentType: string}): Promise<void> {
+		const {cosmeticId, imageBuffer, contentType} = params;
+		await this.scanAndBlockBannedSha({imageBuffer, resourceType: 'emoji'});
+		const format =
+			contentType.includes('jpeg') || contentType.includes('jpg') ? 'jpeg' : contentType.replace('image/', '') || 'png';
+		const uploadBuffer = await this.stripImageMetadata(imageBuffer, format);
+		await this.storageService.uploadAvatar({prefix: 'cosmetics', key: cosmeticId.toString(), body: uploadBuffer});
+	}
+
+	async deleteCosmetic(cosmeticId: bigint): Promise<void> {
+		await this.storageService.deleteAvatar({prefix: 'cosmetics', key: cosmeticId.toString()});
+	}
+
 	async processSticker(params: {errorPath: string; base64Image: string; guildFeatures: Iterable<string>}): Promise<{
 		imageBuffer: Uint8Array;
 		animated: boolean;

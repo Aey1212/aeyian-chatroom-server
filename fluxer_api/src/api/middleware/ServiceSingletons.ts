@@ -15,6 +15,7 @@ import {AttachmentUploadTraceRepository} from '@app/api/channel/repositories/mes
 import {StreamPreviewService} from '@app/api/channel/services/StreamPreviewService';
 import type {APIConfig} from '@app/api/config/APIConfig';
 import {ConnectionRepository} from '@app/api/connection/ConnectionRepository';
+import {CosmeticRegistry} from '@app/api/cosmetics/CosmeticRegistry';
 import {createNcmecApiConfig, NcmecReporter} from '@app/api/csam/NcmecReporter';
 import {NcmecRepository} from '@app/api/csam/NcmecRepository';
 import {NcmecSubmissionService} from '@app/api/csam/NcmecSubmissionService';
@@ -411,6 +412,7 @@ export const getEmbedService = singleton(
 );
 export const getReadStateService = singleton(() => new ReadStateService(getReadStateRepository(), getGatewayService()));
 export const getUsernameRegistry = singleton(() => new UsernameRegistry());
+export const getCosmeticRegistry = singleton(() => new CosmeticRegistry());
 export const getBotAuthService = singleton(() => new BotAuthService(getApplicationRepository()));
 export const getBotMfaMirrorService = singleton(
 	() => new BotMfaMirrorService(getApplicationRepository(), getUserRepository(), getGatewayService()),

@@ -283,6 +283,7 @@ export default defineConfig({
 						'admin-api/messages',
 						'admin-api/blocklists',
 						'admin-api/system-dms',
+						'admin-api/cosmetics',
 						'admin-api/instance',
 						'admin-api/gift-codes',
 						'admin-api/gateway',

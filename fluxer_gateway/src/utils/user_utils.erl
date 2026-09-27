@@ -17,7 +17,9 @@ partial_user_fields() ->
         <<"system">>,
         <<"flags">>,
         <<"mention_flags">>,
-        <<"name_style">>
+        <<"name_style">>,
+        <<"avatar_frame">>,
+        <<"nameplate">>
     ].
 
 -spec normalize_user(map() | term()) -> map().
@@ -44,6 +46,14 @@ normalize_field(<<"mention_flags">>, Value) ->
 normalize_field(<<"name_style">>, Value) when is_map(Value) ->
     Value;
 normalize_field(<<"name_style">>, _Value) ->
+    undefined;
+normalize_field(<<"avatar_frame">>, Value) when is_binary(Value) ->
+    Value;
+normalize_field(<<"avatar_frame">>, _Value) ->
+    undefined;
+normalize_field(<<"nameplate">>, Value) when is_binary(Value) ->
+    Value;
+normalize_field(<<"nameplate">>, _Value) ->
     undefined;
 normalize_field(_Key, Value) ->
     Value.
@@ -111,6 +121,19 @@ normalize_user_passes_name_style_test() ->
     Broken = normalize_user(User#{<<"name_style">> => <<"not a map">>}),
     ?assertEqual(error, maps:find(<<"name_style">>, Broken)).
 
+normalize_user_passes_cosmetics_test() ->
+    User = #{
+        <<"id">> => <<"123">>,
+        <<"username">> => <<"test">>,
+        <<"avatar_frame">> => <<"halo">>,
+        <<"nameplate">> => <<"1501314428688998182">>
+    },
+    Result = normalize_user(User),
+    ?assertEqual(<<"halo">>, maps:get(<<"avatar_frame">>, Result)),
+    ?assertEqual(<<"1501314428688998182">>, maps:get(<<"nameplate">>, Result)),
+    Broken = normalize_user(User#{<<"nameplate">> => 42}),
+    ?assertEqual(error, maps:find(<<"nameplate">>, Broken)).
+
 normalize_user_undefined_values_test() ->
     User = #{
         <<"id">> => <<"123">>,
@@ -133,7 +156,7 @@ normalize_user_empty_map_test() ->
 partial_user_fields_test() ->
     Fields = partial_user_fields(),
     ?assert(is_list(Fields)),
-    ?assertEqual(10, length(Fields)),
+    ?assertEqual(12, length(Fields)),
     ?assert(lists:member(<<"id">>, Fields)),
     ?assert(lists:member(<<"username">>, Fields)),
     ?assert(lists:member(<<"flags">>, Fields)).

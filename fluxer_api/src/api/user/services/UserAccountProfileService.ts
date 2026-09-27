@@ -8,11 +8,18 @@ import type {LimitConfigService} from '@app/api/limits/LimitConfigService';
 import {resolveLimitSafe} from '@app/api/limits/LimitConfigUtils';
 import {createLimitMatchContext} from '@app/api/limits/LimitMatchContextBuilder';
 import {profileSubstringBlocklistCache} from '@app/api/middleware/ProfileSubstringBlocklistCache';
+import {getCosmeticRegistry} from '@app/api/middleware/ServiceSingletons';
 import type {User} from '@app/api/models/User';
 import type {IUserAccountRepository} from '@app/api/user/repositories/IUserAccountRepository';
 import {canUseProfileTimezone, isProfileSubstringExempt} from '@app/api/user/UserHelpers';
 import {deriveDominantAvatarColor} from '@app/api/utils/AvatarColorUtils';
 import * as EmojiUtils from '@app/api/utils/EmojiUtils';
+import {
+	type CosmeticKind,
+	CosmeticKinds,
+	isBuiltinCosmeticId,
+	isUploadedCosmeticId,
+} from '@fluxer/constants/src/CosmeticConstants';
 import {MAX_BIO_LENGTH} from '@fluxer/constants/src/LimitConstants';
 import {PremiumFlags, ProfileFieldPrivacyFlags, UserFlags} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
@@ -130,7 +137,24 @@ export class UserAccountProfileService {
 		if (data.profile_frame !== undefined) {
 			updates.profile_frame = data.profile_frame;
 		}
+		if (data.avatar_frame !== undefined) {
+			updates.avatar_frame = await this.resolveCosmetic('avatar_frame', CosmeticKinds.AVATAR_FRAME, data.avatar_frame);
+		}
+		if (data.nameplate !== undefined) {
+			updates.nameplate = await this.resolveCosmetic('nameplate', CosmeticKinds.NAMEPLATE, data.nameplate);
+		}
 		return {updates, preparedAvatarUpload, preparedBannerUpload};
+	}
+
+	// A cosmetic reference is a built-in id of the right kind or an uploaded cosmetic of the right kind.
+	private async resolveCosmetic(field: string, kind: CosmeticKind, value: string | null): Promise<string | null> {
+		if (value === null) return null;
+		if (isBuiltinCosmeticId(kind, value)) return value;
+		if (isUploadedCosmeticId(value)) {
+			const cosmetic = await getCosmeticRegistry().get(BigInt(value));
+			if (cosmetic?.kind === kind) return value;
+		}
+		throw InputValidationError.fromCode(field, ValidationErrorCodes.INVALID_FORMAT);
 	}
 
 	async commitAssetChanges(result: ProfileUpdateResult): Promise<void> {

@@ -13,6 +13,7 @@ export const AdminACLs = {
 	ASSET_PURGE: 'asset:purge',
 	AUDIT_LOG_VIEW: 'audit_log:view',
 	AUTHENTICATE: 'admin:authenticate',
+	COSMETICS_MANAGE: 'cosmetics:manage',
 	JOBS_VIEW: 'jobs:view',
 	JOBS_CANCEL: 'jobs:cancel',
 	BAN_EMAIL_ADD: 'ban:email:add',

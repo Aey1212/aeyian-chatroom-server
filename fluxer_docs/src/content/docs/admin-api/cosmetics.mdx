@@ -1,0 +1,113 @@
+---
+# SPDX-License-Identifier: AGPL-3.0-or-later
+title: Cosmetics
+description: Uploaded avatar frames and nameplates that every account can choose.
+---
+
+import RouteHeader from '@/components/RouteHeader.astro';
+
+Cosmetics are images that accounts show next to their identity: an avatar frame is drawn around the round avatar, and a nameplate is drawn behind the name in the member and DM lists. Every account can use every cosmetic. Clients also draw a set of built-in cosmetics themselves; those are not uploaded and do not appear here. An account chooses a cosmetic with [Modify current user](/http-api/users/current-user/#modify-current-user).
+
+## Admin cosmetic object
+
+An uploaded avatar frame or nameplate.
+
+### Structure
+
+| Field | Type | Description |
+| --- | --- | --- |
+| id | snowflake | The ID of the cosmetic |
+| kind | string | `avatar_frame` or `nameplate` |
+| name | string | The display name of the cosmetic |
+| animated | boolean | Whether the image is animated |
+| creator_id | snowflake | The ID of the admin who uploaded it |
+| created_at | ISO8601 timestamp | When it was uploaded |
+
+The image is served by the media proxy at `/cosmetics/{id}.{extension}`. An avatar frame is expected to be square with a transparent centre, and it is drawn at 1.2 times the avatar's size. A nameplate is expected to be at least twice as wide as it is tall.
+
+## List cosmetics
+
+<RouteHeader method="GET" path="/v1/admin/cosmetics" />
+
+Lists every uploaded cosmetic, newest first. Requires `cosmetics:manage`.
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| cosmetics | array[[Admin cosmetic](#admin-cosmetic-object) object] | The uploaded cosmetics |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The cosmetics were listed |
+
+### Side effects
+
+The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `list_cosmetics`.
+
+### Rate limit
+
+200 requests per minute for each authenticated user, on the `admin:lookup` bucket.
+
+## Upload cosmetic
+
+<RouteHeader method="POST" path="/v1/admin/cosmetics" auditReason />
+
+Uploads an avatar frame or a nameplate. Requires `cosmetics:manage`.
+
+### JSON body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| kind | string | `avatar_frame` or `nameplate` |
+| name | string | The display name (1-32 characters) |
+| image | string | Base64-encoded PNG, JPEG, WebP, GIF or AVIF image, at most 2 MiB; an animated image stays animated |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | [Admin cosmetic](#admin-cosmetic-object) object | The cosmetic was uploaded |
+| 400 | [error response](/http-api/#error-response) | The image is not a supported format (`INVALID_IMAGE_FORMAT`) or is larger than 2 MiB (`IMAGE_SIZE_EXCEEDS_LIMIT`) |
+
+### Side effects
+
+The operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `create_cosmetic`, target type `cosmetic`, and the kind and name as metadata.
+
+### Rate limit
+
+30 requests per minute for each authenticated user, on the `admin:cosmetic:modify` bucket.
+
+## Delete cosmetic
+
+<RouteHeader method="DELETE" path="/v1/admin/cosmetics/{cosmetic_id}" auditReason />
+
+Removes an uploaded cosmetic and its image. Accounts that chose it keep the reference, and clients show nothing in its place. Requires `cosmetics:manage`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| cosmetic_id | snowflake | The ID of the cosmetic |
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| deleted | boolean | Whether a cosmetic with this ID existed and was removed |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The request was processed |
+
+### Side effects
+
+When a cosmetic is removed, the operation records one [Admin audit entry](/admin-api/#admin-audit-entry-object) with action `delete_cosmetic`, target type `cosmetic`, and the kind and name as metadata.
+
+### Rate limit
+
+30 requests per minute for each authenticated user, on the `admin:cosmetic:modify` bucket.

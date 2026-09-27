@@ -88,6 +88,8 @@ export class User {
 	readonly nameStyle: NameStyle | null;
 	readonly themeColors: ProfileThemeColors | null;
 	readonly profileFrame: ProfileFrameId | null;
+	readonly avatarFrame: string | null;
+	readonly nameplate: string | null;
 	readonly lastVoiceActivitySharingChangeAt: Date | null;
 	readonly version: number;
 
@@ -154,6 +156,8 @@ export class User {
 		this.nameStyle = parseStoredNameStyle(row.name_style);
 		this.themeColors = readProfileThemeColors(row.theme_colors);
 		this.profileFrame = readProfileFrame(row.profile_frame);
+		this.avatarFrame = row.avatar_frame ?? null;
+		this.nameplate = row.nameplate ?? null;
 		this.lastVoiceActivitySharingChangeAt = row.last_voice_activity_sharing_change_at ?? null;
 		this.version = row.version;
 	}
@@ -247,6 +251,8 @@ export class User {
 			name_style: serializeNameStyle(this.nameStyle),
 			theme_colors: this.themeColors ? [...this.themeColors] : null,
 			profile_frame: this.profileFrame,
+			avatar_frame: this.avatarFrame,
+			nameplate: this.nameplate,
 			last_voice_activity_sharing_change_at: this.lastVoiceActivitySharingChangeAt,
 			version: this.version,
 		};

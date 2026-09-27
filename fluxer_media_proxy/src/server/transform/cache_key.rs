@@ -74,6 +74,7 @@ fn asset_kind_name(kind: AssetKind) -> &'static str {
         AssetKind::EmbedSplash => "embed_splash",
         AssetKind::Emoji => "emoji",
         AssetKind::Sticker => "sticker",
+        AssetKind::Cosmetic => "cosmetic",
         AssetKind::Attachment => "attachment",
     }
 }

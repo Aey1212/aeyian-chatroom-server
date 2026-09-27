@@ -163,6 +163,9 @@ async fn serve_public_read(app: &Arc<AppState>, read: PublicRead<'_>) -> Respons
     if let Some(asset) = parse_simple_asset_path(path, AssetKind::Sticker) {
         return stored::serve_asset_image(app, method, asset, params, headers).await;
     }
+    if let Some(asset) = parse_simple_asset_path(path, AssetKind::Cosmetic) {
+        return stored::serve_asset_image(app, method, asset, params, headers).await;
+    }
     if let Some(asset) = parse_standard_asset_path(path) {
         return stored::serve_asset_image(app, method, asset, params, headers).await;
     }

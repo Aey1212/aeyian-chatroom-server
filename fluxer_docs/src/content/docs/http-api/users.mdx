@@ -35,6 +35,8 @@ The public account representation embedded by messages, relationships, guild mem
 | flags | integer | [Public user flags](#public-user-flags) |
 | mention_flags? | integer | [Reply mention preference](#reply-mention-preferences), omitted when the account has no preference |
 | name_style? | [name style](#name-style-object) object | The font, colours, and effect of the display name, omitted while the account uses the default style |
+| avatar_frame? | string | The [avatar frame](#cosmetics): a built-in ID or an uploaded cosmetic ID, omitted when none is set |
+| nameplate? | string | The [nameplate](#cosmetics): a built-in ID or an uploaded cosmetic ID, omitted when none is set |
 
 <sup>1</sup> An animated avatar hash has the `a_` prefix, and the prefix is removed while the account has no animated avatar entitlement
 
@@ -52,7 +54,7 @@ The public account representation embedded by messages, relationships, guild mem
 ```
 
 :::note[A deleted account keeps a renderable shape]
-A completed deletion returns the username `DeletedUser`, the global name `Deleted User`, null `avatar` and `avatar_color`, `flags` of `0`, and no `mention_flags` or `name_style`. The `bot` field keeps its account value.
+A completed deletion returns the username `DeletedUser`, the global name `Deleted User`, null `avatar` and `avatar_color`, `flags` of `0`, and no `mention_flags`, `name_style`, `avatar_frame`, or `nameplate`. The `bot` field keeps its account value.
 :::
 
 :::note[Substituted values appear only when deletion completes]
@@ -149,6 +151,8 @@ The private representation of the current account, returned by [Get current user
 | flags | integer | [Public user flags](#public-user-flags) |
 | mention_flags? | integer | [Reply mention preference](#reply-mention-preferences), omitted when the account has no preference |
 | name_style? | [name style](#name-style-object) object | The font, colours, and effect of the display name, omitted while the account uses the default style |
+| avatar_frame? | string | The [avatar frame](#cosmetics): a built-in ID or an uploaded cosmetic ID, omitted when none is set |
+| nameplate? | string | The [nameplate](#cosmetics): a built-in ID or an uploaded cosmetic ID, omitted when none is set |
 | is_staff | boolean | Whether the account has the staff flag, including when that flag is hidden from `flags` |
 | acls<sup>2</sup> <sup>3</sup> | array[string] | The Admin access control entries held by the account |
 | traits<sup>3</sup> <sup>4</sup> | array[string] | The account traits, in sorted order |
@@ -552,6 +556,49 @@ The account-wide profile customisation inside a [full user profile object](#full
 <sup>1</sup> The value is forced to `null` when profile privacy restricts the viewer, which is reported by `profile_limited`
 
 <sup>2</sup> The banner hash is not returned while the account lacks the animated banner entitlement, which every profile banner requires. The hash is not returned regardless of profile privacy
+
+## Cosmetics
+
+An avatar frame is drawn around the round avatar, and a nameplate is drawn behind the name in the member and DM lists. Every account can use every cosmetic. A cosmetic ID is either a built-in ID that clients draw themselves or the snowflake of a cosmetic an admin [uploaded](/admin-api/cosmetics/).
+
+Built-in avatar frames: `halo`, `neon`, `rainbow`, `flames`, `frost`, `sakura`, `orbit`, `galaxy`.
+
+Built-in nameplates: `aurora`, `sunset`, `ocean`, `galaxy`, `sakura`, `circuit`, `ember`, `mint`.
+
+[Modify current user](/http-api/users/current-user/#modify-current-user) accepts a built-in ID of the right kind or an uploaded cosmetic of the right kind, and fails any other value with `INVALID_FORMAT`.
+
+### Cosmetic object
+
+| Field | Type | Description |
+| --- | --- | --- |
+| id | snowflake | The ID of the uploaded cosmetic |
+| kind | string | `avatar_frame` or `nameplate` |
+| name | string | The display name of the cosmetic |
+| animated | boolean | Whether the image is animated |
+
+The image is served by the media proxy at `/cosmetics/{id}.{extension}`.
+
+## List cosmetics
+
+<RouteHeader method="GET" path="/v1/cosmetics" bot />
+
+Lists the avatar frames and nameplates an admin uploaded, newest first. Built-in cosmetics are not listed.
+
+### Response body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| cosmetics | array[[Cosmetic](#cosmetic-object) object] | The uploaded cosmetics |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | response body | The cosmetics were listed |
+
+### Rate limit
+
+30 requests per 10 seconds for each authenticated user, on the `cosmetics:list` bucket.
 
 ## Profile themes and frames
 
