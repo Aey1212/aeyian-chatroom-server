@@ -57,6 +57,7 @@ import {PROFILE_POPOUT_GEOMETRY_STYLE} from '@app/features/user/constants/UserPr
 import {useAutoplayExpandedProfileAnimations} from '@app/features/user/hooks/useAutoplayExpandedProfileAnimations';
 import {useUserProfileSurfaceState} from '@app/features/user/hooks/useUserProfileSurfaceState';
 import type {User} from '@app/features/user/models/User';
+import {resolveProfileDecoration} from '@app/features/user/profile_style/ProfileDecoration';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import {resolveProfileGuildMembership} from '@app/features/user/utils/ProfileGuildMembership';
 import {createMockProfile} from '@app/features/user/utils/ProfileUtils';
@@ -270,13 +271,19 @@ export const UserProfilePopout: React.FC<UserProfilePopoutProps> = observer(
 				</FocusRingScope>
 			);
 		}
+		const decoration = resolveProfileDecoration({
+			themeColors: profileData?.theme_colors,
+			frame: profileData?.profile_frame,
+			accentColor,
+		});
 		const borderColor = accentColor;
-		const bannerColor = accentColor;
+		const bannerColor = decoration.bannerColor;
 		return (
 			<FocusRingScope containerRef={popoutContainerRef} data-flx="user.user-profile-popout.focus-ring-scope">
 				<div ref={popoutContainerRef} data-flx="user.user-profile-popout.div">
 					<ProfileCardLayout
 						borderColor={borderColor}
+						decoration={decoration}
 						hoverRef={hoverRef}
 						className={styles.profilePopoutCard}
 						style={PROFILE_POPOUT_GEOMETRY_STYLE}

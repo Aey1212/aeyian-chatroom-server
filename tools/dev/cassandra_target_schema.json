@@ -8673,6 +8673,14 @@
 				{
 					"name": "name_style",
 					"type": "text"
+				},
+				{
+					"name": "theme_colors",
+					"type": "list<int>"
+				},
+				{
+					"name": "profile_frame",
+					"type": "text"
 				}
 			],
 			"primary_key": "((user_id))",

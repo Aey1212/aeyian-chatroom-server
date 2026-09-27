@@ -4,6 +4,7 @@ import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
 import {LimitResolver} from '@app/features/app/utils/LimitResolverAdapter';
 import DeveloperOptions from '@app/features/devtools/state/DeveloperOptions';
 import type {LimitKey} from '@fluxer/constants/src/LimitConfigMetadata';
+import type {ProfileFrameId} from '@fluxer/constants/src/ProfileCustomizationConstants';
 import {
 	type MentionReplyPreference,
 	ProfileFieldPrivacyFlags,
@@ -13,6 +14,11 @@ import {
 import {MS_PER_DAY} from '@fluxer/date_utils/src/DateConstants';
 import {DEFAULT_STOCK_LIMITS} from '@fluxer/limits/src/LimitDefaults';
 import {type NameStyle, sameNameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {
+	type ProfileThemeColors,
+	readProfileFrame,
+	readProfileThemeColors,
+} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 import type {
 	RequiredAction,
 	UserPartial,
@@ -159,6 +165,8 @@ export class User {
 	readonly bannerColor: number | null | undefined;
 	readonly pronouns: string | null | undefined;
 	readonly accentColor: number | null | undefined;
+	readonly themeColors: ProfileThemeColors | null | undefined;
+	readonly profileFrame: ProfileFrameId | null | undefined;
 	readonly timezone: string | null | undefined;
 	readonly timezonePrivacyFlags: number | undefined;
 	readonly mfaEnabled: boolean | undefined;
@@ -211,6 +219,8 @@ export class User {
 		this.bannerColor = hasKey(user, 'banner_color') ? (user.banner_color ?? null) : undefined;
 		this.pronouns = hasKey(user, 'pronouns') ? (user.pronouns ?? null) : undefined;
 		this.accentColor = hasKey(user, 'accent_color') ? (user.accent_color ?? null) : undefined;
+		this.themeColors = hasKey(user, 'theme_colors') ? readProfileThemeColors(user.theme_colors) : undefined;
+		this.profileFrame = hasKey(user, 'profile_frame') ? readProfileFrame(user.profile_frame) : undefined;
 		const hasProfileTimezoneAccess = this._isStaff ?? (this.flags & PublicUserFlags.STAFF) !== 0;
 		this.timezone = hasProfileTimezoneAccess && hasKey(user, 'timezone') ? (user.timezone ?? null) : undefined;
 		this.timezonePrivacyFlags =
@@ -419,6 +429,10 @@ export class User {
 		if (pronouns !== undefined) result.pronouns = pronouns;
 		const accentColor = pickField(this.accentColor, u, 'accent_color', opts);
 		if (accentColor !== undefined) result.accent_color = accentColor;
+		const themeColors = pickField(this.themeColors, u, 'theme_colors', opts);
+		if (themeColors !== undefined) result.theme_colors = themeColors;
+		const profileFrame = pickField(this.profileFrame, u, 'profile_frame', opts);
+		if (profileFrame !== undefined) result.profile_frame = profileFrame;
 		const hasProfileTimezoneAccess = isStaff ?? (result.flags & PublicUserFlags.STAFF) !== 0;
 		if (hasProfileTimezoneAccess) {
 			const timezone = pickField(this.timezone, u, 'timezone', opts);
@@ -637,6 +651,8 @@ export class User {
 			this.bannerColor === other.bannerColor &&
 			this.pronouns === other.pronouns &&
 			this.accentColor === other.accentColor &&
+			JSON.stringify(this.themeColors) === JSON.stringify(other.themeColors) &&
+			this.profileFrame === other.profileFrame &&
 			this.timezone === other.timezone &&
 			this.timezonePrivacyFlags === other.timezonePrivacyFlags &&
 			this.mfaEnabled === other.mfaEnabled &&
@@ -696,6 +712,8 @@ export class User {
 		setOptional('banner_color', this.bannerColor);
 		setOptional('pronouns', this.pronouns);
 		setOptional('accent_color', this.accentColor);
+		setOptional('theme_colors', this.themeColors);
+		setOptional('profile_frame', this.profileFrame);
 		if (this.isStaff()) {
 			setOptional('timezone', this.timezone);
 			setOptional('timezone_privacy_flags', this.timezonePrivacyFlags);

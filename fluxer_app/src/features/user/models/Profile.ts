@@ -127,6 +127,8 @@ export class Profile {
 			banner_color: bannerColor,
 			pronouns: this.guildMemberProfile.pronouns ?? this.userProfile.pronouns,
 			accent_color: this.guildMemberProfile.accent_color ?? this.userProfile.accent_color,
+			theme_colors: this.userProfile.theme_colors ?? null,
+			profile_frame: this.userProfile.profile_frame ?? null,
 		};
 	}
 

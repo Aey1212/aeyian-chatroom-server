@@ -1,0 +1,94 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.header {
+	margin-top: 0.5rem;
+}
+
+.title {
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+	font-size: 1.25rem;
+}
+
+.description {
+	font-size: 0.875rem;
+	color: var(--text-primary-muted);
+}
+
+.colors {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+	gap: 0.75rem;
+}
+
+.linkButton {
+	align-self: flex-start;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font-size: 0.875rem;
+	color: var(--text-link);
+	cursor: pointer;
+}
+
+.linkButton:hover:not(:disabled) {
+	text-decoration: underline;
+}
+
+.frameGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+	gap: 0.75rem;
+	padding: 0.5rem 0.25rem;
+}
+
+.frameTile {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0.5rem;
+	padding: 0.625rem;
+	border: 2px solid transparent;
+	border-radius: 0.5rem;
+	background-color: var(--background-secondary);
+	color: var(--text-primary);
+	cursor: pointer;
+}
+
+.frameTile:hover:not(:disabled) {
+	background-color: var(--background-modifier-hover);
+}
+
+.frameTile:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.frameTileSelected {
+	border-color: var(--brand-primary);
+}
+
+/* A miniature card: the frame classes paint its border and glow. */
+.frameSample {
+	display: block;
+	height: 3.5rem;
+	border-style: solid;
+	border-width: var(--profile-card-border-width, 0.15625rem);
+	border-radius: 0.375rem;
+	background-color: var(--background-primary);
+}
+
+.frameSamplePlain {
+	border-color: var(--background-modifier-accent);
+}
+
+.frameLabel {
+	font-size: 0.8125rem;
+	text-align: center;
+}

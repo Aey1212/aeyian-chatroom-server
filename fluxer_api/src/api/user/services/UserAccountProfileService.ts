@@ -124,6 +124,12 @@ export class UserAccountProfileService {
 		if (data.name_style !== undefined) {
 			updates.name_style = serializeNameStyle(data.name_style);
 		}
+		if (data.theme_colors !== undefined) {
+			updates.theme_colors = data.theme_colors ? [...data.theme_colors] : null;
+		}
+		if (data.profile_frame !== undefined) {
+			updates.profile_frame = data.profile_frame;
+		}
 		return {updates, preparedAvatarUpload, preparedBannerUpload};
 	}
 

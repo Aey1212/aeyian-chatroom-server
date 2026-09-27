@@ -73,6 +73,8 @@ export function createMockProfile(
 		previewBio?: string | null;
 		previewPronouns?: string | null;
 		previewAccentColor?: number | null;
+		previewThemeColors?: ReadonlyArray<number> | null;
+		previewProfileFrame?: string | null;
 		previewBadgeSettings?: BadgeSettings;
 		previewTimezoneOffset?: number | null;
 	},
@@ -92,6 +94,9 @@ export function createMockProfile(
 			banner: finalBanner,
 			pronouns: finalPronouns,
 			accent_color: options?.previewAccentColor !== undefined ? options.previewAccentColor : (user.accentColor ?? null),
+			theme_colors: options?.previewThemeColors !== undefined ? options.previewThemeColors : (user.themeColors ?? null),
+			profile_frame:
+				options?.previewProfileFrame !== undefined ? options.previewProfileFrame : (user.profileFrame ?? null),
 		},
 		timezone_offset:
 			options?.previewTimezoneOffset !== undefined

@@ -2397,6 +2397,11 @@ msgstr "एक फ़ाइल एक्सटेंशन, जैसे png"
 msgid "a forwarded message"
 msgstr "एक फ़ॉरवर्ड किया गया मैसेज"
 
+#. Profile settings section description for the profile frame.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:37
+msgid "A frame around your profile card. It replaces the accent color border."
+msgstr "A frame around your profile card. It replaces the accent color border."
+
 #. Description text in the bot profile section.
 #: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:62
 msgid "A helpful bot that does amazing things!"
@@ -2714,7 +2719,7 @@ msgstr "कार्रवाइयाँ"
 msgid "Active"
 msgstr "सक्रिय"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:358
+#: src/features/app/components/floating/UserAreaPopout.tsx:359
 #: src/features/auth/components/accounts/AccountRow.tsx:140
 msgid "Active account"
 msgstr "सक्रिय अकाउंट"
@@ -3792,10 +3797,10 @@ msgstr "हमेशा"
 msgid "Always animate"
 msgstr "हमेशा ऐनिमेट करें"
 
-#. Label for the switch that keeps glow, shimmer and holographic names moving all the time.
+#. Label for the switch that keeps glow, shimmer and holographic names and animated profile frames moving all the time.
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:94
-msgid "Always animate name effects"
-msgstr "Always animate name effects"
+msgid "Always animate name effects and profile frames"
+msgstr "Always animate name effects and profile frames"
 
 #. Description shown for stickers when always-animate overrides reduced motion.
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:90
@@ -4750,6 +4755,11 @@ msgstr "ऑडियो अपलोड"
 #: src/features/search/components/search/HasFilterSheet.tsx:41
 msgid "Audio upload"
 msgstr "ऑडियो अपलोड"
+
+#. Profile frame name: shifting northern-lights colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:45
+msgid "Aurora"
+msgstr "Aurora"
 
 #. Country name. EU member state in the illegal-content report country dropdown.
 #: src/features/moderation/components/report/OptionDescriptors.ts:111
@@ -5825,6 +5835,11 @@ msgstr "बॉट"
 #: src/features/user/components/modals/tabs/component_gallery_tab/OverlaysTab.tsx:99
 msgid "Bottom"
 msgstr "नीचे"
+
+#. Label for the colour at the bottom of the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:25
+msgid "Bottom color"
+msgstr "Bottom color"
 
 #. Accessible label for the bottom-sheet container element.
 #: src/features/ui/sheet/Sheet.tsx:27
@@ -7555,6 +7570,11 @@ msgstr "अपनी भाषा चुनें"
 msgid "Choose your profile accent color"
 msgstr "अपनी प्रोफ़ाइल का एक्सेंट रंग चुनें"
 
+#. Profile frame name: green circuit-board lines.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:53
+msgid "Circuit"
+msgstr "Circuit"
+
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/VoiceVideoIndex.ts:117
 msgid "Cisco"
@@ -7660,7 +7680,7 @@ msgstr "यह उपहार पाने के लिए अपना अक
 #: src/features/channel/components/direct_message/AddFriendForm.tsx:58
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:37
 #: src/features/ui/action_menu/items/RelationshipMenuItems.tsx:40
-#: src/features/user/components/modals/UserProfileModal.tsx:122
+#: src/features/user/components/modals/UserProfileModal.tsx:124
 msgid "Claim your account to send friend requests."
 msgstr "फ्रेंड रिक्वेस्ट भेजने के लिए अपना अकाउंट क्लेम करें।"
 
@@ -8497,7 +8517,7 @@ msgstr "कम्युनिटी का नाम"
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:128
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:129
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:113
 msgid "Community nickname"
 msgstr "कम्युनिटी उपनाम"
@@ -8545,7 +8565,7 @@ msgid "Community profile"
 msgstr "कम्युनिटी प्रोफ़ाइल"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:75
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:76
 msgid "Community profile updated"
 msgstr "कम्युनिटी प्रोफ़ाइल अपडेट की गई"
 
@@ -9252,7 +9272,7 @@ msgid "Copy banner URL"
 msgstr "बैनर यूआरएल कॉपी करें"
 
 #. Tray menu item. Copies build / version diagnostics to the clipboard for bug reports.
-#: src/features/app/components/floating/UserAreaPopout.tsx:709
+#: src/features/app/components/floating/UserAreaPopout.tsx:719
 #: src/features/platform/utils/DesktopLocaleBridge.ts:228
 msgid "Copy build info"
 msgstr "बिल्ड की जानकारी कॉपी करें"
@@ -9494,7 +9514,7 @@ msgid "Copy the setup key into your authenticator app."
 msgstr "अपने ऑथेंटिकेटर ऐप में सेटअप कुंजी कॉपी करें।"
 
 #. Developer-mode action that copies a user snowflake/ID to the clipboard.
-#: src/features/app/components/floating/UserAreaPopout.tsx:694
+#: src/features/app/components/floating/UserAreaPopout.tsx:704
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:172
 msgid "Copy user ID"
 msgstr "यूज़र आईडी कॉपी करें"
@@ -9519,7 +9539,7 @@ msgstr "वीडियो कॉपी करें"
 msgid "Copy video link"
 msgstr "वीडियो लिंक कॉपी करें"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:722
+#: src/features/app/components/floating/UserAreaPopout.tsx:732
 msgid "Copy voice diagnostics"
 msgstr "वॉइस डायग्नोस्टिक्स कॉपी करें"
 
@@ -12194,7 +12214,7 @@ msgstr "डिस्प्ले मोड"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the my profile tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:22
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:140
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:141
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:61
 msgid "Display name"
 msgstr "डिस्प्ले नाम"
@@ -12333,7 +12353,7 @@ msgstr "क्या आप अपनी मौजूदा कम्युन�
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:148
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:149
 msgid "Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985."
 msgstr "डॉक्टर, मैं भविष्य से आया हूँ। मैं आपकी बनाई टाइम मशीन से यहाँ आया हूँ। अब, मुझे 1985 में वापस जाने के लिए आपकी मदद चाहिए।"
 
@@ -12891,11 +12911,11 @@ msgstr "दूसरे सदस्यों द्वारा बनाए �
 msgid "Edit overwrites for roles and members in this channel."
 msgstr "इस चैनल में रोल और सदस्यों के लिए ओवरराइट एडिट करें।"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:745
+#: src/features/app/components/floating/UserAreaPopout.tsx:755
 #: src/features/app/components/pages/YouPage.tsx:157
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
-#: src/features/user/components/modals/UserProfileModal.tsx:586
-#: src/features/user/components/popouts/UserProfilePopout.tsx:432
+#: src/features/user/components/modals/UserProfileModal.tsx:588
+#: src/features/user/components/popouts/UserProfilePopout.tsx:439
 msgid "Edit profile"
 msgstr "प्रोफ़ाइल एडिट करें"
 
@@ -12953,7 +12973,7 @@ msgid "Edit translation provider"
 msgstr "अनुवाद प्रदाता एडिट करें"
 
 #. Button or menu action label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:95
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:96
 msgid "Edit your profile appearance and see a live preview"
 msgstr "अपनी प्रोफ़ाइल का स्वरूप बदलें और लाइव प्रीव्यू देखें"
 
@@ -13150,6 +13170,11 @@ msgstr "एम्बेड छिपाए गए"
 #: src/features/channel/components/MessageActionUtils.tsx:80
 msgid "Embeds unsuppressed"
 msgstr "एम्बेड फिर से दिखाए गए"
+
+#. Profile frame name: glowing fire colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:49
+msgid "Ember"
+msgstr "Ember"
 
 #. Audit log target-type filter label. Filters entries that target a custom emoji.
 #. Collapsible group heading in the Theme Studio tokens list, for emoji tokens.
@@ -15590,6 +15615,11 @@ msgstr "प्रेषक का नाम"
 msgid "From user"
 msgstr "भेजने वाला यूज़र"
 
+#. Profile frame name: icy blue and white.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:50
+msgid "Frost"
+msgstr "Frost"
+
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:121
 msgid "Full"
@@ -16172,6 +16202,11 @@ msgstr "छठी कम्युनिटी पर जाएं"
 #: src/features/input/state/input_keybind/shared.ts:93
 msgid "Go to third community"
 msgstr "तीसरी कम्युनिटी पर जाएं"
+
+#. Profile frame name: shiny gold.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:46
+msgid "Gold"
+msgstr "Gold"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:287
@@ -16908,8 +16943,10 @@ msgstr "ऐप्स का चयन करने के लिए Shift दब
 msgid "Hold to record. Drag up to lock, or release to send."
 msgstr "रिकॉर्ड करने के लिए दबाए रखें। लॉक करने के लिए ऊपर खींचें या भेजने के लिए छोड़ दें।"
 
+#. Profile frame name: a rotating pastel rainbow.
 #. Role color style: a shiny three-color gradient that moves on hover.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:27
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:48
 msgid "Holographic"
 msgstr "Holographic"
 
@@ -17494,7 +17531,7 @@ msgstr "चैनल"
 msgid "In \"Operating system\" mode, dictionaries listed above are advisory. {PRODUCT_NAME} will pass these language tags to your OS spellchecker when supported. Tags it doesn't recognize are ignored."
 msgstr "\"ऑपरेटिंग सिस्टम\" मोड में, ऊपर दी गई डिक्शनरी सिर्फ़ सलाह के तौर पर हैं। सपोर्ट होने पर {PRODUCT_NAME} ये भाषा टैग आपके OS स्पेलचेकर को भेजेगा। जिन टैग को वह नहीं पहचानता, उन्हें अनदेखा कर दिया जाता है।"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:723
+#: src/features/app/components/floating/UserAreaPopout.tsx:733
 msgid "In a call"
 msgstr "कॉल पर हैं"
 
@@ -19584,7 +19621,7 @@ msgstr "मैलवेयर, क्रेडेंशियल चोरी �
 msgid "Manage"
 msgstr "प्रबंधित करें"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:398
+#: src/features/app/components/floating/UserAreaPopout.tsx:399
 #: src/features/auth/components/accounts/AccountSwitcherModal.tsx:78
 msgid "Manage accounts"
 msgstr "अकाउंट प्रबंधित करें"
@@ -20404,11 +20441,11 @@ msgstr "मैसेज"
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
-#: src/features/user/components/modals/UserProfileModal.tsx:561
-#: src/features/user/components/modals/UserProfileModal.tsx:769
-#: src/features/user/components/popouts/UserProfilePopout.tsx:418
-#: src/features/user/components/popouts/UserProfilePopout.tsx:448
-#: src/features/user/components/profile/ProfilePreview.tsx:325
+#: src/features/user/components/modals/UserProfileModal.tsx:563
+#: src/features/user/components/modals/UserProfileModal.tsx:771
+#: src/features/user/components/popouts/UserProfilePopout.tsx:425
+#: src/features/user/components/popouts/UserProfilePopout.tsx:455
+#: src/features/user/components/profile/ProfilePreview.tsx:341
 msgctxt "message-action"
 msgid "Message"
 msgstr "मैसेज भेजें"
@@ -20780,6 +20817,11 @@ msgstr "मिडल माउस स्क्रॉलिंग"
 msgid "Middle-click scrolling"
 msgstr "मिडल-क्लिक स्क्रॉलिंग"
 
+#. Profile frame name: deep night blue and violet.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:52
+msgid "Midnight"
+msgstr "Midnight"
+
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/LanguageIndex.ts:54
 msgid "Military time"
@@ -21047,7 +21089,7 @@ msgstr "ज़्यादा"
 #. Short label in the index. Keep it concise.
 #. Short label in the user profile modal. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:47
-#: src/features/user/components/modals/UserProfileModal.tsx:114
+#: src/features/user/components/modals/UserProfileModal.tsx:116
 msgid "More actions"
 msgstr "ज़्यादा ऐक्शन"
 
@@ -21641,9 +21683,9 @@ msgid "Name effects"
 msgstr "Name effects"
 
 #. Warning under the switch that keeps animated display names moving all the time.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:98
-msgid "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
-msgstr "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:99
+msgid "Name effects and profile frames normally move only while you hover them. Keeping them moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
+msgstr "Name effects and profile frames normally move only while you hover them. Keeping them moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
 
 #. Form validation error shown when the name field is empty.
 #. Form validation error shown when the name field is empty.
@@ -21771,6 +21813,11 @@ msgstr "नेको"
 #: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:63
 msgid "Neko cat that chases your cursor"
 msgstr "आपके कर्सर का पीछा करने वाली नेको बिल्ली"
+
+#. Profile frame name: glowing neon tube.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:47
+msgid "Neon"
+msgstr "Neon"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:45
@@ -22675,6 +22722,7 @@ msgstr "रूपांतरण नहीं"
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #. Library picker entry meaning no sound is selected for this scope.
 #. Member verification level option in the community moderation settings tab. Short standalone label for the lowest level (no verification).
+#. Profile frame choice that shows no frame.
 #. Short label in the visual tab. Keep it concise.
 #. Summary row value on the confirm step when no items in the category were selected.
 #: src/features/channel/components/channel_header_components/developer_tools/DeveloperToolsShared.ts:41
@@ -22682,6 +22730,7 @@ msgstr "रूपांतरण नहीं"
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogSharedMessages.ts:52
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:37
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:146
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:41
 #: src/features/user/components/modals/tabs/privacy_safety_tab/data_request_modal/DataRequestModal.tsx:220
 #: src/features/voice/components/AudioSourcePickerLinux.tsx:261
 msgid "None"
@@ -24666,7 +24715,9 @@ msgid "PiP"
 msgstr "पिप"
 
 #. Font picker filter: pixel and retro fonts.
+#. Profile frame name: a chunky retro pixel outline.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:100
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:54
 msgid "Pixel"
 msgstr "Pixel"
 
@@ -25287,18 +25338,18 @@ msgstr "प्रोफ़ाइल रंग"
 
 #. Settings section label for editing profile appearance and identity.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:107
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:108
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:6
 msgid "Profile customization"
 msgstr "प्रोफ़ाइल कस्टमाइज़ेशन"
 
 #. Label in the my profile tab. Preserve {selectedGuildName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:103
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:104
 msgid "Profile customization for {selectedGuildName}"
 msgstr "{selectedGuildName} के लिए प्रोफ़ाइल कस्टमाइज़ेशन"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:99
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:100
 msgid "Profile customization form"
 msgstr "प्रोफ़ाइल कस्टमाइज़ेशन फ़ॉर्म"
 
@@ -25306,6 +25357,16 @@ msgstr "प्रोफ़ाइल कस्टमाइज़ेशन फ़�
 #: src/features/channel/components/channel_header_components/developer_tools/DeveloperOptionLabels.ts:124
 msgid "Profile data warning"
 msgstr "प्रोफ़ाइल डेटा चेतावनी"
+
+#. Profile settings section title for the decorative frame around the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:33
+msgid "Profile frame"
+msgstr "Profile frame"
+
+#. Accessible label for the list of profile frames.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:42
+msgid "Profile frames"
+msgstr "Profile frames"
 
 #. Profile settings row title for choosing whether profile viewers can see the user local time.
 #: src/features/user/components/modals/tabs/my_profile_tab/TimezoneProfileSettings.tsx:23
@@ -25332,12 +25393,12 @@ msgstr "प्रोफ़ाइल फ़ोटो"
 msgid "Profile pictures"
 msgstr "प्रोफ़ाइल फ़ोटो"
 
-#: src/features/user/components/profile/profile_card/ProfileCardLayout.tsx:26
+#: src/features/user/components/profile/profile_card/ProfileCardLayout.tsx:32
 msgid "Profile preview"
 msgstr "प्रोफ़ाइल प्रीव्यू"
 
 #. Label in the user settings profile preview.
-#: src/features/user/components/profile/ProfilePreview.tsx:41
+#: src/features/user/components/profile/ProfilePreview.tsx:42
 msgid "Profile preview (press Enter to open full preview)"
 msgstr "प्रोफ़ाइल का प्रीव्यू (पूरा प्रीव्यू खोलने के लिए Enter दबाएँ)"
 
@@ -25355,6 +25416,11 @@ msgstr "प्रोफ़ाइल गोपनीयता"
 msgid "Profile skeletons"
 msgstr "प्रोफ़ाइल स्केलेटन"
 
+#. Profile settings section title for the two colours of the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:13
+msgid "Profile theme"
+msgstr "Profile theme"
+
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the profile type selector. Keep it concise.
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileTypeSelector.tsx:18
@@ -25363,7 +25429,7 @@ msgid "Profile type"
 msgstr "प्रोफ़ाइल प्रकार"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:79
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:80
 msgid "Profile updated"
 msgstr "प्रोफ़ाइल अपडेट की गई"
 
@@ -25400,7 +25466,7 @@ msgstr "नया ऑडियो डिवाइस कनेक्ट हो�
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:144
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:145
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:177
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:160
 msgid "Pronouns"
@@ -26041,9 +26107,9 @@ msgid "Reduced motion is on, so content animations are paused by default. You ca
 msgstr "कम मोशन चालू है, इसलिए सामग्री एनिमेशन डिफ़ॉल्ट रूप से रुके रहते हैं। इन्हें चलाते रखने के लिए आप इनमें से किसी को भी वापस चालू कर सकते हैं।"
 
 #. Description for the animated names switch while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:103
-msgid "Reduced motion is on, so name effects stay still."
-msgstr "Reduced motion is on, so name effects stay still."
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:104
+msgid "Reduced motion is on, so name effects and profile frames stay still."
+msgstr "Reduced motion is on, so name effects and profile frames stay still."
 
 #. Short label in the theme studio assets section. Keep it concise.
 #: src/features/theme_studio/sections/AssetsSection.tsx:32
@@ -26425,6 +26491,11 @@ msgstr "{targetName} से एक हटाकर जगह बनाएं, �
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:151
 msgid "Remove override"
 msgstr "ओवरराइड हटाएँ"
+
+#. Button that removes the two-colour theme from the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:29
+msgid "Remove profile theme"
+msgstr "Remove profile theme"
 
 #. Button or menu action label in the channel and chat message reactions sheet. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the message reactions modal. Keep it concise. Keep the tone plain and specific.
@@ -27899,6 +27970,11 @@ msgstr "रूसी"
 msgid "Safety"
 msgstr "सुरक्षा"
 
+#. Profile frame name: cherry-blossom pink.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:51
+msgid "Sakura"
+msgstr "Sakura"
+
 #. Profile timezone difference text. The target user's timezone currently matches the viewer's timezone.
 #: src/features/user/components/popouts/UserProfileShared.tsx:61
 msgid "Same time as you"
@@ -29030,7 +29106,7 @@ msgstr "फ़ाइल मैसेज क्रम में भेजें"
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:146
 #: src/features/guild/components/modals/guild_tabs/GuildMemberActionsSheet.tsx:94
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:110
-#: src/features/user/components/modals/UserProfileModal.tsx:126
+#: src/features/user/components/modals/UserProfileModal.tsx:128
 msgid "Send friend request"
 msgstr "फ्रेंड रिक्वेस्ट भेजें"
 
@@ -29273,7 +29349,7 @@ msgstr "सेशन"
 msgid "Set a custom role icon"
 msgstr "कस्टम रोल आइकन सेट किया गया"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:603
+#: src/features/app/components/floating/UserAreaPopout.tsx:613
 #: src/features/app/components/shared/custom_status_display/CustomStatusDisplay.tsx:253
 msgid "Set a custom status"
 msgstr "कस्टम स्टेटस सेट करें"
@@ -31518,7 +31594,7 @@ msgstr "स्टिकर"
 msgid "Sticker animation preference"
 msgstr "स्टिकर एनिमेशन की पसंद"
 
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:201
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:202
 msgid "Sticker animations"
 msgstr "स्टिकर एनिमेशन"
 
@@ -32046,7 +32122,7 @@ msgstr "स्वीडिश"
 msgid "Switch account"
 msgstr "अकाउंट बदलें"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:679
+#: src/features/app/components/floating/UserAreaPopout.tsx:689
 msgid "Switch accounts"
 msgstr "अकाउंट बदलें"
 
@@ -33649,7 +33725,7 @@ msgid "This message no longer exists."
 msgstr "यह मैसेज अब मौजूद नहीं है।"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:132
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:133
 msgid "This nickname will only be visible in this community"
 msgstr "यह निकनेम सिर्फ़ इस कम्युनिटी में दिखेगा"
 
@@ -34278,6 +34354,11 @@ msgstr "टूलटिप"
 msgid "Top"
 msgstr "ऊपर"
 
+#. Label for the colour at the top of the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:21
+msgid "Top color"
+msgstr "Top color"
+
 #. Tooltip text in the overlays tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/OverlaysTab.tsx:23
 msgid "Top tooltip"
@@ -34766,6 +34847,11 @@ msgstr "चौबीस घंटे"
 msgid "Two clicks"
 msgstr "दो क्लिक"
 
+#. Profile settings section description for the profile theme colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:17
+msgid "Two colors for your profile card, from top to bottom."
+msgstr "Two colors for your profile card, from top to bottom."
+
 #. Column count label in the channel permissions tab layout toggle.
 #. Status text or tooltip indicating the role editor permission list is currently in two-column layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:33
@@ -34990,7 +35076,7 @@ msgstr "फ्रेंड रिक्वेस्ट भेजने के �
 #. Title of the confirmation modal for unblocking a previously blocked user. Short command title.
 #: src/features/relationship/utils/RelationshipActionUtils.tsx:95
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:105
-#: src/features/user/components/modals/UserProfileModal.tsx:118
+#: src/features/user/components/modals/UserProfileModal.tsx:120
 msgid "Unblock user"
 msgstr "यूज़र को अनब्लॉक करें"
 
@@ -36417,12 +36503,12 @@ msgstr "यूज़र नहीं मिला"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the user profile modal. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:46
-#: src/features/user/components/modals/UserProfileModal.tsx:90
+#: src/features/user/components/modals/UserProfileModal.tsx:92
 msgid "User profile"
 msgstr "यूज़र प्रोफ़ाइल"
 
 #. Short label in the user profile modal. Keep it concise. Preserve {tag}; it is inserted by code.
-#: src/features/user/components/modals/UserProfileModal.tsx:94
+#: src/features/user/components/modals/UserProfileModal.tsx:96
 msgid "User profile: {tag}"
 msgstr "यूज़र प्रोफ़ाइल: {tag}"
 
@@ -36747,22 +36833,22 @@ msgid "Verify your email before adding an authenticator app."
 msgstr "ऑथेंटिकेटर ऐप जोड़ने से पहले अपना ईमेल वेरिफ़ाई करें।"
 
 #. Description text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:119
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:120
 msgid "Verify your email before changing your community nickname, avatar, banner, bio, pronouns, or accent color."
 msgstr "अपना कम्युनिटी निकनेम, अवतार, बैनर, बायो, सर्वनाम या एक्सेंट कलर बदलने से पहले अपना ईमेल वेरिफ़ाई करें।"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:123
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:124
 msgid "Verify your email before changing your username, display name, avatar, banner, bio, pronouns, time zone, or {premiumProductName} badge privacy."
 msgstr "अपना यूज़रनेम, डिसप्ले नेम, अवतार, बैनर, बायो, सर्वनाम, टाइमज़ोन या {premiumProductName} बैज की प्राइवेसी बदलने से पहले अपना ईमेल वेरिफ़ाई करें।"
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:87
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:88
 msgid "Verify your email before editing this community profile. You can still preview it here."
 msgstr "इस कम्युनिटी प्रोफ़ाइल को एडिट करने से पहले अपना ईमेल वेरिफ़ाई करें। आप इसे अभी भी यहाँ देख सकते हैं।"
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:91
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:92
 msgid "Verify your email before editing your profile. You can still preview it here."
 msgstr "प्रोफ़ाइल एडिट करने से पहले अपना ईमेल वेरिफ़ाई करें। आप इसे अभी भी यहाँ देख सकते हैं।"
 
@@ -36789,12 +36875,12 @@ msgid "Verify your email to continue using {productName}."
 msgstr "{productName} का उपयोग जारी रखने के लिए अपना ईमेल वेरिफ़ाई करें।"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:111
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:112
 msgid "Verify your email to edit this community profile"
 msgstr "इस कम्युनिटी प्रोफ़ाइल को एडिट करने के लिए अपना ईमेल वेरिफ़ाई करें"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:115
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:116
 msgid "Verify your email to edit your profile"
 msgstr "अपनी प्रोफ़ाइल एडिट करने के लिए अपना ईमेल वेरिफ़ाई करें"
 
@@ -37077,7 +37163,7 @@ msgstr "कोड देखें"
 #. Button or menu action label in the user profile actions sheet. Keep it concise.
 #. Button or menu action label in the user profile modal. Keep it concise.
 #: src/features/user/components/modals/UserProfileActionsSheet.tsx:69
-#: src/features/user/components/modals/UserProfileModal.tsx:98
+#: src/features/user/components/modals/UserProfileModal.tsx:100
 msgid "View community profile"
 msgstr "कम्युनिटी प्रोफ़ाइल देखें"
 
@@ -37110,7 +37196,7 @@ msgstr "उपहार देखें"
 #. Button or menu action label in the user profile actions sheet. Keep it concise.
 #. Button or menu action label in the user profile modal. Keep it concise.
 #: src/features/user/components/modals/UserProfileActionsSheet.tsx:73
-#: src/features/user/components/modals/UserProfileModal.tsx:102
+#: src/features/user/components/modals/UserProfileModal.tsx:104
 msgid "View global profile"
 msgstr "ग्लोबल प्रोफ़ाइल देखें"
 
@@ -38349,7 +38435,7 @@ msgid "With error"
 msgstr "गड़बड़ी के साथ"
 
 #. Description shown for the sticker control while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:107
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:108
 msgid "With reduced motion on, stickers only animate on interaction. Choose \"Always animate\" to override."
 msgstr "कम गति चालू होने पर स्टिकर सिर्फ़ इंटरैक्शन पर एनिमेट होते हैं। इसे बदलने के लिए “हमेशा ऐनिमेट करें” चुनें।"
 
@@ -38600,12 +38686,12 @@ msgid "You can't attach files in this channel."
 msgstr "आप इस चैनल में फ़ाइलें अटैच नहीं कर सकते।"
 
 #. Error message in the user profile modal.
-#: src/features/user/components/modals/UserProfileModal.tsx:106
+#: src/features/user/components/modals/UserProfileModal.tsx:108
 msgid "You can't befriend yourself"
 msgstr "आप खुद को दोस्त नहीं बना सकते"
 
 #. Label in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:136
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:137
 msgid "You can't change your nickname here"
 msgstr "आप अपना उपनाम यहां नहीं बदल सकते"
 
@@ -38654,9 +38740,9 @@ msgstr "आप इस यूज़र को मैसेज नहीं कर
 #. Error message in the user profile modal.
 #. Error message in the user profile popout.
 #. Error message in the user settings profile preview.
-#: src/features/user/components/modals/UserProfileModal.tsx:110
-#: src/features/user/components/popouts/UserProfilePopout.tsx:73
-#: src/features/user/components/profile/ProfilePreview.tsx:45
+#: src/features/user/components/modals/UserProfileModal.tsx:112
+#: src/features/user/components/popouts/UserProfilePopout.tsx:74
+#: src/features/user/components/profile/ProfilePreview.tsx:46
 msgid "You can't message yourself"
 msgstr "आप खुद को मैसेज नहीं कर सकते"
 
@@ -38837,7 +38923,7 @@ msgid "You have unsaved changes."
 msgstr "आपके कुछ बदलाव सेव नहीं हुए हैं।"
 
 #. Warning text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:83
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:84
 msgid "You have unsaved changes. Save or reset before leaving."
 msgstr "आपके कुछ बदलाव सेव नहीं हुए हैं। जाने से पहले सेव करें या रीसेट करें।"
 
@@ -39032,12 +39118,12 @@ msgstr "आप {guildNames} छोड़ देंगे। आपने जो 
 msgid "You will still need to finish the email step."
 msgstr "आपको अभी भी ईमेल वाला चरण पूरा करना होगा।"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:92
+#: src/features/app/components/floating/UserAreaPopout.tsx:93
 #: src/features/user/components/modals/StatusChangeBottomSheet.tsx:40
 msgid "You won't receive notifications on desktop"
 msgstr "आपको डेस्कटॉप पर सूचनाएं नहीं मिलेंगी"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:93
+#: src/features/app/components/floating/UserAreaPopout.tsx:94
 #: src/features/user/components/modals/StatusChangeBottomSheet.tsx:41
 msgid "You'll appear offline"
 msgstr "आप ऑफ़लाइन दिखेंगे"

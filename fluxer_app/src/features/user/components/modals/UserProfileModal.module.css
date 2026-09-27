@@ -252,8 +252,8 @@
 	top: calc(var(--profile-modal-avatar-top, -4.05rem) * var(--profile-modal-scale));
 	left: calc(var(--profile-modal-avatar-left, 1rem) * var(--profile-modal-scale));
 	z-index: 0;
-	border: var(--profile-modal-avatar-border, 0.3rem) solid var(--background-primary);
-	background-color: var(--background-primary);
+	border: var(--profile-modal-avatar-border, 0.3rem) solid var(--profile-surface, var(--background-primary));
+	background-color: var(--profile-surface, var(--background-primary));
 }
 
 .actionButtonsContainer {
@@ -287,7 +287,7 @@
 	flex-direction: column;
 	border-radius: var(--profile-modal-scroller-radius);
 	clip-path: inset(0 round var(--profile-modal-scroller-radius));
-	background-color: var(--background-primary);
+	background-color: var(--profile-panel, var(--background-primary));
 }
 
 .scrollerFullHeight {

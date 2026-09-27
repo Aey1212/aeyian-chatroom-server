@@ -25,6 +25,7 @@ import {useProfileCardDisplayState} from '@app/features/user/components/profile/
 import {useAutoplayExpandedProfileAnimations} from '@app/features/user/hooks/useAutoplayExpandedProfileAnimations';
 import type {Profile} from '@app/features/user/models/Profile';
 import type {User} from '@app/features/user/models/User';
+import {resolveProfileDecoration} from '@app/features/user/profile_style/ProfileDecoration';
 import type {CustomStatus} from '@app/features/user/state/CustomStatus';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import type {ProfilePreviewOverrides} from '@app/features/user/utils/ProfileDisplayUtils';
@@ -56,6 +57,8 @@ interface ProfilePreviewProps {
 	previewBio?: string | null;
 	previewPronouns?: string | null;
 	previewAccentColor?: number | null;
+	previewThemeColors?: ReadonlyArray<number> | null;
+	previewProfileFrame?: string | null;
 	previewTimezoneOffset?: number | null;
 	previewGlobalName?: string | null;
 	previewNameStyle?: NameStyle | null;
@@ -82,6 +85,8 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		previewBio,
 		previewPronouns,
 		previewAccentColor,
+		previewThemeColors,
+		previewProfileFrame,
 		previewTimezoneOffset,
 		previewGlobalName,
 		previewNameStyle,
@@ -149,6 +154,8 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 				previewBio,
 				previewPronouns,
 				previewAccentColor,
+				previewThemeColors,
+				previewProfileFrame,
 				previewTimezoneOffset,
 				previewBadgeSettings,
 			});
@@ -159,6 +166,8 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 			previewBio,
 			previewPronouns,
 			previewAccentColor,
+			previewThemeColors,
+			previewProfileFrame,
 			previewTimezoneOffset,
 			previewBadgeSettings,
 			guildId,
@@ -220,8 +229,14 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		const pronouns = previewPronouns !== undefined ? previewPronouns : user.pronouns;
 		const displayName =
 			previewNick || (guildId ? NicknameUtils.getNickname(previewUser, guildId) : previewUser.displayName);
+		const previewProfileData = mockProfile.getEffectiveProfile();
+		const decoration = resolveProfileDecoration({
+			themeColors: previewProfileData.theme_colors,
+			frame: previewProfileData.profile_frame,
+			accentColor,
+		});
 		const borderColor = accentColor;
-		const bannerColor = accentColor;
+		const bannerColor = decoration.bannerColor;
 		const selectedGuild = guildId ? Guilds.getGuild(guildId) : null;
 		const hasPreviewStatus = previewCustomStatus !== undefined;
 		const handlePreviewKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -241,6 +256,7 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 				>
 					<ProfileCardLayout
 						borderColor={borderColor}
+						decoration={decoration}
 						showPreviewLabel={showPreviewLabel}
 						data-flx="user.profile.profile-preview.profile-card-layout"
 					>

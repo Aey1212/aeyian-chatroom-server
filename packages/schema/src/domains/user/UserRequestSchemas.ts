@@ -19,6 +19,7 @@ import {
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {SudoVerificationSchema} from '@fluxer/schema/src/domains/auth/AuthSchemas';
 import {NameStyleRequestSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {ProfileFrameIdSchema, ProfileThemeColorsSchema} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 import {
 	isValidSyncedPreferencesEncoding,
 	SYNCED_PREFERENCES_MAX_ENCODED_LENGTH,
@@ -74,6 +75,10 @@ export const UserUpdateRequest = z
 		bio: createStringType(1, 320).nullish().describe('User biography text (max 320 characters)'),
 		pronouns: createStringType(1, 40).nullish().describe('User pronouns (max 40 characters)'),
 		accent_color: ColorType.nullish().describe('Profile accent color as integer'),
+		theme_colors: ProfileThemeColorsSchema.nullish().describe(
+			'Two profile theme colours (top, bottom) as integers, or null to clear',
+		),
+		profile_frame: ProfileFrameIdSchema.nullish().describe('Profile frame id, or null to clear'),
 		timezone: createStringType(1, 128)
 			.nullish()
 			.describe('Staff-only IANA timezone identifier saved for profile local time. Ignored for non-staff users.'),
