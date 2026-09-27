@@ -159,6 +159,8 @@ The private representation of the current account, returned by [Get current user
 | bio | ?string | The profile biography, or null when none is set |
 | pronouns | ?string | The profile pronouns, or null when none are set |
 | accent_color | ?integer | The profile accent colour as packed 24-bit RGB, or null when none is set |
+| theme_colors | ?array[integer] | Two [profile theme](#profile-themes-and-frames) colours as packed 24-bit RGB, top then bottom, or null when none is set |
+| profile_frame | ?string | A [profile frame](#profile-themes-and-frames) ID, or null when none is set |
 | timezone?<sup>7</sup> | ?string | The IANA timezone identifier stored for the account, or null when none is set |
 | timezone_privacy_flags?<sup>7</sup> | integer | [Profile field privacy flags](#profile-field-privacy-flags) applied to the profile timezone |
 | banner<sup>8</sup> | ?string | The image hash of the profile banner, or null when none is set or the entitlement is missing |
@@ -544,10 +546,18 @@ The account-wide profile customisation inside a [full user profile object](#full
 | banner<sup>2</sup> | ?string | The image hash of the profile banner, or null when none is set |
 | banner_color | ?integer | The packed 24-bit RGB colour derived from the stored banner, or null |
 | accent_color | ?integer | The profile accent colour as packed 24-bit RGB, or null when none is set |
+| theme_colors | ?array[integer] | Two [profile theme](#profile-themes-and-frames) colours as packed 24-bit RGB, top then bottom, or null when none is set |
+| profile_frame | ?string | A [profile frame](#profile-themes-and-frames) ID, or null when none is set |
 
 <sup>1</sup> The value is forced to `null` when profile privacy restricts the viewer, which is reported by `profile_limited`
 
 <sup>2</sup> The banner hash is not returned while the account lacks the animated banner entitlement, which every profile banner requires. The hash is not returned regardless of profile privacy
+
+## Profile themes and frames
+
+A profile theme paints the profile card as a gradient from its first colour at the top to its second at the bottom. A profile frame is drawn around the card in place of the accent colour border. Both are free for every account, and neither is part of a guild member profile.
+
+Profile frame IDs: `aurora`, `gold`, `neon`, `holographic`, `ember`, `frost`, `sakura`, `midnight`, `circuit`, `pixel`. A stored frame ID that a later release no longer ships is read as null.
 
 ## Guild member profile object
 

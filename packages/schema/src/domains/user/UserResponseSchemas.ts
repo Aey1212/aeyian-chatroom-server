@@ -20,6 +20,7 @@ import {ConnectionResponse} from '@fluxer/schema/src/domains/connection/Connecti
 import {GuildMemberResponse} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
 import {MessageResponseSchema} from '@fluxer/schema/src/domains/message/MessageResponseSchemas';
 import {type NameStyle, NameStyleSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {ProfileFrameIdSchema, ProfileThemeColorsSchema} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 import {LocaleSchema} from '@fluxer/schema/src/primitives/LocaleSchema';
 import {
 	createBitflagInt32Type,
@@ -93,6 +94,8 @@ export const UserPrivateResponse = UserPartialResponse.extend({
 	bio: z.string().nullable().describe('The user biography text'),
 	pronouns: z.string().nullable().describe('The preferred pronouns of the user'),
 	accent_color: Int32Type.nullable().describe('The user-selected accent color as an integer'),
+	theme_colors: ProfileThemeColorsSchema.nullable().describe('The two profile theme colours, or null when unset'),
+	profile_frame: ProfileFrameIdSchema.nullable().describe('The profile frame, or null when unset'),
 	timezone: z
 		.string()
 		.nullable()
@@ -243,6 +246,8 @@ export interface UserProfileResponse {
 	banner: string | null;
 	banner_color?: number | null;
 	accent_color: number | null;
+	theme_colors?: ReadonlyArray<number> | null;
+	profile_frame?: string | null;
 }
 
 export const CustomStatusResponse = z.object({
@@ -543,6 +548,12 @@ const UserProfileDataResponse = z.object({
 	banner: z.string().nullable().describe('Hash of the profile banner image'),
 	banner_color: Int32Type.nullable().optional().describe('Default banner color if no custom banner'),
 	accent_color: Int32Type.nullable().describe('User-selected accent color'),
+	theme_colors: ProfileThemeColorsSchema.nullable().describe(
+		'Two colours for the profile card background, top then bottom, or null when unset',
+	),
+	profile_frame: ProfileFrameIdSchema.nullable().describe(
+		'The frame drawn around the profile card instead of the accent border, or null when unset',
+	),
 });
 
 const GuildMemberProfileDataResponse = z

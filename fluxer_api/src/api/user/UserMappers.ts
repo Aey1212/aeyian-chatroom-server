@@ -12,6 +12,7 @@ import type {UserSettings} from '@app/api/models/UserSettings';
 import {canUseProfileTimezone, getRequiredActions} from '@app/api/user/UserHelpers';
 import {canUserAccessNsfwContent} from '@app/api/utils/AgeUtils';
 import type {ChannelMessageNotifications} from '@fluxer/constants/src/NotificationConstants';
+import type {ProfileFrameId} from '@fluxer/constants/src/ProfileCustomizationConstants';
 import {
 	DEFAULT_GUILD_FOLDER_ICON,
 	DELETED_USER_GLOBAL_NAME,
@@ -144,6 +145,8 @@ export function mapUserToPrivateResponse(user: User): UserPrivateResponse {
 		bio: user.bio,
 		pronouns: user.pronouns,
 		accent_color: user.accentColor,
+		theme_colors: user.themeColors ? [...user.themeColors] : null,
+		profile_frame: user.profileFrame,
 		...(includeProfileTimezone
 			? {
 					timezone: user.timezone,
@@ -194,7 +197,15 @@ export function mapUserToPrivateResponse(user: User): UserPrivateResponse {
 	};
 }
 
-export function mapUserToProfileResponse(user: User, options?: {restrictProfile?: boolean}): UserProfileResponse {
+type UserProfileWithStyleResponse = UserProfileResponse & {
+	theme_colors: Array<number> | null;
+	profile_frame: ProfileFrameId | null;
+};
+
+export function mapUserToProfileResponse(
+	user: User,
+	options?: {restrictProfile?: boolean},
+): UserProfileWithStyleResponse {
 	if (options?.restrictProfile) {
 		return {
 			bio: null,
@@ -202,6 +213,8 @@ export function mapUserToProfileResponse(user: User, options?: {restrictProfile?
 			banner: stripBannerForUser(user),
 			banner_color: user.bannerColor,
 			accent_color: user.accentColor,
+			theme_colors: user.themeColors ? [...user.themeColors] : null,
+			profile_frame: user.profileFrame,
 		};
 	}
 	return {
@@ -210,6 +223,8 @@ export function mapUserToProfileResponse(user: User, options?: {restrictProfile?
 		banner: stripBannerForUser(user),
 		banner_color: user.bannerColor,
 		accent_color: user.accentColor,
+		theme_colors: user.themeColors ? [...user.themeColors] : null,
+		profile_frame: user.profileFrame,
 	};
 }
 

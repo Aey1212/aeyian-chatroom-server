@@ -21619,9 +21619,17 @@
 							"accent_color": {
 								"anyOf": [{"$ref": "#/components/schemas/Int32Type"}, {"type": "null"}],
 								"description": "User-selected accent color"
+							},
+							"theme_colors": {
+								"anyOf": [{"$ref": "#/components/schemas/ProfileThemeColorsSchema"}, {"type": "null"}],
+								"description": "Two colours for the profile card background, top then bottom, or null when unset"
+							},
+							"profile_frame": {
+								"anyOf": [{"$ref": "#/components/schemas/ProfileFrameIdSchema"}, {"type": "null"}],
+								"description": "The frame drawn around the profile card instead of the accent border, or null when unset"
 							}
 						},
-						"required": ["bio", "pronouns", "banner", "accent_color"],
+						"required": ["bio", "pronouns", "banner", "accent_color", "theme_colors", "profile_frame"],
 						"additionalProperties": false,
 						"description": "The user profile data"
 					},
@@ -21812,6 +21820,14 @@
 						"anyOf": [{"$ref": "#/components/schemas/Int32Type"}, {"type": "null"}],
 						"description": "The user-selected accent color as an integer"
 					},
+					"theme_colors": {
+						"anyOf": [{"$ref": "#/components/schemas/ProfileThemeColorsSchema"}, {"type": "null"}],
+						"description": "The two profile theme colours, or null when unset"
+					},
+					"profile_frame": {
+						"anyOf": [{"$ref": "#/components/schemas/ProfileFrameIdSchema"}, {"type": "null"}],
+						"description": "The profile frame, or null when unset"
+					},
 					"timezone": {
 						"description": "The IANA timezone identifier saved by the user. Omitted unless the user has staff access.",
 						"type": ["string", "null"]
@@ -21974,6 +21990,8 @@
 					"bio",
 					"pronouns",
 					"accent_color",
+					"theme_colors",
+					"profile_frame",
 					"banner",
 					"banner_color",
 					"mfa_enabled",
@@ -24354,6 +24372,14 @@
 					"accent_color": {
 						"description": "Profile accent color as integer",
 						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}]
+					},
+					"theme_colors": {
+						"description": "Two profile theme colours (top, bottom) as integers, or null to clear",
+						"anyOf": [{"$ref": "#/components/schemas/ProfileThemeColorsSchema"}, {"type": "null"}]
+					},
+					"profile_frame": {
+						"description": "Profile frame id, or null to clear",
+						"anyOf": [{"$ref": "#/components/schemas/ProfileFrameIdSchema"}, {"type": "null"}]
 					},
 					"timezone": {
 						"description": "Staff-only IANA timezone identifier saved for profile local time. Ignored for non-staff users.",
@@ -33430,6 +33456,30 @@
 						"description": "Allow members from mutual guilds to see this profile field"
 					}
 				]
+			},
+			"ProfileFrameIdSchema": {
+				"description": "Id of a profile frame",
+				"x-enumNames": [
+					"AURORA",
+					"GOLD",
+					"NEON",
+					"HOLOGRAPHIC",
+					"EMBER",
+					"FROST",
+					"SAKURA",
+					"MIDNIGHT",
+					"CIRCUIT",
+					"PIXEL"
+				],
+				"enum": ["aurora", "gold", "neon", "holographic", "ember", "frost", "sakura", "midnight", "circuit", "pixel"],
+				"type": "string"
+			},
+			"ProfileThemeColorsSchema": {
+				"minItems": 2,
+				"maxItems": 2,
+				"type": "array",
+				"items": {"$ref": "#/components/schemas/ColorType"},
+				"description": "Two colours as integers: the top and the bottom of the profile card"
 			},
 			"ChannelOverwriteResponse": {
 				"type": "object",

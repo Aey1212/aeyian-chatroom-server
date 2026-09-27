@@ -77,6 +77,8 @@ export interface UserRow {
 	premium_onboarding_dismissed_at: Nullish<Date>;
 	mention_flags?: Nullish<MentionReplyPreference>;
 	name_style?: Nullish<string>;
+	theme_colors?: Nullish<Array<number>>;
+	profile_frame?: Nullish<string>;
 	last_voice_activity_sharing_change_at: Nullish<Date>;
 	version: number;
 }
@@ -141,6 +143,8 @@ export const USER_COLUMNS = [
 	'premium_onboarding_dismissed_at',
 	'mention_flags',
 	'name_style',
+	'theme_colors',
+	'profile_frame',
 	'last_voice_activity_sharing_change_at',
 	'version',
 ] as const satisfies ReadonlyArray<keyof UserRow>;
@@ -204,6 +208,8 @@ export const EMPTY_USER_ROW: UserRow = {
 	premium_onboarding_dismissed_at: null,
 	mention_flags: null,
 	name_style: null,
+	theme_colors: null,
+	profile_frame: null,
 	last_voice_activity_sharing_change_at: null,
 	version: 1,
 };

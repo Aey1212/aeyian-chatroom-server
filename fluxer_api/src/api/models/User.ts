@@ -6,6 +6,7 @@ import {getGlobalLimitConfigSnapshot} from '@app/api/limits/LimitConfigService';
 import {resolveLimitSafe} from '@app/api/limits/LimitConfigUtils';
 import {createLimitMatchContext} from '@app/api/limits/LimitMatchContextBuilder';
 import {checkIsPremium, getEffectivePremiumUntil} from '@app/api/user/UserHelpers';
+import type {ProfileFrameId} from '@fluxer/constants/src/ProfileCustomizationConstants';
 import {
 	extractPremiumFlagsFromLegacyUserFlags,
 	type MentionReplyPreference,
@@ -18,6 +19,11 @@ import {
 	parseStoredNameStyle,
 	serializeNameStyle,
 } from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {
+	type ProfileThemeColors,
+	readProfileFrame,
+	readProfileThemeColors,
+} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 import {types} from 'cassandra-driver';
 
 export class User {
@@ -80,6 +86,8 @@ export class User {
 	readonly premiumOnboardingDismissedAt: Date | null;
 	readonly mentionFlags: MentionReplyPreference;
 	readonly nameStyle: NameStyle | null;
+	readonly themeColors: ProfileThemeColors | null;
+	readonly profileFrame: ProfileFrameId | null;
 	readonly lastVoiceActivitySharingChangeAt: Date | null;
 	readonly version: number;
 
@@ -144,6 +152,8 @@ export class User {
 		this.premiumOnboardingDismissedAt = row.premium_onboarding_dismissed_at ?? null;
 		this.mentionFlags = row.mention_flags ?? 0;
 		this.nameStyle = parseStoredNameStyle(row.name_style);
+		this.themeColors = readProfileThemeColors(row.theme_colors);
+		this.profileFrame = readProfileFrame(row.profile_frame);
 		this.lastVoiceActivitySharingChangeAt = row.last_voice_activity_sharing_change_at ?? null;
 		this.version = row.version;
 	}
@@ -235,6 +245,8 @@ export class User {
 			premium_onboarding_dismissed_at: this.premiumOnboardingDismissedAt,
 			mention_flags: this.mentionFlags,
 			name_style: serializeNameStyle(this.nameStyle),
+			theme_colors: this.themeColors ? [...this.themeColors] : null,
+			profile_frame: this.profileFrame,
 			last_voice_activity_sharing_change_at: this.lastVoiceActivitySharingChangeAt,
 			version: this.version,
 		};

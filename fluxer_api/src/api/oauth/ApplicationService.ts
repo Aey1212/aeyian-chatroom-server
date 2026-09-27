@@ -206,6 +206,8 @@ export class ApplicationService {
 			premium_onboarding_dismissed_at: null,
 			mention_flags: null,
 			name_style: null,
+			theme_colors: null,
+			profile_frame: null,
 			last_voice_activity_sharing_change_at: null,
 			version: 1,
 		};
