@@ -4,6 +4,7 @@ import {getUserAccentColor} from '@app/features/theme/utils/AccentColorUtils';
 import {ProfileBody} from '@app/features/user/components/modals/user_profile_modal/ProfileBody';
 import {ProfileMediaHeader} from '@app/features/user/components/modals/user_profile_modal/ProfileMediaHeader';
 import type {ProfileModalContentProps} from '@app/features/user/components/modals/user_profile_modal/UserProfileModalShared';
+import {resolveProfileDecoration} from '@app/features/user/profile_style/ProfileDecoration';
 import * as ProfileDisplayUtils from '@app/features/user/utils/ProfileDisplayUtils';
 import {resolveProfileGuildMembership, toProfileDisplayContext} from '@app/features/user/utils/ProfileGuildMembership';
 import {
@@ -26,7 +27,11 @@ export const ProfileModalContent: React.FC<ProfileModalContentProps> = observer(
 		showProfileDataWarning,
 	}) => {
 		const effectiveProfile = profile?.getEffectiveProfile() ?? null;
-		const bannerColor = getUserAccentColor(user, effectiveProfile?.accent_color);
+		const bannerColor = resolveProfileDecoration({
+			themeColors: effectiveProfile?.theme_colors,
+			frame: effectiveProfile?.profile_frame,
+			accentColor: getUserAccentColor(user, effectiveProfile?.accent_color),
+		}).bannerColor;
 		const membership = resolveProfileGuildMembership(profile);
 		const profileContext = useMemo<ProfileDisplayUtils.ProfileDisplayContext>(
 			() =>

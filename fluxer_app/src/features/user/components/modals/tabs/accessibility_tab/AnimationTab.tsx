@@ -92,16 +92,17 @@ const STICKERS_ALWAYS_ANIMATE_DESPITE_REDUCED_MOTION_DESCRIPTOR = msg({
 	comment: 'Description shown for stickers when always-animate overrides reduced motion.',
 });
 const ALWAYS_ANIMATE_NAME_EFFECTS_DESCRIPTOR = msg({
-	message: 'Always animate name effects',
-	comment: 'Label for the switch that keeps glow, shimmer and holographic names moving all the time.',
+	message: 'Always animate name effects and profile frames',
+	comment:
+		'Label for the switch that keeps glow, shimmer and holographic names and animated profile frames moving all the time.',
 });
 const NAME_EFFECTS_WARNING_DESCRIPTOR = msg({
 	message:
-		'Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery.',
+		'Name effects and profile frames normally move only while you hover them. Keeping them moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery.',
 	comment: 'Warning under the switch that keeps animated display names moving all the time.',
 });
 const NAME_EFFECTS_REDUCED_MOTION_DESCRIPTOR = msg({
-	message: 'Reduced motion is on, so name effects stay still.',
+	message: 'Reduced motion is on, so name effects and profile frames stay still.',
 	comment: 'Description for the animated names switch while reduced motion is active.',
 });
 const STICKERS_REDUCED_MOTION_HINT_DESCRIPTOR = msg({

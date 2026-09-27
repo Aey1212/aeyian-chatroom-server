@@ -43,6 +43,7 @@ import {ProfileCardFooter} from '@app/features/user/components/profile/profile_c
 import {ProfileCardLayout} from '@app/features/user/components/profile/profile_card/ProfileCardLayout';
 import {ProfileCardUserInfo} from '@app/features/user/components/profile/profile_card/ProfileCardUserInfo';
 import {useAutoplayExpandedProfileAnimations} from '@app/features/user/hooks/useAutoplayExpandedProfileAnimations';
+import {resolveProfileDecoration} from '@app/features/user/profile_style/ProfileDecoration';
 import {normalizeCustomStatus} from '@app/features/user/state/CustomStatus';
 import StatusExpiry from '@app/features/user/state/StatusExpiry';
 import UserProfile from '@app/features/user/state/UserProfile';
@@ -511,8 +512,13 @@ export const UserAreaPopout = observer(() => {
 		return ProfileDisplayUtils.getProfileBannerUrls(profileContext, undefined, MEDIA_PROXY_PROFILE_BANNER_SIZE_POPOUT);
 	}, [profileContext]);
 	const accentColor = getUserAccentColor(currentUser, profileData?.accent_color);
+	const decoration = resolveProfileDecoration({
+		themeColors: profileData?.theme_colors ?? currentUser?.themeColors,
+		frame: profileData?.profile_frame ?? currentUser?.profileFrame,
+		accentColor,
+	});
 	const borderColor = accentColor;
-	const bannerColor = accentColor;
+	const bannerColor = decoration.bannerColor;
 	const displayName = currentUser ? NicknameUtils.getNickname(currentUser, null) : '';
 	const customStatus = currentUserId ? Presence.getCustomStatus(currentUserId) : null;
 	const hasCustomStatus = Boolean(normalizeCustomStatus(customStatus));
@@ -523,7 +529,11 @@ export const UserAreaPopout = observer(() => {
 	return (
 		<FocusRingScope containerRef={popoutContainerRef} data-flx="app.floating.user-area-popout.focus-ring-scope">
 			<div ref={popoutContainerRef} className={styles.container} data-flx="app.floating.user-area-popout.container">
-				<ProfileCardLayout borderColor={borderColor} data-flx="app.floating.user-area-popout.profile-card-layout">
+				<ProfileCardLayout
+					borderColor={borderColor}
+					decoration={decoration}
+					data-flx="app.floating.user-area-popout.profile-card-layout"
+				>
 					<ProfileCardBanner
 						bannerUrl={bannerUrl}
 						hoverBannerUrl={hoverBannerUrl}

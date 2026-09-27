@@ -1,0 +1,242 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+@property --pc-angle {
+	syntax: '<angle>';
+	inherits: false;
+	initial-value: 0deg;
+}
+
+/*
+ * A decorated card paints three background layers: a scrim that keeps the card's text readable, the
+ * card fill (the theme gradient or the plain surface), and the border layer that shows through the
+ * transparent border (the theme gradient, the accent colour, or a frame).
+ */
+.decorated {
+	--pc-accent-fallback: var(--pc-accent, var(--brand-primary));
+	border-color: transparent !important;
+	background-color: var(--background-primary);
+	background-image:
+		linear-gradient(var(--pc-scrim, transparent), var(--pc-scrim, transparent)),
+		var(--pc-fill, linear-gradient(var(--background-primary), var(--background-primary))),
+		var(--pc-border, linear-gradient(var(--pc-accent-fallback), var(--pc-accent-fallback)));
+	background-clip: padding-box, padding-box, border-box;
+	background-origin: padding-box, padding-box, border-box;
+	background-size: auto, auto, var(--pc-border-size, auto);
+	background-position:
+		0 0,
+		0 0,
+		var(--pc-border-position, 0% 50%);
+	background-repeat: no-repeat, no-repeat, var(--pc-border-repeat, no-repeat);
+}
+
+.themed {
+	--pc-scrim: color-mix(in srgb, var(--background-primary) 50%, transparent);
+	--pc-fill: linear-gradient(180deg, var(--profile-theme-top), var(--profile-theme-bottom));
+	--pc-border: linear-gradient(180deg, var(--profile-theme-top), var(--profile-theme-bottom));
+	/* The avatar ring and other cut-outs use the colour of the top of the card. */
+	--profile-surface: color-mix(in srgb, var(--background-primary) 60%, var(--profile-theme-top));
+	/* Inner panels (the full profile's content box) let the theme show through. */
+	--profile-panel: color-mix(in srgb, var(--background-primary) 72%, transparent);
+}
+
+.framed {
+	--profile-card-border-width: 0.25rem;
+}
+
+.aurora {
+	--pc-border: linear-gradient(135deg, #7c3aed, #06b6d4, #22c55e, #eab308, #ec4899, #7c3aed);
+	--pc-border-size: 300% 300%;
+	box-shadow:
+		0 0 1rem -0.25rem rgb(124 58 237 / 0.6),
+		0 0 1.5rem -0.5rem rgb(6 182 212 / 0.5);
+}
+
+.gold {
+	--pc-border: linear-gradient(
+		120deg,
+		#6b4e16 0%,
+		#d4a93a 18%,
+		#fff1b8 30%,
+		#c9971f 42%,
+		#7a5a12 58%,
+		#f5d57a 76%,
+		#8a6a1a 100%
+	);
+	--pc-border-size: 250% 250%;
+	box-shadow: 0 0 0.9rem -0.2rem rgb(234 179 8 / 0.55);
+}
+
+.neon {
+	--pc-border: linear-gradient(90deg, #22d3ee, #e879f9);
+	box-shadow:
+		0 0 0.35rem rgb(34 211 238 / 0.9),
+		0 0 1.1rem rgb(232 121 249 / 0.6),
+		inset 0 0 0.5rem rgb(34 211 238 / 0.3);
+}
+
+.holographic {
+	--pc-border: conic-gradient(from var(--pc-angle), #ffb3ba, #ffdfba, #ffffba, #baffc9, #bae1ff, #e0bbff, #ffb3ba);
+	box-shadow: 0 0 1rem -0.3rem rgb(224 187 255 / 0.8);
+}
+
+.ember {
+	--pc-border: linear-gradient(0deg, #7f1d1d, #dc2626 25%, #f97316 50%, #fde047 75%, #dc2626);
+	--pc-border-size: 100% 300%;
+	--pc-border-position: 50% 100%;
+	box-shadow: 0 0 1.1rem -0.2rem rgb(249 115 22 / 0.7);
+}
+
+.frost {
+	--pc-border: linear-gradient(160deg, #f0f9ff, #7dd3fc 25%, #e0f2fe 45%, #38bdf8 65%, #f8fafc 85%, #7dd3fc);
+	--pc-border-size: 250% 250%;
+	box-shadow: 0 0 1rem -0.25rem rgb(125 211 252 / 0.8);
+}
+
+.sakura {
+	--pc-border: linear-gradient(135deg, #fce7f3, #f472b6 25%, #fbcfe8 50%, #db2777 75%, #fce7f3);
+	--pc-border-size: 250% 250%;
+	box-shadow: 0 0 1rem -0.25rem rgb(244 114 182 / 0.7);
+}
+
+.midnight {
+	--pc-border: linear-gradient(135deg, #1e1b4b, #6366f1 25%, #1e1b4b 50%, #a78bfa 75%, #1e1b4b);
+	--pc-border-size: 250% 250%;
+	box-shadow:
+		0 0 1.1rem -0.2rem rgb(67 56 202 / 0.7),
+		0 0 0.2rem rgb(255 255 255 / 0.25);
+}
+
+.circuit {
+	--pc-border: repeating-linear-gradient(
+		90deg,
+		#10b981 0 0.625rem,
+		#064e3b 0.625rem 0.875rem,
+		#34d399 0.875rem 1.125rem,
+		#064e3b 1.125rem 1.5rem
+	);
+	--pc-border-size: 200% 100%;
+	box-shadow: 0 0 0.8rem -0.2rem rgb(16 185 129 / 0.7);
+}
+
+.pixel {
+	--pc-border: linear-gradient(#a3e635, #a3e635);
+	border-radius: 0 !important;
+	box-shadow:
+		0 0 0 0.125rem #1a2e05,
+		0.375rem 0.375rem 0 0.125rem #1a2e05;
+}
+
+@keyframes pcShift {
+	from {
+		background-position:
+			0 0,
+			0 0,
+			0% 50%;
+	}
+	to {
+		background-position:
+			0 0,
+			0 0,
+			100% 50%;
+	}
+}
+
+@keyframes pcRise {
+	from {
+		background-position:
+			0 0,
+			0 0,
+			50% 100%;
+	}
+	to {
+		background-position:
+			0 0,
+			0 0,
+			50% 0%;
+	}
+}
+
+@keyframes pcSpin {
+	to {
+		--pc-angle: 360deg;
+	}
+}
+
+@keyframes pcNeon {
+	0%,
+	100% {
+		box-shadow:
+			0 0 0.35rem rgb(34 211 238 / 0.9),
+			0 0 1.1rem rgb(232 121 249 / 0.6),
+			inset 0 0 0.5rem rgb(34 211 238 / 0.3);
+	}
+	50% {
+		box-shadow:
+			0 0 0.6rem rgb(34 211 238 / 1),
+			0 0 1.8rem rgb(232 121 249 / 0.85),
+			inset 0 0 0.8rem rgb(34 211 238 / 0.45);
+	}
+}
+
+@keyframes pcPixel {
+	0%,
+	100% {
+		box-shadow:
+			0 0 0 0.125rem #1a2e05,
+			0.375rem 0.375rem 0 0.125rem #1a2e05;
+	}
+	50% {
+		box-shadow:
+			0 0 0 0.125rem #1a2e05,
+			0.5rem 0.5rem 0 0.125rem #365314;
+	}
+}
+
+/* Frames move while the card is hovered, or always when the device setting says so. */
+.aurora:hover,
+:global(html.cosmetics-animate-always) .aurora,
+.gold:hover,
+:global(html.cosmetics-animate-always) .gold,
+.frost:hover,
+:global(html.cosmetics-animate-always) .frost,
+.sakura:hover,
+:global(html.cosmetics-animate-always) .sakura,
+.midnight:hover,
+:global(html.cosmetics-animate-always) .midnight {
+	animation: pcShift 6s ease-in-out infinite alternate;
+}
+
+.circuit:hover,
+:global(html.cosmetics-animate-always) .circuit {
+	animation: pcShift 4s linear infinite;
+}
+
+.ember:hover,
+:global(html.cosmetics-animate-always) .ember {
+	animation: pcRise 2.5s linear infinite;
+}
+
+.holographic:hover,
+:global(html.cosmetics-animate-always) .holographic {
+	animation: pcSpin 5s linear infinite;
+}
+
+.neon:hover,
+:global(html.cosmetics-animate-always) .neon {
+	animation: pcNeon 1.6s ease-in-out infinite;
+}
+
+.pixel:hover,
+:global(html.cosmetics-animate-always) .pixel {
+	animation: pcPixel 1s steps(2) infinite;
+}
+
+:global(html.reduced-motion) .decorated {
+	animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.decorated {
+		animation: none !important;
+	}
+}

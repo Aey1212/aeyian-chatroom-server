@@ -82,19 +82,19 @@
 /* Effects play while the name, or the row that carries it, is hovered; the device setting keeps them playing. */
 .holographic:hover,
 :global([data-name-animate-scope]:hover) .holographic,
-:global(html.name-animations-always) .holographic {
+:global(html.cosmetics-animate-always) .holographic {
 	animation: nameHolographic 3s linear infinite;
 }
 
 .shimmer:hover,
 :global([data-name-animate-scope]:hover) .shimmer,
-:global(html.name-animations-always) .shimmer {
+:global(html.cosmetics-animate-always) .shimmer {
 	animation: nameShimmer 2.2s ease-in-out infinite;
 }
 
 .glow:hover,
 :global([data-name-animate-scope]:hover) .glow,
-:global(html.name-animations-always) .glow {
+:global(html.cosmetics-animate-always) .glow {
 	animation: nameGlow 2s ease-in-out infinite;
 }
 

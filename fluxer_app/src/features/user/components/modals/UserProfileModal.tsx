@@ -52,6 +52,7 @@ import {UserProfileLoadingSkeleton} from '@app/features/user/components/profile/
 import {useUserProfileSurfaceState} from '@app/features/user/hooks/useUserProfileSurfaceState';
 import type {Profile} from '@app/features/user/models/Profile';
 import {User} from '@app/features/user/models/User';
+import {resolveProfileDecoration} from '@app/features/user/profile_style/ProfileDecoration';
 import UserNote from '@app/features/user/state/UserNote';
 import Users from '@app/features/user/state/Users';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
@@ -83,6 +84,7 @@ import {
 	UserPlusIcon,
 	VideoCameraIcon,
 } from '@phosphor-icons/react';
+import {clsx} from 'clsx';
 import {observer} from 'mobx-react-lite';
 import type React from 'react';
 import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
@@ -796,6 +798,11 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 				? previewOverrides.previewAccentColor
 				: borderProfile?.accent_color;
 		const borderColor = getUserAccentColor(displayUser, borderAccentColor);
+		const decoration = resolveProfileDecoration({
+			themeColors: borderProfile?.theme_colors,
+			frame: borderProfile?.profile_frame,
+			accentColor: borderColor,
+		});
 		return (
 			<Modal.Root
 				size="medium"
@@ -808,8 +815,8 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 					data-flx="user.user-profile-modal.modal-screen-reader-label"
 				/>
 				<div
-					className={userProfileModalStyles.modalContainer}
-					style={{borderColor}}
+					className={clsx(userProfileModalStyles.modalContainer, decoration.className)}
+					style={decoration.style}
 					data-flx="user.user-profile-modal.div"
 				>
 					{showProfileSkeleton ? (

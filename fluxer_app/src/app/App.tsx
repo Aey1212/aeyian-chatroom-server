@@ -153,7 +153,7 @@ export const AppWrapper = observer(({children}: AppWrapperProps) => {
 	useKeybindManager(i18n);
 	useDesktopElectronBridges();
 	useDocumentClassToggle('reduced-motion', reducedMotion);
-	useDocumentClassToggle('name-animations-always', NameStylePrefs.alwaysAnimate && !reducedMotion);
+	useDocumentClassToggle('cosmetics-animate-always', NameStylePrefs.alwaysAnimate && !reducedMotion);
 	useDocumentClassToggle('mobile-layout', MobileLayout.platformMobileDetected || MobileLayout.enabled);
 	useDocumentClassToggle(UNFOCUSED_FULLY_INTERACTIVE_CLASS, stayInteractiveWhenUnfocused);
 	useDesktopAllowTransparency(isNative);

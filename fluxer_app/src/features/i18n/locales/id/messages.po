@@ -2397,6 +2397,11 @@ msgstr "ekstensi file, mis. png"
 msgid "a forwarded message"
 msgstr "pesan yang diteruskan"
 
+#. Profile settings section description for the profile frame.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:37
+msgid "A frame around your profile card. It replaces the accent color border."
+msgstr "A frame around your profile card. It replaces the accent color border."
+
 #. Description text in the bot profile section.
 #: src/features/user/components/modals/tabs/applications_tab/application_detail/BotProfileSection.tsx:62
 msgid "A helpful bot that does amazing things!"
@@ -2714,7 +2719,7 @@ msgstr "Tindakan"
 msgid "Active"
 msgstr "Aktif"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:358
+#: src/features/app/components/floating/UserAreaPopout.tsx:359
 #: src/features/auth/components/accounts/AccountRow.tsx:140
 msgid "Active account"
 msgstr "Akun aktif"
@@ -3792,10 +3797,10 @@ msgstr "Selalu"
 msgid "Always animate"
 msgstr "Selalu animasikan"
 
-#. Label for the switch that keeps glow, shimmer and holographic names moving all the time.
+#. Label for the switch that keeps glow, shimmer and holographic names and animated profile frames moving all the time.
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:94
-msgid "Always animate name effects"
-msgstr "Always animate name effects"
+msgid "Always animate name effects and profile frames"
+msgstr "Always animate name effects and profile frames"
 
 #. Description shown for stickers when always-animate overrides reduced motion.
 #: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:90
@@ -4750,6 +4755,11 @@ msgstr "Unggahan audio"
 #: src/features/search/components/search/HasFilterSheet.tsx:41
 msgid "Audio upload"
 msgstr "Unggahan audio"
+
+#. Profile frame name: shifting northern-lights colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:45
+msgid "Aurora"
+msgstr "Aurora"
 
 #. Country name. EU member state in the illegal-content report country dropdown.
 #: src/features/moderation/components/report/OptionDescriptors.ts:111
@@ -5825,6 +5835,11 @@ msgstr "Bot"
 #: src/features/user/components/modals/tabs/component_gallery_tab/OverlaysTab.tsx:99
 msgid "Bottom"
 msgstr "Bawah"
+
+#. Label for the colour at the bottom of the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:25
+msgid "Bottom color"
+msgstr "Bottom color"
 
 #. Accessible label for the bottom-sheet container element.
 #: src/features/ui/sheet/Sheet.tsx:27
@@ -7555,6 +7570,11 @@ msgstr "Pilih bahasamu"
 msgid "Choose your profile accent color"
 msgstr "Pilih warna aksen profilmu"
 
+#. Profile frame name: green circuit-board lines.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:53
+msgid "Circuit"
+msgstr "Circuit"
+
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/VoiceVideoIndex.ts:117
 msgid "Cisco"
@@ -7660,7 +7680,7 @@ msgstr "Klaim akunmu untuk menukarkan hadiah ini."
 #: src/features/channel/components/direct_message/AddFriendForm.tsx:58
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:37
 #: src/features/ui/action_menu/items/RelationshipMenuItems.tsx:40
-#: src/features/user/components/modals/UserProfileModal.tsx:122
+#: src/features/user/components/modals/UserProfileModal.tsx:124
 msgid "Claim your account to send friend requests."
 msgstr "Klaim akunmu untuk mengirim permintaan pertemanan."
 
@@ -8497,7 +8517,7 @@ msgstr "Nama komunitas"
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:128
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:129
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:113
 msgid "Community nickname"
 msgstr "Nama panggilan komunitas"
@@ -8545,7 +8565,7 @@ msgid "Community profile"
 msgstr "Profil komunitas"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:75
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:76
 msgid "Community profile updated"
 msgstr "Profil komunitas diperbarui"
 
@@ -9252,7 +9272,7 @@ msgid "Copy banner URL"
 msgstr "Salin URL banner"
 
 #. Tray menu item. Copies build / version diagnostics to the clipboard for bug reports.
-#: src/features/app/components/floating/UserAreaPopout.tsx:709
+#: src/features/app/components/floating/UserAreaPopout.tsx:719
 #: src/features/platform/utils/DesktopLocaleBridge.ts:228
 msgid "Copy build info"
 msgstr "Salin info build"
@@ -9494,7 +9514,7 @@ msgid "Copy the setup key into your authenticator app."
 msgstr "Salin kunci penyiapan ke aplikasi autentikatormu."
 
 #. Developer-mode action that copies a user snowflake/ID to the clipboard.
-#: src/features/app/components/floating/UserAreaPopout.tsx:694
+#: src/features/app/components/floating/UserAreaPopout.tsx:704
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:172
 msgid "Copy user ID"
 msgstr "Salin ID pengguna"
@@ -9519,7 +9539,7 @@ msgstr "Salin video"
 msgid "Copy video link"
 msgstr "Salin tautan video"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:722
+#: src/features/app/components/floating/UserAreaPopout.tsx:732
 msgid "Copy voice diagnostics"
 msgstr "Salin diagnostik suara"
 
@@ -12194,7 +12214,7 @@ msgstr "Mode tampilan"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the my profile tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:22
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:140
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:141
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:61
 msgid "Display name"
 msgstr "Nama tampilan"
@@ -12333,7 +12353,7 @@ msgstr "Apakah kamu juga ingin memblokir pesan langsung dari anggota komunitas y
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:148
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:149
 msgid "Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985."
 msgstr "Dok, saya dari masa depan. Saya datang ke sini dengan mesin waktu yang kamu ciptakan. Sekarang, saya butuh bantuanmu untuk kembali ke tahun 1985."
 
@@ -12891,11 +12911,11 @@ msgstr "Edit atau hapus emoji dan stiker yang dibuat oleh anggota lain."
 msgid "Edit overwrites for roles and members in this channel."
 msgstr "Edit penimpaan untuk peran dan anggota di saluran ini."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:745
+#: src/features/app/components/floating/UserAreaPopout.tsx:755
 #: src/features/app/components/pages/YouPage.tsx:157
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
-#: src/features/user/components/modals/UserProfileModal.tsx:586
-#: src/features/user/components/popouts/UserProfilePopout.tsx:432
+#: src/features/user/components/modals/UserProfileModal.tsx:588
+#: src/features/user/components/popouts/UserProfilePopout.tsx:439
 msgid "Edit profile"
 msgstr "Edit profil"
 
@@ -12953,7 +12973,7 @@ msgid "Edit translation provider"
 msgstr "Edit penyedia terjemahan"
 
 #. Button or menu action label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:95
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:96
 msgid "Edit your profile appearance and see a live preview"
 msgstr "Edit tampilan profilmu dan lihat pratinjau langsung"
 
@@ -13150,6 +13170,11 @@ msgstr "Sematan disembunyikan"
 #: src/features/channel/components/MessageActionUtils.tsx:80
 msgid "Embeds unsuppressed"
 msgstr "Sematan ditampilkan lagi"
+
+#. Profile frame name: glowing fire colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:49
+msgid "Ember"
+msgstr "Ember"
 
 #. Audit log target-type filter label. Filters entries that target a custom emoji.
 #. Collapsible group heading in the Theme Studio tokens list, for emoji tokens.
@@ -15590,6 +15615,11 @@ msgstr "Nama pengirim"
 msgid "From user"
 msgstr "Dari pengguna"
 
+#. Profile frame name: icy blue and white.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:50
+msgid "Frost"
+msgstr "Frost"
+
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:121
 msgid "Full"
@@ -16172,6 +16202,11 @@ msgstr "Buka komunitas keenam"
 #: src/features/input/state/input_keybind/shared.ts:93
 msgid "Go to third community"
 msgstr "Buka komunitas ketiga"
+
+#. Profile frame name: shiny gold.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:46
+msgid "Gold"
+msgstr "Gold"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:287
@@ -16908,8 +16943,10 @@ msgstr "Tahan Shift dan tekan X untuk memilih aplikasi. Tekan {selectAllShortcut
 msgid "Hold to record. Drag up to lock, or release to send."
 msgstr "Tekan dan tahan untuk merekam. Seret ke atas untuk mengunci, atau lepas untuk mengirim."
 
+#. Profile frame name: a rotating pastel rainbow.
 #. Role color style: a shiny three-color gradient that moves on hover.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:27
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:48
 msgid "Holographic"
 msgstr "Holographic"
 
@@ -17494,7 +17531,7 @@ msgstr "Di"
 msgid "In \"Operating system\" mode, dictionaries listed above are advisory. {PRODUCT_NAME} will pass these language tags to your OS spellchecker when supported. Tags it doesn't recognize are ignored."
 msgstr "Dalam mode \"Sistem operasi\", kamus yang tercantum di atas bersifat saran. {PRODUCT_NAME} akan meneruskan tag bahasa ini ke pemeriksa ejaan OS kamu jika didukung. Tag yang tidak dikenali akan diabaikan."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:723
+#: src/features/app/components/floating/UserAreaPopout.tsx:733
 msgid "In a call"
 msgstr "Dalam panggilan"
 
@@ -19584,7 +19621,7 @@ msgstr "Malware, pencurian kredensial, atau file berbahaya."
 msgid "Manage"
 msgstr "Kelola"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:398
+#: src/features/app/components/floating/UserAreaPopout.tsx:399
 #: src/features/auth/components/accounts/AccountSwitcherModal.tsx:78
 msgid "Manage accounts"
 msgstr "Kelola akun"
@@ -20404,11 +20441,11 @@ msgstr "Pesan"
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
-#: src/features/user/components/modals/UserProfileModal.tsx:561
-#: src/features/user/components/modals/UserProfileModal.tsx:769
-#: src/features/user/components/popouts/UserProfilePopout.tsx:418
-#: src/features/user/components/popouts/UserProfilePopout.tsx:448
-#: src/features/user/components/profile/ProfilePreview.tsx:325
+#: src/features/user/components/modals/UserProfileModal.tsx:563
+#: src/features/user/components/modals/UserProfileModal.tsx:771
+#: src/features/user/components/popouts/UserProfilePopout.tsx:425
+#: src/features/user/components/popouts/UserProfilePopout.tsx:455
+#: src/features/user/components/profile/ProfilePreview.tsx:341
 msgctxt "message-action"
 msgid "Message"
 msgstr "Kirim pesan"
@@ -20780,6 +20817,11 @@ msgstr "Gulir tombol tengah mouse"
 msgid "Middle-click scrolling"
 msgstr "Gulir klik tengah"
 
+#. Profile frame name: deep night blue and violet.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:52
+msgid "Midnight"
+msgstr "Midnight"
+
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/LanguageIndex.ts:54
 msgid "Military time"
@@ -21047,7 +21089,7 @@ msgstr "Lainnya"
 #. Short label in the index. Keep it concise.
 #. Short label in the user profile modal. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:47
-#: src/features/user/components/modals/UserProfileModal.tsx:114
+#: src/features/user/components/modals/UserProfileModal.tsx:116
 msgid "More actions"
 msgstr "Tindakan lainnya"
 
@@ -21641,9 +21683,9 @@ msgid "Name effects"
 msgstr "Name effects"
 
 #. Warning under the switch that keeps animated display names moving all the time.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:98
-msgid "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
-msgstr "Name effects normally move only while you hover them. Keeping every name moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:99
+msgid "Name effects and profile frames normally move only while you hover them. Keeping them moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
+msgstr "Name effects and profile frames normally move only while you hover them. Keeping them moving can be distracting, and flashing colors may bother people with light sensitivity. It also uses more battery."
 
 #. Form validation error shown when the name field is empty.
 #. Form validation error shown when the name field is empty.
@@ -21771,6 +21813,11 @@ msgstr "Neko"
 #: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:63
 msgid "Neko cat that chases your cursor"
 msgstr "Kucing Neko yang mengejar kursormu"
+
+#. Profile frame name: glowing neon tube.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:47
+msgid "Neon"
+msgstr "Neon"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:45
@@ -22675,6 +22722,7 @@ msgstr "Tanpa konversi"
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #. Library picker entry meaning no sound is selected for this scope.
 #. Member verification level option in the community moderation settings tab. Short standalone label for the lowest level (no verification).
+#. Profile frame choice that shows no frame.
 #. Short label in the visual tab. Keep it concise.
 #. Summary row value on the confirm step when no items in the category were selected.
 #: src/features/channel/components/channel_header_components/developer_tools/DeveloperToolsShared.ts:41
@@ -22682,6 +22730,7 @@ msgstr "Tanpa konversi"
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogSharedMessages.ts:52
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:37
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:146
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:41
 #: src/features/user/components/modals/tabs/privacy_safety_tab/data_request_modal/DataRequestModal.tsx:220
 #: src/features/voice/components/AudioSourcePickerLinux.tsx:261
 msgid "None"
@@ -24666,7 +24715,9 @@ msgid "PiP"
 msgstr "PiP"
 
 #. Font picker filter: pixel and retro fonts.
+#. Profile frame name: a chunky retro pixel outline.
 #: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:100
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:54
 msgid "Pixel"
 msgstr "Pixel"
 
@@ -25287,18 +25338,18 @@ msgstr "Warna profil"
 
 #. Settings section label for editing profile appearance and identity.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:107
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:108
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:6
 msgid "Profile customization"
 msgstr "Kustomisasi profil"
 
 #. Label in the my profile tab. Preserve {selectedGuildName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:103
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:104
 msgid "Profile customization for {selectedGuildName}"
 msgstr "Kustomisasi profil untuk {selectedGuildName}"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:99
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:100
 msgid "Profile customization form"
 msgstr "Formulir kustomisasi profil"
 
@@ -25306,6 +25357,16 @@ msgstr "Formulir kustomisasi profil"
 #: src/features/channel/components/channel_header_components/developer_tools/DeveloperOptionLabels.ts:124
 msgid "Profile data warning"
 msgstr "Peringatan data profil"
+
+#. Profile settings section title for the decorative frame around the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:33
+msgid "Profile frame"
+msgstr "Profile frame"
+
+#. Accessible label for the list of profile frames.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:42
+msgid "Profile frames"
+msgstr "Profile frames"
 
 #. Profile settings row title for choosing whether profile viewers can see the user local time.
 #: src/features/user/components/modals/tabs/my_profile_tab/TimezoneProfileSettings.tsx:23
@@ -25332,12 +25393,12 @@ msgstr "Foto profil"
 msgid "Profile pictures"
 msgstr "Foto profil"
 
-#: src/features/user/components/profile/profile_card/ProfileCardLayout.tsx:26
+#: src/features/user/components/profile/profile_card/ProfileCardLayout.tsx:32
 msgid "Profile preview"
 msgstr "Pratinjau profil"
 
 #. Label in the user settings profile preview.
-#: src/features/user/components/profile/ProfilePreview.tsx:41
+#: src/features/user/components/profile/ProfilePreview.tsx:42
 msgid "Profile preview (press Enter to open full preview)"
 msgstr "Pratinjau profil (tekan Enter untuk membuka pratinjau lengkap)"
 
@@ -25355,6 +25416,11 @@ msgstr "Privasi profil"
 msgid "Profile skeletons"
 msgstr "Kerangka profil"
 
+#. Profile settings section title for the two colours of the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:13
+msgid "Profile theme"
+msgstr "Profile theme"
+
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the profile type selector. Keep it concise.
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileTypeSelector.tsx:18
@@ -25363,7 +25429,7 @@ msgid "Profile type"
 msgstr "Jenis profil"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:79
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:80
 msgid "Profile updated"
 msgstr "Profil diperbarui"
 
@@ -25400,7 +25466,7 @@ msgstr "Tanya saat ada perangkat audio baru"
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:144
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:145
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:177
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:160
 msgid "Pronouns"
@@ -26041,9 +26107,9 @@ msgid "Reduced motion is on, so content animations are paused by default. You ca
 msgstr "Gerakan dikurangi sedang aktif, jadi animasi konten dijeda secara default. Kamu masih bisa mengaktifkan kembali animasi mana pun agar tetap diputar."
 
 #. Description for the animated names switch while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:103
-msgid "Reduced motion is on, so name effects stay still."
-msgstr "Reduced motion is on, so name effects stay still."
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:104
+msgid "Reduced motion is on, so name effects and profile frames stay still."
+msgstr "Reduced motion is on, so name effects and profile frames stay still."
 
 #. Short label in the theme studio assets section. Keep it concise.
 #: src/features/theme_studio/sections/AssetsSection.tsx:32
@@ -26425,6 +26491,11 @@ msgstr "Hapus satu dari {targetName} untuk memberi ruang, lalu coba lagi."
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:151
 msgid "Remove override"
 msgstr "Hapus penggantian"
+
+#. Button that removes the two-colour theme from the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:29
+msgid "Remove profile theme"
+msgstr "Remove profile theme"
 
 #. Button or menu action label in the channel and chat message reactions sheet. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the message reactions modal. Keep it concise. Keep the tone plain and specific.
@@ -27899,6 +27970,11 @@ msgstr "Rusia"
 msgid "Safety"
 msgstr "Keamanan"
 
+#. Profile frame name: cherry-blossom pink.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:51
+msgid "Sakura"
+msgstr "Sakura"
+
 #. Profile timezone difference text. The target user's timezone currently matches the viewer's timezone.
 #: src/features/user/components/popouts/UserProfileShared.tsx:61
 msgid "Same time as you"
@@ -29030,7 +29106,7 @@ msgstr "Kirim pesan file secara berurutan"
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:146
 #: src/features/guild/components/modals/guild_tabs/GuildMemberActionsSheet.tsx:94
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:110
-#: src/features/user/components/modals/UserProfileModal.tsx:126
+#: src/features/user/components/modals/UserProfileModal.tsx:128
 msgid "Send friend request"
 msgstr "Kirim permintaan pertemanan"
 
@@ -29273,7 +29349,7 @@ msgstr "Sesi"
 msgid "Set a custom role icon"
 msgstr "Mengatur ikon peran kustom"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:603
+#: src/features/app/components/floating/UserAreaPopout.tsx:613
 #: src/features/app/components/shared/custom_status_display/CustomStatusDisplay.tsx:253
 msgid "Set a custom status"
 msgstr "Atur status kustom"
@@ -31518,7 +31594,7 @@ msgstr "Stiker"
 msgid "Sticker animation preference"
 msgstr "Preferensi animasi stiker"
 
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:201
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:202
 msgid "Sticker animations"
 msgstr "Animasi stiker"
 
@@ -32046,7 +32122,7 @@ msgstr "Swedia"
 msgid "Switch account"
 msgstr "Ganti akun"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:679
+#: src/features/app/components/floating/UserAreaPopout.tsx:689
 msgid "Switch accounts"
 msgstr "Ganti akun"
 
@@ -33649,7 +33725,7 @@ msgid "This message no longer exists."
 msgstr "Pesan ini sudah tidak ada."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:132
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:133
 msgid "This nickname will only be visible in this community"
 msgstr "Nama panggilan ini hanya akan terlihat di komunitas ini"
 
@@ -34278,6 +34354,11 @@ msgstr "Tooltip"
 msgid "Top"
 msgstr "Atas"
 
+#. Label for the colour at the top of the profile card.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:21
+msgid "Top color"
+msgstr "Top color"
+
 #. Tooltip text in the overlays tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/OverlaysTab.tsx:23
 msgid "Top tooltip"
@@ -34766,6 +34847,11 @@ msgstr "Dua puluh empat jam"
 msgid "Two clicks"
 msgstr "Dua kali klik"
 
+#. Profile settings section description for the profile theme colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:17
+msgid "Two colors for your profile card, from top to bottom."
+msgstr "Two colors for your profile card, from top to bottom."
+
 #. Column count label in the channel permissions tab layout toggle.
 #. Status text or tooltip indicating the role editor permission list is currently in two-column layout.
 #: src/features/channel/components/modals/channel_tabs/channel_permissions_tab/LayoutToggleButtons.tsx:33
@@ -34990,7 +35076,7 @@ msgstr "Buka blokir mereka terlebih dahulu untuk mengirim permintaan pertemanan.
 #. Title of the confirmation modal for unblocking a previously blocked user. Short command title.
 #: src/features/relationship/utils/RelationshipActionUtils.tsx:95
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:105
-#: src/features/user/components/modals/UserProfileModal.tsx:118
+#: src/features/user/components/modals/UserProfileModal.tsx:120
 msgid "Unblock user"
 msgstr "Buka blokir pengguna"
 
@@ -36417,12 +36503,12 @@ msgstr "Pengguna tidak ditemukan"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the user profile modal. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:46
-#: src/features/user/components/modals/UserProfileModal.tsx:90
+#: src/features/user/components/modals/UserProfileModal.tsx:92
 msgid "User profile"
 msgstr "Profil pengguna"
 
 #. Short label in the user profile modal. Keep it concise. Preserve {tag}; it is inserted by code.
-#: src/features/user/components/modals/UserProfileModal.tsx:94
+#: src/features/user/components/modals/UserProfileModal.tsx:96
 msgid "User profile: {tag}"
 msgstr "Profil pengguna: {tag}"
 
@@ -36747,22 +36833,22 @@ msgid "Verify your email before adding an authenticator app."
 msgstr "Verifikasi emailmu sebelum menambahkan aplikasi autentikator."
 
 #. Description text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:119
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:120
 msgid "Verify your email before changing your community nickname, avatar, banner, bio, pronouns, or accent color."
 msgstr "Verifikasi emailmu sebelum mengubah nama panggilan komunitas, avatar, banner, bio, kata ganti, atau warna aksenmu."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:123
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:124
 msgid "Verify your email before changing your username, display name, avatar, banner, bio, pronouns, time zone, or {premiumProductName} badge privacy."
 msgstr "Verifikasi emailmu sebelum mengubah nama pengguna, nama tampilan, avatar, banner, bio, kata ganti, zona waktu, atau privasi lencana {premiumProductName} milikmu."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:87
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:88
 msgid "Verify your email before editing this community profile. You can still preview it here."
 msgstr "Verifikasi emailmu sebelum mengedit profil komunitas ini. Kamu masih bisa melihat pratinjaunya di sini."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:91
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:92
 msgid "Verify your email before editing your profile. You can still preview it here."
 msgstr "Verifikasi emailmu sebelum mengedit profil. Kamu masih bisa melihat pratinjaunya di sini."
 
@@ -36789,12 +36875,12 @@ msgid "Verify your email to continue using {productName}."
 msgstr "Verifikasi emailmu untuk terus menggunakan {productName}."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:111
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:112
 msgid "Verify your email to edit this community profile"
 msgstr "Verifikasi emailmu untuk mengedit profil komunitas ini"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:115
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:116
 msgid "Verify your email to edit your profile"
 msgstr "Verifikasi emailmu untuk mengedit profil"
 
@@ -37077,7 +37163,7 @@ msgstr "Lihat kode"
 #. Button or menu action label in the user profile actions sheet. Keep it concise.
 #. Button or menu action label in the user profile modal. Keep it concise.
 #: src/features/user/components/modals/UserProfileActionsSheet.tsx:69
-#: src/features/user/components/modals/UserProfileModal.tsx:98
+#: src/features/user/components/modals/UserProfileModal.tsx:100
 msgid "View community profile"
 msgstr "Lihat profil komunitas"
 
@@ -37110,7 +37196,7 @@ msgstr "Lihat hadiah"
 #. Button or menu action label in the user profile actions sheet. Keep it concise.
 #. Button or menu action label in the user profile modal. Keep it concise.
 #: src/features/user/components/modals/UserProfileActionsSheet.tsx:73
-#: src/features/user/components/modals/UserProfileModal.tsx:102
+#: src/features/user/components/modals/UserProfileModal.tsx:104
 msgid "View global profile"
 msgstr "Lihat profil global"
 
@@ -38349,7 +38435,7 @@ msgid "With error"
 msgstr "Dengan error"
 
 #. Description shown for the sticker control while reduced motion is active.
-#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:107
+#: src/features/user/components/modals/tabs/accessibility_tab/AnimationTab.tsx:108
 msgid "With reduced motion on, stickers only animate on interaction. Choose \"Always animate\" to override."
 msgstr "Saat gerakan yang dikurangi aktif, stiker hanya beranimasi ketika ada interaksi. Pilih \"Selalu animasikan\" untuk menggantinya."
 
@@ -38600,12 +38686,12 @@ msgid "You can't attach files in this channel."
 msgstr "Kamu tidak dapat melampirkan file di saluran ini."
 
 #. Error message in the user profile modal.
-#: src/features/user/components/modals/UserProfileModal.tsx:106
+#: src/features/user/components/modals/UserProfileModal.tsx:108
 msgid "You can't befriend yourself"
 msgstr "Kamu tidak bisa berteman dengan diri sendiri"
 
 #. Label in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:136
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:137
 msgid "You can't change your nickname here"
 msgstr "Kamu tidak dapat mengubah nama panggilan di sini"
 
@@ -38654,9 +38740,9 @@ msgstr "Kamu tidak bisa mengirim pesan ke pengguna ini"
 #. Error message in the user profile modal.
 #. Error message in the user profile popout.
 #. Error message in the user settings profile preview.
-#: src/features/user/components/modals/UserProfileModal.tsx:110
-#: src/features/user/components/popouts/UserProfilePopout.tsx:73
-#: src/features/user/components/profile/ProfilePreview.tsx:45
+#: src/features/user/components/modals/UserProfileModal.tsx:112
+#: src/features/user/components/popouts/UserProfilePopout.tsx:74
+#: src/features/user/components/profile/ProfilePreview.tsx:46
 msgid "You can't message yourself"
 msgstr "Kamu tidak bisa mengirim pesan ke diri sendiri"
 
@@ -38837,7 +38923,7 @@ msgid "You have unsaved changes."
 msgstr "Ada perubahan yang belum disimpan."
 
 #. Warning text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:83
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:84
 msgid "You have unsaved changes. Save or reset before leaving."
 msgstr "Ada perubahan yang belum disimpan. Simpan atau setel ulang sebelum keluar."
 
@@ -39032,12 +39118,12 @@ msgstr "Kamu akan keluar dari {guildNames}. Tidak ada yang pernah kamu kirim yan
 msgid "You will still need to finish the email step."
 msgstr "Kamu masih perlu menyelesaikan langkah email."
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:92
+#: src/features/app/components/floating/UserAreaPopout.tsx:93
 #: src/features/user/components/modals/StatusChangeBottomSheet.tsx:40
 msgid "You won't receive notifications on desktop"
 msgstr "Kamu tidak akan menerima notifikasi di desktop"
 
-#: src/features/app/components/floating/UserAreaPopout.tsx:93
+#: src/features/app/components/floating/UserAreaPopout.tsx:94
 #: src/features/user/components/modals/StatusChangeBottomSheet.tsx:41
 msgid "You'll appear offline"
 msgstr "Kamu akan terlihat offline"
