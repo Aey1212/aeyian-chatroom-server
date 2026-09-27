@@ -8,6 +8,7 @@ export type AssetKind =
 	| 'embed_splash'
 	| 'emoji'
 	| 'sticker'
+	| 'cosmetic'
 	| 'attachment';
 type AssetExtension = 'png' | 'jpeg' | 'webp' | 'gif' | 'apng' | 'avif' | 'heic' | 'heif' | 'jxl' | 'svg';
 type CanonicalExtension = 'png' | 'jpeg' | 'webp' | 'gif' | 'apng';
@@ -154,6 +155,15 @@ export const ASSET_FORMAT_POLICY: Readonly<Record<AssetKind, AssetFormatPolicyEn
 		animated: 'always',
 		maxBytes: 512 * 1024,
 		dims: {min: 128, max: 512},
+	},
+	// Avatar frames and nameplates uploaded on the admin Cosmetics page.
+	cosmetic: {
+		upload: RASTER_FULL,
+		mimes: pickMimes(RASTER_FULL),
+		storeAs: STORE_ANIMATED,
+		animated: 'always',
+		maxBytes: 2 * 1024 * 1024,
+		dims: {min: 32, max: 1200},
 	},
 	attachment: {
 		upload: RASTER_FULL,

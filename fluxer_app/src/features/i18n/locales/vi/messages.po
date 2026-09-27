@@ -949,8 +949,8 @@ msgid "{count, plural, one {# image} other {# images}}"
 msgstr "{count, plural, one {# ảnh} other {# ảnh}}"
 
 #: src/features/channel/components/ChannelSourcePreview.tsx:245
-#: src/features/channel/components/direct_message/DMListItem.tsx:448
-#: src/features/channel/components/direct_message/DMListItem.tsx:613
+#: src/features/channel/components/direct_message/DMListItem.tsx:450
+#: src/features/channel/components/direct_message/DMListItem.tsx:617
 #: src/features/guild/components/bottomsheets/GuildHeaderBottomSheet.tsx:118
 #: src/features/user/components/modals/MutualItemsSheet.tsx:159
 #: src/features/user/components/modals/user_profile_modal/MutualGroupItem.tsx:26
@@ -1249,7 +1249,7 @@ msgid "{eightHours} hours"
 msgstr "{eightHours} giờ"
 
 #. Error message in the messaging emoji renderer.
-#: src/features/messaging/components/markdown/renderers/EmojiRenderer.tsx:29
+#: src/features/messaging/components/markdown/renderers/EmojiRenderer.tsx:30
 msgid "{emojiName} (failed to load)"
 msgstr "{emojiName} (không tải được)"
 
@@ -2337,6 +2337,11 @@ msgstr "60 giây"
 msgid "7 days"
 msgstr "7 ngày"
 
+#. Profile settings section description for the nameplate.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:39
+msgid "A background behind your name in the member list and in direct messages."
+msgstr "A background behind your name in the member list and in direct messages."
+
 #. Required-action error when the API requires a captcha for phone verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:560
 msgid "A browser check is required before phone verification. Try again from the sign-in page or contact support."
@@ -2376,6 +2381,11 @@ msgstr "Một nhãn dán tùy chỉnh từ cộng đồng này. Bạn có thể 
 #: src/features/search/utils/SearchUtils.ts:73
 msgid "a date or date range"
 msgstr "một ngày hoặc phạm vi ngày"
+
+#. Profile settings section description for the avatar frame.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:27
+msgid "A decoration around your avatar, shown wherever your avatar appears."
+msgstr "A decoration around your avatar, shown wherever your avatar appears."
 
 #. Description of a built-in unicode emoji in the emoji info card. productName is the Fluxer product name.
 #: src/features/expressions/components/ExpressionInfoCard.tsx:22
@@ -3334,6 +3344,11 @@ msgstr "Cài đặt video nâng cao"
 #: src/features/theme_studio/sections/ThemeStudioSettingsSection.tsx:300
 msgid "Aero Snap and Snap Layouts can stop working while transparency is enabled."
 msgstr "Aero Snap và Snap Layouts có thể ngừng hoạt động khi bật độ trong suốt."
+
+#. Name of the emoji section with the emojis that come with the app. A proper name; keep it as is.
+#: src/features/emoji/builtin/BuiltinEmojiSection.tsx:11
+msgid "Aeyian"
+msgstr "Aeyian"
 
 #. Label in the idle settings section.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/IdleSettingsSection.tsx:24
@@ -4756,7 +4771,9 @@ msgstr "tải âm thanh lên"
 msgid "Audio upload"
 msgstr "Tải âm thanh lên"
 
+#. Nameplate name: shifting northern-lights colours.
 #. Profile frame name: shifting northern-lights colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:58
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:45
 msgid "Aurora"
 msgstr "Aurora"
@@ -5093,6 +5110,16 @@ msgstr "Ảnh đại diện"
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:82
 msgid "Avatar file is too large. Choose a file smaller than {imageMaxSizeLabel}."
 msgstr "Tệp ảnh đại diện quá lớn. Vui lòng chọn tệp nhỏ hơn {imageMaxSizeLabel}."
+
+#. Profile settings section title for the decoration drawn around the round avatar.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:23
+msgid "Avatar frame"
+msgstr "Avatar frame"
+
+#. Accessible label for the list of avatar frames.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:31
+msgid "Avatar frames"
+msgstr "Avatar frames"
 
 #. Webhook avatar upload error. IMAGE_MAX_SIZE_LABEL is a formatted file-size limit.
 #: src/features/webhook/components/WebhookListItem.tsx:39
@@ -7570,7 +7597,9 @@ msgstr "Chọn ngôn ngữ của bạn"
 msgid "Choose your profile accent color"
 msgstr "Chọn màu nhấn cho hồ sơ của bạn"
 
+#. Nameplate name: teal circuit-board lines.
 #. Profile frame name: green circuit-board lines.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:63
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:53
 msgid "Circuit"
 msgstr "Circuit"
@@ -8024,7 +8053,7 @@ msgid "Close account"
 msgstr "Đóng tài khoản"
 
 #. Accessible label and tooltip for the close-DM button on a DM list row.
-#: src/features/channel/components/direct_message/DMListItem.tsx:85
+#: src/features/channel/components/direct_message/DMListItem.tsx:86
 msgid "Close direct message with {displayName}"
 msgstr "Đóng tin nhắn trực tiếp với {displayName}"
 
@@ -8517,7 +8546,7 @@ msgstr "Tên cộng đồng"
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:129
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:130
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:113
 msgid "Community nickname"
 msgstr "Biệt danh cộng đồng"
@@ -8542,7 +8571,7 @@ msgstr "Tùy chỉnh cộng đồng"
 #. Tooltip on the owner crown icon next to a member name on the community members page.
 #: src/features/channel/components/bottomsheets/ChannelDetailsBottomSheetMemberList.tsx:42
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:73
-#: src/features/channel/components/MemberListItem.tsx:37
+#: src/features/channel/components/MemberListItem.tsx:38
 msgid "Community owner"
 msgstr "Chủ sở hữu cộng đồng"
 
@@ -8565,7 +8594,7 @@ msgid "Community profile"
 msgstr "Hồ sơ cộng đồng"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:76
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:77
 msgid "Community profile updated"
 msgstr "Đã cập nhật hồ sơ cộng đồng"
 
@@ -9320,12 +9349,12 @@ msgid "Copy emoji"
 msgstr "Sao chép biểu tượng cảm xúc"
 
 #. Developer-mode action that copies the emoji ID to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:32
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:33
 msgid "Copy emoji ID"
 msgstr "Sao chép ID biểu tượng cảm xúc"
 
 #. Action that copies the emoji URL to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:36
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:37
 msgid "Copy emoji URL"
 msgstr "Sao chép URL biểu tượng cảm xúc"
 
@@ -9377,7 +9406,7 @@ msgstr "Sao chép ảnh"
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:44
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:45
 #: src/features/ui/action_menu/items/MediaMenuData.tsx:70
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:44
 msgid "Copy image link"
@@ -12214,7 +12243,7 @@ msgstr "Chế độ hiển thị"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the my profile tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:22
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:141
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:142
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:61
 msgid "Display name"
 msgstr "Tên hiển thị"
@@ -12353,7 +12382,7 @@ msgstr "Bạn có muốn chặn tin nhắn trực tiếp từ các thành viên 
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:149
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:150
 msgid "Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985."
 msgstr "Bác sĩ, tôi đến từ tương lai. Tôi đến đây bằng cỗ máy thời gian do chính bác sĩ phát minh. Giờ thì tôi cần bác sĩ giúp để quay về năm 1985."
 
@@ -12973,7 +13002,7 @@ msgid "Edit translation provider"
 msgstr "Chỉnh sửa nhà cung cấp dịch thuật"
 
 #. Button or menu action label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:96
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:97
 msgid "Edit your profile appearance and see a live preview"
 msgstr "Chỉnh sửa giao diện hồ sơ và xem trước trực tiếp"
 
@@ -13171,7 +13200,9 @@ msgstr "Đã ẩn nội dung nhúng"
 msgid "Embeds unsuppressed"
 msgstr "Đã hiện lại nội dung nhúng"
 
+#. Nameplate name: glowing fire colours with sparks.
 #. Profile frame name: glowing fire colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:64
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:49
 msgid "Ember"
 msgstr "Ember"
@@ -14761,7 +14792,7 @@ msgid "Favorite DM"
 msgstr "Thêm tin nhắn trực tiếp vào mục yêu thích"
 
 #. Emoji context menu action that adds the emoji to favorites.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:28
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:29
 msgid "Favorite emoji"
 msgstr "Thêm biểu tượng cảm xúc vào mục yêu thích"
 
@@ -15041,6 +15072,11 @@ msgstr "Tùy chọn đầu tiên"
 #: src/features/expressions/utils/UnicodeEmojis.ts:49
 msgid "Flags"
 msgstr "Cờ"
+
+#. Avatar frame name: a flickering ring of fire.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:50
+msgid "Flames"
+msgstr "Flames"
 
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:53
@@ -15465,7 +15501,7 @@ msgstr "Tiếng Pháp"
 #. Short label in the channel and chat emoji picker category list. Keep it concise.
 #. Short label in the use virtual rows hook. Keep it concise.
 #. Short label in the use virtual rows hook. Keep it concise.
-#: src/features/channel/components/emoji_picker/EmojiPickerCategoryList.tsx:16
+#: src/features/channel/components/emoji_picker/EmojiPickerCategoryList.tsx:15
 #: src/features/channel/components/emoji_picker/hooks/useVirtualRows.ts:17
 #: src/features/channel/components/sticker_picker/hooks/useVirtualRows.ts:14
 msgid "Frequently used"
@@ -15615,7 +15651,9 @@ msgstr "Tên người gửi"
 msgid "From user"
 msgstr "Từ người dùng"
 
+#. Avatar frame name: icy blue and white.
 #. Profile frame name: icy blue and white.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:51
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:50
 msgid "Frost"
 msgstr "Frost"
@@ -15649,6 +15687,13 @@ msgstr "Tắt hoàn toàn và khởi động lại {productName} để macOS áp
 #: src/features/user/components/settings_utils/search_index/VoiceVideoIndex.ts:52
 msgid "Gain control"
 msgstr "Điều chỉnh độ khuếch đại"
+
+#. Avatar frame name: deep space colours with stars.
+#. Nameplate name: deep space colours with stars.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:54
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:61
+msgid "Galaxy"
+msgstr "Galaxy"
 
 #. Folder icon option in the community-folder settings modal: a game controller shape.
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:57
@@ -16402,7 +16447,7 @@ msgstr "Trạng thái trực tuyến của nhóm"
 #. Channel details bottom sheet label or action (channel type, settings, toast, confirmation, or notification option).
 #. Short label in the direct message member list item. Keep it concise.
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:152
-#: src/features/channel/components/MemberListItem.tsx:41
+#: src/features/channel/components/MemberListItem.tsx:42
 msgid "Group owner"
 msgstr "Chủ nhóm"
 
@@ -16454,6 +16499,11 @@ msgstr "Dự phòng H.264 simulcast"
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedVideoControls.tsx:178
 msgid "H.265 (requires opt-in)"
 msgstr "H.265 (yêu cầu bật tùy chọn)"
+
+#. Avatar frame name: a glowing golden ring.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:47
+msgid "Halo"
+msgstr "Halo"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the connection add connection modal.
@@ -20445,7 +20495,7 @@ msgstr "Tin nhắn"
 #: src/features/user/components/modals/UserProfileModal.tsx:771
 #: src/features/user/components/popouts/UserProfilePopout.tsx:425
 #: src/features/user/components/popouts/UserProfilePopout.tsx:455
-#: src/features/user/components/profile/ProfilePreview.tsx:341
+#: src/features/user/components/profile/ProfilePreview.tsx:352
 msgctxt "message-action"
 msgid "Message"
 msgstr "Gửi tin nhắn"
@@ -20867,6 +20917,11 @@ msgstr "Minnesota"
 msgid "Minors at risk, mature content in the wrong place, or unwanted conduct."
 msgstr "Trẻ vị thành niên gặp rủi ro, nội dung người lớn không phù hợp hoặc hành vi không mong muốn."
 
+#. Nameplate name: fresh mint green.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:65
+msgid "Mint"
+msgstr "Mint"
+
 #. Camera settings menu checkbox for flipping the local camera preview horizontally.
 #. Switch label in the camera preview modal for flipping the local camera preview horizontally.
 #. Switch label in the video tab for flipping the local camera preview horizontally.
@@ -21104,7 +21159,7 @@ msgid "More button"
 msgstr "Nút Thêm"
 
 #. Submenu label that contains additional emoji context menu actions.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:52
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:53
 msgid "More emoji actions"
 msgstr "Thêm thao tác với biểu tượng cảm xúc"
 
@@ -21479,7 +21534,7 @@ msgstr "Tắt âm thanh luồng phát"
 #: src/features/app/components/layout/ChannelItem.tsx:112
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:62
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:39
-#: src/features/channel/components/direct_message/DMListItem.tsx:77
+#: src/features/channel/components/direct_message/DMListItem.tsx:78
 msgid "muted"
 msgstr "đã tắt tiếng"
 
@@ -21729,6 +21784,16 @@ msgstr "Biểu mẫu đặt tên khóa truy cập"
 msgid "Name style"
 msgstr "Name style"
 
+#. Profile settings section title for the background drawn behind your name in lists.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:35
+msgid "Nameplate"
+msgstr "Nameplate"
+
+#. Accessible label for the list of nameplates.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:43
+msgid "Nameplates"
+msgstr "Nameplates"
+
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:272
 msgid "Narrate"
@@ -21814,7 +21879,9 @@ msgstr "Neko"
 msgid "Neko cat that chases your cursor"
 msgstr "Mèo Neko đuổi theo con trỏ chuột của bạn"
 
+#. Avatar frame name: a glowing neon tube.
 #. Profile frame name: glowing neon tube.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:48
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:47
 msgid "Neon"
 msgstr "Neon"
@@ -22719,6 +22786,7 @@ msgid "Non-convert"
 msgstr "Không chuyển đổi"
 
 #. Activity log value naming the lowest member verification level of a community, where no verification is required.
+#. Cosmetic choice that shows nothing.
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #. Library picker entry meaning no sound is selected for this scope.
 #. Member verification level option in the community moderation settings tab. Short standalone label for the lowest level (no verification).
@@ -22730,6 +22798,7 @@ msgstr "Không chuyển đổi"
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogSharedMessages.ts:52
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:37
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:146
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:44
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:41
 #: src/features/user/components/modals/tabs/privacy_safety_tab/data_request_modal/DataRequestModal.tsx:220
 #: src/features/voice/components/AudioSourcePickerLinux.tsx:261
@@ -22988,6 +23057,11 @@ msgstr "Trình tạo URL OAuth2"
 #: src/features/expressions/utils/UnicodeEmojis.ts:41
 msgid "Objects"
 msgstr "Đồ vật"
+
+#. Nameplate name: deep blue water with ripples.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:60
+msgid "Ocean"
+msgstr "Ocean"
 
 #. Activity log value meaning the explicit content filter of a community is turned off.
 #. Channel overview settings tab label, control, or validation message (name, topic, slowmode, voice region, mature content gate).
@@ -23439,7 +23513,7 @@ msgid "Open DMs only"
 msgstr "Chỉ tin nhắn trực tiếp đang mở"
 
 #. Action that opens the emoji URL in an external browser.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:40
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:41
 msgid "Open emoji in browser"
 msgstr "Mở biểu tượng cảm xúc trong trình duyệt"
 
@@ -23492,7 +23566,7 @@ msgstr "Mở ảnh ở chế độ xem đầy đủ"
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:48
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:49
 #: src/features/ui/action_menu/items/MediaMenuData.tsx:90
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
@@ -23801,6 +23875,11 @@ msgstr "hoặc gửi lời mời đến một người bạn:"
 #: src/features/expressions/components/modals/GiftSendToFriendModal.tsx:131
 msgid "or send the gift link to a friend:"
 msgstr "hoặc gửi liên kết quà tặng cho bạn bè:"
+
+#. Avatar frame name: a thin dotted ring that circles the avatar.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:53
+msgid "Orbit"
+msgstr "Orbit"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:41
@@ -24660,7 +24739,7 @@ msgid "Ping: {latency}ms"
 msgstr "Độ trễ: {latency}ms"
 
 #. Screen-reader fragment announcing that the DM list row is pinned. Lowercase fragment.
-#: src/features/channel/components/direct_message/DMListItem.tsx:81
+#: src/features/channel/components/direct_message/DMListItem.tsx:82
 msgid "pinned"
 msgstr "đã ghim"
 
@@ -25338,18 +25417,18 @@ msgstr "Màu sắc hồ sơ"
 
 #. Settings section label for editing profile appearance and identity.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:108
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:109
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:6
 msgid "Profile customization"
 msgstr "Tùy chỉnh hồ sơ"
 
 #. Label in the my profile tab. Preserve {selectedGuildName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:104
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:105
 msgid "Profile customization for {selectedGuildName}"
 msgstr "Tùy chỉnh hồ sơ cho {selectedGuildName}"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:100
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:101
 msgid "Profile customization form"
 msgstr "Biểu mẫu tùy chỉnh hồ sơ"
 
@@ -25429,7 +25508,7 @@ msgid "Profile type"
 msgstr "Loại hồ sơ"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:80
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:81
 msgid "Profile updated"
 msgstr "Đã cập nhật hồ sơ"
 
@@ -25466,7 +25545,7 @@ msgstr "Hỏi khi phát hiện thiết bị âm thanh mới"
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:145
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:146
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:177
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:160
 msgid "Pronouns"
@@ -25779,6 +25858,11 @@ msgstr "Nhóm nút chọn"
 #: src/features/moderation/components/report/OptionDescriptors.ts:94
 msgid "Raid coordination"
 msgstr "Phối hợp tấn công"
+
+#. Avatar frame name: a ring in every colour of the rainbow.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:49
+msgid "Rainbow"
+msgstr "Rainbow"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:171
@@ -27970,7 +28054,11 @@ msgstr "Tiếng Nga"
 msgid "Safety"
 msgstr "An toàn"
 
+#. Avatar frame name: cherry-blossom pink.
+#. Nameplate name: cherry-blossom pink with petals.
 #. Profile frame name: cherry-blossom pink.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:52
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:62
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:51
 msgid "Sakura"
 msgstr "Sakura"
@@ -28953,7 +29041,7 @@ msgstr "Văn bản có thể chọn"
 #: src/features/app/components/layout/ChannelItem.tsx:96
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:54
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:35
-#: src/features/channel/components/direct_message/DMListItem.tsx:69
+#: src/features/channel/components/direct_message/DMListItem.tsx:70
 msgid "selected"
 msgstr "đã chọn"
 
@@ -29284,7 +29372,7 @@ msgid "Sent"
 msgstr "Đã gửi"
 
 #. DM list row preview text when the most recent message has only attachments.
-#: src/features/channel/components/direct_message/DMListItem.tsx:65
+#: src/features/channel/components/direct_message/DMListItem.tsx:66
 msgid "Sent an attachment"
 msgstr "Đã gửi một tệp đính kèm"
 
@@ -32042,6 +32130,11 @@ msgstr "Gợi ý"
 msgid "Summary"
 msgstr "Tóm tắt"
 
+#. Nameplate name: orange, pink and violet evening sky.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:59
+msgid "Sunset"
+msgstr "Sunset"
+
 #. Switch label in the community notification settings modal. Suppresses @everyone and @here notifications in this community. The two placeholders render the literal @everyone and @here tokens and must not be translated.
 #. Toggle label that suppresses @everyone and @here mentions; placeholders are the localized mention tags.
 #. Toggle label that suppresses @everyone and @here mentions; placeholders are the localized mention tags.
@@ -33725,7 +33818,7 @@ msgid "This message no longer exists."
 msgstr "Tin nhắn này không còn tồn tại."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:133
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:134
 msgid "This nickname will only be visible in this community"
 msgstr "Biệt danh này sẽ chỉ hiển thị trong cộng đồng này"
 
@@ -35180,7 +35273,7 @@ msgid "Unfavorite DM"
 msgstr "Bỏ yêu thích tin nhắn trực tiếp"
 
 #. Emoji context menu action that removes the emoji from favorites.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:24
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:25
 msgid "Unfavorite emoji"
 msgstr "Bỏ yêu thích biểu tượng cảm xúc"
 
@@ -35395,7 +35488,7 @@ msgid "Unlock all custom emojis and stickers across all communities with {premiu
 msgstr "Mở khóa tất cả biểu tượng cảm xúc và nhãn dán tùy chỉnh trên mọi cộng đồng với {premiumProductName}"
 
 #. Premium upsell shown when sending custom emoji in a DM without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:16
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:17
 msgid "Unlock custom emojis in DMs with {premiumProductName}"
 msgstr "Mở khóa biểu tượng cảm xúc tùy chỉnh trong tin nhắn trực tiếp với {premiumProductName}"
 
@@ -35414,7 +35507,7 @@ msgid "Unlock more backgrounds with {premiumProductName}"
 msgstr "Mở khóa thêm hình nền với {premiumProductName}"
 
 #. Premium upsell shown when sending custom stickers in a DM without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:28
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:29
 msgid "Unlock stickers in DMs with {premiumProductName}"
 msgstr "Mở khóa nhãn dán trong tin nhắn trực tiếp với {premiumProductName}"
 
@@ -35605,7 +35698,7 @@ msgstr "Đã bỏ ghim tin nhắn nhóm"
 #: src/features/app/components/layout/sidebar_nav/GuildFolderItem.tsx:89
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:58
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:27
-#: src/features/channel/components/direct_message/DMListItem.tsx:73
+#: src/features/channel/components/direct_message/DMListItem.tsx:74
 msgid "unread"
 msgstr "chưa đọc"
 
@@ -36205,7 +36298,7 @@ msgid "Use emoji from other communities in this channel."
 msgstr "Sử dụng biểu tượng cảm xúc từ các cộng đồng khác trong kênh này."
 
 #. Premium upsell shown when sending external emoji without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:24
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:25
 msgid "Use emoji from other communities with {premiumProductName}"
 msgstr "Dùng biểu tượng cảm xúc từ các cộng đồng khác với {premiumProductName}"
 
@@ -36318,7 +36411,7 @@ msgid "Use stickers from other communities in this channel."
 msgstr "Sử dụng nhãn dán từ các cộng đồng khác trong kênh này."
 
 #. Premium upsell shown when sending external stickers without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:36
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:37
 msgid "Use stickers from other communities with {premiumProductName}"
 msgstr "Dùng nhãn dán từ các cộng đồng khác với {premiumProductName}"
 
@@ -36833,22 +36926,22 @@ msgid "Verify your email before adding an authenticator app."
 msgstr "Xác minh email của bạn trước khi thêm ứng dụng xác thực."
 
 #. Description text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:120
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:121
 msgid "Verify your email before changing your community nickname, avatar, banner, bio, pronouns, or accent color."
 msgstr "Xác minh email của bạn trước khi thay đổi biệt danh cộng đồng, ảnh đại diện, ảnh bìa, tiểu sử, đại từ hoặc màu nhấn."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:124
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:125
 msgid "Verify your email before changing your username, display name, avatar, banner, bio, pronouns, time zone, or {premiumProductName} badge privacy."
 msgstr "Xác minh email của bạn trước khi thay đổi tên người dùng, tên hiển thị, ảnh đại diện, ảnh bìa, tiểu sử, đại từ, múi giờ hoặc quyền riêng tư huy hiệu {premiumProductName} của bạn."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:88
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:89
 msgid "Verify your email before editing this community profile. You can still preview it here."
 msgstr "Xác minh email của bạn trước khi chỉnh sửa hồ sơ cộng đồng này. Bạn vẫn có thể xem trước tại đây."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:92
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:93
 msgid "Verify your email before editing your profile. You can still preview it here."
 msgstr "Xác minh email trước khi chỉnh sửa hồ sơ. Bạn vẫn có thể xem trước tại đây."
 
@@ -36875,12 +36968,12 @@ msgid "Verify your email to continue using {productName}."
 msgstr "Xác minh email của bạn để tiếp tục sử dụng {productName}."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:112
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:113
 msgid "Verify your email to edit this community profile"
 msgstr "Xác minh email để chỉnh sửa hồ sơ cộng đồng này"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:116
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:117
 msgid "Verify your email to edit your profile"
 msgstr "Xác minh email để chỉnh sửa hồ sơ"
 
@@ -38529,7 +38622,7 @@ msgstr "Hôm qua lúc {timeString}"
 
 #. First-person prefix used in DM list row preview when the current user is the message author.
 #: src/features/app/components/layout/MobileBottomNav.tsx:153
-#: src/features/channel/components/direct_message/DMListItem.tsx:61
+#: src/features/channel/components/direct_message/DMListItem.tsx:62
 msgid "You"
 msgstr "Bạn"
 
@@ -38691,7 +38784,7 @@ msgid "You can't befriend yourself"
 msgstr "Bạn không thể kết bạn với chính mình"
 
 #. Label in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:137
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:138
 msgid "You can't change your nickname here"
 msgstr "Bạn không thể thay đổi biệt danh của mình tại đây"
 
@@ -38923,7 +39016,7 @@ msgid "You have unsaved changes."
 msgstr "Bạn có thay đổi chưa lưu."
 
 #. Warning text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:84
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:85
 msgid "You have unsaved changes. Save or reset before leaving."
 msgstr "Bạn có thay đổi chưa lưu. Hãy lưu hoặc đặt lại trước khi rời đi."
 
@@ -39024,12 +39117,12 @@ msgid "You need the \"{manageWebhooksPermissionLabel}\" permission to view and e
 msgstr "Bạn cần quyền \"{manageWebhooksPermissionLabel}\" để xem và chỉnh sửa webhook cho cộng đồng này."
 
 #. Permission error shown when sending external emoji without the required permission.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:20
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:21
 msgid "You need the \"{permissionLabel}\" permission to use emoji from other communities here."
 msgstr "Bạn cần có quyền \"{permissionLabel}\" để sử dụng biểu tượng cảm xúc từ các cộng đồng khác tại đây."
 
 #. Permission error shown when sending external stickers without the required permission.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:32
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:33
 msgid "You need the \"{permissionLabel}\" permission to use stickers from other communities here."
 msgstr "Bạn cần có quyền \"{permissionLabel}\" để sử dụng nhãn dán từ các cộng đồng khác tại đây."
 

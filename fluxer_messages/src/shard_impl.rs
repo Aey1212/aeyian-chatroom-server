@@ -216,9 +216,14 @@ struct UserPartialServiceResponse {
     mention_flags: Option<i32>,
     #[serde(default)]
     name_style: Option<NameStyle>,
+    #[serde(default)]
+    avatar_frame: Option<String>,
+    #[serde(default)]
+    nameplate: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
+#[allow(clippy::large_enum_variant)]
 enum UserServiceResponse {
     FoundPartials(Vec<UserPartialServiceResponse>),
     FoundPartial(UserPartialServiceResponse),
@@ -1188,6 +1193,8 @@ impl<T: Transport> MessagesShard<T> {
                 flags: 0,
                 mention_flags: None,
                 name_style: None,
+                avatar_frame: None,
+                nameplate: None,
             };
         }
         deleted_user(0)
@@ -2717,6 +2724,8 @@ fn map_user_partial(partial: UserPartialServiceResponse) -> ApiUserPartialRespon
         flags: i64::from(visible_user_flags(flags)),
         mention_flags: partial.mention_flags.filter(|flags| *flags != 0),
         name_style: partial.name_style,
+        avatar_frame: partial.avatar_frame,
+        nameplate: partial.nameplate,
     }
 }
 
@@ -2732,6 +2741,8 @@ fn fluxer_system_user() -> ApiUserPartialResponse {
         flags: USER_FLAG_STAFF,
         mention_flags: None,
         name_style: None,
+        avatar_frame: None,
+        nameplate: None,
     }
 }
 
@@ -2750,6 +2761,8 @@ fn deleted_user(user_id: i64) -> ApiUserPartialResponse {
         flags: 0,
         mention_flags: None,
         name_style: None,
+        avatar_frame: None,
+        nameplate: None,
     }
 }
 
@@ -3280,6 +3293,8 @@ mod tests {
             avatar_color: None,
             mention_flags: None,
             name_style: None,
+            avatar_frame: None,
+            nameplate: None,
         });
 
         assert_eq!(mapped.id, "0");
@@ -3328,6 +3343,8 @@ mod tests {
             avatar_color: Some(0x336699),
             mention_flags: None,
             name_style: None,
+            avatar_frame: None,
+            nameplate: None,
         });
 
         assert_eq!(mapped.id, "42");

@@ -203,6 +203,7 @@ export const Endpoints = {
 	USER_NOTE: (userId: string) => `/users/@me/notes/${userId}`,
 	USER_CHECK_USERNAME: '/users/check-username',
 	USER_USERNAME_CHANGE_REQUEST: '/users/@me/username-change-request',
+	COSMETICS: '/cosmetics',
 	USER_PROFILE: (query = ME) => `/users/${query}/profile`,
 	USER_RELATIONSHIP: (userId: string) => `/users/@me/relationships/${userId}`,
 	USER_RELATIONSHIPS: '/users/@me/relationships',

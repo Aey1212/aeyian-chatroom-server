@@ -79,6 +79,8 @@ export interface UserRow {
 	name_style?: Nullish<string>;
 	theme_colors?: Nullish<Array<number>>;
 	profile_frame?: Nullish<string>;
+	avatar_frame?: Nullish<string>;
+	nameplate?: Nullish<string>;
 	last_voice_activity_sharing_change_at: Nullish<Date>;
 	version: number;
 }
@@ -145,6 +147,8 @@ export const USER_COLUMNS = [
 	'name_style',
 	'theme_colors',
 	'profile_frame',
+	'avatar_frame',
+	'nameplate',
 	'last_voice_activity_sharing_change_at',
 	'version',
 ] as const satisfies ReadonlyArray<keyof UserRow>;
@@ -210,6 +214,8 @@ export const EMPTY_USER_ROW: UserRow = {
 	name_style: null,
 	theme_colors: null,
 	profile_frame: null,
+	avatar_frame: null,
+	nameplate: null,
 	last_voice_activity_sharing_change_at: null,
 	version: 1,
 };

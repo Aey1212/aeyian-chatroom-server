@@ -7,6 +7,7 @@ import {AdminAssetPurgeService} from '@app/api/admin/services/AdminAssetPurgeSer
 import {AdminAuditService} from '@app/api/admin/services/AdminAuditService';
 import {AdminBanManagementService} from '@app/api/admin/services/AdminBanManagementService';
 import {AdminCodeGenerationService} from '@app/api/admin/services/AdminCodeGenerationService';
+import {AdminCosmeticService} from '@app/api/admin/services/AdminCosmeticService';
 import {AdminGuildService} from '@app/api/admin/services/AdminGuildService';
 import {AdminMessageDeletionService} from '@app/api/admin/services/AdminMessageDeletionService';
 import {AdminMessageService} from '@app/api/admin/services/AdminMessageService';
@@ -30,7 +31,12 @@ import type {UserCacheService} from '@app/api/infrastructure/UserCacheService';
 import type {InviteRepository} from '@app/api/invite/InviteRepository';
 import type {IJobLedgerRepository} from '@app/api/jobs/IJobLedgerRepository';
 import {JobAdminService} from '@app/api/jobs/JobAdminService';
-import {getKVAccountDeletionQueue, getNcmecSubmissionService} from '@app/api/middleware/ServiceSingletons';
+import {
+	getAvatarService,
+	getCosmeticRegistry,
+	getKVAccountDeletionQueue,
+	getNcmecSubmissionService,
+} from '@app/api/middleware/ServiceSingletons';
 import type {IApplicationRepository} from '@app/api/oauth/repositories/IApplicationRepository';
 import type {ReportService} from '@app/api/report/ReportService';
 import type {IRiskHistoryRepository} from '@app/api/risk/HistoricalOutcomeRepository';
@@ -59,6 +65,7 @@ export class AdminService {
 	readonly jobAdminService: JobAdminService;
 	readonly relationshipService: AdminUserRelationshipService;
 	readonly usernameService: AdminUsernameService;
+	readonly cosmeticService: AdminCosmeticService;
 
 	constructor(
 		private readonly apiContext: ApiContext,
@@ -180,6 +187,12 @@ export class AdminService {
 		});
 		this.usernameService = new AdminUsernameService({
 			usernameRegistry: this.usernameRegistry,
+			auditService: this.auditService,
+		});
+		this.cosmeticService = new AdminCosmeticService({
+			cosmeticRegistry: getCosmeticRegistry(),
+			avatarService: getAvatarService(),
+			snowflakeService: this.apiContext.services.snowflake,
 			auditService: this.auditService,
 		});
 	}

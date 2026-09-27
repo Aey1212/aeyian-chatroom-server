@@ -103,6 +103,10 @@ pub struct User {
     pub timezone_privacy_flags: Option<i32>,
     #[serde(default)]
     pub name_style: Option<NameStyle>,
+    #[serde(default)]
+    pub avatar_frame: Option<String>,
+    #[serde(default)]
+    pub nameplate: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -121,6 +125,10 @@ pub struct UserPartial {
     pub mention_flags: Option<i32>,
     #[serde(default)]
     pub name_style: Option<NameStyle>,
+    #[serde(default)]
+    pub avatar_frame: Option<String>,
+    #[serde(default)]
+    pub nameplate: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -139,6 +147,10 @@ pub struct ApiUserPartial {
     pub mention_flags: Option<i32>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name_style: Option<NameStyle>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub avatar_frame: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub nameplate: Option<String>,
 }
 
 const FLUXER_SYSTEM_USER_ID: i64 = 0;
@@ -160,6 +172,8 @@ impl User {
             avatar_color: self.avatar_color,
             mention_flags: self.mention_flags,
             name_style: self.name_style.clone(),
+            avatar_frame: self.avatar_frame.clone(),
+            nameplate: self.nameplate.clone(),
         }
     }
 }
@@ -180,6 +194,8 @@ impl UserPartial {
             flags: visible_user_flags(self.flags.unwrap_or_default()),
             mention_flags: self.mention_flags.filter(|flags| *flags != 0),
             name_style: self.name_style.clone(),
+            avatar_frame: self.avatar_frame.clone(),
+            nameplate: self.nameplate.clone(),
         }
     }
 }
@@ -196,6 +212,8 @@ fn fluxer_system_user() -> ApiUserPartial {
         flags: USER_FLAG_STAFF as i32,
         mention_flags: None,
         name_style: None,
+        avatar_frame: None,
+        nameplate: None,
     }
 }
 
@@ -238,6 +256,8 @@ mod tests {
             avatar_color: Some(0x336699),
             mention_flags: Some(0),
             name_style: None,
+            avatar_frame: None,
+            nameplate: None,
         }
     }
 
@@ -301,6 +321,8 @@ mod tests {
             timezone: Some("Europe/London".to_owned()),
             timezone_privacy_flags: Some(1),
             name_style: None,
+            avatar_frame: None,
+            nameplate: None,
         }
     }
 

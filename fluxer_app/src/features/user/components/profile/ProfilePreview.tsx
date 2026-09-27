@@ -59,6 +59,7 @@ interface ProfilePreviewProps {
 	previewAccentColor?: number | null;
 	previewThemeColors?: ReadonlyArray<number> | null;
 	previewProfileFrame?: string | null;
+	previewAvatarFrame?: string | null;
 	previewTimezoneOffset?: number | null;
 	previewGlobalName?: string | null;
 	previewNameStyle?: NameStyle | null;
@@ -87,6 +88,7 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		previewAccentColor,
 		previewThemeColors,
 		previewProfileFrame,
+		previewAvatarFrame,
 		previewTimezoneOffset,
 		previewGlobalName,
 		previewNameStyle,
@@ -125,13 +127,22 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		const previewUser = useMemo(() => {
 			const globalName = previewGlobalName !== undefined ? previewGlobalName : user.globalName;
 			const nameStyle = previewNameStyle !== undefined ? {name_style: previewNameStyle ?? undefined} : {};
+			const avatarFrame = previewAvatarFrame !== undefined ? {avatar_frame: previewAvatarFrame ?? undefined} : {};
 			if (isCommunityProfile) {
-				return user.withUpdates({global_name: globalName, ...nameStyle});
+				return user.withUpdates({global_name: globalName, ...nameStyle, ...avatarFrame});
 			}
 			const bio = previewBio !== undefined ? previewBio : user.bio;
 			const pronouns = previewPronouns !== undefined ? previewPronouns : user.pronouns;
-			return user.withUpdates({bio, pronouns, global_name: globalName, ...nameStyle});
-		}, [user, previewBio, previewPronouns, previewGlobalName, previewNameStyle, isCommunityProfile]);
+			return user.withUpdates({bio, pronouns, global_name: globalName, ...nameStyle, ...avatarFrame});
+		}, [
+			user,
+			previewBio,
+			previewPronouns,
+			previewGlobalName,
+			previewNameStyle,
+			previewAvatarFrame,
+			isCommunityProfile,
+		]);
 		const mockProfile = useMemo(() => {
 			if (isCommunityProfile && guildId && guildMemberProfile) {
 				const globalProfile = createMockProfile(previewUser, {
@@ -264,7 +275,7 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 							bannerUrl={finalBannerUrl}
 							hoverBannerUrl={finalHoverBannerUrl}
 							bannerColor={bannerColor}
-							user={user}
+							user={previewUser}
 							avatarUrl={finalAvatarUrl}
 							hoverAvatarUrl={finalHoverAvatarUrl}
 							isClickable={true}

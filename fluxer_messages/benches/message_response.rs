@@ -39,6 +39,8 @@ fn sample_user(id: u64) -> ApiUserPartialResponse {
         flags: 0,
         mention_flags: None,
         name_style: None,
+        avatar_frame: None,
+        nameplate: None,
     }
 }
 

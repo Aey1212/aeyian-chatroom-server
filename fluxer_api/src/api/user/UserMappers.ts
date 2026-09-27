@@ -83,6 +83,8 @@ export function mapUserToPartialResponse(user: User): UserPartialResponse {
 			flags: 0,
 			mention_flags: undefined,
 			name_style: undefined,
+			avatar_frame: undefined,
+			nameplate: undefined,
 		};
 	}
 	return {
@@ -96,6 +98,8 @@ export function mapUserToPartialResponse(user: User): UserPartialResponse {
 		flags: mapUserFlagsToPublicBitfield(user),
 		mention_flags: user.mentionFlags ? user.mentionFlags : undefined,
 		name_style: user.nameStyle ?? undefined,
+		avatar_frame: user.avatarFrame ?? undefined,
+		nameplate: user.nameplate ?? undefined,
 	};
 }
 
@@ -111,7 +115,9 @@ export function hasPartialUserFieldsChanged(oldUser: User, newUser: User): boole
 		oldPartial.system !== newPartial.system ||
 		oldPartial.flags !== newPartial.flags ||
 		oldPartial.mention_flags !== newPartial.mention_flags ||
-		JSON.stringify(oldPartial.name_style) !== JSON.stringify(newPartial.name_style)
+		JSON.stringify(oldPartial.name_style) !== JSON.stringify(newPartial.name_style) ||
+		oldPartial.avatar_frame !== newPartial.avatar_frame ||
+		oldPartial.nameplate !== newPartial.nameplate
 	);
 }
 

@@ -28,6 +28,7 @@ export const AdminAuditReadActions = {
 	LIST_BLOCKLIST_ENTRIES: 'list_blocklist_entries',
 	LIST_BLOCKLISTS: 'list_blocklists',
 	LIST_CHANNEL_MESSAGES: 'list_channel_messages',
+	LIST_COSMETICS: 'list_cosmetics',
 	LIST_GUILD_APPLICATIONS: 'list_guild_applications',
 	LIST_GUILD_AUDIT_LOGS: 'list_guild_audit_logs',
 	LIST_GUILD_EMOJIS: 'list_guild_emojis',

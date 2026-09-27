@@ -17,6 +17,7 @@ import {
 	PublicUserFlagsDescriptions,
 } from '@fluxer/constants/src/UserConstants';
 import {ConnectionResponse} from '@fluxer/schema/src/domains/connection/ConnectionSchemas';
+import {CosmeticRefType} from '@fluxer/schema/src/domains/cosmetics/CosmeticSchemas';
 import {GuildMemberResponse} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
 import {MessageResponseSchema} from '@fluxer/schema/src/domains/message/MessageResponseSchemas';
 import {type NameStyle, NameStyleSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
@@ -71,6 +72,8 @@ export const UserPartialResponse = z.object({
 	name_style: NameStyleSchema.optional().describe(
 		'Font, colors and effect of the display name. Omitted when the user uses the default style.',
 	),
+	avatar_frame: CosmeticRefType.optional().describe('The avatar frame the user chose. Omitted when none is set.'),
+	nameplate: CosmeticRefType.optional().describe('The nameplate the user chose. Omitted when none is set.'),
 });
 
 export type UserPartialResponse = z.infer<typeof UserPartialResponse>;
@@ -455,6 +458,8 @@ export interface UserPartial {
 	readonly flags: number;
 	readonly mention_flags?: MentionReplyPreference;
 	readonly name_style?: NameStyle;
+	readonly avatar_frame?: string;
+	readonly nameplate?: string;
 }
 
 export interface UserPrivate extends UserPartial, UserProfile {

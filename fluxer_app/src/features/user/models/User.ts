@@ -145,6 +145,17 @@ function mergeNameStyle(current: NameStyle | null, updates: Partial<WireUser>): 
 	return current ?? undefined;
 }
 
+// Same rule for the other partial-user fields the server omits when they are unset.
+function mergePartialField(
+	current: string | null,
+	updates: Partial<WireUser>,
+	key: 'avatar_frame' | 'nameplate',
+): string | undefined {
+	if (hasKey(updates, key)) return updates[key] ?? undefined;
+	if (hasKey(updates, 'username') && hasKey(updates, 'flags')) return undefined;
+	return current ?? undefined;
+}
+
 export class User {
 	readonly instanceId: string;
 	readonly id: string;
@@ -156,6 +167,8 @@ export class User {
 	readonly flags: number;
 	readonly mentionFlags: MentionReplyPreference;
 	readonly nameStyle: NameStyle | null;
+	readonly avatarFrame: string | null;
+	readonly nameplate: string | null;
 	readonly avatarColor: number | null | undefined;
 	private readonly _isStaff: boolean | undefined;
 	private readonly _email: string | null | undefined;
@@ -210,6 +223,8 @@ export class User {
 		this.flags = user.flags;
 		this.mentionFlags = user.mention_flags ?? 0;
 		this.nameStyle = user.name_style ?? null;
+		this.avatarFrame = user.avatar_frame ?? null;
+		this.nameplate = user.nameplate ?? null;
 		this.avatarColor = hasKey(user, 'avatar_color') ? user.avatar_color : undefined;
 		this._isStaff = hasKey(user, 'is_staff') ? user.is_staff : undefined;
 		this._email = hasKey(user, 'email') ? (user.email ?? null) : undefined;
@@ -410,6 +425,8 @@ export class User {
 			flags: u.flags ?? this.flags,
 			mention_flags: hasKey(u, 'mention_flags') ? u.mention_flags : this.mentionFlags || undefined,
 			name_style: mergeNameStyle(this.nameStyle, u),
+			avatar_frame: mergePartialField(this.avatarFrame, u, 'avatar_frame'),
+			nameplate: mergePartialField(this.nameplate, u, 'nameplate'),
 		};
 		const isStaff = pickField(this._isStaff, u, 'is_staff', opts);
 		if (isStaff !== undefined) result.is_staff = isStaff;
@@ -643,6 +660,8 @@ export class User {
 			this.flags === other.flags &&
 			this.mentionFlags === other.mentionFlags &&
 			sameNameStyle(this.nameStyle, other.nameStyle) &&
+			this.avatarFrame === other.avatarFrame &&
+			this.nameplate === other.nameplate &&
 			this._isStaff === other._isStaff &&
 			this._email === other._email &&
 			this._emailBounced === other._emailBounced &&
@@ -699,6 +718,8 @@ export class User {
 			flags: this.flags,
 			mention_flags: this.mentionFlags || undefined,
 			name_style: this.nameStyle ?? undefined,
+			avatar_frame: this.avatarFrame ?? undefined,
+			nameplate: this.nameplate ?? undefined,
 		};
 		const privateFields: Record<string, unknown> = {};
 		const setOptional = <K extends keyof UserPrivate>(key: K, value: UserPrivate[K] | undefined): void => {

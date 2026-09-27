@@ -15,6 +15,7 @@ import type {GuildReadyData} from '@app/features/gateway/types/GatewayGuildTypes
 import GuildList from '@app/features/guild/state/GuildList';
 import {ComponentBus} from '@app/features/platform/utils/ComponentBus';
 import {makeSyncedField} from '@app/features/user/state/SyncedField';
+import {BUILTIN_EMOJI_SECTION_ID, BUILTIN_EMOJIS} from '@fluxer/constants/src/BuiltinEmojiConstants';
 import type {GuildEmoji as WireGuildEmoji} from '@fluxer/schema/src/domains/guild/GuildEmojiSchemas';
 import type {Guild as WireGuild} from '@fluxer/schema/src/domains/guild/GuildResponseSchemas';
 import {EmojiStateSchema} from '@fluxer/schema/src/gen/fluxer/user/preferences/v1/pickers_pb';
@@ -97,6 +98,13 @@ type AllEmojiContextCacheEntry = {
 	searchIndex?: EmojiSearchIndex<FlatEmoji>;
 };
 
+// Built-in emojis form one extra section that every user has, in every server and in DMs.
+const BUILTIN_GUILD_EMOJIS: ReadonlyArray<GuildEmoji> = Object.freeze(
+	BUILTIN_EMOJIS.map(
+		(emoji) => new GuildEmoji(BUILTIN_EMOJI_SECTION_ID, {id: emoji.id, name: emoji.name, animated: false}),
+	),
+);
+
 class EmojiGuildRegistry {
 	private guilds = new Map<string, GuildEmojiContext>();
 	private customEmojisById = new Map<string, GuildEmoji>();
@@ -106,13 +114,23 @@ class EmojiGuildRegistry {
 	private allEmojiContextCache = new Map<string, AllEmojiContextCacheEntry>();
 	private version = 0;
 
+	constructor() {
+		this.installBuiltinEmojis();
+	}
+
 	reset(): void {
 		this.guilds.clear();
 		this.customEmojisById.clear();
 		this.customEmojisByLowerName.clear();
 		this.customEmojisByLowerNameByGuild.clear();
 		this.emojiIdsByGuild.clear();
+		this.installBuiltinEmojis();
 		this.invalidateCaches();
+	}
+
+	private installBuiltinEmojis(): void {
+		this.guilds.set(BUILTIN_EMOJI_SECTION_ID, {emojis: BUILTIN_GUILD_EMOJIS, usableEmojis: BUILTIN_GUILD_EMOJIS});
+		this.indexGuildEmojis(BUILTIN_EMOJI_SECTION_ID, BUILTIN_GUILD_EMOJIS);
 	}
 
 	deleteGuild(guildId: string): void {
@@ -317,6 +335,7 @@ class EmojiGuildRegistry {
 				addCustomEmoji(emoji);
 			}
 		};
+		addGuildEmojis(BUILTIN_EMOJI_SECTION_ID);
 		if (guildId) {
 			addGuildEmojis(guildId);
 		}

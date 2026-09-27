@@ -1946,6 +1946,179 @@
 				]
 			}
 		},
+		"/admin/cosmetics": {
+			"get": {
+				"operationId": "list_admin_cosmetics",
+				"summary": "List cosmetics",
+				"tags": ["Admin"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/AdminCosmeticListResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "List every uploaded avatar frame and nameplate with its uploader, newest first. Requires COSMETICS_MANAGE permission.",
+				"security": [{"adminApiKey": []}]
+			},
+			"post": {
+				"operationId": "create_admin_cosmetic",
+				"summary": "Upload a cosmetic",
+				"tags": ["Admin"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/AdminCosmeticResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Upload an avatar frame or a nameplate that every account can then choose. Accepts PNG, JPEG, WebP, GIF and AVIF up to 2 MiB; animated images are kept. Creates audit log entry. Requires COSMETICS_MANAGE permission.",
+				"security": [{"adminApiKey": []}],
+				"requestBody": {
+					"required": true,
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/AdminCosmeticCreateRequest"}}}
+				}
+			}
+		},
+		"/admin/cosmetics/{cosmetic_id}": {
+			"delete": {
+				"operationId": "delete_admin_cosmetic",
+				"summary": "Delete a cosmetic",
+				"tags": ["Admin"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/AdminCosmeticDeleteResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Remove an uploaded avatar frame or nameplate and its image. Accounts that chose it show nothing in its place. Returns deleted false when no such cosmetic exists. Creates audit log entry. Requires COSMETICS_MANAGE permission.",
+				"security": [{"adminApiKey": []}],
+				"parameters": [
+					{
+						"name": "cosmetic_id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"description": "The ID of the uploaded cosmetic",
+							"allOf": [{"$ref": "#/components/schemas/SnowflakeType"}]
+						},
+						"description": "The ID of the uploaded cosmetic"
+					}
+				]
+			}
+		},
 		"/admin/gateway/memory-stats": {
 			"get": {
 				"operationId": "get_admin_gateway_memory_stats",
@@ -9694,7 +9867,7 @@
 				"type": "object",
 				"properties": {
 					"acls": {
-						"maxItems": 109,
+						"maxItems": 110,
 						"type": "array",
 						"items": {"$ref": "#/components/schemas/AdminAclType"},
 						"description": "List of access control permissions to assign"
@@ -11857,6 +12030,68 @@
 				"required": ["guilds"],
 				"additionalProperties": false
 			},
+			"AdminCosmeticDeleteResponse": {
+				"type": "object",
+				"properties": {
+					"deleted": {"type": "boolean", "description": "Whether a cosmetic with this ID existed and was removed"}
+				},
+				"required": ["deleted"],
+				"additionalProperties": false
+			},
+			"AdminCosmeticCreateRequest": {
+				"type": "object",
+				"properties": {
+					"kind": {
+						"description": "Whether the image is an avatar frame or a nameplate",
+						"allOf": [{"$ref": "#/components/schemas/CosmeticKindSchema"}]
+					},
+					"name": {"description": "The display name of the cosmetic (1-32 characters)", "type": "string"},
+					"image": {
+						"description": "Base64-encoded image. An avatar frame is square with a transparent centre; a nameplate is at least twice as wide as it is tall.",
+						"allOf": [{"$ref": "#/components/schemas/Base64ImageType"}]
+					}
+				},
+				"required": ["kind", "name", "image"]
+			},
+			"AdminCosmeticResponse": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"description": "The ID of the uploaded cosmetic",
+						"allOf": [{"$ref": "#/components/schemas/SnowflakeStringType"}]
+					},
+					"kind": {
+						"description": "Whether this is an avatar frame or a nameplate",
+						"allOf": [{"$ref": "#/components/schemas/CosmeticKindSchema"}]
+					},
+					"name": {"type": "string", "description": "The display name of the cosmetic"},
+					"animated": {"type": "boolean", "description": "Whether the image is animated"},
+					"creator_id": {
+						"description": "The admin who uploaded the cosmetic",
+						"allOf": [{"$ref": "#/components/schemas/SnowflakeStringType"}]
+					},
+					"created_at": {
+						"type": "string",
+						"format": "date-time",
+						"pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$",
+						"description": "ISO8601 timestamp of the upload"
+					}
+				},
+				"required": ["id", "kind", "name", "animated", "creator_id", "created_at"],
+				"additionalProperties": false
+			},
+			"AdminCosmeticListResponse": {
+				"type": "object",
+				"properties": {
+					"cosmetics": {
+						"type": "array",
+						"items": {"$ref": "#/components/schemas/AdminCosmeticResponse"},
+						"description": "Every uploaded cosmetic, newest first"
+					}
+				},
+				"required": ["cosmetics"],
+				"additionalProperties": false
+			},
 			"DeleteMessageResponse": {
 				"type": "object",
 				"properties": {"success": {"type": "boolean", "enum": [true]}},
@@ -12496,7 +12731,7 @@
 					},
 					"acls": {
 						"description": "Replacement list of access control permissions for the key",
-						"maxItems": 109,
+						"maxItems": 110,
 						"type": "array",
 						"items": {"$ref": "#/components/schemas/AdminAclType"}
 					}
@@ -12514,7 +12749,7 @@
 						"type": "string"
 					},
 					"acls": {
-						"maxItems": 109,
+						"maxItems": 110,
 						"type": "array",
 						"items": {"type": "string"},
 						"description": "List of access control permissions for the key"
@@ -12544,7 +12779,7 @@
 						"maximum": 365
 					},
 					"acls": {
-						"maxItems": 109,
+						"maxItems": 110,
 						"type": "array",
 						"items": {"$ref": "#/components/schemas/AdminAclType"},
 						"description": "List of access control permissions for the key"
@@ -12565,7 +12800,7 @@
 						"type": "string"
 					},
 					"acls": {
-						"maxItems": 109,
+						"maxItems": 110,
 						"type": "array",
 						"items": {"type": "string"},
 						"description": "List of access control permissions for the key"
@@ -12578,7 +12813,7 @@
 				"type": "object",
 				"properties": {
 					"acls": {
-						"maxItems": 109,
+						"maxItems": 110,
 						"type": "array",
 						"items": {"type": "string", "minLength": 1, "maxLength": 64},
 						"description": "Every admin access control permission the admin API recognises"
@@ -12602,6 +12837,7 @@
 					"asset:purge",
 					"audit_log:view",
 					"admin:authenticate",
+					"cosmetics:manage",
 					"jobs:view",
 					"jobs:cancel",
 					"ban:email:add",
@@ -13892,6 +14128,14 @@
 					"name_style": {
 						"description": "Font, colors and effect of the display name. Omitted when the user uses the default style.",
 						"allOf": [{"$ref": "#/components/schemas/NameStyleSchema"}]
+					},
+					"avatar_frame": {
+						"description": "The avatar frame the user chose. Omitted when none is set.",
+						"allOf": [{"$ref": "#/components/schemas/CosmeticRefType"}]
+					},
+					"nameplate": {
+						"description": "The nameplate the user chose. Omitted when none is set.",
+						"allOf": [{"$ref": "#/components/schemas/CosmeticRefType"}]
 					}
 				},
 				"required": ["id", "username", "global_name", "avatar", "avatar_color", "flags"],
@@ -13960,6 +14204,12 @@
 					"A system message indicating a user joined",
 					"A reply message"
 				]
+			},
+			"CosmeticRefType": {
+				"description": "A built-in cosmetic id (a lowercase word) or the snowflake of an uploaded cosmetic",
+				"type": "string",
+				"minLength": 1,
+				"maxLength": 20
 			},
 			"NameStyleSchema": {
 				"type": "object",
@@ -14319,6 +14569,17 @@
 					{"name": "IS_ANIMATED", "value": "32", "description": "Attachment is animated"}
 				]
 			},
+			"CosmeticKindSchema": {
+				"description": "The kind of a cosmetic",
+				"x-enumNames": ["AVATAR_FRAME", "NAMEPLATE"],
+				"x-enumDescriptions": [
+					"A decoration drawn around the round avatar",
+					"A background behind the name in the member and DM lists"
+				],
+				"enum": ["avatar_frame", "nameplate"],
+				"type": "string"
+			},
+			"Base64ImageType": {"type": "string"},
 			"Int64StringType": {"type": "string", "pattern": "^-?\\d+$", "format": "int64"},
 			"GiftCodeDurationTypeSchema": {
 				"description": "Gift code duration unit",
@@ -15244,7 +15505,7 @@
 					"pending_bulk_message_deletion_at": {"nullable": true, "type": "string"},
 					"deletion_reason_code": {"nullable": true, "allOf": [{"$ref": "#/components/schemas/Int32Type"}]},
 					"deletion_public_reason": {"nullable": true, "type": "string"},
-					"acls": {"maxItems": 109, "type": "array", "items": {"type": "string"}},
+					"acls": {"maxItems": 110, "type": "array", "items": {"type": "string"}},
 					"traits": {"maxItems": 100, "type": "array", "items": {"type": "string"}},
 					"has_totp": {"type": "boolean"},
 					"authenticator_types": {"maxItems": 10, "type": "array", "items": {"$ref": "#/components/schemas/Int32Type"}},

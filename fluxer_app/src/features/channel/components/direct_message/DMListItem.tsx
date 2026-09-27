@@ -41,6 +41,7 @@ import KeyboardMode from '@app/features/ui/state/KeyboardMode';
 import MobileLayout from '@app/features/ui/state/MobileLayout';
 import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
 import {formatShortRelativeTime} from '@app/features/ui/utils/ShortRelativeTimeLabels';
+import {Nameplate} from '@app/features/user/cosmetics/Nameplate';
 import type {User} from '@app/features/user/models/User';
 import {resolveNamePaint} from '@app/features/user/name_style/NamePaint';
 import UserGuildSettings from '@app/features/user/state/UserGuildSettings';
@@ -370,6 +371,7 @@ const ResolvedDMListItem = observer(function ResolvedDMListItem({
 						}}
 						data-flx="channel.direct-message.dm-list-item.dm-item-mobile-selected.navigate-to"
 					>
+						{!isGroupDM && <Nameplate nameplateId={recipient?.nameplate} />}
 						<AnimatePresence data-flx="channel.direct-message.dm-list-item.animate-presence">
 							{unreadState.shouldShowUnreadIndicator && (
 								<div
@@ -523,6 +525,7 @@ const ResolvedDMListItem = observer(function ResolvedDMListItem({
 					onFocus={() => setIsFocused(true)}
 					onBlur={() => setIsFocused(false)}
 					data-dm-list-focus-item="true"
+					data-name-animate-scope=""
 					role="link"
 					tabIndex={0}
 					aria-label={dmAriaLabel}
@@ -535,6 +538,7 @@ const ResolvedDMListItem = observer(function ResolvedDMListItem({
 					}}
 					data-flx="channel.direct-message.dm-list-item.dm-item-selected.navigate-to"
 				>
+					{!isGroupDM && <Nameplate nameplateId={recipient?.nameplate} />}
 					<AnimatePresence data-flx="channel.direct-message.dm-list-item.animate-presence--2">
 						{unreadState.shouldShowUnreadIndicator && (
 							<div

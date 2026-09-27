@@ -5,6 +5,7 @@ import type {ExpressionKind} from '@app/features/expressions/commands/Expression
 import {http} from '@app/features/platform/transport/RestTransport';
 import {failureCode} from '@app/features/platform/utils/ResponseInspection';
 import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
+import {isBuiltinEmojiId} from '@fluxer/constants/src/BuiltinEmojiConstants';
 
 export interface ExpressionSourceGuild {
 	id: string;
@@ -27,6 +28,9 @@ function sourceEndpoint(kind: ExpressionKind, id: string): string {
 }
 
 export async function fetchExpressionSource(kind: ExpressionKind, id: string): Promise<ExpressionSourceResult> {
+	if (kind === 'emoji' && isBuiltinEmojiId(id)) {
+		return {available: false};
+	}
 	try {
 		const response = await http.get<ExpressionSourceGuildResponse>(sourceEndpoint(kind, id));
 		const body = response.body;

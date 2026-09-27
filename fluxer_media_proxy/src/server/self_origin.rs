@@ -58,6 +58,7 @@ pub(in crate::server) fn resolve(app: &AppState, url: &str) -> Option<SelfOrigin
     let asset = parse_guild_member_asset_path(path)
         .or_else(|| parse_simple_asset_path(path, AssetKind::Emoji))
         .or_else(|| parse_simple_asset_path(path, AssetKind::Sticker))
+        .or_else(|| parse_simple_asset_path(path, AssetKind::Cosmetic))
         .or_else(|| parse_standard_asset_path(path))?;
     Some(SelfOrigin::Stored {
         bucket: cdn.clone(),

@@ -20,6 +20,10 @@ export const UserRateLimitConfigs = {
 		bucket: 'user:check_username',
 		config: {limit: 60, windowMs: ms('10 seconds')},
 	} as RouteRateLimitConfig,
+	COSMETICS_LIST: {
+		bucket: 'cosmetics:list',
+		config: {limit: 30, windowMs: ms('10 seconds')},
+	} as RouteRateLimitConfig,
 	USER_UPDATE_SELF: {
 		bucket: 'user:update',
 		config: {limit: 20, windowMs: ms('1 minute')},

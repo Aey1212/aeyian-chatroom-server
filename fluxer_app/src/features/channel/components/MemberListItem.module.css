@@ -2,6 +2,7 @@
 
 .button {
 	position: relative;
+	isolation: isolate;
 	padding-top: var(--member-list-item-padding-block);
 	padding-bottom: var(--member-list-item-padding-block);
 	cursor: pointer;

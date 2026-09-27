@@ -12,6 +12,10 @@ export const AdminRateLimitConfigs = {
 		bucket: 'admin:user:modify',
 		config: {limit: 100, windowMs: ms('1 minute')},
 	} as RouteRateLimitConfig,
+	ADMIN_COSMETIC_MODIFY: {
+		bucket: 'admin:cosmetic:modify',
+		config: {limit: 30, windowMs: ms('1 minute')},
+	} as RouteRateLimitConfig,
 	ADMIN_GUILD_MODIFY: {
 		bucket: 'admin:guild:modify',
 		config: {limit: 100, windowMs: ms('1 minute')},

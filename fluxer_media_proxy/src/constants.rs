@@ -50,6 +50,7 @@ pub enum AssetKind {
     EmbedSplash,
     Emoji,
     Sticker,
+    Cosmetic,
     Attachment,
 }
 
@@ -133,6 +134,7 @@ pub fn dims_for(kind: AssetKind) -> Option<Dims> {
         }),
         AssetKind::Emoji => Some(Dims { min: 32, max: 512 }),
         AssetKind::Sticker => Some(Dims { min: 128, max: 512 }),
+        AssetKind::Cosmetic => Some(Dims { min: 32, max: 1200 }),
         AssetKind::Attachment => None,
     }
 }

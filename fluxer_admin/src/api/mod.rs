@@ -11,6 +11,7 @@ pub mod bans;
 pub mod bulk;
 pub mod client;
 pub mod codes;
+pub mod cosmetics;
 pub mod guild_assets;
 pub mod guilds;
 pub mod instance_config;

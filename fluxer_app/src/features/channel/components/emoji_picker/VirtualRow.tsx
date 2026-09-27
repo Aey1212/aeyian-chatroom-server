@@ -7,11 +7,10 @@ import {
 } from '@app/features/channel/components/emoji_picker/EmojiPickerConstants';
 import {EmojiRenderer} from '@app/features/channel/components/emoji_picker/EmojiRenderer';
 import type {Channel} from '@app/features/channel/models/Channel';
+import {EmojiSectionIcon} from '@app/features/emoji/builtin/BuiltinEmojiSection';
 import * as EmojiPickerCommands from '@app/features/emoji/commands/EmojiPickerCommands';
 import EmojiPicker from '@app/features/emoji/state/EmojiPicker';
 import type {FlatEmoji} from '@app/features/emoji/types/EmojiTypes';
-import {GuildIcon} from '@app/features/guild/components/popouts/GuildIcon';
-import Guilds from '@app/features/guild/state/Guilds';
 import {remFromPx} from '@app/features/theme/layout/RemFromPx';
 import {CaretDownIcon, ClockIcon, StarIcon} from '@phosphor-icons/react';
 import {observer} from 'mobx-react-lite';
@@ -81,13 +80,7 @@ const VirtualRowRenderer: React.FC<VirtualRowRendererProps> = React.memo(
 						className={styles.headerIcon}
 						data-flx="channel.emoji-picker.virtual-row.virtual-row-renderer.header-icon--3"
 					>
-						<GuildIcon
-							id={row.guildId}
-							name={row.name}
-							icon={Guilds.getGuild(row.guildId)?.icon ?? null}
-							sizePx={16}
-							data-flx="channel.emoji-picker.virtual-row.virtual-row-renderer.guild-icon"
-						/>
+						<EmojiSectionIcon guildId={row.guildId} sizePx={16} />
 					</div>
 				);
 			}

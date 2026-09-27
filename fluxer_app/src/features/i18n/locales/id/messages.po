@@ -949,8 +949,8 @@ msgid "{count, plural, one {# image} other {# images}}"
 msgstr "{count, plural, one {# gambar} other {# gambar}}"
 
 #: src/features/channel/components/ChannelSourcePreview.tsx:245
-#: src/features/channel/components/direct_message/DMListItem.tsx:448
-#: src/features/channel/components/direct_message/DMListItem.tsx:613
+#: src/features/channel/components/direct_message/DMListItem.tsx:450
+#: src/features/channel/components/direct_message/DMListItem.tsx:617
 #: src/features/guild/components/bottomsheets/GuildHeaderBottomSheet.tsx:118
 #: src/features/user/components/modals/MutualItemsSheet.tsx:159
 #: src/features/user/components/modals/user_profile_modal/MutualGroupItem.tsx:26
@@ -1249,7 +1249,7 @@ msgid "{eightHours} hours"
 msgstr "{eightHours} jam"
 
 #. Error message in the messaging emoji renderer.
-#: src/features/messaging/components/markdown/renderers/EmojiRenderer.tsx:29
+#: src/features/messaging/components/markdown/renderers/EmojiRenderer.tsx:30
 msgid "{emojiName} (failed to load)"
 msgstr "{emojiName} (gagal dimuat)"
 
@@ -2337,6 +2337,11 @@ msgstr "60 detik"
 msgid "7 days"
 msgstr "7 hari"
 
+#. Profile settings section description for the nameplate.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:39
+msgid "A background behind your name in the member list and in direct messages."
+msgstr "A background behind your name in the member list and in direct messages."
+
 #. Required-action error when the API requires a captcha for phone verification.
 #: src/features/auth/components/modals/required_action/RequiredActionDescriptors.ts:560
 msgid "A browser check is required before phone verification. Try again from the sign-in page or contact support."
@@ -2376,6 +2381,11 @@ msgstr "Stiker kustom dari komunitas ini. Anda bisa menggunakannya di komunitas 
 #: src/features/search/utils/SearchUtils.ts:73
 msgid "a date or date range"
 msgstr "tanggal atau rentang tanggal"
+
+#. Profile settings section description for the avatar frame.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:27
+msgid "A decoration around your avatar, shown wherever your avatar appears."
+msgstr "A decoration around your avatar, shown wherever your avatar appears."
 
 #. Description of a built-in unicode emoji in the emoji info card. productName is the Fluxer product name.
 #: src/features/expressions/components/ExpressionInfoCard.tsx:22
@@ -3334,6 +3344,11 @@ msgstr "Pengaturan video lanjutan"
 #: src/features/theme_studio/sections/ThemeStudioSettingsSection.tsx:300
 msgid "Aero Snap and Snap Layouts can stop working while transparency is enabled."
 msgstr "Aero Snap dan Snap Layouts dapat berhenti berfungsi saat transparansi diaktifkan."
+
+#. Name of the emoji section with the emojis that come with the app. A proper name; keep it as is.
+#: src/features/emoji/builtin/BuiltinEmojiSection.tsx:11
+msgid "Aeyian"
+msgstr "Aeyian"
 
 #. Label in the idle settings section.
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/IdleSettingsSection.tsx:24
@@ -4756,7 +4771,9 @@ msgstr "Unggahan audio"
 msgid "Audio upload"
 msgstr "Unggahan audio"
 
+#. Nameplate name: shifting northern-lights colours.
 #. Profile frame name: shifting northern-lights colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:58
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:45
 msgid "Aurora"
 msgstr "Aurora"
@@ -5093,6 +5110,16 @@ msgstr "Avatar"
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:82
 msgid "Avatar file is too large. Choose a file smaller than {imageMaxSizeLabel}."
 msgstr "Ukuran file avatar terlalu besar. Pilih file yang lebih kecil dari {imageMaxSizeLabel}."
+
+#. Profile settings section title for the decoration drawn around the round avatar.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:23
+msgid "Avatar frame"
+msgstr "Avatar frame"
+
+#. Accessible label for the list of avatar frames.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:31
+msgid "Avatar frames"
+msgstr "Avatar frames"
 
 #. Webhook avatar upload error. IMAGE_MAX_SIZE_LABEL is a formatted file-size limit.
 #: src/features/webhook/components/WebhookListItem.tsx:39
@@ -7570,7 +7597,9 @@ msgstr "Pilih bahasamu"
 msgid "Choose your profile accent color"
 msgstr "Pilih warna aksen profilmu"
 
+#. Nameplate name: teal circuit-board lines.
 #. Profile frame name: green circuit-board lines.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:63
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:53
 msgid "Circuit"
 msgstr "Circuit"
@@ -8024,7 +8053,7 @@ msgid "Close account"
 msgstr "Tutup akun"
 
 #. Accessible label and tooltip for the close-DM button on a DM list row.
-#: src/features/channel/components/direct_message/DMListItem.tsx:85
+#: src/features/channel/components/direct_message/DMListItem.tsx:86
 msgid "Close direct message with {displayName}"
 msgstr "Tutup pesan langsung dengan {displayName}"
 
@@ -8517,7 +8546,7 @@ msgstr "Nama komunitas"
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:129
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:130
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:113
 msgid "Community nickname"
 msgstr "Nama panggilan komunitas"
@@ -8542,7 +8571,7 @@ msgstr "Penggantian komunitas"
 #. Tooltip on the owner crown icon next to a member name on the community members page.
 #: src/features/channel/components/bottomsheets/ChannelDetailsBottomSheetMemberList.tsx:42
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:73
-#: src/features/channel/components/MemberListItem.tsx:37
+#: src/features/channel/components/MemberListItem.tsx:38
 msgid "Community owner"
 msgstr "Pemilik komunitas"
 
@@ -8565,7 +8594,7 @@ msgid "Community profile"
 msgstr "Profil komunitas"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:76
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:77
 msgid "Community profile updated"
 msgstr "Profil komunitas diperbarui"
 
@@ -9320,12 +9349,12 @@ msgid "Copy emoji"
 msgstr "Salin emoji"
 
 #. Developer-mode action that copies the emoji ID to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:32
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:33
 msgid "Copy emoji ID"
 msgstr "Salin ID emoji"
 
 #. Action that copies the emoji URL to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:36
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:37
 msgid "Copy emoji URL"
 msgstr "Salin URL emoji"
 
@@ -9377,7 +9406,7 @@ msgstr "Salin gambar"
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
 #. Image context menu action that copies the image URL to the clipboard.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:44
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:45
 #: src/features/ui/action_menu/items/MediaMenuData.tsx:70
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:44
 msgid "Copy image link"
@@ -12214,7 +12243,7 @@ msgstr "Mode tampilan"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the my profile tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:22
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:141
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:142
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:61
 msgid "Display name"
 msgstr "Nama tampilan"
@@ -12353,7 +12382,7 @@ msgstr "Apakah kamu juga ingin memblokir pesan langsung dari anggota komunitas y
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:149
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:150
 msgid "Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985."
 msgstr "Dok, saya dari masa depan. Saya datang ke sini dengan mesin waktu yang kamu ciptakan. Sekarang, saya butuh bantuanmu untuk kembali ke tahun 1985."
 
@@ -12973,7 +13002,7 @@ msgid "Edit translation provider"
 msgstr "Edit penyedia terjemahan"
 
 #. Button or menu action label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:96
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:97
 msgid "Edit your profile appearance and see a live preview"
 msgstr "Edit tampilan profilmu dan lihat pratinjau langsung"
 
@@ -13171,7 +13200,9 @@ msgstr "Sematan disembunyikan"
 msgid "Embeds unsuppressed"
 msgstr "Sematan ditampilkan lagi"
 
+#. Nameplate name: glowing fire colours with sparks.
 #. Profile frame name: glowing fire colours.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:64
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:49
 msgid "Ember"
 msgstr "Ember"
@@ -14761,7 +14792,7 @@ msgid "Favorite DM"
 msgstr "Tambahkan DM ke favorit"
 
 #. Emoji context menu action that adds the emoji to favorites.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:28
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:29
 msgid "Favorite emoji"
 msgstr "Tambahkan emoji ke favorit"
 
@@ -15041,6 +15072,11 @@ msgstr "Opsi pertama"
 #: src/features/expressions/utils/UnicodeEmojis.ts:49
 msgid "Flags"
 msgstr "Bendera"
+
+#. Avatar frame name: a flickering ring of fire.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:50
+msgid "Flames"
+msgstr "Flames"
 
 #. US state name, shown next to the country name in the mature content gate.
 #: src/features/user/utils/UserGeo.ts:53
@@ -15465,7 +15501,7 @@ msgstr "Prancis"
 #. Short label in the channel and chat emoji picker category list. Keep it concise.
 #. Short label in the use virtual rows hook. Keep it concise.
 #. Short label in the use virtual rows hook. Keep it concise.
-#: src/features/channel/components/emoji_picker/EmojiPickerCategoryList.tsx:16
+#: src/features/channel/components/emoji_picker/EmojiPickerCategoryList.tsx:15
 #: src/features/channel/components/emoji_picker/hooks/useVirtualRows.ts:17
 #: src/features/channel/components/sticker_picker/hooks/useVirtualRows.ts:14
 msgid "Frequently used"
@@ -15615,7 +15651,9 @@ msgstr "Nama pengirim"
 msgid "From user"
 msgstr "Dari pengguna"
 
+#. Avatar frame name: icy blue and white.
 #. Profile frame name: icy blue and white.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:51
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:50
 msgid "Frost"
 msgstr "Frost"
@@ -15649,6 +15687,13 @@ msgstr "Keluar sepenuhnya dari {productName} lalu mulai ulang agar macOS menerap
 #: src/features/user/components/settings_utils/search_index/VoiceVideoIndex.ts:52
 msgid "Gain control"
 msgstr "Kontrol penguatan"
+
+#. Avatar frame name: deep space colours with stars.
+#. Nameplate name: deep space colours with stars.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:54
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:61
+msgid "Galaxy"
+msgstr "Galaxy"
 
 #. Folder icon option in the community-folder settings modal: a game controller shape.
 #: src/features/guild/components/modals/GuildFolderSettingsModal.tsx:57
@@ -16402,7 +16447,7 @@ msgstr "Status online grup"
 #. Channel details bottom sheet label or action (channel type, settings, toast, confirmation, or notification option).
 #. Short label in the direct message member list item. Keep it concise.
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:152
-#: src/features/channel/components/MemberListItem.tsx:41
+#: src/features/channel/components/MemberListItem.tsx:42
 msgid "Group owner"
 msgstr "Pemilik grup"
 
@@ -16454,6 +16499,11 @@ msgstr "Cadangan simulcast H.264"
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedVideoControls.tsx:178
 msgid "H.265 (requires opt-in)"
 msgstr "H.265 (perlu diaktifkan)"
+
+#. Avatar frame name: a glowing golden ring.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:47
+msgid "Halo"
+msgstr "Halo"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the connection add connection modal.
@@ -20445,7 +20495,7 @@ msgstr "Pesan"
 #: src/features/user/components/modals/UserProfileModal.tsx:771
 #: src/features/user/components/popouts/UserProfilePopout.tsx:425
 #: src/features/user/components/popouts/UserProfilePopout.tsx:455
-#: src/features/user/components/profile/ProfilePreview.tsx:341
+#: src/features/user/components/profile/ProfilePreview.tsx:352
 msgctxt "message-action"
 msgid "Message"
 msgstr "Kirim pesan"
@@ -20867,6 +20917,11 @@ msgstr "Minnesota"
 msgid "Minors at risk, mature content in the wrong place, or unwanted conduct."
 msgstr "Anak di bawah umur berisiko, konten dewasa di tempat yang salah, atau perilaku yang tidak diinginkan."
 
+#. Nameplate name: fresh mint green.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:65
+msgid "Mint"
+msgstr "Mint"
+
 #. Camera settings menu checkbox for flipping the local camera preview horizontally.
 #. Switch label in the camera preview modal for flipping the local camera preview horizontally.
 #. Switch label in the video tab for flipping the local camera preview horizontally.
@@ -21104,7 +21159,7 @@ msgid "More button"
 msgstr "Tombol lainnya"
 
 #. Submenu label that contains additional emoji context menu actions.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:52
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:53
 msgid "More emoji actions"
 msgstr "Tindakan emoji lainnya"
 
@@ -21479,7 +21534,7 @@ msgstr "Bisukan audio streaming"
 #: src/features/app/components/layout/ChannelItem.tsx:112
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:62
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:39
-#: src/features/channel/components/direct_message/DMListItem.tsx:77
+#: src/features/channel/components/direct_message/DMListItem.tsx:78
 msgid "muted"
 msgstr "dibisukan"
 
@@ -21729,6 +21784,16 @@ msgstr "Formulir nama passkey"
 msgid "Name style"
 msgstr "Name style"
 
+#. Profile settings section title for the background drawn behind your name in lists.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:35
+msgid "Nameplate"
+msgstr "Nameplate"
+
+#. Accessible label for the list of nameplates.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:43
+msgid "Nameplates"
+msgstr "Nameplates"
+
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:272
 msgid "Narrate"
@@ -21814,7 +21879,9 @@ msgstr "Neko"
 msgid "Neko cat that chases your cursor"
 msgstr "Kucing Neko yang mengejar kursormu"
 
+#. Avatar frame name: a glowing neon tube.
 #. Profile frame name: glowing neon tube.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:48
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:47
 msgid "Neon"
 msgstr "Neon"
@@ -22719,6 +22786,7 @@ msgid "Non-convert"
 msgstr "Tanpa konversi"
 
 #. Activity log value naming the lowest member verification level of a community, where no verification is required.
+#. Cosmetic choice that shows nothing.
 #. Developer tools debug menu label. Internal-only surface for developers; translators may keep this terse.
 #. Library picker entry meaning no sound is selected for this scope.
 #. Member verification level option in the community moderation settings tab. Short standalone label for the lowest level (no verification).
@@ -22730,6 +22798,7 @@ msgstr "Tanpa konversi"
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogSharedMessages.ts:52
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:37
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:146
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:44
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:41
 #: src/features/user/components/modals/tabs/privacy_safety_tab/data_request_modal/DataRequestModal.tsx:220
 #: src/features/voice/components/AudioSourcePickerLinux.tsx:261
@@ -22988,6 +23057,11 @@ msgstr "Pembuat URL OAuth2"
 #: src/features/expressions/utils/UnicodeEmojis.ts:41
 msgid "Objects"
 msgstr "Objek"
+
+#. Nameplate name: deep blue water with ripples.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:60
+msgid "Ocean"
+msgstr "Ocean"
 
 #. Activity log value meaning the explicit content filter of a community is turned off.
 #. Channel overview settings tab label, control, or validation message (name, topic, slowmode, voice region, mature content gate).
@@ -23439,7 +23513,7 @@ msgid "Open DMs only"
 msgstr "Hanya DM terbuka"
 
 #. Action that opens the emoji URL in an external browser.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:40
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:41
 msgid "Open emoji in browser"
 msgstr "Buka emoji di browser"
 
@@ -23492,7 +23566,7 @@ msgstr "Buka gambar dalam tampilan penuh"
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
 #. Image context menu action that opens the image URL in an external browser.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:48
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:49
 #: src/features/ui/action_menu/items/MediaMenuData.tsx:90
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:48
 msgid "Open image link"
@@ -23801,6 +23875,11 @@ msgstr "atau kirim undangan ke teman:"
 #: src/features/expressions/components/modals/GiftSendToFriendModal.tsx:131
 msgid "or send the gift link to a friend:"
 msgstr "atau kirim tautan hadiah ke teman:"
+
+#. Avatar frame name: a thin dotted ring that circles the avatar.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:53
+msgid "Orbit"
+msgstr "Orbit"
 
 #. Short label in the markdown tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:41
@@ -24660,7 +24739,7 @@ msgid "Ping: {latency}ms"
 msgstr "Ping: {latency} ms"
 
 #. Screen-reader fragment announcing that the DM list row is pinned. Lowercase fragment.
-#: src/features/channel/components/direct_message/DMListItem.tsx:81
+#: src/features/channel/components/direct_message/DMListItem.tsx:82
 msgid "pinned"
 msgstr "disematkan"
 
@@ -25338,18 +25417,18 @@ msgstr "Warna profil"
 
 #. Settings section label for editing profile appearance and identity.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:108
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:109
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:6
 msgid "Profile customization"
 msgstr "Kustomisasi profil"
 
 #. Label in the my profile tab. Preserve {selectedGuildName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:104
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:105
 msgid "Profile customization for {selectedGuildName}"
 msgstr "Kustomisasi profil untuk {selectedGuildName}"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:100
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:101
 msgid "Profile customization form"
 msgstr "Formulir kustomisasi profil"
 
@@ -25429,7 +25508,7 @@ msgid "Profile type"
 msgstr "Jenis profil"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:80
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:81
 msgid "Profile updated"
 msgstr "Profil diperbarui"
 
@@ -25466,7 +25545,7 @@ msgstr "Tanya saat ada perangkat audio baru"
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:145
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:146
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:177
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:160
 msgid "Pronouns"
@@ -25779,6 +25858,11 @@ msgstr "Grup radio"
 #: src/features/moderation/components/report/OptionDescriptors.ts:94
 msgid "Raid coordination"
 msgstr "Koordinasi penyerangan"
+
+#. Avatar frame name: a ring in every colour of the rainbow.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:49
+msgid "Rainbow"
+msgstr "Rainbow"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:171
@@ -27970,7 +28054,11 @@ msgstr "Rusia"
 msgid "Safety"
 msgstr "Keamanan"
 
+#. Avatar frame name: cherry-blossom pink.
+#. Nameplate name: cherry-blossom pink with petals.
 #. Profile frame name: cherry-blossom pink.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:52
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:62
 #: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:51
 msgid "Sakura"
 msgstr "Sakura"
@@ -28953,7 +29041,7 @@ msgstr "Teks yang bisa dipilih"
 #: src/features/app/components/layout/ChannelItem.tsx:96
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:54
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:35
-#: src/features/channel/components/direct_message/DMListItem.tsx:69
+#: src/features/channel/components/direct_message/DMListItem.tsx:70
 msgid "selected"
 msgstr "dipilih"
 
@@ -29284,7 +29372,7 @@ msgid "Sent"
 msgstr "Terkirim"
 
 #. DM list row preview text when the most recent message has only attachments.
-#: src/features/channel/components/direct_message/DMListItem.tsx:65
+#: src/features/channel/components/direct_message/DMListItem.tsx:66
 msgid "Sent an attachment"
 msgstr "Mengirim lampiran"
 
@@ -32042,6 +32130,11 @@ msgstr "Saran"
 msgid "Summary"
 msgstr "Ringkasan"
 
+#. Nameplate name: orange, pink and violet evening sky.
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:59
+msgid "Sunset"
+msgstr "Sunset"
+
 #. Switch label in the community notification settings modal. Suppresses @everyone and @here notifications in this community. The two placeholders render the literal @everyone and @here tokens and must not be translated.
 #. Toggle label that suppresses @everyone and @here mentions; placeholders are the localized mention tags.
 #. Toggle label that suppresses @everyone and @here mentions; placeholders are the localized mention tags.
@@ -33725,7 +33818,7 @@ msgid "This message no longer exists."
 msgstr "Pesan ini sudah tidak ada."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:133
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:134
 msgid "This nickname will only be visible in this community"
 msgstr "Nama panggilan ini hanya akan terlihat di komunitas ini"
 
@@ -35180,7 +35273,7 @@ msgid "Unfavorite DM"
 msgstr "Hapus DM dari favorit"
 
 #. Emoji context menu action that removes the emoji from favorites.
-#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:24
+#: src/features/ui/action_menu/items/EmojiContextMenuItems.tsx:25
 msgid "Unfavorite emoji"
 msgstr "Hapus emoji dari favorit"
 
@@ -35395,7 +35488,7 @@ msgid "Unlock all custom emojis and stickers across all communities with {premiu
 msgstr "Buka semua emoji dan stiker kustom di semua komunitas dengan {premiumProductName}"
 
 #. Premium upsell shown when sending custom emoji in a DM without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:16
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:17
 msgid "Unlock custom emojis in DMs with {premiumProductName}"
 msgstr "Buka emoji kustom di DM dengan {premiumProductName}"
 
@@ -35414,7 +35507,7 @@ msgid "Unlock more backgrounds with {premiumProductName}"
 msgstr "Buka lebih banyak latar belakang dengan {premiumProductName}"
 
 #. Premium upsell shown when sending custom stickers in a DM without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:28
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:29
 msgid "Unlock stickers in DMs with {premiumProductName}"
 msgstr "Buka stiker di DM dengan {premiumProductName}"
 
@@ -35605,7 +35698,7 @@ msgstr "Sematan DM grup dilepas"
 #: src/features/app/components/layout/sidebar_nav/GuildFolderItem.tsx:89
 #: src/features/app/components/layout/sidebar_nav/GuildListDMItem.tsx:58
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:27
-#: src/features/channel/components/direct_message/DMListItem.tsx:73
+#: src/features/channel/components/direct_message/DMListItem.tsx:74
 msgid "unread"
 msgstr "belum dibaca"
 
@@ -36205,7 +36298,7 @@ msgid "Use emoji from other communities in this channel."
 msgstr "Gunakan emoji dari komunitas lain di saluran ini."
 
 #. Premium upsell shown when sending external emoji without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:24
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:25
 msgid "Use emoji from other communities with {premiumProductName}"
 msgstr "Gunakan emoji dari komunitas lain dengan {premiumProductName}"
 
@@ -36318,7 +36411,7 @@ msgid "Use stickers from other communities in this channel."
 msgstr "Gunakan stiker dari komunitas lain di saluran ini."
 
 #. Premium upsell shown when sending external stickers without a subscription.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:36
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:37
 msgid "Use stickers from other communities with {premiumProductName}"
 msgstr "Gunakan stiker dari komunitas lain dengan {premiumProductName}"
 
@@ -36833,22 +36926,22 @@ msgid "Verify your email before adding an authenticator app."
 msgstr "Verifikasi emailmu sebelum menambahkan aplikasi autentikator."
 
 #. Description text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:120
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:121
 msgid "Verify your email before changing your community nickname, avatar, banner, bio, pronouns, or accent color."
 msgstr "Verifikasi emailmu sebelum mengubah nama panggilan komunitas, avatar, banner, bio, kata ganti, atau warna aksenmu."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:124
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:125
 msgid "Verify your email before changing your username, display name, avatar, banner, bio, pronouns, time zone, or {premiumProductName} badge privacy."
 msgstr "Verifikasi emailmu sebelum mengubah nama pengguna, nama tampilan, avatar, banner, bio, kata ganti, zona waktu, atau privasi lencana {premiumProductName} milikmu."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:88
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:89
 msgid "Verify your email before editing this community profile. You can still preview it here."
 msgstr "Verifikasi emailmu sebelum mengedit profil komunitas ini. Kamu masih bisa melihat pratinjaunya di sini."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:92
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:93
 msgid "Verify your email before editing your profile. You can still preview it here."
 msgstr "Verifikasi emailmu sebelum mengedit profil. Kamu masih bisa melihat pratinjaunya di sini."
 
@@ -36875,12 +36968,12 @@ msgid "Verify your email to continue using {productName}."
 msgstr "Verifikasi emailmu untuk terus menggunakan {productName}."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:112
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:113
 msgid "Verify your email to edit this community profile"
 msgstr "Verifikasi emailmu untuk mengedit profil komunitas ini"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:116
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:117
 msgid "Verify your email to edit your profile"
 msgstr "Verifikasi emailmu untuk mengedit profil"
 
@@ -38529,7 +38622,7 @@ msgstr "Kemarin pukul {timeString}"
 
 #. First-person prefix used in DM list row preview when the current user is the message author.
 #: src/features/app/components/layout/MobileBottomNav.tsx:153
-#: src/features/channel/components/direct_message/DMListItem.tsx:61
+#: src/features/channel/components/direct_message/DMListItem.tsx:62
 msgid "You"
 msgstr "Kamu"
 
@@ -38691,7 +38784,7 @@ msgid "You can't befriend yourself"
 msgstr "Kamu tidak bisa berteman dengan diri sendiri"
 
 #. Label in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:137
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:138
 msgid "You can't change your nickname here"
 msgstr "Kamu tidak dapat mengubah nama panggilan di sini"
 
@@ -38923,7 +39016,7 @@ msgid "You have unsaved changes."
 msgstr "Ada perubahan yang belum disimpan."
 
 #. Warning text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:84
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:85
 msgid "You have unsaved changes. Save or reset before leaving."
 msgstr "Ada perubahan yang belum disimpan. Simpan atau setel ulang sebelum keluar."
 
@@ -39024,12 +39117,12 @@ msgid "You need the \"{manageWebhooksPermissionLabel}\" permission to view and e
 msgstr "Kamu memerlukan izin \"{manageWebhooksPermissionLabel}\" untuk melihat dan mengedit webhook untuk komunitas ini."
 
 #. Permission error shown when sending external emoji without the required permission.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:20
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:21
 msgid "You need the \"{permissionLabel}\" permission to use emoji from other communities here."
 msgstr "Kamu memerlukan izin \"{permissionLabel}\" untuk menggunakan emoji dari komunitas lain di sini."
 
 #. Permission error shown when sending external stickers without the required permission.
-#: src/features/expressions/utils/ExpressionPermissionUtils.ts:32
+#: src/features/expressions/utils/ExpressionPermissionUtils.ts:33
 msgid "You need the \"{permissionLabel}\" permission to use stickers from other communities here."
 msgstr "Kamu memerlukan izin \"{permissionLabel}\" untuk menggunakan stiker dari komunitas lain di sini."
 

@@ -408,6 +408,7 @@
 
 .dmItemMobile {
 	position: relative;
+	isolation: isolate;
 	display: flex;
 	width: 100%;
 	cursor: pointer;
@@ -443,6 +444,7 @@
 
 .dmItem {
 	position: relative;
+	isolation: isolate;
 	display: flex;
 	width: 100%;
 	cursor: pointer;

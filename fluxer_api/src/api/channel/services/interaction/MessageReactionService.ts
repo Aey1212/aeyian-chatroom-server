@@ -17,6 +17,7 @@ import type {User} from '@app/api/models/User';
 import type {IUserRepository} from '@app/api/user/IUserRepository';
 import {mapUserToPartialResponse} from '@app/api/user/UserMappers';
 import {assertGuildMemberCanCommunicate} from '@app/api/utils/GuildCommunicationUtils';
+import {getBuiltinEmoji} from '@fluxer/constants/src/BuiltinEmojiConstants';
 import {Permissions} from '@fluxer/constants/src/ChannelConstants';
 import {GuildOperations} from '@fluxer/constants/src/GuildConstants';
 import type {LimitKey} from '@fluxer/constants/src/LimitConfigMetadata';
@@ -406,6 +407,10 @@ export class MessageReactionService extends MessageInteractionBase {
 		const customEmojiMatch = decodedEmoji.match(REACTION_CUSTOM_EMOJI_REGEX);
 		if (customEmojiMatch) {
 			const [, , id] = customEmojiMatch;
+			const builtinEmoji = getBuiltinEmoji(id);
+			if (builtinEmoji) {
+				return {id: builtinEmoji.id, name: builtinEmoji.name, animated: false};
+			}
 			const emojiIdBigInt = createEmojiID(BigInt(id));
 			let hasGlobalExpressions = 0;
 			if (userId) {

@@ -9,6 +9,7 @@ import type {FlatEmoji} from '@app/features/emoji/types/EmojiTypes';
 import type {GuildSticker} from '@app/features/expressions/models/GuildSticker';
 import Permission from '@app/features/permissions/state/Permission';
 import {formatPermissionLabel} from '@app/features/permissions/utils/PermissionUtils';
+import {BUILTIN_EMOJI_SECTION_ID} from '@fluxer/constants/src/BuiltinEmojiConstants';
 import {Permissions} from '@fluxer/constants/src/ChannelConstants';
 import type {I18n} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
@@ -64,7 +65,7 @@ export function checkEmojiAvailabilityWithGuildFallback(
 	channel: Channel | null,
 	guildIdFallback: string | null,
 ): AvailabilityCheck {
-	if (!emoji.guildId) {
+	if (!emoji.guildId || emoji.guildId === BUILTIN_EMOJI_SECTION_ID) {
 		return {
 			canUse: true,
 			isLockedByPremium: false,

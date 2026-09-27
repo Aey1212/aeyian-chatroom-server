@@ -223,6 +223,10 @@ pub struct ApiUserPartialResponse {
     pub mention_flags: Option<i32>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub name_style: Option<NameStyle>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub avatar_frame: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub nameplate: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -766,6 +770,8 @@ mod tests {
             flags: 0,
             mention_flags: None,
             name_style: None,
+            avatar_frame: None,
+            nameplate: None,
         };
         ApiMessageResponse {
             id: "2".to_string(),

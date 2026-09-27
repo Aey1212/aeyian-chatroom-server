@@ -55,13 +55,13 @@ const FULL_USER_COLUMNS: &str = "\
     first_refund_at, version, has_verified_phone, \
     premium_grace_ends_at, mention_flags, \
     last_voice_activity_sharing_change_at, \
-    timezone, timezone_privacy_flags, name_style";
+    timezone, timezone_privacy_flags, name_style, avatar_frame, nameplate";
 #[cfg(feature = "scylla")]
 const PARTIAL_USER_COLUMNS: &str = "\
     user_id, username, global_name, \
     avatar_hash, bot, system, flags, \
     banner_hash, banner_color, accent_color, avatar_color, \
-    mention_flags, name_style";
+    mention_flags, name_style, avatar_frame, nameplate";
 const USER_BATCH_SIZE: usize = 128;
 const USER_BATCH_CONCURRENCY: usize = 8;
 const USER_CACHE_MIN_GENERATION_STRIPES: usize = 4096;
@@ -169,6 +169,8 @@ struct FullUserDbRow {
     timezone: Option<String>,
     timezone_privacy_flags: Option<i32>,
     name_style: Option<String>,
+    avatar_frame: Option<String>,
+    nameplate: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -187,6 +189,8 @@ struct PartialUserDbRow {
     avatar_color: Option<i32>,
     mention_flags: Option<i32>,
     name_style: Option<String>,
+    avatar_frame: Option<String>,
+    nameplate: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -249,6 +253,8 @@ struct FullUserKvRow {
     timezone: Option<String>,
     timezone_privacy_flags: Option<i32>,
     name_style: Option<String>,
+    avatar_frame: Option<String>,
+    nameplate: Option<String>,
 }
 
 fn generation_stripes(max_entries: u64) -> usize {
@@ -681,6 +687,8 @@ fn fluxer_system_user() -> User {
         timezone: None,
         timezone_privacy_flags: None,
         name_style: None,
+        avatar_frame: None,
+        nameplate: None,
     }
 }
 
@@ -779,6 +787,8 @@ impl From<PartialUserDbRow> for UserPartial {
             avatar_color: row.avatar_color,
             mention_flags: row.mention_flags,
             name_style: NameStyle::parse_stored(row.name_style.as_deref()),
+            avatar_frame: row.avatar_frame,
+            nameplate: row.nameplate,
         }
     }
 }
@@ -864,6 +874,8 @@ impl From<FullUserDbRow> for User {
             timezone: row.timezone,
             timezone_privacy_flags: row.timezone_privacy_flags,
             name_style: NameStyle::parse_stored(row.name_style.as_deref()),
+            avatar_frame: row.avatar_frame,
+            nameplate: row.nameplate,
         }
     }
 }
@@ -931,6 +943,8 @@ impl From<FullUserKvRow> for User {
             timezone: row.timezone,
             timezone_privacy_flags: row.timezone_privacy_flags,
             name_style: NameStyle::parse_stored(row.name_style.as_deref()),
+            avatar_frame: row.avatar_frame,
+            nameplate: row.nameplate,
         }
     }
 }

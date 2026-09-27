@@ -55,6 +55,12 @@ pub const NAV_SECTIONS: &[NavSection] = &[
                 [acl::USER_UPDATE_USERNAME]
             ),
             item!(
+                "Cosmetics",
+                "/cosmetics",
+                "cosmetics",
+                [acl::COSMETICS_MANAGE]
+            ),
+            item!(
                 "Bulk Actions",
                 "/bulk-actions",
                 "bulk-actions",

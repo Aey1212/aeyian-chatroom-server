@@ -85,6 +85,7 @@ pub(in crate::server) fn parse_simple_asset_path(
     let expected_prefix = match kind {
         AssetKind::Emoji => "emojis",
         AssetKind::Sticker => "stickers",
+        AssetKind::Cosmetic => "cosmetics",
         _ => return None,
     };
     let mut parts = canonical_public_path(path)?.split('/');
@@ -314,6 +315,11 @@ mod tests {
         assert!(parse_standard_asset_path("/branding/fluxer-wordmark/deadbeef.png").is_some());
         assert!(parse_guild_member_asset_path("/guilds/01/users/2/avatars/h.gif").is_none());
         assert!(parse_simple_asset_path("/emojis/012.webp", AssetKind::Emoji).is_none());
+        let cosmetic =
+            parse_simple_asset_path("/cosmetics/1501314428688998182.webp", AssetKind::Cosmetic)
+                .unwrap();
+        assert_eq!("cosmetics/1501314428688998182", cosmetic.storage_key);
+        assert_eq!(AssetKind::Cosmetic, cosmetic.kind);
     }
 
     #[test]

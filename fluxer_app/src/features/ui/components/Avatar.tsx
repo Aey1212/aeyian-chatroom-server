@@ -7,6 +7,7 @@ import {useShouldAnimate} from '@app/features/app/hooks/useShouldAnimate';
 import GuildMembers from '@app/features/member/state/GuildMembers';
 import * as ImageCacheUtils from '@app/features/messaging/utils/ImageCacheUtils';
 import {BaseAvatar} from '@app/features/ui/components/BaseAvatar';
+import {AvatarFrame} from '@app/features/user/cosmetics/AvatarFrame';
 import type {User} from '@app/features/user/models/User';
 import Users from '@app/features/user/state/Users';
 import * as AvatarUtils from '@app/features/user/utils/AvatarUtils';
@@ -35,6 +36,8 @@ interface AvatarProps {
 	guildId?: string | null;
 	mediaSize?: MediaProxyImageSize;
 	animateStatusCutout?: boolean;
+	// Hides the user's avatar frame, for places where it would get in the way.
+	hideFrame?: boolean;
 	title?: never;
 }
 
@@ -57,6 +60,7 @@ const AvatarComponent = React.forwardRef<HTMLDivElement, AvatarProps>(
 			guildId,
 			mediaSize,
 			animateStatusCutout = false,
+			hideFrame = false,
 			...props
 		},
 		ref,
@@ -185,6 +189,15 @@ const AvatarComponent = React.forwardRef<HTMLDivElement, AvatarProps>(
 				statusLabel={statusLabel}
 				disableStatusTooltip={disableStatusTooltip}
 				animateStatusCutout={animateStatusCutout}
+				decoration={
+					hideFrame ? null : (
+						<AvatarFrame
+							frameId={user.avatarFrame}
+							size={size}
+							animate={isHovering || forceAnimate || forceAnimateIgnoringSettings}
+						/>
+					)
+				}
 				data-flx="ui.avatar.avatar-component.base-avatar"
 				data-flx-user-id={userId}
 				data-flx-user-username={NicknameUtils.formatNameForStreamerMode(user.username)}

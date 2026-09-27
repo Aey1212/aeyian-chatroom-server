@@ -1,0 +1,103 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.header {
+	margin-top: 0.5rem;
+}
+
+.title {
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+	font-size: 1.25rem;
+}
+
+.description {
+	font-size: 0.875rem;
+	color: var(--text-primary-muted);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+	gap: 0.75rem;
+	padding: 0.5rem 0.25rem;
+}
+
+.plateGrid {
+	composes: grid;
+	grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+}
+
+.tile {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0.5rem;
+	min-width: 0;
+	padding: 0.625rem;
+	border: 2px solid transparent;
+	border-radius: 0.5rem;
+	background-color: var(--background-secondary);
+	color: var(--text-primary);
+	cursor: pointer;
+}
+
+.tile:hover:not(:disabled) {
+	background-color: var(--background-modifier-hover);
+}
+
+.tile:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.tileSelected {
+	border-color: var(--brand-primary);
+}
+
+.label {
+	overflow: hidden;
+	font-size: 0.8125rem;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Room for the frame, which reaches a tenth of the avatar's size past its edge. */
+.avatarSample {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 4.25rem;
+}
+
+.avatarWithFrame {
+	position: relative;
+}
+
+/* A miniature list row: the plate is drawn behind it the same way as in the member list. */
+.plateSample {
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	height: 2.75rem;
+	padding: 0 0.5rem;
+	border-radius: 0.375rem;
+	background-color: var(--background-primary);
+	text-align: left;
+}
+
+.plateName {
+	overflow: hidden;
+	font-weight: 500;
+	font-size: 0.875rem;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

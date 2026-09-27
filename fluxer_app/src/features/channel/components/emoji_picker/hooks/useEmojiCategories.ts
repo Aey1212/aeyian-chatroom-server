@@ -6,6 +6,7 @@ import type {FlatEmoji, UnicodeEmoji} from '@app/features/emoji/types/EmojiTypes
 import UnicodeEmojis from '@app/features/expressions/utils/UnicodeEmojis';
 import GuildList from '@app/features/guild/state/GuildList';
 import SelectedGuild from '@app/features/navigation/state/SelectedGuild';
+import {BUILTIN_EMOJI_SECTION_ID} from '@fluxer/constants/src/BuiltinEmojiConstants';
 import {useMemo, useRef} from 'react';
 
 export function useEmojiCategories(
@@ -39,6 +40,7 @@ export function useEmojiCategories(
 				sortedGuildIds.unshift(selectedGuildId);
 			}
 		}
+		sortedGuildIds.unshift(BUILTIN_EMOJI_SECTION_ID);
 		const sortedGuildEmojisByGuildId = new Map<string, Array<FlatEmoji>>();
 		for (const guildId of sortedGuildIds) {
 			if (guildEmojisByGuildId.has(guildId)) {
