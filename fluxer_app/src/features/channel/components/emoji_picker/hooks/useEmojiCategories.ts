@@ -9,6 +9,8 @@ import SelectedGuild from '@app/features/navigation/state/SelectedGuild';
 import {BUILTIN_EMOJI_SECTION_ID} from '@fluxer/constants/src/BuiltinEmojiConstants';
 import {useMemo, useRef} from 'react';
 
+const FLAGS_CATEGORY = 'flags';
+
 export function useEmojiCategories(
 	allEmojis: ReadonlyArray<FlatEmoji | UnicodeEmoji>,
 	_searchResultEmojis: ReadonlyArray<FlatEmoji | UnicodeEmoji>,
@@ -40,7 +42,6 @@ export function useEmojiCategories(
 				sortedGuildIds.unshift(selectedGuildId);
 			}
 		}
-		sortedGuildIds.unshift(BUILTIN_EMOJI_SECTION_ID);
 		const sortedGuildEmojisByGuildId = new Map<string, Array<FlatEmoji>>();
 		for (const guildId of sortedGuildIds) {
 			if (guildEmojisByGuildId.has(guildId)) {
@@ -68,6 +69,12 @@ export function useEmojiCategories(
 					unicodeEmojisByCategory.get(category)!.sort((a, b) => a.index! - b.index!),
 				);
 			}
+		}
+		// Built-in emojis (the Aeyian flag) lead the Flags category instead of having a section of their own.
+		const builtinEmojis = allEmojis.filter((emoji) => emoji.guildId === BUILTIN_EMOJI_SECTION_ID);
+		const flags = sortedUnicodeEmojisByCategory.get(FLAGS_CATEGORY);
+		if (builtinEmojis.length > 0 && flags) {
+			sortedUnicodeEmojisByCategory.set(FLAGS_CATEGORY, [...builtinEmojis, ...flags]);
 		}
 		return sortedUnicodeEmojisByCategory;
 	}, [allEmojis]);
