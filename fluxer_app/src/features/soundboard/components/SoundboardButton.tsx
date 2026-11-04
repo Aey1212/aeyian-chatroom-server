@@ -4,6 +4,7 @@ import {SoundboardPopout} from '@app/features/soundboard/components/SoundboardPo
 import SoundboardPlaybackEngine from '@app/features/soundboard/engine/SoundboardPlaybackEngine';
 import FocusRing from '@app/features/ui/focus_ring/FocusRing';
 import {Popout} from '@app/features/ui/popover/PopoverPopout';
+import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
 import styles from '@app/features/voice/components/VoiceConnectionStatus.module.css';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
@@ -19,12 +20,31 @@ const OPEN_SOUNDBOARD_DESCRIPTOR = msg({
 export const SoundboardButton = observer(function SoundboardButton({
 	guildId,
 	channelId,
+	disabledLabel,
 }: {
 	guildId: string;
 	channelId: string;
+	disabledLabel?: string;
 }) {
 	const {i18n} = useLingui();
 	const playing = SoundboardPlaybackEngine.plays.some((play) => play.channelId === channelId);
+	if (disabledLabel) {
+		return (
+			<Tooltip text={disabledLabel} data-flx="soundboard.button.disabled-tooltip">
+				<FocusRing offset={-2} enabled={false} data-flx="soundboard.button.disabled-focus-ring">
+					<button
+						type="button"
+						className={styles.mediaButton}
+						disabled
+						aria-label={disabledLabel}
+						data-flx="soundboard.button.media-button-disabled"
+					>
+						<MusicNotesIcon weight="fill" className={styles.mediaIcon} data-flx="soundboard.button.disabled-icon" />
+					</button>
+				</FocusRing>
+			</Tooltip>
+		);
+	}
 	return (
 		<Popout
 			render={({onClose}) => (

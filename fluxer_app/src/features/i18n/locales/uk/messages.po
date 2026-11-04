@@ -23752,7 +23752,7 @@ msgid "Open software center"
 msgstr "Відкрити центр програм"
 
 #. Tooltip and accessible label of the soundboard button in the voice connection panel.
-#: src/features/soundboard/components/SoundboardButton.tsx:14
+#: src/features/soundboard/components/SoundboardButton.tsx:15
 msgid "Open soundboard"
 msgstr "Відкрити звукову панель"
 
