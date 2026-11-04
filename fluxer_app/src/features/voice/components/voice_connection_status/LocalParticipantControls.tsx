@@ -78,8 +78,8 @@ export const LocalParticipantControls = observer(() => {
 	const isScreenShareEnabled = localParticipantSnapshot?.isScreenShareEnabled ?? false;
 	const isNativeConnected = !room && MediaEngine.connected;
 	const isConnected = Boolean((room && localParticipant) || isNativeConnected);
-	const soundboardGuildId = isConnected ? MediaEngine.guildId : null;
-	const soundboardChannelId = isConnected ? MediaEngine.channelId : null;
+	const soundboardGuildId = MediaEngine.guildId;
+	const soundboardChannelId = MediaEngine.channelId;
 	const displayShareEnvironment = resolveDisplayShareEnvironment(isDesktop(), NativePermission.isLinuxWaylandDesktop);
 	const channelId = MediaEngine.channelId;
 	const guildId = MediaEngine.guildId;
@@ -274,6 +274,7 @@ export const LocalParticipantControls = observer(() => {
 				<SoundboardButton
 					guildId={soundboardGuildId}
 					channelId={soundboardChannelId}
+					disabledLabel={isConnected ? undefined : i18n._(WAITING_FOR_CONNECTION_DESCRIPTOR)}
 					data-flx="voice.voice-connection-status.local-participant-controls.soundboard-button"
 				/>
 			) : null}
