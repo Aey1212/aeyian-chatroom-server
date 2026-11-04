@@ -168,6 +168,7 @@ import {
 	GUILD_MEMBER_COLUMNS,
 	GUILD_MEMBERSHIP_METADATA_COLUMNS,
 	GUILD_ROLE_COLUMNS,
+	GUILD_SOUNDBOARD_SOUND_COLUMNS,
 	GUILD_STICKER_BY_STICKER_ID_COLUMNS,
 	GUILD_STICKER_COLUMNS,
 	type GuildAuditLogRow,
@@ -180,6 +181,7 @@ import {
 	type GuildMembershipMetadataRow,
 	type GuildRoleRow,
 	type GuildRow,
+	type GuildSoundboardSoundRow,
 	type GuildStickerRow,
 } from '@app/api/database/types/GuildTypes';
 import {
@@ -555,6 +557,11 @@ export const GuildStickers = defineTable<GuildStickerRow, 'guild_id' | 'sticker_
 	name: 'guild_stickers',
 	columns: GUILD_STICKER_COLUMNS,
 	primaryKey: ['guild_id', 'sticker_id'],
+});
+export const GuildSoundboardSounds = defineTable<GuildSoundboardSoundRow, 'guild_id' | 'sound_id'>({
+	name: 'guild_soundboard_sounds',
+	columns: GUILD_SOUNDBOARD_SOUND_COLUMNS,
+	primaryKey: ['guild_id', 'sound_id'],
 });
 export const GuildStickersByStickerId = defineTable<GuildStickerRow, 'sticker_id'>({
 	name: 'guild_stickers_by_sticker_id',

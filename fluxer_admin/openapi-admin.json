@@ -14715,6 +14715,11 @@
 						"description": "Allows using stickers from other guilds"
 					},
 					{"name": "MODERATE_MEMBERS", "value": "1099511627776", "description": "Allows timing out users"},
+					{
+						"name": "USE_SOUNDBOARD",
+						"value": "4398046511104",
+						"description": "Allows playing soundboard sounds in a voice channel"
+					},
 					{"name": "CREATE_EXPRESSIONS", "value": "8796093022208", "description": "Allows creating guild expressions"},
 					{"name": "PIN_MESSAGES", "value": "2251799813685248", "description": "Allows pinning messages"},
 					{"name": "BYPASS_SLOWMODE", "value": "4503599627370496", "description": "Allows bypassing slowmode"},
@@ -14723,6 +14728,11 @@
 						"name": "VIEW_CHANNEL_MEMBERS",
 						"value": "18014398509481984",
 						"description": "Allows viewing the member list in a channel"
+					},
+					{
+						"name": "MANAGE_SOUNDS",
+						"value": "36028797018963968",
+						"description": "Allows uploading, editing and deleting guild soundboard sounds"
 					}
 				]
 			},

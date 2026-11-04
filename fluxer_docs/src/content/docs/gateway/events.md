@@ -71,6 +71,7 @@ A Dispatch is buffered for [Resume](/gateway/commands/#resume) replay unless it 
 | [Guild Role Delete](#guild-role-delete) | A role is deleted from a guild | Guild connection |
 | [Guild Emojis Update](#guild-emojis-update) | A guild's emojis change | Guild connection |
 | [Guild Stickers Update](#guild-stickers-update) | A guild's stickers change | Guild connection |
+| [Guild Soundboard Sounds Update](#guild-soundboard-sounds-update) | A guild's soundboard sounds change | Guild connection |
 | [Channel Create](#channel-create) | A channel becomes visible to the session | Channel visibility |
 | [Channel Update](#channel-update) | A visible channel changes | Channel visibility |
 | [Channel Update Bulk](#channel-update-bulk) | One operation changes several channels together | Channel visibility |
@@ -107,6 +108,8 @@ A Dispatch is buffered for [Resume](/gateway/commands/#resume) replay unless it 
 | [Voice State Update](#voice-state-update) | A guild or call participant's voice state changes | Channel visibility |
 | [Voice Server Update](#voice-server-update) | The session receives or replaces its own voice grant | Current session |
 | [Entrance Sound Play](#entrance-sound-play) | A participant's entrance sound plays in a voice channel | Voice channel |
+| [Soundboard Sound Play](#soundboard-sound-play) | A participant plays a soundboard sound in a voice channel | Voice channel |
+| [Soundboard Sound Stop](#soundboard-sound-stop) | A participant stops a soundboard sound they played | Voice channel |
 | [Call Create](#call-create) | A private channel call begins or becomes visible | Call recipient |
 | [Call Update](#call-update) | The ringing set, participant roster, or region of a call changes | Call recipient |
 | [Call Delete](#call-delete) | A call ends or becomes unavailable | Call recipient |
@@ -468,6 +471,17 @@ A guild's stickers changed.
 | stickers | array[[guild sticker](/http-api/guild-stickers/#guild-sticker-object) object] | Every sticker in the guild |
 
 A client that stores the guild's stickers replaces them with this array. Fluxer does not send per-sticker create, update, or delete events.
+
+### <span id="guild-soundboard-sounds-update"></span>GUILD_SOUNDBOARD_SOUNDS_UPDATE
+
+A guild's soundboard sounds changed.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| guild_id | snowflake | Guild the sounds belong to |
+| sounds | array[[soundboard sound](/http-api/soundboard/#soundboard-sound-object) object] | Every soundboard sound in the guild |
+
+A client that stores the guild's soundboard sounds replaces them with this array. Fluxer does not send per-sound create, update, or delete events.
 
 ### <span id="channel-create"></span>CHANNEL_CREATE
 
@@ -982,6 +996,40 @@ A participant asked for their entrance sound to play in a voice channel they are
 | content_type | string | MIME type of the sound file |
 
 Recipients are every other account with a voice state in that channel, one Dispatch each and at most one per account. The requesting account never receives its own sound.
+
+### <span id="soundboard-sound-play"></span>SOUNDBOARD_SOUND_PLAY
+
+A participant played a [soundboard](/http-api/soundboard/) sound in a voice channel they are connected to.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| play_id | string | Identifies this play, for [Soundboard Sound Stop](#soundboard-sound-stop) |
+| user_id | snowflake | Participant who played the sound |
+| channel_id | snowflake | Voice channel |
+| guild_id | snowflake | Guild that owns the sound |
+| sound_id | snowflake | Soundboard sound |
+| name | string | Display name of the sound |
+| emoji_id | ?snowflake | Custom emoji shown with the sound |
+| emoji_name | ?string | Unicode emoji shown with the sound |
+| volume | integer | Playback volume in percent, 0 through 100 |
+| hash | string | Content hash of the sound file |
+| url | string | URL to fetch the sound from |
+| duration_ms | integer | Sound duration in milliseconds |
+| content_type | string | MIME type of the sound file |
+
+Recipients are every account with a voice state in that channel, the player included, one Dispatch each and at most one per account.
+
+### <span id="soundboard-sound-stop"></span>SOUNDBOARD_SOUND_STOP
+
+A participant stopped a soundboard sound.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| play_id | string | The play to stop |
+| user_id | snowflake | Participant who asked to stop |
+| channel_id | snowflake | Voice channel |
+
+Recipients are the same as for [Soundboard Sound Play](#soundboard-sound-play). A client stops the play only when `user_id` matches the `user_id` of that play.
 
 ### <span id="call-create"></span>CALL_CREATE
 

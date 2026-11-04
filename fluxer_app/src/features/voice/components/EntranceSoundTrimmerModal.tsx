@@ -9,12 +9,13 @@ import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {Spinner} from '@app/features/ui/components/Spinner';
 import {AudioWaveform, computePeaks} from '@app/features/voice/components/AudioWaveform';
 import styles from '@app/features/voice/components/EntranceSoundTrimmerModal.module.css';
-import {encodeAudioBufferSliceToWav} from '@app/features/voice/utils/AudioWavEncode';
+import {encodeTrimmedAudio} from '@app/features/voice/utils/AudioOggOpusEncode';
 import {
 	ENTRANCE_SOUND_MAX_BYTES,
 	ENTRANCE_SOUND_MAX_DURATION_MS,
 	ENTRANCE_SOUND_MIN_DURATION_MS,
 } from '@fluxer/constants/src/EntranceSoundConstants';
+import type {MessageDescriptor} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
 import {Trans, useLingui} from '@lingui/react/macro';
 import {PauseIcon, PlayIcon} from '@phosphor-icons/react';
@@ -27,8 +28,10 @@ const TRIMMER_TITLE_DESCRIPTOR = msg({
 	comment: 'Title of the modal that lets the user crop a long audio file down to the entrance sound length cap.',
 });
 const TRIMMER_HELP_DESCRIPTOR = msg({
-	message: 'Drag the handles to choose up to 5.2 seconds of audio. The selected region is what gets uploaded.',
-	comment: 'Help text in the entrance sound trimmer modal explaining how the selection works.',
+	message:
+		'Drag the handles to choose up to {seconds, plural, one {# second} other {# seconds}} of audio. The selected region is what gets uploaded.',
+	comment:
+		'Help text in the audio trimmer modal explaining how the selection works. {seconds} is the maximum clip length.',
 });
 const CANCEL_DESCRIPTOR = msg({
 	message: 'Cancel',
@@ -76,10 +79,11 @@ export interface TrimmedAudioResult {
 interface EntranceSoundTrimmerModalProps {
 	sourceFile: File;
 	onConfirm: (result: TrimmedAudioResult) => Promise<void> | void;
+	title?: MessageDescriptor;
 }
 
 export const EntranceSoundTrimmerModal: React.FC<EntranceSoundTrimmerModalProps> = observer(
-	({sourceFile, onConfirm}) => {
+	({sourceFile, onConfirm, title}) => {
 		const {i18n} = useLingui();
 		const [audioBuffer, setAudioBuffer] = useState<AudioBuffer | null>(null);
 		const [decodeError, setDecodeError] = useState<string | null>(null);
@@ -252,11 +256,7 @@ export const EntranceSoundTrimmerModal: React.FC<EntranceSoundTrimmerModalProps>
 			setError(null);
 			setSubmitting(true);
 			try {
-				const blob = encodeAudioBufferSliceToWav(audioBuffer, {
-					startSeconds,
-					endSeconds,
-					downmixToMono: true,
-				});
+				const blob = await encodeTrimmedAudio(audioBuffer, {startSeconds, endSeconds});
 				if (blob.size > ENTRANCE_SOUND_MAX_BYTES) {
 					setError(
 						i18n._(ENCODED_TOO_LARGE_DESCRIPTOR, {limit: formatFileSize(i18n.locale, ENTRANCE_SOUND_MAX_BYTES)}),
@@ -285,7 +285,7 @@ export const EntranceSoundTrimmerModal: React.FC<EntranceSoundTrimmerModalProps>
 		return (
 			<Modal.Root size="small" centered data-flx="voice.entrance-sound-trimmer-modal.modal-root">
 				<Modal.Header
-					title={i18n._(TRIMMER_TITLE_DESCRIPTOR)}
+					title={i18n._(title ?? TRIMMER_TITLE_DESCRIPTOR)}
 					onClose={close}
 					data-flx="voice.entrance-sound-trimmer-modal.modal-header"
 				/>
@@ -295,7 +295,7 @@ export const EntranceSoundTrimmerModal: React.FC<EntranceSoundTrimmerModalProps>
 							{sourceFile.name}
 						</div>
 						<p className={styles.helpText} data-flx="voice.entrance-sound-trimmer-modal.help-text">
-							{i18n._(TRIMMER_HELP_DESCRIPTOR)}
+							{i18n._(TRIMMER_HELP_DESCRIPTOR, {seconds: MAX_DURATION_SECONDS})}
 						</p>
 						{decodeError ? (
 							<p className={styles.errorText} data-flx="voice.entrance-sound-trimmer-modal.decode-error">

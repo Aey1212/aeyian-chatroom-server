@@ -520,4 +520,10 @@ export const ErrorCodeToI18nKey = {
 	[ValidationErrorCodes.ENTRANCE_SOUND_NAME_LENGTH_INVALID]: 'entrance_sounds.name_length_invalid',
 	[ValidationErrorCodes.ENTRANCE_SOUND_NOT_FOUND]: 'entrance_sounds.not_found',
 	[ValidationErrorCodes.ENTRANCE_SOUND_INVALID_SCOPE]: 'entrance_sounds.invalid_scope',
+	[ValidationErrorCodes.SOUNDBOARD_SOUND_INVALID_FORMAT]: 'soundboard.invalid_format',
+	[ValidationErrorCodes.SOUNDBOARD_SOUND_DURATION_INVALID]: 'soundboard.duration_invalid',
+	[ValidationErrorCodes.SOUNDBOARD_SOUND_SIZE_EXCEEDS_LIMIT]: 'soundboard.size_exceeds_limit',
+	[ValidationErrorCodes.SOUNDBOARD_SOUND_NAME_LENGTH_INVALID]: 'soundboard.name_length_invalid',
+	[ValidationErrorCodes.SOUNDBOARD_SOUND_NOT_FOUND]: 'soundboard.not_found',
+	[ValidationErrorCodes.SOUNDBOARD_NOT_IN_VOICE_CHANNEL]: 'soundboard.not_in_voice_channel',
 } as const satisfies Record<AllErrorCodes, ErrorI18nKey>;

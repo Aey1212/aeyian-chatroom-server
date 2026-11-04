@@ -8317,6 +8317,255 @@
 				]
 			}
 		},
+		"/guilds/{guild_id}/soundboard-sounds": {
+			"get": {
+				"operationId": "list_guild_soundboard_sounds",
+				"summary": "List guild soundboard sounds",
+				"tags": ["Guilds"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/SoundboardSoundListResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Returns every soundboard sound the guild owns. Any member can list them.",
+				"security": [{"sessionToken": []}],
+				"parameters": [
+					{
+						"name": "guild_id",
+						"in": "path",
+						"required": true,
+						"schema": {"description": "The ID of the guild", "$ref": "#/components/schemas/SnowflakeType"},
+						"description": "The ID of the guild"
+					}
+				]
+			},
+			"post": {
+				"operationId": "create_guild_soundboard_sound",
+				"summary": "Upload a guild soundboard sound",
+				"tags": ["Guilds"],
+				"responses": {
+					"201": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/SoundboardSoundResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Uploads an audio clip (MP3, OGG, M4A or WAV, up to 120 seconds and 3 MB) to the guild soundboard. Requires MANAGE_SOUNDS.",
+				"security": [{"sessionToken": []}],
+				"parameters": [
+					{
+						"name": "guild_id",
+						"in": "path",
+						"required": true,
+						"schema": {"description": "The ID of the guild", "$ref": "#/components/schemas/SnowflakeType"},
+						"description": "The ID of the guild"
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/SoundboardSoundCreateRequest"}}}
+				}
+			}
+		},
+		"/guilds/{guild_id}/soundboard-sounds/{sound_id}": {
+			"patch": {
+				"operationId": "update_guild_soundboard_sound",
+				"summary": "Edit a guild soundboard sound",
+				"tags": ["Guilds"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/SoundboardSoundResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Changes the name, emoji or volume of a soundboard sound. Requires MANAGE_SOUNDS.",
+				"security": [{"sessionToken": []}],
+				"parameters": [
+					{
+						"name": "guild_id",
+						"in": "path",
+						"required": true,
+						"schema": {"$ref": "#/components/schemas/SnowflakeType"}
+					},
+					{"name": "sound_id", "in": "path", "required": true, "schema": {"$ref": "#/components/schemas/SnowflakeType"}}
+				],
+				"requestBody": {
+					"required": false,
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/SoundboardSoundUpdateRequest"}}}
+				}
+			},
+			"delete": {
+				"operationId": "delete_guild_soundboard_sound",
+				"summary": "Delete a guild soundboard sound",
+				"tags": ["Guilds"],
+				"responses": {
+					"204": {"description": "No Content"},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Removes the sound from the guild soundboard. Requires MANAGE_SOUNDS.",
+				"security": [{"sessionToken": []}],
+				"parameters": [
+					{
+						"name": "guild_id",
+						"in": "path",
+						"required": true,
+						"schema": {"$ref": "#/components/schemas/SnowflakeType"}
+					},
+					{"name": "sound_id", "in": "path", "required": true, "schema": {"$ref": "#/components/schemas/SnowflakeType"}}
+				]
+			}
+		},
 		"/guilds/{guild_id}/stickers": {
 			"post": {
 				"operationId": "create_guild_sticker",
@@ -19589,6 +19838,135 @@
 				}
 			}
 		},
+		"/voice/channels/{channel_id}/soundboard/play": {
+			"post": {
+				"operationId": "play_soundboard_sound",
+				"summary": "Play a soundboard sound in a voice channel",
+				"tags": ["Voice"],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/SoundboardPlayResponse"}}}
+					},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Sends a SOUNDBOARD_SOUND_PLAY gateway event to everyone in the voice channel, the sender included. Each client fetches the audio and plays it locally. Requires USE_SOUNDBOARD and being in the channel. One play per second per user.",
+				"security": [{"sessionToken": []}],
+				"parameters": [
+					{
+						"name": "channel_id",
+						"in": "path",
+						"required": true,
+						"schema": {"description": "The ID of the channel", "$ref": "#/components/schemas/SnowflakeType"},
+						"description": "The ID of the channel"
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/SoundboardPlayRequest"}}}
+				}
+			}
+		},
+		"/voice/channels/{channel_id}/soundboard/stop": {
+			"post": {
+				"operationId": "stop_soundboard_sound",
+				"summary": "Stop a soundboard sound you played",
+				"tags": ["Voice"],
+				"responses": {
+					"204": {"description": "No Content"},
+					"400": {
+						"description": "Bad Request - The request was malformed or contained invalid data",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"401": {
+						"description": "Unauthorized - Authentication is required or the token is invalid",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"403": {
+						"description": "Forbidden - You do not have permission to perform this action",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					},
+					"429": {
+						"description": "Too Many Requests - You are being rate limited",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ThrottledError"}}},
+						"headers": {
+							"Retry-After": {
+								"description": "Number of seconds to wait before retrying (only on 429)",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Limit": {
+								"description": "The number of requests that can be made in the current window",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Remaining": {
+								"description": "The number of remaining requests that can be made",
+								"schema": {"type": "integer"}
+							},
+							"X-RateLimit-Reset": {
+								"description": "Unix timestamp when the rate limit resets",
+								"schema": {"type": "integer"}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error - An unexpected error occurred",
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
+					}
+				},
+				"description": "Sends a SOUNDBOARD_SOUND_STOP gateway event to everyone in the voice channel. Clients stop the play only if it was started by the same user.",
+				"security": [{"sessionToken": []}],
+				"parameters": [
+					{
+						"name": "channel_id",
+						"in": "path",
+						"required": true,
+						"schema": {"description": "The ID of the channel", "$ref": "#/components/schemas/SnowflakeType"},
+						"description": "The ID of the channel"
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {"application/json": {"schema": {"$ref": "#/components/schemas/SoundboardStopRequest"}}}
+				}
+			}
+		},
 		"/webhooks/{webhook_id}": {
 			"get": {
 				"operationId": "get_webhook",
@@ -21616,6 +21994,25 @@
 					}
 				},
 				"required": ["id", "guild_id", "channel_id", "name", "token", "user"],
+				"additionalProperties": false
+			},
+			"SoundboardStopRequest": {
+				"type": "object",
+				"properties": {"play_id": {"type": "string", "minLength": 1, "maxLength": 64}},
+				"required": ["play_id"]
+			},
+			"SoundboardPlayRequest": {
+				"type": "object",
+				"properties": {
+					"guild_id": {"description": "Guild that owns the sound", "$ref": "#/components/schemas/SnowflakeType"},
+					"sound_id": {"$ref": "#/components/schemas/SnowflakeType"}
+				},
+				"required": ["guild_id", "sound_id"]
+			},
+			"SoundboardPlayResponse": {
+				"type": "object",
+				"properties": {"play_id": {"type": "string"}},
+				"required": ["play_id"],
 				"additionalProperties": false
 			},
 			"EntranceSoundPlayRequest": {
@@ -23961,8 +24358,8 @@
 					"hash": {"type": "string"},
 					"extension": {"type": "string", "enum": ["mp3", "ogg", "m4a", "wav"]},
 					"content_type": {"type": "string"},
-					"duration_ms": {"type": "integer", "minimum": 0, "maximum": 5200},
-					"size_bytes": {"type": "integer", "minimum": 0, "maximum": 1048576},
+					"duration_ms": {"type": "integer", "minimum": 0, "maximum": 120000},
+					"size_bytes": {"type": "integer", "minimum": 0, "maximum": 3145728},
 					"url": {"type": "string", "format": "uri"},
 					"created_at": {
 						"type": "string",
@@ -26327,6 +26724,81 @@
 					}
 				},
 				"required": ["name", "image"]
+			},
+			"SoundboardSoundUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"name": {"type": "string"},
+					"volume": {"type": "integer", "minimum": 0, "maximum": 100},
+					"emoji_id": {"anyOf": [{"$ref": "#/components/schemas/SnowflakeType"}, {"type": "null"}]},
+					"emoji_name": {"anyOf": [{"type": "string", "minLength": 1, "maxLength": 64}, {"type": "null"}]}
+				}
+			},
+			"SoundboardSoundResponse": {
+				"type": "object",
+				"properties": {
+					"id": {"$ref": "#/components/schemas/SnowflakeStringType"},
+					"guild_id": {"$ref": "#/components/schemas/SnowflakeStringType"},
+					"name": {"type": "string"},
+					"emoji_id": {"anyOf": [{"$ref": "#/components/schemas/SnowflakeStringType"}, {"type": "null"}]},
+					"emoji_name": {"type": ["string", "null"]},
+					"volume": {"type": "integer", "minimum": 0, "maximum": 100},
+					"creator_id": {"$ref": "#/components/schemas/SnowflakeStringType"},
+					"hash": {"type": "string"},
+					"extension": {"type": "string", "enum": ["mp3", "ogg", "m4a", "wav"]},
+					"content_type": {"type": "string"},
+					"duration_ms": {"type": "integer", "minimum": 0, "maximum": 120000},
+					"size_bytes": {"type": "integer", "minimum": 0, "maximum": 3145728},
+					"url": {"type": "string", "format": "uri"},
+					"created_at": {
+						"type": "string",
+						"format": "date-time",
+						"pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+					}
+				},
+				"required": [
+					"id",
+					"guild_id",
+					"name",
+					"emoji_id",
+					"emoji_name",
+					"volume",
+					"creator_id",
+					"hash",
+					"extension",
+					"content_type",
+					"duration_ms",
+					"size_bytes",
+					"url",
+					"created_at"
+				],
+				"additionalProperties": false
+			},
+			"SoundboardSoundCreateRequest": {
+				"type": "object",
+				"properties": {
+					"name": {"description": "Display name of the sound", "type": "string"},
+					"audio": {"description": "Base64-encoded audio bytes", "$ref": "#/components/schemas/Base64ImageType"},
+					"volume": {
+						"description": "Playback volume in percent, 0-100 (default 100)",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 100
+					},
+					"emoji_id": {
+						"description": "Custom emoji shown with the sound",
+						"anyOf": [{"$ref": "#/components/schemas/SnowflakeType"}, {"type": "null"}]
+					},
+					"emoji_name": {
+						"description": "Unicode emoji shown with the sound",
+						"anyOf": [{"type": "string", "minLength": 1, "maxLength": 64}, {"type": "null"}]
+					}
+				},
+				"required": ["name", "audio"]
+			},
+			"SoundboardSoundListResponse": {
+				"type": "array",
+				"items": {"$ref": "#/components/schemas/SoundboardSoundResponse"}
 			},
 			"GuildRoleUpdateRequest": {
 				"type": "object",
@@ -31924,6 +32396,11 @@
 						"description": "Allows using stickers from other guilds"
 					},
 					{"name": "MODERATE_MEMBERS", "value": "1099511627776", "description": "Allows timing out users"},
+					{
+						"name": "USE_SOUNDBOARD",
+						"value": "4398046511104",
+						"description": "Allows playing soundboard sounds in a voice channel"
+					},
 					{"name": "CREATE_EXPRESSIONS", "value": "8796093022208", "description": "Allows creating guild expressions"},
 					{"name": "PIN_MESSAGES", "value": "2251799813685248", "description": "Allows pinning messages"},
 					{"name": "BYPASS_SLOWMODE", "value": "4503599627370496", "description": "Allows bypassing slowmode"},
@@ -31932,6 +32409,11 @@
 						"name": "VIEW_CHANNEL_MEMBERS",
 						"value": "18014398509481984",
 						"description": "Allows viewing the member list in a channel"
+					},
+					{
+						"name": "MANAGE_SOUNDS",
+						"value": "36028797018963968",
+						"description": "Allows uploading, editing and deleting guild soundboard sounds"
 					}
 				]
 			},
@@ -34308,7 +34790,7 @@
 		{"name": "GIFs (Deprecated)"},
 		{"name": "Emojis"},
 		{"name": "Stickers"},
-		{"name": "Debug"},
-		{"name": "Voice"}
+		{"name": "Voice"},
+		{"name": "Debug"}
 	]
 }

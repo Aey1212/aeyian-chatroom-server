@@ -214,6 +214,25 @@ Returns the stored audio of a user entrance sound. The [entrance sounds resource
 
 The route selects no representation, accepts a `Range`, and sends no `Content-Disposition`. A successful response streams the stored bytes with the detected audio media type and the one-year `no-transform` cache policy.
 
+## Get soundboard sound
+
+<RouteHeader method="GET" path="/soundboard-sounds/{guild_id}/{filename}" unauthenticated />
+
+Returns the stored audio of a guild soundboard sound. The [soundboard resource](/http-api/soundboard/) writes the object to `soundboard-sounds/{guild_id}/{hash}.{ext}`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| guild_id<sup>1</sup> | string | The owning guild [snowflake](/snowflakes/) |
+| filename<sup>2</sup> | string | `{hash}.{ext}` for the stored sound |
+
+<sup>1</sup> A non-empty run of ASCII digits. Any other value makes the path unroutable and returns 404
+
+<sup>2</sup> Use the hash returned by the API. The extension is the exact lowercase `mp3`, `ogg`, `m4a`, or `wav`
+
+The route behaves like [Get entrance sound](#get-entrance-sound): no representation, `Range` accepted, no `Content-Disposition`, and the one-year `no-transform` cache policy.
+
 ### Response
 
 | Status | Body | Condition |

@@ -120,6 +120,14 @@ export const ChannelRateLimitConfigs = {
 		bucket: 'channel:stream:preview:delete::stream_key',
 		config: {limit: 20, windowMs: ms('10 seconds')},
 	} as RouteRateLimitConfig,
+	VOICE_SOUNDBOARD_PLAY: {
+		bucket: 'voice:soundboard:play::user_id',
+		config: {limit: 1, windowMs: ms('1 second')},
+	} as RouteRateLimitConfig,
+	VOICE_SOUNDBOARD_STOP: {
+		bucket: 'voice:soundboard:stop::user_id',
+		config: {limit: 10, windowMs: ms('10 seconds')},
+	} as RouteRateLimitConfig,
 	VOICE_ENTRANCE_SOUND_PLAY: {
 		bucket: 'voice:entrance_sound:play::user_id::channel_id',
 		config: {limit: 3, windowMs: ms('30 seconds')},

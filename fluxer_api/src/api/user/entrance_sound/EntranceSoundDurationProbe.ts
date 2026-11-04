@@ -10,7 +10,7 @@ import {temporaryFile} from 'tempy';
 
 const execFilePromise = promisify(execFile);
 const FFPROBE_TIMEOUT_MS = 5_000;
-const FFPROBE_MAX_BUFFER_BYTES = 512 * 1024;
+const FFPROBE_MAX_BUFFER_BYTES = 8 * 1024 * 1024;
 
 interface FfprobeFrame {
 	duration_time?: string;

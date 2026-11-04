@@ -14,6 +14,7 @@ import {KeybindRecorder} from '@app/features/input/components/KeybindRecorder';
 import Keybind, {getDefaultKeybind} from '@app/features/input/state/InputKeybind';
 import {openMacPermissionsModal} from '@app/features/permissions/system/commands/MacPermissionsModalCommands';
 import NativePermission from '@app/features/permissions/system/state/NativePermission';
+import {SoundboardVolumeSection} from '@app/features/soundboard/components/SoundboardVolumeSection';
 import {Button} from '@app/features/ui/button/Button';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {modal} from '@app/features/ui/commands/ModalCommands';
@@ -183,6 +184,10 @@ const MIC_TEST_DESCRIPTOR = msg({
 const ENTRANCE_SOUND_DESCRIPTOR = msg({
 	message: 'Entrance sound',
 	comment: 'Subsection title in the voice tab. Keep it concise.',
+});
+const SOUNDBOARD_SECTION_DESCRIPTOR = msg({
+	message: 'Soundboard',
+	comment: 'Title of the soundboard section in the voice settings tab.',
 });
 
 interface VoiceTabProps {
@@ -679,6 +684,12 @@ export const VoiceTab: React.FC<VoiceTabProps> = observer(({voiceSettings, autoR
 				data-flx="user.voice-tab.entrance-sound-section-wrapper"
 			>
 				<EntranceSoundSection data-flx="user.voice-tab.entrance-sound-section" />
+			</SettingsTabSection>
+			<SettingsTabSection
+				title={i18n._(SOUNDBOARD_SECTION_DESCRIPTOR)}
+				data-flx="user.voice-tab.soundboard-section-wrapper"
+			>
+				<SoundboardVolumeSection data-flx="user.voice-tab.soundboard-section" />
 			</SettingsTabSection>
 		</>
 	);

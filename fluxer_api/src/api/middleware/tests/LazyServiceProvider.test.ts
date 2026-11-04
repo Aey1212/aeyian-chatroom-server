@@ -63,6 +63,8 @@ const REQUEST_SERVICE_VARIABLES: ReadonlyArray<keyof HonoEnv['Variables']> = [
 	'searchService',
 	'singleCommunityService',
 	'snowflakeService',
+	'soundboardPlayService',
+	'soundboardService',
 	'ssoService',
 	'storageService',
 	'streamPreviewService',

@@ -1,0 +1,223 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+.popout {
+	--menu-edge: var(--voice-shadow-medium);
+	--menu-shadow: var(--voice-shadow-soft);
+	background-color: var(--background-primary);
+	border: 0.0625rem solid var(--background-modifier-accent);
+	border-radius: 0.5rem;
+	box-shadow:
+		0 0.125rem 0 var(--menu-edge),
+		0 0.5rem 1rem var(--menu-shadow);
+	width: 26rem;
+	max-width: calc(100vw - 1rem);
+	max-height: 30rem;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+:global(.theme-light) .popout {
+	--menu-edge: color-mix(in srgb, var(--voice-shadow-medium) 45%, transparent);
+	--menu-shadow: color-mix(in srgb, var(--voice-shadow-soft) 55%, transparent);
+}
+
+.popoutHeader {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.75rem 0.75rem 0.5rem;
+	flex-shrink: 0;
+}
+
+.popoutTitle {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--text-primary-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+
+.nowPlaying {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 0 0.75rem 0.5rem;
+	flex-shrink: 0;
+}
+
+.nowPlayingRow {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.375rem 0.5rem;
+	border-radius: 0.375rem;
+	background-color: color-mix(in srgb, var(--status-online) 12%, transparent);
+}
+
+.nowPlayingText {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	flex: 1;
+}
+
+.nowPlayingName {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--text-primary);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.nowPlayingBy {
+	font-size: 0.75rem;
+	color: var(--text-secondary);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.stopButton {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+	border: none;
+	background-color: var(--background-modifier-hover);
+	color: var(--text-primary);
+	font-size: 0.75rem;
+	font-weight: 600;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.stopButton:hover {
+	background-color: var(--background-modifier-selected);
+}
+
+.stopIcon {
+	width: 0.875rem;
+	height: 0.875rem;
+}
+
+.notice {
+	margin: 0;
+	padding: 0.5rem 0.75rem;
+	font-size: 0.875rem;
+	color: var(--text-secondary);
+}
+
+.gridScroller {
+	overflow-y: auto;
+	padding: 0 0.75rem 0.75rem;
+	flex: 1;
+	min-height: 4rem;
+}
+
+.centered {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5rem 0;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+	gap: 0.375rem;
+}
+
+.tile {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	min-width: 0;
+	padding: 0.5rem;
+	border-radius: 0.375rem;
+	border: 0.0625rem solid var(--background-modifier-accent);
+	background-color: var(--background-secondary);
+	color: var(--text-primary);
+	font-size: 0.8125rem;
+	text-align: left;
+	cursor: pointer;
+}
+
+.tile:hover:not(:disabled) {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--background-modifier-selected);
+}
+
+.tile:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.tilePlaying {
+	border-color: color-mix(in srgb, var(--status-online) 60%, transparent);
+	background-color: color-mix(in srgb, var(--status-online) 12%, var(--background-secondary));
+}
+
+.tilePreviewing {
+	border-color: var(--brand-primary);
+}
+
+.tileName {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.tileDuration {
+	flex-shrink: 0;
+	font-size: 0.6875rem;
+	color: var(--text-tertiary);
+}
+
+.emoji {
+	width: 1.25rem;
+	height: 1.25rem;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
+.emojiText {
+	font-size: 1.125rem;
+	line-height: 1.25rem;
+	flex-shrink: 0;
+}
+
+.emojiFallback {
+	width: 1.125rem;
+	height: 1.125rem;
+	color: var(--text-secondary);
+	flex-shrink: 0;
+}
+
+.volumeSection {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.volumeLabelRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.volumeLabel {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: var(--text-primary);
+}
+
+.volumeHint {
+	margin: 0;
+	font-size: 0.8125rem;
+	color: var(--text-secondary);
+}

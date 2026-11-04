@@ -7,7 +7,8 @@ use crate::{
     server::{
         asset_path::{
             StorageKeyDecodeError, decode_storage_key, parse_entrance_sound_path,
-            parse_guild_member_asset_path, parse_simple_asset_path, parse_standard_asset_path,
+            parse_guild_member_asset_path, parse_simple_asset_path, parse_soundboard_sound_path,
+            parse_standard_asset_path,
         },
         attachment_signature,
         cors::{self, OriginCheck},
@@ -151,6 +152,10 @@ async fn serve_public_read(app: &Arc<AppState>, read: PublicRead<'_>) -> Respons
         .await;
     }
     if let Some(key) = parse_entrance_sound_path(path) {
+        return stored::serve_stored_raw(app, method, &app.cfg.storage.bucket_cdn, &key, headers)
+            .await;
+    }
+    if let Some(key) = parse_soundboard_sound_path(path) {
         return stored::serve_stored_raw(app, method, &app.cfg.storage.bucket_cdn, &key, headers)
             .await;
     }

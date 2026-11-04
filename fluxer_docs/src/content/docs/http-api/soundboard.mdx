@@ -1,0 +1,282 @@
+---
+# SPDX-License-Identifier: AGPL-3.0-or-later
+title: Soundboard
+description: Guild soundboard sounds, upload validation, and playback in voice channels.
+---
+
+import RouteHeader from '@/components/RouteHeader.astro';
+
+A soundboard sound is an audio clip a guild owns. Members who hold `MANAGE_SOUNDS` upload, edit, and delete the guild's sounds. Members who hold `USE_SOUNDBOARD` play them in a voice channel they are connected to, and everyone in that channel hears the sound. [Voice](/voice/) defines voice state and placement. [Permissions](/http-api/permissions/) lists both bits.
+
+Playback works like [entrance sounds](/http-api/entrance-sounds/): no audio track is published. Fluxer tells every client in the channel which sound to play, and each client fetches the file and plays it locally.
+
+## Sound limits
+
+Every bound below is a fixed constant of the instance.
+
+| Bound | Value |
+| --- | --- |
+| Sounds per guild | No limit |
+| Decoded sound size | 3145728 bytes |
+| Encoded upload payload<sup>1</sup> | 4194336 characters |
+| Sound duration | 100 through 120000 milliseconds |
+| Display name | 1 through 32 characters after trimming |
+| Volume | 0 through 100 percent, 100 when omitted |
+| Plays | 1 per second for each user |
+
+<sup>1</sup> The 3 MiB decoded ceiling expressed in base64 with 32 characters of slack
+
+The detected containers and stored extensions are the same as for [entrance sounds](/http-api/entrance-sounds/#supported-containers).
+
+## Soundboard sound object
+
+One stored audio clip owned by one guild.
+
+### Structure
+
+| Field | Type | Description |
+| --- | --- | --- |
+| id | snowflake | The ID of the sound |
+| guild_id | snowflake | The guild that owns the sound |
+| name | string | The display name (1-32 characters) |
+| emoji_id | ?snowflake | Custom emoji shown with the sound |
+| emoji_name | ?string | Unicode emoji shown with the sound, null when `emoji_id` is set |
+| volume | integer | Playback volume in percent (0-100) |
+| creator_id | snowflake | The member who uploaded the sound |
+| hash | string | The content digest of the stored audio, 16 hexadecimal characters |
+| extension | string | The stored extension, one of `mp3`, `ogg`, `m4a`, and `wav` |
+| content_type | string | The MIME type the sound is stored and served with |
+| duration_ms | integer | The measured duration in milliseconds (0-120000) |
+| size_bytes | integer | The decoded size in bytes (0-3145728) |
+| url<sup>1</sup> | string | The absolute CDN URL the sound is fetched from |
+| created_at | ISO8601 timestamp | The time the sound was uploaded |
+
+<sup>1</sup> Built as `/soundboard-sounds/{guild_id}/{hash}.{extension}` on the instance's media endpoint. The [route that serves it](/media-proxy/routes/#get-soundboard-sound) accepts no credential
+
+### Example
+
+```json
+{
+  "id": "1567700000000000001",
+  "guild_id": "1555487351738728448",
+  "name": "airhorn",
+  "emoji_id": null,
+  "emoji_name": "📯",
+  "volume": 100,
+  "creator_id": "1550609051321106432",
+  "hash": "9f2c41ab77de0135",
+  "extension": "ogg",
+  "content_type": "audio/ogg",
+  "duration_ms": 2400,
+  "size_bytes": 38912,
+  "url": "https://chat.example.com/media/soundboard-sounds/1555487351738728448/9f2c41ab77de0135.ogg",
+  "created_at": "2026-11-05T09:12:04.118Z"
+}
+```
+
+## List guild soundboard sounds
+
+<RouteHeader method="GET" path="/v1/guilds/{guild_id}/soundboard-sounds" />
+
+Returns every soundboard sound the guild owns. Any member can list them.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| guild_id | snowflake | The guild |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | array of [soundboard sound](#soundboard-sound-object) objects | Sounds were returned |
+| 404 | [error response](/http-api/#error-response) | The caller is not a member of the guild |
+
+### Rate limit
+
+60 requests per 10 seconds for each authenticated user, on the `guild:soundboard:list::guild_id` bucket.
+
+## Upload guild soundboard sound
+
+<RouteHeader method="POST" path="/v1/guilds/{guild_id}/soundboard-sounds" />
+
+Decodes, validates, and stores one audio clip on the guild soundboard, and returns the created [soundboard sound object](#soundboard-sound-object). Requires `MANAGE_SOUNDS`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| guild_id | snowflake | The guild |
+
+### JSON body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| name | string | The display name (1-32 characters) |
+| audio | base64 string | The audio bytes, base64 encoded (1-4194336 characters) |
+| volume? | integer | Playback volume in percent (0-100), 100 when omitted |
+| emoji_id? | ?snowflake | Custom emoji shown with the sound |
+| emoji_name? | ?string | Unicode emoji shown with the sound, ignored when `emoji_id` is set |
+
+### Validation
+
+Every failure below returns 400 `INVALID_FORM_BODY`.
+
+| Failure | Validation code | Path |
+| --- | --- | --- |
+| The trimmed name is empty or longer than 32 characters | `SOUNDBOARD_SOUND_NAME_LENGTH_INVALID` | name |
+| The payload is not valid base64 | `INVALID_BASE64_FORMAT` | audio |
+| The decoded bytes exceed 3145728 bytes | `SOUNDBOARD_SOUND_SIZE_EXCEEDS_LIMIT` | audio |
+| The bytes resolve to no supported container | `SOUNDBOARD_SOUND_INVALID_FORMAT` | audio |
+| The duration cannot be measured, or is above 120000 ms or below 100 ms | `SOUNDBOARD_SOUND_DURATION_INVALID` | audio |
+| The validated sound could not be written to storage | `FAILED_TO_UPLOAD_IMAGE` | audio |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 201 | [soundboard sound](#soundboard-sound-object) object | Sound was stored |
+| 400 | [error response](/http-api/#error-response) | Name or audio fails [validation](#validation) |
+| 403 | [error response](/http-api/#error-response) | The caller lacks `MANAGE_SOUNDS` |
+| 404 | [error response](/http-api/#error-response) | The caller is not a member of the guild |
+
+### Side effects
+
+Emits a [GUILD_SOUNDBOARD_SOUNDS_UPDATE](/gateway/events/#guild-soundboard-sounds-update) Gateway event to the guild.
+
+### Rate limit
+
+10 requests per 30 seconds for each authenticated user, on the `guild:soundboard:create::guild_id` bucket.
+
+## Edit guild soundboard sound
+
+<RouteHeader method="PATCH" path="/v1/guilds/{guild_id}/soundboard-sounds/{sound_id}" />
+
+Changes the name, emoji, or volume of a sound and returns the updated [soundboard sound object](#soundboard-sound-object). The audio is unchanged. Requires `MANAGE_SOUNDS`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| guild_id | snowflake | The guild |
+| sound_id | snowflake | The sound |
+
+### JSON body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| name? | string | The display name (1-32 characters) |
+| volume? | integer | Playback volume in percent (0-100) |
+| emoji_id? | ?snowflake | Custom emoji shown with the sound |
+| emoji_name? | ?string | Unicode emoji shown with the sound |
+
+Sending either emoji field replaces both: `emoji_id` wins when both are set, and null in both clears the emoji. An omitted field keeps its value.
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | [soundboard sound](#soundboard-sound-object) object | Sound was updated |
+| 400 | [error response](/http-api/#error-response) | No such sound, `SOUNDBOARD_SOUND_NOT_FOUND` at `sound_id`, or the name is invalid |
+| 403 | [error response](/http-api/#error-response) | The caller lacks `MANAGE_SOUNDS` |
+
+### Side effects
+
+Emits a [GUILD_SOUNDBOARD_SOUNDS_UPDATE](/gateway/events/#guild-soundboard-sounds-update) Gateway event to the guild.
+
+### Rate limit
+
+20 requests per 10 seconds for each authenticated user, on the `guild:soundboard:update::guild_id` bucket.
+
+## Delete guild soundboard sound
+
+<RouteHeader method="DELETE" path="/v1/guilds/{guild_id}/soundboard-sounds/{sound_id}" />
+
+Removes the sound from the guild soundboard and returns 204 with an empty body. Requires `MANAGE_SOUNDS`.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| guild_id | snowflake | The guild |
+| sound_id | snowflake | The sound |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 204 | empty | Sound was deleted |
+| 400 | [error response](/http-api/#error-response) | No such sound, `SOUNDBOARD_SOUND_NOT_FOUND` at `sound_id` |
+| 403 | [error response](/http-api/#error-response) | The caller lacks `MANAGE_SOUNDS` |
+
+### Side effects
+
+Emits a [GUILD_SOUNDBOARD_SOUNDS_UPDATE](/gateway/events/#guild-soundboard-sounds-update) Gateway event to the guild. The stored file is deleted unless another sound of the guild has the same audio.
+
+### Rate limit
+
+Shares the `guild:soundboard:update::guild_id` bucket with [Edit guild soundboard sound](#edit-guild-soundboard-sound).
+
+## Play soundboard sound
+
+<RouteHeader method="POST" path="/v1/voice/channels/{channel_id}/soundboard/play" />
+
+Tells every account connected to a guild voice channel, the caller included, to play a soundboard sound, and returns the ID of this play. The caller must hold a voice state in the channel and `USE_SOUNDBOARD` there, and the sound must belong to the channel's guild. Emits a [SOUNDBOARD_SOUND_PLAY](/gateway/events/#soundboard-sound-play) Gateway event.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| channel_id | snowflake | The voice channel |
+
+### JSON body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| guild_id | snowflake | The guild that owns the sound, the channel's guild |
+| sound_id | snowflake | The sound to play |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 200 | object with `play_id` (string) | Fluxer attempted a Dispatch to every connected account |
+| 400 | [error response](/http-api/#error-response) | The caller is not in the channel, or no such sound<sup>1</sup> |
+| 403 | [error response](/http-api/#error-response) | The caller lacks `USE_SOUNDBOARD` in the channel |
+| 429 | [error response](/http-api/#error-response) | The caller played a sound less than a second ago |
+
+<sup>1</sup> `SOUNDBOARD_NOT_IN_VOICE_CHANNEL` at `channel_id` when the caller is not connected to the channel or the channel belongs to another guild, `SOUNDBOARD_SOUND_NOT_FOUND` at `sound_id` when the guild has no such sound
+
+### Rate limit
+
+1 request per second for each authenticated user, on the `voice:soundboard:play::user_id` bucket.
+
+## Stop soundboard sound
+
+<RouteHeader method="POST" path="/v1/voice/channels/{channel_id}/soundboard/stop" />
+
+Tells every account connected to the voice channel to stop a play and returns 204 with an empty body. Emits a [SOUNDBOARD_SOUND_STOP](/gateway/events/#soundboard-sound-stop) Gateway event carrying the caller's ID. Clients stop the play only when the caller is the member who started it.
+
+### Path parameters
+
+| Field | Type | Description |
+| --- | --- | --- |
+| channel_id | snowflake | The voice channel |
+
+### JSON body
+
+| Field | Type | Description |
+| --- | --- | --- |
+| play_id | string | The `play_id` returned by [Play soundboard sound](#play-soundboard-sound) |
+
+### Response
+
+| Status | Body | Condition |
+| --- | --- | --- |
+| 204 | empty | Fluxer attempted a Dispatch to every connected account |
+| 400 | [error response](/http-api/#error-response) | No such guild channel, `SOUNDBOARD_NOT_IN_VOICE_CHANNEL` at `channel_id` |
+
+### Rate limit
+
+10 requests per 10 seconds for each authenticated user, on the `voice:soundboard:stop::user_id` bucket.

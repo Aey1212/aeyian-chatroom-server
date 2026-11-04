@@ -17,12 +17,12 @@ Every bound below is a fixed constant of the instance, and none is resolved from
 | Bound | Value |
 | --- | --- |
 | Clips per account | 8 |
-| Decoded clip size<sup>1</sup> | 1048576 bytes |
-| Encoded upload payload<sup>1</sup> | 1398134 characters |
-| Clip duration<sup>2</sup> | 100 through 5200 milliseconds |
+| Decoded clip size<sup>1</sup> | 3145728 bytes |
+| Encoded upload payload<sup>1</sup> | 4194336 characters |
+| Clip duration<sup>2</sup> | 100 through 120000 milliseconds |
 | Display name | 1 through 32 characters after normalisation |
 
-<sup>1</sup> The character bound is the 1 MiB decoded ceiling expressed in base64 with 32 characters of slack, so it is the bound an oversized payload reaches first
+<sup>1</sup> The character bound is the 3 MiB decoded ceiling expressed in base64 with 32 characters of slack, so it is the bound an oversized payload reaches first
 
 <sup>2</sup> Only [Upload entrance sound](#upload-entrance-sound) applies the lower bound
 
@@ -64,8 +64,8 @@ One stored audio clip owned by one account. Every field except `name` is fixed a
 | hash<sup>1</sup> | string | The content digest of the stored audio, 16 hexadecimal characters |
 | extension | string | The stored extension, one of `mp3`, `ogg`, `m4a`, and `wav`, chosen by the [detected container](#supported-containers) |
 | content_type | string | The MIME type the clip is stored and served with, derived from `extension` |
-| duration_ms<sup>2</sup> | integer | The measured duration in milliseconds (0-5200) |
-| size_bytes | integer | The decoded size in bytes (0-1048576) |
+| duration_ms<sup>2</sup> | integer | The measured duration in milliseconds (0-120000) |
+| size_bytes | integer | The decoded size in bytes (0-3145728) |
 | url<sup>3</sup> | string | The absolute CDN URL the clip is fetched from |
 | created_at | ISO8601 timestamp | The time the clip was uploaded |
 
@@ -164,7 +164,7 @@ Decodes, validates, and stores one audio clip in the current account's library, 
 | Field | Type | Description |
 | --- | --- | --- |
 | name<sup>1</sup> | string | The display label shown for the clip (1-32 characters) |
-| audio<sup>2</sup> | base64 string | The audio bytes of the clip, base64 encoded (1-1398134 characters) |
+| audio<sup>2</sup> | base64 string | The audio bytes of the clip, base64 encoded (1-4194336 characters) |
 
 <sup>1</sup> Trimmed before its length is measured
 
@@ -180,12 +180,12 @@ Every failure below returns 400 `INVALID_FORM_BODY`. A response can contain more
 | --- | --- | --- |
 | The field is absent or is a literal empty string<sup>1</sup> | `INVALID_FORMAT` | name or audio |
 | The normalised name is empty or longer than 32 characters | `STRING_LENGTH_INVALID` | name |
-| The encoded payload is empty or longer than 1398134 characters<sup>2</sup> | `BASE64_LENGTH_INVALID` | audio |
+| The encoded payload is empty or longer than 4194336 characters<sup>2</sup> | `BASE64_LENGTH_INVALID` | audio |
 | The payload is not valid base64 | `INVALID_BASE64_FORMAT` | audio |
 | The library already holds 8 clips | `ENTRANCE_SOUND_QUOTA_REACHED` | audio |
-| The decoded bytes exceed 1048576 bytes | `ENTRANCE_SOUND_SIZE_EXCEEDS_LIMIT` | audio |
+| The decoded bytes exceed 3145728 bytes | `ENTRANCE_SOUND_SIZE_EXCEEDS_LIMIT` | audio |
 | The bytes resolve to no [supported container](#supported-containers), or their duration cannot be measured | `ENTRANCE_SOUND_INVALID_FORMAT` | audio |
-| The measured duration is above 5200 ms or below 100 ms | `ENTRANCE_SOUND_DURATION_EXCEEDS_LIMIT` | audio |
+| The measured duration is above 120000 ms or below 100 ms | `ENTRANCE_SOUND_DURATION_EXCEEDS_LIMIT` | audio |
 | The validated clip could not be written to storage | `FAILED_TO_UPLOAD_IMAGE` | audio |
 
 <sup>1</sup> An empty string is read as null under [input normalisation](/http-api/#input-normalisation), and neither field accepts null

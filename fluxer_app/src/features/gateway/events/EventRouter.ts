@@ -54,6 +54,11 @@ import {handlePresenceUpdateBulk} from '@app/features/presence/events/PresenceUp
 import {handleRelationshipAdd} from '@app/features/relationship/events/RelationshipAdd';
 import {handleRelationshipRemove} from '@app/features/relationship/events/RelationshipRemove';
 import {handleRelationshipUpdate} from '@app/features/relationship/events/RelationshipUpdate';
+import {
+	handleGuildSoundboardSoundsUpdate,
+	handleSoundboardSoundPlay,
+	handleSoundboardSoundStop,
+} from '@app/features/soundboard/events/SoundboardEvents';
 import {handleAuthSessionChange} from '@app/features/user/events/AuthSessionChange';
 import {handleUserConnectionsUpdate} from '@app/features/user/events/UserConnectionsUpdate';
 import {handleUserGuildSettingsUpdate} from '@app/features/user/events/UserGuildSettingsUpdate';
@@ -148,6 +153,9 @@ export function createHandlerRegistry(): GatewayHandlerRegistry {
 	registry.set('CALL_UPDATE', handleCallUpdate as GatewayEventHandler);
 	registry.set('CALL_DELETE', handleCallDelete as GatewayEventHandler);
 	registry.set('ENTRANCE_SOUND_PLAY', handleEntranceSoundPlay as GatewayEventHandler);
+	registry.set('SOUNDBOARD_SOUND_PLAY', handleSoundboardSoundPlay as GatewayEventHandler);
+	registry.set('SOUNDBOARD_SOUND_STOP', handleSoundboardSoundStop as GatewayEventHandler);
+	registry.set('GUILD_SOUNDBOARD_SOUNDS_UPDATE', handleGuildSoundboardSoundsUpdate as GatewayEventHandler);
 	registry.set('INVITE_CREATE', handleInviteCreate as GatewayEventHandler);
 	registry.set('INVITE_DELETE', handleInviteDelete as GatewayEventHandler);
 	registry.set('RELATIONSHIP_ADD', handleRelationshipAdd as GatewayEventHandler);

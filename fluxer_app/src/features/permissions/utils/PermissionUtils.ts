@@ -259,6 +259,7 @@ function generateGuildGeneralPermissionSpec(i18n: I18n): PermissionSpec {
 			makePermissionEntry(i18n, Permissions.MANAGE_NICKNAMES),
 			makePermissionEntry(i18n, Permissions.CREATE_EXPRESSIONS),
 			makePermissionEntry(i18n, Permissions.MANAGE_EXPRESSIONS),
+			makePermissionEntry(i18n, Permissions.MANAGE_SOUNDS),
 			makePermissionEntry(i18n, Permissions.MANAGE_WEBHOOKS),
 		],
 	};
@@ -309,6 +310,7 @@ function generateGuildVoicePermissionSpec(i18n: I18n): PermissionSpec {
 			makePermissionEntry(i18n, Permissions.SPEAK),
 			makePermissionEntry(i18n, Permissions.STREAM),
 			makePermissionEntry(i18n, Permissions.USE_VAD),
+			makePermissionEntry(i18n, Permissions.USE_SOUNDBOARD),
 			makePermissionEntry(i18n, Permissions.PRIORITY_SPEAKER),
 			makePermissionEntry(i18n, Permissions.MUTE_MEMBERS),
 			makePermissionEntry(i18n, Permissions.DEAFEN_MEMBERS),
@@ -367,6 +369,7 @@ export function generateChannelVoicePermissionSpec(i18n: I18n): PermissionSpec {
 			makePermissionEntry(i18n, Permissions.SPEAK, {scope: 'channel'}),
 			makePermissionEntry(i18n, Permissions.STREAM, {scope: 'channel'}),
 			makePermissionEntry(i18n, Permissions.USE_VAD, {scope: 'channel'}),
+			makePermissionEntry(i18n, Permissions.USE_SOUNDBOARD, {scope: 'channel'}),
 			makePermissionEntry(i18n, Permissions.PRIORITY_SPEAKER, {scope: 'channel'}),
 			makePermissionEntry(i18n, Permissions.MUTE_MEMBERS, {scope: 'channel'}),
 			makePermissionEntry(i18n, Permissions.DEAFEN_MEMBERS, {scope: 'channel'}),

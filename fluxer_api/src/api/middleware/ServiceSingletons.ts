@@ -28,6 +28,9 @@ import {GifService} from '@app/api/gif/GifService';
 import {createNatsGifProvider} from '@app/api/gif/NatsGifProvider';
 import {GuildAuditLogService} from '@app/api/guild/GuildAuditLogService';
 import {GuildRepository} from '@app/api/guild/repositories/GuildRepository';
+import {SoundboardPlayService} from '@app/api/guild/soundboard/SoundboardPlayService';
+import {SoundboardRepository} from '@app/api/guild/soundboard/SoundboardRepository';
+import {SoundboardService} from '@app/api/guild/soundboard/SoundboardService';
 import {AssetDeletionQueue} from '@app/api/infrastructure/AssetDeletionQueue';
 import {AvatarService} from '@app/api/infrastructure/AvatarService';
 import {CachePurgeQueue, type IPurgeQueue, NoopPurgeQueue} from '@app/api/infrastructure/CachePurgeQueue';
@@ -465,6 +468,13 @@ export const getEntranceSoundService = singleton(
 );
 export const getEntranceSoundPlayService = singleton(
 	() => new EntranceSoundPlayService(getEntranceSoundService(), getGatewayService(), getChannelRepository()),
+);
+const getSoundboardRepository = singleton(() => new SoundboardRepository());
+export const getSoundboardService = singleton(
+	() => new SoundboardService(getSoundboardRepository(), getStorageService(), getMediaService(), getGatewayService()),
+);
+export const getSoundboardPlayService = singleton(
+	() => new SoundboardPlayService(getSoundboardService(), getGatewayService(), getChannelRepository()),
 );
 export const getGatewayRequestService = singleton(() => new GatewayRequestService(getBotAuthService()));
 export const getReadStateRequestService = singleton(() => new ReadStateRequestService(getReadStateService()));
