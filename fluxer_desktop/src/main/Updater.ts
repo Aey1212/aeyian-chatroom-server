@@ -526,7 +526,13 @@ function registerManualUpdater(
 	});
 }
 
+const UPDATES_DISABLED = true;
+
 export function registerUpdater(getMainWindow: () => BrowserWindow | null) {
+	if (UPDATES_DISABLED) {
+		registerManualUpdater(getMainWindow, 'managed-package');
+		return;
+	}
 	if (!app.isPackaged) {
 		registerManualUpdater(getMainWindow, 'unpackaged');
 		return;

@@ -18,7 +18,7 @@ interface ChannelStorageDirectoryMap {
 }
 
 const channelStorageDirectoryMap: ChannelStorageDirectoryMap = {
-	stable: 'fluxer',
+	stable: 'aeyian-chatline',
 	canary: 'fluxercanary',
 };
 

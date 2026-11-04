@@ -2,9 +2,9 @@
 
 import {BUILD_CHANNEL} from '@electron/common/BuildChannel';
 
-export const DESKTOP_APP_NAME = BUILD_CHANNEL === 'canary' ? 'Fluxer Canary' : 'Fluxer';
-export const MACOS_BUNDLE_ID = BUILD_CHANNEL === 'canary' ? 'app.fluxer.canary' : 'app.fluxer';
-export const LINUX_DESKTOP_ENTRY_ID = BUILD_CHANNEL === 'canary' ? 'fluxer-canary' : 'fluxer';
+export const DESKTOP_APP_NAME = BUILD_CHANNEL === 'canary' ? 'Fluxer Canary' : 'Aeyian Chatline';
+export const MACOS_BUNDLE_ID = BUILD_CHANNEL === 'canary' ? 'app.fluxer.canary' : 'com.aeyempire.chatline';
+export const LINUX_DESKTOP_ENTRY_ID = BUILD_CHANNEL === 'canary' ? 'fluxer-canary' : 'aeyian-chatline';
 export const WINDOWS_SHORTCUT_AUTHOR = 'Fluxer Platform AB';
 const WINDOWS_VELOPACK_ID = BUILD_CHANNEL === 'canary' ? 'fluxer_desktop_canary' : 'fluxer_desktop';
 export const WINDOWS_APP_USER_MODEL_ID = BUILD_CHANNEL === 'canary' ? 'Fluxer.Fluxer.Canary' : 'Fluxer.Fluxer';
