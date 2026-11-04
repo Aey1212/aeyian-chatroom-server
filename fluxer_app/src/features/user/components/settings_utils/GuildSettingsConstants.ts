@@ -6,6 +6,7 @@ import GuildEmojiTab from '@app/features/guild/components/modals/guild_tabs/Guil
 import GuildInvitesTab from '@app/features/guild/components/modals/guild_tabs/GuildInvitesTab';
 import GuildModerationTab from '@app/features/guild/components/modals/guild_tabs/GuildModerationTab';
 import GuildRolesTab from '@app/features/guild/components/modals/guild_tabs/GuildRolesTab';
+import GuildSoundboardTab from '@app/features/guild/components/modals/guild_tabs/GuildSoundboardTab';
 import GuildStickersTab from '@app/features/guild/components/modals/guild_tabs/GuildStickersTab';
 import GuildVanityURLTab from '@app/features/guild/components/modals/guild_tabs/GuildVanityURLTab';
 import GuildWebhooksTab from '@app/features/guild/components/modals/guild_tabs/GuildWebhooksTab';
@@ -21,6 +22,7 @@ import {
 	type Icon,
 	type IconWeight,
 	LinkIcon,
+	MusicNotesIcon,
 	ProhibitIcon,
 	ShieldIcon,
 	SmileyIcon,
@@ -40,6 +42,11 @@ const STICKERS_DESCRIPTOR = msg({
 	message: 'Stickers',
 	context: 'community-settings-tab',
 	comment: 'Community settings tab for managing custom stickers uploaded to the community.',
+});
+const SOUNDBOARD_DESCRIPTOR = msg({
+	message: 'Soundboard',
+	context: 'community-settings-tab',
+	comment: 'Community settings tab for managing the sounds members can play in voice channels.',
 });
 const OVERVIEW_DESCRIPTOR = msg({
 	message: 'Overview',
@@ -92,6 +99,7 @@ export type GuildSettingsTabType =
 	| 'roles'
 	| 'emoji'
 	| 'stickers'
+	| 'soundboard'
 	| 'moderation'
 	| 'audit_log'
 	| 'webhooks'
@@ -180,6 +188,14 @@ const GUILD_SETTINGS_TABS_DESCRIPTORS: Array<GuildSettingsTabDescriptor> = [
 		icon: StickerIcon,
 		component: GuildStickersTab,
 		permission: [Permissions.CREATE_EXPRESSIONS, Permissions.MANAGE_EXPRESSIONS],
+	},
+	{
+		type: 'soundboard',
+		category: 'expressions',
+		label: SOUNDBOARD_DESCRIPTOR,
+		icon: MusicNotesIcon,
+		component: GuildSoundboardTab,
+		permission: Permissions.MANAGE_SOUNDS,
 	},
 	{
 		type: 'vanity_url',

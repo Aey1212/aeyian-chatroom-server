@@ -155,6 +155,10 @@ const VOICE_ENTRANCE_SOUND_DESCRIPTOR = msg({
 	message: 'Voice entrance sound',
 	comment: 'Settings search synonym. Used to match this term when the user types it in the settings search bar.',
 });
+const SOUNDBOARD_VOLUME_DESCRIPTOR = msg({
+	message: 'Soundboard volume',
+	comment: 'Settings search synonym. Used to match this term when the user types it in the settings search bar.',
+});
 const CONFIGURE_YOUR_CAMERA_SCREEN_SHARING_QUALITY_PREVIEWS_AND_DESCRIPTOR = msg({
 	message: 'Configure your camera, screen sharing quality, previews, and frame rate.',
 	comment: 'Settings section description. One-line summary of what the settings section controls.',
@@ -314,6 +318,7 @@ export const voiceVideoSections = [
 			MICROPHONE_TEST_DESCRIPTOR,
 			ENTRANCE_SOUND_DESCRIPTOR,
 			VOICE_ENTRANCE_SOUND_DESCRIPTOR,
+			SOUNDBOARD_VOLUME_DESCRIPTOR,
 		],
 		isAdvanced: false,
 	},

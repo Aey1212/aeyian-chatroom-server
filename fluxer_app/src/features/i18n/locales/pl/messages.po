@@ -1689,7 +1689,7 @@ msgid "{productName} needs camera access to list your devices."
 msgstr "{productName} potrzebuje dostępu do kamery, aby wyświetlić Twoje urządzenia."
 
 #. Voice settings notice shown when microphone permission has not been granted.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:132
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:133
 msgid "{productName} needs microphone access to list your devices."
 msgstr "{productName} potrzebuje dostępu do mikrofonu, aby wyświetlić Twoje urządzenia."
 
@@ -2161,7 +2161,7 @@ msgid "100 uses"
 msgstr "100 użyć"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:242
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:246
 msgid "1080p"
 msgstr "1080p"
 
@@ -2181,7 +2181,7 @@ msgid "12-hour"
 msgstr "12-godzinny"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:246
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:250
 msgid "1440p"
 msgstr "1440p"
 
@@ -2803,7 +2803,7 @@ msgid "Activity log"
 msgstr "Dziennik aktywności"
 
 #. Community settings tab showing activity log entries and moderation history.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:59
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:66
 msgctxt "community-settings-tab"
 msgid "Activity log"
 msgstr "Dziennik aktywności"
@@ -2816,7 +2816,7 @@ msgid "Activity sharing"
 msgstr "Udostępnianie aktywności"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:444
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:449
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:102
 msgid "Activity threshold"
 msgstr "Próg aktywności"
@@ -3106,6 +3106,11 @@ msgstr "Dodaj dane uwierzytelniające SMTP, aby instancja mogła wysyłać e-mai
 msgid "Add some CSS before sharing."
 msgstr "Dodaj trochę CSS-a, zanim udostępnisz."
 
+#. Title of the dialog that uploads a new soundboard sound.
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:26
+msgid "Add sound"
+msgstr "Dodaj dźwięk"
+
 #. Action that opens the add-sticker modal.
 #: src/features/expressions/components/modals/AddGuildStickerModal.tsx:72
 msgid "Add sticker"
@@ -3283,7 +3288,7 @@ msgid "Adds H.264 for mixed clients. Requires more encoding."
 msgstr "Dodaje H.264 dla klientów o różnych możliwościach. Wymaga dodatkowego kodowania."
 
 #. Description for the custom profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:94
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:95
 msgid "Adjust each setting yourself: noise suppression, echo cancellation, and gain."
 msgstr "Dostosuj samodzielnie każde ustawienie: redukcję szumów, tłumienie echa i wzmocnienie."
 
@@ -3546,11 +3551,11 @@ msgstr "Zezwól na {everyoneMention} i {hereMention}"
 msgid "Allow {PRODUCT_NAME} to access your camera in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 msgstr "Zezwól aplikacji {PRODUCT_NAME} na dostęp do kamery w obszarze {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_CAMERA_PERMISSION_NAME}."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:512
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:517
 msgid "Allow {PRODUCT_NAME} to access your microphone in {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 msgstr "Zezwól aplikacji {PRODUCT_NAME} na dostęp do mikrofonu w: {MACOS_SYSTEM_SETTINGS_NAME} → {MACOS_PRIVACY_AND_SECURITY_SETTINGS_NAME} → {MACOS_MICROPHONE_PERMISSION_NAME}."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:517
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:522
 msgid "Allow {PRODUCT_NAME} to access your microphone. Check your browser's address bar or settings."
 msgstr "Zezwól aplikacji {PRODUCT_NAME} na dostęp do mikrofonu. Sprawdź pasek adresu lub ustawienia przeglądarki."
 
@@ -3653,7 +3658,7 @@ msgstr "Zezwól członkom bez uprawnienia „{readMessageHistoryPermissionLabel}
 msgid "Allow mentions for this role"
 msgstr "Zezwól na wzmianki dla tej roli"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:537
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:542
 msgid "Allow microphone"
 msgstr "Zezwól na dostęp do mikrofonu"
 
@@ -3734,6 +3739,21 @@ msgstr "Dozwolone przekierowania"
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogChannelMessages.ts:96
 msgid "Allowed up to {count, plural, one {# connection} other {# connections}} per member"
 msgstr "Dozwolono do {count, plural, one {# połączenia} few {# połączeń} many {# połączeń} other {# połączeń}} na członka"
+
+#. Permission description in the community role editor for the Use Soundboard permission.
+#: src/features/permissions/utils/PermissionLabelDescriptors.ts:529
+msgid "Allows members to play community soundboard sounds for everyone in their voice channel."
+msgstr "Pozwala członkom odtwarzać dźwięki z soundboardu społeczności dla wszystkich na ich kanale głosowym."
+
+#. Permission description in the channel-scoped permissions editor for the Use Soundboard permission.
+#: src/features/permissions/utils/PermissionLabelDescriptors.ts:533
+msgid "Allows members to play soundboard sounds in this voice channel."
+msgstr "Pozwala członkom odtwarzać dźwięki z soundboardu na tym kanale głosowym."
+
+#. Permission description in the community role editor for the Manage Sounds permission.
+#: src/features/permissions/utils/PermissionLabelDescriptors.ts:537
+msgid "Allows members to upload, edit and delete the sounds on this community soundboard."
+msgstr "Pozwala członkom przesyłać, edytować i usuwać dźwięki z soundboardu tej społeczności."
 
 #. Title of the error modal shown when the channel or category no longer exists.
 #: src/features/app/components/alerts/ChannelDeleteFailedModal.tsx:30
@@ -4635,7 +4655,7 @@ msgid "Audio"
 msgstr "Dźwięk"
 
 #. Audio/video settings section for microphone and speaker controls.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:254
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:258
 msgctxt "voice-video-settings-section"
 msgid "Audio"
 msgstr "Dźwięk"
@@ -4918,8 +4938,8 @@ msgid "Auto-detect language"
 msgstr "Automatyczne wykrywanie języka"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:110
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:431
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:111
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:436
 msgid "Auto-set activity threshold"
 msgstr "Automatyczne ustawianie progu aktywności"
 
@@ -5257,7 +5277,7 @@ msgid "Background"
 msgstr "Tło"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:198
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:202
 msgid "Background effects"
 msgstr "Efekty tła"
 
@@ -5430,7 +5450,7 @@ msgid "Banner preview"
 msgstr "Podgląd banera"
 
 #. Community settings tab for banned users.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:84
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:91
 msgctxt "community-settings-tab"
 msgid "Bans"
 msgstr "Zbanowani"
@@ -6184,7 +6204,7 @@ msgstr "Połączenia"
 #. Short label in the video tab. Keep it concise.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:724
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:72
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:162
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:166
 #: src/features/voice/utils/SettingsDeviceOptions.ts:24
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:10
 msgid "Camera"
@@ -6202,13 +6222,13 @@ msgstr "Nie przyznano dostępu do kamery. Zaktualizuj uprawnienia do kamery, a n
 
 #. Section header in the mobile video settings bottom sheet. Picks the camera device.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:178
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:182
 #: src/features/voice/components/bottomsheets/VoiceSettingsBottomSheets.tsx:57
 msgid "Camera device"
 msgstr "Urządzenie kamery"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:194
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:198
 msgid "Camera effects"
 msgstr "Efekty kamery"
 
@@ -6254,7 +6274,7 @@ msgstr "Wymagane pozwolenie na dostęp do kamery"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Title of the camera preview modal.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:186
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:190
 #: src/features/voice/components/modals/CameraPreviewModal.tsx:63
 msgid "Camera preview"
 msgstr "Podgląd kamery"
@@ -6262,7 +6282,7 @@ msgstr "Podgląd kamery"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the video tab. Keep it concise.
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:76
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:202
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:206
 msgid "Camera quality"
 msgstr "Jakość obrazu z kamery"
 
@@ -6272,7 +6292,7 @@ msgid "Camera settings"
 msgstr "Ustawienia kamery"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:190
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:194
 msgid "Camera test"
 msgstr "Test kamery"
 
@@ -6308,6 +6328,7 @@ msgstr "Nie można tu przesyłać plików"
 #. Button that closes the regenerate backup codes confirmation without changes.
 #. Cancel button label in the entrance sound trimmer modal.
 #. Cancel button label in the voice message composer modal.
+#. Cancel button of the soundboard sound dialog.
 #. Generic secondary-button label that dismisses a modal/sheet/form without saving.
 #. Keyboard shortcut action label shown in the shortcuts list and keybind editor. Keep short, sentence case.
 #: src/features/auth/components/modals/AccountDeleteModal.tsx:74
@@ -6346,6 +6367,7 @@ msgstr "Nie można tu przesyłać plików"
 #: src/features/moderation/components/modals/BanMemberModal.tsx:262
 #: src/features/moderation/components/modals/RemoveTimeoutModal.tsx:70
 #: src/features/moderation/components/modals/TimeoutMemberModal.tsx:126
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:42
 #: src/features/theme/components/modals/ThemeAcceptModal.tsx:173
 #: src/features/user/components/modals/EmailChangeModal.tsx:278
 #: src/features/user/components/modals/EmailChangeModal.tsx:289
@@ -6356,7 +6378,7 @@ msgstr "Nie można tu przesyłać plików"
 #: src/features/user/components/modals/PasswordChangeModal.tsx:255
 #: src/features/user/components/modals/PhoneAddModal.tsx:392
 #: src/features/user/components/modals/tabs/AuthorizedAppsTab.tsx:174
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:33
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:36
 #: src/features/voice/components/modals/CameraPreviewModal.tsx:845
 #: src/features/voice/components/VoiceMessageComposerModal.tsx:81
 msgid "Cancel"
@@ -7434,6 +7456,10 @@ msgstr "Wybierz tło"
 msgid "Choose either guild_id or channel_id, not both."
 msgstr "Wybierz guild_id lub channel_id, nie oba."
 
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:195
+msgid "Choose emoji"
+msgstr "Wybierz emoji"
+
 #. Subtitle in the create-DM modal. Keep it short and calm.
 #: src/features/channel/utils/CreateDMModalUtils.tsx:39
 msgid "Choose friends to message."
@@ -8418,7 +8444,7 @@ msgstr "Społeczności liczące ponad 250 osób mają wymuszone ustawienie „ty
 #: src/features/app/config/AuditLogConstants.ts:147
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthCommunityStep.tsx:48
 #: src/features/moderation/components/report_modal/IARModalPreview.tsx:16
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:236
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:252
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:140
 msgid "Community"
 msgstr "Społeczność"
@@ -8604,7 +8630,7 @@ msgid "Community record"
 msgstr "Rekord społeczności"
 
 #. Root label for community settings modal and settings search paths.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:227
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:243
 msgid "Community settings"
 msgstr "Ustawienia społeczności"
 
@@ -8752,7 +8778,7 @@ msgid "Configure now"
 msgstr "Skonfiguruj teraz"
 
 #. Tooltip / aria label on the screen-share control while a share is active. Opens the configure / end menu.
-#: src/features/voice/components/voice_connection_status/LocalParticipantControls.tsx:58
+#: src/features/voice/components/voice_connection_status/LocalParticipantControls.tsx:59
 msgid "Configure or end screen share"
 msgstr "Skonfiguruj lub zakończ udostępnianie ekranu"
 
@@ -8784,7 +8810,7 @@ msgid "Configure translator providers used from selected text"
 msgstr "Skonfiguruj dostawców tłumaczeń używanych do tłumaczenia wybranego tekstu"
 
 #. Settings section description. One-line summary of what the settings section controls.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:158
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:162
 msgid "Configure your camera, screen sharing quality, previews, and frame rate."
 msgstr "Skonfiguruj kamerę, jakość udostępniania ekranu, podglądy i liczbę klatek na sekundę."
 
@@ -8882,7 +8908,7 @@ msgstr "Podłącz kamerę lub wirtualne urządzenie do przechwytywania, a nastę
 msgid "Connect a display, then try again."
 msgstr "Podłącz wyświetlacz, a następnie spróbuj ponownie."
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:522
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:527
 msgid "Connect a microphone and try again."
 msgstr "Podłącz mikrofon i spróbuj ponownie."
 
@@ -9593,7 +9619,7 @@ msgid "Corrupted installation nagbar"
 msgstr "Pasek ostrzeżenia o uszkodzonej instalacji"
 
 #. Error displayed when the browser fails to decode an audio file selected for entrance-sound upload.
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:57
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:60
 msgid "Could not decode this audio file."
 msgstr "Nie można zdekodować tego pliku audio."
 
@@ -9602,9 +9628,24 @@ msgstr "Nie można zdekodować tego pliku audio."
 msgid "Could not load the instance configuration. Try reloading the page."
 msgstr "Nie udało się załadować konfiguracji instancji. Spróbuj ponownie załadować stronę."
 
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:280
+#: src/features/soundboard/components/SoundboardPopout.tsx:183
+msgid "Could not load this community's sounds."
+msgstr "Nie udało się wczytać dźwięków tej społeczności."
+
 #: src/features/auth/flow/AuthRouteLoadError.tsx:15
 msgid "Could not load this page"
 msgstr "Nie można załadować tej strony"
+
+#. Toast shown when playing a soundboard sound fails.
+#: src/features/soundboard/components/SoundboardPopout.tsx:35
+msgid "Could not play that sound."
+msgstr "Nie udało się odtworzyć tego dźwięku."
+
+#. Error shown in the soundboard sound dialog when saving fails for an unknown reason.
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:46
+msgid "Could not save the sound."
+msgstr "Nie udało się zapisać dźwięku."
 
 #. Body of the modal shown when a screen share attempt fails. Advises the user to try sharing the full screen.
 #: src/features/voice/components/alerts/ScreenShareFailedModal.tsx:12
@@ -10541,7 +10582,7 @@ msgstr "Niestandardowe źródło"
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
 #. Voice input processing profile where the user configures processing manually.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:89
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:90
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:42
 #: src/features/voice/components/VoiceSettingsMenus.tsx:70
 msgctxt "voice-processing-profile"
@@ -11175,6 +11216,7 @@ msgstr "Delaware"
 #. Button or menu action label in the channel and chat mobile memes picker. Keep it concise. Keep the tone plain and specific.
 #. Button or menu action label in the messaging commands. Keep it concise. Keep the tone plain and specific.
 #. Confirm button label on the destructive delete-saved-media alert.
+#. Confirm button that deletes a soundboard sound.
 #. Danger button label that confirms deleting a custom emoji.
 #. Destructive action label. Surface varies, see surrounding code for the specific object being deleted.
 #. IAR modal: quick-action card button label for deleting the reported message.
@@ -11182,6 +11224,7 @@ msgstr "Delaware"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Tooltip for the custom emoji delete button.
+#. Tooltip of the button that deletes a soundboard sound.
 #: src/features/channel/components/embeds/media/EmbedAudio.tsx:29
 #: src/features/channel/components/embeds/media/MediaContainer.tsx:23
 #: src/features/channel/components/MobileMemesPicker.tsx:89
@@ -11189,6 +11232,8 @@ msgstr "Delaware"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:65
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:81
 #: src/features/messaging/commands/MessageCommands.tsx:79
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:109
 #: src/features/platform/utils/DesktopLocaleBridge.ts:76
@@ -11244,6 +11289,11 @@ msgstr "Usuń {channelType}"
 #: src/features/theme_studio/sections/AssetsSection.tsx:80
 msgid "Delete {fileName}"
 msgstr "Usuń \"{fileName}\""
+
+#. Body of the confirmation dialog for deleting a soundboard sound. {name} is the sound name.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:61
+msgid "Delete {name}? Nobody will be able to play it any more."
+msgstr "Usunąć {name}? Nikt nie będzie już mógł go odtworzyć."
 
 #. Destructive action or section label for permanently deleting the current account.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:442
@@ -11401,6 +11451,11 @@ msgstr "Usuń zapisane multimedia"
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindRow.tsx:34
 msgid "Delete shortcut"
 msgstr "Usuń skrót"
+
+#. Title of the confirmation dialog for deleting a soundboard sound.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:57
+msgid "Delete sound"
+msgstr "Usuń dźwięk"
 
 #. Destructive action that deletes the selected sticker.
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:27
@@ -12656,10 +12711,10 @@ msgstr "Przenoś członków z tego kanału głosowego do kanałów, do których 
 msgid "Drag roles to customize the order they appear in the member list."
 msgstr "Przeciągnij role, aby zmienić ich kolejność wyświetlania na liście członków."
 
-#. Help text in the entrance sound trimmer modal explaining how the selection works.
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:29
-msgid "Drag the handles to choose up to 5.2 seconds of audio. The selected region is what gets uploaded."
-msgstr "Przeciągnij uchwyty, aby wybrać do 5,2 sekundy dźwięku. Wybrany fragment zostanie przesłany."
+#. Help text in the audio trimmer modal explaining how the selection works. {seconds} is the maximum clip length.
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:30
+msgid "Drag the handles to choose up to {seconds, plural, one {# second} other {# seconds}} of audio. The selected region is what gets uploaded."
+msgstr "Przeciągnij uchwyty, aby wybrać do {seconds, plural, one {# sekundy} few {# sekund} many {# sekund} other {# sekundy}} dźwięku. Przesłany zostanie zaznaczony fragment."
 
 #. Help text shown after recording while reviewing/trimming a voice message on desktop.
 #: src/features/voice/components/VoiceMessageComposerModal.tsx:41
@@ -12796,8 +12851,10 @@ msgstr "Redukcja echa"
 #. Action label for opening the edit flow for the selected item.
 #. Button or menu action label in the linked accounts tab. Keep it concise.
 #. Button or menu action label in the search engines tab. Keep it concise.
+#. Tooltip of the button that edits a soundboard sound.
 #. Top-level native menu bar title (Edit menu, holds cut/copy/paste).
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:43
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:77
 #: src/features/platform/utils/DesktopLocaleBridge.ts:47
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:35
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:51
@@ -12980,6 +13037,11 @@ msgstr "Edytuj wyszukiwarkę"
 #: src/features/input/components/KeybindRecorder.tsx:378
 msgid "Edit shortcut"
 msgstr "Edytuj skrót"
+
+#. Title of the dialog that edits a soundboard sound.
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:30
+msgid "Edit sound"
+msgstr "Edytuj dźwięk"
 
 #. Action that opens the edit-sticker modal.
 #: src/features/expressions/components/modals/EditGuildStickerModal.tsx:28
@@ -13213,13 +13275,14 @@ msgstr "Ember"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/app/config/AuditLogConstants.ts:167
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:337
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:177
 #: src/features/theme_studio/sections/TokenGroups.ts:114
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:162
 msgid "Emoji"
 msgstr "Emoji"
 
 #. Community settings tab for managing custom emoji uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:34
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:36
 msgctxt "community-settings-tab"
 msgid "Emoji"
 msgstr "Emoji"
@@ -13338,7 +13401,7 @@ msgid "Enable"
 msgstr "Włącz"
 
 #. Voice settings CTA label for opening a platform permission prompt.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:118
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:119
 msgid "Enable {permissionName} permission"
 msgstr "Włącz uprawnienie {permissionName}"
 
@@ -13962,7 +14025,7 @@ msgstr "Dźwięk z całego systemu"
 #. Voice menu submenu label that contains per-user entrance sound mute and volume controls.
 #: src/features/ui/action_menu/items/VoiceParticipantMenuData.tsx:181
 #: src/features/ui/action_menu/items/VoiceParticipantMenuItems.tsx:310
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:183
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:184
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:150
 msgid "Entrance sound"
 msgstr "Dźwięk wejścia"
@@ -14072,7 +14135,7 @@ msgstr "Wieczór"
 
 #. Description for the automatic gain control toggle in the voice processing settings.
 #. Description for the automatic gain control toggle in the voice processing settings.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:167
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:168
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:63
 msgid "Evens out your mic volume so you are not too quiet."
 msgstr "Wyrównuje głośność mikrofonu, aby Twój głos nie był zbyt cichy."
@@ -14364,7 +14427,7 @@ msgstr "Kategorie panelu wyboru wyrażeń"
 
 #. Community settings sidebar category grouping the emoji and stickers tabs.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:232
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:248
 #: src/features/user/components/settings_utils/section_registry/ChatSettingsSections.ts:137
 msgid "Expressions"
 msgstr "Wyrażenia"
@@ -15440,7 +15503,7 @@ msgid "Found {resultCount, plural, one {# result} other {# results}} in {categor
 msgstr "Znaleziono {resultCount, plural, one {# wynik} few {# wyniki} many {# wyników} other {# wyniku}} w {categoryCount, plural, one {# kategorii} few {# kategoriach} many {# kategoriach} other {# kategorii}}"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:234
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:238
 msgid "FPS"
 msgstr "FPS"
 
@@ -15452,7 +15515,7 @@ msgstr "Ramka"
 #. Section header in the stream settings menu for frame rate options.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:314
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:230
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:234
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:129
 msgid "Frame rate"
 msgstr "Liczba klatek na sekundę"
@@ -16101,6 +16164,11 @@ msgstr "Przyznaj wszystkim na tej instancji najwyższe limity Premium."
 msgid "Give the role a name before saving."
 msgstr "Nadaj roli nazwę przed zapisaniem."
 
+#. Error shown in the soundboard sound dialog when the name is empty.
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:50
+msgid "Give the sound a name."
+msgstr "Nadaj dźwiękowi nazwę."
+
 #. Randomly selected welcome message that appears as a system message when a user joins a community. Plural placeholder is the new member username. Tone is friendly and warm; keep variety across these strings.
 #: src/features/messaging/utils/SystemMessageUtils.tsx:46
 msgid "Glad you made it, {username}!"
@@ -16628,7 +16696,7 @@ msgid "hCaptcha"
 msgstr "hCaptcha"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:238
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:242
 msgid "HD"
 msgstr "HD"
 
@@ -17073,6 +17141,10 @@ msgstr "Jak długo potrwa ban."
 msgid "How long they stay timed out."
 msgstr "Jak długo będzie obowiązywać czasowe ograniczenie."
 
+#: src/features/soundboard/components/SoundboardVolumeSection.tsx:46
+msgid "How loud soundboard sounds played in your voice channel are. At 0% you don't hear them at all."
+msgstr "Jak głośno brzmią dźwięki z soundboardu odtwarzane na Twoim kanale głosowym. Przy 0% w ogóle ich nie słyszysz."
+
 #. Description for the /ban delete_messages option.
 #: src/features/devtools/hooks/useCommands.ts:83
 msgid "How much of the member's recent message history to delete."
@@ -17157,7 +17229,7 @@ msgstr "Potrzebuję innej metody"
 
 #. Short label in the voice tab. Keep it concise.
 #: src/features/channel/components/MatureContentChannelGate.tsx:180
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:102
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:103
 msgid "I understand"
 msgstr "Rozumiem"
 
@@ -17868,7 +17940,7 @@ msgid "Input access was changed. Fully quit and restart {productName} so system-
 msgstr "Zmieniono dostęp do urządzeń wejściowych. Całkowicie zamknij i uruchom ponownie {productName}, aby skróty globalne mogły z niego korzystać."
 
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:171
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:172
 msgid "Input and output"
 msgstr "Wejście i wyjście"
 
@@ -17963,7 +18035,7 @@ msgstr "Liczba całkowita"
 
 #. Community settings sidebar category grouping webhooks.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:240
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:256
 #: src/features/user/components/settings_utils/search_index/AuthorizedAppsIndex.ts:26
 msgid "Integrations"
 msgstr "Integracje"
@@ -18285,7 +18357,7 @@ msgid "Invites"
 msgstr "Zaproszenia"
 
 #. Community settings tab for invite link management.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:79
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:86
 msgctxt "community-settings-tab"
 msgid "Invites"
 msgstr "Zaproszenia"
@@ -18715,7 +18787,7 @@ msgid "Keep these safe. Regenerating will break existing integrations."
 msgstr "Zachowaj je w bezpiecznym miejscu. Wygenerowanie nowych spowoduje przerwanie istniejących integracji."
 
 #. Description for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:77
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:78
 msgid "Keep transmitting briefly after release."
 msgstr "Kontynuuj transmisję przez krótki czas po zwolnieniu przycisku."
 
@@ -19535,7 +19607,7 @@ msgid "Look and feel"
 msgstr "Wygląd i styl"
 
 #. placeholder {0}: externalProcessor.name
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:631
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:636
 msgid "Looks like you're using {0}. Stacking {PRODUCT_NAME}'s processing on top can cause pumping or distortion. Direct input passes your audio through untouched."
 msgstr "Wygląda na to, że używasz {0}. Dodatkowe przetwarzanie dźwięku przez {PRODUCT_NAME} może powodować pompowanie głośności lub zniekształcenia. Tryb „Bezpośrednie wejście” przepuszcza dźwięk bez zmian."
 
@@ -19753,6 +19825,11 @@ msgstr "Zarządzaj zakupionymi kodami podarunkowymi i linkami do prezentów"
 #: src/features/permissions/utils/PermissionLabelDescriptors.ts:362
 msgid "Manage roles"
 msgstr "Zarządzanie rolami"
+
+#. Permission title for uploading, editing and deleting community soundboard sounds.
+#: src/features/permissions/utils/PermissionLabelDescriptors.ts:525
+msgid "Manage Sounds"
+msgstr "Zarządzaj dźwiękami"
 
 #. Billing action that opens subscription management or the customer billing portal.
 #: src/features/premium/utils/PremiumMessageDescriptors.ts:13
@@ -20326,7 +20403,7 @@ msgid "Members"
 msgstr "Członkowie"
 
 #. Community settings tab for managing community members.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:74
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:81
 msgctxt "community-settings-tab"
 msgid "Members"
 msgstr "Członkowie"
@@ -20335,6 +20412,11 @@ msgstr "Członkowie"
 #: src/features/invite/components/modals/InviteModal.tsx:134
 msgid "Members are removed when offline unless given a role."
 msgstr "Członkowie są usuwani, gdy są offline, chyba że otrzymają rolę."
+
+#. Intro text of the community soundboard settings. {seconds} is the maximum length, {size} a file size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:36
+msgid "Members in a voice channel can play these sounds for everyone there. Each sound can be up to {seconds} seconds and {size}."
+msgstr "Członkowie na kanale głosowym mogą odtwarzać te dźwięki dla wszystkich na nim. Każdy dźwięk może trwać do {seconds} sekund i zajmować do {size}."
 
 #. Channel pins empty-state body shown to community members. Pin permission name is interpolated.
 #: src/features/app/components/shared/ChannelPinsContent.tsx:47
@@ -20798,7 +20880,7 @@ msgstr "Mikrofon"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:179
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:180
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:142
 msgid "Mic test"
 msgstr "Test mikrofonu"
@@ -21066,7 +21148,7 @@ msgid "Moderation"
 msgstr "Moderacja"
 
 #. Community settings tab for moderation and safety controls.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:54
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:61
 msgctxt "community-settings-tab"
 msgid "Moderation"
 msgstr "Moderacja"
@@ -22465,7 +22547,7 @@ msgstr "Brak wyników"
 msgid "No mentions yet"
 msgstr "Brak wzmianek"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:507
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:512
 msgid "No microphone found"
 msgstr "Nie znaleziono mikrofonu"
 
@@ -22632,6 +22714,15 @@ msgstr "Brak skrótu"
 #: src/features/user/components/modals/tabs/keybinds_tab/DefaultKeybindsList.tsx:94
 msgid "No shortcuts match that search."
 msgstr "Brak skrótów pasujących do wyszukiwania."
+
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:288
+#: src/features/soundboard/components/SoundboardPopout.tsx:191
+msgid "No sounds match your search."
+msgstr "Żaden dźwięk nie pasuje do wyszukiwania."
+
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:284
+msgid "No sounds yet."
+msgstr "Brak dźwięków."
 
 #: src/features/auth/components/pages/oauth_authorize_page/OAuthScopesStep.tsx:115
 msgid "No specific scopes requested."
@@ -23095,7 +23186,9 @@ msgstr "Ohio"
 msgid "OK"
 msgstr "OK"
 
+#. Button that closes an error dialog in the community soundboard settings.
 #. Generic acknowledgement button on an informational alert. Closes the alert. Use for benign confirms; for "I have read and understood" use UNDERSTOOD_DESCRIPTOR.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:69
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:102
 msgid "Okay"
 msgstr "OK"
@@ -23658,6 +23751,11 @@ msgstr "Otwórz ustawienia"
 msgid "Open software center"
 msgstr "Otwórz centrum oprogramowania"
 
+#. Tooltip and accessible label of the soundboard button in the voice connection panel.
+#: src/features/soundboard/components/SoundboardButton.tsx:14
+msgid "Open soundboard"
+msgstr "Otwórz soundboard"
+
 #. Action that opens the sticker URL in an external browser.
 #: src/features/ui/action_menu/items/StickerContextMenuItems.tsx:40
 msgid "Open sticker in browser"
@@ -24047,7 +24145,7 @@ msgid "Overview"
 msgstr "Ogólne informacje"
 
 #. Community settings tab for basic server/community details.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:44
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:51
 msgctxt "community-settings-tab"
 msgid "Overview"
 msgstr "Ogólne informacje"
@@ -24259,7 +24357,7 @@ msgstr "Wklej link do wiadomości."
 #. Generic media-player control: pause playback.
 #. Pause-preview button label in the voice message composer modal.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:369
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:45
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:48
 #: src/features/voice/components/VoiceMessageComposerModal.tsx:89
 msgid "Pause"
 msgstr "Wstrzymaj"
@@ -24376,7 +24474,7 @@ msgstr "Pensylwania"
 #: src/features/expressions/utils/UnicodeEmojis.ts:21
 #: src/features/search/state/QuickSwitcherResultConverters.ts:22
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:53
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:244
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:260
 msgid "People"
 msgstr "Osoby"
 
@@ -24607,6 +24705,11 @@ msgstr "Wybierz dostawcę tłumaczeń"
 #: src/features/search/components/modals/SearchProviderPickerModal.tsx:27
 msgid "Pick a web search provider"
 msgstr "Wybierz dostawcę wyszukiwania w sieci"
+
+#. Body of the error shown when the picked soundboard file is too large or not audio. {limit} is a file size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:53
+msgid "Pick an MP3, OGG, M4A or WAV file of up to {limit}."
+msgstr "Wybierz plik MP3, OGG, M4A lub WAV o rozmiarze do {limit}."
 
 #. Validation hint in the IAR modal when the user tries to advance without picking a radio option.
 #: src/features/moderation/components/report_modal/IARModal.tsx:70
@@ -24842,7 +24945,7 @@ msgid "Play sample"
 msgstr "Odtwórz próbkę"
 
 #. Button label in the trimmer modal. Plays the currently selected portion.
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:41
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:44
 msgid "Play selection"
 msgstr "Odtwórz zaznaczenie"
 
@@ -25145,8 +25248,11 @@ msgstr "Na określony czas uniemożliwiaj użytkownikowi <0>{targetUserTag}</0> 
 msgid "Prevent members from sending messages, reacting, and joining voice for a duration."
 msgstr "Uniemożliwiaj członkom wysyłanie wiadomości, reagowanie i dołączanie do rozmów głosowych na określony czas."
 
+#. Tooltip of the button that plays a soundboard sound only for yourself.
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:73
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:239
 #: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
 msgstr "Podgląd"
@@ -25731,18 +25837,18 @@ msgid "Push to talk key"
 msgstr "Przycisk „naciśnij i mów”"
 
 #. Switch label in the voice tab toggling push-to-talk mode. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:106
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:337
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:107
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:342
 #: src/features/voice/components/VoiceSettingsMenus.tsx:419
 msgid "Push-to-talk"
 msgstr "Naciśnij i mów"
 
 #. Short label in the voice tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:98
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:99
 msgid "Push-to-talk (limited)"
 msgstr "Naciśnij i mów (ograniczone)"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:653
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:658
 msgid "Push-to-talk is ignored in direct input. Switch to focused voice or custom to use it."
 msgstr "Funkcja „naciśnij i mów” jest ignorowana w trybie „Bezpośrednie wejście”. Aby z niej korzystać, przełącz profil na „Wyrazisty głos” lub „Niestandardowy”."
 
@@ -25752,12 +25858,12 @@ msgid "Push-to-talk is on. Hold {pushToTalkHint} to speak."
 msgstr "Funkcja „naciśnij i mów” jest włączona. Przytrzymaj {pushToTalkHint}, aby mówić."
 
 #. Voice settings warning shown when macOS Input Monitoring is required for system-wide push-to-talk. {productName} is the app name and {permissionName} is the macOS permission name.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:126
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:127
 msgid "Push-to-talk only works while {productName} is focused until {permissionName} is enabled. After changing the permission, fully quit and restart {productName} so system-wide hotkeys can use it."
 msgstr "Dopóki nie włączysz uprawnienia „{permissionName}”, funkcja „naciśnij i mów” działa tylko wtedy, gdy {productName} jest aktywny. Po zmianie uprawnienia całkowicie zamknij i uruchom ponownie {productName}, aby skróty globalne mogły z niego korzystać."
 
 #. Voice settings warning shown when push-to-talk is enabled in a browser.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:122
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:123
 msgid "Push-to-talk only works while the browser tab is focused."
 msgstr "Naciśnij i mów działa tylko, gdy karta przeglądarki jest aktywna."
 
@@ -26052,7 +26158,7 @@ msgid "Recommended"
 msgstr "Zalecane"
 
 #. Description for the focused voice profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:81
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:82
 msgid "Recommended. Cleans up your mic for clear speech."
 msgstr "Zalecane. Oczyszcza dźwięk z mikrofonu, aby mowa była wyraźna."
 
@@ -26309,7 +26415,7 @@ msgstr "Względny"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label for push-to-talk release delay.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:73
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:74
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:94
 msgid "Release delay"
 msgstr "Opóźnienie zwolnienia"
@@ -26397,6 +26503,7 @@ msgstr "Zapamiętaj rozmiar i położenie okna"
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildIconUploadField.tsx:140
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashUploadField.tsx:143
 #: src/features/guild/components/modals/guild_tabs/GuildVanityURLTab.tsx:271
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:209
 #: src/features/ui/action_menu/GroupDMContextMenu.tsx:73
 #: src/features/ui/action_menu/UserContextMenu.tsx:97
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:26
@@ -27368,6 +27475,11 @@ msgstr "Przywróć domyślną wartość suwaka"
 msgid "Reset socket"
 msgstr "Zresetuj połączenie"
 
+#. Accessible label of the button that resets the soundboard volume slider to 100%.
+#: src/features/soundboard/components/SoundboardVolumeSection.tsx:11
+msgid "Reset soundboard volume"
+msgstr "Zresetuj głośność soundboardu"
+
 #. Button below the space between message groups setting. Restores message group spacing to the default.
 #: src/features/user/components/modals/tabs/appearance_tab/MessagesTab.tsx:88
 msgid "Reset spacing"
@@ -27570,7 +27682,7 @@ msgstr "Zmiana rozmiaru, maksymalizacja i przyciąganie okien zależą od kompoz
 
 #. Section header in the stream settings menu for resolution options.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:206
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:210
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:125
 msgid "Resolution"
 msgstr "Rozdzielczość"
@@ -27971,7 +28083,7 @@ msgid "Roles"
 msgstr "Role"
 
 #. Community settings tab for role hierarchy and permission rules.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:49
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:56
 msgctxt "community-settings-tab"
 msgid "Roles"
 msgstr "Role"
@@ -28087,6 +28199,7 @@ msgstr "Nasycenie"
 #. Button label that saves a custom emoji rename.
 #. Button or menu action label in the add custom search engine modal. Keep it concise.
 #. Button or menu action label in the rename channel modal. Keep it concise.
+#. Primary button of the soundboard sound dialog.
 #. Save button in the community-folder settings modal footer.
 #: src/features/app/components/dialogs/shared/MobileSettingsComponents.tsx:113
 #: src/features/auth/components/modals/PasskeyNameModal.tsx:87
@@ -28103,6 +28216,7 @@ msgstr "Nasycenie"
 #: src/features/messaging/components/modals/AttachmentEditModal.tsx:136
 #: src/features/messaging/components/modals/EditAltTextModal.tsx:193
 #: src/features/messaging/components/modals/MessageHistoryThresholdModal.tsx:115
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:38
 #: src/features/user/components/modals/BaseChangeNicknameModal.tsx:136
 #: src/features/user/components/modals/CustomStatusBottomSheet.tsx:297
 #: src/features/user/components/modals/NoteEditSheet.tsx:48
@@ -28264,7 +28378,7 @@ msgstr "Wymagane pozwolenie na nagrywanie ekranu"
 #. Footer summary label for the text-focused screen-share quality preset.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Streaming preset label in the stream settings menu. Optimized for sharp text in screen shares.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:222
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:226
 #: src/features/voice/components/modals/ScreenSharePickerModal.tsx:232
 #: src/features/voice/components/StreamSettingsMenuContent.tsx:83
 msgid "Screen share"
@@ -28344,7 +28458,7 @@ msgstr "Prywatność udostępniania ekranu"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the video tab. Keep it concise.
 #: src/features/user/components/modals/tabs/UserVideoTab.tsx:84
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:214
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:218
 msgid "Screen share quality"
 msgstr "Jakość udostępniania ekranu"
 
@@ -28373,7 +28487,7 @@ msgstr "Zatrzymanie udostępniania ekranu"
 #. Status badge label shown on a live tile when the participant is sharing their screen.
 #: src/features/ui/components/LiveBadge.tsx:13
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:218
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:218
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:222
 msgid "Screen sharing"
 msgstr "Udostępnianie ekranu"
 
@@ -28408,7 +28522,7 @@ msgid "Screen sharing not supported"
 msgstr "Udostępnianie ekranu nie jest obsługiwane"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:210
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:214
 msgid "Screen sharing quality"
 msgstr "Jakość udostępniania ekranu"
 
@@ -28704,6 +28818,13 @@ msgstr "Szukaj skrótów"
 #: src/features/user/components/modals/tabs/KeybindsTab.tsx:17
 msgid "Search shortcuts…"
 msgstr "Szukaj skrótów…"
+
+#. Placeholder of the search box in the community soundboard settings.
+#. Placeholder of the search box in the voice channel soundboard.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:41
+#: src/features/soundboard/components/SoundboardPopout.tsx:27
+msgid "Search sounds"
+msgstr "Szukaj dźwięków"
 
 #. Button or menu action label in the guild stickers tab. Keep it concise.
 #: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:49
@@ -29011,7 +29132,7 @@ msgid "Select the account you want to sign in with on the desktop app."
 msgstr "Wybierz konto, na które chcesz się zalogować w aplikacji komputerowej."
 
 #. Aria label for the voice processing radio group in the voice settings tab. Keep it concise.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:114
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:115
 msgid "Select voice processing mode"
 msgstr "Wybierz tryb przetwarzania głosu"
 
@@ -29051,7 +29172,7 @@ msgid "Selection end"
 msgstr "Koniec zaznaczenia"
 
 #. Error displayed when the trimmed entrance sound selection is below the minimum duration.
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:49
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:52
 msgid "Selection must be at least {seconds, plural, one {# second} other {# seconds}}."
 msgstr "Wybrany fragment musi trwać co najmniej {seconds, plural, one {# sekundę} few {# sekundy} many {# sekund} other {# sekundy}}."
 
@@ -29339,7 +29460,7 @@ msgid "Sends raw mic audio with no processing."
 msgstr "Wysyła surowy dźwięk z mikrofonu bez przetwarzania."
 
 #. Description for the direct input profile option in the voice tab.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:85
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:86
 msgid "Sends your audio untouched. Best if you're using external audio software."
 msgstr "Wysyła dźwięk bez zmian. Najlepiej, jeśli używasz zewnętrznego oprogramowania audio."
 
@@ -29869,7 +29990,7 @@ msgstr "Krótkie kody"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/keybinds_tab/CustomKeybindRow.tsx:121
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:352
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:357
 #: src/features/user/components/settings_utils/search_index/KeybindsIndex.ts:38
 #: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:110
 msgid "Shortcut"
@@ -31138,12 +31259,35 @@ msgstr "Efekt dźwiękowy"
 msgid "Sound for this scope"
 msgstr "Dźwięk dla tego zakresu"
 
+#. Label of the name field in the soundboard sound dialog.
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:34
+msgid "Sound name"
+msgstr "Nazwa dźwięku"
+
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:94
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:224
 msgid "Sound volume"
 msgstr "Głośność dźwięku"
+
+#. Title of the soundboard section in the voice settings tab.
+#: src/features/soundboard/components/SoundboardPopout.tsx:153
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:188
+msgid "Soundboard"
+msgstr "Soundboard"
+
+#. Community settings tab for managing the sounds members can play in voice channels.
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:46
+msgctxt "community-settings-tab"
+msgid "Soundboard"
+msgstr "Soundboard"
+
+#. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/soundboard/components/SoundboardVolumeSection.tsx:23
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:158
+msgid "Soundboard volume"
+msgstr "Głośność soundboardu"
 
 #. Section heading / tab label for the notification-sounds area.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
@@ -31168,7 +31312,7 @@ msgid "Source"
 msgstr "Źródło"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:250
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:254
 msgid "Source quality"
 msgstr "Jakość źródła"
 
@@ -31751,7 +31895,7 @@ msgid "Stickers"
 msgstr "Naklejki"
 
 #. Community settings tab for managing custom stickers uploaded to the community.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:39
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:41
 msgctxt "community-settings-tab"
 msgid "Stickers"
 msgstr "Naklejki"
@@ -31797,9 +31941,20 @@ msgid "Still Neko"
 msgstr "Nieruchomy Neko"
 
 #. Stop-recording button label in the desktop voice message composer.
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:239
 #: src/features/voice/components/VoiceMessageComposerModal.tsx:65
 msgid "Stop"
 msgstr "Zatrzymaj"
+
+#. Button on a soundboard sound the current user is playing. Stops it for everyone in the voice channel.
+#: src/features/soundboard/components/SoundboardPopout.tsx:39
+msgid "Stop for everyone"
+msgstr "Zatrzymaj dla wszystkich"
+
+#. Button on a soundboard sound someone else is playing. Stops it only for the current user.
+#: src/features/soundboard/components/SoundboardPopout.tsx:43
+msgid "Stop for me"
+msgstr "Zatrzymaj dla mnie"
 
 #. Confirmation prompt in advanced settings.
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedChatControls.tsx:156
@@ -31979,7 +32134,7 @@ msgstr "Głośność transmisji"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/profile/VoiceActivityCard.tsx:232
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:226
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:230
 msgid "Streaming"
 msgstr "Transmisja"
 
@@ -32263,7 +32418,7 @@ msgstr "Przełącz na wygodny układ"
 msgid "Switch to dense layout"
 msgstr "Przełącz na zwarty układ"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:626
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:631
 msgid "Switch to direct input"
 msgstr "Przełącz na bezpośrednie wejście"
 
@@ -33487,6 +33642,10 @@ msgstr "Ta społeczność nie ma jeszcze żadnych linków z zaproszeniami. Przej
 msgid "This community doesn't have any webhooks yet. Go to {channelWebhooksSettingsPath} to create one."
 msgstr "Ta społeczność nie ma jeszcze żadnych webhooków. Przejdź do {channelWebhooksSettingsPath}, aby utworzyć nowego."
 
+#: src/features/soundboard/components/SoundboardPopout.tsx:187
+msgid "This community has no sounds yet. Add some in Community Settings under Soundboard."
+msgstr "Ta społeczność nie ma jeszcze dźwięków. Dodaj je w ustawieniach społeczności, w sekcji Soundboard."
+
 #. Invite page notice shown when community admins have paused invites.
 #: src/features/invite/utils/InviteMessageDescriptors.ts:33
 msgid "This community has paused invites."
@@ -34572,12 +34731,17 @@ msgid "Trigger React crash"
 msgstr "Wywołaj awarię Reacta"
 
 #. Title of the modal that lets the user crop a long audio file down to the entrance sound length cap.
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:25
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:26
 msgid "Trim entrance sound"
 msgstr "Przytnij dźwięk wejścia"
 
+#. Title of the audio trimmer when uploading a soundboard sound.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:45
+msgid "Trim sound"
+msgstr "Przytnij dźwięk"
+
 #. Error displayed when the encoded trimmed audio exceeds the entrance sound size cap.
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:53
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:56
 msgid "Trimmed clip is over the {limit} size limit. Try a shorter selection."
 msgstr "Przycięty klip przekracza limit rozmiaru {limit}. Spróbuj wybrać krótszy fragment."
 
@@ -35405,7 +35569,7 @@ msgid "Unknown message type"
 msgstr "Nieznany typ wiadomości"
 
 #. Fallback label for a permission bit the client does not recognize.
-#: src/features/permissions/utils/PermissionUtils.ts:421
+#: src/features/permissions/utils/PermissionUtils.ts:424
 msgid "Unknown permission"
 msgstr "Nieznane uprawnienie"
 
@@ -35804,6 +35968,11 @@ msgstr "Nieobsługiwany typ pliku."
 msgid "Unsupported icon format"
 msgstr "Nieobsługiwany format ikony"
 
+#. Title of the error shown when the picked soundboard file is too large or not audio.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:49
+msgid "Unsupported sound file"
+msgstr "Nieobsługiwany plik dźwiękowy"
+
 #. Title of the error modal shown when an unsupported sticker file type is selected.
 #: src/features/guild/components/modals/guild_tabs/GuildStickersTab.tsx:87
 msgid "Unsupported sticker file"
@@ -36045,6 +36214,7 @@ msgid "Upload preview frames for screen shares."
 msgstr "Przesyłaj klatki podglądu udostępnianego ekranu."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:270
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:200
 msgid "Upload sound"
 msgstr "Prześlij dźwięk"
@@ -36401,9 +36571,14 @@ msgid "Use reverification text"
 msgstr "Użyj tekstu ponownej weryfikacji"
 
 #. Primary action button in the trimmer modal: accept the current selection and upload it.
-#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:37
+#: src/features/voice/components/EntranceSoundTrimmerModal.tsx:40
 msgid "Use selection"
 msgstr "Użyj zaznaczenia"
+
+#. Permission title for playing soundboard sounds in voice channels.
+#: src/features/permissions/utils/PermissionLabelDescriptors.ts:521
+msgid "Use Soundboard"
+msgstr "Używaj soundboardu"
 
 #. Permission description in the channel-scoped permissions editor for the Use External Stickers permission. "Other communities" means stickers uploaded in a different Fluxer community.
 #: src/features/permissions/utils/PermissionLabelDescriptors.ts:265
@@ -36747,7 +36922,7 @@ msgid "Vanity URL"
 msgstr "Niestandardowy adres URL"
 
 #. Community settings tab for the community vanity/custom invite link.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:69
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:76
 msgctxt "community-settings-tab"
 msgid "Vanity URL"
 msgstr "Niestandardowy adres URL"
@@ -37039,13 +37214,13 @@ msgstr "Vibrancy"
 #: src/features/user/components/modals/tabs/voice_video_tab/VoiceVideoTabInline.tsx:18
 #: src/features/user/components/modals/tabs/VoiceVideoTab.tsx:15
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:113
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:170
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:174
 #: src/features/voice/components/media_player/components/VideoPlayer.tsx:58
 msgid "Video"
 msgstr "Wideo"
 
 #. Audio/video settings section for camera controls.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:259
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:263
 msgctxt "voice-video-settings-section"
 msgid "Video"
 msgstr "Wideo"
@@ -37076,7 +37251,7 @@ msgid "Video codec for screen sharing"
 msgstr "Kodek wideo do udostępniania ekranu"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:174
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:178
 msgid "Video input"
 msgstr "Wejście wideo"
 
@@ -37095,7 +37270,7 @@ msgstr "Utrata pakietów wideo:"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/messaging/components/modals/media_modal/shared.ts:133
 #: src/features/messaging/components/modals/MediaViewerModal.tsx:90
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:182
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:186
 msgid "Video preview"
 msgstr "Podgląd wideo"
 
@@ -37659,7 +37834,7 @@ msgid "Voice participants"
 msgstr "Uczestnicy rozmowy głosowej"
 
 #. Voice settings radio group label for microphone processing profile.
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:621
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:626
 #: src/features/voice/components/voice_connection_status/AudioProcessingModal.tsx:55
 msgid "Voice processing"
 msgstr "Przetwarzanie głosu"
@@ -37715,7 +37890,8 @@ msgstr "Anulowano"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Subsection title in the voice tab. Keep it concise.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:373
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:175
+#: src/features/soundboard/components/SoundboardSoundModal.tsx:216
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:176
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:86
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:174
 msgid "Volume"
@@ -37768,7 +37944,7 @@ msgid "Wait here"
 msgstr "Poczekaj tutaj"
 
 #. Tooltip explaining that video / screen share controls are gated while the voice connection is not yet ready.
-#: src/features/voice/components/voice_connection_status/LocalParticipantControls.tsx:45
+#: src/features/voice/components/voice_connection_status/LocalParticipantControls.tsx:46
 msgid "Waiting for connection..."
 msgstr "Oczekiwanie na połączenie…"
 
@@ -38106,7 +38282,7 @@ msgid "WebAuthn"
 msgstr "WebAuthn"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:166
+#: src/features/user/components/settings_utils/section_registry/VoiceVideoSections.ts:170
 msgid "Webcam"
 msgstr "Kamerka internetowa"
 
@@ -38159,7 +38335,7 @@ msgid "Webhooks"
 msgstr "Webhooki"
 
 #. Community settings tab for configuring webhooks.
-#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:64
+#: src/features/user/components/settings_utils/GuildSettingsConstants.ts:71
 msgctxt "community-settings-tab"
 msgid "Webhooks"
 msgstr "Webhooki"
@@ -38383,7 +38559,7 @@ msgstr "Które rozmowy"
 msgid "Which rule was broken?"
 msgstr "Która zasada została złamana?"
 
-#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:346
+#: src/features/user/components/modals/tabs/UserVoiceTab.tsx:351
 msgid "While push-to-talk is on, your shortcut controls your microphone, so the mute button is disabled."
 msgstr "Gdy funkcja „Naciśnij i mów” jest włączona, skrót steruje mikrofonem, więc przycisk wyciszenia jest nieaktywny."
 
@@ -38737,6 +38913,11 @@ msgstr "Możesz teraz zamknąć tę kartę i wrócić do aplikacji."
 msgid "You can only have one custom background on the free tier. Picking a new one will replace your existing background."
 msgstr "W ramach darmowego planu możesz ustawić tylko jedno niestandardowe tło. Wybranie nowego spowoduje zastąpienie aktualnego tła."
 
+#. Toast shown when the user plays soundboard sounds faster than the cooldown allows.
+#: src/features/soundboard/components/SoundboardPopout.tsx:31
+msgid "You can play one sound per second."
+msgstr "Możesz odtwarzać jeden dźwięk na sekundę."
+
 #: src/features/app/components/dialogs/components/plutonium/SelfServeRefundSection.tsx:189
 msgid "You can refund again after {cooldownEndsOn}. Contact support for billing issues."
 msgstr "Możesz ponownie poprosić o zwrot środków po {cooldownEndsOn}. Skontaktuj się z pomocą techniczną w przypadku problemów z płatnościami."
@@ -38867,7 +39048,7 @@ msgstr "Nie możesz wysyłać wiadomości w tej społeczności."
 
 #. Tooltip in the voice control bar when the user lacks the Screen Share permission in this channel. Tone stays plain.
 #. Tooltip shown when the user lacks the Screen Share permission in the voice channel. Tone stays plain.
-#: src/features/voice/components/voice_connection_status/LocalParticipantControls.tsx:54
+#: src/features/voice/components/voice_connection_status/LocalParticipantControls.tsx:55
 #: src/features/voice/components/VoiceControlBar.tsx:137
 msgid "You can't share your screen in this channel"
 msgstr "Nie możesz udostępnić ekranu na tym kanale"
@@ -38881,7 +39062,7 @@ msgstr "Nie możesz mówić na tym kanale"
 #. Tooltip in the voice control bar when the user lacks the Video permission in this channel. Tone stays plain.
 #. Tooltip shown when the user lacks the Video permission in the voice channel. Tone stays plain.
 #: src/features/voice/components/modals/CameraPreviewModal.tsx:76
-#: src/features/voice/components/voice_connection_status/LocalParticipantControls.tsx:50
+#: src/features/voice/components/voice_connection_status/LocalParticipantControls.tsx:51
 #: src/features/voice/components/VoiceControlBar.tsx:127
 msgid "You can't turn on your camera in this channel"
 msgstr "Nie możesz włączyć kamery na tym kanale"
@@ -38996,6 +39177,10 @@ msgstr "Nie masz uprawnień, aby dołączyć do tego kanału głosowego"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:73
 msgid "You don't have permission to rename this emoji. The name was reverted to what it was before."
 msgstr "Nie masz uprawnień do zmiany nazwy tego emoji. Przywrócono poprzednią nazwę."
+
+#: src/features/soundboard/components/SoundboardPopout.tsx:173
+msgid "You don't have permission to use the soundboard in this channel."
+msgstr "Nie masz uprawnień do używania soundboardu na tym kanale."
 
 #: src/features/channel/components/barriers/BarrierComponents.tsx:362
 msgid "You have blocked {username}. Unblock them to send messages."

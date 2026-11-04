@@ -635,6 +635,9 @@
         "msgid": "Session"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Spoiler"
       },
       {
@@ -846,6 +849,10 @@
       },
       {
         "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
+      },
+      {
+        "msgctxt": "community-settings-tab",
         "msgid": "Webhooks"
       },
       {
@@ -1051,6 +1058,9 @@
         "msgid": "Smileys"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Spam"
       },
       {
@@ -1205,6 +1215,10 @@
       },
       {
         "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
+      },
+      {
+        "msgctxt": "community-settings-tab",
         "msgid": "Webhooks"
       },
       {
@@ -1296,6 +1310,9 @@
         "msgid": "Premium"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Spam"
       },
       {
@@ -1358,6 +1375,10 @@
       {
         "msgctxt": "community-settings-tab",
         "msgid": "Emoji"
+      },
+      {
+        "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
       },
       {
         "msgctxt": "community-settings-tab",
@@ -4631,6 +4652,9 @@
         "msgid": "Social"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Source"
       },
       {
@@ -4814,6 +4838,10 @@
       {
         "msgctxt": "channel-settings-tab",
         "msgid": "Webhooks"
+      },
+      {
+        "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
       },
       {
         "msgctxt": "community-settings-tab",
@@ -5548,6 +5576,9 @@
         "msgid": "Slovenia"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Spam"
       },
       {
@@ -5687,6 +5718,10 @@
       {
         "msgctxt": "chat-settings-section",
         "msgid": "Media"
+      },
+      {
+        "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
       },
       {
         "msgctxt": "voice-video-settings-section",
@@ -5902,6 +5937,9 @@
         "msgid": "Slovenia"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Spam"
       },
       {
@@ -6025,6 +6063,10 @@
       {
         "msgctxt": "community-settings-tab",
         "msgid": "Emoji"
+      },
+      {
+        "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
       },
       {
         "msgctxt": "noise-suppression-option",
@@ -6642,6 +6684,9 @@
         "msgid": "Relevant"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Spam"
       },
       {
@@ -6842,6 +6887,10 @@
       {
         "msgctxt": "community-settings-tab",
         "msgid": "Emoji"
+      },
+      {
+        "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
       },
       {
         "msgctxt": "community-settings-tab",
@@ -7275,6 +7324,9 @@
         "msgid": "Region: {regionName}"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Spam"
       },
       {
@@ -7349,6 +7401,10 @@
       {
         "msgctxt": "community-settings-tab",
         "msgid": "Emoji"
+      },
+      {
+        "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
       }
     ],
     "pt-BR": [
@@ -7869,6 +7925,9 @@
         "msgid": "Social"
       },
       {
+        "msgid": "Soundboard"
+      },
+      {
         "msgid": "Spam"
       },
       {
@@ -7998,6 +8057,10 @@
       {
         "msgctxt": "community-settings-tab",
         "msgid": "Emoji"
+      },
+      {
+        "msgctxt": "community-settings-tab",
+        "msgid": "Soundboard"
       },
       {
         "msgctxt": "noise-suppression-option",

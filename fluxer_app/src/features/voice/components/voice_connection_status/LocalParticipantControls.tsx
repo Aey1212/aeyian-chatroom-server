@@ -3,6 +3,7 @@
 import {TURN_OFF_CAMERA_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
 import Permission from '@app/features/permissions/state/Permission';
 import NativePermission from '@app/features/permissions/system/state/NativePermission';
+import {SoundboardButton} from '@app/features/soundboard/components/SoundboardButton';
 import * as ContextMenuCommands from '@app/features/ui/commands/ContextMenuCommands';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {modal} from '@app/features/ui/commands/ModalCommands';
@@ -77,6 +78,8 @@ export const LocalParticipantControls = observer(() => {
 	const isScreenShareEnabled = localParticipantSnapshot?.isScreenShareEnabled ?? false;
 	const isNativeConnected = !room && MediaEngine.connected;
 	const isConnected = Boolean((room && localParticipant) || isNativeConnected);
+	const soundboardGuildId = isConnected ? MediaEngine.guildId : null;
+	const soundboardChannelId = isConnected ? MediaEngine.channelId : null;
 	const displayShareEnvironment = resolveDisplayShareEnvironment(isDesktop(), NativePermission.isLinuxWaylandDesktop);
 	const channelId = MediaEngine.channelId;
 	const guildId = MediaEngine.guildId;
@@ -267,6 +270,13 @@ export const LocalParticipantControls = observer(() => {
 					</button>
 				</FocusRing>
 			</Tooltip>
+			{soundboardGuildId && soundboardChannelId ? (
+				<SoundboardButton
+					guildId={soundboardGuildId}
+					channelId={soundboardChannelId}
+					data-flx="voice.voice-connection-status.local-participant-controls.soundboard-button"
+				/>
+			) : null}
 		</>
 	);
 });
