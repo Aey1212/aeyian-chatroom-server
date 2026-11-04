@@ -560,6 +560,12 @@ export const ERROR_I18N_MESSAGES = {
 	'entrance_sounds.name_length_invalid': 'Entrance sound names must be between 1 and {max, number} characters.',
 	'entrance_sounds.not_found': 'Entrance sound not found.',
 	'entrance_sounds.invalid_scope': 'Invalid entrance sound scope.',
+	'soundboard.invalid_format': 'Soundboard sounds must be MP3, OGG, M4A, or WAV audio.',
+	'soundboard.duration_invalid': 'Soundboard sounds must be between {min_ms, number}ms and {max_ms, number}ms long.',
+	'soundboard.size_exceeds_limit': 'Soundboard sounds can be at most {max_bytes, number} bytes.',
+	'soundboard.name_length_invalid': 'Soundboard sound names must be between 1 and {max, number} characters.',
+	'soundboard.not_found': 'Soundboard sound not found.',
+	'soundboard.not_in_voice_channel': 'Join this voice channel to use its soundboard.',
 } as const;
 
 export type ErrorI18nCatalog = typeof ERROR_I18N_MESSAGES;

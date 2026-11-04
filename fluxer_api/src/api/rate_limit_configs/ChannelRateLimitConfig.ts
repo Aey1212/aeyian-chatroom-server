@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import type {RouteRateLimitConfig} from '@app/api/middleware/RateLimitMiddleware';
+import {SOUNDBOARD_PLAY_COOLDOWN_MS} from '@fluxer/constants/src/SoundboardConstants';
 import {ms} from 'itty-time';
 
 export const ChannelRateLimitConfigs = {
@@ -119,6 +120,14 @@ export const ChannelRateLimitConfigs = {
 	CHANNEL_STREAM_PREVIEW_DELETE: {
 		bucket: 'channel:stream:preview:delete::stream_key',
 		config: {limit: 20, windowMs: ms('10 seconds')},
+	} as RouteRateLimitConfig,
+	VOICE_SOUNDBOARD_PLAY: {
+		bucket: 'voice:soundboard:play::user_id',
+		config: {limit: 1, windowMs: SOUNDBOARD_PLAY_COOLDOWN_MS},
+	} as RouteRateLimitConfig,
+	VOICE_SOUNDBOARD_STOP: {
+		bucket: 'voice:soundboard:stop::user_id',
+		config: {limit: 10, windowMs: ms('10 seconds')},
 	} as RouteRateLimitConfig,
 	VOICE_ENTRANCE_SOUND_PLAY: {
 		bucket: 'voice:entrance_sound:play::user_id::channel_id',

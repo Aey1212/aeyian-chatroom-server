@@ -109,16 +109,24 @@ pub(in crate::server) fn parse_simple_asset_path(
 }
 
 pub(in crate::server) fn parse_entrance_sound_path(path: &str) -> Option<String> {
+    parse_owned_sound_path(path, "entrance-sounds")
+}
+
+pub(in crate::server) fn parse_soundboard_sound_path(path: &str) -> Option<String> {
+    parse_owned_sound_path(path, "soundboard-sounds")
+}
+
+fn parse_owned_sound_path(path: &str, prefix: &str) -> Option<String> {
     let mut parts = canonical_public_path(path)?.split('/');
-    if parts.next()? != "entrance-sounds" {
+    if parts.next()? != prefix {
         return None;
     }
-    let user_id = parts.next()?;
+    let owner_id = parts.next()?;
     let filename = parts.next()?;
     if parts.next().is_some() {
         return None;
     }
-    if user_id.is_empty() || !user_id.bytes().all(|b| b.is_ascii_digit()) {
+    if owner_id.is_empty() || !owner_id.bytes().all(|b| b.is_ascii_digit()) {
         return None;
     }
     let (hash, ext) = filename.split_once('.')?;
@@ -128,7 +136,7 @@ pub(in crate::server) fn parse_entrance_sound_path(path: &str) -> Option<String>
     if !matches!(ext, "mp3" | "ogg" | "m4a" | "wav") {
         return None;
     }
-    Some(format!("entrance-sounds/{user_id}/{filename}"))
+    Some(format!("{prefix}/{owner_id}/{filename}"))
 }
 
 struct ParsedAssetFilename<'a> {
@@ -228,6 +236,40 @@ mod tests {
                 Some(format!("entrance-sounds/42/abc123.{ext}"))
             );
         }
+    }
+
+    #[test]
+    fn soundboard_sound_path_parses_valid_keys() {
+        assert_eq!(
+            parse_soundboard_sound_path(
+                "/soundboard-sounds/1555487351738728448/eb417d05ad2e14c4.ogg"
+            ),
+            Some("soundboard-sounds/1555487351738728448/eb417d05ad2e14c4.ogg".to_owned())
+        );
+    }
+
+    #[test]
+    fn soundboard_sound_path_rejects_invalid_keys() {
+        assert_eq!(
+            parse_soundboard_sound_path("/soundboard-sounds/42/abc.flac"),
+            None
+        );
+        assert_eq!(
+            parse_soundboard_sound_path("/soundboard-sounds/abc/abc.wav"),
+            None
+        );
+        assert_eq!(
+            parse_soundboard_sound_path("/soundboard-sounds/42/../secret.wav"),
+            None
+        );
+        assert_eq!(
+            parse_soundboard_sound_path("/entrance-sounds/42/abc.wav"),
+            None
+        );
+        assert_eq!(
+            parse_entrance_sound_path("/soundboard-sounds/42/abc.wav"),
+            None
+        );
     }
 
     #[test]

@@ -1853,6 +1853,30 @@ Session timed out
 
 Invalid snowflake
 
+### `SOUNDBOARD_NOT_IN_VOICE_CHANNEL`
+
+Join this voice channel to use its soundboard
+
+### `SOUNDBOARD_SOUND_DURATION_INVALID`
+
+Soundboard sounds must be between {min_ms, number}ms and {max_ms, number}ms long
+
+### `SOUNDBOARD_SOUND_INVALID_FORMAT`
+
+Soundboard sounds must be MP3, OGG, M4A, or WAV audio
+
+### `SOUNDBOARD_SOUND_NAME_LENGTH_INVALID`
+
+Soundboard sound names must be between 1 and {max, number} characters
+
+### `SOUNDBOARD_SOUND_NOT_FOUND`
+
+Soundboard sound not found
+
+### `SOUNDBOARD_SOUND_SIZE_EXCEEDS_LIMIT`
+
+Soundboard sounds can be at most {max_bytes, number} bytes
+
 ### `SSO_IDENTITY_MISMATCH`
 
 SSO identity mismatch between id_token and userinfo

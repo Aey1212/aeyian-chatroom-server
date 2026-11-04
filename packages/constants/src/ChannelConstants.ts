@@ -170,11 +170,13 @@ export const Permissions = {
 	MANAGE_EXPRESSIONS: 1n << 30n,
 	USE_EXTERNAL_STICKERS: 1n << 37n,
 	MODERATE_MEMBERS: 1n << 40n,
+	USE_SOUNDBOARD: 1n << 42n,
 	CREATE_EXPRESSIONS: 1n << 43n,
 	PIN_MESSAGES: 1n << 51n,
 	BYPASS_SLOWMODE: 1n << 52n,
 	UPDATE_RTC_REGION: 1n << 53n,
 	VIEW_CHANNEL_MEMBERS: 1n << 54n,
+	MANAGE_SOUNDS: 1n << 55n,
 } as const;
 export const PermissionsDescriptions: Record<keyof typeof Permissions, string> = {
 	CREATE_INSTANT_INVITE: 'Allows creation of instant invites',
@@ -209,11 +211,13 @@ export const PermissionsDescriptions: Record<keyof typeof Permissions, string> =
 	MANAGE_EXPRESSIONS: 'Allows management of guild expressions',
 	USE_EXTERNAL_STICKERS: 'Allows using stickers from other guilds',
 	MODERATE_MEMBERS: 'Allows timing out users',
+	USE_SOUNDBOARD: 'Allows playing soundboard sounds in a voice channel',
 	CREATE_EXPRESSIONS: 'Allows creating guild expressions',
 	PIN_MESSAGES: 'Allows pinning messages',
 	BYPASS_SLOWMODE: 'Allows bypassing slowmode',
 	UPDATE_RTC_REGION: 'Allows updating the voice region',
 	VIEW_CHANNEL_MEMBERS: 'Allows viewing the member list in a channel',
+	MANAGE_SOUNDS: 'Allows uploading, editing and deleting guild soundboard sounds',
 };
 export const ALL_PERMISSIONS = Object.values(Permissions).reduce((acc, p) => acc | p, 0n);
 export const DEFAULT_PERMISSIONS =
@@ -231,7 +235,8 @@ export const DEFAULT_PERMISSIONS =
 	Permissions.USE_VAD |
 	Permissions.CHANGE_NICKNAME |
 	Permissions.USE_EXTERNAL_STICKERS |
-	Permissions.VIEW_CHANNEL_MEMBERS;
+	Permissions.VIEW_CHANNEL_MEMBERS |
+	Permissions.USE_SOUNDBOARD;
 export const ElevatedPermissions =
 	Permissions.KICK_MEMBERS |
 	Permissions.BAN_MEMBERS |
@@ -242,5 +247,6 @@ export const ElevatedPermissions =
 	Permissions.MANAGE_MESSAGES |
 	Permissions.MANAGE_WEBHOOKS |
 	Permissions.MANAGE_EXPRESSIONS |
-	Permissions.MODERATE_MEMBERS;
+	Permissions.MODERATE_MEMBERS |
+	Permissions.MANAGE_SOUNDS;
 export const CHANNEL_REINDEX_AFTER_TIMESTAMP = 1779557400;

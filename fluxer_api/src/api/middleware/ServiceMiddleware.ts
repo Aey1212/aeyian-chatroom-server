@@ -105,6 +105,8 @@ import {
 	getReadStateRequestService,
 	getReadStateService,
 	getReportRepository,
+	getSoundboardPlayService,
+	getSoundboardService,
 	getStorageService,
 	getStreamPreviewService,
 	getSweegoWebhookService,
@@ -556,6 +558,14 @@ class RequestServices implements RequestScopedServices {
 
 	get entranceSoundPlayService() {
 		return getEntranceSoundPlayService();
+	}
+
+	get soundboardService() {
+		return getSoundboardService();
+	}
+
+	get soundboardPlayService() {
+		return getSoundboardPlayService();
 	}
 
 	get errorI18nService() {
