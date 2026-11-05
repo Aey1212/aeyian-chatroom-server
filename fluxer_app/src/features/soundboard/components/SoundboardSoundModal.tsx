@@ -74,7 +74,7 @@ type SoundboardSoundModalProps =
 	| {mode: 'create'; guildId: string; audio: Blob; defaultName: string}
 	| {mode: 'edit'; guildId: string; sound: SoundboardSound};
 
-export const SoundboardSoundModal = observer(function SoundboardSoundModal(props: SoundboardSoundModalProps) {
+export const SoundboardSoundModal = observer((props: SoundboardSoundModalProps) => {
 	const {i18n} = useLingui();
 	const existing = props.mode === 'edit' ? props.sound : null;
 	const [name, setName] = useState(
@@ -264,6 +264,8 @@ export const SoundboardSoundModal = observer(function SoundboardSoundModal(props
 		</Modal.Root>
 	);
 });
+
+SoundboardSoundModal.displayName = 'SoundboardSoundModal';
 
 export function openSoundboardSoundModal(props: SoundboardSoundModalProps): void {
 	ModalCommands.push(
