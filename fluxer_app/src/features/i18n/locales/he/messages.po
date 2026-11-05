@@ -9628,7 +9628,7 @@ msgstr "לא ניתן לפענח את קובץ השמע הזה."
 msgid "Could not load the instance configuration. Try reloading the page."
 msgstr "לא ניתן לטעון את תצורת המופע. נסה לטעון מחדש את הדף."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:280
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:299
 #: src/features/soundboard/components/SoundboardPopout.tsx:183
 msgid "Could not load this community's sounds."
 msgstr "לא ניתן לטעון את הצלילים של הקהילה הזו."
@@ -9947,7 +9947,7 @@ msgid "Couldn't rejoin the Visionary community"
 msgstr "לא ניתן להצטרף מחדש לקהילת Visionary"
 
 #. Error message in the use entrance sound. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:55
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:60
 msgid "Couldn't remove entrance sound"
 msgstr "לא ניתן היה להסיר את צליל הכניסה"
 
@@ -10002,7 +10002,7 @@ msgid "Couldn't run that command: {detail}"
 msgstr "לא ניתן היה להריץ את הפקודה: {detail}"
 
 #. Error message in the use entrance sound.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:47
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:52
 msgid "Couldn't save entrance sound"
 msgstr "לא ניתן היה לשמור את צליל הכניסה"
 
@@ -10611,7 +10611,7 @@ msgstr "אימוג'י מותאם אישית {emojiName} מקהילה"
 
 #. Error modal body shown when custom entrance sounds are disabled on the instance.
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:471
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:71
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:76
 msgid "Custom entrance sounds are not enabled on this instance."
 msgstr "צלילי כניסה מותאמים אישית אינם מופעלים במופע זה."
 
@@ -11232,8 +11232,8 @@ msgstr "דלאוור"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:65
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:81
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:76
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:92
 #: src/features/messaging/commands/MessageCommands.tsx:79
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:109
 #: src/features/platform/utils/DesktopLocaleBridge.ts:76
@@ -11291,7 +11291,7 @@ msgid "Delete {fileName}"
 msgstr "מחיקת {fileName}"
 
 #. Body of the confirmation dialog for deleting a soundboard sound. {name} is the sound name.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:61
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:72
 msgid "Delete {name}? Nobody will be able to play it any more."
 msgstr "למחוק את {name}? אף אחד לא יוכל להשמיע אותו יותר."
 
@@ -11453,7 +11453,7 @@ msgid "Delete shortcut"
 msgstr "מחיקת קיצור דרך"
 
 #. Title of the confirmation dialog for deleting a soundboard sound.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:57
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:68
 msgid "Delete sound"
 msgstr "מחיקת צליל"
 
@@ -12854,7 +12854,7 @@ msgstr "ביטול הד"
 #. Tooltip of the button that edits a soundboard sound.
 #. Top-level native menu bar title (Edit menu, holds cut/copy/paste).
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:43
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:77
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:88
 #: src/features/platform/utils/DesktopLocaleBridge.ts:47
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:35
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:51
@@ -14030,23 +14030,18 @@ msgstr "כל צלילי המערכת"
 msgid "Entrance sound"
 msgstr "צליל כניסה"
 
-#. Error modal body shown when an entrance sound upload exceeds the client-side size limit.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:35
-msgid "Entrance sound files must be {limit} or less."
-msgstr "קובצי צליל כניסה חייבים להיות בנפח של {limit} או פחות."
-
 #. Title of the error modal shown when the entrance sound library quota is reached.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:59
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:64
 msgid "Entrance sound library full"
 msgstr "ספריית צלילי הכניסה מלאה"
 
 #. Short label in the use entrance sound. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:51
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:56
 msgid "Entrance sound removed"
 msgstr "צליל הכניסה הוסר"
 
 #. Short label in the use entrance sound. Keep it concise.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:43
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:48
 msgid "Entrance sound saved"
 msgstr "צליל כניסה נשמר"
 
@@ -14063,7 +14058,7 @@ msgid "Entrance sounds"
 msgstr "צלילי כניסה"
 
 #. Title of the error modal shown when custom entrance sounds are disabled on the instance.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:67
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:72
 msgid "Entrance sounds unavailable"
 msgstr "צלילי כניסה אינם זמינים"
 
@@ -14953,6 +14948,13 @@ msgstr "חריגה ממגבלת גודל הקובץ"
 #: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:31
 msgid "File size too large"
 msgstr "גודל הקובץ גדול מדי"
+
+#. Title of the error shown when the picked soundboard or entrance sound file is over the size limit.
+#. Title of the error shown when the picked soundboard or entrance sound file is over the size limit.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:59
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:35
+msgid "File too large"
+msgstr "הקובץ גדול מדי"
 
 #. Label for the has:file filter option in the mobile channel search sheet.
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:108
@@ -19213,7 +19215,7 @@ msgid "Library"
 msgstr "ספרייה"
 
 #. Error modal body shown when entrance sound library quota is reached.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:63
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:68
 msgid "Library full ({max} sounds max). Delete one before adding another."
 msgstr "הספרייה מלאה ({max} צלילים לכל היותר). מחק צליל אחד לפני הוספת צליל נוסף."
 
@@ -20414,7 +20416,7 @@ msgid "Members are removed when offline unless given a role."
 msgstr "חברים יוסרו כשהם לא מקוונים, אלא אם כן יקבלו תפקיד."
 
 #. Intro text of the community soundboard settings. {seconds} is the maximum length, {size} a file size.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:36
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:37
 msgid "Members in a voice channel can play these sounds for everyone there. Each sound can be up to {seconds} seconds and {size}."
 msgstr "חברים בערוץ קולי יכולים להשמיע את הצלילים האלה לכל מי שנמצא שם. כל צליל יכול להיות באורך של עד {seconds} שניות ובגודל של עד {size}."
 
@@ -22715,12 +22717,12 @@ msgstr "לא הוגדר קיצור דרך"
 msgid "No shortcuts match that search."
 msgstr "לא נמצאו קיצורי דרך התואמים לחיפוש."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:288
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:307
 #: src/features/soundboard/components/SoundboardPopout.tsx:191
 msgid "No sounds match your search."
 msgstr "אין צלילים שתואמים לחיפוש."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:284
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:303
 msgid "No sounds yet."
 msgstr "עדיין אין צלילים."
 
@@ -23188,7 +23190,7 @@ msgstr "אישור"
 
 #. Button that closes an error dialog in the community soundboard settings.
 #. Generic acknowledgement button on an informational alert. Closes the alert. Use for benign confirms; for "I have read and understood" use UNDERSTOOD_DESCRIPTOR.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:69
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:80
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:102
 msgid "Okay"
 msgstr "אישור"
@@ -24706,8 +24708,8 @@ msgstr "בחירת ספק תרגום"
 msgid "Pick a web search provider"
 msgstr "בחירת ספק חיפוש באינטרנט"
 
-#. Body of the error shown when the picked soundboard file is too large or not audio. {limit} is a file size.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:53
+#. Body of the error shown when the picked soundboard file is not a supported audio format. {limit} is a file size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:54
 msgid "Pick an MP3, OGG, M4A or WAV file of up to {limit}."
 msgstr "בחרו קובץ MP3,‏ OGG,‏ M4A או WAV בגודל של עד {limit}."
 
@@ -25251,7 +25253,7 @@ msgstr "מניעת חברים מלשלוח הודעות, להגיב ולהצטר
 #. Tooltip of the button that plays a soundboard sound only for yourself.
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:73
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:84
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:239
 #: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
@@ -28821,7 +28823,7 @@ msgstr "חיפוש קיצורי דרך…"
 
 #. Placeholder of the search box in the community soundboard settings.
 #. Placeholder of the search box in the voice channel soundboard.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:41
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:42
 #: src/features/soundboard/components/SoundboardPopout.tsx:27
 msgid "Search sounds"
 msgstr "חיפוש צלילים"
@@ -33761,6 +33763,16 @@ msgstr "גודל הקובץ הזה הוא {fileSize}, מעל המגבלה של {
 msgid "This file is {fileSize}, over the {maxSize} limit. Animated stickers and SVGs must already be small enough to upload. Choose a smaller file or shorten the animation."
 msgstr "גודל הקובץ הזה הוא {fileSize}, מעל המגבלה של {maxSize}. מדבקות מונפשות וקבצי SVG חייבים להיות קטנים מספיק כדי להעלות אותם. בחר קובץ קטן יותר או קצר את האנימציה."
 
+#. Body of the error shown when the picked entrance sound file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:39
+msgid "This file is {size}. Entrance sounds can be up to {limit}, so pick a smaller file."
+msgstr "גודל הקובץ הזה הוא {size}. צלילי כניסה יכולים להיות עד {limit}, לכן יש לבחור קובץ קטן יותר."
+
+#. Body of the error shown when the picked soundboard file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:63
+msgid "This file is {size}. Soundboard sounds can be up to {limit}, so pick a smaller file."
+msgstr "גודל הקובץ הזה הוא {size}. צלילים בלוח הצלילים יכולים להיות עד {limit}, לכן יש לבחור קובץ קטן יותר."
+
 #. Empty state title in the friends list when the user has no friends. Tone can be friendly and playful.
 #: src/features/channel/components/friends/views/FriendsList.tsx:25
 msgid "This friends list needs more power"
@@ -34736,7 +34748,7 @@ msgid "Trim entrance sound"
 msgstr "חיתוך צליל כניסה"
 
 #. Title of the audio trimmer when uploading a soundboard sound.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:45
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:46
 msgid "Trim sound"
 msgstr "חיתוך צליל"
 
@@ -35947,7 +35959,7 @@ msgid "Unsaved changes"
 msgstr "שינויים שלא נשמרו"
 
 #. Error modal body shown when an entrance sound upload has an unsupported audio format.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:39
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:44
 msgid "Unsupported audio file."
 msgstr "קובץ שמע לא נתמך."
 
@@ -35968,8 +35980,8 @@ msgstr "סוג קובץ לא נתמך."
 msgid "Unsupported icon format"
 msgstr "פורמט אייקון לא נתמך"
 
-#. Title of the error shown when the picked soundboard file is too large or not audio.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:49
+#. Title of the error shown when the picked soundboard file is not a supported audio format.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:50
 msgid "Unsupported sound file"
 msgstr "קובץ צליל לא נתמך"
 
@@ -36214,7 +36226,7 @@ msgid "Upload preview frames for screen shares."
 msgstr "העלה פריימים לתצוגה מקדימה עבור שיתופי מסך."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:270
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:289
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:200
 msgid "Upload sound"
 msgstr "העלאת צליל"

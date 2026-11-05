@@ -9628,7 +9628,7 @@ msgstr "Δεν ήταν δυνατή η αποκωδικοποίηση αυτο�
 msgid "Could not load the instance configuration. Try reloading the page."
 msgstr "Δεν ήταν δυνατή η φόρτωση της διαμόρφωσης της παρουσίας. Δοκιμάστε να ανανεώσετε τη σελίδα."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:280
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:299
 #: src/features/soundboard/components/SoundboardPopout.tsx:183
 msgid "Could not load this community's sounds."
 msgstr "Δεν ήταν δυνατή η φόρτωση των ήχων αυτής της κοινότητας."
@@ -9947,7 +9947,7 @@ msgid "Couldn't rejoin the Visionary community"
 msgstr "Δεν ήταν δυνατή η εκ νέου συμμετοχή στην κοινότητα Visionary"
 
 #. Error message in the use entrance sound. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:55
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:60
 msgid "Couldn't remove entrance sound"
 msgstr "Δεν ήταν δυνατή η κατάργηση του ήχου εισόδου"
 
@@ -10002,7 +10002,7 @@ msgid "Couldn't run that command: {detail}"
 msgstr "Δεν ήταν δυνατή η εκτέλεση της εντολής: {detail}"
 
 #. Error message in the use entrance sound.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:47
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:52
 msgid "Couldn't save entrance sound"
 msgstr "Δεν ήταν δυνατή η αποθήκευση του ήχου εισόδου"
 
@@ -10611,7 +10611,7 @@ msgstr "Προσαρμοσμένο emoji {emojiName} από μια κοινότ�
 
 #. Error modal body shown when custom entrance sounds are disabled on the instance.
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:471
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:71
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:76
 msgid "Custom entrance sounds are not enabled on this instance."
 msgstr "Οι προσαρμοσμένοι ήχοι εισόδου δεν είναι ενεργοποιημένοι σε αυτήν την παρουσία."
 
@@ -11232,8 +11232,8 @@ msgstr "Ντέλαγουερ"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:65
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:81
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:76
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:92
 #: src/features/messaging/commands/MessageCommands.tsx:79
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:109
 #: src/features/platform/utils/DesktopLocaleBridge.ts:76
@@ -11291,7 +11291,7 @@ msgid "Delete {fileName}"
 msgstr "Διαγραφή {fileName}"
 
 #. Body of the confirmation dialog for deleting a soundboard sound. {name} is the sound name.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:61
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:72
 msgid "Delete {name}? Nobody will be able to play it any more."
 msgstr "Διαγραφή του {name}; Κανείς δεν θα μπορεί πλέον να τον παίξει."
 
@@ -11453,7 +11453,7 @@ msgid "Delete shortcut"
 msgstr "Διαγραφή συντόμευσης"
 
 #. Title of the confirmation dialog for deleting a soundboard sound.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:57
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:68
 msgid "Delete sound"
 msgstr "Διαγραφή ήχου"
 
@@ -12854,7 +12854,7 @@ msgstr "Ακύρωση ηχούς"
 #. Tooltip of the button that edits a soundboard sound.
 #. Top-level native menu bar title (Edit menu, holds cut/copy/paste).
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:43
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:77
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:88
 #: src/features/platform/utils/DesktopLocaleBridge.ts:47
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:35
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:51
@@ -14030,23 +14030,18 @@ msgstr "Ήχος ολόκληρου του συστήματος"
 msgid "Entrance sound"
 msgstr "Ήχος εισόδου"
 
-#. Error modal body shown when an entrance sound upload exceeds the client-side size limit.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:35
-msgid "Entrance sound files must be {limit} or less."
-msgstr "Τα αρχεία ήχου εισόδου πρέπει να είναι έως {limit}."
-
 #. Title of the error modal shown when the entrance sound library quota is reached.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:59
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:64
 msgid "Entrance sound library full"
 msgstr "Η βιβλιοθήκη ήχων εισόδου είναι πλήρης"
 
 #. Short label in the use entrance sound. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:51
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:56
 msgid "Entrance sound removed"
 msgstr "Ο ήχος εισόδου καταργήθηκε"
 
 #. Short label in the use entrance sound. Keep it concise.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:43
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:48
 msgid "Entrance sound saved"
 msgstr "Ο ήχος εισόδου αποθηκεύτηκε"
 
@@ -14063,7 +14058,7 @@ msgid "Entrance sounds"
 msgstr "Ήχοι εισόδου"
 
 #. Title of the error modal shown when custom entrance sounds are disabled on the instance.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:67
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:72
 msgid "Entrance sounds unavailable"
 msgstr "Οι ήχοι εισόδου δεν είναι διαθέσιμοι"
 
@@ -14952,6 +14947,13 @@ msgstr "Το μέγεθος αρχείου υπερβαίνει το όριο"
 #. Title of the file-too-large alert.
 #: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:31
 msgid "File size too large"
+msgstr "Το αρχείο είναι πολύ μεγάλο"
+
+#. Title of the error shown when the picked soundboard or entrance sound file is over the size limit.
+#. Title of the error shown when the picked soundboard or entrance sound file is over the size limit.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:59
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:35
+msgid "File too large"
 msgstr "Το αρχείο είναι πολύ μεγάλο"
 
 #. Label for the has:file filter option in the mobile channel search sheet.
@@ -19213,7 +19215,7 @@ msgid "Library"
 msgstr "Βιβλιοθήκη"
 
 #. Error modal body shown when entrance sound library quota is reached.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:63
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:68
 msgid "Library full ({max} sounds max). Delete one before adding another."
 msgstr "Η βιβλιοθήκη είναι πλήρης (έως {max} ήχοι). Διαγράψτε έναν πριν προσθέσετε άλλον."
 
@@ -20414,7 +20416,7 @@ msgid "Members are removed when offline unless given a role."
 msgstr "Τα μέλη αφαιρούνται όταν είναι εκτός σύνδεσης, εκτός αν τους έχει δοθεί κάποιος ρόλος."
 
 #. Intro text of the community soundboard settings. {seconds} is the maximum length, {size} a file size.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:36
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:37
 msgid "Members in a voice channel can play these sounds for everyone there. Each sound can be up to {seconds} seconds and {size}."
 msgstr "Τα μέλη σε ένα φωνητικό κανάλι μπορούν να παίζουν αυτούς τους ήχους για όλους εκεί. Κάθε ήχος μπορεί να έχει έως {seconds} δευτερόλεπτα και {size}."
 
@@ -22715,12 +22717,12 @@ msgstr "Δεν έχει οριστεί συντόμευση"
 msgid "No shortcuts match that search."
 msgstr "Δεν βρέθηκαν συντομεύσεις που να ταιριάζουν με την αναζήτηση."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:288
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:307
 #: src/features/soundboard/components/SoundboardPopout.tsx:191
 msgid "No sounds match your search."
 msgstr "Κανένας ήχος δεν ταιριάζει με την αναζήτησή σας."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:284
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:303
 msgid "No sounds yet."
 msgstr "Δεν υπάρχουν ακόμη ήχοι."
 
@@ -23188,7 +23190,7 @@ msgstr "OK"
 
 #. Button that closes an error dialog in the community soundboard settings.
 #. Generic acknowledgement button on an informational alert. Closes the alert. Use for benign confirms; for "I have read and understood" use UNDERSTOOD_DESCRIPTOR.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:69
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:80
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:102
 msgid "Okay"
 msgstr "OK"
@@ -24706,8 +24708,8 @@ msgstr "Επιλέξτε πάροχο μετάφρασης"
 msgid "Pick a web search provider"
 msgstr "Επιλέξτε πάροχο αναζήτησης ιστού"
 
-#. Body of the error shown when the picked soundboard file is too large or not audio. {limit} is a file size.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:53
+#. Body of the error shown when the picked soundboard file is not a supported audio format. {limit} is a file size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:54
 msgid "Pick an MP3, OGG, M4A or WAV file of up to {limit}."
 msgstr "Επιλέξτε αρχείο MP3, OGG, M4A ή WAV έως {limit}."
 
@@ -25251,7 +25253,7 @@ msgstr "Αποτροπή των μελών από την αποστολή μην
 #. Tooltip of the button that plays a soundboard sound only for yourself.
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:73
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:84
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:239
 #: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
@@ -28821,7 +28823,7 @@ msgstr "Αναζήτηση συντομεύσεων…"
 
 #. Placeholder of the search box in the community soundboard settings.
 #. Placeholder of the search box in the voice channel soundboard.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:41
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:42
 #: src/features/soundboard/components/SoundboardPopout.tsx:27
 msgid "Search sounds"
 msgstr "Αναζήτηση ήχων"
@@ -33761,6 +33763,16 @@ msgstr "Αυτό το αρχείο είναι {fileSize}, πάνω από το �
 msgid "This file is {fileSize}, over the {maxSize} limit. Animated stickers and SVGs must already be small enough to upload. Choose a smaller file or shorten the animation."
 msgstr "Αυτό το αρχείο είναι {fileSize}, πάνω από το όριο των {maxSize}. Τα κινούμενα αυτοκόλλητα και τα SVG πρέπει να είναι ήδη αρκετά μικρά για να μεταφορτωθούν. Επιλέξτε ένα μικρότερο αρχείο ή συντομεύστε την κινούμενη εικόνα."
 
+#. Body of the error shown when the picked entrance sound file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:39
+msgid "This file is {size}. Entrance sounds can be up to {limit}, so pick a smaller file."
+msgstr "Αυτό το αρχείο είναι {size}. Οι ήχοι εισόδου μπορούν να είναι έως {limit}, οπότε επιλέξτε ένα μικρότερο αρχείο."
+
+#. Body of the error shown when the picked soundboard file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:63
+msgid "This file is {size}. Soundboard sounds can be up to {limit}, so pick a smaller file."
+msgstr "Αυτό το αρχείο είναι {size}. Οι ήχοι του soundboard μπορούν να είναι έως {limit}, οπότε επιλέξτε ένα μικρότερο αρχείο."
+
 #. Empty state title in the friends list when the user has no friends. Tone can be friendly and playful.
 #: src/features/channel/components/friends/views/FriendsList.tsx:25
 msgid "This friends list needs more power"
@@ -34736,7 +34748,7 @@ msgid "Trim entrance sound"
 msgstr "Περικοπή ήχου εισόδου"
 
 #. Title of the audio trimmer when uploading a soundboard sound.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:45
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:46
 msgid "Trim sound"
 msgstr "Περικοπή ήχου"
 
@@ -35947,7 +35959,7 @@ msgid "Unsaved changes"
 msgstr "Μη αποθηκευμένες αλλαγές"
 
 #. Error modal body shown when an entrance sound upload has an unsupported audio format.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:39
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:44
 msgid "Unsupported audio file."
 msgstr "Μη υποστηριζόμενο αρχείο ήχου."
 
@@ -35968,8 +35980,8 @@ msgstr "Μη υποστηριζόμενος τύπος αρχείου."
 msgid "Unsupported icon format"
 msgstr "Μη υποστηριζόμενη μορφή εικονιδίου"
 
-#. Title of the error shown when the picked soundboard file is too large or not audio.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:49
+#. Title of the error shown when the picked soundboard file is not a supported audio format.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:50
 msgid "Unsupported sound file"
 msgstr "Μη υποστηριζόμενο αρχείο ήχου"
 
@@ -36214,7 +36226,7 @@ msgid "Upload preview frames for screen shares."
 msgstr "Ανέβασμα καρέ προεπισκόπησης για την κοινή χρήση οθόνης."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:270
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:289
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:200
 msgid "Upload sound"
 msgstr "Ανέβασμα ήχου"

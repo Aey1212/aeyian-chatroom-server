@@ -9628,7 +9628,7 @@ msgstr "Kan dit audiobestand niet decoderen."
 msgid "Could not load the instance configuration. Try reloading the page."
 msgstr "Kon de instantieconfiguratie niet laden. Probeer de pagina opnieuw te laden."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:280
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:299
 #: src/features/soundboard/components/SoundboardPopout.tsx:183
 msgid "Could not load this community's sounds."
 msgstr "De geluiden van deze community konden niet worden geladen."
@@ -9947,7 +9947,7 @@ msgid "Couldn't rejoin the Visionary community"
 msgstr "Kon niet opnieuw deelnemen aan de Visionary-community"
 
 #. Error message in the use entrance sound. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:55
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:60
 msgid "Couldn't remove entrance sound"
 msgstr "Binnenkomstgeluid kon niet worden verwijderd"
 
@@ -10002,7 +10002,7 @@ msgid "Couldn't run that command: {detail}"
 msgstr "Kon die opdracht niet uitvoeren: {detail}"
 
 #. Error message in the use entrance sound.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:47
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:52
 msgid "Couldn't save entrance sound"
 msgstr "Binnenkomstgeluid kon niet worden opgeslagen"
 
@@ -10611,7 +10611,7 @@ msgstr "Aangepaste emoji {emojiName} van een community"
 
 #. Error modal body shown when custom entrance sounds are disabled on the instance.
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:471
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:71
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:76
 msgid "Custom entrance sounds are not enabled on this instance."
 msgstr "Aangepaste binnenkomstgeluiden zijn niet ingeschakeld op deze instantie."
 
@@ -11232,8 +11232,8 @@ msgstr "Delaware"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:65
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:81
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:76
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:92
 #: src/features/messaging/commands/MessageCommands.tsx:79
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:109
 #: src/features/platform/utils/DesktopLocaleBridge.ts:76
@@ -11291,7 +11291,7 @@ msgid "Delete {fileName}"
 msgstr "{fileName} verwijderen"
 
 #. Body of the confirmation dialog for deleting a soundboard sound. {name} is the sound name.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:61
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:72
 msgid "Delete {name}? Nobody will be able to play it any more."
 msgstr "{name} verwijderen? Niemand kan het dan nog afspelen."
 
@@ -11453,7 +11453,7 @@ msgid "Delete shortcut"
 msgstr "Sneltoets verwijderen"
 
 #. Title of the confirmation dialog for deleting a soundboard sound.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:57
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:68
 msgid "Delete sound"
 msgstr "Geluid verwijderen"
 
@@ -12854,7 +12854,7 @@ msgstr "Echo-onderdrukking"
 #. Tooltip of the button that edits a soundboard sound.
 #. Top-level native menu bar title (Edit menu, holds cut/copy/paste).
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:43
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:77
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:88
 #: src/features/platform/utils/DesktopLocaleBridge.ts:47
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:35
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:51
@@ -14030,23 +14030,18 @@ msgstr "Volledige systeemaudio"
 msgid "Entrance sound"
 msgstr "Binnenkomstgeluid"
 
-#. Error modal body shown when an entrance sound upload exceeds the client-side size limit.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:35
-msgid "Entrance sound files must be {limit} or less."
-msgstr "Bestanden voor binnenkomstgeluiden mogen maximaal {limit} groot zijn."
-
 #. Title of the error modal shown when the entrance sound library quota is reached.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:59
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:64
 msgid "Entrance sound library full"
 msgstr "Bibliotheek met binnenkomstgeluiden vol"
 
 #. Short label in the use entrance sound. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:51
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:56
 msgid "Entrance sound removed"
 msgstr "Binnenkomstgeluid verwijderd"
 
 #. Short label in the use entrance sound. Keep it concise.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:43
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:48
 msgid "Entrance sound saved"
 msgstr "Binnenkomstgeluid opgeslagen"
 
@@ -14063,7 +14058,7 @@ msgid "Entrance sounds"
 msgstr "Binnenkomstgeluiden"
 
 #. Title of the error modal shown when custom entrance sounds are disabled on the instance.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:67
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:72
 msgid "Entrance sounds unavailable"
 msgstr "Binnenkomstgeluiden niet beschikbaar"
 
@@ -14952,6 +14947,13 @@ msgstr "Maximale bestandsgrootte overschreden"
 #. Title of the file-too-large alert.
 #: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:31
 msgid "File size too large"
+msgstr "Bestand te groot"
+
+#. Title of the error shown when the picked soundboard or entrance sound file is over the size limit.
+#. Title of the error shown when the picked soundboard or entrance sound file is over the size limit.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:59
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:35
+msgid "File too large"
 msgstr "Bestand te groot"
 
 #. Label for the has:file filter option in the mobile channel search sheet.
@@ -19213,7 +19215,7 @@ msgid "Library"
 msgstr "Bibliotheek"
 
 #. Error modal body shown when entrance sound library quota is reached.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:63
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:68
 msgid "Library full ({max} sounds max). Delete one before adding another."
 msgstr "Bibliotheek vol (maximaal {max} geluiden). Verwijder een geluid voordat je een ander toevoegt."
 
@@ -20414,7 +20416,7 @@ msgid "Members are removed when offline unless given a role."
 msgstr "Leden worden verwijderd wanneer ze offline zijn, tenzij ze een rol krijgen toegewezen."
 
 #. Intro text of the community soundboard settings. {seconds} is the maximum length, {size} a file size.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:36
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:37
 msgid "Members in a voice channel can play these sounds for everyone there. Each sound can be up to {seconds} seconds and {size}."
 msgstr "Leden in een spraakkanaal kunnen deze geluiden voor iedereen daar afspelen. Elk geluid mag tot {seconds} seconden duren en tot {size} groot zijn."
 
@@ -22715,12 +22717,12 @@ msgstr "Geen sneltoets ingesteld"
 msgid "No shortcuts match that search."
 msgstr "Geen sneltoetsen komen overeen met de zoekopdracht."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:288
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:307
 #: src/features/soundboard/components/SoundboardPopout.tsx:191
 msgid "No sounds match your search."
 msgstr "Geen geluiden die overeenkomen met je zoekopdracht."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:284
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:303
 msgid "No sounds yet."
 msgstr "Nog geen geluiden."
 
@@ -23188,7 +23190,7 @@ msgstr "OK"
 
 #. Button that closes an error dialog in the community soundboard settings.
 #. Generic acknowledgement button on an informational alert. Closes the alert. Use for benign confirms; for "I have read and understood" use UNDERSTOOD_DESCRIPTOR.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:69
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:80
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:102
 msgid "Okay"
 msgstr "Oké"
@@ -24706,8 +24708,8 @@ msgstr "Kies een vertaalservice"
 msgid "Pick a web search provider"
 msgstr "Kies een webzoekmachine"
 
-#. Body of the error shown when the picked soundboard file is too large or not audio. {limit} is a file size.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:53
+#. Body of the error shown when the picked soundboard file is not a supported audio format. {limit} is a file size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:54
 msgid "Pick an MP3, OGG, M4A or WAV file of up to {limit}."
 msgstr "Kies een MP3-, OGG-, M4A- of WAV-bestand van maximaal {limit}."
 
@@ -25251,7 +25253,7 @@ msgstr "Voorkom gedurende een bepaalde tijd dat leden berichten versturen, reage
 #. Tooltip of the button that plays a soundboard sound only for yourself.
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:73
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:84
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:239
 #: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
@@ -28821,7 +28823,7 @@ msgstr "Zoek sneltoetsen…"
 
 #. Placeholder of the search box in the community soundboard settings.
 #. Placeholder of the search box in the voice channel soundboard.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:41
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:42
 #: src/features/soundboard/components/SoundboardPopout.tsx:27
 msgid "Search sounds"
 msgstr "Geluiden zoeken"
@@ -33761,6 +33763,16 @@ msgstr "Dit bestand is {fileSize}, wat boven de limiet van {maxSize} is. Geanime
 msgid "This file is {fileSize}, over the {maxSize} limit. Animated stickers and SVGs must already be small enough to upload. Choose a smaller file or shorten the animation."
 msgstr "Dit bestand is {fileSize}, wat groter is dan de limiet van {maxSize}. Geanimeerde stickers en SVG's moeten al klein genoeg zijn om te uploaden. Kies een kleiner bestand of verkort de animatie."
 
+#. Body of the error shown when the picked entrance sound file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:39
+msgid "This file is {size}. Entrance sounds can be up to {limit}, so pick a smaller file."
+msgstr "Dit bestand is {size}. Binnenkomstgeluiden mogen maximaal {limit} zijn, dus kies een kleiner bestand."
+
+#. Body of the error shown when the picked soundboard file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:63
+msgid "This file is {size}. Soundboard sounds can be up to {limit}, so pick a smaller file."
+msgstr "Dit bestand is {size}. Soundboard-geluiden mogen maximaal {limit} zijn, dus kies een kleiner bestand."
+
 #. Empty state title in the friends list when the user has no friends. Tone can be friendly and playful.
 #: src/features/channel/components/friends/views/FriendsList.tsx:25
 msgid "This friends list needs more power"
@@ -34736,7 +34748,7 @@ msgid "Trim entrance sound"
 msgstr "Binnenkomstgeluid inkorten"
 
 #. Title of the audio trimmer when uploading a soundboard sound.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:45
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:46
 msgid "Trim sound"
 msgstr "Geluid inkorten"
 
@@ -35947,7 +35959,7 @@ msgid "Unsaved changes"
 msgstr "Niet-opgeslagen wijzigingen"
 
 #. Error modal body shown when an entrance sound upload has an unsupported audio format.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:39
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:44
 msgid "Unsupported audio file."
 msgstr "Niet-ondersteund audiobestand."
 
@@ -35968,8 +35980,8 @@ msgstr "Niet-ondersteund bestandstype."
 msgid "Unsupported icon format"
 msgstr "Niet-ondersteund pictogramformaat"
 
-#. Title of the error shown when the picked soundboard file is too large or not audio.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:49
+#. Title of the error shown when the picked soundboard file is not a supported audio format.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:50
 msgid "Unsupported sound file"
 msgstr "Niet-ondersteund geluidsbestand"
 
@@ -36214,7 +36226,7 @@ msgid "Upload preview frames for screen shares."
 msgstr "Upload voorbeeldbeelden voor schermdeling."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:270
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:289
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:200
 msgid "Upload sound"
 msgstr "Geluid uploaden"
