@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {
+	communityProfileStyleSource,
 	effectiveAvatarFrame,
 	effectiveNameplate,
 	effectiveNameStyle,
@@ -72,5 +73,20 @@ describe('community versions of the profile cosmetics', () => {
 		const member = {profileFlags: GuildMemberProfileFlags.NAMEPLATE_UNSET};
 		expect(effectiveNameplate('galaxy', member)).toBeNull();
 		expect(effectiveAvatarFrame('halo', member)).toBe('halo');
+	});
+
+	it('a community profile takes its theme and frame from the live member, not an older cached copy', () => {
+		const cached = {theme_colors: [3, 4], profile_frame: 'aurora'};
+		const changed = communityProfileStyleSource({profileFlags: 0, themeColors: [5, 6]}, cached);
+		expect(effectiveThemeColors([1, 2], changed)).toEqual([5, 6]);
+		const backToGlobal = communityProfileStyleSource({profileFlags: 0}, cached);
+		expect(effectiveThemeColors([1, 2], backToGlobal)).toEqual([1, 2]);
+		expect(effectiveProfileFrame('gold', backToGlobal)).toBe('gold');
+	});
+
+	it('a community profile uses the fetched copy when the member is not known', () => {
+		const source = communityProfileStyleSource(null, {theme_colors: [3, 4], profile_frame: 'aurora'});
+		expect(effectiveThemeColors([1, 2], source)).toEqual([3, 4]);
+		expect(effectiveProfileFrame('gold', source)).toBe('aurora');
 	});
 });

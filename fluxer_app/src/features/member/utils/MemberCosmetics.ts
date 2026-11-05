@@ -14,6 +14,17 @@ export interface MemberCosmeticSource {
 	readonly profileFrame?: string | null;
 }
 
+// Where a community profile's theme and frame come from. The member record follows live updates, while a fetched
+// profile can be a cached copy up to a minute old, so the member wins when it is known.
+export function communityProfileStyleSource(
+	member: MemberCosmeticSource | null | undefined,
+	cachedProfile: {theme_colors?: ReadonlyArray<number> | null; profile_frame?: string | null},
+): MemberCosmeticSource {
+	return (
+		member ?? {profileFlags: 0, themeColors: cachedProfile.theme_colors, profileFrame: cachedProfile.profile_frame}
+	);
+}
+
 // What shows in a community: none when the member chose None there, else the community value, else the global one.
 function resolve<T>(
 	member: MemberCosmeticSource | null | undefined,

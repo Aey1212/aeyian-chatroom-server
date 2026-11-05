@@ -20,6 +20,8 @@ export interface UserInfoProps {
 	profile: Profile;
 	guildId?: string;
 	showProfileDataWarning?: boolean;
+	// A settings preview: the user already carries the edited cosmetics, so saved community ones must not override them.
+	isPreview?: boolean;
 }
 
 export interface UserNoteEditorProps {
@@ -57,6 +59,7 @@ export interface ProfileBodyProps {
 	autoFocusNote?: boolean;
 	noteRef?: React.RefObject<HTMLTextAreaElement | null>;
 	showProfileDataWarning?: boolean;
+	isPreview?: boolean;
 }
 
 export interface ProfileModalContentProps {

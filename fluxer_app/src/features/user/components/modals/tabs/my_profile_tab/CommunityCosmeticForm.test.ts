@@ -65,6 +65,21 @@ describe('community profile cosmetics form', () => {
 		expect(unsetFlags).toBe(GuildMemberProfileFlags.AVATAR_FRAME_UNSET);
 	});
 
+	it("saves Choose for this community with nothing chosen as Don't show, not as the global one", () => {
+		const modes = {...INHERIT_ALL_COMMUNITY_COSMETICS, name_style: 'custom' as const, avatar_frame: 'custom' as const};
+		const {fields, unsetFlags, savedModes} = buildCommunityCosmeticPatch(modes, {
+			...GLOBAL,
+			name_style: null,
+			avatar_frame: null,
+		});
+		expect(fields.name_style).toBeNull();
+		expect(fields.avatar_frame).toBeNull();
+		expect(unsetFlags).toBe(GuildMemberProfileFlags.NAME_STYLE_UNSET | GuildMemberProfileFlags.AVATAR_FRAME_UNSET);
+		expect(savedModes).toEqual({...INHERIT_ALL_COMMUNITY_COSMETICS, name_style: 'unset', avatar_frame: 'unset'});
+		const member = {profileFlags: unsetFlags};
+		expect(readCommunityCosmetics(member, null, GLOBAL).modes).toEqual(savedModes);
+	});
+
 	it('switching choices sets the value the form shows', () => {
 		expect(valueForCommunityMode('inherit', 'mint', 'galaxy')).toBe('galaxy');
 		expect(valueForCommunityMode('unset', 'mint', 'galaxy')).toBeNull();

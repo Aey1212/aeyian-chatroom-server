@@ -4,7 +4,11 @@ import type {Guild} from '@app/features/guild/models/Guild';
 import Guilds from '@app/features/guild/state/Guilds';
 import {GuildMember} from '@app/features/member/models/GuildMember';
 import GuildMembers from '@app/features/member/state/GuildMembers';
-import {effectiveProfileFrame, effectiveThemeColors} from '@app/features/member/utils/MemberCosmetics';
+import {
+	communityProfileStyleSource,
+	effectiveProfileFrame,
+	effectiveThemeColors,
+} from '@app/features/member/utils/MemberCosmetics';
 import Users from '@app/features/user/state/Users';
 import type {ConnectionResponse} from '@fluxer/schema/src/domains/connection/ConnectionSchemas';
 import type {GuildMemberData} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
@@ -122,11 +126,7 @@ export class Profile {
 		const bannerColor = isBannerUnset
 			? null
 			: (this.guildMemberProfile?.banner_color ?? this.userProfile.banner_color ?? null);
-		const communityStyle = {
-			profileFlags: guildMember?.profileFlags ?? 0,
-			themeColors: this.guildMemberProfile.theme_colors ?? guildMember?.themeColors,
-			profileFrame: this.guildMemberProfile.profile_frame ?? guildMember?.profileFrame,
-		};
+		const communityStyle = communityProfileStyleSource(guildMember, this.guildMemberProfile);
 		return {
 			bio: this.guildMemberProfile.bio ?? this.userProfile.bio,
 			banner: isBannerUnset ? null : (this.guildMemberProfile.banner ?? this.userProfile.banner),

@@ -82,11 +82,13 @@ export function valueForCommunityMode<K extends CommunityCosmeticKey>(
 	return current ?? globalValue;
 }
 
-// The request fields and the "Don't show" profile flags for saving a community profile's cosmetics.
+// The request fields and the "Don't show" profile flags for saving a community profile's cosmetics, plus the
+// choices as saved. "Choose for this community" with nothing chosen (a plain name style, no frame picked) is saved
+// as "Don't show": a null value on its own means "use global", which would show the global one instead of nothing.
 export function buildCommunityCosmeticPatch(
 	modes: CommunityCosmeticModes,
 	values: CommunityCosmeticValues,
-): {fields: CommunityCosmeticValues; unsetFlags: number} {
+): {fields: CommunityCosmeticValues; unsetFlags: number; savedModes: CommunityCosmeticModes} {
 	const fields: CommunityCosmeticValues = {
 		name_style: null,
 		avatar_frame: null,
@@ -94,12 +96,14 @@ export function buildCommunityCosmeticPatch(
 		theme_colors: null,
 		profile_frame: null,
 	};
+	const savedModes = {...modes};
 	let unsetFlags = 0;
 	for (const key of COMMUNITY_COSMETIC_KEYS) {
-		if (modes[key] === 'unset') unsetFlags |= UNSET_FLAGS[key];
-		else if (modes[key] === 'custom') setValue(fields, key, values[key]);
+		if (modes[key] === 'custom' && values[key] == null) savedModes[key] = 'unset';
+		if (savedModes[key] === 'unset') unsetFlags |= UNSET_FLAGS[key];
+		else if (savedModes[key] === 'custom') setValue(fields, key, values[key]);
 	}
-	return {fields, unsetFlags};
+	return {fields, unsetFlags, savedModes};
 }
 
 function setValue<K extends CommunityCosmeticKey>(

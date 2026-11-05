@@ -572,7 +572,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 						profile_frame: data.profile_frame,
 						avatar_frame: data.avatar_frame,
 						nameplate: data.nameplate,
-						community_modes: data.community_modes,
+						community_modes: communityCosmetics.savedModes,
 						timezone: user.timezone ?? null,
 						timezone_privacy_flags: user.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 						nick: data.nick,

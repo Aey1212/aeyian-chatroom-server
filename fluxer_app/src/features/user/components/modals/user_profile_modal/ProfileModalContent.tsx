@@ -84,6 +84,7 @@ export const ProfileModalContent: React.FC<ProfileModalContentProps> = observer(
 					autoFocusNote={autoFocusNote}
 					noteRef={noteRef}
 					showProfileDataWarning={showProfileDataWarning}
+					isPreview={previewOverrides !== undefined}
 					data-flx="user.user-profile-modal.profile-modal-content.profile-body"
 				/>
 			</>
