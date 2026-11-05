@@ -8,6 +8,7 @@ import styles from '@app/features/user/components/profile/profile_card/ProfileCa
 import type {User} from '@app/features/user/models/User';
 import {resolveNamePaint} from '@app/features/user/name_style/NamePaint';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
+import type {NameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {Trans} from '@lingui/react/macro';
 import {clsx} from 'clsx';
 import {observer} from 'mobx-react-lite';
@@ -20,6 +21,8 @@ interface ProfileCardUserInfoProps {
 	displayName: string;
 	displayNameClassName?: string;
 	user: User;
+	// The style to paint the name with when it is not the account-level one (a community version, or a preview).
+	nameStyle?: NameStyle | null;
 	pronouns?: string | null;
 	showUsername?: boolean;
 	isClickable?: boolean;
@@ -35,6 +38,7 @@ export const ProfileCardUserInfo: React.FC<ProfileCardUserInfoProps> = observer(
 		displayName,
 		displayNameClassName,
 		user,
+		nameStyle,
 		pronouns,
 		showUsername = true,
 		isClickable = true,
@@ -52,7 +56,10 @@ export const ProfileCardUserInfo: React.FC<ProfileCardUserInfoProps> = observer(
 		const displayNameStyle: DisplayNameStyle = {
 			'--profile-display-name-length': Math.max(Array.from(displayName).length, 1),
 		};
-		const paint = resolveNamePaint({nameStyle: user.nameStyle, text: displayName});
+		const paint = resolveNamePaint({
+			nameStyle: nameStyle === undefined ? user.nameStyle : nameStyle,
+			text: displayName,
+		});
 		const displayNameButton = (
 			<button
 				ref={displayNameRef}

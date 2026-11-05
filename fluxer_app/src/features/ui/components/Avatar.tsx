@@ -5,6 +5,7 @@ import {useHover} from '@app/features/app/hooks/useHover';
 import {useMergeRefs} from '@app/features/app/hooks/useMergeRefs';
 import {useShouldAnimate} from '@app/features/app/hooks/useShouldAnimate';
 import GuildMembers from '@app/features/member/state/GuildMembers';
+import {effectiveAvatarFrame} from '@app/features/member/utils/MemberCosmetics';
 import * as ImageCacheUtils from '@app/features/messaging/utils/ImageCacheUtils';
 import {BaseAvatar} from '@app/features/ui/components/BaseAvatar';
 import {AvatarFrame} from '@app/features/user/cosmetics/AvatarFrame';
@@ -192,7 +193,7 @@ const AvatarComponent = React.forwardRef<HTMLDivElement, AvatarProps>(
 				decoration={
 					hideFrame ? null : (
 						<AvatarFrame
-							frameId={user.avatarFrame}
+							frameId={effectiveAvatarFrame(user.avatarFrame, hasGuildMemberAvatarSource ? guildMember : null)}
 							size={size}
 							animate={isHovering || forceAnimate || forceAnimateIgnoringSettings}
 						/>

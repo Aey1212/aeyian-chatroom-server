@@ -8,6 +8,8 @@ import {VoiceStateIcons} from '@app/features/app/components/layout/VoiceStateIco
 import {useContextMenuHoverState} from '@app/features/app/hooks/useContextMenuHoverState';
 import {PreloadableUserPopout} from '@app/features/channel/components/PreloadableUserPopout';
 import type {VoiceState} from '@app/features/gateway/types/GatewayVoiceTypes';
+import GuildMembers from '@app/features/member/state/GuildMembers';
+import {effectiveNameStyle} from '@app/features/member/utils/MemberCosmetics';
 import * as NavigationCommands from '@app/features/navigation/commands/NavigationCommands';
 import Permission from '@app/features/permissions/state/Permission';
 import type {VoiceParticipantMenuSource} from '@app/features/ui/action_menu/items/VoiceParticipantMenuTypes';
@@ -190,6 +192,7 @@ export const VoiceParticipantItem = observer(function VoiceParticipantItem({
 	}, []);
 	const DeviceIcon = voiceState?.is_mobile ? DeviceMobileIcon : DesktopIcon;
 	const unknownDeviceFallback = useMemo(() => i18n._(UNKNOWN_DEVICE_DESCRIPTOR), [i18n.locale]);
+	const nameStyle = effectiveNameStyle(user.nameStyle, guildId ? GuildMembers.getMember(guildId, user.id) : null);
 	const displayName = isGroupedItem
 		? voiceState?.connection_id || unknownDeviceFallback
 		: NicknameUtils.getNickname(user, guildId, currentChannelId ?? undefined);
@@ -255,7 +258,7 @@ export const VoiceParticipantItem = observer(function VoiceParticipantItem({
 							)}
 							data-flx="app.voice-participant-item.participant-name"
 						>
-							<StyledNameText nameStyle={user.nameStyle} text={displayName} />
+							<StyledNameText nameStyle={nameStyle} text={displayName} />
 						</span>
 					</Tooltip>
 				) : (
@@ -267,7 +270,7 @@ export const VoiceParticipantItem = observer(function VoiceParticipantItem({
 						)}
 						data-flx="app.voice-participant-item.participant-name--2"
 					>
-						<StyledNameText nameStyle={user.nameStyle} text={displayName} />
+						<StyledNameText nameStyle={nameStyle} text={displayName} />
 					</span>
 				)}
 				{hasVoiceStateIcons && (

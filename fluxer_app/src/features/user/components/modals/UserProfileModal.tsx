@@ -799,8 +799,14 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 				: borderProfile?.accent_color;
 		const borderColor = getUserAccentColor(displayUser, borderAccentColor);
 		const decoration = resolveProfileDecoration({
-			themeColors: borderProfile?.theme_colors,
-			frame: borderProfile?.profile_frame,
+			themeColors:
+				previewOverrides?.previewThemeColors !== undefined
+					? previewOverrides.previewThemeColors
+					: borderProfile?.theme_colors,
+			frame:
+				previewOverrides?.previewProfileFrame !== undefined
+					? previewOverrides.previewProfileFrame
+					: borderProfile?.profile_frame,
 			accentColor: borderColor,
 		});
 		return (

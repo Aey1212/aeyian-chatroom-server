@@ -6,6 +6,7 @@ import {http} from '@app/features/platform/transport/RestTransport';
 import {Logger} from '@app/features/platform/utils/AppLogger';
 import {ME} from '@fluxer/constants/src/AppConstants';
 import type {GuildMemberData} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
+import type {NameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 
 const logger = new Logger('GuildMembers');
 
@@ -23,6 +24,11 @@ interface GuildProfilePatch {
 	nick?: string | null;
 	profile_flags?: number | null;
 	mention_flags?: number | null;
+	name_style?: NameStyle | null;
+	avatar_frame?: string | null;
+	nameplate?: string | null;
+	theme_colors?: ReadonlyArray<number> | null;
+	profile_frame?: string | null;
 }
 
 interface TimeoutPatch {

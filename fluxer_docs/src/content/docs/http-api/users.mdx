@@ -618,6 +618,10 @@ A guild member profile is the per-guild profile customisation of the target acco
 | pronouns<sup>1</sup> | ?string | The guild-specific pronouns, or null when none are set |
 | banner<sup>2</sup> | ?string | The image hash of the guild-specific banner, or null when none is set |
 | accent_color | ?integer | The guild profile accent colour as packed 24-bit RGB, or null when none is set |
+| theme_colors | ?array[integer] | Two guild-specific [profile theme](#profile-themes-and-frames) colours, top then bottom, or null for the account-level theme |
+| profile_frame | ?string | A guild-specific [profile frame](#profile-themes-and-frames) ID, or null when the account-level frame applies |
+
+A null `theme_colors` or `profile_frame` means none in this guild when the matching [guild member profile flag](/http-api/guild-members/#guild-member-profile-flags) is set.
 
 <sup>1</sup> The value is forced to `null` when profile privacy restricts the viewer
 

@@ -3,6 +3,10 @@
 import {ColorPickerField} from '@app/features/ui/components/form/ColorPickerField';
 import {Slider} from '@app/features/ui/components/Slider';
 import {SegmentedTabs} from '@app/features/ui/segmented_tabs/SegmentedTabs';
+import {
+	CommunityCosmeticModeChoice,
+	type CommunityCosmeticModeControl,
+} from '@app/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice';
 import styles from '@app/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.module.css';
 import {
 	ensureNameFontFaces,
@@ -137,6 +141,8 @@ interface NameStyleSettingsProps {
 	value: NameStyle | null;
 	onChange: (value: NameStyle | null) => void;
 	displayName: string;
+	// Set in a community profile: global / pick for this community / none.
+	mode?: CommunityCosmeticModeControl;
 	disabled?: boolean;
 }
 
@@ -156,8 +162,9 @@ function formatPercent(value: number): string {
 	return `${Math.round(value)}%`;
 }
 
-export const NameStyleSettings = observer(({value, onChange, displayName, disabled}: NameStyleSettingsProps) => {
+export const NameStyleSettings = observer(({value, onChange, displayName, mode, disabled}: NameStyleSettingsProps) => {
 	const {i18n} = useLingui();
+	const showEditor = !mode || mode.mode === 'custom';
 	const [category, setCategory] = useState<CategoryFilter>('all');
 	useEffect(() => ensureNameFontFaces(), []);
 	const effect = value?.effect ?? NameStyleEffects.SOLID;
@@ -253,6 +260,7 @@ export const NameStyleSettings = observer(({value, onChange, displayName, disabl
 					{i18n._(NAME_STYLE_DESCRIPTION_DESCRIPTOR)}
 				</p>
 			</div>
+			{mode && <CommunityCosmeticModeChoice label={i18n._(NAME_STYLE_DESCRIPTOR)} disabled={disabled} {...mode} />}
 			<div
 				className={styles.preview}
 				data-name-animate-scope=""
@@ -272,102 +280,112 @@ export const NameStyleSettings = observer(({value, onChange, displayName, disabl
 					</span>
 				)}
 			</div>
-			<div className={styles.fieldLabel} data-flx="user.my-profile-tab.name-style-settings.font-field-label">
-				{i18n._(FONT_DESCRIPTOR)}
-			</div>
-			<div className={styles.categoryRow} data-flx="user.my-profile-tab.name-style-settings.category-row">
-				{(['all', ...CATEGORY_ORDER] as Array<CategoryFilter>).map((id) => (
-					<button
-						key={id}
-						type="button"
-						aria-pressed={category === id}
-						className={clsx(styles.categoryButton, category === id && styles.categoryButtonSelected)}
-						onClick={() => setCategory(id)}
-						data-flx="user.my-profile-tab.name-style-settings.category-button"
+			{showEditor && (
+				<>
+					<div className={styles.fieldLabel} data-flx="user.my-profile-tab.name-style-settings.font-field-label">
+						{i18n._(FONT_DESCRIPTOR)}
+					</div>
+					<div className={styles.categoryRow} data-flx="user.my-profile-tab.name-style-settings.category-row">
+						{(['all', ...CATEGORY_ORDER] as Array<CategoryFilter>).map((id) => (
+							<button
+								key={id}
+								type="button"
+								aria-pressed={category === id}
+								className={clsx(styles.categoryButton, category === id && styles.categoryButtonSelected)}
+								onClick={() => setCategory(id)}
+								data-flx="user.my-profile-tab.name-style-settings.category-button"
+							>
+								{id === 'all' ? i18n._(ALL_FONTS_DESCRIPTOR) : i18n._(CATEGORY_LABELS[id])}
+							</button>
+						))}
+					</div>
+					<div
+						className={styles.fontGrid}
+						role="radiogroup"
+						aria-label={i18n._(FONTS_DESCRIPTOR)}
+						data-flx="user.my-profile-tab.name-style-settings.font-grid"
 					>
-						{id === 'all' ? i18n._(ALL_FONTS_DESCRIPTOR) : i18n._(CATEGORY_LABELS[id])}
-					</button>
-				))}
-			</div>
-			<div
-				className={styles.fontGrid}
-				role="radiogroup"
-				aria-label={i18n._(FONTS_DESCRIPTOR)}
-				data-flx="user.my-profile-tab.name-style-settings.font-grid"
-			>
-				{category === 'all' && renderTile(null)}
-				{visibleFonts.map((font) => renderTile(font))}
-			</div>
-			<div className={styles.fieldLabel} data-flx="user.my-profile-tab.name-style-settings.effect-field-label">
-				{i18n._(EFFECT_DESCRIPTOR)}
-			</div>
-			<SegmentedTabs
-				tabs={effectTabs}
-				selectedTab={effect}
-				onTabChange={(next) => !disabled && selectEffect(next)}
-				ariaLabel={i18n._(EFFECTS_DESCRIPTOR)}
-			/>
-			{effect === NameStyleEffects.GRADIENT && (
-				<>
-					<div className={styles.fieldLabel} data-flx="user.my-profile-tab.name-style-settings.direction-field-label">
-						{i18n._(DIRECTION_DESCRIPTOR)}
+						{category === 'all' && renderTile(null)}
+						{visibleFonts.map((font) => renderTile(font))}
 					</div>
-					<SegmentedTabs<NameGradientDirection>
-						tabs={directionTabs}
-						selectedTab={value?.gradient_direction ?? NameGradientDirections.HORIZONTAL}
-						onTabChange={(next) => !disabled && onChange(withChanges(value, {gradient_direction: next}))}
-						ariaLabel={i18n._(DIRECTION_DESCRIPTOR)}
+					<div className={styles.fieldLabel} data-flx="user.my-profile-tab.name-style-settings.effect-field-label">
+						{i18n._(EFFECT_DESCRIPTOR)}
+					</div>
+					<SegmentedTabs
+						tabs={effectTabs}
+						selectedTab={effect}
+						onTabChange={(next) => !disabled && selectEffect(next)}
+						ariaLabel={i18n._(EFFECTS_DESCRIPTOR)}
 					/>
+					{effect === NameStyleEffects.GRADIENT && (
+						<>
+							<div
+								className={styles.fieldLabel}
+								data-flx="user.my-profile-tab.name-style-settings.direction-field-label"
+							>
+								{i18n._(DIRECTION_DESCRIPTOR)}
+							</div>
+							<SegmentedTabs<NameGradientDirection>
+								tabs={directionTabs}
+								selectedTab={value?.gradient_direction ?? NameGradientDirections.HORIZONTAL}
+								onTabChange={(next) => !disabled && onChange(withChanges(value, {gradient_direction: next}))}
+								ariaLabel={i18n._(DIRECTION_DESCRIPTOR)}
+							/>
+						</>
+					)}
+					{(effect === NameStyleEffects.GLOW || effect === NameStyleEffects.SHIMMER) && (
+						<>
+							<div
+								className={styles.fieldLabel}
+								data-flx="user.my-profile-tab.name-style-settings.intensity-field-label"
+							>
+								{i18n._(INTENSITY_DESCRIPTOR)}
+							</div>
+							<Slider
+								value={intensity}
+								defaultValue={intensity}
+								factoryDefaultValue={DEFAULT_NAME_EFFECT_INTENSITY}
+								minValue={0}
+								maxValue={100}
+								step={1}
+								disabled={disabled}
+								ariaLabel={i18n._(INTENSITY_DESCRIPTOR)}
+								onValueRender={formatPercent}
+								asValueChanges={setIntensity}
+								onValueChange={setIntensity}
+								data-flx="user.my-profile-tab.name-style-settings.intensity-slider"
+							/>
+						</>
+					)}
+					<div className={styles.colors} data-flx="user.my-profile-tab.name-style-settings.colors">
+						<ColorPickerField
+							label={i18n._(MAIN_COLOR_DESCRIPTOR)}
+							value={value?.primary_color ?? DEFAULT_PRIMARY}
+							onChange={(color) => onChange(withChanges(value, {primary_color: color}))}
+							defaultValue={DEFAULT_PRIMARY}
+							isDefaultValue={value?.primary_color == null}
+							onReset={() => onChange(withChanges(value, {primary_color: null}))}
+							disabled={disabled}
+							hideHelperText={true}
+							data-flx="user.my-profile-tab.name-style-settings.primary-color"
+						/>
+						{effect !== NameStyleEffects.SOLID && (
+							<ColorPickerField
+								label={i18n._(secondLabel)}
+								value={value?.secondary_color ?? DEFAULT_SECONDARY}
+								onChange={(color) => onChange(withChanges(value, {secondary_color: color}))}
+								defaultValue={DEFAULT_SECONDARY}
+								isDefaultValue={value?.secondary_color == null}
+								onReset={() => onChange(withChanges(value, {secondary_color: null}))}
+								disabled={disabled}
+								hideHelperText={true}
+								data-flx="user.my-profile-tab.name-style-settings.secondary-color"
+							/>
+						)}
+					</div>
 				</>
 			)}
-			{(effect === NameStyleEffects.GLOW || effect === NameStyleEffects.SHIMMER) && (
-				<>
-					<div className={styles.fieldLabel} data-flx="user.my-profile-tab.name-style-settings.intensity-field-label">
-						{i18n._(INTENSITY_DESCRIPTOR)}
-					</div>
-					<Slider
-						value={intensity}
-						defaultValue={intensity}
-						factoryDefaultValue={DEFAULT_NAME_EFFECT_INTENSITY}
-						minValue={0}
-						maxValue={100}
-						step={1}
-						disabled={disabled}
-						ariaLabel={i18n._(INTENSITY_DESCRIPTOR)}
-						onValueRender={formatPercent}
-						asValueChanges={setIntensity}
-						onValueChange={setIntensity}
-						data-flx="user.my-profile-tab.name-style-settings.intensity-slider"
-					/>
-				</>
-			)}
-			<div className={styles.colors} data-flx="user.my-profile-tab.name-style-settings.colors">
-				<ColorPickerField
-					label={i18n._(MAIN_COLOR_DESCRIPTOR)}
-					value={value?.primary_color ?? DEFAULT_PRIMARY}
-					onChange={(color) => onChange(withChanges(value, {primary_color: color}))}
-					defaultValue={DEFAULT_PRIMARY}
-					isDefaultValue={value?.primary_color == null}
-					onReset={() => onChange(withChanges(value, {primary_color: null}))}
-					disabled={disabled}
-					hideHelperText={true}
-					data-flx="user.my-profile-tab.name-style-settings.primary-color"
-				/>
-				{effect !== NameStyleEffects.SOLID && (
-					<ColorPickerField
-						label={i18n._(secondLabel)}
-						value={value?.secondary_color ?? DEFAULT_SECONDARY}
-						onChange={(color) => onChange(withChanges(value, {secondary_color: color}))}
-						defaultValue={DEFAULT_SECONDARY}
-						isDefaultValue={value?.secondary_color == null}
-						onReset={() => onChange(withChanges(value, {secondary_color: null}))}
-						disabled={disabled}
-						hideHelperText={true}
-						data-flx="user.my-profile-tab.name-style-settings.secondary-color"
-					/>
-				)}
-			</div>
-			{value && (
+			{value && !mode && (
 				<button
 					type="button"
 					className={styles.resetButton}

@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {ColorPickerField} from '@app/features/ui/components/form/ColorPickerField';
+import {
+	CommunityCosmeticModeChoice,
+	type CommunityCosmeticModeControl,
+} from '@app/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice';
 import styles from '@app/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.module.css';
 import {profileFrameClassName} from '@app/features/user/profile_style/ProfileDecoration';
 import {PROFILE_FRAME_IDS, type ProfileFrameId} from '@fluxer/constants/src/ProfileCustomizationConstants';
@@ -61,12 +65,25 @@ interface ProfileStyleSettingsProps {
 	frame: string | null;
 	onThemeColorsChange: (value: ReadonlyArray<number> | null) => void;
 	onFrameChange: (value: ProfileFrameId | null) => void;
+	// Set in a community profile: global / pick for this community / none, per cosmetic.
+	themeMode?: CommunityCosmeticModeControl;
+	frameMode?: CommunityCosmeticModeControl;
 	disabled?: boolean;
 }
 
 export const ProfileStyleSettings = observer(
-	({themeColors, frame, onThemeColorsChange, onFrameChange, disabled}: ProfileStyleSettingsProps) => {
+	({
+		themeColors,
+		frame,
+		onThemeColorsChange,
+		onFrameChange,
+		themeMode,
+		frameMode,
+		disabled,
+	}: ProfileStyleSettingsProps) => {
 		const {i18n} = useLingui();
+		const showThemePicker = !themeMode || themeMode.mode === 'custom';
+		const showFramePicker = !frameMode || frameMode.mode === 'custom';
 		const top = themeColors?.[0] ?? DEFAULT_THEME[0];
 		const bottom = themeColors?.[1] ?? DEFAULT_THEME[1];
 		const renderFrameTile = (id: ProfileFrameId | null) => {
@@ -102,29 +119,34 @@ export const ProfileStyleSettings = observer(
 						{i18n._(PROFILE_THEME_DESCRIPTION_DESCRIPTOR)}
 					</p>
 				</div>
-				<div className={styles.colors} data-flx="user.my-profile-tab.profile-style-settings.colors">
-					<ColorPickerField
-						label={i18n._(TOP_COLOR_DESCRIPTOR)}
-						value={top}
-						onChange={(color) => onThemeColorsChange([color, bottom])}
-						defaultValue={DEFAULT_THEME[0]}
-						isDefaultValue={themeColors == null}
-						disabled={disabled}
-						hideHelperText={true}
-						data-flx="user.my-profile-tab.profile-style-settings.top-color"
-					/>
-					<ColorPickerField
-						label={i18n._(BOTTOM_COLOR_DESCRIPTOR)}
-						value={bottom}
-						onChange={(color) => onThemeColorsChange([top, color])}
-						defaultValue={DEFAULT_THEME[1]}
-						isDefaultValue={themeColors == null}
-						disabled={disabled}
-						hideHelperText={true}
-						data-flx="user.my-profile-tab.profile-style-settings.bottom-color"
-					/>
-				</div>
-				{themeColors && (
+				{themeMode && (
+					<CommunityCosmeticModeChoice label={i18n._(PROFILE_THEME_DESCRIPTOR)} disabled={disabled} {...themeMode} />
+				)}
+				{showThemePicker && (
+					<div className={styles.colors} data-flx="user.my-profile-tab.profile-style-settings.colors">
+						<ColorPickerField
+							label={i18n._(TOP_COLOR_DESCRIPTOR)}
+							value={top}
+							onChange={(color) => onThemeColorsChange([color, bottom])}
+							defaultValue={DEFAULT_THEME[0]}
+							isDefaultValue={themeColors == null}
+							disabled={disabled}
+							hideHelperText={true}
+							data-flx="user.my-profile-tab.profile-style-settings.top-color"
+						/>
+						<ColorPickerField
+							label={i18n._(BOTTOM_COLOR_DESCRIPTOR)}
+							value={bottom}
+							onChange={(color) => onThemeColorsChange([top, color])}
+							defaultValue={DEFAULT_THEME[1]}
+							isDefaultValue={themeColors == null}
+							disabled={disabled}
+							hideHelperText={true}
+							data-flx="user.my-profile-tab.profile-style-settings.bottom-color"
+						/>
+					</div>
+				)}
+				{themeColors && !themeMode && (
 					<button
 						type="button"
 						className={styles.linkButton}
@@ -143,15 +165,20 @@ export const ProfileStyleSettings = observer(
 						{i18n._(PROFILE_FRAME_DESCRIPTION_DESCRIPTOR)}
 					</p>
 				</div>
-				<div
-					className={styles.frameGrid}
-					role="radiogroup"
-					aria-label={i18n._(FRAMES_DESCRIPTOR)}
-					data-flx="user.my-profile-tab.profile-style-settings.frame-grid"
-				>
-					{renderFrameTile(null)}
-					{PROFILE_FRAME_IDS.map((id) => renderFrameTile(id))}
-				</div>
+				{frameMode && (
+					<CommunityCosmeticModeChoice label={i18n._(PROFILE_FRAME_DESCRIPTOR)} disabled={disabled} {...frameMode} />
+				)}
+				{showFramePicker && (
+					<div
+						className={styles.frameGrid}
+						role="radiogroup"
+						aria-label={i18n._(FRAMES_DESCRIPTOR)}
+						data-flx="user.my-profile-tab.profile-style-settings.frame-grid"
+					>
+						{!frameMode && renderFrameTile(null)}
+						{PROFILE_FRAME_IDS.map((id) => renderFrameTile(id))}
+					</div>
+				)}
 			</div>
 		);
 	},

@@ -567,6 +567,14 @@ const GuildMemberProfileDataResponse = z
 		pronouns: z.string().nullable().describe('Guild-specific pronouns'),
 		banner: z.string().nullable().describe('Hash of the guild-specific banner image'),
 		accent_color: Int32Type.nullable().describe('Guild-specific accent color'),
+		theme_colors: ProfileThemeColorsSchema.nullable()
+			.optional()
+			.describe(
+				'Guild-specific profile theme colours, or null when the user theme applies (or none, see profile_flags)',
+			),
+		profile_frame: ProfileFrameIdSchema.nullable()
+			.optional()
+			.describe('Guild-specific profile frame, or null when the user frame applies (or none, see profile_flags)'),
 	})
 	.nullable()
 	.optional();

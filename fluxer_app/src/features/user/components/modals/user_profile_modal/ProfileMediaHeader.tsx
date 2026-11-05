@@ -206,6 +206,7 @@ export const ProfileMediaHeader: React.FC<ProfileMediaHeaderProps> = observer(
 			<StatusAwareAvatar
 				size={avatarSize / getAppRemScale()}
 				user={user}
+				guildId={previewOverrides ? undefined : profile?.guildId}
 				avatarUrl={avatarUrl}
 				hoverAvatarUrl={hoverAvatarUrl}
 				forceAnimate

@@ -83,7 +83,7 @@ function measureUnwrappedTablistWidth(tablist: HTMLElement): number {
 }
 
 export const ProfileBody: React.FC<ProfileBodyProps> = observer(
-	({profile, user, userNote, autoFocusNote, noteRef, showProfileDataWarning}) => {
+	({profile, user, userNote, autoFocusNote, noteRef, showProfileDataWarning, isPreview}) => {
 		const {i18n} = useLingui();
 		const showMutualFriendsTab = !user.bot;
 		const [activeTab, setActiveTab] = useState<ProfileTab>('overview');
@@ -359,6 +359,7 @@ export const ProfileBody: React.FC<ProfileBodyProps> = observer(
 					profile={profile}
 					guildId={profile.guildId ?? undefined}
 					showProfileDataWarning={showProfileDataWarning}
+					isPreview={isPreview}
 					data-flx="user.user-profile-modal.profile-body.user-info"
 				/>
 				{!isCurrentUser ? (

@@ -8,8 +8,15 @@ import * as ColorUtils from '@app/features/theme/utils/ColorUtils';
 import {User} from '@app/features/user/models/User';
 import Users from '@app/features/user/state/Users';
 import {GuildMemberProfileFlags} from '@fluxer/constants/src/GuildConstants';
+import type {ProfileFrameId} from '@fluxer/constants/src/ProfileCustomizationConstants';
 import type {MentionReplyPreference} from '@fluxer/constants/src/UserConstants';
 import type {GuildMemberData} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
+import type {NameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {
+	type ProfileThemeColors,
+	readProfileFrame,
+	readProfileThemeColors,
+} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 
 interface GuildMemberRecordOptions {
 	instanceId?: string;
@@ -32,6 +39,13 @@ export class GuildMember {
 	readonly communicationDisabledUntil: Date | null;
 	readonly profileFlags: number;
 	readonly mentionFlags: MentionReplyPreference;
+	// Community versions of the profile cosmetics. Null means the account-level one shows,
+	// unless the matching *_UNSET profile flag says none in this community.
+	readonly nameStyle: NameStyle | null;
+	readonly avatarFrame: string | null;
+	readonly nameplate: string | null;
+	readonly themeColors: ProfileThemeColors | null;
+	readonly profileFrame: ProfileFrameId | null;
 
 	constructor(guildId: string, guildMember: GuildMemberData, options?: GuildMemberRecordOptions) {
 		this.instanceId = options?.instanceId ?? RuntimeConfig.localInstanceDomain;
@@ -59,6 +73,11 @@ export class GuildMember {
 			: null;
 		this.profileFlags = guildMember.profile_flags ?? 0;
 		this.mentionFlags = (guildMember.mention_flags ?? 0) as MentionReplyPreference;
+		this.nameStyle = guildMember.name_style ?? null;
+		this.avatarFrame = guildMember.avatar_frame ?? null;
+		this.nameplate = guildMember.nameplate ?? null;
+		this.themeColors = readProfileThemeColors(guildMember.theme_colors);
+		this.profileFrame = readProfileFrame(guildMember.profile_frame);
 	}
 
 	isAvatarUnset(): boolean {
@@ -86,6 +105,11 @@ export class GuildMember {
 					updates.communication_disabled_until ?? this.communicationDisabledUntil?.toISOString() ?? null,
 				profile_flags: updates.profile_flags ?? this.profileFlags,
 				mention_flags: updates.mention_flags ?? this.mentionFlags,
+				name_style: 'name_style' in updates ? updates.name_style : this.nameStyle,
+				avatar_frame: 'avatar_frame' in updates ? updates.avatar_frame : this.avatarFrame,
+				nameplate: 'nameplate' in updates ? updates.nameplate : this.nameplate,
+				theme_colors: 'theme_colors' in updates ? updates.theme_colors : this.themeColors,
+				profile_frame: 'profile_frame' in updates ? updates.profile_frame : this.profileFrame,
 			},
 			{instanceId: this.instanceId, cacheUser: this.cacheUser},
 		);
@@ -158,6 +182,11 @@ export class GuildMember {
 			communication_disabled_until: this.communicationDisabledUntil?.toISOString() ?? null,
 			profile_flags: this.profileFlags,
 			mention_flags: this.mentionFlags,
+			name_style: this.nameStyle,
+			avatar_frame: this.avatarFrame,
+			nameplate: this.nameplate,
+			theme_colors: this.themeColors,
+			profile_frame: this.profileFrame,
 		};
 	}
 }

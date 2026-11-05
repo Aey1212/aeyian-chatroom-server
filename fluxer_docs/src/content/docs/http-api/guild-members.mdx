@@ -36,6 +36,11 @@ Every field except `user` describes state that belongs to the membership.
 | communication_disabled_until<sup>5</sup> | ?ISO8601 timestamp | The time the communication timeout expires, or null when the member is not timed out |
 | profile_flags?<sup>6</sup> | integer | The [guild member profile flags](#guild-member-profile-flags) set on the membership |
 | mention_flags?<sup>6</sup> | integer | The [reply mention preference](/http-api/users/#reply-mention-preferences) that applies only inside this guild |
+| name_style?<sup>7</sup> | [name style](/http-api/users/#name-style-object) object | The display name style used in this guild |
+| avatar_frame?<sup>7</sup> | string | The [avatar frame](/http-api/users/#cosmetics) used in this guild: a built-in ID or an uploaded cosmetic ID |
+| nameplate?<sup>7</sup> | string | The [nameplate](/http-api/users/#cosmetics) used in this guild: a built-in ID or an uploaded cosmetic ID |
+| theme_colors?<sup>7</sup> | array[integer] | The two [profile theme](/http-api/users/#profile-themes-and-frames) colours used in this guild as packed 24-bit RGB, top then bottom |
+| profile_frame?<sup>7</sup> | string | The [profile frame](/http-api/users/#profile-themes-and-frames) ID used in this guild |
 
 <sup>1</sup> An animated hash has the `a_` prefix. Both are reported as null while the membership is marked premium sanitised
 
@@ -48,6 +53,8 @@ Every field except `user` describes state that belongs to the membership.
 <sup>5</sup> A timestamp in the past is retained until a later update supplies `communication_disabled_until`
 
 <sup>6</sup> Omitted while the stored value is 0, so absence means no flag is set and, for `mention_flags`, that the account-level preference applies
+
+<sup>7</sup> Omitted while the membership has no guild-specific value, so the account-level one applies, unless the matching [profile flag](#guild-member-profile-flags) says none
 
 Fluxer marks a membership premium sanitised after its account loses premium, when the membership has a guild avatar, banner, bio, or accent colour. A premium sanitised membership reports `avatar` and `banner` as null.
 
@@ -78,10 +85,17 @@ A client compares `communication_disabled_until` against the current time, becau
 
 A guild profile asset has these states. A membership with no flag and no stored hash inherits the account-level asset. A stored hash sets a guild-specific asset. Each flag below blocks inheritance, so the client shows the default asset.
 
+The name style, avatar frame, nameplate, profile theme, and profile frame follow the same pattern. With no guild-specific value and no flag, the account-level one shows in the guild. A guild-specific value shows instead of it, and the flag shows none in that guild.
+
 | Value | Name | Description |
 | --- | --- | --- |
 | 1 &lt;&lt; 0 | AVATAR_UNSET | The guild avatar is explicitly unset, so the account avatar is not inherited |
 | 1 &lt;&lt; 1 | BANNER_UNSET | The guild banner is explicitly unset, so the account banner is not inherited |
+| 1 &lt;&lt; 2 | NAME_STYLE_UNSET | The default name style shows in this guild instead of the account name style |
+| 1 &lt;&lt; 3 | AVATAR_FRAME_UNSET | No avatar frame shows in this guild instead of the account avatar frame |
+| 1 &lt;&lt; 4 | NAMEPLATE_UNSET | No nameplate shows in this guild instead of the account nameplate |
+| 1 &lt;&lt; 5 | THEME_COLORS_UNSET | No profile theme shows in this guild instead of the account profile theme |
+| 1 &lt;&lt; 6 | PROFILE_FRAME_UNSET | No profile frame shows in this guild instead of the account profile frame |
 
 The field is validated as an integer between 0 and 2147483647, so an undefined bit below bit 31 is stored and returned unchanged. Bit 31, and any value above 2147483647, are rejected.
 
@@ -102,6 +116,11 @@ The request body shared by [Modify current guild member](#modify-current-guild-m
 | accent_color? | ?integer | The guild profile accent colour as packed 24-bit RGB (0-16777215) |
 | profile_flags? | ?integer | The [guild member profile flags](#guild-member-profile-flags) to store |
 | mention_flags?<sup>4</sup> | ?integer | The [reply mention preference](/http-api/users/#reply-mention-preferences) to apply in this guild |
+| name_style? | ?[name style](/http-api/users/#name-style-object) object | The display name style for this guild, or null to use the account-level one |
+| avatar_frame? | ?string | The avatar frame for this guild, a built-in ID or an uploaded cosmetic ID, or null to use the account-level one |
+| nameplate? | ?string | The nameplate for this guild, a built-in ID or an uploaded cosmetic ID, or null to use the account-level one |
+| theme_colors? | ?array[integer] | Two profile theme colours for this guild (top, bottom) as packed 24-bit RGB, or null to use the account-level theme |
+| profile_frame? | ?string | The profile frame ID for this guild, or null to use the account-level one |
 | mute?<sup>5</sup> | boolean | Whether the member is muted by a moderator in voice |
 | deaf?<sup>5</sup> | boolean | Whether the member is deafened by a moderator in voice |
 | communication_disabled_until?<sup>6</sup> | ?ISO8601 timestamp | The time at which the communication timeout expires |
@@ -232,13 +251,13 @@ Modifies the authenticated account's own membership and returns the resulting [g
 - Changing the nickname requires [CHANGE_NICKNAME](/http-api/permissions/).
 - Supplying `channel_id` requires [MOVE_MEMBERS](/http-api/permissions/), even for the caller's own membership.
 - Supplying `mute` requires [MUTE_MEMBERS](/http-api/permissions/), and `deaf` requires [DEAFEN_MEMBERS](/http-api/permissions/).
-- Supplying `nick`, `avatar`, `banner`, `bio`, `pronouns`, `accent_color`, or `profile_flags` requires a verified email address, and a bot account is exempt. An unverified account is rejected with 403 `PROFILE_EMAIL_VERIFICATION_REQUIRED`.
+- Supplying `nick`, `avatar`, `banner`, `bio`, `pronouns`, `accent_color`, `profile_flags`, `name_style`, `avatar_frame`, `nameplate`, `theme_colors`, or `profile_frame` requires a verified email address, and a bot account is exempt. An unverified account is rejected with 403 `PROFILE_EMAIL_VERIFICATION_REQUIRED`.
 
 A caller without `CHANGE_NICKNAME` does not fail the request. Fluxer discards the nickname change and applies every other supplied field. A member who holds the permission but is timed out is rejected with 403 `COMMUNICATION_DISABLED`.
 
 A blocked `nick`, `bio` or `pronouns` returns 403 `CONTENT_BLOCKED`.
 
-Guild avatar, banner, biography, and accent colour also require the instance-configured `feature_per_guild_profiles` [limit](/http-api/instance/#limit-keys) for the calling account. Fluxer discards any of those fields supplied without that capability and applies every other field. Pronouns, `profile_flags`, and `mention_flags` do not require it.
+Guild avatar, banner, biography, accent colour, name style, avatar frame, nameplate, profile theme, and profile frame also require the instance-configured `feature_per_guild_profiles` [limit](/http-api/instance/#limit-keys) for the calling account. Fluxer discards any of those fields supplied without that capability and applies every other field. Pronouns, `profile_flags`, and `mention_flags` do not require it.
 
 A `channel_id` destination must be a guild voice channel, and the caller must hold both [VIEW_CHANNEL](/http-api/permissions/) and [CONNECT](/http-api/permissions/) there. Supplying `channel_id` for a member with no live voice connection returns 400 `USER_NOT_IN_VOICE`. Supplying `mute` or `deaf` for such a member succeeds, stores the flags, and emits no voice Dispatch.
 
@@ -314,7 +333,7 @@ Supplying `channel_id` for a target with no live voice connection, or a `connect
 A caller addressing their own user ID here follows the self-targeted rules of [Modify current guild member](#modify-current-guild-member) for the guild profile fields. The body remains the complete update object, so `roles` is accepted. Replacing their own role set still requires `MANAGE_ROLES` and hierarchy authority, and `communication_disabled_until` is still rejected with 403 `MISSING_PERMISSIONS`.
 
 :::note[Guild profile fields belong to their own account]
-`avatar`, `banner`, `bio`, `pronouns`, `accent_color`, `profile_flags`, and `mention_flags` describe the target's own profile, so a moderator cannot set them. Supplying one for another member leaves it unwritten, and the request still applies every field the caller may set.
+`avatar`, `banner`, `bio`, `pronouns`, `accent_color`, `profile_flags`, `mention_flags`, `name_style`, `avatar_frame`, `nameplate`, `theme_colors`, and `profile_frame` describe the target's own profile, so a moderator cannot set them. Supplying one for another member leaves it unwritten, and the request still applies every field the caller may set.
 :::
 
 :::caution[A blocklisted `bio` or `pronouns` returns 403]

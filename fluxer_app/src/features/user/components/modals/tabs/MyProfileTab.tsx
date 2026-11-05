@@ -35,6 +35,16 @@ import {AccentColorPicker} from '@app/features/user/components/modals/tabs/my_pr
 import {AvatarUploader} from '@app/features/user/components/modals/tabs/my_profile_tab/AvatarUploader';
 import {BannerUploader} from '@app/features/user/components/modals/tabs/my_profile_tab/BannerUploader';
 import {BIO_MARKDOWN_PARSER_FLAGS, BioEditor} from '@app/features/user/components/modals/tabs/my_profile_tab/BioEditor';
+import {
+	buildCommunityCosmeticPatch,
+	type CommunityCosmeticKey,
+	type CommunityCosmeticModes,
+	type CommunityCosmeticValues,
+	INHERIT_ALL_COMMUNITY_COSMETICS,
+	readCommunityCosmetics,
+	valueForCommunityMode,
+} from '@app/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticForm';
+import type {CommunityCosmeticMode} from '@app/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice';
 import {CosmeticSettings} from '@app/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings';
 import {UsernameSection} from '@app/features/user/components/modals/tabs/my_profile_tab/MyProfileTabUsernameSection';
 import {NameStyleSettings} from '@app/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings';
@@ -173,6 +183,7 @@ function createOptimisticGuildMemberProfile(params: {
 	formValues: FormInputs;
 	storedAccentColor: number | null;
 	updatedMember: GuildMemberData;
+	communityCosmetics: CommunityCosmeticValues;
 }): UserProfile {
 	const existingProfile = params.currentProfile.guildMemberProfile;
 	return {
@@ -181,6 +192,8 @@ function createOptimisticGuildMemberProfile(params: {
 		banner: params.updatedMember.banner ?? null,
 		banner_color: existingProfile?.banner_color ?? null,
 		accent_color: params.storedAccentColor,
+		theme_colors: params.communityCosmetics.theme_colors,
+		profile_frame: params.communityCosmetics.profile_frame,
 	};
 }
 
@@ -196,6 +209,8 @@ interface FormInputs {
 	profile_frame: string | null;
 	avatar_frame: string | null;
 	nameplate: string | null;
+	// In a community profile: whether each of the five follows the global profile, has its own, or shows none.
+	community_modes: CommunityCosmeticModes;
 	timezone: string | null;
 	timezone_privacy_flags: number;
 	nick?: string | null;
@@ -245,6 +260,13 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 	const bannerAsset = selectProfileAssetCustomizationState(bannerAssetSnapshot);
 	const bioComposerRef = useRef<LexicalRichInputHandle | null>(null);
 	const isPerGuildProfile = selectedGuildId !== null;
+	const globalCosmetics: CommunityCosmeticValues = {
+		name_style: user?.nameStyle ?? null,
+		avatar_frame: user?.avatarFrame ?? null,
+		nameplate: user?.nameplate ?? null,
+		theme_colors: user?.themeColors ?? null,
+		profile_frame: user?.profileFrame ?? null,
+	};
 	const profileIdentityKey = user?.id ? `${user.id}:${selectedGuildId ?? 'global'}` : null;
 	const canChangeNickname = selectedGuildId
 		? Permission.can(Permissions.CHANGE_NICKNAME, {guildId: selectedGuildId})
@@ -273,6 +295,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 			profile_frame: user?.profileFrame ?? null,
 			avatar_frame: user?.avatarFrame ?? null,
 			nameplate: user?.nameplate ?? null,
+			community_modes: INHERIT_ALL_COMMUNITY_COSMETICS,
 			timezone: user?.timezone ?? null,
 			timezone_privacy_flags: user?.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 			nick: null,
@@ -329,6 +352,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 			profile_frame: user.profileFrame ?? null,
 			avatar_frame: user.avatarFrame ?? null,
 			nameplate: user.nameplate ?? null,
+			community_modes: INHERIT_ALL_COMMUNITY_COSMETICS,
 			timezone: user.timezone ?? null,
 			timezone_privacy_flags: user.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 			premium_badge_hidden: user.premiumBadgeHidden ?? false,
@@ -352,9 +376,12 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 				hasCustomAsset: Boolean(guildMember?.banner ?? guildProfile.banner),
 				isUnset: guildMember?.isBannerUnset() ?? false,
 			});
+			const community = readCommunityCosmetics(guildMember, guildProfile, globalCosmetics);
 			return {
 				formValues: {
 					...commonValues,
+					...community.values,
+					community_modes: community.modes,
 					bio: markdownBio,
 					global_name: null,
 					pronouns,
@@ -485,6 +512,8 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 				if (bannerAsset.mode === 'unset') {
 					profileFlags |= GuildMemberProfileFlags.BANNER_UNSET;
 				}
+				const communityCosmetics = buildCommunityCosmeticPatch(data.community_modes, data);
+				profileFlags |= communityCosmetics.unsetFlags;
 				const updateData: {
 					avatar?: string | null;
 					banner?: string | null;
@@ -493,12 +522,13 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 					accent_color?: number | null;
 					nick?: string | null;
 					profile_flags?: number | null;
-				} = {
+				} & Partial<CommunityCosmeticValues> = {
 					bio: data.bio,
 					pronouns: data.pronouns,
 					accent_color: storedAccentColor,
 					nick: data.nick,
 					profile_flags: profileFlags || null,
+					...communityCosmetics.fields,
 				};
 				assignProfileAssetUploadPatch(updateData, 'avatar', avatarAsset);
 				assignProfileAssetUploadPatch(updateData, 'banner', bannerAsset);
@@ -525,6 +555,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 								formValues: data,
 								storedAccentColor,
 								updatedMember,
+								communityCosmetics: communityCosmetics.fields,
 							}),
 						}),
 					);
@@ -536,11 +567,12 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 						global_name: null,
 						pronouns: data.pronouns,
 						accent_color: data.accent_color,
-						name_style: user.nameStyle ?? null,
-						theme_colors: user.themeColors ?? null,
-						profile_frame: user.profileFrame ?? null,
-						avatar_frame: user.avatarFrame ?? null,
-						nameplate: user.nameplate ?? null,
+						name_style: data.name_style,
+						theme_colors: data.theme_colors,
+						profile_frame: data.profile_frame,
+						avatar_frame: data.avatar_frame,
+						nameplate: data.nameplate,
+						community_modes: communityCosmetics.savedModes,
 						timezone: user.timezone ?? null,
 						timezone_privacy_flags: user.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 						nick: data.nick,
@@ -599,6 +631,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 						profile_frame: newUser.profile_frame ?? null,
 						avatar_frame: newUser.avatar_frame ?? null,
 						nameplate: newUser.nameplate ?? null,
+						community_modes: INHERIT_ALL_COMMUNITY_COSMETICS,
 						timezone: newUser.timezone ?? null,
 						timezone_privacy_flags: newUser.timezone_privacy_flags ?? ProfileFieldPrivacyFlags.EVERYONE,
 						nick: null,
@@ -722,6 +755,32 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 	const guilds = Guilds.getGuilds();
 	const selectedGuild = selectedGuildId ? guilds.find((g) => g.id === selectedGuildId) : null;
 	const isPerGuildProfileCustomizationDisabled = isPerGuildProfile && !hasPerGuildProfiles;
+	const cosmeticsDisabled = isProfileCustomizationLocked || isPerGuildProfileCustomizationDisabled;
+	const cosmeticDisplayName =
+		(isPerGuildProfile ? form.watch('nick') : null) ||
+		form.watch('global_name') ||
+		user?.globalName ||
+		user?.username ||
+		'';
+	const setCommunityCosmeticMode = (key: CommunityCosmeticKey, mode: CommunityCosmeticMode) => {
+		const value = valueForCommunityMode(mode, form.getValues(key), globalCosmetics[key]);
+		switch (key) {
+			case 'name_style':
+				form.setValue('name_style', value as CommunityCosmeticValues['name_style'], {shouldDirty: true});
+				break;
+			case 'theme_colors':
+				form.setValue('theme_colors', value as CommunityCosmeticValues['theme_colors'], {shouldDirty: true});
+				break;
+			default:
+				form.setValue(key, value as string | null, {shouldDirty: true});
+		}
+		form.setValue('community_modes', {...form.getValues('community_modes'), [key]: mode}, {shouldDirty: true});
+	};
+	const communityModes = form.watch('community_modes');
+	const communityModeControl = (key: CommunityCosmeticKey) =>
+		isPerGuildProfile
+			? {mode: communityModes[key], onModeChange: (mode: CommunityCosmeticMode) => setCommunityCosmeticMode(key, mode)}
+			: undefined;
 	const isPronounsDisabled = isProfileCustomizationLocked;
 	const profileCustomizationDescription = isProfileCustomizationLocked
 		? isPerGuildProfile
@@ -967,10 +1026,10 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 										previewBio={actualBio}
 										previewPronouns={form.watch('pronouns')}
 										previewAccentColor={form.watch('accent_color')}
-										previewNameStyle={!isPerGuildProfile ? form.watch('name_style') : undefined}
-										previewThemeColors={!isPerGuildProfile ? form.watch('theme_colors') : undefined}
-										previewProfileFrame={!isPerGuildProfile ? form.watch('profile_frame') : undefined}
-										previewAvatarFrame={!isPerGuildProfile ? form.watch('avatar_frame') : undefined}
+										previewNameStyle={form.watch('name_style')}
+										previewThemeColors={form.watch('theme_colors')}
+										previewProfileFrame={form.watch('profile_frame')}
+										previewAvatarFrame={form.watch('avatar_frame')}
 										previewTimezoneOffset={previewTimezoneOffset}
 										previewGlobalName={!isPerGuildProfile ? form.watch('global_name') : undefined}
 										previewNick={isPerGuildProfile ? form.watch('nick') : undefined}
@@ -991,34 +1050,33 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 							</div>
 						)}
 					</SettingsSection>
-					{!isPerGuildProfile && (
-						<ProfileStyleSettings
-							themeColors={form.watch('theme_colors')}
-							frame={form.watch('profile_frame')}
-							onThemeColorsChange={(value) => form.setValue('theme_colors', value, {shouldDirty: true})}
-							onFrameChange={(value) => form.setValue('profile_frame', value, {shouldDirty: true})}
-							disabled={isProfileCustomizationLocked}
-						/>
-					)}
-					{!isPerGuildProfile && (
-						<CosmeticSettings
-							user={user}
-							avatarFrame={form.watch('avatar_frame')}
-							nameplate={form.watch('nameplate')}
-							displayName={form.watch('global_name') || user.username}
-							onAvatarFrameChange={(value) => form.setValue('avatar_frame', value, {shouldDirty: true})}
-							onNameplateChange={(value) => form.setValue('nameplate', value, {shouldDirty: true})}
-							disabled={isProfileCustomizationLocked}
-						/>
-					)}
-					{!isPerGuildProfile && (
-						<NameStyleSettings
-							value={form.watch('name_style')}
-							onChange={(value) => form.setValue('name_style', value, {shouldDirty: true})}
-							displayName={form.watch('global_name') || user.username}
-							disabled={isProfileCustomizationLocked}
-						/>
-					)}
+					<ProfileStyleSettings
+						themeColors={form.watch('theme_colors')}
+						frame={form.watch('profile_frame')}
+						onThemeColorsChange={(value) => form.setValue('theme_colors', value, {shouldDirty: true})}
+						onFrameChange={(value) => form.setValue('profile_frame', value, {shouldDirty: true})}
+						themeMode={communityModeControl('theme_colors')}
+						frameMode={communityModeControl('profile_frame')}
+						disabled={cosmeticsDisabled}
+					/>
+					<CosmeticSettings
+						user={user}
+						avatarFrame={form.watch('avatar_frame')}
+						nameplate={form.watch('nameplate')}
+						displayName={cosmeticDisplayName}
+						onAvatarFrameChange={(value) => form.setValue('avatar_frame', value, {shouldDirty: true})}
+						onNameplateChange={(value) => form.setValue('nameplate', value, {shouldDirty: true})}
+						avatarFrameMode={communityModeControl('avatar_frame')}
+						nameplateMode={communityModeControl('nameplate')}
+						disabled={cosmeticsDisabled}
+					/>
+					<NameStyleSettings
+						value={form.watch('name_style')}
+						onChange={(value) => form.setValue('name_style', value, {shouldDirty: true})}
+						displayName={cosmeticDisplayName}
+						mode={communityModeControl('name_style')}
+						disabled={cosmeticsDisabled}
+					/>
 					{hasPremium && !isPerGuildProfile && (
 						<PremiumBadgeSettings
 							premiumBadgeHidden={form.watch('premium_badge_hidden') ?? false}

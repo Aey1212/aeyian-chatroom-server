@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {GuildMemberProfileFlags, GuildMemberProfileFlagsDescriptions} from '@fluxer/constants/src/GuildConstants';
+import {CosmeticRefType} from '@fluxer/schema/src/domains/cosmetics/CosmeticSchemas';
+import {type NameStyle, NameStyleSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {ProfileFrameIdSchema, ProfileThemeColorsSchema} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 import {UserPartialResponse} from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 import {
 	createBitflagInt32Type,
@@ -35,6 +38,21 @@ export const GuildMemberResponse = z.object({
 		MentionReplyPreferencesSchema,
 		'Per-guild reply mention preference override; NO_PREFERENCE means inherit the user-level mention_flags.',
 	).nullish(),
+	name_style: NameStyleSchema.optional().describe(
+		'Display name style in this guild. Omitted when the user name style applies (or none, see profile_flags).',
+	),
+	avatar_frame: CosmeticRefType.optional().describe(
+		'Avatar frame in this guild. Omitted when the user avatar frame applies (or none, see profile_flags).',
+	),
+	nameplate: CosmeticRefType.optional().describe(
+		'Nameplate in this guild. Omitted when the user nameplate applies (or none, see profile_flags).',
+	),
+	theme_colors: ProfileThemeColorsSchema.optional().describe(
+		'Profile theme colours in this guild, top then bottom. Omitted when the user theme applies (or none, see profile_flags).',
+	),
+	profile_frame: ProfileFrameIdSchema.optional().describe(
+		'Profile frame in this guild. Omitted when the user profile frame applies (or none, see profile_flags).',
+	),
 });
 
 export type GuildMemberResponse = z.infer<typeof GuildMemberResponse>;
@@ -62,6 +80,11 @@ export interface GuildMemberData {
 	readonly communication_disabled_until?: string | null;
 	readonly profile_flags?: number | null;
 	readonly mention_flags?: number | null;
+	readonly name_style?: NameStyle | null;
+	readonly avatar_frame?: string | null;
+	readonly nameplate?: string | null;
+	readonly theme_colors?: ReadonlyArray<number> | null;
+	readonly profile_frame?: string | null;
 }
 
 export const GuildMemberListResponse = z.array(GuildMemberResponse);

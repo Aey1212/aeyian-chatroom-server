@@ -114,6 +114,11 @@ export interface GuildMemberRow {
 	temporary: Nullish<boolean>;
 	profile_flags: Nullish<number>;
 	mention_flags?: Nullish<MentionReplyPreference>;
+	name_style: Nullish<string>;
+	avatar_frame: Nullish<string>;
+	nameplate: Nullish<string>;
+	theme_colors: Nullish<Array<number>>;
+	profile_frame: Nullish<string>;
 	version: number;
 }
 
@@ -138,6 +143,11 @@ export const GUILD_MEMBER_COLUMNS = [
 	'temporary',
 	'profile_flags',
 	'mention_flags',
+	'name_style',
+	'avatar_frame',
+	'nameplate',
+	'theme_colors',
+	'profile_frame',
 	'version',
 ] as const satisfies ReadonlyArray<keyof GuildMemberRow>;
 

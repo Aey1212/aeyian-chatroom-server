@@ -28,8 +28,14 @@ export const ProfileModalContent: React.FC<ProfileModalContentProps> = observer(
 	}) => {
 		const effectiveProfile = profile?.getEffectiveProfile() ?? null;
 		const bannerColor = resolveProfileDecoration({
-			themeColors: effectiveProfile?.theme_colors,
-			frame: effectiveProfile?.profile_frame,
+			themeColors:
+				previewOverrides?.previewThemeColors !== undefined
+					? previewOverrides.previewThemeColors
+					: effectiveProfile?.theme_colors,
+			frame:
+				previewOverrides?.previewProfileFrame !== undefined
+					? previewOverrides.previewProfileFrame
+					: effectiveProfile?.profile_frame,
 			accentColor: getUserAccentColor(user, effectiveProfile?.accent_color),
 		}).bannerColor;
 		const membership = resolveProfileGuildMembership(profile);
@@ -78,6 +84,7 @@ export const ProfileModalContent: React.FC<ProfileModalContentProps> = observer(
 					autoFocusNote={autoFocusNote}
 					noteRef={noteRef}
 					showProfileDataWarning={showProfileDataWarning}
+					isPreview={previewOverrides !== undefined}
 					data-flx="user.user-profile-modal.profile-modal-content.profile-body"
 				/>
 			</>

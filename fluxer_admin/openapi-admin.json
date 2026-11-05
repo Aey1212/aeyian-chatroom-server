@@ -15185,10 +15185,54 @@
 						"nullable": true,
 						"description": "Per-guild reply mention preference override; NO_PREFERENCE means inherit the user-level mention_flags.",
 						"allOf": [{"$ref": "#/components/schemas/MentionReplyPreferences"}]
+					},
+					"name_style": {
+						"description": "Display name style in this guild. Omitted when the user name style applies (or none, see profile_flags).",
+						"allOf": [{"$ref": "#/components/schemas/NameStyleSchema"}]
+					},
+					"avatar_frame": {
+						"description": "Avatar frame in this guild. Omitted when the user avatar frame applies (or none, see profile_flags).",
+						"allOf": [{"$ref": "#/components/schemas/CosmeticRefType"}]
+					},
+					"nameplate": {
+						"description": "Nameplate in this guild. Omitted when the user nameplate applies (or none, see profile_flags).",
+						"allOf": [{"$ref": "#/components/schemas/CosmeticRefType"}]
+					},
+					"theme_colors": {
+						"description": "Profile theme colours in this guild, top then bottom. Omitted when the user theme applies (or none, see profile_flags).",
+						"allOf": [{"$ref": "#/components/schemas/ProfileThemeColorsSchema"}]
+					},
+					"profile_frame": {
+						"description": "Profile frame in this guild. Omitted when the user profile frame applies (or none, see profile_flags).",
+						"allOf": [{"$ref": "#/components/schemas/ProfileFrameIdSchema"}]
 					}
 				},
 				"required": ["user", "roles", "joined_at", "mute", "deaf"],
 				"additionalProperties": false
+			},
+			"ProfileFrameIdSchema": {
+				"description": "Id of a profile frame",
+				"x-enumNames": [
+					"AURORA",
+					"GOLD",
+					"NEON",
+					"HOLOGRAPHIC",
+					"EMBER",
+					"FROST",
+					"SAKURA",
+					"MIDNIGHT",
+					"CIRCUIT",
+					"PIXEL"
+				],
+				"enum": ["aurora", "gold", "neon", "holographic", "ember", "frost", "sakura", "midnight", "circuit", "pixel"],
+				"type": "string"
+			},
+			"ProfileThemeColorsSchema": {
+				"minItems": 2,
+				"maxItems": 2,
+				"type": "array",
+				"items": {"$ref": "#/components/schemas/ColorType"},
+				"description": "Two colours as integers: the top and the bottom of the profile card"
 			},
 			"GuildMemberProfileFlags": {
 				"type": "integer",
@@ -15198,7 +15242,32 @@
 				"format": "int32",
 				"x-bitflagValues": [
 					{"name": "AVATAR_UNSET", "value": "1", "description": "Guild member avatar is unset"},
-					{"name": "BANNER_UNSET", "value": "2", "description": "Guild member banner is unset"}
+					{"name": "BANNER_UNSET", "value": "2", "description": "Guild member banner is unset"},
+					{
+						"name": "NAME_STYLE_UNSET",
+						"value": "4",
+						"description": "Guild member shows the default name style instead of the global one"
+					},
+					{
+						"name": "AVATAR_FRAME_UNSET",
+						"value": "8",
+						"description": "Guild member shows no avatar frame instead of the global one"
+					},
+					{
+						"name": "NAMEPLATE_UNSET",
+						"value": "16",
+						"description": "Guild member shows no nameplate instead of the global one"
+					},
+					{
+						"name": "THEME_COLORS_UNSET",
+						"value": "32",
+						"description": "Guild member shows no profile theme instead of the global one"
+					},
+					{
+						"name": "PROFILE_FRAME_UNSET",
+						"value": "64",
+						"description": "Guild member shows no profile frame instead of the global one"
+					}
 				]
 			},
 			"InstanceCaptchaProviderSchema": {"type": "string", "enum": ["hcaptcha", "turnstile", "none"]},

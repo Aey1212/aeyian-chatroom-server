@@ -18,6 +18,7 @@ import {
 	OPEN_DM_DESCRIPTOR,
 } from '@app/features/i18n/utils/CommonMessageDescriptors';
 import GuildMembers from '@app/features/member/state/GuildMembers';
+import {effectiveNameStyle} from '@app/features/member/utils/MemberCosmetics';
 import SelectedChannel from '@app/features/navigation/state/SelectedChannel';
 import Permission from '@app/features/permissions/state/Permission';
 import {Logger} from '@app/features/platform/utils/AppLogger';
@@ -62,6 +63,7 @@ import {
 import {useAutoplayExpandedProfileAnimations} from '@app/features/user/hooks/useAutoplayExpandedProfileAnimations';
 import type {Profile} from '@app/features/user/models/Profile';
 import {User} from '@app/features/user/models/User';
+import {StyledNameText} from '@app/features/user/name_style/StyledNameText';
 import UserNote from '@app/features/user/state/UserNote';
 import UserProfile from '@app/features/user/state/UserProfile';
 import UserProfileMobile from '@app/features/user/state/UserProfileMobile';
@@ -304,6 +306,8 @@ const UserProfileMobileSheetContent: React.FC<UserProfileMobileSheetContentProps
 			return profile?.getEffectiveProfile() ?? null;
 		}, [profile, showGlobalProfile]);
 		const displayName = getProfileMembershipDisplayName(user, displayMembership);
+		// The community's own name style (or none) while its profile is shown; the global one otherwise.
+		const displayNameStyle = shouldShowGuildProfile ? effectiveNameStyle(user.nameStyle, guildMember) : user.nameStyle;
 		const isDisplayNameUsername = displayName === user.username;
 		const bannerColor = useMemo(
 			() => getUserAccentColor(user, effectiveProfile?.accent_color),
@@ -606,7 +610,7 @@ const UserProfileMobileSheetContent: React.FC<UserProfileMobileSheetContentProps
 														className={styles.username}
 														data-flx="user.user-profile-mobile-sheet.user-profile-mobile-sheet-content.username"
 													>
-														{displayName}
+														<StyledNameText nameStyle={displayNameStyle} text={displayName} />
 													</span>
 												</div>
 												<div
