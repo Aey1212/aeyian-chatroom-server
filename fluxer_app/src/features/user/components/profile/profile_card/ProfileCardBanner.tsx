@@ -20,6 +20,8 @@ interface ProfileCardBannerProps {
 	hoverBannerUrl?: string | null;
 	bannerColor: string;
 	user: User;
+	// The community the card is shown in, so the avatar frame can be that community's one.
+	guildId?: string | null;
 	avatarUrl: string | null;
 	hoverAvatarUrl: string | null;
 	disablePresence?: boolean;
@@ -36,6 +38,7 @@ export const ProfileCardBanner: React.FC<ProfileCardBannerProps> = observer(
 		hoverBannerUrl,
 		bannerColor,
 		user,
+		guildId,
 		avatarUrl,
 		hoverAvatarUrl,
 		disablePresence = false,
@@ -137,6 +140,7 @@ export const ProfileCardBanner: React.FC<ProfileCardBannerProps> = observer(
 						<StatusAwareAvatar
 							size={80}
 							user={user}
+							guildId={guildId}
 							avatarUrl={avatarUrl}
 							hoverAvatarUrl={hoverAvatarUrl}
 							disablePresence={disablePresence}

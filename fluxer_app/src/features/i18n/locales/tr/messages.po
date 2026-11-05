@@ -2338,7 +2338,7 @@ msgid "7 days"
 msgstr "7 gün"
 
 #. Profile settings section description for the nameplate.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:39
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:43
 msgid "A background behind your name in the member list and in direct messages."
 msgstr "Üye listesinde ve doğrudan mesajlarda adının arkasındaki arka plan."
 
@@ -2383,7 +2383,7 @@ msgid "a date or date range"
 msgstr "bir tarih veya tarih aralığı"
 
 #. Profile settings section description for the avatar frame.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:27
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:31
 msgid "A decoration around your avatar, shown wherever your avatar appears."
 msgstr "Avatarının etrafında, avatarının göründüğü her yerde gösterilen bir süs."
 
@@ -2408,7 +2408,7 @@ msgid "a forwarded message"
 msgstr "iletilen bir mesaj"
 
 #. Profile settings section description for the profile frame.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:37
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:41
 msgid "A frame around your profile card. It replaces the accent color border."
 msgstr "Profil kartınızın etrafında bir çerçeve. Vurgu rengi kenarlığının yerini alır."
 
@@ -3435,7 +3435,7 @@ msgstr "Hizalama kontrolleri yalnızca daha geniş ekranlarda kullanılabilir"
 #: src/features/channel/components/MobileMemesPicker.tsx:43
 #: src/features/channel/components/pickers/memes/MemesPickerHeader.tsx:12
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:131
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:46
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:50
 msgid "All"
 msgstr "Tümü"
 
@@ -4390,7 +4390,7 @@ msgstr "Onayla"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:114
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:118
 #: src/features/user/utils/LocaleUtils.ts:10
 msgid "Arabic"
 msgstr "Arapça"
@@ -4793,8 +4793,8 @@ msgstr "Ses yükleme"
 
 #. Nameplate name: shifting northern-lights colours.
 #. Profile frame name: shifting northern-lights colours.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:58
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:45
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:62
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:49
 msgid "Aurora"
 msgstr "Aurora"
 
@@ -5132,12 +5132,12 @@ msgid "Avatar file is too large. Choose a file smaller than {imageMaxSizeLabel}.
 msgstr "Avatar dosyası çok büyük. {imageMaxSizeLabel} değerinden küçük bir dosya seçin."
 
 #. Profile settings section title for the decoration drawn around the round avatar.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:23
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:27
 msgid "Avatar frame"
 msgstr "Avatar çerçevesi"
 
 #. Accessible label for the list of avatar frames.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:31
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:35
 msgid "Avatar frames"
 msgstr "Avatar çerçeveleri"
 
@@ -5884,7 +5884,7 @@ msgid "Bottom"
 msgstr "Alt"
 
 #. Label for the colour at the bottom of the profile card.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:25
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:29
 msgid "Bottom color"
 msgstr "Alt renk"
 
@@ -7329,7 +7329,7 @@ msgid "Chinese (simplified)"
 msgstr "Çince (basitleştirilmiş)"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:122
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:126
 msgid "Chinese (Simplified)"
 msgstr "Çince (Basitleştirilmiş)"
 
@@ -7339,7 +7339,7 @@ msgid "Chinese (traditional)"
 msgstr "Çince (geleneksel)"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:126
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:130
 msgid "Chinese (Traditional)"
 msgstr "Çince (Geleneksel)"
 
@@ -7459,6 +7459,11 @@ msgstr "guild_id veya channel_id'den birini seçin, ikisini birden değil."
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:195
 msgid "Choose emoji"
 msgstr "Emoji seç"
+
+#. Choice in a community profile: pick a name style, frame, nameplate or profile theme just for this community. Keep it concise.
+#: src/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice.tsx:26
+msgid "Choose for this community"
+msgstr "Bu topluluk için seç"
 
 #. Subtitle in the create-DM modal. Keep it short and calm.
 #: src/features/channel/utils/CreateDMModalUtils.tsx:39
@@ -7625,8 +7630,8 @@ msgstr "Profil vurgu renginizi seçin"
 
 #. Nameplate name: teal circuit-board lines.
 #. Profile frame name: green circuit-board lines.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:63
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:53
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:67
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:57
 msgid "Circuit"
 msgstr "Devre"
 
@@ -8572,7 +8577,7 @@ msgstr "Topluluk adı"
 
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:130
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:140
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:113
 msgid "Community nickname"
 msgstr "Topluluk takma adı"
@@ -8597,7 +8602,7 @@ msgstr "Topluluk geçersiz kılmaları"
 #. Tooltip on the owner crown icon next to a member name on the community members page.
 #: src/features/channel/components/bottomsheets/ChannelDetailsBottomSheetMemberList.tsx:42
 #: src/features/channel/components/guild_members_page/MemberTableRow.tsx:73
-#: src/features/channel/components/MemberListItem.tsx:38
+#: src/features/channel/components/MemberListItem.tsx:39
 msgid "Community owner"
 msgstr "Topluluk sahibi"
 
@@ -8620,7 +8625,7 @@ msgid "Community profile"
 msgstr "Topluluk profili"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:77
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:87
 msgid "Community profile updated"
 msgstr "Topluluk profili güncellendi"
 
@@ -10839,7 +10844,7 @@ msgid "Cyprus"
 msgstr "Kıbrıs"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:111
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:115
 msgid "Cyrillic"
 msgstr "Kiril"
 
@@ -11118,7 +11123,7 @@ msgstr "Dekoratif ayırıcı"
 #: src/features/ui/action_menu/items/SearchMenuData.tsx:43
 #: src/features/ui/action_menu/items/SearchProviderMenuItems.tsx:14
 #: src/features/user/components/modals/tabs/component_gallery_tab/MarkdownTab.tsx:117
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:42
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:46
 msgid "Default"
 msgstr "Varsayılan"
 
@@ -11781,7 +11786,7 @@ msgid "Detect while typing"
 msgstr "Yazarken algıla"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:117
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:121
 msgid "Devanagari"
 msgstr "Devanagari"
 
@@ -11982,7 +11987,7 @@ msgid "Direct upload active"
 msgstr "Doğrudan yükleme etkin"
 
 #. Label above the horizontal or vertical choice for a gradient display name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:58
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:62
 msgid "Direction"
 msgstr "Yön"
 
@@ -12257,7 +12262,7 @@ msgstr "Bahsetmeyi kaldır"
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:179
 #: src/features/user/components/modals/tabs/chat_settings_tab/ChatSettingsTabInline.tsx:12
 #: src/features/user/components/modals/tabs/ChatSettingsTab.tsx:12
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:98
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:102
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:154
 msgid "Display"
 msgstr "Görüntüleme"
@@ -12298,7 +12303,7 @@ msgstr "Görüntüleme modu"
 #. Short label in the inputs tab. Keep it concise.
 #. Short label in the my profile tab. Keep it concise.
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabInputsTab.tsx:22
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:142
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:152
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:61
 msgid "Display name"
 msgstr "Görünen ad"
@@ -12437,7 +12442,7 @@ msgstr "Mevcut topluluklarınızdaki üyelerden gelen doğrudan mesajları da en
 #. Label in the accessibility tab.
 #. Label in the my profile tab.
 #: src/features/user/components/modals/tabs/AccessibilityTab.tsx:54
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:150
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:160
 msgid "Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985."
 msgstr "Doktor, ben gelecekten geliyorum. Senin icat ettiğin bir zaman makinesiyle buraya geldim. Şimdi, 1985 yılına geri dönmek için yardımına ihtiyacım var."
 
@@ -12495,10 +12500,12 @@ msgstr "Hiçbirini silme"
 msgid "Don't have an account?"
 msgstr "Hesabınız yok mu?"
 
+#. Choice in a community profile: show no cosmetic of this kind in the community. Keep it concise.
 #. Short label in the avatar uploader. Keep it concise.
 #. Short label in the banner uploader. Keep it concise. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:74
 #: src/features/user/components/modals/tabs/my_profile_tab/BannerUploader.tsx:60
+#: src/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice.tsx:35
 msgid "Don't show"
 msgstr "Gösterme"
 
@@ -13001,7 +13008,7 @@ msgstr "Bu kanaldaki roller ve üyeler için geçersiz kılmaları düzenleyin."
 #: src/features/app/components/pages/YouPage.tsx:157
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
 #: src/features/user/components/modals/UserProfileModal.tsx:588
-#: src/features/user/components/popouts/UserProfilePopout.tsx:439
+#: src/features/user/components/popouts/UserProfilePopout.tsx:442
 msgid "Edit profile"
 msgstr "Profili düzenle"
 
@@ -13064,7 +13071,7 @@ msgid "Edit translation provider"
 msgstr "Çeviri sağlayıcısını düzenle"
 
 #. Button or menu action label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:97
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:107
 msgid "Edit your profile appearance and see a live preview"
 msgstr "Profil görünümünüzü düzenleyin ve canlı önizlemesini görün"
 
@@ -13092,7 +13099,7 @@ msgid "Editing message"
 msgstr "Mesaj düzenleniyor"
 
 #. Label above the display name effect choice.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:47
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:51
 msgid "Effect"
 msgstr "Efekt"
 
@@ -13264,8 +13271,8 @@ msgstr "Gömülü içerikler yeniden gösterildi"
 
 #. Nameplate name: glowing fire colours with sparks.
 #. Profile frame name: glowing fire colours.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:64
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:49
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:68
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:53
 msgid "Ember"
 msgstr "Kor"
 
@@ -15137,7 +15144,7 @@ msgid "Flags"
 msgstr "Bayraklar"
 
 #. Avatar frame name: a flickering ring of fire.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:50
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:54
 msgid "Flames"
 msgstr "Alevler"
 
@@ -15251,14 +15258,14 @@ msgstr "Ana ses düzeyini takip ediyor • {effectiveValue}"
 
 #. Label above the display name font picker.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:41
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:45
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:170
 msgid "Font"
 msgstr "Yazı tipi"
 
 #. Accessible label for the list of display name fonts.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:82
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:86
 #: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:9
 msgid "Fonts"
 msgstr "Yazı tipleri"
@@ -15716,8 +15723,8 @@ msgstr "Kullanıcıdan"
 
 #. Avatar frame name: icy blue and white.
 #. Profile frame name: icy blue and white.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:51
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:50
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:55
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:54
 msgid "Frost"
 msgstr "Ayaz"
 
@@ -15753,8 +15760,8 @@ msgstr "Kazanç kontrolü"
 
 #. Avatar frame name: deep space colours with stars.
 #. Nameplate name: deep space colours with stars.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:54
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:61
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:58
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:65
 msgid "Galaxy"
 msgstr "Galaksi"
 
@@ -16203,12 +16210,12 @@ msgid "Global shortcut"
 msgstr "Genel kısayol"
 
 #. Display name effect: a soft glow around the name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:91
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:95
 msgid "Glow"
 msgstr "Parıltı"
 
 #. Label for the glow color of a display name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:53
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:57
 msgid "Glow color"
 msgstr "Parıltı rengi"
 
@@ -16317,7 +16324,7 @@ msgid "Go to third community"
 msgstr "Üçüncü topluluğa git"
 
 #. Profile frame name: shiny gold.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:46
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:50
 msgid "Gold"
 msgstr "Altın"
 
@@ -16344,7 +16351,7 @@ msgstr "Ödemesiz dönem (hâlâ erişiminiz var)"
 #. Display name effect: a gradient between two colors.
 #. Role color style: a gradient between two colors.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:26
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:90
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:94
 msgid "Gradient"
 msgstr "Gradyan"
 
@@ -16399,7 +16406,7 @@ msgstr "Yunanistan"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:112
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:116
 #: src/features/user/utils/LocaleUtils.ts:30
 msgid "Greek"
 msgstr "Yunanca"
@@ -16515,7 +16522,7 @@ msgstr "Grup çevrimiçi durumu"
 #. Channel details bottom sheet label or action (channel type, settings, toast, confirmation, or notification option).
 #. Short label in the direct message member list item. Keep it concise.
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:152
-#: src/features/channel/components/MemberListItem.tsx:42
+#: src/features/channel/components/MemberListItem.tsx:43
 msgid "Group owner"
 msgstr "Grup sahibi"
 
@@ -16569,7 +16576,7 @@ msgid "H.265 (requires opt-in)"
 msgstr "H.265 (katılım gerektirir)"
 
 #. Avatar frame name: a glowing golden ring.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:47
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:51
 msgid "Halo"
 msgstr "Hale"
 
@@ -16581,7 +16588,7 @@ msgid "Handle"
 msgstr "Kullanıcı adı"
 
 #. Font picker filter: handwriting and script fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:99
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:103
 msgid "Handwriting"
 msgstr "El yazısı"
 
@@ -16739,7 +16746,7 @@ msgstr "Kalp"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:115
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:119
 #: src/features/user/utils/LocaleUtils.ts:58
 msgid "Hebrew"
 msgstr "İbranice"
@@ -17064,7 +17071,7 @@ msgstr "Kaydetmek için basılı tutun. Kilitlemek için yukarı sürükleyin ve
 #. Profile frame name: a rotating pastel rainbow.
 #. Role color style: a shiny three-color gradient that moves on hover.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:27
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:48
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:52
 msgid "Holographic"
 msgstr "Holografik"
 
@@ -17085,7 +17092,7 @@ msgid "Home screen"
 msgstr "Ana ekran"
 
 #. Gradient direction: the color changes from the start of the name to its end.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:62
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:66
 msgid "Horizontal"
 msgstr "Yatay"
 
@@ -17123,7 +17130,7 @@ msgid "Hover over buttons to see tooltips in different positions."
 msgstr "Farklı konumlardaki araç ipuçlarını görmek için düğmelerin üzerine gelin."
 
 #. Hint under the display name preview for animated effects.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:78
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:82
 msgid "Hover the preview to see the effect move."
 msgstr "Efektin hareketini görmek için önizlemenin üzerine gelin."
 
@@ -18041,7 +18048,7 @@ msgid "Integrations"
 msgstr "Entegrasyonlar"
 
 #. Label of the slider that sets how strong the glow or shimmer of a display name is.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:70
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:74
 msgid "Intensity"
 msgstr "Yoğunluk"
 
@@ -18478,7 +18485,7 @@ msgstr "İtalya"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:118
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:122
 #: src/features/user/utils/LocaleUtils.ts:82
 msgid "Japanese"
 msgstr "Japonca"
@@ -18892,7 +18899,7 @@ msgstr "Klipy GIF'leri"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:119
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:123
 #: src/features/user/utils/LocaleUtils.ts:86
 msgid "Korean"
 msgstr "Korece"
@@ -18970,12 +18977,12 @@ msgid "Later"
 msgstr "Daha sonra"
 
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:106
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:110
 msgid "Latin"
 msgstr "Latin"
 
 #. Writing system covered by a font: accented Latin letters.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:109
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:113
 msgid "Latin Extended"
 msgstr "Genişletilmiş Latin"
 
@@ -19669,7 +19676,7 @@ msgid "Mail"
 msgstr "E-posta"
 
 #. Label for the first display name color.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:48
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:52
 msgid "Main color"
 msgstr "Ana renk"
 
@@ -20575,9 +20582,9 @@ msgstr "Mesaj"
 #: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
 #: src/features/user/components/modals/UserProfileModal.tsx:563
 #: src/features/user/components/modals/UserProfileModal.tsx:771
-#: src/features/user/components/popouts/UserProfilePopout.tsx:425
-#: src/features/user/components/popouts/UserProfilePopout.tsx:455
-#: src/features/user/components/profile/ProfilePreview.tsx:352
+#: src/features/user/components/popouts/UserProfilePopout.tsx:428
+#: src/features/user/components/popouts/UserProfilePopout.tsx:458
+#: src/features/user/components/profile/ProfilePreview.tsx:356
 msgctxt "message-action"
 msgid "Message"
 msgstr "Mesaj gönder"
@@ -20950,7 +20957,7 @@ msgid "Middle-click scrolling"
 msgstr "Orta tıklamayla kaydırma"
 
 #. Profile frame name: deep night blue and violet.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:52
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:56
 msgid "Midnight"
 msgstr "Gece yarısı"
 
@@ -21000,7 +21007,7 @@ msgid "Minors at risk, mature content in the wrong place, or unwanted conduct."
 msgstr "Risk altındaki küçükler, yanlış yerdeki yetişkin içeriği veya istenmeyen davranışlar."
 
 #. Nameplate name: fresh mint green.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:65
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:69
 msgid "Mint"
 msgstr "Nane"
 
@@ -21169,7 +21176,7 @@ msgid "Moderator"
 msgstr "Moderatör"
 
 #. Font picker filter: monospaced fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:101
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:105
 msgid "Mono"
 msgstr "Eş aralıklı"
 
@@ -21815,7 +21822,7 @@ msgid "Name"
 msgstr "Ad"
 
 #. Accessible label for the display name effect tabs.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:83
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:87
 msgid "Name effects"
 msgstr "İsim efektleri"
 
@@ -21862,17 +21869,17 @@ msgid "Name passkey form"
 msgstr "Geçiş anahtarı adlandırma formu"
 
 #. Profile settings section title for the display name font, colors and effect.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:32
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:36
 msgid "Name style"
 msgstr "İsim stili"
 
 #. Profile settings section title for the background drawn behind your name in lists.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:35
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:39
 msgid "Nameplate"
 msgstr "İsim plakası"
 
 #. Accessible label for the list of nameplates.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:43
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:47
 msgid "Nameplates"
 msgstr "İsim plakaları"
 
@@ -21963,8 +21970,8 @@ msgstr "İmlecinizi takip eden Neko kedisi"
 
 #. Avatar frame name: a glowing neon tube.
 #. Profile frame name: glowing neon tube.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:48
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:47
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:52
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:51
 msgid "Neon"
 msgstr "Neon"
 
@@ -22889,8 +22896,8 @@ msgstr "Dönüştürme yok"
 #: src/features/guild/utils/guild_tabs/audit_log/AuditLogSharedMessages.ts:52
 #: src/features/user/components/modals/tabs/accessibility_tab/VisualTab.tsx:37
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:146
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:44
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:41
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:48
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:45
 #: src/features/user/components/modals/tabs/privacy_safety_tab/data_request_modal/DataRequestModal.tsx:220
 #: src/features/voice/components/AudioSourcePickerLinux.tsx:261
 msgid "None"
@@ -23150,7 +23157,7 @@ msgid "Objects"
 msgstr "Nesneler"
 
 #. Nameplate name: deep blue water with ripples.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:60
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:64
 msgid "Ocean"
 msgstr "Okyanus"
 
@@ -23724,7 +23731,7 @@ msgstr "{directMessageName} adlı kişinin profilini aç"
 
 #. Accessible label for the avatar button that opens a user profile.
 #. Short label in the app layout voice participant item. Preserve {displayName}; it is inserted by code.
-#: src/features/app/components/layout/VoiceParticipantItem.tsx:49
+#: src/features/app/components/layout/VoiceParticipantItem.tsx:51
 #: src/features/ui/avatars/AvatarStack.tsx:21
 msgid "Open profile for {displayName}"
 msgstr "{displayName} adlı kişinin profilini aç"
@@ -23975,7 +23982,7 @@ msgid "or send the gift link to a friend:"
 msgstr "veya hediye bağlantısını bir arkadaşınıza gönderin:"
 
 #. Avatar frame name: a thin dotted ring that circles the avatar.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:53
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:57
 msgid "Orbit"
 msgstr "Yörünge"
 
@@ -24682,7 +24689,7 @@ msgid "Photo"
 msgstr "Fotoğraf"
 
 #. Profile settings section description for the display name style.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:36
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:40
 msgid "Pick a font, colors and an effect for your display name. Everyone sees it. In a server, a colored role replaces your colors."
 msgstr "Görünen adınız için bir yazı tipi, renkler ve bir efekt seçin. Herkes görür. Bir sunucuda renkli bir rol, sizin renklerinizin yerini alır."
 
@@ -24725,6 +24732,11 @@ msgstr "Dahil edilecek en az bir sohbet türü seçin."
 #: src/features/user/components/modals/tabs/LanguageTab.tsx:135
 msgid "Pick one or more dictionaries. Words from any selected dictionary are accepted, which is useful for multilingual chats."
 msgstr "Bir veya daha fazla sözlük seçin. Seçilen tüm sözlüklerdeki kelimeler kabul edilir, bu da çok dilli sohbetler için kullanışlıdır."
+
+#. Description of the "Choose for this community" choice in a community profile.
+#: src/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice.tsx:31
+msgid "Pick one that only shows in this community"
+msgstr "Yalnızca bu toplulukta görünecek birini seç"
 
 #. Setup wizard body for choosing the initial account theme.
 #: src/features/app/components/setup/SetupWizardSteps.tsx:64
@@ -24898,8 +24910,8 @@ msgstr "PiP"
 
 #. Font picker filter: pixel and retro fonts.
 #. Profile frame name: a chunky retro pixel outline.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:100
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:54
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:104
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:58
 msgid "Pixel"
 msgstr "Piksel"
 
@@ -25523,18 +25535,18 @@ msgstr "Profil rengi"
 
 #. Settings section label for editing profile appearance and identity.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:109
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:119
 #: src/features/user/components/settings_utils/section_registry/GeneralSettingsSections.ts:6
 msgid "Profile customization"
 msgstr "Profil özelleştirme"
 
 #. Label in the my profile tab. Preserve {selectedGuildName}; it is inserted by code.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:105
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:115
 msgid "Profile customization for {selectedGuildName}"
 msgstr "{selectedGuildName} için profil özelleştirmesi"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:101
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:111
 msgid "Profile customization form"
 msgstr "Profil özelleştirme formu"
 
@@ -25544,12 +25556,12 @@ msgid "Profile data warning"
 msgstr "Profil verileri uyarısı"
 
 #. Profile settings section title for the decorative frame around the profile card.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:33
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:37
 msgid "Profile frame"
 msgstr "Profil çerçevesi"
 
 #. Accessible label for the list of profile frames.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:42
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:46
 msgid "Profile frames"
 msgstr "Profil çerçeveleri"
 
@@ -25602,7 +25614,7 @@ msgid "Profile skeletons"
 msgstr "Profil iskeletleri"
 
 #. Profile settings section title for the two colours of the profile card.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:13
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:17
 msgid "Profile theme"
 msgstr "Profil teması"
 
@@ -25614,7 +25626,7 @@ msgid "Profile type"
 msgstr "Profil türü"
 
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:81
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:91
 msgid "Profile updated"
 msgstr "Profil güncellendi"
 
@@ -25651,14 +25663,14 @@ msgstr "Yeni ses cihazı bağlandığında sor"
 #. Settings search entry label. Also used as a search synonym in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Short label in the my profile tab. Keep it concise.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:146
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:156
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:177
 #: src/features/user/components/settings_utils/section_registry/PrivacySafetySections.ts:160
 msgid "Pronouns"
 msgstr "Zamirler"
 
 #: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:79
-#: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:140
+#: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:147
 msgid "Pronouns: "
 msgstr "Zamirler: "
 
@@ -25966,7 +25978,7 @@ msgid "Raid coordination"
 msgstr "Saldırı koordinasyonu"
 
 #. Avatar frame name: a ring in every colour of the rainbow.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:49
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:53
 msgid "Rainbow"
 msgstr "Gökkuşağı"
 
@@ -26684,7 +26696,7 @@ msgid "Remove override"
 msgstr "Geçersiz kılmayı kaldır"
 
 #. Button that removes the two-colour theme from the profile card.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:29
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:33
 msgid "Remove profile theme"
 msgstr "Profil temasını kaldır"
 
@@ -27451,7 +27463,7 @@ msgid "Reset media position"
 msgstr "Medya konumunu sıfırla"
 
 #. Button that returns the display name to the default font, colors and effect.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:74
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:78
 msgid "Reset name style"
 msgstr "İsim stilini sıfırla"
 
@@ -28169,9 +28181,9 @@ msgstr "Güvenlik"
 #. Avatar frame name: cherry-blossom pink.
 #. Nameplate name: cherry-blossom pink with petals.
 #. Profile frame name: cherry-blossom pink.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:52
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:62
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:51
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:56
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:66
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:55
 msgid "Sakura"
 msgstr "Sakura"
 
@@ -28186,7 +28198,7 @@ msgid "Sanitize link"
 msgstr "Bağlantıyı temizle"
 
 #. Font picker filter: sans-serif fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:96
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:100
 msgid "Sans"
 msgstr "Sans"
 
@@ -28885,7 +28897,7 @@ msgstr "Kişiler aranıyor..."
 #. Label for the second display name color, used by gradient, glow and shimmer.
 #. Second color of a gradient role.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:31
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:49
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:53
 msgid "Second color"
 msgstr "İkinci renk"
 
@@ -29515,7 +29527,7 @@ msgid "Serial send"
 msgstr "Seri gönderim"
 
 #. Font picker filter: serif fonts.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:97
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:101
 msgid "Serif"
 msgstr "Serif"
 
@@ -29958,12 +29970,12 @@ msgid "Shift expand"
 msgstr "Shift ile genişletme"
 
 #. Display name effect: a light that sweeps across the name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:92
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:96
 msgid "Shimmer"
 msgstr "Işıltı"
 
 #. Label for the color of the light that sweeps across a shimmering display name.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:54
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:58
 msgid "Shine color"
 msgstr "Işıltı rengi"
 
@@ -30371,6 +30383,11 @@ msgstr "Yeni cihaz modalını göster"
 msgid "Show non-video participants"
 msgstr "Videosu olmayan katılımcıları göster"
 
+#. Description of the "Don't show" choice for a name style, frame, nameplate or profile theme in a community profile.
+#: src/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice.tsx:39
+msgid "Show none in this community, ignoring your global profile"
+msgstr "Genel profilini yok sayarak bu toplulukta hiçbirini gösterme"
+
 #. Description text for the Oldest first option in the mobile search sort sheet.
 #: src/features/search/components/search/SortModeSheet.tsx:27
 msgid "Show oldest messages first"
@@ -30455,6 +30472,11 @@ msgstr "Gömülü içerik gizleme düğmesini göster"
 #: src/features/user/components/modals/tabs/DesktopSettingsTab.tsx:173
 msgid "Show system tray icon"
 msgstr "Sistem tepsisi simgesini göster"
+
+#. Description of the "Use global profile" choice for a name style, frame, nameplate or profile theme in a community profile.
+#: src/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice.tsx:21
+msgid "Show the one from your global profile in this community"
+msgstr "Genel profilindekini bu toplulukta göster"
 
 #. Switch label in the role editor (hoist toggle). When on, members with this role appear in their own member-list section.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleEditor.tsx:35
@@ -31059,7 +31081,7 @@ msgstr "Tükendi"
 #. Display name effect: one color.
 #. Role color style: one color.
 #: src/features/guild/components/modals/guild_tabs/guild_roles_tab/RoleColorStyle.tsx:25
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:89
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:93
 msgid "Solid"
 msgstr "Düz"
 
@@ -32286,7 +32308,7 @@ msgid "Summary"
 msgstr "Özet"
 
 #. Nameplate name: orange, pink and violet evening sky.
-#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:59
+#: src/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.tsx:63
 msgid "Sunset"
 msgstr "Gün batımı"
 
@@ -33009,7 +33031,7 @@ msgstr "Metin okuma bildirimleri"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:116
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:120
 #: src/features/user/utils/LocaleUtils.ts:122
 msgid "Thai"
 msgstr "Tayca"
@@ -33977,7 +33999,7 @@ msgid "This message no longer exists."
 msgstr "Bu mesaj artık mevcut değil."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:134
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:144
 msgid "This nickname will only be visible in this community"
 msgstr "Bu takma ad yalnızca bu toplulukta görünür olacak"
 
@@ -34607,7 +34629,7 @@ msgid "Top"
 msgstr "Üst"
 
 #. Label for the colour at the top of the profile card.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:21
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:25
 msgid "Top color"
 msgstr "Üst renk"
 
@@ -35105,7 +35127,7 @@ msgid "Two clicks"
 msgstr "İki tıklama"
 
 #. Profile settings section description for the profile theme colours.
-#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:17
+#: src/features/user/components/modals/tabs/my_profile_tab/ProfileStyleSettings.tsx:21
 msgid "Two colors for your profile card, from top to bottom."
 msgstr "Profil kartınız için yukarıdan aşağıya iki renk."
 
@@ -35538,7 +35560,7 @@ msgstr "Bilinmeyen tarih"
 #. Fallback device or operating-system label in the devices tab when session client data is unavailable.
 #. Short label in the app layout voice participant item.
 #. Short label in the notifications. Keep it concise.
-#: src/features/app/components/layout/VoiceParticipantItem.tsx:45
+#: src/features/app/components/layout/VoiceParticipantItem.tsx:47
 #: src/features/user/components/modals/tabs/DevicesTab.tsx:65
 #: src/features/user/components/modals/tabs/notifications_tab/Notifications.tsx:78
 msgid "Unknown device"
@@ -36491,10 +36513,12 @@ msgstr "Harici çıkartmaları kullan"
 msgid "Use filters or enter keywords to find messages"
 msgstr "Mesajları bulmak için filtreleri kullanın veya anahtar kelimeler girin"
 
+#. Choice in a community profile: show the same cosmetic as the global profile. Keep it concise.
 #. Short label in the avatar uploader. Keep it concise.
 #. Short label in the banner uploader. Keep it concise. Keep the tone plain and specific.
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:58
 #: src/features/user/components/modals/tabs/my_profile_tab/BannerUploader.tsx:44
+#: src/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice.tsx:17
 msgid "Use global profile"
 msgstr "Genel profili kullan"
 
@@ -37101,22 +37125,22 @@ msgid "Verify your email before adding an authenticator app."
 msgstr "Bir kimlik doğrulayıcı uygulaması eklemeden önce e-postanızı doğrulayın."
 
 #. Description text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:121
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:131
 msgid "Verify your email before changing your community nickname, avatar, banner, bio, pronouns, or accent color."
 msgstr "Topluluk takma adınızı, avatarınızı, banner'ınızı, biyografinizi, zamirlerinizi veya vurgu renginizi değiştirmeden önce e-postanızı doğrulayın."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:125
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:135
 msgid "Verify your email before changing your username, display name, avatar, banner, bio, pronouns, time zone, or {premiumProductName} badge privacy."
 msgstr "Kullanıcı adınızı, görünen adınızı, avatarınızı, banner'ınızı, biyografinizi, zamirlerinizi, saat diliminizi veya {premiumProductName} rozeti gizliliğinizi değiştirmeden önce e-postanızı doğrulayın."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:89
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:99
 msgid "Verify your email before editing this community profile. You can still preview it here."
 msgstr "Bu topluluk profilini düzenlemeden önce e-postanızı doğrulayın. Yine de buradan önizleyebilirsiniz."
 
 #. Description text in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:93
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:103
 msgid "Verify your email before editing your profile. You can still preview it here."
 msgstr "Profilinizi düzenlemeden önce e-postanızı doğrulayın. Yine de buradan önizleyebilirsiniz."
 
@@ -37143,12 +37167,12 @@ msgid "Verify your email to continue using {productName}."
 msgstr "{productName} uygulamasını kullanmaya devam etmek için e-postanızı doğrulayın."
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:113
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:123
 msgid "Verify your email to edit this community profile"
 msgstr "Bu topluluk profilini düzenlemek için e-postanızı doğrulayın"
 
 #. Label in the my profile tab.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:117
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:127
 msgid "Verify your email to edit your profile"
 msgstr "Profilinizi düzenlemek için e-postanızı doğrulayın"
 
@@ -37186,7 +37210,7 @@ msgid "Version"
 msgstr "Sürüm"
 
 #. Gradient direction: the color changes from the top of the letters to their bottom.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:66
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:70
 msgid "Vertical"
 msgstr "Dikey"
 
@@ -37333,7 +37357,7 @@ msgstr "Videolar"
 
 #. Short label in the language and locale names. Keep it concise.
 #. Writing system covered by a font.
-#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:113
+#: src/features/user/components/modals/tabs/my_profile_tab/NameStyleSettings.tsx:117
 #: src/features/user/utils/LocaleUtils.ts:134
 msgid "Vietnamese"
 msgstr "Vietnamca"
@@ -38965,7 +38989,7 @@ msgid "You can't befriend yourself"
 msgstr "Kendinizle arkadaş olamazsınız"
 
 #. Label in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:138
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:148
 msgid "You can't change your nickname here"
 msgstr "Takma adınızı buradan değiştiremezsiniz"
 
@@ -39015,7 +39039,7 @@ msgstr "Bu kullanıcıya mesaj gönderemezsiniz"
 #. Error message in the user profile popout.
 #. Error message in the user settings profile preview.
 #: src/features/user/components/modals/UserProfileModal.tsx:112
-#: src/features/user/components/popouts/UserProfilePopout.tsx:74
+#: src/features/user/components/popouts/UserProfilePopout.tsx:75
 #: src/features/user/components/profile/ProfilePreview.tsx:46
 msgid "You can't message yourself"
 msgstr "Kendinize mesaj gönderemezsiniz"
@@ -39201,7 +39225,7 @@ msgid "You have unsaved changes."
 msgstr "Kaydedilmemiş değişiklikleriniz var."
 
 #. Warning text in the my profile tab. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/MyProfileTab.tsx:85
+#: src/features/user/components/modals/tabs/MyProfileTab.tsx:95
 msgid "You have unsaved changes. Save or reset before leaving."
 msgstr "Kaydedilmemiş değişiklikleriniz var. Ayrılmadan önce kaydedin veya sıfırlayın."
 

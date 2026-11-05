@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {Avatar} from '@app/features/ui/components/Avatar';
+import {
+	CommunityCosmeticModeChoice,
+	type CommunityCosmeticModeControl,
+} from '@app/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice';
 import styles from '@app/features/user/components/modals/tabs/my_profile_tab/CosmeticSettings.module.css';
 import {AvatarFrame} from '@app/features/user/cosmetics/AvatarFrame';
 import CosmeticCatalog from '@app/features/user/cosmetics/CosmeticCatalog';
@@ -79,6 +83,9 @@ interface CosmeticSettingsProps {
 	displayName: string;
 	onAvatarFrameChange: (value: string | null) => void;
 	onNameplateChange: (value: string | null) => void;
+	// Set in a community profile: global / pick for this community / none, per cosmetic.
+	avatarFrameMode?: CommunityCosmeticModeControl;
+	nameplateMode?: CommunityCosmeticModeControl;
 	disabled?: boolean;
 }
 
@@ -90,19 +97,23 @@ export const CosmeticSettings = observer(
 		displayName,
 		onAvatarFrameChange,
 		onNameplateChange,
+		avatarFrameMode,
+		nameplateMode,
 		disabled,
 	}: CosmeticSettingsProps) => {
 		const {i18n} = useLingui();
 		useEffect(() => {
 			void CosmeticCatalog.ensureLoaded(true);
 		}, []);
+		const showFrameGrid = !avatarFrameMode || avatarFrameMode.mode === 'custom';
+		const showPlateGrid = !nameplateMode || nameplateMode.mode === 'custom';
 		const frameChoices: Array<CosmeticChoice> = [
-			{id: null, label: i18n._(NONE_DESCRIPTOR)},
+			...(avatarFrameMode ? [] : [{id: null, label: i18n._(NONE_DESCRIPTOR)}]),
 			...BUILTIN_AVATAR_FRAME_IDS.map((id) => ({id, label: i18n._(AVATAR_FRAME_LABELS[id])})),
 			...CosmeticCatalog.list(CosmeticKinds.AVATAR_FRAME).map((cosmetic) => ({id: cosmetic.id, label: cosmetic.name})),
 		];
 		const plateChoices: Array<CosmeticChoice> = [
-			{id: null, label: i18n._(NONE_DESCRIPTOR)},
+			...(nameplateMode ? [] : [{id: null, label: i18n._(NONE_DESCRIPTOR)}]),
 			...BUILTIN_NAMEPLATE_IDS.map((id) => ({id, label: i18n._(NAMEPLATE_LABELS[id])})),
 			...CosmeticCatalog.list(CosmeticKinds.NAMEPLATE).map((cosmetic) => ({id: cosmetic.id, label: cosmetic.name})),
 		];
@@ -116,47 +127,56 @@ export const CosmeticSettings = observer(
 						{i18n._(AVATAR_FRAME_DESCRIPTION_DESCRIPTOR)}
 					</p>
 				</div>
-				<div
-					className={styles.grid}
-					role="radiogroup"
-					aria-label={i18n._(AVATAR_FRAMES_DESCRIPTOR)}
-					data-flx="user.my-profile-tab.cosmetic-settings.frame-grid"
-				>
-					{frameChoices.map(({id, label}) => {
-						const selected = (avatarFrame ?? null) === id;
-						return (
-							<button
-								key={id ?? 'none'}
-								type="button"
-								role="radio"
-								aria-checked={selected}
-								disabled={disabled}
-								className={clsx(styles.tile, selected && styles.tileSelected)}
-								onClick={() => onAvatarFrameChange(id)}
-								data-name-animate-scope=""
-								data-flx="user.my-profile-tab.cosmetic-settings.frame-tile"
-							>
-								<span className={styles.avatarSample} data-flx="user.my-profile-tab.cosmetic-settings.frame-sample">
-									<span
-										className={styles.avatarWithFrame}
-										data-flx="user.my-profile-tab.cosmetic-settings.frame-sample-avatar"
-									>
-										<Avatar
-											user={user}
-											size={SAMPLE_AVATAR_SIZE}
-											hideFrame
-											data-flx="user.my-profile-tab.cosmetic-settings.avatar"
-										/>
-										<AvatarFrame frameId={id} size={SAMPLE_AVATAR_SIZE} animate={selected} />
+				{avatarFrameMode && (
+					<CommunityCosmeticModeChoice
+						label={i18n._(AVATAR_FRAME_DESCRIPTOR)}
+						disabled={disabled}
+						{...avatarFrameMode}
+					/>
+				)}
+				{showFrameGrid && (
+					<div
+						className={styles.grid}
+						role="radiogroup"
+						aria-label={i18n._(AVATAR_FRAMES_DESCRIPTOR)}
+						data-flx="user.my-profile-tab.cosmetic-settings.frame-grid"
+					>
+						{frameChoices.map(({id, label}) => {
+							const selected = (avatarFrame ?? null) === id;
+							return (
+								<button
+									key={id ?? 'none'}
+									type="button"
+									role="radio"
+									aria-checked={selected}
+									disabled={disabled}
+									className={clsx(styles.tile, selected && styles.tileSelected)}
+									onClick={() => onAvatarFrameChange(id)}
+									data-name-animate-scope=""
+									data-flx="user.my-profile-tab.cosmetic-settings.frame-tile"
+								>
+									<span className={styles.avatarSample} data-flx="user.my-profile-tab.cosmetic-settings.frame-sample">
+										<span
+											className={styles.avatarWithFrame}
+											data-flx="user.my-profile-tab.cosmetic-settings.frame-sample-avatar"
+										>
+											<Avatar
+												user={user}
+												size={SAMPLE_AVATAR_SIZE}
+												hideFrame
+												data-flx="user.my-profile-tab.cosmetic-settings.avatar"
+											/>
+											<AvatarFrame frameId={id} size={SAMPLE_AVATAR_SIZE} animate={selected} />
+										</span>
 									</span>
-								</span>
-								<span className={styles.label} data-flx="user.my-profile-tab.cosmetic-settings.frame-label">
-									{label}
-								</span>
-							</button>
-						);
-					})}
-				</div>
+									<span className={styles.label} data-flx="user.my-profile-tab.cosmetic-settings.frame-label">
+										{label}
+									</span>
+								</button>
+							);
+						})}
+					</div>
+				)}
 				<div className={styles.header} data-flx="user.my-profile-tab.cosmetic-settings.nameplate-header">
 					<h2 className={styles.title} data-flx="user.my-profile-tab.cosmetic-settings.nameplate-title">
 						{i18n._(NAMEPLATE_DESCRIPTOR)}
@@ -165,48 +185,56 @@ export const CosmeticSettings = observer(
 						{i18n._(NAMEPLATE_DESCRIPTION_DESCRIPTOR)}
 					</p>
 				</div>
-				<div
-					className={styles.plateGrid}
-					role="radiogroup"
-					aria-label={i18n._(NAMEPLATES_DESCRIPTOR)}
-					data-flx="user.my-profile-tab.cosmetic-settings.nameplate-grid"
-				>
-					{plateChoices.map(({id, label}) => {
-						const selected = (nameplate ?? null) === id;
-						return (
-							<button
-								key={id ?? 'none'}
-								type="button"
-								role="radio"
-								aria-checked={selected}
-								disabled={disabled}
-								className={clsx(styles.tile, selected && styles.tileSelected)}
-								onClick={() => onNameplateChange(id)}
-								data-name-animate-scope=""
-								data-flx="user.my-profile-tab.cosmetic-settings.nameplate-tile"
-							>
-								<span className={styles.plateSample} data-flx="user.my-profile-tab.cosmetic-settings.nameplate-sample">
-									<Nameplate nameplateId={id} animate={selected} />
-									<Avatar
-										user={user}
-										size={24}
-										hideFrame
-										data-flx="user.my-profile-tab.cosmetic-settings.nameplate-avatar"
-									/>
+				{nameplateMode && (
+					<CommunityCosmeticModeChoice label={i18n._(NAMEPLATE_DESCRIPTOR)} disabled={disabled} {...nameplateMode} />
+				)}
+				{showPlateGrid && (
+					<div
+						className={styles.plateGrid}
+						role="radiogroup"
+						aria-label={i18n._(NAMEPLATES_DESCRIPTOR)}
+						data-flx="user.my-profile-tab.cosmetic-settings.nameplate-grid"
+					>
+						{plateChoices.map(({id, label}) => {
+							const selected = (nameplate ?? null) === id;
+							return (
+								<button
+									key={id ?? 'none'}
+									type="button"
+									role="radio"
+									aria-checked={selected}
+									disabled={disabled}
+									className={clsx(styles.tile, selected && styles.tileSelected)}
+									onClick={() => onNameplateChange(id)}
+									data-name-animate-scope=""
+									data-flx="user.my-profile-tab.cosmetic-settings.nameplate-tile"
+								>
 									<span
-										className={styles.plateName}
-										data-flx="user.my-profile-tab.cosmetic-settings.nameplate-display-name"
+										className={styles.plateSample}
+										data-flx="user.my-profile-tab.cosmetic-settings.nameplate-sample"
 									>
-										{displayName}
+										<Nameplate nameplateId={id} animate={selected} />
+										<Avatar
+											user={user}
+											size={24}
+											hideFrame
+											data-flx="user.my-profile-tab.cosmetic-settings.nameplate-avatar"
+										/>
+										<span
+											className={styles.plateName}
+											data-flx="user.my-profile-tab.cosmetic-settings.nameplate-display-name"
+										>
+											{displayName}
+										</span>
 									</span>
-								</span>
-								<span className={styles.label} data-flx="user.my-profile-tab.cosmetic-settings.nameplate-label">
-									{label}
-								</span>
-							</button>
-						);
-					})}
-				</div>
+									<span className={styles.label} data-flx="user.my-profile-tab.cosmetic-settings.nameplate-label">
+										{label}
+									</span>
+								</button>
+							);
+						})}
+					</div>
+				)}
 			</div>
 		);
 	},

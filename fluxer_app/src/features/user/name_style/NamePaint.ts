@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import {effectiveNameStyle, type MemberCosmeticSource} from '@app/features/member/utils/MemberCosmetics';
 import * as ColorUtils from '@app/features/theme/utils/ColorUtils';
 import {ensureNameFontFaces, getNameFont, nameFontFamily} from '@app/features/user/name_style/NameFonts';
 import styles from '@app/features/user/name_style/NamePaint.module.css';
@@ -147,13 +148,14 @@ export function resolveNamePaint({nameStyle, role, colorOverride, text}: NamePai
 	return {className, style, lang};
 }
 
+// nameStyle is the account-level style; a community member's own style (or None) wins over it.
 export function memberNamePaint(
 	nameStyle: NameStyle | null | undefined,
-	member: {getColorRole(): NameRolePaint | undefined} | null | undefined,
+	member: ({getColorRole(): NameRolePaint | undefined} & MemberCosmeticSource) | null | undefined,
 	options?: {colorOverride?: string; text?: string},
 ): NamePaint {
 	return resolveNamePaint({
-		nameStyle,
+		nameStyle: effectiveNameStyle(nameStyle, member),
 		role: member?.getColorRole() ?? null,
 		colorOverride: options?.colorOverride,
 		text: options?.text,

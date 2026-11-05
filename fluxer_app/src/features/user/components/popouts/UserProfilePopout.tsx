@@ -14,6 +14,7 @@ import {
 } from '@app/features/i18n/utils/CommonMessageDescriptors';
 import type {GuildMember} from '@app/features/member/models/GuildMember';
 import GuildMembers from '@app/features/member/state/GuildMembers';
+import {effectiveNameStyle} from '@app/features/member/utils/MemberCosmetics';
 import Permission from '@app/features/permissions/state/Permission';
 import {Logger} from '@app/features/platform/utils/AppLogger';
 import {usePresenceCustomStatus} from '@app/features/presence/hooks/usePresenceCustomStatus';
@@ -294,6 +295,7 @@ export const UserProfilePopout: React.FC<UserProfilePopoutProps> = observer(
 							hoverBannerUrl={hoverBannerUrl}
 							bannerColor={bannerColor}
 							user={user}
+							guildId={guildMember?.guildId}
 							avatarUrl={avatarUrl}
 							hoverAvatarUrl={hoverAvatarUrl}
 							disablePresence={isWebhook}
@@ -325,6 +327,7 @@ export const UserProfilePopout: React.FC<UserProfilePopoutProps> = observer(
 								displayName={displayName}
 								displayNameClassName={styles.profileDisplayName}
 								user={user}
+								nameStyle={effectiveNameStyle(user.nameStyle, guildMember)}
 								pronouns={profileData?.pronouns}
 								showUsername={!isWebhook}
 								isClickable={!isWebhook}

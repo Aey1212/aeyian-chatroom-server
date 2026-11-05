@@ -217,6 +217,8 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 							hasClearedBanner,
 							ignoreGuildAvatar: ignoreGuildAvatarInPreview,
 							ignoreGuildBanner: ignoreGuildBannerInPreview,
+							previewThemeColors,
+							previewProfileFrame,
 						}}
 						previewUser={previewUser}
 						previewProfile={mockProfile}
@@ -234,6 +236,8 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 			hasClearedBanner,
 			ignoreGuildAvatarInPreview,
 			ignoreGuildBannerInPreview,
+			previewThemeColors,
+			previewProfileFrame,
 			previewUser,
 			mockProfile,
 		]);
@@ -242,8 +246,8 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 			previewNick || (guildId ? NicknameUtils.getNickname(previewUser, guildId) : previewUser.displayName);
 		const previewProfileData = mockProfile.getEffectiveProfile();
 		const decoration = resolveProfileDecoration({
-			themeColors: previewProfileData.theme_colors,
-			frame: previewProfileData.profile_frame,
+			themeColors: previewThemeColors !== undefined ? previewThemeColors : previewProfileData.theme_colors,
+			frame: previewProfileFrame !== undefined ? previewProfileFrame : previewProfileData.profile_frame,
 			accentColor,
 		});
 		const borderColor = accentColor;

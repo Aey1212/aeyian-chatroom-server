@@ -9,6 +9,7 @@ import Guilds from '@app/features/guild/state/Guilds';
 import {useMemberListCustomStatus} from '@app/features/member/hooks/useMemberListCustomStatus';
 import {useMemberListPresence} from '@app/features/member/hooks/useMemberListPresence';
 import type {GuildMember} from '@app/features/member/models/GuildMember';
+import {effectiveNameplate} from '@app/features/member/utils/MemberCosmetics';
 import TypingIndicator from '@app/features/typing/state/TypingIndicator';
 import {GroupDMMemberContextMenu} from '@app/features/ui/action_menu/GroupDMContextMenu';
 import {GuildMemberContextMenu} from '@app/features/ui/action_menu/GuildMemberContextMenu';
@@ -200,7 +201,7 @@ export const MemberListItem: React.FC<MemberListItemProps> = observer((props) =>
 				data-member-list-focus-item="true"
 				data-flx="channel.member-list-item.button.context-menu"
 			>
-				<Nameplate nameplateId={user.nameplate} />
+				<Nameplate nameplateId={effectiveNameplate(user.nameplate, guildMember)} />
 				<div className={styles.grid} data-flx="channel.member-list-item.grid">
 					<span className={styles.content} data-flx="channel.member-list-item.content">
 						<div className={styles.avatarContainer} data-flx="channel.member-list-item.avatar-container">

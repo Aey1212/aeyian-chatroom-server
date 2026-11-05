@@ -27,6 +27,9 @@ export interface ProfilePreviewOverrides {
 	hasClearedBanner?: boolean;
 	ignoreGuildAvatar?: boolean;
 	ignoreGuildBanner?: boolean;
+	// What the edited profile would show for the theme and frame (a settings preview), instead of the saved ones.
+	previewThemeColors?: ReadonlyArray<number> | null;
+	previewProfileFrame?: string | null;
 }
 
 function getProfileAvatarUrl(
