@@ -259,14 +259,19 @@ export function mapUserToOAuthResponse(
 export function mapGuildMemberToProfileResponse(
 	guildMember: GuildMember | null | undefined,
 	options?: {restrictProfile?: boolean},
-): UserProfileResponse | null {
+): UserProfileWithStyleResponse | null {
 	if (!guildMember) return null;
+	const style = {
+		theme_colors: guildMember.themeColors ? [...guildMember.themeColors] : null,
+		profile_frame: guildMember.profileFrame,
+	};
 	if (options?.restrictProfile) {
 		return {
 			bio: null,
 			pronouns: null,
 			banner: guildMember.isPremiumSanitized ? null : guildMember.bannerHash,
 			accent_color: guildMember.accentColor,
+			...style,
 		};
 	}
 	return {
@@ -274,6 +279,7 @@ export function mapGuildMemberToProfileResponse(
 		pronouns: guildMember.pronouns,
 		banner: guildMember.isPremiumSanitized ? null : guildMember.bannerHash,
 		accent_color: guildMember.accentColor,
+		...style,
 	};
 }
 

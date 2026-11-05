@@ -5,6 +5,7 @@ import type {GuildID, InviteCode, RoleID, UserID} from '@app/api/BrandedTypes';
 import {createChannelID, createRoleID} from '@app/api/BrandedTypes';
 import type {ChannelService} from '@app/api/channel/services/ChannelService';
 import {assertMutableUserId} from '@app/api/constants/Core';
+import {resolveCosmeticReference} from '@app/api/cosmetics/CosmeticReference';
 import type {GuildMemberRow} from '@app/api/database/types/GuildTypes';
 import type {GuildAuditLogService} from '@app/api/guild/GuildAuditLogService';
 import type {GuildAuditLogChange} from '@app/api/guild/GuildAuditLogTypes';
@@ -46,6 +47,7 @@ import {
 import {addGuildToUncategorizedFolder, removeGuildFromUserFolders} from '@app/api/user/utils/GuildFolderUtils';
 import {AuditLogActionType} from '@fluxer/constants/src/AuditLogActionType';
 import {Permissions} from '@fluxer/constants/src/ChannelConstants';
+import {CosmeticKinds} from '@fluxer/constants/src/CosmeticConstants';
 import {
 	GuildFeatures,
 	type JoinSourceType,
@@ -73,6 +75,7 @@ import {UserNotInVoiceError} from '@fluxer/errors/src/domains/user/UserNotInVoic
 import {DEFAULT_STOCK_LIMITS} from '@fluxer/limits/src/LimitDefaults';
 import type {GuildMemberResponse} from '@fluxer/schema/src/domains/guild/GuildMemberSchemas';
 import type {GuildMemberUpdateRequest} from '@fluxer/schema/src/domains/guild/GuildRequestSchemas';
+import {serializeNameStyle} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
 import {snowflakeToDate} from '@fluxer/snowflake/src/Snowflake';
 import type {IRateLimitService} from '@pkgs/rate_limit/src/IRateLimitService';
 import {ms} from 'itty-time';
@@ -91,6 +94,11 @@ const EMAIL_VERIFICATION_REQUIRED_SELF_PROFILE_FIELDS = [
 	'pronouns',
 	'accent_color',
 	'profile_flags',
+	'name_style',
+	'avatar_frame',
+	'nameplate',
+	'theme_colors',
+	'profile_frame',
 ] as const;
 
 interface MemberUpdateData {
@@ -103,6 +111,11 @@ interface MemberUpdateData {
 	accent_color?: number | null;
 	profile_flags?: number | null;
 	mention_flags?: MentionReplyPreference | null;
+	name_style?: string | null;
+	avatar_frame?: string | null;
+	nameplate?: string | null;
+	theme_colors?: Array<number> | null;
+	profile_frame?: string | null;
 	mute?: boolean;
 	deaf?: boolean;
 	communication_disabled_until?: Date | null;
@@ -127,6 +140,11 @@ function buildVoiceAuditLogMetadata(params: VoiceAuditLogMetadataParams): Record
 		channel_id: channelId,
 		count: '1',
 	};
+}
+
+// The fields of a partial update that were given; undefined means unchanged and is left out.
+function pickDefined<T extends Record<string, unknown>>(values: T): Partial<T> {
+	return Object.fromEntries(Object.entries(values).filter(([, value]) => value !== undefined)) as Partial<T>;
 }
 
 function hasSelfProfileCustomizationUpdate(
@@ -550,6 +568,11 @@ export class GuildMemberOperationsService {
 				temporary: isTemporary,
 				profile_flags: null,
 				mention_flags: null,
+				name_style: null,
+				avatar_frame: null,
+				nameplate: null,
+				theme_colors: null,
+				profile_frame: null,
 				version: 1,
 			});
 			await this.guildRepository.upsertPartial(guildId, {member_count: guild.memberCount + 1}, guild.toRow());
@@ -667,6 +690,13 @@ export class GuildMemberOperationsService {
 			accent_color: updateData.accent_color !== undefined ? updateData.accent_color : targetMember.accentColor,
 			profile_flags: updateData.profile_flags !== undefined ? updateData.profile_flags : targetMember.profileFlags,
 			mention_flags: updateData.mention_flags !== undefined ? updateData.mention_flags : targetMember.mentionFlags,
+			...pickDefined({
+				name_style: updateData.name_style,
+				avatar_frame: updateData.avatar_frame,
+				nameplate: updateData.nameplate,
+				theme_colors: updateData.theme_colors,
+				profile_frame: updateData.profile_frame,
+			}),
 			mute: updateData.mute !== undefined ? updateData.mute : targetMember.isMute,
 			deaf: updateData.deaf !== undefined ? updateData.deaf : targetMember.isDeaf,
 			communication_disabled_until:
@@ -779,9 +809,33 @@ export class GuildMemberOperationsService {
 			if (data.accent_color !== undefined) {
 				data.accent_color = undefined;
 			}
+			data.name_style = undefined;
+			data.avatar_frame = undefined;
+			data.nameplate = undefined;
+			data.theme_colors = undefined;
+			data.profile_frame = undefined;
 		}
 		if (data.profile_flags !== undefined) {
 			updateData.profile_flags = data.profile_flags;
+		}
+		if (data.name_style !== undefined) {
+			updateData.name_style = serializeNameStyle(data.name_style);
+		}
+		if (data.avatar_frame !== undefined) {
+			updateData.avatar_frame = await resolveCosmeticReference(
+				'avatar_frame',
+				CosmeticKinds.AVATAR_FRAME,
+				data.avatar_frame,
+			);
+		}
+		if (data.nameplate !== undefined) {
+			updateData.nameplate = await resolveCosmeticReference('nameplate', CosmeticKinds.NAMEPLATE, data.nameplate);
+		}
+		if (data.theme_colors !== undefined) {
+			updateData.theme_colors = data.theme_colors ? [...data.theme_colors] : null;
+		}
+		if (data.profile_frame !== undefined) {
+			updateData.profile_frame = data.profile_frame;
 		}
 		if (data.mention_flags !== undefined) {
 			updateData.mention_flags = data.mention_flags;

@@ -22107,6 +22107,14 @@
 									"accent_color": {
 										"anyOf": [{"$ref": "#/components/schemas/Int32Type"}, {"type": "null"}],
 										"description": "Guild-specific accent color"
+									},
+									"theme_colors": {
+										"description": "Guild-specific profile theme colours, or null when the user theme applies (or none, see profile_flags)",
+										"anyOf": [{"$ref": "#/components/schemas/ProfileThemeColorsSchema"}, {"type": "null"}]
+									},
+									"profile_frame": {
+										"description": "Guild-specific profile frame, or null when the user frame applies (or none, see profile_flags)",
+										"anyOf": [{"$ref": "#/components/schemas/ProfileFrameIdSchema"}, {"type": "null"}]
 									}
 								},
 								"required": ["bio", "pronouns", "banner", "accent_color"],
@@ -26965,6 +26973,26 @@
 							{"type": "null"}
 						]
 					},
+					"name_style": {
+						"description": "Display name style in this guild; null shows the user name style (set NAME_STYLE_UNSET in profile_flags for none)",
+						"anyOf": [{"$ref": "#/components/schemas/NameStyleRequestSchema"}, {"type": "null"}]
+					},
+					"avatar_frame": {
+						"description": "Avatar frame in this guild: a built-in id or an uploaded cosmetic ID; null shows the user avatar frame",
+						"anyOf": [{"$ref": "#/components/schemas/CosmeticRefTypeInput"}, {"type": "null"}]
+					},
+					"nameplate": {
+						"description": "Nameplate in this guild: a built-in id or an uploaded cosmetic ID; null shows the user nameplate",
+						"anyOf": [{"$ref": "#/components/schemas/CosmeticRefTypeInput"}, {"type": "null"}]
+					},
+					"theme_colors": {
+						"description": "Profile theme colours in this guild (top, bottom) as integers; null shows the user theme",
+						"anyOf": [{"$ref": "#/components/schemas/ProfileThemeColorsSchema"}, {"type": "null"}]
+					},
+					"profile_frame": {
+						"description": "Profile frame in this guild; null shows the user frame",
+						"anyOf": [{"$ref": "#/components/schemas/ProfileFrameIdSchema"}, {"type": "null"}]
+					},
 					"mute": {"description": "Whether the member is muted in voice channels", "type": "boolean"},
 					"deaf": {"description": "Whether the member is deafened in voice channels", "type": "boolean"},
 					"communication_disabled_until": {
@@ -27037,6 +27065,26 @@
 							},
 							{"type": "null"}
 						]
+					},
+					"name_style": {
+						"description": "Display name style in this guild. Omitted when the user name style applies (or none, see profile_flags).",
+						"$ref": "#/components/schemas/NameStyleSchema"
+					},
+					"avatar_frame": {
+						"description": "Avatar frame in this guild. Omitted when the user avatar frame applies (or none, see profile_flags).",
+						"$ref": "#/components/schemas/CosmeticRefType"
+					},
+					"nameplate": {
+						"description": "Nameplate in this guild. Omitted when the user nameplate applies (or none, see profile_flags).",
+						"$ref": "#/components/schemas/CosmeticRefType"
+					},
+					"theme_colors": {
+						"description": "Profile theme colours in this guild, top then bottom. Omitted when the user theme applies (or none, see profile_flags).",
+						"$ref": "#/components/schemas/ProfileThemeColorsSchema"
+					},
+					"profile_frame": {
+						"description": "Profile frame in this guild. Omitted when the user profile frame applies (or none, see profile_flags).",
+						"$ref": "#/components/schemas/ProfileFrameIdSchema"
 					}
 				},
 				"required": ["user", "roles", "joined_at", "mute", "deaf"],
@@ -27080,6 +27128,26 @@
 							},
 							{"type": "null"}
 						]
+					},
+					"name_style": {
+						"description": "Display name style in this guild; null shows the user name style (set NAME_STYLE_UNSET in profile_flags for none)",
+						"anyOf": [{"$ref": "#/components/schemas/NameStyleRequestSchema"}, {"type": "null"}]
+					},
+					"avatar_frame": {
+						"description": "Avatar frame in this guild: a built-in id or an uploaded cosmetic ID; null shows the user avatar frame",
+						"anyOf": [{"$ref": "#/components/schemas/CosmeticRefTypeInput"}, {"type": "null"}]
+					},
+					"nameplate": {
+						"description": "Nameplate in this guild: a built-in id or an uploaded cosmetic ID; null shows the user nameplate",
+						"anyOf": [{"$ref": "#/components/schemas/CosmeticRefTypeInput"}, {"type": "null"}]
+					},
+					"theme_colors": {
+						"description": "Profile theme colours in this guild (top, bottom) as integers; null shows the user theme",
+						"anyOf": [{"$ref": "#/components/schemas/ProfileThemeColorsSchema"}, {"type": "null"}]
+					},
+					"profile_frame": {
+						"description": "Profile frame in this guild; null shows the user frame",
+						"anyOf": [{"$ref": "#/components/schemas/ProfileFrameIdSchema"}, {"type": "null"}]
 					},
 					"mute": {"description": "Whether the member is muted in voice channels", "type": "boolean"},
 					"deaf": {"description": "Whether the member is deafened in voice channels", "type": "boolean"},
@@ -32294,6 +32362,64 @@
 				],
 				"enum": [0, 1, 2, 3, 4, 6]
 			},
+			"ProfileFrameIdSchema": {
+				"description": "Id of a profile frame",
+				"x-enumNames": [
+					"AURORA",
+					"GOLD",
+					"NEON",
+					"HOLOGRAPHIC",
+					"EMBER",
+					"FROST",
+					"SAKURA",
+					"MIDNIGHT",
+					"CIRCUIT",
+					"PIXEL"
+				],
+				"enum": ["aurora", "gold", "neon", "holographic", "ember", "frost", "sakura", "midnight", "circuit", "pixel"],
+				"type": "string"
+			},
+			"ProfileThemeColorsSchema": {
+				"minItems": 2,
+				"maxItems": 2,
+				"type": "array",
+				"items": {"$ref": "#/components/schemas/ColorType"},
+				"description": "Two colours as integers: the top and the bottom of the profile card"
+			},
+			"CosmeticRefTypeInput": {
+				"description": "A built-in cosmetic id (a lowercase word) or the snowflake of an uploaded cosmetic",
+				"type": "string"
+			},
+			"NameStyleRequestSchema": {
+				"type": "object",
+				"properties": {
+					"font": {
+						"anyOf": [{"$ref": "#/components/schemas/NameFontIdSchema"}, {"type": "null"}],
+						"description": "Font for the display name, or null for the app font"
+					},
+					"effect": {"$ref": "#/components/schemas/NameStyleEffectSchema"},
+					"primary_color": {
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+						"description": "Main color as an integer, or null for the default text color"
+					},
+					"secondary_color": {
+						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
+						"description": "Second color as an integer, used by the gradient, glow and shimmer effects"
+					},
+					"gradient_direction": {
+						"description": "Direction of the gradient effect (default horizontal)",
+						"$ref": "#/components/schemas/NameGradientDirectionSchema"
+					},
+					"intensity": {
+						"description": "Strength of the glow and shimmer effects, 0-100 (default 60)",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 100
+					}
+				},
+				"required": ["font", "effect", "primary_color", "secondary_color"],
+				"description": "Font, colors and effect of a display name"
+			},
 			"MentionReplyPreferencesInput": {
 				"description": "Reply mention preference",
 				"type": "integer",
@@ -32316,7 +32442,32 @@
 				"format": "int32",
 				"x-bitflagValues": [
 					{"name": "AVATAR_UNSET", "value": "1", "description": "Guild member avatar is unset"},
-					{"name": "BANNER_UNSET", "value": "2", "description": "Guild member banner is unset"}
+					{"name": "BANNER_UNSET", "value": "2", "description": "Guild member banner is unset"},
+					{
+						"name": "NAME_STYLE_UNSET",
+						"value": "4",
+						"description": "Guild member shows the default name style instead of the global one"
+					},
+					{
+						"name": "AVATAR_FRAME_UNSET",
+						"value": "8",
+						"description": "Guild member shows no avatar frame instead of the global one"
+					},
+					{
+						"name": "NAMEPLATE_UNSET",
+						"value": "16",
+						"description": "Guild member shows no nameplate instead of the global one"
+					},
+					{
+						"name": "THEME_COLORS_UNSET",
+						"value": "32",
+						"description": "Guild member shows no profile theme instead of the global one"
+					},
+					{
+						"name": "PROFILE_FRAME_UNSET",
+						"value": "64",
+						"description": "Guild member shows no profile frame instead of the global one"
+					}
 				]
 			},
 			"GuildRoleColorsRequest": {
@@ -34008,36 +34159,6 @@
 				"required": ["src", "proxy_src", "width", "height"],
 				"additionalProperties": false
 			},
-			"NameStyleRequestSchema": {
-				"type": "object",
-				"properties": {
-					"font": {
-						"anyOf": [{"$ref": "#/components/schemas/NameFontIdSchema"}, {"type": "null"}],
-						"description": "Font for the display name, or null for the app font"
-					},
-					"effect": {"$ref": "#/components/schemas/NameStyleEffectSchema"},
-					"primary_color": {
-						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
-						"description": "Main color as an integer, or null for the default text color"
-					},
-					"secondary_color": {
-						"anyOf": [{"$ref": "#/components/schemas/ColorType"}, {"type": "null"}],
-						"description": "Second color as an integer, used by the gradient, glow and shimmer effects"
-					},
-					"gradient_direction": {
-						"description": "Direction of the gradient effect (default horizontal)",
-						"$ref": "#/components/schemas/NameGradientDirectionSchema"
-					},
-					"intensity": {
-						"description": "Strength of the glow and shimmer effects, 0-100 (default 60)",
-						"type": "integer",
-						"minimum": 0,
-						"maximum": 100
-					}
-				},
-				"required": ["font", "effect", "primary_color", "secondary_color"],
-				"description": "Font, colors and effect of a display name"
-			},
 			"ProfileFieldPrivacyFlags": {
 				"type": "integer",
 				"minimum": 0,
@@ -34057,34 +34178,6 @@
 						"description": "Allow members from mutual guilds to see this profile field"
 					}
 				]
-			},
-			"CosmeticRefTypeInput": {
-				"description": "A built-in cosmetic id (a lowercase word) or the snowflake of an uploaded cosmetic",
-				"type": "string"
-			},
-			"ProfileFrameIdSchema": {
-				"description": "Id of a profile frame",
-				"x-enumNames": [
-					"AURORA",
-					"GOLD",
-					"NEON",
-					"HOLOGRAPHIC",
-					"EMBER",
-					"FROST",
-					"SAKURA",
-					"MIDNIGHT",
-					"CIRCUIT",
-					"PIXEL"
-				],
-				"enum": ["aurora", "gold", "neon", "holographic", "ember", "frost", "sakura", "midnight", "circuit", "pixel"],
-				"type": "string"
-			},
-			"ProfileThemeColorsSchema": {
-				"minItems": 2,
-				"maxItems": 2,
-				"type": "array",
-				"items": {"$ref": "#/components/schemas/ColorType"},
-				"description": "Two colours as integers: the top and the bottom of the profile card"
 			},
 			"ChannelOverwriteResponse": {
 				"type": "object",

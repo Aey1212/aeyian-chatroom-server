@@ -69,10 +69,20 @@ export const GuildOperationsDescriptions: Record<keyof typeof GuildOperations, s
 export const GuildMemberProfileFlags = {
 	AVATAR_UNSET: 1 << 0,
 	BANNER_UNSET: 1 << 1,
+	NAME_STYLE_UNSET: 1 << 2,
+	AVATAR_FRAME_UNSET: 1 << 3,
+	NAMEPLATE_UNSET: 1 << 4,
+	THEME_COLORS_UNSET: 1 << 5,
+	PROFILE_FRAME_UNSET: 1 << 6,
 } as const;
 export const GuildMemberProfileFlagsDescriptions: Record<keyof typeof GuildMemberProfileFlags, string> = {
 	AVATAR_UNSET: 'Guild member avatar is unset',
 	BANNER_UNSET: 'Guild member banner is unset',
+	NAME_STYLE_UNSET: 'Guild member shows the default name style instead of the global one',
+	AVATAR_FRAME_UNSET: 'Guild member shows no avatar frame instead of the global one',
+	NAMEPLATE_UNSET: 'Guild member shows no nameplate instead of the global one',
+	THEME_COLORS_UNSET: 'Guild member shows no profile theme instead of the global one',
+	PROFILE_FRAME_UNSET: 'Guild member shows no profile frame instead of the global one',
 };
 export const GuildExplicitContentFilterTypes = {
 	DISABLED: 0,

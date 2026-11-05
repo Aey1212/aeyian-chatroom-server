@@ -152,6 +152,11 @@ function mapMemberWithUser(member: GuildMember, userPartial: UserPartialResponse
 		communication_disabled_until: member.communicationDisabledUntil?.toISOString() ?? null,
 		profile_flags: member.profileFlags || undefined,
 		mention_flags: member.mentionFlags || undefined,
+		name_style: member.nameStyle ?? undefined,
+		avatar_frame: member.avatarFrame ?? undefined,
+		nameplate: member.nameplate ?? undefined,
+		theme_colors: member.themeColors ? [...member.themeColors] : undefined,
+		profile_frame: member.profileFrame ?? undefined,
 	};
 }
 

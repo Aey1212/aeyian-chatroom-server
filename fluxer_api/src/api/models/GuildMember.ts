@@ -3,7 +3,18 @@
 import type {GuildID, InviteCode, RoleID, UserID} from '@app/api/BrandedTypes';
 import type {GuildMemberRow} from '@app/api/database/types/GuildTypes';
 import {GuildMemberProfileFlags, type JoinSourceType} from '@fluxer/constants/src/GuildConstants';
+import type {ProfileFrameId} from '@fluxer/constants/src/ProfileCustomizationConstants';
 import type {MentionReplyPreference} from '@fluxer/constants/src/UserConstants';
+import {
+	type NameStyle,
+	parseStoredNameStyle,
+	serializeNameStyle,
+} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {
+	type ProfileThemeColors,
+	readProfileFrame,
+	readProfileThemeColors,
+} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 
 export class GuildMember {
 	readonly guildId: GuildID;
@@ -26,6 +37,12 @@ export class GuildMember {
 	readonly isTemporary: boolean;
 	readonly profileFlags: number;
 	readonly mentionFlags: MentionReplyPreference;
+	// Community versions of the profile cosmetics. Null means the global one shows; the *_UNSET profile flags mean none.
+	readonly nameStyle: NameStyle | null;
+	readonly avatarFrame: string | null;
+	readonly nameplate: string | null;
+	readonly themeColors: ProfileThemeColors | null;
+	readonly profileFrame: ProfileFrameId | null;
 	readonly version: number;
 
 	constructor(row: GuildMemberRow) {
@@ -49,6 +66,11 @@ export class GuildMember {
 		this.isTemporary = row.temporary ?? false;
 		this.profileFlags = row.profile_flags ?? 0;
 		this.mentionFlags = row.mention_flags ?? 0;
+		this.nameStyle = parseStoredNameStyle(row.name_style);
+		this.avatarFrame = row.avatar_frame ?? null;
+		this.nameplate = row.nameplate ?? null;
+		this.themeColors = readProfileThemeColors(row.theme_colors);
+		this.profileFrame = readProfileFrame(row.profile_frame);
 		this.version = row.version;
 	}
 
@@ -86,6 +108,11 @@ export class GuildMember {
 			temporary: this.isTemporary,
 			profile_flags: this.profileFlags || null,
 			mention_flags: this.mentionFlags || null,
+			name_style: serializeNameStyle(this.nameStyle),
+			avatar_frame: this.avatarFrame,
+			nameplate: this.nameplate,
+			theme_colors: this.themeColors ? [...this.themeColors] : null,
+			profile_frame: this.profileFrame,
 			version: this.version,
 		};
 	}

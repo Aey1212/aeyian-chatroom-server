@@ -17,8 +17,11 @@ import {
 	STICKER_MAX_SIZE,
 } from '@fluxer/constants/src/LimitConstants';
 import {SudoVerificationSchema} from '@fluxer/schema/src/domains/auth/AuthSchemas';
+import {CosmeticRefType} from '@fluxer/schema/src/domains/cosmetics/CosmeticSchemas';
 import {GuildFeatureSchema} from '@fluxer/schema/src/domains/guild/GuildResponseSchemas';
 import {TemplateSerializedGuild} from '@fluxer/schema/src/domains/guild/GuildTemplateSchemas';
+import {NameStyleRequestSchema} from '@fluxer/schema/src/domains/user/NameStyleSchemas';
+import {ProfileFrameIdSchema, ProfileThemeColorsSchema} from '@fluxer/schema/src/domains/user/ProfileStyleSchemas';
 import {VanityURLCodeType} from '@fluxer/schema/src/primitives/ChannelValidators';
 import {base64LengthForBytes, createBase64StringType} from '@fluxer/schema/src/primitives/FileValidators';
 import {
@@ -167,6 +170,19 @@ export const GuildMemberUpdateRequest = z.object({
 		MentionReplyPreferencesSchema,
 		"Per-guild reply mention preference override for this member; NO_PREFERENCE inherits the user's account-wide setting",
 	).nullish(),
+	name_style: NameStyleRequestSchema.nullish().describe(
+		'Display name style in this guild; null shows the user name style (set NAME_STYLE_UNSET in profile_flags for none)',
+	),
+	avatar_frame: CosmeticRefType.nullish().describe(
+		'Avatar frame in this guild: a built-in id or an uploaded cosmetic ID; null shows the user avatar frame',
+	),
+	nameplate: CosmeticRefType.nullish().describe(
+		'Nameplate in this guild: a built-in id or an uploaded cosmetic ID; null shows the user nameplate',
+	),
+	theme_colors: ProfileThemeColorsSchema.nullish().describe(
+		'Profile theme colours in this guild (top, bottom) as integers; null shows the user theme',
+	),
+	profile_frame: ProfileFrameIdSchema.nullish().describe('Profile frame in this guild; null shows the user frame'),
 	mute: z.boolean().optional().describe('Whether the member is muted in voice channels'),
 	deaf: z.boolean().optional().describe('Whether the member is deafened in voice channels'),
 	communication_disabled_until: z

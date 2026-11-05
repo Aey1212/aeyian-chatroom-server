@@ -396,6 +396,11 @@ export class GuildOperationsService {
 				temporary: false,
 				profile_flags: null,
 				mention_flags: null,
+				name_style: null,
+				avatar_frame: null,
+				nameplate: null,
+				theme_colors: null,
+				profile_frame: null,
 				version: 1,
 			}),
 		);

@@ -5375,6 +5375,26 @@
 					"type": "int"
 				},
 				{
+					"name": "name_style",
+					"type": "text"
+				},
+				{
+					"name": "avatar_frame",
+					"type": "text"
+				},
+				{
+					"name": "nameplate",
+					"type": "text"
+				},
+				{
+					"name": "theme_colors",
+					"type": "list<int>"
+				},
+				{
+					"name": "profile_frame",
+					"type": "text"
+				},
+				{
 					"name": "version",
 					"type": "int"
 				}
