@@ -9,7 +9,10 @@ import {
 	KEEP_NEKO_STILL_DESCRIPTOR,
 	KEYBOARD_HINTS_DESCRIPTOR,
 	SHOW_NEKO_DESCRIPTOR,
+	SHOW_VOICE_CONNECTION_IDS_DESCRIPTOR,
 } from '@app/features/user/components/settings_utils/section_registry/SharedDescriptors';
+import * as VoiceSettingsCommands from '@app/features/voice/commands/VoiceSettingsCommands';
+import VoiceSettings from '@app/features/voice/state/VoiceSettings';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
 import {observer} from 'mobx-react-lite';
@@ -80,6 +83,19 @@ export const VoiceChannelJoinBehaviorControl = observer(() => {
 				data-flx="user.advanced-settings-tab.switch-group-item.voice-channel-confirm"
 			/>
 		</SwitchGroup>
+	);
+});
+
+export const ShowVoiceConnectionIdsControl = observer(() => {
+	const {i18n} = useLingui();
+	return (
+		<Switch
+			ariaLabel={i18n._(SHOW_VOICE_CONNECTION_IDS_DESCRIPTOR)}
+			value={VoiceSettings.showVoiceConnectionId}
+			onChange={(value) => VoiceSettingsCommands.update({showVoiceConnectionId: value})}
+			compact
+			data-flx="user.advanced-settings-tab.switch.show-voice-connection-ids"
+		/>
 	);
 });
 

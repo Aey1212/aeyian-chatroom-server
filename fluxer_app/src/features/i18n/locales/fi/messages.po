@@ -28,7 +28,7 @@ msgid "(edited)"
 msgstr "(muokattu)"
 
 #: src/features/app/components/pages/YouPage.tsx:189
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:894
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:898
 msgid "(only visible to you)"
 msgstr "(näkyy vain sinulle)"
 
@@ -2508,7 +2508,7 @@ msgstr "Tietoja sovelluksesta {appName}"
 #. Short label in the user profile shared popout. Keep it concise.
 #: src/features/app/components/pages/YouPage.tsx:166
 #: src/features/user/components/modals/tabs/my_profile_tab/BioEditor.tsx:26
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:778
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:782
 #: src/features/user/components/popouts/UserProfileShared.tsx:41
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:133
 msgid "About me"
@@ -2586,7 +2586,7 @@ msgstr "Käyttää profiilisi perustietoja (käyttäjänimi, avatar jne.)"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. User settings tab for accessibility preferences (visual, motion, screen reader, etc.).
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedSettingsCategories.ts:14
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:93
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:98
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:61
 msgid "Accessibility"
 msgstr "Saavutettavuus"
@@ -4650,7 +4650,7 @@ msgstr "Liitteet"
 #. Generic tab / section / category label for audio content or settings.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:250
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:170
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:175
 msgid "Audio"
 msgstr "Ääni"
 
@@ -6149,7 +6149,7 @@ msgid "California"
 msgstr "Kalifornia"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:150
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:155
 msgid "Call"
 msgstr "Puhelu"
 
@@ -7233,7 +7233,7 @@ msgid "Chat font size"
 msgstr "Keskustelun fonttikoko"
 
 #. Settings search synonym. Refers to the message composer area.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:65
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:70
 msgid "chat input"
 msgstr "viestikenttä"
 
@@ -8658,7 +8658,7 @@ msgid "Community updated"
 msgstr "Yhteisö päivitetty"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:35
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:45
 msgid "Community voice"
 msgstr "Yhteisön ääni"
 
@@ -8839,8 +8839,8 @@ msgstr "Vahvista"
 
 #. Settings search entry label. Names the settings search entry in the settings UI.
 #. Short label for an advanced voice-channel safety preference.
-#: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls.tsx:21
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:15
+#: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls.tsx:24
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:25
 msgid "Confirm before joining voice channels"
 msgstr "Vahvista ennen äänikanaville liittymistä"
 
@@ -8881,7 +8881,7 @@ msgstr "Vahvista salasana"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:27
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:37
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:398
 msgid "Confirm voice join"
 msgstr "Vahvista äänikanavaan liittyminen"
@@ -8892,7 +8892,7 @@ msgid "Confirmation"
 msgstr "Vahvistus"
 
 #. Settings search entry description. One-line summary of what the settings search entry controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:43
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:53
 msgid "Confirmation or double-click for community voice joins"
 msgstr "Vahvistus tai kaksoisnapsautus yhteisön äänikanaviin liittyessä"
 
@@ -8982,8 +8982,10 @@ msgctxt "voice-connection-status"
 msgid "Connection failed"
 msgstr "Yhteyttä ei voitu muodostaa"
 
+#. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Voice stats field label (mobile lobby). Shows the voice connection identifier. Developer / debug surface.
 #. Voice stats field label (mobile voice lobby). Developer / debug surface.
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:20
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:126
 #: src/features/voice/components/bottomsheets/VoiceLobbyBottomSheet.tsx:94
 msgid "Connection ID"
@@ -9119,7 +9121,7 @@ msgstr "Sisällön turvaportit"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/ui/action_menu/ContextMenu.tsx:23
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:225
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:154
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:159
 msgid "Context menu"
 msgstr "Pikavalikko"
 
@@ -11248,7 +11250,7 @@ msgstr "Delaware"
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:290
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:238
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:154
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:190
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:195
 msgid "Delete"
 msgstr "Poista"
 
@@ -11543,7 +11545,7 @@ msgid "Deleted {duration} of the member's recent message history"
 msgstr "Poistettiin jäsenen viimeaikaisesta viestihistoriasta {duration}"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:114
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:119
 msgid "Deleted text"
 msgstr "Poistettu teksti"
 
@@ -11918,7 +11920,7 @@ msgid "Different sizes & member counts"
 msgstr "Eri kokoja ja jäsenmääriä"
 
 #. Toggle label and settings search entry for slightly muting text formatted with Markdown strikethrough.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:97
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:102
 msgid "Dim strikethrough text"
 msgstr "Himmennä yliviivattua tekstiä"
 
@@ -11933,7 +11935,7 @@ msgstr "Suora syöte"
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:14
 #: src/features/channel/components/channel_header_components/developer_tools/MockingMenu.tsx:398
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:562
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:85
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:90
 msgid "Direct message"
 msgstr "Yksityisviesti"
 
@@ -12331,7 +12333,7 @@ msgid "District of Columbia"
 msgstr "Columbian liittopiiri"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:182
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:187
 msgid "DM"
 msgstr "DM"
 
@@ -13006,7 +13008,7 @@ msgstr "Muokkaa roolien ja jäsenten käyttöoikeuksien ohituksia tällä kanava
 
 #: src/features/app/components/floating/UserAreaPopout.tsx:755
 #: src/features/app/components/pages/YouPage.tsx:157
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:677
 #: src/features/user/components/modals/UserProfileModal.tsx:588
 #: src/features/user/components/popouts/UserProfilePopout.tsx:442
 msgid "Edit profile"
@@ -13284,7 +13286,7 @@ msgstr "Ember"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:337
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:177
 #: src/features/theme_studio/sections/TokenGroups.ts:114
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:162
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:167
 msgid "Emoji"
 msgstr "Emoji"
 
@@ -13504,7 +13506,7 @@ msgid "Enable extra option"
 msgstr "Ota lisäasetus käyttöön"
 
 #. Toggle label and settings search entry for controlling whether favorites are visible throughout the app.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:57
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:62
 msgid "Enable favorites"
 msgstr "Ota suosikit käyttöön"
 
@@ -14845,7 +14847,7 @@ msgid "Favorite channel"
 msgstr "Lisää kanava suosikkeihin"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:79
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:89
 msgid "Favorite channels"
 msgstr "Suosikkikanavat"
 
@@ -15631,7 +15633,7 @@ msgstr "Ystävällinen botti"
 #: src/features/connection/components/modals/EditConnectionModal.tsx:86
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:49
 #: src/features/user/components/modals/tabs/my_profile_tab/TimezoneProfileSettings.tsx:63
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:89
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:94
 msgid "Friends"
 msgstr "Kaverit"
 
@@ -15961,7 +15963,7 @@ msgstr "Saat ilmoituksia, kun vastaanotat viestejä. Sinun on ehkä sallittava i
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Type label for GIF media.
 #: src/features/expressions/utils/FavoriteMemeUtils.ts:10
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:158
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:163
 msgid "GIF"
 msgstr "GIF"
 
@@ -16387,7 +16389,7 @@ msgid "Graphics"
 msgstr "Grafiikka"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:118
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:123
 msgid "Gray text"
 msgstr "Harmaa teksti"
 
@@ -16903,7 +16905,7 @@ msgid "Hide join messages"
 msgstr "Piilota liittymisviestit"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:47
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:57
 msgid "Hide keyboard hints"
 msgstr "Piilota näppäimistövihjeet"
 
@@ -18593,7 +18595,7 @@ msgstr "Liity videopuheluun"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/profile/VoiceActivityCard.tsx:67
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:31
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:41
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:454
 msgid "Join voice"
 msgstr "Liity puheluun"
@@ -18777,7 +18779,7 @@ msgid "Keep grace period"
 msgstr "Säilytä armonaika"
 
 #. Toggle label and settings search entry for stopping the Neko sprite from chasing the cursor.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:53
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:58
 msgid "Keep Neko still"
 msgstr "Pidä Neko paikallaan"
 
@@ -18848,7 +18850,7 @@ msgid "Keyboard mode"
 msgstr "Näppäimistötila"
 
 #. Settings search entry description. One-line summary of what the setting controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:59
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:69
 msgid "Keyboard shortcut hints in tooltips"
 msgstr "Pikanäppäinvihjeet työkaluvihjeissä"
 
@@ -19960,7 +19962,7 @@ msgstr "Merkitse ylin saapuneet-kanava luetuksi"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:364
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:122
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:127
 msgid "Markdown"
 msgstr "Markdown"
 
@@ -20520,7 +20522,7 @@ msgstr "Mainitaanko tämä rooli?"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:136
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:647
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:166
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:171
 msgid "Mentions"
 msgstr "Maininnat"
 
@@ -20581,7 +20583,7 @@ msgstr "Viesti"
 #: src/features/ui/action_menu/items/ActionsSubmenu.tsx:41
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:710
 #: src/features/user/components/modals/UserProfileModal.tsx:563
 #: src/features/user/components/modals/UserProfileModal.tsx:771
 #: src/features/user/components/popouts/UserProfilePopout.tsx:428
@@ -21635,7 +21637,7 @@ msgstr "mykistetty"
 #. Status label indicating the surface is currently muted.
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:23
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:491
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:73
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:78
 #: src/lib/overlay/OverlayContextMenu.tsx:24
 msgid "Muted"
 msgstr "Mykistetty"
@@ -21658,7 +21660,7 @@ msgstr "Moderaattoreiden mykistämä"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:495
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:69
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:74
 msgid "Muted channels"
 msgstr "Mykistetyt kanavat"
 
@@ -21701,7 +21703,7 @@ msgstr "Yhteiset kaverit"
 msgid "Mutual friends ({count})"
 msgstr "Yhteiset kaverit ({count})"
 
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:833
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:837
 msgid "Mutual friends ({mutualFriendsCount})"
 msgstr "Yhteiset kaverit ({mutualFriendsCount})"
 
@@ -21896,7 +21898,7 @@ msgid "Narrates only the channel you're viewing. Narration follows you between c
 msgstr "Lukee ääneen vain kanavan, jota katselet. Lukeminen seuraa sinua kanavien välillä."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:146
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:151
 msgid "Narration"
 msgstr "Ääneen luku"
 
@@ -21961,12 +21963,12 @@ msgid "Need an account?"
 msgstr "Tarvitsetko tilin?"
 
 #. Settings search synonym. Proper name of the optional cat sprite that chases the cursor.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:61
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:66
 msgid "Neko"
 msgstr "Neko"
 
 #. Settings search entry description. One-line summary of what the setting controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:63
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:73
 msgid "Neko cat that chases your cursor"
 msgstr "Neko-kissa, joka jahtaa osoitintasi"
 
@@ -23008,7 +23010,7 @@ msgstr "Ei ole tosi eikä epätosi"
 #: src/features/messaging/utils/markdown/Plaintext.ts:72
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:19
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:79
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:888
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:892
 msgid "Note"
 msgstr "Huomautus"
 
@@ -24834,7 +24836,7 @@ msgstr "Kiinnitä tämä viesti kanavalle kaikkien nähtäväksi."
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Voice stats field label (mobile lobby). Shows current latency in ms.
 #. Voice stats field label (mobile voice lobby). Shows current latency in ms.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:186
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:191
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:118
 #: src/features/voice/components/bottomsheets/VoiceLobbyBottomSheet.tsx:86
 msgid "Ping"
@@ -25019,7 +25021,7 @@ msgstr "Odota hetki ja yritä nimeämistä uudelleen."
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/SharedDescriptors.ts:9
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:178
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:183
 msgid "Plutonium"
 msgstr "Plutonium"
 
@@ -25066,7 +25068,7 @@ msgid "Popped out"
 msgstr "Erillisessä ikkunassa"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:198
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:203
 msgid "Popup"
 msgstr "Ponnahdusikkuna"
 
@@ -25671,7 +25673,7 @@ msgstr "Kysy, kun uusi äänilaite yhdistetään"
 msgid "Pronouns"
 msgstr "Pronominit"
 
-#: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:79
+#: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:87
 #: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:147
 msgid "Pronouns: "
 msgstr "Pronominit: "
@@ -26039,7 +26041,7 @@ msgid "Reactivate subscription"
 msgstr "Aktivoi tilaus uudelleen"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:130
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:135
 msgid "Read aloud"
 msgstr "Lue ääneen"
 
@@ -26056,7 +26058,7 @@ msgstr "Lue viestihistoriaa"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:177
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:126
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:131
 msgid "Read messages"
 msgstr "Lue viestejä"
 
@@ -26523,7 +26525,7 @@ msgstr "Muista ikkunan koko ja sijainti"
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:26
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:55
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:158
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:194
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:199
 #: src/features/webhook/components/WebhookListItem.tsx:277
 msgid "Remove"
 msgstr "Poista"
@@ -27218,7 +27220,7 @@ msgid "Require 2FA for moderation actions"
 msgstr "Vaadi 2FA moderointitoimiin"
 
 #. Short label for an advanced voice-channel navigation preference.
-#: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls.tsx:17
+#: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls.tsx:20
 msgid "Require double-click to join voice channels"
 msgstr "Vaadi kaksoisnapsautus äänikanaville liittymiseen"
 
@@ -29328,7 +29330,7 @@ msgstr "Lähetä tiedostoviestit järjestyksessä"
 #. Member actions sheet menu item. Sends a friend request to the target user.
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:146
 #: src/features/guild/components/modals/guild_tabs/GuildMemberActionsSheet.tsx:94
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:110
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:112
 #: src/features/user/components/modals/UserProfileModal.tsx:128
 msgid "Send friend request"
 msgstr "Lähetä kaveripyyntö"
@@ -30012,7 +30014,7 @@ msgstr "Pikanäppäin"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:55
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:65
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:370
 msgid "Shortcut badges"
 msgstr "Pikanäppäinmerkit"
@@ -30214,7 +30216,7 @@ msgid "Show favorite button"
 msgstr "Näytä suosikkipainike"
 
 #. Settings search entry description. One-line summary of what the setting controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:87
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:97
 msgid "Show favorites throughout the app"
 msgstr "Näytä suosikit koko sovelluksessa"
 
@@ -30462,7 +30464,7 @@ msgid "Show stickers in expression autocomplete"
 msgstr "Näytä tarrat ilmaisujen automaattisessa täydennyksessä"
 
 #. Description for a visual accessibility setting that mutes the color of text formatted with Markdown strikethrough.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:101
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:106
 msgid "Show strikethrough Markdown text in a slightly muted color."
 msgstr "Näytä yliviivattu Markdown-teksti hieman himmennetyllä värillä."
 
@@ -30474,6 +30476,11 @@ msgstr "Näytä Piilota upotukset -painike"
 #: src/features/user/components/modals/tabs/DesktopSettingsTab.tsx:173
 msgid "Show system tray icon"
 msgstr "Näytä ilmaisinalueen kuvake"
+
+#. Settings search entry description. One-line summary of what the setting controls.
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:16
+msgid "Show the connection ID next to each name in voice calls"
+msgstr "Näytä yhteyden tunnus jokaisen nimen vieressä äänipuheluissa"
 
 #. Description of the "Use global profile" choice for a name style, frame, nameplate or profile theme in a community profile.
 #: src/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice.tsx:21
@@ -30504,6 +30511,11 @@ msgstr "Näytä lukemattomien yksityisviestien määrä, kun luettelo on tiivist
 #: src/features/user/components/modals/tabs/appearance_tab/ChannelListTab.tsx:11
 msgid "Show unread indicator on muted channels"
 msgstr "Näytä lukemattomien viestien ilmaisin mykistetyillä kanavilla"
+
+#. Toggle label and settings search entry for showing the connection ID (for example "queue-gorilla") next to people in voice calls.
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:53
+msgid "Show voice connection IDs"
+msgstr "Näytä puheyhteyksien tunnukset"
 
 #. Label in the avatar uploader.
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:62
@@ -31485,7 +31497,7 @@ msgstr "Katsojat - {count}"
 #. Native macOS Edit submenu title for text-to-speech actions.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/platform/utils/DesktopLocaleBridge.ts:84
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:142
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:147
 msgid "Speech"
 msgstr "Puhe"
 
@@ -31640,7 +31652,7 @@ msgid "Star animation"
 msgstr "Tähtianimaatio"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:83
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:93
 msgid "Starred channels"
 msgstr "Tähdellä merkityt kanavat"
 
@@ -31757,7 +31769,7 @@ msgid "Startup"
 msgstr "Käynnistys"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:75
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:85
 msgid "Static Neko"
 msgstr "Staattinen Neko"
 
@@ -31960,7 +31972,7 @@ msgid "Still indexing — check back in a moment"
 msgstr "Indeksointi käynnissä – tarkista hetken kuluttua"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:71
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:81
 msgid "Still Neko"
 msgstr "Liikkumaton Neko"
 
@@ -31995,7 +32007,7 @@ msgid "Stop mic test"
 msgstr "Lopeta mikrofonitesti"
 
 #. Settings search entry description. One-line summary of what the setting controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:67
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:77
 msgid "Stop Neko from chasing your cursor while keeping it draggable and interactive."
 msgstr "Estä Nekoa jahtaamasta osoitintasi, mutta pidä se silti vedettävänä ja interaktiivisena."
 
@@ -32187,14 +32199,14 @@ msgid "Streaming privacy on"
 msgstr "Striimauksen yksityisyys käytössä"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:110
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:115
 msgid "Strike through"
 msgstr "Yliviivaus"
 
 #. Selection formatting toolbar button.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/lexical/composer/SelectionFormattingToolbar.tsx:72
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:106
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:111
 msgid "Strikethrough"
 msgstr "Yliviivaus"
 
@@ -32998,7 +33010,7 @@ msgstr "Lähetä meille tekstiviesti puhelimestasi"
 #. Feature label / section heading for the text-to-speech feature.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:414
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:138
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:143
 msgid "Text-to-speech"
 msgstr "Tekstistä puheeksi"
 
@@ -34624,7 +34636,7 @@ msgid "Toolbar"
 msgstr "Työkalurivi"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:51
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:61
 msgid "Tooltip shortcuts"
 msgstr "Pikanäppäinvihjeet"
 
@@ -34947,7 +34959,7 @@ msgid "Try Turnstile instead"
 msgstr "Kokeile sen sijaan Turnstile-varmennusta"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:134
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:139
 msgid "TTS"
 msgstr "TTS"
 
@@ -35133,7 +35145,7 @@ msgstr "24 tunnin kello"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:39
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:49
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:406
 msgid "Two clicks"
 msgstr "Kaksi klikkausta"
@@ -35366,7 +35378,7 @@ msgstr "Poista esto ensin, jotta voit lähettää kaveripyynnön."
 #. Button or menu action label in the user profile modal. Keep it concise. Keep the tone plain and specific.
 #. Title of the confirmation modal for unblocking a previously blocked user. Short command title.
 #: src/features/relationship/utils/RelationshipActionUtils.tsx:95
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:105
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:107
 #: src/features/user/components/modals/UserProfileModal.tsx:120
 msgid "Unblock user"
 msgstr "Poista esto"
@@ -35905,7 +35917,7 @@ msgstr "lukematon"
 #. Tab label in the inbox popout filtering to channels with unread messages.
 #: src/features/messaging/components/popouts/InboxPopout.tsx:30
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:10
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:77
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:82
 msgid "Unread"
 msgstr "Lukemattomat"
 
@@ -37265,7 +37277,7 @@ msgstr "Video"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Tooltip on the channel header button that starts a video call in a DM or group DM.
 #: src/features/channel/components/channel_header/shared.ts:43
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:757
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:761
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:199
 msgid "Video call"
@@ -37693,7 +37705,7 @@ msgstr "Visuaaliset ilmaisimet, jotka näyttävät käyttäjän tilan. Ne render
 #: src/features/app/components/layout/MobileBottomNav.tsx:123
 #: src/features/channel/utils/ChannelUtils.tsx:31
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedSettingsCategories.ts:17
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:81
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:86
 msgid "Voice"
 msgstr "Ääni"
 
@@ -37759,7 +37771,7 @@ msgid "Voice and video shortcuts"
 msgstr "Ääni- ja videopikanäppäimet"
 
 #. Short label for a voice call (lobby header, DM action, settings section).
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:735
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:739
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:35
 msgid "Voice call"
 msgstr "Äänipuhelu"
@@ -37788,7 +37800,7 @@ msgstr "Äänikanava"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:23
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:402
 msgid "Voice channel confirmation"
 msgstr "Äänikanavan vahvistus"
@@ -37799,7 +37811,7 @@ msgid "Voice channel full"
 msgstr "Äänikanava täynnä"
 
 #. Settings search entry label. Names the settings search entry in the settings UI.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:19
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:29
 msgid "Voice channel join behavior"
 msgstr "Äänikanavalle liittymisen toiminta"
 
@@ -37929,7 +37941,7 @@ msgstr "Mitätöity"
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:216
 #: src/features/user/components/modals/tabs/UserVoiceTab.tsx:176
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:86
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:174
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:179
 msgid "Volume"
 msgstr "Äänenvoimakkuus"
 

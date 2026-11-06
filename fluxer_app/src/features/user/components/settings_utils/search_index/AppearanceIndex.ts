@@ -9,8 +9,18 @@ import {
 	KEYBOARD_HINTS_DESCRIPTOR,
 	NEKO_DESCRIPTOR,
 	SHOW_NEKO_DESCRIPTOR,
+	SHOW_VOICE_CONNECTION_IDS_DESCRIPTOR,
 } from '@app/features/user/components/settings_utils/section_registry/SharedDescriptors';
 import {msg} from '@lingui/core/macro';
+
+const SHOW_CONNECTION_ID_NEXT_TO_NAMES_IN_VOICE_CALLS_DESCRIPTOR = msg({
+	message: 'Show the connection ID next to each name in voice calls',
+	comment: 'Settings search entry description. One-line summary of what the setting controls.',
+});
+const CONNECTION_ID_DESCRIPTOR = msg({
+	message: 'Connection ID',
+	comment: 'Settings search synonym. Used to match this term when the user types it in the settings search bar.',
+});
 
 const CONFIRM_BEFORE_JOINING_VOICE_CHANNELS_DESCRIPTOR = msg({
 	message: 'Confirm before joining voice channels',
@@ -144,6 +154,16 @@ export const appearanceIndex: Array<SearchableSettingDescriptor> = [
 			TWO_CLICKS_DESCRIPTOR,
 		],
 		description: CHOOSE_WHETHER_JOINING_A_COMMUNITY_VOICE_CHANNEL_ASKS_DESCRIPTOR,
+		audience: 'advanced',
+		tags: ['appearance', 'voice'],
+	},
+	{
+		id: 'appearance-show-voice-connection-ids',
+		tabType: 'appearance',
+		sectionId: 'interface',
+		label: SHOW_VOICE_CONNECTION_IDS_DESCRIPTOR,
+		keywords: [CONNECTION_ID_DESCRIPTOR, VOICE_CHANNEL_DESCRIPTOR],
+		description: SHOW_CONNECTION_ID_NEXT_TO_NAMES_IN_VOICE_CALLS_DESCRIPTOR,
 		audience: 'advanced',
 		tags: ['appearance', 'voice'],
 	},

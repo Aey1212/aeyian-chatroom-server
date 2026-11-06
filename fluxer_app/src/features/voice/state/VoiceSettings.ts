@@ -407,7 +407,8 @@ class VoiceSettings {
 	showNonVideoParticipants = true;
 	showParticipantsCarousel = false;
 	showVoiceConnectionAvatarStack = true;
-	showVoiceConnectionIdPrefV2 = true;
+	// V3: hidden by default (Aeyian Chatline). A new key so everyone who saved the old default of "shown" starts hidden.
+	showVoiceConnectionIdPrefV3 = false;
 	showConnectionVolumeControls = false;
 	pauseOwnScreenSharePreviewOnUnfocusPrefV2 = true;
 	disablePictureInPicturePopoutScreenShare = false;
@@ -600,7 +601,7 @@ class VoiceSettings {
 			'showMyOwnScreenShare',
 			'showParticipantsCarousel',
 			'showVoiceConnectionAvatarStack',
-			'showVoiceConnectionIdPrefV2',
+			'showVoiceConnectionIdPrefV3',
 			'showConnectionVolumeControls',
 			'pauseOwnScreenSharePreviewOnUnfocusPrefV2',
 			'disablePictureInPicturePopoutScreenShare',
@@ -639,11 +640,11 @@ class VoiceSettings {
 	}
 
 	get showVoiceConnectionId(): boolean {
-		return this.showVoiceConnectionIdPrefV2;
+		return this.showVoiceConnectionIdPrefV3;
 	}
 
 	set showVoiceConnectionId(value: boolean) {
-		this.showVoiceConnectionIdPrefV2 = value;
+		this.showVoiceConnectionIdPrefV3 = value;
 	}
 
 	get pauseOwnScreenSharePreviewOnUnfocus(): boolean {
