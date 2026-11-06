@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-export const APP_PROTOCOL = 'fluxer';
+// Our own link scheme, so the app never takes over links meant for an official Fluxer install.
+// The web client (fluxer_app AppProtocol.ts) uses the same one.
+export const APP_PROTOCOL = 'chatline';
 export const STABLE_APP_URL = 'https://chat.aeyempire.com';
 export const CANARY_APP_URL = 'https://web.canary.fluxer.app';
 export const STATIC_CDN_URL = 'https://fluxerstatic.com';

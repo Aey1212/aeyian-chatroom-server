@@ -11,7 +11,7 @@ Keywords=chat;im;messaging;messenger;voip;voice;video;call;
 StartupWMClass=aeyian-chatline
 StartupNotify=true
 SingleMainWindow=true
-MimeType=x-scheme-handler/fluxer;
+MimeType=x-scheme-handler/chatline;
 X-GNOME-UsesNotifications=true
 Actions=open-settings;new-dm;
 

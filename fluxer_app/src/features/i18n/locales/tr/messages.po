@@ -28,7 +28,7 @@ msgid "(edited)"
 msgstr "(düzenlendi)"
 
 #: src/features/app/components/pages/YouPage.tsx:189
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:894
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:898
 msgid "(only visible to you)"
 msgstr "(yalnızca siz görebilirsiniz)"
 
@@ -2508,7 +2508,7 @@ msgstr "{appName} hakkında"
 #. Short label in the user profile shared popout. Keep it concise.
 #: src/features/app/components/pages/YouPage.tsx:166
 #: src/features/user/components/modals/tabs/my_profile_tab/BioEditor.tsx:26
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:778
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:782
 #: src/features/user/components/popouts/UserProfileShared.tsx:41
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:133
 msgid "About me"
@@ -7014,7 +7014,7 @@ msgid "Channel access"
 msgstr "Kanal erişimi"
 
 #. Title of the alert shown when clicking a message link the user does not have permission to view.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:118
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:119
 msgid "Channel access denied"
 msgstr "Kanala erişim reddedildi"
 
@@ -11819,13 +11819,13 @@ msgstr "Geliştirici durumu"
 #. Short label in the channel and chat utility buttons. Keep it concise.
 #. Title of the info alert shown when clicking an internal developer-tools deep link.
 #: src/features/channel/components/channel_header_components/UtilityButtons.tsx:20
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:130
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:131
 #: src/features/ui/action_menu/items/StaffDeveloperUserControlsMenuItem.tsx:13
 msgid "Developer tools"
 msgstr "Geliştirici araçları"
 
 #. Body of the developer-tools info alert. Refers to the staff badge button in the channel header.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:134
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:135
 msgid "Developer tools are available from the staff badge in the channel header."
 msgstr "Geliştirici araçlarına kanal başlığındaki personel rozetinden erişilebilir."
 
@@ -13006,7 +13006,7 @@ msgstr "Bu kanaldaki roller ve üyeler için geçersiz kılmaları düzenleyin."
 
 #: src/features/app/components/floating/UserAreaPopout.tsx:755
 #: src/features/app/components/pages/YouPage.tsx:157
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:677
 #: src/features/user/components/modals/UserProfileModal.tsx:588
 #: src/features/user/components/popouts/UserProfilePopout.tsx:442
 msgid "Edit profile"
@@ -18243,7 +18243,7 @@ msgid "Invite link is hidden while sharing:"
 msgstr "Paylaşım sırasında davet bağlantısı gizlenir:"
 
 #. Inline replacement text shown for invite links while streaming privacy is active.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:146
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:147
 msgid "Invite link masked while sharing"
 msgstr "Paylaşım sırasında davet bağlantısı maskelendi"
 
@@ -19374,7 +19374,7 @@ msgid "Link styling"
 msgstr "Bağlantı stili"
 
 #. Title of the alert shown when clicking an internal link that is not available to the current account.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:138
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:139
 msgid "Link unavailable"
 msgstr "Bağlantı kullanılamıyor"
 
@@ -20581,7 +20581,7 @@ msgstr "Mesaj"
 #: src/features/ui/action_menu/items/ActionsSubmenu.tsx:41
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:710
 #: src/features/user/components/modals/UserProfileModal.tsx:563
 #: src/features/user/components/modals/UserProfileModal.tsx:771
 #: src/features/user/components/popouts/UserProfilePopout.tsx:428
@@ -21701,7 +21701,7 @@ msgstr "Ortak arkadaşlar"
 msgid "Mutual friends ({count})"
 msgstr "Ortak arkadaşlar ({count})"
 
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:833
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:837
 msgid "Mutual friends ({mutualFriendsCount})"
 msgstr "Ortak arkadaşlar ({mutualFriendsCount})"
 
@@ -22271,7 +22271,7 @@ msgid "No {sendMessagesPermission} permission"
 msgstr "{sendMessagesPermission} izni yok"
 
 #. Inline text shown inside a custom message link pill when the linked message cannot be accessed.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:126
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:127
 msgid "No access"
 msgstr "Erişim yok"
 
@@ -23008,7 +23008,7 @@ msgstr "Doğru veya yanlış değil"
 #: src/features/messaging/utils/markdown/Plaintext.ts:72
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:19
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:79
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:888
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:892
 msgid "Note"
 msgstr "Not"
 
@@ -25671,7 +25671,7 @@ msgstr "Yeni ses cihazı bağlandığında sor"
 msgid "Pronouns"
 msgstr "Zamirler"
 
-#: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:79
+#: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:87
 #: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:147
 msgid "Pronouns: "
 msgstr "Zamirler: "
@@ -29328,7 +29328,7 @@ msgstr "Dosya mesajlarını sırayla gönder"
 #. Member actions sheet menu item. Sends a friend request to the target user.
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:146
 #: src/features/guild/components/modals/guild_tabs/GuildMemberActionsSheet.tsx:94
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:110
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:112
 #: src/features/user/components/modals/UserProfileModal.tsx:128
 msgid "Send friend request"
 msgstr "Arkadaşlık isteği gönder"
@@ -29800,7 +29800,7 @@ msgstr "Tüm ses efektlerinin düzeyini ayarlar. Sese özel geçersiz kılmalar 
 msgid "Settings"
 msgstr "Ayarlar"
 
-#. Type chip suffix in tooltips for inline rendered fluxer://settings/user deep links. Lowercase.
+#. Type chip suffix in tooltips for inline rendered chatline://settings/user deep links. Lowercase.
 #: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:114
 msgid "settings link"
 msgstr "ayarlar bağlantısı"
@@ -33959,7 +33959,7 @@ msgid "This link channel is marked for mature content and may open material that
 msgstr "Bu bağlantı kanalı yetişkinlere yönelik içerik olarak işaretlenmiştir ve bazı kullanıcılar için uygunsuz olabilecek materyaller içerebilir."
 
 #. Body of the link-unavailable alert.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:142
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:143
 msgid "This link is not available for your account."
 msgstr "Bu bağlantı hesabınız için kullanılamıyor."
 
@@ -35366,7 +35366,7 @@ msgstr "Arkadaşlık isteği göndermek için önce engeli kaldırın."
 #. Button or menu action label in the user profile modal. Keep it concise. Keep the tone plain and specific.
 #. Title of the confirmation modal for unblocking a previously blocked user. Short command title.
 #: src/features/relationship/utils/RelationshipActionUtils.tsx:95
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:105
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:107
 #: src/features/user/components/modals/UserProfileModal.tsx:120
 msgid "Unblock user"
 msgstr "Kullanıcının engelini kaldır"
@@ -37265,7 +37265,7 @@ msgstr "Video"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Tooltip on the channel header button that starts a video call in a DM or group DM.
 #: src/features/channel/components/channel_header/shared.ts:43
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:757
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:761
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:199
 msgid "Video call"
@@ -37759,7 +37759,7 @@ msgid "Voice and video shortcuts"
 msgstr "Ses ve video kısayolları"
 
 #. Short label for a voice call (lobby header, DM action, settings section).
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:735
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:739
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:35
 msgid "Voice call"
 msgstr "Sesli arama"
@@ -39163,7 +39163,7 @@ msgid "You changed your nickname in this community from **{previousNickname}** t
 msgstr "Bu topluluktaki takma adınızı **{previousNickname}** yerine **{newNickname}** olarak değiştirdiniz."
 
 #. Body of the access-denied alert for clicked message links.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:122
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:123
 msgid "You do not have access to the channel where this message was sent."
 msgstr "Bu mesajın gönderildiği kanala erişiminiz yok."
 

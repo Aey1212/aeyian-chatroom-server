@@ -57,7 +57,7 @@ import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {modal} from '@app/features/ui/commands/ModalCommands';
 import * as TextCopyCommands from '@app/features/ui/commands/TextCopyCommands';
 import FocusRing from '@app/features/ui/focus_ring/FocusRing';
-import {APP_PROTOCOL_PREFIX, APP_PROTOCOL_SCHEME, isAppProtocolUrl} from '@app/features/ui/utils/AppProtocol';
+import {APP_PROTOCOL_SCHEMES, isAppProtocolUrl} from '@app/features/ui/utils/AppProtocol';
 import {openExternalUrl} from '@app/features/ui/utils/NativeUtils';
 import {
 	getUserSettingsSectionLabel,
@@ -113,8 +113,9 @@ const OPEN_SETTINGS_SECTION_DESCRIPTOR = msg({
 });
 const SETTINGS_LINK_DESCRIPTOR = msg({
 	message: 'settings link',
-	comment: 'Type chip suffix in tooltips for inline rendered fluxer://settings/user deep links. Lowercase.',
+	comment: 'Type chip suffix in tooltips for inline rendered chatline://settings/user deep links. Lowercase.',
 });
+const APP_DEV_LINKS = new Set(APP_PROTOCOL_SCHEMES.flatMap((scheme) => [`${scheme}//dev`, `${scheme}dev`]));
 const CHANNEL_ACCESS_DENIED_DESCRIPTOR = msg({
 	message: 'Channel access denied',
 	comment: 'Title of the alert shown when clicking a message link the user does not have permission to view.',
@@ -738,7 +739,7 @@ export const LinkRenderer = observer(function LinkRenderer({
 			showChannelAccessDeniedModal(i18n);
 		};
 		isInternal = true;
-	} else if (url === `${APP_PROTOCOL_PREFIX}dev` || url === `${APP_PROTOCOL_SCHEME}dev`) {
+	} else if (APP_DEV_LINKS.has(url)) {
 		handleClick = (e) => {
 			e.preventDefault();
 			if (DeveloperMode.isDeveloper) {

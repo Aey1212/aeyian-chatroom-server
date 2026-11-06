@@ -12,6 +12,8 @@ const esbuild = require('esbuild');
 
 const sourcePath = fileURLToPath(new URL('./OpenExternal.ts', import.meta.url));
 const source = readFileSync(sourcePath, 'utf8');
+const constantsSource = readFileSync(fileURLToPath(new URL('../common/Constants.ts', import.meta.url)), 'utf8');
+const APP_PROTOCOL = /export const APP_PROTOCOL = '([^']+)'/.exec(constantsSource)[1];
 const transformedSource = esbuild.transformSync(source, {
 	loader: 'ts',
 	format: 'cjs',
@@ -33,7 +35,7 @@ function loadOpenExternal() {
 		URL,
 		require: (specifier) => {
 			if (specifier === '@electron/common/Constants') {
-				return {APP_PROTOCOL: 'fluxer'};
+				return {APP_PROTOCOL};
 			}
 			if (specifier === 'electron') {
 				return {
@@ -59,7 +61,13 @@ describe('OpenExternal URL validation', () => {
 		assert.equal(shouldOpenExternalUrl('http://fluxer.app'), true);
 		assert.equal(shouldOpenExternalUrl('mailto:support@fluxer.app'), true);
 		assert.equal(shouldOpenExternalUrl('tel:+15551234567'), true);
-		assert.equal(shouldOpenExternalUrl('fluxer://invite/test'), true);
+		assert.equal(shouldOpenExternalUrl('chatline://invite/test'), true);
+	});
+
+	test('does not hand official Fluxer links to the system', () => {
+		const {shouldOpenExternalUrl} = loadOpenExternal();
+
+		assert.equal(shouldOpenExternalUrl('fluxer://invite/test'), false);
 	});
 
 	test('blocks dangerous or malformed external URLs', () => {
