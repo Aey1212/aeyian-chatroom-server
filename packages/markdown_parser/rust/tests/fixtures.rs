@@ -249,6 +249,54 @@ fn native_parser_allows_app_protocol_links() {
 }
 
 #[test]
+fn native_parser_allows_chatline_app_links() {
+    let flags = ParserFlags::ALLOW_AUTOLINKS | ParserFlags::ALLOW_MASKED_LINKS;
+    assert_eq!(
+        parse(
+            "chatline://settings/user?tab=appearance chatline:/channels/123/456 [Open gift](chatline:gift/xyz)",
+            flags,
+            ""
+        ),
+        json!({"nodes":[
+            {
+                "type":"Link",
+                "url":"chatline://settings/user?tab=appearance",
+                "escaped":false,
+                "rawUrl":"chatline://settings/user?tab=appearance",
+                "source":"chatline://settings/user?tab=appearance"
+            },
+            {"type":"Text","content":" "},
+            {
+                "type":"Link",
+                "url":"chatline:/channels/123/456",
+                "escaped":false,
+                "rawUrl":"chatline:/channels/123/456",
+                "source":"chatline:/channels/123/456"
+            },
+            {"type":"Text","content":" "},
+            {
+                "type":"Link",
+                "text":{"type":"Text","content":"Open gift"},
+                "url":"chatline:gift/xyz",
+                "escaped":false,
+                "rawUrl":"chatline:gift/xyz",
+                "source":"[Open gift](chatline:gift/xyz)"
+            }
+        ]})
+    );
+}
+
+#[test]
+fn native_parser_does_not_link_bare_chatline_scheme() {
+    assert_eq!(
+        parse("chatline: hello", ParserFlags::ALLOW_AUTOLINKS, ""),
+        json!({"nodes":[
+            {"type":"Text","content":"chatline: hello"}
+        ]})
+    );
+}
+
+#[test]
 fn native_parser_rejects_apostrophe_in_masked_link_authority() {
     let input = "[Bad](https://ex'ample.com/path)";
     assert_eq!(
