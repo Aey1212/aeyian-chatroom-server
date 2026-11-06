@@ -1474,7 +1474,7 @@ const VoiceParticipantTileInner = observer(function VoiceParticipantTileInner({
 											{participantDisplayName}
 										</span>
 									</Tooltip>
-									{connectionId && (
+									{VoiceSettings.showVoiceConnectionId && connectionId && (
 										<Tooltip
 											text={i18n._(CONNECTION_DESCRIPTOR, {connectionId})}
 											position="top"
