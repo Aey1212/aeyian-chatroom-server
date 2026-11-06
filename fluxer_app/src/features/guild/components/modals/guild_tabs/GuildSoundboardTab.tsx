@@ -5,6 +5,7 @@ import {openFilePicker} from '@app/features/messaging/utils/FilePickerUtils';
 import {formatFileSize} from '@app/features/messaging/utils/FileUtils';
 import {
 	ENTRANCE_SOUND_FILE_PICKER_ACCEPT,
+	type EntranceSoundFileValidationFailure,
 	isValidEntranceSoundFile,
 } from '@app/features/notification/utils/EntranceSoundClientValidators';
 import Permission from '@app/features/permissions/state/Permission';
@@ -48,11 +49,21 @@ const TRIM_SOUND_DESCRIPTOR = msg({
 });
 const INVALID_SOUND_FILE_DESCRIPTOR = msg({
 	message: 'Unsupported sound file',
-	comment: 'Title of the error shown when the picked soundboard file is too large or not audio.',
+	comment: 'Title of the error shown when the picked soundboard file is not a supported audio format.',
 });
 const INVALID_SOUND_FILE_BODY_DESCRIPTOR = msg({
 	message: 'Pick an MP3, OGG, M4A or WAV file of up to {limit}.',
-	comment: 'Body of the error shown when the picked soundboard file is too large or not audio. {limit} is a file size.',
+	comment:
+		'Body of the error shown when the picked soundboard file is not a supported audio format. {limit} is a file size.',
+});
+const SOUND_FILE_TOO_LARGE_DESCRIPTOR = msg({
+	message: 'File too large',
+	comment: 'Title of the error shown when the picked soundboard or entrance sound file is over the size limit.',
+});
+const SOUND_FILE_TOO_LARGE_BODY_DESCRIPTOR = msg({
+	message: 'This file is {size}. Soundboard sounds can be up to {limit}, so pick a smaller file.',
+	comment:
+		'Body of the error shown when the picked soundboard file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.',
 });
 const DELETE_SOUND_TITLE_DESCRIPTOR = msg({
 	message: 'Delete sound',
@@ -187,28 +198,36 @@ const GuildSoundboardTab: React.FC<{guildId: string}> = observer(function GuildS
 		[query, sounds],
 	);
 
-	const showInvalidFile = useCallback(() => {
-		ModalCommands.push(
-			ModalCommands.modal(() => (
-				<ConfirmModal
-					title={i18n._(INVALID_SOUND_FILE_DESCRIPTOR)}
-					description={i18n._(INVALID_SOUND_FILE_BODY_DESCRIPTOR, {
-						limit: formatFileSize(i18n.locale, SOUNDBOARD_SOUND_MAX_BYTES),
-					})}
-					primaryText={i18n._(OKAY_DESCRIPTOR)}
-					primaryVariant="primary"
-					onPrimary={() => {}}
-					data-flx="guild.guild-tabs.soundboard-tab.invalid-file"
-				/>
-			)),
-		);
-	}, [i18n]);
+	const showInvalidFile = useCallback(
+		(file: File, reason: EntranceSoundFileValidationFailure) => {
+			const limit = formatFileSize(i18n.locale, SOUNDBOARD_SOUND_MAX_BYTES);
+			const tooLarge = reason === 'too_large';
+			ModalCommands.push(
+				ModalCommands.modal(() => (
+					<ConfirmModal
+						title={i18n._(tooLarge ? SOUND_FILE_TOO_LARGE_DESCRIPTOR : INVALID_SOUND_FILE_DESCRIPTOR)}
+						description={
+							tooLarge
+								? i18n._(SOUND_FILE_TOO_LARGE_BODY_DESCRIPTOR, {size: formatFileSize(i18n.locale, file.size), limit})
+								: i18n._(INVALID_SOUND_FILE_BODY_DESCRIPTOR, {limit})
+						}
+						primaryText={i18n._(OKAY_DESCRIPTOR)}
+						primaryVariant="primary"
+						onPrimary={() => {}}
+						data-flx="guild.guild-tabs.soundboard-tab.invalid-file"
+					/>
+				)),
+			);
+		},
+		[i18n],
+	);
 
 	const upload = useCallback(async () => {
 		const [file] = await openFilePicker({accept: ENTRANCE_SOUND_FILE_PICKER_ACCEPT});
 		if (!file) return;
-		if (!isValidEntranceSoundFile(file).valid) {
-			showInvalidFile();
+		const validation = isValidEntranceSoundFile(file);
+		if (!validation.valid) {
+			showInvalidFile(file, validation.reason);
 			return;
 		}
 		openEntranceSoundTrimmerModal({

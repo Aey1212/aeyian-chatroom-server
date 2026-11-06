@@ -32,9 +32,14 @@ const INVALID_AUDIO_FILE_DESCRIPTOR = msg({
 	message: 'Invalid audio file',
 	comment: 'Error message in the use entrance sound.',
 });
+const SOUND_FILE_TOO_LARGE_DESCRIPTOR = msg({
+	message: 'File too large',
+	comment: 'Title of the error shown when the picked soundboard or entrance sound file is over the size limit.',
+});
 const ENTRANCE_SOUND_TOO_LARGE_DESCRIPTOR = msg({
-	message: 'Entrance sound files must be {limit} or less.',
-	comment: 'Error modal body shown when an entrance sound upload exceeds the client-side size limit.',
+	message: 'This file is {size}. Entrance sounds can be up to {limit}, so pick a smaller file.',
+	comment:
+		'Body of the error shown when the picked entrance sound file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.',
 });
 const ENTRANCE_SOUND_INVALID_FORMAT_DESCRIPTOR = msg({
 	message: 'Unsupported audio file.',
@@ -111,14 +116,22 @@ function deriveLibraryName(file: File): string {
 	return base.length === 0 ? 'Entrance sound' : base.slice(0, 32);
 }
 
-function validationErrorMessage(
+function showValidationError(
 	i18n: I18n,
+	file: File,
 	validation: Extract<EntranceSoundFileValidationResult, {valid: false}>,
-): string {
+): void {
 	if (validation.reason === 'too_large') {
-		return i18n._(ENTRANCE_SOUND_TOO_LARGE_DESCRIPTOR, {limit: formatFileSize(i18n.locale, ENTRANCE_SOUND_MAX_BYTES)});
+		showUserErrorModal(
+			i18n._(SOUND_FILE_TOO_LARGE_DESCRIPTOR),
+			i18n._(ENTRANCE_SOUND_TOO_LARGE_DESCRIPTOR, {
+				size: formatFileSize(i18n.locale, file.size),
+				limit: formatFileSize(i18n.locale, ENTRANCE_SOUND_MAX_BYTES),
+			}),
+		);
+		return;
 	}
-	return i18n._(ENTRANCE_SOUND_INVALID_FORMAT_DESCRIPTOR);
+	showUserErrorModal(i18n._(INVALID_AUDIO_FILE_DESCRIPTOR), i18n._(ENTRANCE_SOUND_INVALID_FORMAT_DESCRIPTOR));
 }
 
 function useEntranceSoundImpl(selectedScope: EntranceSoundScope): UseEntranceSoundReturn {
@@ -204,7 +217,7 @@ function useEntranceSoundImpl(selectedScope: EntranceSoundScope): UseEntranceSou
 		if (!file) return;
 		const validation = isValidEntranceSoundFile(file);
 		if (!validation.valid) {
-			showUserErrorModal(i18n._(INVALID_AUDIO_FILE_DESCRIPTOR), validationErrorMessage(i18n, validation));
+			showValidationError(i18n, file, validation);
 			return;
 		}
 		const proposedName = deriveLibraryName(file);

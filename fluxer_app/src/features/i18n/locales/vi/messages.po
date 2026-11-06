@@ -9633,7 +9633,7 @@ msgstr "Không thể giải mã tệp âm thanh này."
 msgid "Could not load the instance configuration. Try reloading the page."
 msgstr "Không thể tải cấu hình máy chủ. Hãy thử tải lại trang."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:280
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:299
 #: src/features/soundboard/components/SoundboardPopout.tsx:183
 msgid "Could not load this community's sounds."
 msgstr "Không thể tải âm thanh của cộng đồng này."
@@ -9952,7 +9952,7 @@ msgid "Couldn't rejoin the Visionary community"
 msgstr "Không thể tham gia lại cộng đồng Visionary"
 
 #. Error message in the use entrance sound. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:55
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:60
 msgid "Couldn't remove entrance sound"
 msgstr "Không thể xóa âm thanh vào phòng"
 
@@ -10007,7 +10007,7 @@ msgid "Couldn't run that command: {detail}"
 msgstr "Không thể chạy lệnh đó: {detail}"
 
 #. Error message in the use entrance sound.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:47
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:52
 msgid "Couldn't save entrance sound"
 msgstr "Không thể lưu âm thanh vào phòng"
 
@@ -10616,7 +10616,7 @@ msgstr "Biểu tượng cảm xúc tùy chỉnh {emojiName} từ một cộng đ
 
 #. Error modal body shown when custom entrance sounds are disabled on the instance.
 #: src/features/user/components/modals/tabs/components/EntranceSoundSection.tsx:471
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:71
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:76
 msgid "Custom entrance sounds are not enabled on this instance."
 msgstr "Âm thanh vào phòng tùy chỉnh chưa được bật trên máy chủ này."
 
@@ -11237,8 +11237,8 @@ msgstr "Delaware"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:204
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:216
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:35
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:65
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:81
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:76
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:92
 #: src/features/messaging/commands/MessageCommands.tsx:79
 #: src/features/moderation/components/report_modal/IARModalCopy.ts:109
 #: src/features/platform/utils/DesktopLocaleBridge.ts:76
@@ -11296,7 +11296,7 @@ msgid "Delete {fileName}"
 msgstr "Xóa {fileName}"
 
 #. Body of the confirmation dialog for deleting a soundboard sound. {name} is the sound name.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:61
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:72
 msgid "Delete {name}? Nobody will be able to play it any more."
 msgstr "Xóa {name}? Sẽ không ai phát được âm thanh này nữa."
 
@@ -11458,7 +11458,7 @@ msgid "Delete shortcut"
 msgstr "Xóa phím tắt"
 
 #. Title of the confirmation dialog for deleting a soundboard sound.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:57
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:68
 msgid "Delete sound"
 msgstr "Xóa âm thanh"
 
@@ -12861,7 +12861,7 @@ msgstr "Khử tiếng vọng"
 #. Tooltip of the button that edits a soundboard sound.
 #. Top-level native menu bar title (Edit menu, holds cut/copy/paste).
 #: src/features/emoji/components/stickers/StickerGridItem.tsx:43
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:77
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:88
 #: src/features/platform/utils/DesktopLocaleBridge.ts:47
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:35
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:51
@@ -14037,23 +14037,18 @@ msgstr "Toàn bộ âm thanh hệ thống"
 msgid "Entrance sound"
 msgstr "Âm thanh vào phòng"
 
-#. Error modal body shown when an entrance sound upload exceeds the client-side size limit.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:35
-msgid "Entrance sound files must be {limit} or less."
-msgstr "Tệp âm thanh vào phòng phải có kích thước tối đa {limit}."
-
 #. Title of the error modal shown when the entrance sound library quota is reached.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:59
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:64
 msgid "Entrance sound library full"
 msgstr "Thư viện âm thanh vào phòng đã đầy"
 
 #. Short label in the use entrance sound. Keep it concise. Keep the tone plain and specific.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:51
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:56
 msgid "Entrance sound removed"
 msgstr "Đã xóa âm thanh vào phòng"
 
 #. Short label in the use entrance sound. Keep it concise.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:43
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:48
 msgid "Entrance sound saved"
 msgstr "Đã lưu âm thanh vào phòng"
 
@@ -14070,7 +14065,7 @@ msgid "Entrance sounds"
 msgstr "Âm thanh vào phòng"
 
 #. Title of the error modal shown when custom entrance sounds are disabled on the instance.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:67
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:72
 msgid "Entrance sounds unavailable"
 msgstr "Âm thanh vào phòng không khả dụng"
 
@@ -14960,6 +14955,13 @@ msgstr "Kích thước tệp vượt quá giới hạn"
 #: src/features/messaging/components/alerts/FileSizeTooLargeModal.tsx:31
 msgid "File size too large"
 msgstr "Kích thước tệp quá lớn"
+
+#. Title of the error shown when the picked soundboard or entrance sound file is over the size limit.
+#. Title of the error shown when the picked soundboard or entrance sound file is over the size limit.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:59
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:35
+msgid "File too large"
+msgstr "Tệp quá lớn"
 
 #. Label for the has:file filter option in the mobile channel search sheet.
 #: src/features/channel/components/bottomsheets/ChannelSearchBottomSheet.tsx:108
@@ -19220,7 +19222,7 @@ msgid "Library"
 msgstr "Thư viện"
 
 #. Error modal body shown when entrance sound library quota is reached.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:63
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:68
 msgid "Library full ({max} sounds max). Delete one before adding another."
 msgstr "Thư viện đã đầy (tối đa {max} âm thanh). Xóa một mục trước khi thêm mục khác."
 
@@ -20421,7 +20423,7 @@ msgid "Members are removed when offline unless given a role."
 msgstr "Thành viên sẽ bị xóa khỏi cộng đồng khi ngoại tuyến trừ khi được cấp vai trò."
 
 #. Intro text of the community soundboard settings. {seconds} is the maximum length, {size} a file size.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:36
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:37
 msgid "Members in a voice channel can play these sounds for everyone there. Each sound can be up to {seconds} seconds and {size}."
 msgstr "Thành viên trong kênh thoại có thể phát các âm thanh này cho mọi người ở đó. Mỗi âm thanh dài tối đa {seconds} giây và nặng tối đa {size}."
 
@@ -22722,12 +22724,12 @@ msgstr "Chưa đặt phím tắt"
 msgid "No shortcuts match that search."
 msgstr "Không có phím tắt nào khớp với tìm kiếm đó."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:288
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:307
 #: src/features/soundboard/components/SoundboardPopout.tsx:191
 msgid "No sounds match your search."
 msgstr "Không có âm thanh nào khớp với tìm kiếm của bạn."
 
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:284
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:303
 msgid "No sounds yet."
 msgstr "Chưa có âm thanh nào."
 
@@ -23195,7 +23197,7 @@ msgstr "OK"
 
 #. Button that closes an error dialog in the community soundboard settings.
 #. Generic acknowledgement button on an informational alert. Closes the alert. Use for benign confirms; for "I have read and understood" use UNDERSTOOD_DESCRIPTOR.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:69
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:80
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:102
 msgid "Okay"
 msgstr "Đồng ý"
@@ -24713,8 +24715,8 @@ msgstr "Chọn nhà cung cấp bản dịch"
 msgid "Pick a web search provider"
 msgstr "Chọn nhà cung cấp tìm kiếm web"
 
-#. Body of the error shown when the picked soundboard file is too large or not audio. {limit} is a file size.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:53
+#. Body of the error shown when the picked soundboard file is not a supported audio format. {limit} is a file size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:54
 msgid "Pick an MP3, OGG, M4A or WAV file of up to {limit}."
 msgstr "Chọn tệp MP3, OGG, M4A hoặc WAV có kích thước tối đa {limit}."
 
@@ -25263,7 +25265,7 @@ msgstr "Ngăn thành viên gửi tin nhắn, bày tỏ cảm xúc và tham gia k
 #. Tooltip of the button that plays a soundboard sound only for yourself.
 #: src/features/expressions/components/modals/sticker_form/StickerPreview.tsx:21
 #: src/features/guild/components/modals/guild_tabs/guild_overview_tab/fields/GuildInviteSplashSettingsField.tsx:45
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:73
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:84
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:239
 #: src/features/user/components/modals/tabs/EmbedDebuggerTab.tsx:275
 msgid "Preview"
@@ -28833,7 +28835,7 @@ msgstr "Tìm kiếm phím tắt…"
 
 #. Placeholder of the search box in the community soundboard settings.
 #. Placeholder of the search box in the voice channel soundboard.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:41
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:42
 #: src/features/soundboard/components/SoundboardPopout.tsx:27
 msgid "Search sounds"
 msgstr "Tìm âm thanh"
@@ -33783,6 +33785,16 @@ msgstr "Tệp này có dung lượng {fileSize}, vượt quá giới hạn {maxS
 msgid "This file is {fileSize}, over the {maxSize} limit. Animated stickers and SVGs must already be small enough to upload. Choose a smaller file or shorten the animation."
 msgstr "Tệp này có dung lượng {fileSize}, vượt quá giới hạn {maxSize}. Nhãn dán động và SVG phải đủ nhỏ để tải lên. Hãy chọn tệp nhỏ hơn hoặc rút ngắn ảnh động."
 
+#. Body of the error shown when the picked entrance sound file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:39
+msgid "This file is {size}. Entrance sounds can be up to {limit}, so pick a smaller file."
+msgstr "Tệp này có dung lượng {size}. Âm thanh vào phòng chỉ được tối đa {limit}, vì vậy hãy chọn tệp nhỏ hơn."
+
+#. Body of the error shown when the picked soundboard file is over the size limit. {size} is the size of the picked file, {limit} the maximum allowed size.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:63
+msgid "This file is {size}. Soundboard sounds can be up to {limit}, so pick a smaller file."
+msgstr "Tệp này có dung lượng {size}. Âm thanh trên bảng âm thanh chỉ được tối đa {limit}, vì vậy hãy chọn tệp nhỏ hơn."
+
 #. Empty state title in the friends list when the user has no friends. Tone can be friendly and playful.
 #: src/features/channel/components/friends/views/FriendsList.tsx:25
 msgid "This friends list needs more power"
@@ -34758,7 +34770,7 @@ msgid "Trim entrance sound"
 msgstr "Cắt âm thanh vào phòng"
 
 #. Title of the audio trimmer when uploading a soundboard sound.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:45
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:46
 msgid "Trim sound"
 msgstr "Cắt âm thanh"
 
@@ -35969,7 +35981,7 @@ msgid "Unsaved changes"
 msgstr "Thay đổi chưa lưu"
 
 #. Error modal body shown when an entrance sound upload has an unsupported audio format.
-#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:39
+#: src/features/user/components/modals/tabs/hooks/useEntranceSound.ts:44
 msgid "Unsupported audio file."
 msgstr "Tệp âm thanh không được hỗ trợ."
 
@@ -35990,8 +36002,8 @@ msgstr "Loại tệp không được hỗ trợ."
 msgid "Unsupported icon format"
 msgstr "Định dạng biểu tượng không được hỗ trợ"
 
-#. Title of the error shown when the picked soundboard file is too large or not audio.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:49
+#. Title of the error shown when the picked soundboard file is not a supported audio format.
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:50
 msgid "Unsupported sound file"
 msgstr "Tệp âm thanh không được hỗ trợ"
 
@@ -36236,7 +36248,7 @@ msgid "Upload preview frames for screen shares."
 msgstr "Tải lên các khung hình xem trước cho tính năng chia sẻ màn hình."
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:270
+#: src/features/guild/components/modals/guild_tabs/GuildSoundboardTab.tsx:289
 #: src/features/user/components/settings_utils/section_registry/NotificationsSections.ts:200
 msgid "Upload sound"
 msgstr "Tải âm thanh lên"
