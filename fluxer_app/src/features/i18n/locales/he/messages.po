@@ -7014,7 +7014,7 @@ msgid "Channel access"
 msgstr "גישה לערוץ"
 
 #. Title of the alert shown when clicking a message link the user does not have permission to view.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:118
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:119
 msgid "Channel access denied"
 msgstr "הגישה לערוץ נדחתה"
 
@@ -11821,13 +11821,13 @@ msgstr "מצב מפתח"
 #. Short label in the channel and chat utility buttons. Keep it concise.
 #. Title of the info alert shown when clicking an internal developer-tools deep link.
 #: src/features/channel/components/channel_header_components/UtilityButtons.tsx:20
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:130
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:131
 #: src/features/ui/action_menu/items/StaffDeveloperUserControlsMenuItem.tsx:13
 msgid "Developer tools"
 msgstr "כלי מפתחים"
 
 #. Body of the developer-tools info alert. Refers to the staff badge button in the channel header.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:134
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:135
 msgid "Developer tools are available from the staff badge in the channel header."
 msgstr "כלי מפתחים זמינים דרך תג הצוות בכותרת הערוץ."
 
@@ -18245,7 +18245,7 @@ msgid "Invite link is hidden while sharing:"
 msgstr "קישור ההזמנה מוסתר בזמן שיתוף:"
 
 #. Inline replacement text shown for invite links while streaming privacy is active.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:146
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:147
 msgid "Invite link masked while sharing"
 msgstr "קישור ההזמנה מוסתר בזמן שיתוף"
 
@@ -19376,7 +19376,7 @@ msgid "Link styling"
 msgstr "עיצוב קישורים"
 
 #. Title of the alert shown when clicking an internal link that is not available to the current account.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:138
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:139
 msgid "Link unavailable"
 msgstr "הקישור אינו זמין"
 
@@ -22273,7 +22273,7 @@ msgid "No {sendMessagesPermission} permission"
 msgstr "אין הרשאת {sendMessagesPermission}"
 
 #. Inline text shown inside a custom message link pill when the linked message cannot be accessed.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:126
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:127
 msgid "No access"
 msgstr "אין גישה"
 
@@ -29802,7 +29802,7 @@ msgstr "קובע את העוצמה לכל אפקט קולי. הגדרות ספצ
 msgid "Settings"
 msgstr "הגדרות"
 
-#. Type chip suffix in tooltips for inline rendered fluxer://settings/user deep links. Lowercase.
+#. Type chip suffix in tooltips for inline rendered chatline://settings/user deep links. Lowercase.
 #: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:114
 msgid "settings link"
 msgstr "קישור להגדרות"
@@ -33971,7 +33971,7 @@ msgid "This link channel is marked for mature content and may open material that
 msgstr "ערוץ קישור זה מסומן ככולל תוכן למבוגרים ועשוי להכיל חומר שאינו הולם עבור חלק מהמשתמשים."
 
 #. Body of the link-unavailable alert.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:142
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:143
 msgid "This link is not available for your account."
 msgstr "הקישור הזה אינו זמין לחשבון שלך."
 
@@ -39175,7 +39175,7 @@ msgid "You changed your nickname in this community from **{previousNickname}** t
 msgstr "שינית את הכינוי שלך בקהילה זו מ-**{previousNickname}** ל-**{newNickname}**."
 
 #. Body of the access-denied alert for clicked message links.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:122
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:123
 msgid "You do not have access to the channel where this message was sent."
 msgstr "אין לך גישה לערוץ שבו נשלחה ההודעה הזו."
 

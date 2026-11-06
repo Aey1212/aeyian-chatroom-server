@@ -321,7 +321,7 @@ const linuxDesktopEntry = {
 	StartupWMClass: linuxPackageName,
 	StartupNotify: 'true',
 	SingleMainWindow: 'true',
-	MimeType: 'x-scheme-handler/fluxer;',
+	MimeType: 'x-scheme-handler/chatline;',
 	'X-GNOME-UsesNotifications': 'true',
 };
 const linuxDesktopEntryWithActions = {
@@ -1379,7 +1379,7 @@ module.exports = {
 		{
 			name: appId,
 			role: 'Viewer',
-			schemes: ['fluxer'],
+			schemes: ['chatline'],
 		},
 	],
 	beforePack: verifyNativePackageInputs,

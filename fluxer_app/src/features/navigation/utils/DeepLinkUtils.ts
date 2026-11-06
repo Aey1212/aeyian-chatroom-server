@@ -10,7 +10,7 @@ import * as RouterUtils from '@app/features/navigation/utils/RouterUtils';
 import {Logger} from '@app/features/platform/utils/AppLogger';
 import {ComponentBus} from '@app/features/platform/utils/ComponentBus';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
-import {APP_PROTOCOL_SCHEME, isAppProtocolUrl} from '@app/features/ui/utils/AppProtocol';
+import {appProtocolSchemeLengthAt, isAppProtocolScheme, isAppProtocolUrl} from '@app/features/ui/utils/AppProtocol';
 import {getElectronAPI} from '@app/features/ui/utils/NativeUtils';
 import * as UserProfileCommands from '@app/features/user/commands/UserProfileCommands';
 import {UserSettingsModal} from '@app/features/user/components/modals/UserSettingsModal';
@@ -55,12 +55,12 @@ function normalizeAppRoutePath(rawUrl: string): string | null {
 	if (!isAppProtocolUrl(rawUrl)) return null;
 	try {
 		const parsed = new URL(rawUrl);
-		if (parsed.protocol.toLowerCase() !== APP_PROTOCOL_SCHEME) return null;
+		if (!isAppProtocolScheme(parsed.protocol)) return null;
 		const host = parsed.hostname;
 		const path = host && host !== '-' ? `/${host}${parsed.pathname}` : parsed.pathname || '/';
 		return `${path.startsWith('/') ? path : `/${path}`}${parsed.search}${parsed.hash}`;
 	} catch {
-		const path = rawUrl.slice(APP_PROTOCOL_SCHEME.length);
+		const path = rawUrl.slice(appProtocolSchemeLengthAt(rawUrl.toLowerCase()));
 		return path.startsWith('/') ? path : `/${path}`;
 	}
 }

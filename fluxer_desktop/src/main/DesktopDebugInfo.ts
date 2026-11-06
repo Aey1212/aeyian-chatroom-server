@@ -156,8 +156,9 @@ function getLogFilePath(): string | null {
 }
 
 function sanitizeLaunchArg(arg: string): string {
-	if (/^fluxer:\/\//i.test(arg)) {
-		return 'fluxer://<redacted>';
+	const appLink = /^(chatline|fluxer):\/\//i.exec(arg);
+	if (appLink) {
+		return `${appLink[1].toLowerCase()}://<redacted>`;
 	}
 	if (arg.startsWith('--fluxer-app-url=')) {
 		return `--fluxer-app-url=${sanitizeUrlForDiagnostics(arg.slice('--fluxer-app-url='.length))}`;

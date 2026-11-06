@@ -7014,7 +7014,7 @@ msgid "Channel access"
 msgstr "Pristup kanalu"
 
 #. Title of the alert shown when clicking a message link the user does not have permission to view.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:118
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:119
 msgid "Channel access denied"
 msgstr "Pristup kanalu odbijen"
 
@@ -11821,13 +11821,13 @@ msgstr "Stanje za razvojne programere"
 #. Short label in the channel and chat utility buttons. Keep it concise.
 #. Title of the info alert shown when clicking an internal developer-tools deep link.
 #: src/features/channel/components/channel_header_components/UtilityButtons.tsx:20
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:130
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:131
 #: src/features/ui/action_menu/items/StaffDeveloperUserControlsMenuItem.tsx:13
 msgid "Developer tools"
 msgstr "Alati za razvojne programere"
 
 #. Body of the developer-tools info alert. Refers to the staff badge button in the channel header.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:134
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:135
 msgid "Developer tools are available from the staff badge in the channel header."
 msgstr "Alati za razvojne programere dostupni su putem značke osoblja u zaglavlju kanala."
 
@@ -18245,7 +18245,7 @@ msgid "Invite link is hidden while sharing:"
 msgstr "Poveznica za pozivnicu skrivena je tijekom dijeljenja:"
 
 #. Inline replacement text shown for invite links while streaming privacy is active.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:146
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:147
 msgid "Invite link masked while sharing"
 msgstr "Poveznica za pozivnicu maskirana tijekom dijeljenja"
 
@@ -19376,7 +19376,7 @@ msgid "Link styling"
 msgstr "Stil poveznica"
 
 #. Title of the alert shown when clicking an internal link that is not available to the current account.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:138
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:139
 msgid "Link unavailable"
 msgstr "Poveznica nije dostupna"
 
@@ -22273,7 +22273,7 @@ msgid "No {sendMessagesPermission} permission"
 msgstr "Nema dopuštenja {sendMessagesPermission}"
 
 #. Inline text shown inside a custom message link pill when the linked message cannot be accessed.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:126
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:127
 msgid "No access"
 msgstr "Nema pristupa"
 
@@ -29802,7 +29802,7 @@ msgstr "Postavlja razinu za svaki zvučni efekt. Nadjačavanja za pojedine zvuko
 msgid "Settings"
 msgstr "Postavke"
 
-#. Type chip suffix in tooltips for inline rendered fluxer://settings/user deep links. Lowercase.
+#. Type chip suffix in tooltips for inline rendered chatline://settings/user deep links. Lowercase.
 #: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:114
 msgid "settings link"
 msgstr "poveznica postavki"
@@ -33971,7 +33971,7 @@ msgid "This link channel is marked for mature content and may open material that
 msgstr "Ovaj kanal s poveznicama označen je kao sadržaj za odrasle i može otvoriti materijal koji možda nije prikladan za neke korisnike."
 
 #. Body of the link-unavailable alert.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:142
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:143
 msgid "This link is not available for your account."
 msgstr "Ova poveznica nije dostupna za vaš račun."
 
@@ -39175,7 +39175,7 @@ msgid "You changed your nickname in this community from **{previousNickname}** t
 msgstr "Promijenili ste nadimak u ovoj zajednici iz **{previousNickname}** u **{newNickname}**."
 
 #. Body of the access-denied alert for clicked message links.
-#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:122
+#: src/features/messaging/components/markdown/renderers/LinkRenderer.tsx:123
 msgid "You do not have access to the channel where this message was sent."
 msgstr "Nemate pristup kanalu u kojem je poslana ova poruka."
 
