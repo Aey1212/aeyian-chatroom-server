@@ -23,7 +23,7 @@ const APPIMAGE_SHA256 = 'a'.repeat(64);
 const DEB_SHA256 = 'b'.repeat(64);
 const TAR_GZ_SHA256 = 'c'.repeat(64);
 
-function loadUpdaterDownloads({channel = 'stable', platform = 'linux', arch = 'x64'} = {}) {
+function loadUpdaterDownloads({channel = 'stable', platform = 'linux', arch = 'x64', env = {}} = {}) {
 	function requireStub(specifier) {
 		if (specifier === '@electron/common/BuildChannel') return {BUILD_CHANNEL: channel};
 		throw new Error(`Unexpected import: ${specifier}`);
@@ -34,7 +34,7 @@ function loadUpdaterDownloads({channel = 'stable', platform = 'linux', arch = 'x
 		require: requireStub,
 		module,
 		exports: module.exports,
-		process: {platform, arch},
+		process: {platform, arch, env},
 	});
 	vm.runInContext(transformedSource, context, {filename: sourcePath});
 	return module.exports;
@@ -199,7 +199,10 @@ describe('UpdaterDownloads manual download url', () => {
 		const stable = loadUpdaterDownloads({channel: 'stable', platform: 'darwin'});
 		const canary = loadUpdaterDownloads({channel: 'canary', platform: 'win32'});
 
-		assert.equal(stable.getManualDownloadUrl(latestInfo('2026.910.101500')), 'https://fluxer.app/download');
+		assert.equal(
+			stable.getManualDownloadUrl(latestInfo('2026.910.101500')),
+			'https://github.com/Aey1212/aeyian-chatroom-server/releases/latest',
+		);
 		assert.equal(canary.getManualDownloadUrl(latestInfo('2026.910.101500')), 'https://canary.fluxer.app/download');
 	});
 });

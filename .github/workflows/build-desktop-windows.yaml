@@ -3,6 +3,8 @@ name: build desktop windows
 # Builds the Aeyian Chatline Windows app (x64): the Windows steps of upstream's desktop workflow (removed from this
 # fork in df14f5b68 because they need Fluxer's signing and release secrets), then an unsigned Velopack installer with
 # our own ids, then a smoke test that installs it on the runner and checks it opens chat.aeyempire.com.
+# Dispatched with publish, it then creates the public GitHub Release desktop-v<version> that installed apps
+# auto-update from.
 
 on:
   workflow_dispatch:
@@ -12,6 +14,11 @@ on:
         required: false
         default: "1.0.0"
         type: string
+      publish:
+        description: Publish a public GitHub Release desktop-v<version>, which installed apps update from
+        required: false
+        default: false
+        type: boolean
   push:
     branches:
       - desktop-windows
@@ -24,7 +31,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: desktop-windows-${{ github.ref }}
+  group: desktop-windows-${{ github.ref }}-${{ inputs.version || 'push' }}
   cancel-in-progress: true
 
 jobs:
@@ -32,6 +39,9 @@ jobs:
     name: Build Windows (x64)
     runs-on: windows-2025
     timeout-minutes: 180
+    permissions:
+      # Write is only used by the "Publish GitHub Release" step, which runs only when dispatched with publish.
+      contents: write
     env:
       BUILD_CHANNEL: stable
       RELEASE_CHANNEL: stable
@@ -180,7 +190,8 @@ jobs:
             --runtime win-x64 `
             --icon build_resources/icons-stable/icon.ico `
             --outputDir dist-electron/velopack-windows-x64 `
-            --delta None
+            --delta None `
+            --noPortable
           if ($LASTEXITCODE -ne 0) { throw "vpk pack failed" }
           Get-ChildItem dist-electron/velopack-windows-x64 | Format-Table Name, Length
 
@@ -214,3 +225,22 @@ jobs:
           name: aeyian-chatline-windows-smoke-${{ env.VERSION }}
           path: ${{ env.WORKDIR }}/fluxer_desktop/smoke/
           if-no-files-found: warn
+
+      # Public: installed apps update from the newest release (UpdaterDownloads.ts VELOPACK_FEED_URL).
+      # Only when dispatched with publish, after the smoke test passed.
+      - name: Publish GitHub Release
+        if: ${{ success() && github.event_name == 'workflow_dispatch' && inputs.publish }}
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .velopack/vpk.exe --yes upload github `
+            --repoUrl "${{ github.server_url }}/${{ github.repository }}" `
+            --token $env:GITHUB_TOKEN `
+            --outputDir dist-electron/velopack-windows-x64 `
+            --tag "desktop-v$env:VERSION" `
+            --releaseName "Aeyian Chatline $env:VERSION" `
+            --targetCommitish "${{ github.sha }}" `
+            --publish
+          if ($LASTEXITCODE -ne 0) { throw "vpk upload github failed" }

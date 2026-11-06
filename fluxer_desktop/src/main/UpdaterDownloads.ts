@@ -18,9 +18,19 @@ function getDesktopDownloadArch(arch: NodeJS.Architecture): DesktopDownloadArch 
 
 const DESKTOP_DOWNLOAD_ARCH = getDesktopDownloadArch(process.arch);
 const UPDATE_API_ENDPOINT = BUILD_CHANNEL === 'canary' ? 'https://api.canary.fluxer.app' : 'https://api.fluxer.app';
+// Upstream's manual-download API (macOS, portable and unmanaged Linux builds). Aeyian Chatline ships none of those:
+// Windows updates through Velopack (VELOPACK_FEED_URL below) and Linux through its package.
 export const UPDATE_BASE_URL = `${UPDATE_API_ENDPOINT}/dl/desktop/${BUILD_CHANNEL}/${process.platform}/${DESKTOP_DOWNLOAD_ARCH}`;
+// Aeyian Chatline's Windows updates come from the fork's GitHub Releases: Velopack reads releases.win.json and the
+// .nupkg next to it, and GitHub's /releases/latest/download/<file> serves them from the newest release.
+const CHATLINE_RELEASES_URL = 'https://github.com/Aey1212/aeyian-chatroom-server/releases';
+// Only for testing an update against a local feed, e.g. CHATLINE_UPDATE_URL=http://10.0.2.2:8000
+const UPDATE_URL_OVERRIDE = process.env.CHATLINE_UPDATE_URL?.trim().replace(/\/+$/, '') || null;
+export const VELOPACK_FEED_URL =
+	UPDATE_URL_OVERRIDE ?? (BUILD_CHANNEL === 'canary' ? UPDATE_BASE_URL : `${CHATLINE_RELEASES_URL}/latest/download`);
+// Until the download page at chat.aeyempire.com/launcher exists (roadmap A5), the GitHub releases page.
 export const DOWNLOAD_PAGE_URL =
-	BUILD_CHANNEL === 'canary' ? 'https://canary.fluxer.app/download' : 'https://fluxer.app/download';
+	BUILD_CHANNEL === 'canary' ? 'https://canary.fluxer.app/download' : `${CHATLINE_RELEASES_URL}/latest`;
 
 export const MANUAL_DESKTOP_FORMATS = ['setup', 'dmg', 'zip', 'appimage', 'deb', 'rpm', 'tar_gz'] as const;
 

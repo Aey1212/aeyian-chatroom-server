@@ -14,6 +14,7 @@ import {
 	type ManualLatestInfo,
 	UPDATE_BASE_URL,
 	type UpdaterDownloadOption,
+	VELOPACK_FEED_URL,
 } from '@electron/main/UpdaterDownloads';
 import {setQuitting} from '@electron/main/Window';
 import {app, autoUpdater, type BrowserWindow, ipcMain} from 'electron';
@@ -126,7 +127,7 @@ function getVelopackUpdateSize(update: VelopackUpdate): number | null {
 
 function createVelopackUpdateManager() {
 	const {UpdateManager} = requireModule('velopack') as typeof import('velopack');
-	return new UpdateManager(UPDATE_BASE_URL);
+	return new UpdateManager(VELOPACK_FEED_URL);
 }
 
 async function checkVelopackForUpdates(
@@ -526,10 +527,10 @@ function registerManualUpdater(
 	});
 }
 
-const UPDATES_DISABLED = true;
-
 export function registerUpdater(getMainWindow: () => BrowserWindow | null) {
-	if (UPDATES_DISABLED) {
+	// Aeyian Chatline updates itself only on Windows (Velopack, from GitHub Releases). The Linux app is updated by its
+	// package, and no macOS build is made.
+	if (process.platform !== 'win32') {
 		registerManualUpdater(getMainWindow, 'managed-package');
 		return;
 	}
