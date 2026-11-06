@@ -37,6 +37,7 @@
 	},
 	"workspaces": {
 		".": {
+			"entry": [".github/scripts/*.mjs"],
 			"ignoreDependencies": ["vite"]
 		},
 		"fluxer_api": {
