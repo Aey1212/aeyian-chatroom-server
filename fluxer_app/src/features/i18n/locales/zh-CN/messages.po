@@ -28,7 +28,7 @@ msgid "(edited)"
 msgstr "（已编辑）"
 
 #: src/features/app/components/pages/YouPage.tsx:189
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:894
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:898
 msgid "(only visible to you)"
 msgstr "（仅自己可见）"
 
@@ -2508,7 +2508,7 @@ msgstr "关于 {appName}"
 #. Short label in the user profile shared popout. Keep it concise.
 #: src/features/app/components/pages/YouPage.tsx:166
 #: src/features/user/components/modals/tabs/my_profile_tab/BioEditor.tsx:26
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:778
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:782
 #: src/features/user/components/popouts/UserProfileShared.tsx:41
 #: src/features/user/components/settings_utils/search_index/MyProfileIndex.ts:133
 msgid "About me"
@@ -2586,7 +2586,7 @@ msgstr "访问你的基本资料（用户名、头像等）"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. User settings tab for accessibility preferences (visual, motion, screen reader, etc.).
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedSettingsCategories.ts:14
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:93
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:98
 #: src/features/user/components/settings_utils/SettingsConstants.tsx:61
 msgid "Accessibility"
 msgstr "无障碍"
@@ -4650,7 +4650,7 @@ msgstr "附件"
 #. Generic tab / section / category label for audio content or settings.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:250
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:170
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:175
 msgid "Audio"
 msgstr "音频"
 
@@ -6149,7 +6149,7 @@ msgid "California"
 msgstr "加利福尼亚州"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:150
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:155
 msgid "Call"
 msgstr "通话"
 
@@ -7233,7 +7233,7 @@ msgid "Chat font size"
 msgstr "聊天字体大小"
 
 #. Settings search synonym. Refers to the message composer area.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:65
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:70
 msgid "chat input"
 msgstr "聊天输入框"
 
@@ -8658,7 +8658,7 @@ msgid "Community updated"
 msgstr "社区已更新"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:35
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:45
 msgid "Community voice"
 msgstr "社区语音"
 
@@ -8839,8 +8839,8 @@ msgstr "确认"
 
 #. Settings search entry label. Names the settings search entry in the settings UI.
 #. Short label for an advanced voice-channel safety preference.
-#: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls.tsx:21
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:15
+#: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls.tsx:24
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:25
 msgid "Confirm before joining voice channels"
 msgstr "加入语音频道前确认"
 
@@ -8881,7 +8881,7 @@ msgstr "确认密码"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:27
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:37
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:398
 msgid "Confirm voice join"
 msgstr "确认语音加入"
@@ -8892,7 +8892,7 @@ msgid "Confirmation"
 msgstr "确认"
 
 #. Settings search entry description. One-line summary of what the settings search entry controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:43
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:53
 msgid "Confirmation or double-click for community voice joins"
 msgstr "加入社区语音频道时需确认或双击"
 
@@ -8982,8 +8982,10 @@ msgctxt "voice-connection-status"
 msgid "Connection failed"
 msgstr "连接失败"
 
+#. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Voice stats field label (mobile lobby). Shows the voice connection identifier. Developer / debug surface.
 #. Voice stats field label (mobile voice lobby). Developer / debug surface.
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:20
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:126
 #: src/features/voice/components/bottomsheets/VoiceLobbyBottomSheet.tsx:94
 msgid "Connection ID"
@@ -9119,7 +9121,7 @@ msgstr "内容安全拦截"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/ui/action_menu/ContextMenu.tsx:23
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:225
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:154
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:159
 msgid "Context menu"
 msgstr "上下文菜单"
 
@@ -11248,7 +11250,7 @@ msgstr "特拉华州"
 #: src/features/user/components/modals/tabs/component_gallery_tab/ComponentGalleryTabButtonsTab.tsx:290
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:238
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:154
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:190
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:195
 msgid "Delete"
 msgstr "删除"
 
@@ -11543,7 +11545,7 @@ msgid "Deleted {duration} of the member's recent message history"
 msgstr "删除了该成员最近 {duration} 的消息记录"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:114
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:119
 msgid "Deleted text"
 msgstr "删除线文字"
 
@@ -11918,7 +11920,7 @@ msgid "Different sizes & member counts"
 msgstr "不同尺寸和成员数量"
 
 #. Toggle label and settings search entry for slightly muting text formatted with Markdown strikethrough.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:97
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:102
 msgid "Dim strikethrough text"
 msgstr "调暗删除线文本"
 
@@ -11933,7 +11935,7 @@ msgstr "直接输入"
 #: src/features/channel/components/bottomsheets/channel_details_bottom_sheet/ChannelDetailsBottomSheetShared.ts:14
 #: src/features/channel/components/channel_header_components/developer_tools/MockingMenu.tsx:398
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:562
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:85
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:90
 msgid "Direct message"
 msgstr "私信"
 
@@ -12331,7 +12333,7 @@ msgid "District of Columbia"
 msgstr "哥伦比亚特区"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:182
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:187
 msgid "DM"
 msgstr "私信"
 
@@ -13006,7 +13008,7 @@ msgstr "编辑此频道中身份组和成员的权限覆盖。"
 
 #: src/features/app/components/floating/UserAreaPopout.tsx:755
 #: src/features/app/components/pages/YouPage.tsx:157
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:673
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:677
 #: src/features/user/components/modals/UserProfileModal.tsx:588
 #: src/features/user/components/popouts/UserProfilePopout.tsx:442
 msgid "Edit profile"
@@ -13284,7 +13286,7 @@ msgstr "Ember"
 #: src/features/emoji/components/emojis/EmojiListItem.tsx:337
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:177
 #: src/features/theme_studio/sections/TokenGroups.ts:114
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:162
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:167
 msgid "Emoji"
 msgstr "表情"
 
@@ -13504,7 +13506,7 @@ msgid "Enable extra option"
 msgstr "启用额外选项"
 
 #. Toggle label and settings search entry for controlling whether favorites are visible throughout the app.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:57
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:62
 msgid "Enable favorites"
 msgstr "启用收藏夹"
 
@@ -14845,7 +14847,7 @@ msgid "Favorite channel"
 msgstr "收藏频道"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:79
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:89
 msgid "Favorite channels"
 msgstr "收藏的频道"
 
@@ -15631,7 +15633,7 @@ msgstr "友好机器人"
 #: src/features/connection/components/modals/EditConnectionModal.tsx:86
 #: src/features/search/utils/QuickSwitcherModalUtils.tsx:49
 #: src/features/user/components/modals/tabs/my_profile_tab/TimezoneProfileSettings.tsx:63
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:89
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:94
 msgid "Friends"
 msgstr "好友"
 
@@ -15961,7 +15963,7 @@ msgstr "收到消息时通知你。你可能需要在浏览器设置中允许通
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Type label for GIF media.
 #: src/features/expressions/utils/FavoriteMemeUtils.ts:10
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:158
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:163
 msgid "GIF"
 msgstr "GIF"
 
@@ -16387,7 +16389,7 @@ msgid "Graphics"
 msgstr "图形"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:118
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:123
 msgid "Gray text"
 msgstr "灰色文本"
 
@@ -16903,7 +16905,7 @@ msgid "Hide join messages"
 msgstr "隐藏入群消息"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:47
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:57
 msgid "Hide keyboard hints"
 msgstr "隐藏键盘提示"
 
@@ -18593,7 +18595,7 @@ msgstr "加入视频通话"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/profile/VoiceActivityCard.tsx:67
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:31
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:41
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:454
 msgid "Join voice"
 msgstr "加入语音"
@@ -18777,7 +18779,7 @@ msgid "Keep grace period"
 msgstr "保留宽限期"
 
 #. Toggle label and settings search entry for stopping the Neko sprite from chasing the cursor.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:53
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:58
 msgid "Keep Neko still"
 msgstr "保持 Neko 静止"
 
@@ -18848,7 +18850,7 @@ msgid "Keyboard mode"
 msgstr "键盘模式"
 
 #. Settings search entry description. One-line summary of what the setting controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:59
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:69
 msgid "Keyboard shortcut hints in tooltips"
 msgstr "工具提示中的键盘快捷键提示"
 
@@ -19960,7 +19962,7 @@ msgstr "将收件箱顶部频道标为已读"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/modals/tabs/component_gallery_tab/index.tsx:364
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:122
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:127
 msgid "Markdown"
 msgstr "Markdown"
 
@@ -20520,7 +20522,7 @@ msgstr "要提及此身份组吗？"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/guild/components/modals/GuildNotificationSettingsModal.tsx:136
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:647
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:166
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:171
 msgid "Mentions"
 msgstr "提及"
 
@@ -20581,7 +20583,7 @@ msgstr "消息"
 #: src/features/ui/action_menu/items/ActionsSubmenu.tsx:41
 #: src/features/ui/action_menu/items/MessageUserMenuItem.tsx:26
 #: src/features/ui/action_menu/items/voice_participant_menu_data/shared.ts:78
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:706
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:710
 #: src/features/user/components/modals/UserProfileModal.tsx:563
 #: src/features/user/components/modals/UserProfileModal.tsx:771
 #: src/features/user/components/popouts/UserProfilePopout.tsx:428
@@ -21635,7 +21637,7 @@ msgstr "已静音"
 #. Status label indicating the surface is currently muted.
 #: src/features/app/components/layout/sidebar_nav/UseGuildListItemState.ts:23
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:491
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:73
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:78
 #: src/lib/overlay/OverlayContextMenu.tsx:24
 msgid "Muted"
 msgstr "已静音"
@@ -21658,7 +21660,7 @@ msgstr "已被管理员静音"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/ChatSettingsIndex.ts:495
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:69
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:74
 msgid "Muted channels"
 msgstr "已静音频道"
 
@@ -21701,7 +21703,7 @@ msgstr "共同好友"
 msgid "Mutual friends ({count})"
 msgstr "共同好友（{count}）"
 
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:833
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:837
 msgid "Mutual friends ({mutualFriendsCount})"
 msgstr "共同好友（{mutualFriendsCount}）"
 
@@ -21896,7 +21898,7 @@ msgid "Narrates only the channel you're viewing. Narration follows you between c
 msgstr "仅朗读你正在查看的频道。切换频道时，朗读会随之切换。"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:146
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:151
 msgid "Narration"
 msgstr "语音朗读"
 
@@ -21961,12 +21963,12 @@ msgid "Need an account?"
 msgstr "还没有账号？"
 
 #. Settings search synonym. Proper name of the optional cat sprite that chases the cursor.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:61
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:66
 msgid "Neko"
 msgstr "猫咪"
 
 #. Settings search entry description. One-line summary of what the setting controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:63
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:73
 msgid "Neko cat that chases your cursor"
 msgstr "一只会跟着你鼠标指针跑的猫咪"
 
@@ -23008,7 +23010,7 @@ msgstr "不是真或假"
 #: src/features/messaging/utils/markdown/Plaintext.ts:72
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:19
 #: src/features/user/components/modals/user_profile_modal/UserNoteEditor.tsx:79
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:888
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:892
 msgid "Note"
 msgstr "备注"
 
@@ -24834,7 +24836,7 @@ msgstr "将这条消息置顶到频道，让大家都能看到。"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Voice stats field label (mobile lobby). Shows current latency in ms.
 #. Voice stats field label (mobile voice lobby). Shows current latency in ms.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:186
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:191
 #: src/features/voice/components/bottomsheets/DirectCallLobbyBottomSheet.tsx:118
 #: src/features/voice/components/bottomsheets/VoiceLobbyBottomSheet.tsx:86
 msgid "Ping"
@@ -25019,7 +25021,7 @@ msgstr "请稍候片刻，然后再次尝试重命名。"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/SharedDescriptors.ts:9
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:178
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:183
 msgid "Plutonium"
 msgstr "Plutonium"
 
@@ -25066,7 +25068,7 @@ msgid "Popped out"
 msgstr "已弹出"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:198
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:203
 msgid "Popup"
 msgstr "弹窗"
 
@@ -25671,7 +25673,7 @@ msgstr "连接新音频设备时提示"
 msgid "Pronouns"
 msgstr "代词"
 
-#: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:79
+#: src/features/user/components/modals/user_profile_modal/UserProfileModalUserInfo.tsx:87
 #: src/features/user/components/profile/profile_card/ProfileCardUserInfo.tsx:147
 msgid "Pronouns: "
 msgstr "代词： "
@@ -26039,7 +26041,7 @@ msgid "Reactivate subscription"
 msgstr "重新激活订阅"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:130
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:135
 msgid "Read aloud"
 msgstr "朗读"
 
@@ -26056,7 +26058,7 @@ msgstr "查看消息历史记录"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:177
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:126
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:131
 msgid "Read messages"
 msgstr "朗读消息"
 
@@ -26523,7 +26525,7 @@ msgstr "记住窗口大小和位置"
 #: src/features/user/components/modals/tabs/chat_settings_tab/SearchEnginesTab.tsx:26
 #: src/features/user/components/modals/tabs/LinkedAccountsTab.tsx:55
 #: src/features/user/components/settings_utils/search_index/AccountSecurityIndex.ts:158
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:194
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:199
 #: src/features/webhook/components/WebhookListItem.tsx:277
 msgid "Remove"
 msgstr "移除"
@@ -27218,7 +27220,7 @@ msgid "Require 2FA for moderation actions"
 msgstr "要求双重认证才能执行管理操作"
 
 #. Short label for an advanced voice-channel navigation preference.
-#: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls.tsx:17
+#: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls.tsx:20
 msgid "Require double-click to join voice channels"
 msgstr "加入语音频道需双击"
 
@@ -29328,7 +29330,7 @@ msgstr "按顺序发送文件消息"
 #. Member actions sheet menu item. Sends a friend request to the target user.
 #: src/features/channel/components/direct_message/DMWelcomeSection.tsx:146
 #: src/features/guild/components/modals/guild_tabs/GuildMemberActionsSheet.tsx:94
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:110
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:112
 #: src/features/user/components/modals/UserProfileModal.tsx:128
 msgid "Send friend request"
 msgstr "发送好友请求"
@@ -30012,7 +30014,7 @@ msgstr "快捷键"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:55
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:65
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:370
 msgid "Shortcut badges"
 msgstr "快捷键角标"
@@ -30214,7 +30216,7 @@ msgid "Show favorite button"
 msgstr "显示收藏按钮"
 
 #. Settings search entry description. One-line summary of what the setting controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:87
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:97
 msgid "Show favorites throughout the app"
 msgstr "在整个应用中显示收藏夹"
 
@@ -30462,7 +30464,7 @@ msgid "Show stickers in expression autocomplete"
 msgstr "在表情自动补全中显示贴纸"
 
 #. Description for a visual accessibility setting that mutes the color of text formatted with Markdown strikethrough.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:101
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:106
 msgid "Show strikethrough Markdown text in a slightly muted color."
 msgstr "以稍浅的颜色显示删除线 Markdown 文本。"
 
@@ -30474,6 +30476,11 @@ msgstr "显示隐藏嵌入内容按钮"
 #: src/features/user/components/modals/tabs/DesktopSettingsTab.tsx:173
 msgid "Show system tray icon"
 msgstr "显示系统托盘图标"
+
+#. Settings search entry description. One-line summary of what the setting controls.
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:16
+msgid "Show the connection ID next to each name in voice calls"
+msgstr "在语音通话中每个名字旁显示连接 ID"
 
 #. Description of the "Use global profile" choice for a name style, frame, nameplate or profile theme in a community profile.
 #: src/features/user/components/modals/tabs/my_profile_tab/CommunityCosmeticModeChoice.tsx:21
@@ -30504,6 +30511,11 @@ msgstr "收起时显示未读私信数"
 #: src/features/user/components/modals/tabs/appearance_tab/ChannelListTab.tsx:11
 msgid "Show unread indicator on muted channels"
 msgstr "在已静音的频道上显示未读标记"
+
+#. Toggle label and settings search entry for showing the connection ID (for example "queue-gorilla") next to people in voice calls.
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:53
+msgid "Show voice connection IDs"
+msgstr "显示语音连接 ID"
 
 #. Label in the avatar uploader.
 #: src/features/user/components/modals/tabs/my_profile_tab/AvatarUploader.tsx:62
@@ -31485,7 +31497,7 @@ msgstr "观众 - {count}"
 #. Native macOS Edit submenu title for text-to-speech actions.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/platform/utils/DesktopLocaleBridge.ts:84
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:142
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:147
 msgid "Speech"
 msgstr "语音"
 
@@ -31640,7 +31652,7 @@ msgid "Star animation"
 msgstr "星标动图"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:83
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:93
 msgid "Starred channels"
 msgstr "星标频道"
 
@@ -31757,7 +31769,7 @@ msgid "Startup"
 msgstr "启动"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:75
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:85
 msgid "Static Neko"
 msgstr "静态 Neko"
 
@@ -31960,7 +31972,7 @@ msgid "Still indexing — check back in a moment"
 msgstr "仍在建立索引，请稍后再查看"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:71
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:81
 msgid "Still Neko"
 msgstr "静止 Neko"
 
@@ -31995,7 +32007,7 @@ msgid "Stop mic test"
 msgstr "停止麦克风测试"
 
 #. Settings search entry description. One-line summary of what the setting controls.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:67
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:77
 msgid "Stop Neko from chasing your cursor while keeping it draggable and interactive."
 msgstr "让 Neko 不再追逐光标，同时保持可拖动和可交互。"
 
@@ -32187,14 +32199,14 @@ msgid "Streaming privacy on"
 msgstr "直播隐私已开启"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:110
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:115
 msgid "Strike through"
 msgstr "删除线"
 
 #. Selection formatting toolbar button.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/lexical/composer/SelectionFormattingToolbar.tsx:72
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:106
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:111
 msgid "Strikethrough"
 msgstr "删除线"
 
@@ -32998,7 +33010,7 @@ msgstr "用你的手机给我们发短信"
 #. Feature label / section heading for the text-to-speech feature.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #: src/features/i18n/utils/CommonMessageDescriptors.ts:414
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:138
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:143
 msgid "Text-to-speech"
 msgstr "文本转语音"
 
@@ -34624,7 +34636,7 @@ msgid "Toolbar"
 msgstr "工具栏"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:51
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:61
 msgid "Tooltip shortcuts"
 msgstr "工具提示快捷键"
 
@@ -34947,7 +34959,7 @@ msgid "Try Turnstile instead"
 msgstr "改用 Turnstile"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:134
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:139
 msgid "TTS"
 msgstr "TTS"
 
@@ -35133,7 +35145,7 @@ msgstr "24 小时制"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:39
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:49
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:406
 msgid "Two clicks"
 msgstr "双击"
@@ -35366,7 +35378,7 @@ msgstr "请先取消屏蔽，才能发送好友请求。"
 #. Button or menu action label in the user profile modal. Keep it concise. Keep the tone plain and specific.
 #. Title of the confirmation modal for unblocking a previously blocked user. Short command title.
 #: src/features/relationship/utils/RelationshipActionUtils.tsx:95
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:105
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:107
 #: src/features/user/components/modals/UserProfileModal.tsx:120
 msgid "Unblock user"
 msgstr "取消屏蔽用户"
@@ -35905,7 +35917,7 @@ msgstr "未读"
 #. Tab label in the inbox popout filtering to channels with unread messages.
 #: src/features/messaging/components/popouts/InboxPopout.tsx:30
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:10
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:77
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:82
 msgid "Unread"
 msgstr "未读"
 
@@ -37265,7 +37277,7 @@ msgstr "视频"
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Tooltip on the channel header button that starts a video call in a DM or group DM.
 #: src/features/channel/components/channel_header/shared.ts:43
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:757
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:761
 #: src/features/user/components/settings_utils/search_index/AccessibilityIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AccessibilitySections.ts:199
 msgid "Video call"
@@ -37693,7 +37705,7 @@ msgstr "显示用户状态的视觉指示器，使用与头像相同的蒙版状
 #: src/features/app/components/layout/MobileBottomNav.tsx:123
 #: src/features/channel/utils/ChannelUtils.tsx:31
 #: src/features/user/components/modals/tabs/advanced_settings_tab/AdvancedSettingsCategories.ts:17
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:81
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:86
 msgid "Voice"
 msgstr "语音"
 
@@ -37759,7 +37771,7 @@ msgid "Voice and video shortcuts"
 msgstr "语音和视频快捷键"
 
 #. Short label for a voice call (lobby header, DM action, settings section).
-#: src/features/user/components/modals/UserProfileMobileSheet.tsx:735
+#: src/features/user/components/modals/UserProfileMobileSheet.tsx:739
 #: src/features/voice/utils/VoiceMessageDescriptors.ts:35
 msgid "Voice call"
 msgstr "语音通话"
@@ -37788,7 +37800,7 @@ msgstr "语音频道"
 
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
 #. Settings search synonym. Used to match this term when the user types it in the settings search bar.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:23
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:33
 #: src/features/user/components/settings_utils/section_registry/AppearanceSections.ts:402
 msgid "Voice channel confirmation"
 msgstr "语音频道确认"
@@ -37799,7 +37811,7 @@ msgid "Voice channel full"
 msgstr "语音频道已满"
 
 #. Settings search entry label. Names the settings search entry in the settings UI.
-#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:19
+#: src/features/user/components/settings_utils/search_index/AppearanceIndex.ts:29
 msgid "Voice channel join behavior"
 msgstr "语音频道加入行为"
 
@@ -37929,7 +37941,7 @@ msgstr "已作废"
 #: src/features/soundboard/components/SoundboardSoundModal.tsx:216
 #: src/features/user/components/modals/tabs/UserVoiceTab.tsx:176
 #: src/features/user/components/settings_utils/search_index/NotificationsIndex.ts:86
-#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:174
+#: src/features/user/components/settings_utils/section_registry/SharedDescriptors.ts:179
 msgid "Volume"
 msgstr "音量"
 

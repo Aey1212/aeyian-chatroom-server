@@ -12,6 +12,7 @@ import {
 	HideKeyboardHintsControl,
 	KeepNekoStillControl,
 	ShowNekoControl,
+	ShowVoiceConnectionIdsControl,
 	VoiceChannelJoinBehaviorControl,
 } from '@app/features/user/components/modals/tabs/advanced_settings_tab/AdvancedAppearanceControls';
 import {
@@ -67,6 +68,7 @@ export const DIRECT_CONTROL_ITEM_IDS = new Set([
 	'appearance-keep-neko-still',
 	'appearance-hide-keyboard-hints',
 	'appearance-voice-channel-join-behavior',
+	'appearance-show-voice-connection-ids',
 	'appearance-enable-favorites',
 	'chat-settings-auto-send-gifs',
 	'chat-settings-save-gif-favorites',
@@ -115,6 +117,7 @@ export const COMPACT_SWITCH_CONTROL_ITEM_IDS = new Set([
 	'appearance-show-neko',
 	'appearance-keep-neko-still',
 	'appearance-hide-keyboard-hints',
+	'appearance-show-voice-connection-ids',
 	'appearance-enable-favorites',
 	'chat-settings-auto-send-gifs',
 	'chat-settings-save-gif-favorites',
@@ -173,6 +176,10 @@ export const AdvancedSettingControl = observer(({item}: {item: SearchableSetting
 		case 'appearance-voice-channel-join-behavior':
 			return (
 				<VoiceChannelJoinBehaviorControl data-flx="user.advanced-setting-direct-controls.advanced-setting-control.voice-channel-join-behavior-control" />
+			);
+		case 'appearance-show-voice-connection-ids':
+			return (
+				<ShowVoiceConnectionIdsControl data-flx="user.advanced-setting-direct-controls.advanced-setting-control.show-voice-connection-ids-control" />
 			);
 		case 'appearance-enable-favorites':
 			return (

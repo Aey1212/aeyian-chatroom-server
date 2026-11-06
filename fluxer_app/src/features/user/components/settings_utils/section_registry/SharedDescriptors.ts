@@ -50,6 +50,11 @@ export const SHOW_NEKO_DESCRIPTOR = msg({
 	message: 'Show Neko',
 	comment: 'Toggle label and settings search entry for showing the Neko sprite that chases the cursor.',
 });
+export const SHOW_VOICE_CONNECTION_IDS_DESCRIPTOR = msg({
+	message: 'Show voice connection IDs',
+	comment:
+		'Toggle label and settings search entry for showing the connection ID (for example "queue-gorilla") next to people in voice calls.',
+});
 export const KEEP_NEKO_STILL_DESCRIPTOR = msg({
 	message: 'Keep Neko still',
 	comment: 'Toggle label and settings search entry for stopping the Neko sprite from chasing the cursor.',
