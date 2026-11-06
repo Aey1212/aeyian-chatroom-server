@@ -1,0 +1,216 @@
+name: build desktop windows
+
+# Builds the Aeyian Chatline Windows app (x64): the Windows steps of upstream's desktop workflow (removed from this
+# fork in df14f5b68 because they need Fluxer's signing and release secrets), then an unsigned Velopack installer with
+# our own ids, then a smoke test that installs it on the runner and checks it opens chat.aeyempire.com.
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: App version (SemVer, e.g. 1.0.0)
+        required: false
+        default: "1.0.0"
+        type: string
+  push:
+    branches:
+      - desktop-windows
+    paths:
+      - fluxer_desktop/**
+      - .github/workflows/build-desktop-windows.yaml
+      - .github/scripts/windows-smoke-test.mjs
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Windows (x64)
+    runs-on: windows-2025
+    timeout-minutes: 180
+    env:
+      BUILD_CHANNEL: stable
+      RELEASE_CHANNEL: stable
+      VERSION: ${{ inputs.version || '1.0.0' }}
+      PLATFORM: windows
+      ARCH: x64
+      ELECTRON_ARCH: x64
+      PACK_ID: aeyian_chatline
+      PACK_TITLE: Aeyian Chatline
+      MAIN_EXE: Aeyian Chatline.exe
+    steps:
+      - name: Checkout CI helpers
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          path: _ci
+
+      - name: Checkout source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          path: source
+
+      - name: Set up Rust toolchain (CI helpers)
+        uses: dtolnay/rust-toolchain@02cb101ec7c40f2c49e1d9714d64511d8e1b74de
+        with:
+          toolchain: "1.98.1"
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.14"
+
+      - name: Ensure python3 command
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step ensure_python3_windows
+
+      - name: Shorten Windows paths and pin pnpm store
+        env:
+          SUBST_TARGET: ${{ github.workspace }}/source
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step windows_paths
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: 26
+
+      - name: Set up pnpm
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step setup_pnpm
+
+      - name: Resolve pnpm store path
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step resolve_pnpm_store_windows
+
+      - name: Cache pnpm store
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: ${{ env.PNPM_STORE_PATH }}
+          key: Windows-x64-pnpm-store-${{ hashFiles('source/pnpm-lock.yaml') }}
+          restore-keys: |
+            Windows-x64-pnpm-store-
+
+      - name: Set up MSVC env
+        uses: TheMrMilchmann/setup-msvc-dev@368ef7d1ee4d1171b31d4a7f67f4d954f903f5a9
+        with:
+          arch: amd64
+
+      - name: Set up Rust toolchain (Windows targets)
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step install_rust_windows_targets
+
+      - name: Install dependencies
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step install_dependencies
+
+      - name: Update version
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step update_version
+
+      - name: Set build channel
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step set_build_channel
+
+      - name: Build Electron main process and native modules
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step build_electron_main
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Install Velopack CLI
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step install_velopack_cli
+
+      - name: Build Electron app
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        env:
+          TEMP: C:\t
+          TMP: C:\t
+          ELECTRON_BUILDER_CACHE: C:\ebcache
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step build_app_windows
+
+      # Upstream's own step looks for Fluxer.exe, so find our executable here.
+      - name: Find the unpacked app
+        id: unpacked
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem dist-electron -Recurse -File -Filter $env:MAIN_EXE | Select-Object -First 1
+          if (-not $exe) { throw "No $env:MAIN_EXE under dist-electron" }
+          "dir=$($exe.Directory.FullName)" >> $env:GITHUB_OUTPUT
+          Write-Host "Unpacked app: $($exe.Directory.FullName)"
+
+      # Unsigned on purpose (Aey, 2026-11-06): Windows SmartScreen warns on first run until the app is signed.
+      - name: Package installer with Velopack (unsigned)
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        shell: pwsh
+        run: |
+          .velopack/vpk.exe --yes pack `
+            --packId $env:PACK_ID `
+            --packVersion $env:VERSION `
+            --packDir "${{ steps.unpacked.outputs.dir }}" `
+            --mainExe $env:MAIN_EXE `
+            --packTitle $env:PACK_TITLE `
+            --packAuthors "AEY Empire" `
+            --shortcuts Desktop,StartMenu `
+            --runtime win-x64 `
+            --icon build_resources/icons-stable/icon.ico `
+            --outputDir dist-electron/velopack-windows-x64 `
+            --delta None
+          if ($LASTEXITCODE -ne 0) { throw "vpk pack failed" }
+          Get-ChildItem dist-electron/velopack-windows-x64 | Format-Table Name, Length
+
+      - name: Install on this runner and smoke test
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        shell: pwsh
+        run: |
+          $setup = Get-ChildItem dist-electron/velopack-windows-x64 -Filter "*Setup.exe" | Select-Object -First 1
+          if (-not $setup) { throw "No Setup.exe was produced" }
+          Start-Process -Wait -FilePath $setup.FullName -ArgumentList "--silent"
+          $installed = Join-Path $env:LOCALAPPDATA "$env:PACK_ID\current\$env:MAIN_EXE"
+          if (-not (Test-Path $installed)) { throw "Not installed at $installed" }
+          Write-Host "Installed: $installed"
+          Get-Process -Name ([IO.Path]::GetFileNameWithoutExtension($env:MAIN_EXE)) -ErrorAction SilentlyContinue | Stop-Process -Force
+          New-Item -ItemType Directory -Force smoke | Out-Null
+          node "${{ github.workspace }}/source/.github/scripts/windows-smoke-test.mjs" $installed smoke/app.png
+          if ($LASTEXITCODE -ne 0) { throw "Smoke test failed" }
+
+      - name: Upload installer
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: aeyian-chatline-windows-x64-${{ env.VERSION }}
+          path: ${{ env.WORKDIR }}/fluxer_desktop/dist-electron/velopack-windows-x64/
+          if-no-files-found: error
+
+      - name: Upload smoke test screenshot
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: aeyian-chatline-windows-smoke-${{ env.VERSION }}
+          path: ${{ env.WORKDIR }}/fluxer_desktop/smoke/
+          if-no-files-found: warn
