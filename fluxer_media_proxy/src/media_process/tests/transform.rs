@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-use super::super::ImageOptions;
-use super::super::image_probe::load_image;
+use super::super::image_probe::{check_jxl_decode_budget, load_image};
 use super::super::native_runtime::ensure_vips_init;
 use super::super::transform::source_supports_pages;
+use super::super::{ImageDimensions, ImageOptions, MediaError};
 use super::fixtures::{animated_mode, metadata_value, transform_image};
 use crate::{
     mime, native,
@@ -98,8 +98,64 @@ fn source_supports_pages_matches_libvips_loader_list() {
     assert!(source_supports_pages("image/apng"));
     assert!(source_supports_pages("image/heif"));
     assert!(source_supports_pages("image/avif"));
+    assert!(source_supports_pages("image/jxl"));
     assert!(!source_supports_pages("image/png"));
     assert!(!source_supports_pages("image/jpeg"));
     assert!(!source_supports_pages("image/bmp"));
     assert!(!source_supports_pages("application/octet-stream"));
+}
+
+fn dims(width: u32, height: u32, pages: u32) -> ImageDimensions {
+    ImageDimensions {
+        width,
+        height,
+        pages,
+    }
+}
+
+fn header_never_read() -> Result<bool, MediaError> {
+    panic!("the header must only be read between the two budgets")
+}
+
+#[test]
+fn jxl_within_the_shared_budget_passes_without_reading_the_header() {
+    assert_eq!(
+        check_jxl_decode_budget(dims(4096, 4096, 1), header_never_read),
+        Ok(())
+    );
+    assert_eq!(
+        check_jxl_decode_budget(dims(2048, 2048, 4), header_never_read),
+        Ok(())
+    );
+}
+
+#[test]
+fn animated_jxl_over_the_shared_budget_is_refused() {
+    // 3000 × 3000 × 2 frames is under the simple budget but over the shared one.
+    assert_eq!(
+        check_jxl_decode_budget(dims(3000, 3000, 2), header_never_read),
+        Err(MediaError::InvalidImageDimensions)
+    );
+}
+
+#[test]
+fn single_jxl_frame_between_the_budgets_depends_on_the_header() {
+    let photo = dims(6000, 4000, 1);
+    assert_eq!(check_jxl_decode_budget(photo, || Ok(true)), Ok(()));
+    assert_eq!(
+        check_jxl_decode_budget(photo, || Ok(false)),
+        Err(MediaError::InvalidImageDimensions)
+    );
+    assert_eq!(
+        check_jxl_decode_budget(photo, || Err(MediaError::MediaDecodeFailed)),
+        Err(MediaError::MediaDecodeFailed)
+    );
+}
+
+#[test]
+fn single_jxl_frame_over_the_simple_budget_is_refused() {
+    assert_eq!(
+        check_jxl_decode_budget(dims(8193, 6144, 1), header_never_read),
+        Err(MediaError::InvalidImageDimensions)
+    );
 }
