@@ -199,10 +199,7 @@ describe('UpdaterDownloads manual download url', () => {
 		const stable = loadUpdaterDownloads({channel: 'stable', platform: 'darwin'});
 		const canary = loadUpdaterDownloads({channel: 'canary', platform: 'win32'});
 
-		assert.equal(
-			stable.getManualDownloadUrl(latestInfo('2026.910.101500')),
-			'https://github.com/Aey1212/aeyian-chatroom-server/releases/latest',
-		);
+		assert.equal(stable.getManualDownloadUrl(latestInfo('2026.910.101500')), 'https://chat.aeyempire.com/launcher/');
 		assert.equal(canary.getManualDownloadUrl(latestInfo('2026.910.101500')), 'https://canary.fluxer.app/download');
 	});
 });

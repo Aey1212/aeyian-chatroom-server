@@ -28,9 +28,9 @@ const CHATLINE_RELEASES_URL = 'https://github.com/Aey1212/aeyian-chatroom-server
 const UPDATE_URL_OVERRIDE = process.env.CHATLINE_UPDATE_URL?.trim().replace(/\/+$/, '') || null;
 export const VELOPACK_FEED_URL =
 	UPDATE_URL_OVERRIDE ?? (BUILD_CHANNEL === 'canary' ? UPDATE_BASE_URL : `${CHATLINE_RELEASES_URL}/latest/download`);
-// Until the download page at chat.aeyempire.com/launcher exists (roadmap A5), the GitHub releases page.
+// Aeyian Chatline's download page (roadmap A5).
 export const DOWNLOAD_PAGE_URL =
-	BUILD_CHANNEL === 'canary' ? 'https://canary.fluxer.app/download' : `${CHATLINE_RELEASES_URL}/latest`;
+	BUILD_CHANNEL === 'canary' ? 'https://canary.fluxer.app/download' : 'https://chat.aeyempire.com/launcher/';
 
 export const MANUAL_DESKTOP_FORMATS = ['setup', 'dmg', 'zip', 'appimage', 'deb', 'rpm', 'tar_gz'] as const;
 
