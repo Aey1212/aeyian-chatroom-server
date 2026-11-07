@@ -4,6 +4,7 @@ use super::loaded_image::{page_height, validate_animation_geometry, validate_vip
 use super::native_runtime::{clear_vips_error, ensure_vips_init, vips_runtime};
 use super::{AnimatedProbe, ImageDimensions, MediaError, native_status_error};
 use crate::{
+    constants,
     media_limits::MediaLimits,
     mime,
     native::{self, NativeStatus, VipsImageHandle},
@@ -69,6 +70,45 @@ pub(crate) fn probe_image_dims(
     }
     let image = load_image(input, "access=sequential")?;
     probe_loaded_image_dims(media_limits, &image)
+}
+
+// Run before decoding a JPEG XL source. Anything else passes untouched.
+pub(crate) fn validate_jxl_decode_pixels(
+    input: &[u8],
+    sniffed_mime: &str,
+    dims: ImageDimensions,
+) -> Result<(), MediaError> {
+    if sniffed_mime != "image/jxl" {
+        return Ok(());
+    }
+    check_jxl_decode_budget(dims, || is_simple_jxl(input))
+}
+
+// `is_simple` is only asked for a single frame that falls between the two budgets, so the
+// header is read only for those.
+pub(super) fn check_jxl_decode_budget(
+    dims: ImageDimensions,
+    is_simple: impl FnOnce() -> Result<bool, MediaError>,
+) -> Result<(), MediaError> {
+    let pixels = (dims.width as usize)
+        .saturating_mul(dims.height as usize)
+        .saturating_mul(dims.pages.max(1) as usize);
+    if pixels <= constants::MAX_JXL_DECODE_PIXELS {
+        return Ok(());
+    }
+    if dims.pages <= 1 && pixels <= constants::MAX_JXL_SIMPLE_DECODE_PIXELS && is_simple()? {
+        return Ok(());
+    }
+    Err(MediaError::InvalidImageDimensions)
+}
+
+// One 8-bit grey or RGB frame: no alpha, no extra channels, no higher bit depth. Opening the
+// buffer reads the header only; no pixels are decoded here.
+fn is_simple_jxl(input: &[u8]) -> Result<bool, MediaError> {
+    let image = load_image(input, "access=sequential")?;
+    let bands = unsafe { native::fluxer_vips_image_get_bands(image.as_ptr()) };
+    let format = unsafe { native::fluxer_vips_image_get_format(image.as_ptr()) };
+    Ok(matches!(bands, 1 | 3) && format == unsafe { native::fluxer_vips_format_uchar })
 }
 
 fn probe_loaded_image_dims(

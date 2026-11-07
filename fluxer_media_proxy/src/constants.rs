@@ -16,6 +16,10 @@ pub const DEFAULT_IMAGE_SIZE: u32 = 128;
 pub const MAX_ANIMATED_FRAMES_DEFAULT: u32 = 20_000;
 pub const MAX_ANIMATED_TOTAL_PIXELS_DEFAULT: usize = 4 * MAX_MEDIA_IMAGE_PIXELS_DEFAULT;
 const _: () = assert!(MAX_ANIMATED_FRAMES_DEFAULT >= 20_000);
+// Decoding JPEG XL is costly, so it gets its own budget across all frames: 4096×4096 pixels, or
+// 8192×6144 for a single plain 8-bit grey or RGB frame, the cheapest kind to decode.
+pub const MAX_JXL_DECODE_PIXELS: usize = 4096 * 4096;
+pub const MAX_JXL_SIMPLE_DECODE_PIXELS: usize = 8192 * 6144;
 
 pub const IMAGE_SIZES: &[u32] = &[
     16, 20, 22, 24, 28, 32, 40, 44, 48, 56, 60, 64, 80, 96, 100, 128, 160, 240, 256, 300, 320, 480,

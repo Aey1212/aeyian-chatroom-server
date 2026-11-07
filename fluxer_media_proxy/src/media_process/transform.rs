@@ -8,7 +8,10 @@ use super::encoding::{
     VipsEncodeRequest, anim_limits_from_options, encode_vips_image,
     try_transform_animated_webp_direct,
 };
-use super::image_probe::{animated_probe_from_image, load_image, probe_animated, try_decode_bmp};
+use super::image_probe::{
+    animated_probe_from_image, load_image, probe_animated, probe_image_dims, try_decode_bmp,
+    validate_jxl_decode_pixels,
+};
 use super::loaded_image::{
     normalize_vips_image_to_uchar, page_height, resize_loaded_image, resize_loaded_image_by_scale,
     validate_dimensions_u32, validate_vips_image,
@@ -36,7 +39,13 @@ use std::ptr;
 pub(super) fn source_supports_pages(mime: &str) -> bool {
     matches!(
         mime,
-        "image/webp" | "image/gif" | "image/apng" | "image/heic" | "image/heif" | "image/avif"
+        "image/webp"
+            | "image/gif"
+            | "image/apng"
+            | "image/heic"
+            | "image/heif"
+            | "image/avif"
+            | "image/jxl"
     )
 }
 
@@ -98,6 +107,10 @@ pub fn transform_image(
     }
     ensure_vips_init()?;
     let sniffed = mime::sniff(input);
+    if sniffed.mime == "image/jxl" {
+        let dims = probe_image_dims(media_limits, input)?;
+        validate_jxl_decode_pixels(input, sniffed.mime, dims)?;
+    }
     let animated = options.is_animated();
     let format = effective_transform_format(sniffed.mime, options.format, animated);
     let animated_avif = sniffed.mime == "image/avif" && sniffed.animated;

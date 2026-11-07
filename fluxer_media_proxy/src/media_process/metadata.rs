@@ -2,7 +2,7 @@
 
 use super::MediaError;
 use super::av_metadata::{AVMetadata, AVProbe, NSFW_PREVIEW_MAX_DIMENSION, probe_av_metadata};
-use super::image_probe::probe_image_dims;
+use super::image_probe::{probe_image_dims, validate_jxl_decode_pixels};
 use super::loaded_image::validate_dimensions_u32;
 use super::nsfw_processing::{
     NSFWScanPreparation, NSFWScanSource, classify_nsfw_buffers, nsfw_scan_buffers,
@@ -145,7 +145,9 @@ fn metadata_blocking(request: MetadataBlockingRequest<'_>) -> Result<MetadataBlo
     let initial_category = mime::category(sniffed.mime).ok_or(MediaError::UnsupportedMediaType)?;
     let is_image = initial_category == mime::Category::Image;
     let dims = if is_image {
-        Some(probe_image_dims(media_limits, input)?)
+        let dims = probe_image_dims(media_limits, input)?;
+        validate_jxl_decode_pixels(input, sniffed.mime, dims)?;
+        Some(dims)
     } else {
         None
     };
