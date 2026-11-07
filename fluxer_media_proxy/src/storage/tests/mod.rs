@@ -6,6 +6,7 @@ mod relay;
 mod response_body;
 mod s3;
 mod s3_read_endpoint;
+mod slow_stream;
 
 use crate::{
     config::{

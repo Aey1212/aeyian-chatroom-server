@@ -18,6 +18,7 @@ pub type HttpClient = ClientWithMiddleware;
 pub struct HTTPClientOptions {
     connect_timeout_ms: NonZeroU64,
     request_timeout: HTTPRequestTimeout,
+    read_timeout_ms: Option<NonZeroU64>,
     retries: HTTPRetryPolicy,
     address_policy: HTTPAddressPolicy,
 }
@@ -53,6 +54,17 @@ impl HTTPClientOptions {
         }
     }
 
+    // For bodies that are streamed on to a client: the whole transfer moves at the client's pace,
+    // so it gets no total limit, but waiting longer than read_timeout_ms for the next bytes fails.
+    pub fn streaming(connect_timeout_ms: NonZeroU64, read_timeout_ms: NonZeroU64) -> Self {
+        Self {
+            connect_timeout_ms,
+            request_timeout: HTTPRequestTimeout::Disabled,
+            read_timeout_ms: Some(read_timeout_ms),
+            ..Self::default()
+        }
+    }
+
     pub fn without_request_timeout(mut self) -> Self {
         self.request_timeout = HTTPRequestTimeout::Disabled;
         self
@@ -77,6 +89,7 @@ impl Default for HTTPClientOptions {
             request_timeout: HTTPRequestTimeout::Bounded(
                 NonZeroU64::new(30_000).expect("default request timeout must be nonzero"),
             ),
+            read_timeout_ms: None,
             retries: HTTPRetryPolicy::Enabled {
                 max_retries: NonZeroU32::new(2)
                     .expect("default maximum retry count must be nonzero"),
@@ -101,6 +114,9 @@ pub fn build_raw(options: HTTPClientOptions) -> Result<reqwest::Client, reqwest:
         .user_agent(crate::constants::OUTBOUND_USER_AGENT);
     if let HTTPRequestTimeout::Bounded(timeout_ms) = options.request_timeout {
         builder = builder.timeout(Duration::from_millis(timeout_ms.get()));
+    }
+    if let Some(read_timeout_ms) = options.read_timeout_ms {
+        builder = builder.read_timeout(Duration::from_millis(read_timeout_ms.get()));
     }
     if options.address_policy == HTTPAddressPolicy::PublicOnly {
         builder = builder.dns_resolver(Arc::new(PinnedDnsResolver));
