@@ -584,7 +584,11 @@ async fn serve_image_transform(
                 format!(
                     "route={:?} cache_identity={} fmt={} w={:?} h={:?} q={} animated={}",
                     route,
-                    cache_identity,
+                    if route == TransformRoute::External {
+                        crate::public_net_policy::external_url_for_log(cache_identity)
+                    } else {
+                        cache_identity.to_owned()
+                    },
                     options.format.extension(),
                     options.width,
                     options.height,

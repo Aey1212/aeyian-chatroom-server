@@ -19,7 +19,10 @@ use axum::{
     middleware::Next,
     response::Response,
 };
-use fluxer_common::attachment_url_signature::is_signature_parameter_name;
+use fluxer_common::{
+    attachment_url_signature::is_signature_parameter_name,
+    external_media_path::{percent_decode, reconstruct_original_url},
+};
 use rand::RngExt;
 use stage::{StageTimingSnapshot, StageTimings};
 use std::{future::Future, sync::Arc, time::Instant};
@@ -30,6 +33,9 @@ const ID_LEN: usize = 12;
 const TARGET_LOG_BYTES_MAX: usize = 512;
 pub(crate) const HEADER_LOG_BYTES_MAX: usize = 256;
 const REDACTED_VALUE: &str = "[redacted]";
+const EXTERNAL_PATH_PREFIX: &str = "/external/";
+// The upload relay's token parameter; it authorises the upload, so it never goes to the log.
+const RELAY_TOKEN_PARAMETER: &[u8] = b"t";
 
 #[derive(Clone, Debug)]
 pub struct RequestId(pub String);
@@ -70,7 +76,7 @@ impl RequestObservation {
     ) -> Self {
         Self {
             kind: classify_route(path),
-            path: clip(path, TARGET_LOG_BYTES_MAX),
+            path: clip(&path_for_log(path), TARGET_LOG_BYTES_MAX),
             query: query
                 .map(|query| clip(&redact_signature_values(query), TARGET_LOG_BYTES_MAX))
                 .unwrap_or_default(),
@@ -99,7 +105,7 @@ pub fn classify_route(path: &str) -> RequestKind {
     if path.starts_with("/v1/relay/") {
         return RequestKind::Upload;
     }
-    if path.starts_with("/external/") {
+    if path.starts_with(EXTERNAL_PATH_PREFIX) {
         return RequestKind::External;
     }
     if path.starts_with("/attachments/") {
@@ -278,6 +284,25 @@ fn log_reason(reason: Option<ErrorReason>, status: StatusCode) -> (&'static str,
     }
 }
 
+// Upstream Fluxer f9b469149 (#3878): an /external/ path carries the outside URL (and its query,
+// which can hold another site's tokens) in its path segments. Only that URL without its query and
+// fragment is logged; a path that does not decode is logged as redacted.
+fn path_for_log(path: &str) -> String {
+    let Some(rest) = path.strip_prefix(EXTERNAL_PATH_PREFIX) else {
+        return path.to_owned();
+    };
+    let target = rest
+        .split_once('/')
+        .and_then(|(_, proxy_path)| reconstruct_original_url(proxy_path).ok())
+        .map(|url| external_url_for_log(&url))
+        .unwrap_or_else(|| REDACTED_VALUE.to_owned());
+    format!("{EXTERNAL_PATH_PREFIX}{target}")
+}
+
+fn is_logged_secret_name(name: &str) -> bool {
+    is_signature_parameter_name(name) || percent_decode(name, true) == RELAY_TOKEN_PARAMETER
+}
+
 fn redact_signature_values(query: &str) -> String {
     if !query.contains('=') {
         return query.to_owned();
@@ -288,7 +313,7 @@ fn redact_signature_values(query: &str) -> String {
             out.push('&');
         }
         match field.split_once('=') {
-            Some((name, _)) if is_signature_parameter_name(name) => {
+            Some((name, _)) if is_logged_secret_name(name) => {
                 out.push_str(name);
                 out.push('=');
                 out.push_str(REDACTED_VALUE);
@@ -448,6 +473,8 @@ mod tests {
             format!("ex=0&is=6a9920b1&hm={signature}&uc=dp"),
             format!("ex=0&is=6a9920b1&hm={signature}&uc=dp&"),
             format!("width=64&%75c=dp&hm={signature}&ex=6a9a7231&is=6a9920b1"),
+            format!("t={signature}&uploadId=2~upload"),
+            format!("partNumber=1&%74={signature}"),
         ] {
             let observation = RequestObservation::new(
                 RequestId::generate(),
@@ -464,6 +491,26 @@ mod tests {
                 observation.query.matches('&').count(),
                 "{query}"
             );
+        }
+    }
+
+    #[test]
+    fn an_external_target_query_never_reaches_the_log() {
+        for path in [
+            "/external/c2lnbmF0dXJl/%3Ftoken%3Dhunter2/https/cdn.example.com/rooms/hunter2.png",
+            "/external/c2lnbmF0dXJl/v2/aHR0cHM6Ly9jZG4uZXhhbXBsZS5jb20vYS5wbmc_dG9rZW49aHVudGVyMg",
+            "/external/c2lnbmF0dXJl/%3Ftoken%3Dhunter2",
+        ] {
+            let observation = RequestObservation::new(
+                RequestId::generate(),
+                Method::GET,
+                path,
+                None,
+                &HeaderMap::new(),
+            );
+            assert!(!observation.path.contains("hunter2"), "{path}");
+            assert!(!observation.path.contains("c2lnbmF0dXJl"), "{path}");
+            assert!(observation.path.starts_with("/external/"), "{path}");
         }
     }
 
