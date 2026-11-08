@@ -13216,7 +13216,7 @@
 				"responses": {
 					"200": {
 						"description": "Success",
-						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/UserPrivateResponse"}}}
+						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/UserUpdateResponse"}}}
 					},
 					"400": {
 						"description": "Bad Request - The request was malformed or contained invalid data",
@@ -13257,7 +13257,7 @@
 						"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}
 					}
 				},
-				"description": "Updates the authenticated user's profile information such as username, avatar, and bio. Requires sudo mode verification for security-sensitive changes. Only default users can modify their own profile.",
+				"description": "Updates the authenticated user's profile information such as username, avatar, and bio. Requires sudo mode verification for security-sensitive changes. Only default users can modify their own profile. A password change invalidates all existing sessions and returns the replacement session token.",
 				"security": [{"sessionToken": []}],
 				"requestBody": {
 					"required": false,
@@ -24911,6 +24911,284 @@
 					"webauthn_challenge": {"description": "WebAuthn challenge string", "type": "string"}
 				}
 			},
+			"UserUpdateResponse": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"description": "The unique identifier (snowflake) for this user",
+						"$ref": "#/components/schemas/SnowflakeStringType"
+					},
+					"username": {
+						"type": "string",
+						"description": "The username of the user, unique across the instance (case-insensitive)"
+					},
+					"global_name": {"description": "The display name of the user, if set", "type": ["string", "null"]},
+					"avatar": {"description": "The hash of the user avatar image", "type": ["string", "null"]},
+					"avatar_color": {
+						"anyOf": [{"$ref": "#/components/schemas/Int32Type"}, {"type": "null"}],
+						"description": "The dominant avatar color of the user as an integer"
+					},
+					"bot": {"description": "Whether the user is a bot account", "type": "boolean"},
+					"system": {"description": "Whether the user is an official system user", "type": "boolean"},
+					"flags": {"$ref": "#/components/schemas/PublicUserFlags"},
+					"mention_flags": {
+						"description": "The user's account-wide reply mention preference. Omitted when the user has no preference set (treated as NO_PREFERENCE).",
+						"$ref": "#/components/schemas/MentionReplyPreferences"
+					},
+					"name_style": {
+						"description": "Font, colors and effect of the display name. Omitted when the user uses the default style.",
+						"$ref": "#/components/schemas/NameStyleSchema"
+					},
+					"avatar_frame": {
+						"description": "The avatar frame the user chose. Omitted when none is set.",
+						"$ref": "#/components/schemas/CosmeticRefType"
+					},
+					"nameplate": {
+						"description": "The nameplate the user chose. Omitted when none is set.",
+						"$ref": "#/components/schemas/CosmeticRefType"
+					},
+					"is_staff": {"type": "boolean", "description": "Whether the user has staff permissions"},
+					"acls": {
+						"type": "array",
+						"items": {"type": "string"},
+						"description": "Access control list entries for the user"
+					},
+					"traits": {
+						"type": "array",
+						"items": {"type": "string"},
+						"description": "Special traits assigned to the user account"
+					},
+					"email": {"description": "The email address associated with the account", "type": ["string", "null"]},
+					"email_bounced": {
+						"description": "Whether the current email address is marked as bounced by the mail provider",
+						"type": "boolean"
+					},
+					"phone": {
+						"description": "Always null. Retained for old-client backward compatibility — phone numbers are no longer stored on the user record.",
+						"type": ["string", "null"]
+					},
+					"has_verified_phone": {
+						"type": "boolean",
+						"description": "Whether this account has completed phone verification"
+					},
+					"bio": {"description": "The user biography text", "type": ["string", "null"]},
+					"pronouns": {"description": "The preferred pronouns of the user", "type": ["string", "null"]},
+					"accent_color": {
+						"anyOf": [{"$ref": "#/components/schemas/Int32Type"}, {"type": "null"}],
+						"description": "The user-selected accent color as an integer"
+					},
+					"theme_colors": {
+						"anyOf": [{"$ref": "#/components/schemas/ProfileThemeColorsSchema"}, {"type": "null"}],
+						"description": "The two profile theme colours, or null when unset"
+					},
+					"profile_frame": {
+						"anyOf": [{"$ref": "#/components/schemas/ProfileFrameIdSchema"}, {"type": "null"}],
+						"description": "The profile frame, or null when unset"
+					},
+					"timezone": {
+						"description": "The IANA timezone identifier saved by the user. Omitted unless the user has staff access.",
+						"type": ["string", "null"]
+					},
+					"timezone_privacy_flags": {
+						"description": "Bitfield controlling who can see the profile timezone. Omitted unless the user has staff access.",
+						"$ref": "#/components/schemas/ProfileFieldPrivacyFlags"
+					},
+					"banner": {"description": "The hash of the user profile banner image", "type": ["string", "null"]},
+					"banner_color": {
+						"anyOf": [{"$ref": "#/components/schemas/Int32Type"}, {"type": "null"}],
+						"description": "The default banner color if no custom banner is set"
+					},
+					"mfa_enabled": {"type": "boolean", "description": "Whether multi-factor authentication is enabled"},
+					"authenticator_types": {
+						"description": "The types of authenticators configured for MFA",
+						"type": "array",
+						"items": {"$ref": "#/components/schemas/UserAuthenticatorTypes"}
+					},
+					"verified": {"type": "boolean", "description": "Whether the email address has been verified"},
+					"premium_type": {
+						"anyOf": [
+							{"$ref": "#/components/schemas/UserPremiumTypes", "description": "The type of premium subscription"},
+							{"type": "null"}
+						]
+					},
+					"premium_since": {
+						"description": "ISO8601 timestamp of when premium was first activated",
+						"type": ["string", "null"]
+					},
+					"premium_until": {
+						"description": "ISO8601 timestamp of when premium access ends, including stacked gift time",
+						"type": ["string", "null"]
+					},
+					"premium_will_cancel": {
+						"type": "boolean",
+						"description": "Whether premium is set to cancel at the end of the billing period"
+					},
+					"premium_billing_cycle": {
+						"description": "The billing cycle for the premium subscription",
+						"type": ["string", "null"]
+					},
+					"premium_lifetime_sequence": {
+						"anyOf": [{"$ref": "#/components/schemas/Int32Type"}, {"type": "null"}],
+						"description": "The sequence number for lifetime premium subscribers"
+					},
+					"premium_grace_ends_at": {
+						"description": "ISO8601 timestamp at which the post-cancel grace period ends. Set when the subscription is fully canceled in Stripe; perks remain active and the original premium_since is restored on resubscribe until this timestamp passes. Null when not in grace.",
+						"type": ["string", "null"]
+					},
+					"premium_badge_hidden": {
+						"type": "boolean",
+						"description": "Whether the premium badge is hidden on the profile"
+					},
+					"premium_badge_masked": {
+						"type": "boolean",
+						"description": "Whether the premium badge shows a masked appearance"
+					},
+					"premium_badge_timestamp_hidden": {
+						"type": "boolean",
+						"description": "Whether the premium start timestamp is hidden"
+					},
+					"premium_badge_sequence_hidden": {
+						"type": "boolean",
+						"description": "Whether the lifetime sequence number is hidden"
+					},
+					"premium_purchase_disabled": {
+						"type": "boolean",
+						"description": "Whether premium purchases are disabled for this account"
+					},
+					"premium_enabled_override": {
+						"type": "boolean",
+						"description": "Whether premium features are enabled via override"
+					},
+					"premium_perks_disabled": {
+						"type": "boolean",
+						"description": "Whether premium perks are temporarily disabled for this account"
+					},
+					"force_inbound_phone_verification": {
+						"description": "Whether this account is forced through the inbound (expensive-destination) phone verification flow regardless of prefix, for debugging",
+						"type": "boolean"
+					},
+					"password_last_changed_at": {
+						"description": "ISO8601 timestamp of the last password change",
+						"type": ["string", "null"]
+					},
+					"last_voice_activity_sharing_change_at": {
+						"description": "ISO8601 timestamp of the last bulk voice-activity-sharing change. Drives the 24-hour cooldown for re-toggling the Active Now sharing default.",
+						"type": ["string", "null"]
+					},
+					"required_actions": {
+						"type": "array",
+						"items": {"type": "string"},
+						"description": "Actions the user must complete before full access"
+					},
+					"nsfw_allowed": {"type": "boolean", "description": "Whether the user is allowed to view NSFW content"},
+					"has_dismissed_premium_onboarding": {
+						"type": "boolean",
+						"description": "Whether the user has dismissed the premium onboarding flow"
+					},
+					"has_ever_purchased": {"type": "boolean", "description": "Whether the user has ever made a purchase"},
+					"has_unread_gift_inventory": {
+						"type": "boolean",
+						"description": "Whether there are unread items in the gift inventory"
+					},
+					"unread_gift_inventory_count": {
+						"description": "The number of unread gift inventory items",
+						"$ref": "#/components/schemas/Int32Type"
+					},
+					"pending_bulk_message_deletion": {
+						"anyOf": [
+							{
+								"type": "object",
+								"properties": {
+									"scheduled_at": {
+										"type": "string",
+										"description": "ISO8601 timestamp of when the deletion was scheduled"
+									},
+									"channel_count": {
+										"description": "The number of channels with messages to delete",
+										"$ref": "#/components/schemas/Int32Type"
+									},
+									"message_count": {
+										"description": "The total number of messages to delete",
+										"$ref": "#/components/schemas/Int32Type"
+									}
+								},
+								"required": ["scheduled_at", "channel_count", "message_count"],
+								"additionalProperties": false
+							},
+							{"type": "null"}
+						],
+						"description": "Information about a pending bulk message deletion request. Only populated when the legacy delayed-deletion flow is in progress; the new immediate-deletion flow does not surface a pending state here."
+					},
+					"age_verified_adult": {
+						"description": "Whether the user has verified their age as an adult via credit card verification",
+						"type": "boolean"
+					},
+					"terms_agreed_at": {
+						"description": "ISO8601 timestamp of when the user last agreed to the terms of service",
+						"type": ["string", "null"]
+					},
+					"privacy_agreed_at": {
+						"description": "ISO8601 timestamp of when the user last agreed to the privacy policy",
+						"type": ["string", "null"]
+					},
+					"token": {
+						"description": "Authentication token for the replacement session, present when the password was changed",
+						"type": "string"
+					},
+					"auth_session_id_hash": {
+						"description": "Base64url-encoded hash of the replacement authentication session, present when the password was changed",
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"username",
+					"global_name",
+					"avatar",
+					"avatar_color",
+					"flags",
+					"is_staff",
+					"acls",
+					"traits",
+					"email",
+					"has_verified_phone",
+					"bio",
+					"pronouns",
+					"accent_color",
+					"theme_colors",
+					"profile_frame",
+					"banner",
+					"banner_color",
+					"mfa_enabled",
+					"verified",
+					"premium_type",
+					"premium_since",
+					"premium_until",
+					"premium_will_cancel",
+					"premium_billing_cycle",
+					"premium_lifetime_sequence",
+					"premium_grace_ends_at",
+					"premium_badge_hidden",
+					"premium_badge_masked",
+					"premium_badge_timestamp_hidden",
+					"premium_badge_sequence_hidden",
+					"premium_purchase_disabled",
+					"premium_enabled_override",
+					"premium_perks_disabled",
+					"password_last_changed_at",
+					"last_voice_activity_sharing_change_at",
+					"required_actions",
+					"nsfw_allowed",
+					"has_dismissed_premium_onboarding",
+					"has_ever_purchased",
+					"has_unread_gift_inventory",
+					"unread_gift_inventory_count",
+					"pending_bulk_message_deletion",
+					"terms_agreed_at",
+					"privacy_agreed_at"
+				],
+				"additionalProperties": false
+			},
 			"UnfurlRequest": {
 				"type": "object",
 				"properties": {"url": {"description": "The URL to unfurl", "type": "string"}},
@@ -34159,6 +34437,14 @@
 				"required": ["src", "proxy_src", "width", "height"],
 				"additionalProperties": false
 			},
+			"UserAuthenticatorTypes": {
+				"description": "Authenticator type",
+				"type": "integer",
+				"enum": [0, 2],
+				"format": "int32",
+				"x-enumNames": ["TOTP", "WEBAUTHN"],
+				"x-enumDescriptions": ["Time-based one-time password authenticator", "WebAuthn authenticator"]
+			},
 			"ProfileFieldPrivacyFlags": {
 				"type": "integer",
 				"minimum": 0,
@@ -34792,14 +35078,6 @@
 				],
 				"enum": ["online", "dnd", "idle", "invisible"],
 				"type": "string"
-			},
-			"UserAuthenticatorTypes": {
-				"description": "Authenticator type",
-				"type": "integer",
-				"enum": [0, 2],
-				"format": "int32",
-				"x-enumNames": ["TOTP", "WEBAUTHN"],
-				"x-enumDescriptions": ["Time-based one-time password authenticator", "WebAuthn authenticator"]
 			},
 			"HexString16Type": {"type": "string", "pattern": "^[a-f0-9]{16}$"},
 			"UsernameChangeRequestStatus": {

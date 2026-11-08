@@ -22,7 +22,10 @@ import {UserAccountLifecycleService} from '@app/api/user/services/UserAccountLif
 import {UserAccountLookupService} from '@app/api/user/services/UserAccountLookupService';
 import {UserAccountNotesService} from '@app/api/user/services/UserAccountNotesService';
 import {UserAccountProfileService} from '@app/api/user/services/UserAccountProfileService';
-import {UserAccountSecurityService} from '@app/api/user/services/UserAccountSecurityService';
+import {
+	type AuthSessionReplacement,
+	UserAccountSecurityService,
+} from '@app/api/user/services/UserAccountSecurityService';
 import {UserAccountSettingsService} from '@app/api/user/services/UserAccountSettingsService';
 import {UserAccountUpdatePropagator} from '@app/api/user/services/UserAccountUpdatePropagator';
 import type {UserContactChangeLogService} from '@app/api/user/services/UserContactChangeLogService';
@@ -40,6 +43,12 @@ interface UpdateUserParams {
 	request: Request;
 	sudoContext?: SudoVerificationResult;
 	emailVerifiedViaToken?: boolean;
+}
+
+interface UpdateUserResult {
+	user: User;
+	/** Set when the update replaced the current session (password change); goes back in the response only. */
+	authSessionReplacement: AuthSessionReplacement | null;
 }
 
 interface UserAccountRepository
@@ -135,7 +144,7 @@ export class UserAccountService {
 		});
 	}
 
-	async update(params: UpdateUserParams): Promise<User> {
+	async update(params: UpdateUserParams): Promise<UpdateUserResult> {
 		const {user, oldAuthSession, data, request, sudoContext, emailVerifiedViaToken = false} = params;
 		const profileResult = await this.profileService.processProfileUpdates({user, data});
 		const securityResult = await this.securityService.processSecurityUpdates({user, data, sudoContext});
@@ -200,14 +209,21 @@ export class UserAccountService {
 				}
 			},
 		];
+		let authSessionReplacement: AuthSessionReplacement | null = null;
 		if (securityResult.metadata.invalidateAuthSessions) {
 			finalizationSteps.push(
-				() => this.securityService.invalidateAndRecreateSessions({user, oldAuthSession, request}),
+				async () => {
+					authSessionReplacement = await this.securityService.invalidateAndRecreateSessions({
+						user,
+						oldAuthSession,
+						request,
+					});
+				},
 				() => this.userAccountRepository.deleteAllPasswordResetTokens(user.id),
 			);
 		}
 		await runAllInOrder(finalizationSteps, 'Failed to finalize user update');
-		return updatedUser;
+		return {user: updatedUser, authSessionReplacement};
 	}
 
 	private async reindexGuildMembersForUser(updatedUser: User): Promise<void> {

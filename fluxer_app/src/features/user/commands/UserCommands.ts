@@ -121,6 +121,7 @@ type UserUpdatePayload = Partial<UserPrivate> & {
 };
 type UserUpdateResponse = UserPrivate & {
 	token?: string;
+	auth_session_id_hash?: string;
 };
 
 interface HarvestRequestResponse {
@@ -256,6 +257,12 @@ export async function update(user: UserUpdatePayload): Promise<UserUpdateRespons
 			logger.debug(`Updated fields: ${updatedFields.join(', ')}`);
 		}
 		if (userData.token) {
+			// A password change replaced this session; the new token only comes back here.
+			SessionManager.setToken(userData.token);
+			GatewayConnection.setToken(userData.token);
+			if (userData.auth_session_id_hash) {
+				AuthSession.handleAuthSessionChange(userData.auth_session_id_hash);
+			}
 			logger.debug('Authentication token was refreshed');
 		}
 		return userData;
