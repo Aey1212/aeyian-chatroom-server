@@ -37,6 +37,20 @@ pub(in crate::server) fn cached_transform_hit(
     })
 }
 
+pub(in crate::server) fn cached_transform_failed(
+    runtime: &TransformRuntime,
+    cache_key: &str,
+) -> bool {
+    runtime.failed_transforms().contains_key(cache_key)
+}
+
+pub(in crate::server) fn record_cached_transform_failure(
+    runtime: &TransformRuntime,
+    cache_key: String,
+) {
+    runtime.failed_transforms().insert(cache_key, ());
+}
+
 pub(in crate::server) async fn cached_transform<F, Fut>(
     request: CachedTransformRequest<'_, F>,
 ) -> Result<BudgetedBytes, CoalescerError>

@@ -270,9 +270,15 @@ pub fn transform_image(
             Some(pixels) if animated => pixels,
             _ => media_limits.animated_total_pixels(),
         };
-        try_decode_apng(input, animated, max_total_pixels, media_limits)?
+        try_decode_apng(
+            input,
+            animated,
+            max_total_pixels,
+            media_limits,
+            options.deadline_ms,
+        )?
     } else if animated && let Some(max_total_pixels) = accumulated_pixels {
-        decode_heif_sequence(input, max_total_pixels, media_limits)?
+        decode_heif_sequence(input, max_total_pixels, media_limits, options.deadline_ms)?
     } else {
         None
     };
@@ -300,7 +306,8 @@ pub fn transform_image(
         && decoded_animation.is_none()
         && (animated || requires_heif_sdr_decode);
     if use_heif_primary_still_path
-        && let Some(decoded) = try_decode_heif_primary_still(input, media_limits, metrics)?
+        && let Some(decoded) =
+            try_decode_heif_primary_still(input, media_limits, metrics, options.deadline_ms)?
     {
         let mut image = decoded.image;
         validate_vips_image(media_limits, &image)?;

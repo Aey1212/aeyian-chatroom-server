@@ -360,3 +360,26 @@ fn png_outputs_above_a_megapixel_use_default_zlib_compression() {
     assert_eq!(Some((1100, 1000)), png_dimensions(&large.bytes));
     assert_eq!(Some(2), png_zlib_level(&large.bytes));
 }
+
+#[test]
+fn bmp_transform_cost_comes_from_the_header_without_decoding() {
+    // The header claims far more pixels than the file holds; decoding would fail on the missing
+    // pixels, while the cost is read from the header alone.
+    let mut bmp = synthetic_bmp(4, 4);
+    bmp[18..22].copy_from_slice(&8000i32.to_le_bytes());
+    bmp[22..26].copy_from_slice(&6000i32.to_le_bytes());
+    let cost = image_transform_cost(
+        &bmp,
+        &ImageOptions {
+            width: Some(64),
+            format: OutputFormat::WebP,
+            ..Default::default()
+        },
+        &super::fixtures::test_media_limits(),
+    )
+    .expect("a cost from the header");
+    let NativeCost::Bytes(cost) = cost else {
+        panic!("a still image is charged exact bytes")
+    };
+    assert!(cost >= 8000 * 6000, "cost {cost}");
+}

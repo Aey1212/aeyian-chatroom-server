@@ -114,6 +114,57 @@ pub(super) async fn read_response_bytes(
     ))
 }
 
+// Upstream Fluxer f9b469149 (#3878): a response without Content-Length used to be read whole and
+// only then compared with the limit, outside any budget. It is now read chunk by chunk, refused as
+// soon as it passes `limit`, and its buffer grows inside the shared budget.
+pub(super) async fn read_response_bytes_up_to(
+    mut response: reqwest::Response,
+    limit: usize,
+    budget: &ByteBudget,
+) -> Result<BudgetedBytes, StorageError> {
+    let _transport_chunk_reservation = budget
+        .try_reserve(response_body_limit::RESPONSE_BODY_TRANSPORT_CHUNK_BYTES_MAX)
+        .ok_or(StorageError::BufferBudgetExhausted)?;
+    let mut buffer_budget = ReadBufferBudget::reserve(budget, 0)?;
+    let mut body: Vec<u8> = Vec::new();
+    let mut chunks_read = 0_u64;
+    let chunks_max = response_body_limit::response_body_chunk_limit(limit as u64);
+    while let Some(chunk) = response.chunk().await? {
+        if chunk.len() > response_body_limit::RESPONSE_BODY_TRANSPORT_CHUNK_BYTES_MAX {
+            return Err(StorageError::ObjectStorage(anyhow::anyhow!(
+                "object storage response transport chunk exceeded its byte bound"
+            )));
+        }
+        chunks_read = chunks_read
+            .checked_add(1)
+            .filter(|chunks| *chunks <= chunks_max)
+            .ok_or_else(|| {
+                StorageError::ObjectStorage(anyhow::anyhow!(
+                    "object storage response exceeded its chunk limit"
+                ))
+            })?;
+        let next_length = body
+            .len()
+            .checked_add(chunk.len())
+            .filter(|length| *length <= limit)
+            .ok_or(StorageError::StreamTooLong)?;
+        if next_length > body.capacity() {
+            let target_capacity = next_length.max(body.capacity().saturating_mul(2).min(limit));
+            buffer_budget.grow_to(target_capacity)?;
+            body.try_reserve_exact(target_capacity - body.len())
+                .map_err(|_| StorageError::BufferAllocationFailed)?;
+            buffer_budget.grow_to(body.capacity())?;
+        }
+        body.extend_from_slice(&chunk);
+        assert_eq!(body.len(), next_length);
+    }
+    buffer_budget.shrink_to(body.capacity());
+    Ok(BudgetedBytes::budgeted(
+        Bytes::from(body),
+        buffer_budget.into_reservation(),
+    ))
+}
+
 pub(super) async fn read_exact_bytes(
     reader: impl AsyncRead + Unpin,
     expected_length: usize,

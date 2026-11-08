@@ -38,9 +38,13 @@ fn color_tagged_video(primaries: &str, transfer: &str, matrix: &str) -> Option<V
 
 #[test]
 fn a_png_video_thumbnail_uses_default_zlib_compression() {
-    let thumb =
-        extract_video_thumbnail(&fixture_h264_mp4(), OutputFormat::PNG, &test_media_limits())
-            .expect("h264 video should thumbnail");
+    let thumb = extract_video_thumbnail(
+        &fixture_h264_mp4(),
+        OutputFormat::PNG,
+        None,
+        &test_media_limits(),
+    )
+    .expect("h264 video should thumbnail");
     assert_eq!(Some(2), png_zlib_level(&thumb.bytes));
 }
 
@@ -50,7 +54,7 @@ fn video_thumbnail_accepts_smpte170m_sd_primaries() {
         eprintln!("skipping: ffmpeg CLI not available");
         return;
     };
-    let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, None, &test_media_limits())
         .expect("ntsc sd video should thumbnail");
     assert_eq!(png_dimensions(&thumb.bytes), Some((320, 240)));
 }
@@ -61,12 +65,12 @@ fn video_thumbnail_accepts_bt470bg_pal_primaries() {
         eprintln!("skipping: ffmpeg CLI not available");
         return;
     };
-    let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, None, &test_media_limits())
         .expect("pal sd video should thumbnail");
     assert_eq!(png_dimensions(&thumb.bytes), Some((320, 240)));
 
     let film = color_tagged_video("film", "bt470m", "bt470bg").expect("film fixture");
-    let thumb = extract_video_thumbnail(&film, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&film, OutputFormat::PNG, None, &test_media_limits())
         .expect("film primaries should thumbnail");
     assert_eq!(png_dimensions(&thumb.bytes), Some((320, 240)));
 }
@@ -93,7 +97,7 @@ fn a_bt709_thumbnail_keeps_the_source_shadow_luminance() {
         eprintln!("skipping: ffmpeg CLI not available");
         return;
     };
-    let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, None, &test_media_limits())
         .expect("bt709 shadow video should thumbnail");
     let (_, _, pixels) = decode_rgba(&thumb.bytes);
     let luma: Vec<f64> = pixels
@@ -123,7 +127,7 @@ fn video_thumbnail_accepts_every_widened_sdr_transfer() {
             color_tagged_video("bt709", transfer, "bt709")
                 .unwrap_or_else(|| panic!("{transfer} fixture"))
         };
-        let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, &test_media_limits())
+        let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, None, &test_media_limits())
             .unwrap_or_else(|error| panic!("{transfer} should thumbnail: {error:?}"));
         assert_eq!(png_dimensions(&thumb.bytes), Some((320, 240)), "{transfer}");
     }
@@ -135,7 +139,7 @@ fn video_thumbnail_tone_maps_hdr_instead_of_refusing_it() {
         eprintln!("skipping: ffmpeg CLI not available");
         return;
     };
-    let thumb = extract_video_thumbnail(&hdr, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&hdr, OutputFormat::PNG, None, &test_media_limits())
         .expect("pq bt2020 video should thumbnail");
     assert_eq!(png_dimensions(&thumb.bytes), Some((320, 240)));
 
@@ -148,7 +152,7 @@ fn video_thumbnail_tone_maps_hdr_instead_of_refusing_it() {
     ] {
         let video = color_tagged_video(primaries, transfer, matrix)
             .unwrap_or_else(|| panic!("{primaries}/{transfer}/{matrix} fixture"));
-        let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, &test_media_limits())
+        let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, None, &test_media_limits())
             .unwrap_or_else(|error| {
                 panic!("{primaries}/{transfer}/{matrix} should thumbnail: {error:?}")
             });
@@ -190,14 +194,26 @@ fn video_thumbnail_still_rejects_colour_signals_it_cannot_model() {
     };
     assert_eq!(
         Some(MediaError::MediaDecodeFailed),
-        extract_video_thumbnail(&cinema_transfer, OutputFormat::PNG, &test_media_limits()).err()
+        extract_video_thumbnail(
+            &cinema_transfer,
+            OutputFormat::PNG,
+            None,
+            &test_media_limits()
+        )
+        .err()
     );
 
     let cinema_primaries =
         color_tagged_video("smpte428", "bt709", "bt709").expect("smpte428 primaries fixture");
     assert_eq!(
         Some(MediaError::MediaDecodeFailed),
-        extract_video_thumbnail(&cinema_primaries, OutputFormat::PNG, &test_media_limits()).err()
+        extract_video_thumbnail(
+            &cinema_primaries,
+            OutputFormat::PNG,
+            None,
+            &test_media_limits()
+        )
+        .err()
     );
 }
 
@@ -237,7 +253,7 @@ fn flat_colour_centre_pixel(
     matrix: &str,
 ) -> Option<[u8; 4]> {
     let video = flat_colour_tagged_video(colour, primaries, transfer, matrix)?;
-    let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&video, OutputFormat::PNG, None, &test_media_limits())
         .unwrap_or_else(|error| panic!("{primaries}/{transfer}/{matrix} thumbnails: {error:?}"));
     let (width, height, rgba) = decode_rgba(&thumb.bytes);
     assert_eq!((320, 240), (width, height));
@@ -313,7 +329,7 @@ fn video_thumbnail_corrects_display_geometry() {
         eprintln!("skipping: ffmpeg CLI not available");
         return;
     };
-    let thumb = extract_video_thumbnail(&plain, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&plain, OutputFormat::PNG, None, &test_media_limits())
         .expect("plain thumbnail");
     assert_eq!(
         png_dimensions(&thumb.bytes),
@@ -334,7 +350,7 @@ fn video_thumbnail_corrects_display_geometry() {
         "mp4",
     ])
     .expect("anamorphic fixture");
-    let thumb = extract_video_thumbnail(&anamorphic, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&anamorphic, OutputFormat::PNG, None, &test_media_limits())
         .expect("anamorphic thumbnail");
     let (w, h) = png_dimensions(&thumb.bytes).expect("anamorphic png dimensions");
     assert_eq!(h, 720, "anamorphic height preserved");
@@ -356,7 +372,7 @@ fn video_thumbnail_corrects_display_geometry() {
         "mp4",
     ])
     .expect("narrow anamorphic fixture");
-    let thumb = extract_video_thumbnail(&narrow, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&narrow, OutputFormat::PNG, None, &test_media_limits())
         .expect("narrow anamorphic thumbnail");
     assert_eq!(
         png_dimensions(&thumb.bytes),
@@ -378,7 +394,7 @@ fn video_thumbnail_corrects_display_geometry() {
         ],
     )
     .expect("rotated fixture");
-    let thumb = extract_video_thumbnail(&rotated, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&rotated, OutputFormat::PNG, None, &test_media_limits())
         .expect("rotated thumbnail");
     assert_eq!(
         png_dimensions(&thumb.bytes),
@@ -403,6 +419,7 @@ fn video_thumbnail_corrects_display_geometry() {
     let thumb = extract_video_thumbnail(
         &rotated_counterclockwise,
         OutputFormat::PNG,
+        None,
         &test_media_limits(),
     )
     .expect("counterclockwise rotated thumbnail");
@@ -428,9 +445,13 @@ fn video_thumbnail_corrects_display_geometry() {
         ],
     )
     .expect("rotated anamorphic fixture");
-    let thumb =
-        extract_video_thumbnail(&rotated_anamorphic, OutputFormat::PNG, &test_media_limits())
-            .expect("rotated anamorphic thumbnail");
+    let thumb = extract_video_thumbnail(
+        &rotated_anamorphic,
+        OutputFormat::PNG,
+        None,
+        &test_media_limits(),
+    )
+    .expect("rotated anamorphic thumbnail");
     assert_eq!(
         png_dimensions(&thumb.bytes),
         Some((180, 640)),
@@ -450,7 +471,7 @@ fn video_thumbnail_corrects_display_geometry() {
         "mp4",
     ])
     .expect("single-frame fixture");
-    let thumb = extract_video_thumbnail(&single, OutputFormat::PNG, &test_media_limits())
+    let thumb = extract_video_thumbnail(&single, OutputFormat::PNG, None, &test_media_limits())
         .expect("single-frame thumbnail");
     assert_eq!(
         png_dimensions(&thumb.bytes),
@@ -476,10 +497,11 @@ fn mirrored_display_matrix_flips_the_video_frame_horizontally() {
         return;
     };
     let mirrored = ffmpeg_mirror_mp4(&plain).expect("mirrored fixture");
-    let plain_thumb = extract_video_thumbnail(&plain, OutputFormat::PNG, &test_media_limits())
-        .expect("plain thumbnail");
+    let plain_thumb =
+        extract_video_thumbnail(&plain, OutputFormat::PNG, None, &test_media_limits())
+            .expect("plain thumbnail");
     let mirrored_thumb =
-        extract_video_thumbnail(&mirrored, OutputFormat::PNG, &test_media_limits())
+        extract_video_thumbnail(&mirrored, OutputFormat::PNG, None, &test_media_limits())
             .expect("mirrored thumbnail");
     let (width, height, plain_rgba) = decode_rgba(&plain_thumb.bytes);
     let (mirrored_width, mirrored_height, mirrored_rgba) = decode_rgba(&mirrored_thumb.bytes);

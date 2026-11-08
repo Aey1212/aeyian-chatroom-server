@@ -123,10 +123,11 @@ fn validate_metadata_image_dimensions(
 fn probe_av_metadata_without_requiring_a_frame(
     input: &[u8],
     media_limits: &MediaLimits,
+    deadline_ms: Option<i64>,
 ) -> Result<AVMetadata, MediaError> {
-    match probe_av_metadata(input, NSFW_PREVIEW_MAX_DIMENSION, media_limits, None) {
+    match probe_av_metadata(input, NSFW_PREVIEW_MAX_DIMENSION, media_limits, deadline_ms) {
         Ok(metadata) => Ok(metadata),
-        Err(error) => probe_av_metadata(input, 0, media_limits, None).map_err(|_| error),
+        Err(error) => probe_av_metadata(input, 0, media_limits, deadline_ms).map_err(|_| error),
     }
 }
 
@@ -167,6 +168,7 @@ fn metadata_blocking(request: MetadataBlockingRequest<'_>) -> Result<PreparedMet
         Some(probe_av_metadata_without_requiring_a_frame(
             input,
             media_limits,
+            options.deadline_ms,
         )?)
     } else {
         None

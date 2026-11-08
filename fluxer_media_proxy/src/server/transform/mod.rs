@@ -58,7 +58,7 @@ use axum::{
     response::Response,
 };
 use bytes::Bytes;
-use std::{collections::HashMap, sync::Arc};
+use std::{collections::HashMap, sync::Arc, time::Duration};
 
 const NATIVE_MEMORY_HEADROOM_BYTES: usize = 512 << 20;
 const NATIVE_MEMORY_FLOOR_BYTES: usize = 128 << 20;
@@ -66,6 +66,7 @@ const CGROUP_MEMORY_LIMIT_PATHS: [&str; 2] = [
     "/sys/fs/cgroup/memory.max",
     "/sys/fs/cgroup/memory/memory.limit_in_bytes",
 ];
+const FAILED_TRANSFORM_ENTRIES: u64 = 4096;
 const CONTENT_TYPE_SNIFF_PREFIX_BYTES: usize = 8192;
 // Every request waiting on a running transform would otherwise hold its own source until the
 // leader finishes, so only sources up to this size are kept to answer a busy server with the
@@ -78,6 +79,9 @@ pub(in crate::server) struct TransformRuntime {
     transform_timeout_ms: u64,
     tasks: NativeTaskExecutor,
     cache: TransformCache,
+    // Upstream Fluxer f9b469149 (#3878): keys whose transform failed (not timed out) are remembered
+    // for the cache TTL, so a source that always fails is not re-run on every request.
+    failed_transforms: moka::sync::Cache<String, ()>,
     metrics: Arc<TransformMetrics>,
 }
 
@@ -137,6 +141,12 @@ impl TransformRuntime {
                 cache_metrics: metrics.transform_cache(),
                 coalescer_metrics: metrics.coalescer(),
             }),
+            failed_transforms: moka::sync::Cache::builder()
+                .max_capacity(FAILED_TRANSFORM_ENTRIES)
+                .time_to_live(Duration::from_millis(
+                    cfg.media.transform_cache_ttl_ms.max(1),
+                ))
+                .build(),
             metrics: metrics.transform(),
         })
     }
@@ -155,6 +165,10 @@ impl TransformRuntime {
 
     pub(in crate::server) fn tasks(&self) -> &NativeTaskExecutor {
         &self.tasks
+    }
+
+    pub(in crate::server) fn failed_transforms(&self) -> &moka::sync::Cache<String, ()> {
+        &self.failed_transforms
     }
 
     pub(in crate::server) fn metrics(&self) -> Arc<TransformMetrics> {
@@ -584,7 +598,11 @@ async fn serve_image_transform(
                 format!(
                     "route={:?} cache_identity={} fmt={} w={:?} h={:?} q={} animated={}",
                     route,
-                    cache_identity,
+                    if route == TransformRoute::External {
+                        crate::public_net_policy::external_url_for_log(cache_identity)
+                    } else {
+                        cache_identity.to_owned()
+                    },
                     options.format.extension(),
                     options.width,
                     options.height,

@@ -391,6 +391,51 @@ async fn a_stored_passthrough_stream_declares_the_length_it_serves() {
     assert_eq!(&b"hello"[..], &response_body(response).await[..]);
 }
 
+#[tokio::test]
+async fn a_stored_svg_that_fails_to_rasterize_is_not_rasterized_again() {
+    let tmp = tempfile::tempdir().unwrap();
+    let storage_root = tmp.path().canonicalize().unwrap();
+    let app = test_app_state(asset_test_config(&storage_root));
+    let bucket = app.cfg.storage.bucket_cdn.clone();
+    let headers = HeaderMap::new();
+    let serve =
+        || passthrough::serve_stored_raw(&app, Method::GET, &bucket, "a/broken.svg", &headers);
+    app.store
+        .write_object(
+            &bucket,
+            "a/broken.svg",
+            b"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"10\" height=\"10\"><rect",
+            "image/svg+xml",
+        )
+        .await
+        .unwrap();
+    assert_eq!(StatusCode::BAD_REQUEST, serve().await.status());
+    // A valid SVG under the same key would rasterize, so a second refusal proves the remembered
+    // failure answered the request without running the transform again.
+    app.store
+        .write_object(
+            &bucket,
+            "a/broken.svg",
+            b"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"10\" height=\"10\"/>",
+            "image/svg+xml",
+        )
+        .await
+        .unwrap();
+    assert_eq!(StatusCode::BAD_REQUEST, serve().await.status());
+    app.store
+        .write_object(
+            &bucket,
+            "a/fine.svg",
+            b"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"10\" height=\"10\"/>",
+            "image/svg+xml",
+        )
+        .await
+        .unwrap();
+    let fine =
+        passthrough::serve_stored_raw(&app, Method::GET, &bucket, "a/fine.svg", &headers).await;
+    assert_eq!(StatusCode::OK, fine.status());
+}
+
 fn fake_asset_object(read_status: Option<u16>) -> crate::storage::tests::FakeObject {
     crate::storage::tests::FakeObject {
         body: crate::test_fixtures::synthetic_png(512, 512),

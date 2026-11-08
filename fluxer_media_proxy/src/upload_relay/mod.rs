@@ -69,12 +69,39 @@ impl Drop for BufferReservation {
     }
 }
 
-pub fn try_reserve_spool_budget(needed: u64, ceiling: u64) -> bool {
-    try_reserve(&SPOOL_IN_FLIGHT_BYTES, needed, ceiling)
+/// Disk spool bytes held for one relay upload. Released when dropped, which the relay does only
+/// after the spooled file has been uploaded to storage.
+#[derive(Debug)]
+pub struct SpoolReservation {
+    bytes: u64,
 }
 
-pub fn release_spool_budget(amount: u64) {
-    SPOOL_IN_FLIGHT_BYTES.fetch_sub(amount, Ordering::AcqRel);
+impl SpoolReservation {
+    pub fn try_new(bytes: u64, ceiling: u64) -> Option<Self> {
+        // Lazy on purpose: building Self when the reservation failed would run Drop and subtract
+        // bytes that were never added, wrapping the counter and refusing every later upload.
+        // (Upstream f9b469149 uses then_some here, which has that bug.)
+        try_reserve(&SPOOL_IN_FLIGHT_BYTES, bytes, ceiling).then(|| Self { bytes })
+    }
+
+    pub fn try_grow(&mut self, bytes: u64, ceiling: u64) -> bool {
+        if !try_reserve(&SPOOL_IN_FLIGHT_BYTES, bytes, ceiling) {
+            return false;
+        }
+        self.bytes += bytes;
+        true
+    }
+
+    #[cfg(test)]
+    pub fn bytes(&self) -> u64 {
+        self.bytes
+    }
+}
+
+impl Drop for SpoolReservation {
+    fn drop(&mut self) {
+        SPOOL_IN_FLIGHT_BYTES.fetch_sub(self.bytes, Ordering::AcqRel);
+    }
 }
 
 pub fn spool_in_flight_bytes() -> u64 {

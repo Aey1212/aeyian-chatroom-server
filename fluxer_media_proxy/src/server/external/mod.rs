@@ -9,6 +9,7 @@ use crate::{
     config::Config,
     constants::{self, AssetExtension},
     external_path, mime,
+    public_net_policy::external_url_for_log,
     server::{
         download_stream::DownloadStreamPolicy,
         external::{
@@ -444,6 +445,7 @@ pub(in crate::server) async fn fetch_external(
 }
 
 fn external_fetch_error_response(url: &str, err: ExternalFetchError) -> Response {
+    let url = external_url_for_log(url);
     match err {
         ExternalFetchError::BlockedUrl => text_with_source(
             StatusCode::BAD_REQUEST,

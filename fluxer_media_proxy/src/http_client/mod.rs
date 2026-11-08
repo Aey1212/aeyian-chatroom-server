@@ -14,6 +14,12 @@ use std::time::Duration;
 
 pub type HttpClient = ClientWithMiddleware;
 
+// Upstream Fluxer e87b593f4 (#3403): fetches from outside hosts give up sooner. A slow host could
+// hold a fetch for the whole socket timeout on every attempt, retries included.
+const EXTERNAL_CONNECT_TIMEOUT_MS: u64 = 3_000;
+const EXTERNAL_READ_TIMEOUT_MS: u64 = 10_000;
+const EXTERNAL_RETRY_WINDOW_MS: u64 = 15_000;
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTPClientOptions {
     connect_timeout_ms: NonZeroU64,
@@ -36,6 +42,8 @@ enum HTTPRetryPolicy {
         max_retries: NonZeroU32,
         min_delay_ms: NonZeroU64,
         max_delay_ms: NonZeroU64,
+        /// No new attempt starts once this long has passed since the first one.
+        window_ms: Option<NonZeroU64>,
     },
 }
 
@@ -63,6 +71,23 @@ impl HTTPClientOptions {
             read_timeout_ms: Some(read_timeout_ms),
             ..Self::default()
         }
+    }
+
+    // For outside hosts: a short connect timeout, a read timeout that fails a host that stops
+    // sending (it only runs while this side is waiting for bytes, so a slow client reading a
+    // streamed body does not trigger it), and a window after which no retry starts.
+    pub fn external(request_timeout_ms: NonZeroU64) -> Self {
+        let mut options = Self::new(
+            NonZeroU64::new(EXTERNAL_CONNECT_TIMEOUT_MS)
+                .expect("external connection timeout must be nonzero"),
+            request_timeout_ms,
+        )
+        .restrict_to_public();
+        options.read_timeout_ms = NonZeroU64::new(EXTERNAL_READ_TIMEOUT_MS);
+        if let HTTPRetryPolicy::Enabled { window_ms, .. } = &mut options.retries {
+            *window_ms = NonZeroU64::new(EXTERNAL_RETRY_WINDOW_MS);
+        }
+        options
     }
 
     pub fn without_request_timeout(mut self) -> Self {
@@ -97,6 +122,7 @@ impl Default for HTTPClientOptions {
                     .expect("default minimum retry delay must be nonzero"),
                 max_delay_ms: NonZeroU64::new(500)
                     .expect("default maximum retry delay must be nonzero"),
+                window_ms: None,
             },
             address_policy: HTTPAddressPolicy::Any,
         }
@@ -134,6 +160,7 @@ pub fn build(
         max_retries,
         min_delay_ms,
         max_delay_ms,
+        window_ms,
     } = options.retries
     else {
         return Ok(builder.build());
@@ -146,7 +173,11 @@ pub fn build(
         .build_with_max_retries(max_retries.get());
     Ok(builder
         .with(RetryTransientMiddleware::new_with_policy_and_strategy(
-            ObservableRetryPolicy::new(retry_policy, Arc::clone(&metrics)),
+            ObservableRetryPolicy::new(
+                retry_policy,
+                window_ms.map(|window| Duration::from_millis(window.get())),
+                Arc::clone(&metrics),
+            ),
             MediaProxyRetryStrategy::new(metrics),
         ))
         .build())
@@ -202,9 +233,34 @@ mod tests {
                 max_retries: NonZeroU32::new(2).expect("nonzero"),
                 min_delay_ms: millis(25),
                 max_delay_ms: millis(500),
+                window_ms: None,
             }
         );
         assert_eq!(options.address_policy, HTTPAddressPolicy::Any);
+    }
+
+    #[test]
+    fn the_external_client_fails_fast_on_slow_hosts() {
+        let options = HTTPClientOptions::external(millis(30_000));
+        assert_eq!(
+            millis(EXTERNAL_CONNECT_TIMEOUT_MS),
+            options.connect_timeout_ms
+        );
+        assert_eq!(
+            HTTPRequestTimeout::Bounded(millis(30_000)),
+            options.request_timeout
+        );
+        assert_eq!(
+            Some(millis(EXTERNAL_READ_TIMEOUT_MS)),
+            options.read_timeout_ms
+        );
+        assert!(matches!(
+            options.retries,
+            HTTPRetryPolicy::Enabled { window_ms: Some(window), .. }
+                if window == millis(EXTERNAL_RETRY_WINDOW_MS)
+        ));
+        assert_eq!(HTTPAddressPolicy::PublicOnly, options.address_policy);
+        build_raw(options).expect("the external client configuration is valid");
     }
 
     #[test]
