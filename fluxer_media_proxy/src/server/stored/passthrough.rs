@@ -24,8 +24,8 @@ use crate::{
         state::AppState,
         transform::{
             cache::{
-                CachedTransformRequest, cached_transform, cached_transform_hit,
-                coalescer_failure_response,
+                CachedTransformRequest, cached_transform, cached_transform_failed,
+                cached_transform_hit, coalescer_failure_response, record_cached_transform_failure,
             },
             cache_key::{TransformCacheKeyInput, transform_cache_key},
             execution::{coalesced_work_result, deadline_instant, run_transform},
@@ -301,6 +301,10 @@ async fn serve_stored_svg_rasterized(
             disposition: passthrough_disposition_header(disposition, hit.format.mime()),
         });
     }
+    if cached_transform_failed(runtime, &cache_key) {
+        return svg_rasterize_failed_response(cache_identity);
+    }
+    let failure_key = cache_key.clone();
     let transformed = match cached_transform(CachedTransformRequest {
         runtime,
         cache_key,
@@ -320,12 +324,8 @@ async fn serve_stored_svg_rasterized(
             {
                 return response;
             }
-            return text_with_source(
-                StatusCode::BAD_REQUEST,
-                "Bad Request",
-                "svg_rasterize_failed",
-                cache_identity,
-            );
+            record_cached_transform_failure(runtime, failure_key);
+            return svg_rasterize_failed_response(cache_identity);
         }
     };
     media_response(MediaResponse {
@@ -335,6 +335,15 @@ async fn serve_stored_svg_rasterized(
         range_header: headers.get(header::RANGE).and_then(|v| v.to_str().ok()),
         disposition: passthrough_disposition_header(disposition, format.mime()),
     })
+}
+
+fn svg_rasterize_failed_response(cache_identity: &str) -> Response {
+    text_with_source(
+        StatusCode::BAD_REQUEST,
+        "Bad Request",
+        "svg_rasterize_failed",
+        cache_identity,
+    )
 }
 
 #[cfg(test)]
