@@ -99,7 +99,7 @@ pub(super) fn check_jxl_decode_budget(
     if dims.pages <= 1 && pixels <= constants::MAX_JXL_SIMPLE_DECODE_PIXELS && is_simple()? {
         return Ok(());
     }
-    Err(MediaError::InvalidImageDimensions)
+    Err(MediaError::TooLargeToProcess)
 }
 
 // One 8-bit grey or RGB frame: no alpha, no extra channels, no higher bit depth. Opening the

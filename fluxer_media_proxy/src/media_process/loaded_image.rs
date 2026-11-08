@@ -80,7 +80,7 @@ pub(crate) fn validate_static_output_pixels(
     dims: ImageDimensions,
 ) -> Result<(), MediaError> {
     if static_output_pixels(options, dims) > constants::MAX_STATIC_OUTPUT_PIXELS {
-        return Err(MediaError::InvalidImageDimensions);
+        return Err(MediaError::TooLargeToProcess);
     }
     Ok(())
 }

@@ -4,12 +4,13 @@ use super::super::image_probe::{check_jxl_decode_budget, load_image};
 use super::super::native_runtime::ensure_vips_init;
 use super::super::transform::source_supports_pages;
 use super::super::{ImageDimensions, ImageOptions, MediaError, NativeCost, image_transform_cost};
-use super::fixtures::{animated_mode, metadata_value, transform_image};
+use super::fixtures::{animated_mode, metadata_value, png_zlib_level, transform_image};
 use crate::{
     mime, native,
     output_format::OutputFormat,
     test_fixtures::{
-        JXL_64_LOSSY_ALPHA, JXL_4100_LOSSY_ALPHA, png_dimensions, synthetic_bmp, synthetic_png,
+        JPEG_ROTATED_MISMATCHED_SCAN, JXL_64_LOSSY_ALPHA, JXL_4100_LOSSY_ALPHA, png_dimensions,
+        synthetic_bmp, synthetic_png,
     },
 };
 
@@ -136,7 +137,7 @@ fn animated_jxl_over_the_shared_budget_is_refused() {
     // 3000 × 3000 × 2 frames is under the simple budget but over the shared one.
     assert_eq!(
         check_jxl_decode_budget(dims(3000, 3000, 2), header_never_read),
-        Err(MediaError::InvalidImageDimensions)
+        Err(MediaError::TooLargeToProcess)
     );
 }
 
@@ -146,7 +147,7 @@ fn single_jxl_frame_between_the_budgets_depends_on_the_header() {
     assert_eq!(check_jxl_decode_budget(photo, || Ok(true)), Ok(()));
     assert_eq!(
         check_jxl_decode_budget(photo, || Ok(false)),
-        Err(MediaError::InvalidImageDimensions)
+        Err(MediaError::TooLargeToProcess)
     );
     assert_eq!(
         check_jxl_decode_budget(photo, || Err(MediaError::MediaDecodeFailed)),
@@ -158,7 +159,7 @@ fn single_jxl_frame_between_the_budgets_depends_on_the_header() {
 fn single_jxl_frame_over_the_simple_budget_is_refused() {
     assert_eq!(
         check_jxl_decode_budget(dims(8193, 6144, 1), header_never_read),
-        Err(MediaError::InvalidImageDimensions)
+        Err(MediaError::TooLargeToProcess)
     );
 }
 
@@ -174,7 +175,7 @@ fn refuses_jxl_above_the_decode_pixel_cap_before_decoding() {
             },
         )
         .unwrap_err();
-        assert_eq!(MediaError::InvalidImageDimensions, err);
+        assert_eq!(MediaError::TooLargeToProcess, err);
     }
 }
 
@@ -203,7 +204,7 @@ fn refuses_full_size_svg_raster_above_the_static_output_cap() {
         },
     )
     .unwrap_err();
-    assert_eq!(MediaError::InvalidImageDimensions, err);
+    assert_eq!(MediaError::TooLargeToProcess, err);
     let err = transform_image(
         svg,
         &ImageOptions {
@@ -213,7 +214,7 @@ fn refuses_full_size_svg_raster_above_the_static_output_cap() {
         },
     )
     .unwrap_err();
-    assert_eq!(MediaError::InvalidImageDimensions, err);
+    assert_eq!(MediaError::TooLargeToProcess, err);
 }
 
 #[test]
@@ -268,4 +269,30 @@ fn transform_cost_charges_svg_at_its_output_size() {
         panic!("an image is charged exact bytes")
     };
     assert!(cost < 1 << 20, "cost {cost}");
+}
+
+#[test]
+fn transforms_a_rotated_jpeg_with_mismatched_scan_headers_at_full_size() {
+    let out = transform_image(
+        JPEG_ROTATED_MISMATCHED_SCAN,
+        &ImageOptions {
+            format: OutputFormat::PNG,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert_eq!(Some((768, 1024)), png_dimensions(&out.bytes));
+}
+
+#[test]
+fn png_outputs_above_a_megapixel_use_default_zlib_compression() {
+    let png_options = ImageOptions {
+        format: OutputFormat::PNG,
+        ..Default::default()
+    };
+    let small = transform_image(&synthetic_bmp(160, 160), &png_options).unwrap();
+    assert_eq!(Some(3), png_zlib_level(&small.bytes));
+    let large = transform_image(&synthetic_bmp(1100, 1000), &png_options).unwrap();
+    assert_eq!(Some((1100, 1000)), png_dimensions(&large.bytes));
+    assert_eq!(Some(2), png_zlib_level(&large.bytes));
 }
