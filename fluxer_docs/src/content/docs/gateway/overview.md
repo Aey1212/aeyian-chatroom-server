@@ -200,7 +200,7 @@ The interval is in milliseconds and is authoritative for the connection.
 
 Opcode 2 Identify creates a session. A successful Identify sends [Ready](/gateway/events/#ready), whose `session_id` identifies the retained session. Fluxer publishes no separate resume URL, so a Resume reconnects to the same Gateway endpoint the client discovered.
 
-An invalid token closes with `4004` and reason `Invalid token`. A user account that already holds 100 live sessions closes with `4008` and reason `Too many sessions`, and a bot credential is not bounded by that maximum. A malformed shard pair closes with `4010` and reason `Invalid shard`. A bot shard assignment that resolves more than 2,500 guilds closes with `4011` and reason `Sharding required`.
+An invalid token closes with `4004` and reason `Invalid token`. A user account that already holds 100 live sessions closes with `4008` and reason `Too many sessions`, and a bot credential is not bounded by that maximum. A source IP that sends more than 300 Identify or Resume commands in one minute (counted per clock minute) closes with `4008` and reason `Identify rate limited` or `Resume rate limited`; reconnect after a backoff. A malformed shard pair closes with `4010` and reason `Invalid shard`. A bot shard assignment that resolves more than 2,500 guilds closes with `4011` and reason `Sharding required`.
 
 :::note[A held Identify sends nothing back]
 A draining node, a node at capacity, paused session starts, and an account outside the rollout percentage all keep the payload and retry it every 1 to 2 seconds.
