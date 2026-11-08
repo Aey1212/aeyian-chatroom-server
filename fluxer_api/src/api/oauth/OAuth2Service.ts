@@ -295,7 +295,12 @@ export class OAuth2Service {
 					throw new InvalidGrantError();
 				}
 			}
-			await this.tokens.deleteAuthorizationCode(code);
+			// Upstream Fluxer 4e6b837cc (#3158): consume the code atomically so two exchanges at once
+			// cannot both turn it into tokens.
+			if (!(await this.tokens.consumeAuthorizationCode(code, authCode.applicationId))) {
+				Logger.debug({code_len: code.length}, 'OAuth2 tokenExchange: authorization code already redeemed');
+				throw new InvalidGrantError();
+			}
 			const res = await this.issueTokens({
 				application,
 				userId: authCode.userId,
@@ -316,7 +321,9 @@ export class OAuth2Service {
 		if (refresh.applicationId !== application.applicationId) {
 			throw new InvalidGrantError();
 		}
-		await this.tokens.deleteRefreshToken(params.refreshToken!, refresh.applicationId, refresh.userId);
+		if (!(await this.tokens.consumeRefreshToken(params.refreshToken!, refresh.applicationId, refresh.userId))) {
+			throw new InvalidGrantError();
+		}
 		const res = await this.issueTokens({
 			application,
 			userId: refresh.userId,
