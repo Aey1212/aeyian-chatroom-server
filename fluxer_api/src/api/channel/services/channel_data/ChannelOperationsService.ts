@@ -9,6 +9,7 @@ import type {GuildAuditLogService} from '@app/api/guild/GuildAuditLogService';
 import {mapGuildToGuildResponse} from '@app/api/guild/GuildModel';
 import type {IGuildRepositoryAggregate} from '@app/api/guild/repositories/IGuildRepositoryAggregate';
 import {ChannelHelpers} from '@app/api/guild/services/channel/ChannelHelpers';
+import {createGuildMfaEnforcer} from '@app/api/guild/services/GuildMfaEnforcement';
 import {contentModerationService} from '@app/api/infrastructure/ContentModerationService';
 import type {IGatewayService} from '@app/api/infrastructure/IGatewayService';
 import type {ILiveKitService} from '@app/api/infrastructure/ILiveKitService';
@@ -603,6 +604,29 @@ export class ChannelOperationsService {
 		}
 	}
 
+	// Upstream Fluxer 4e6b837cc (#3158): editing a channel's permission overrides needs Manage Roles,
+	// and in a community that requires 2FA for moderators, the editor must have 2FA too.
+	private async checkOverwritePermission(params: {
+		guildId: GuildID;
+		userId: UserID;
+		channelId: ChannelID;
+	}): Promise<void> {
+		const canManageRoles = await this.gatewayService.checkPermission({
+			guildId: params.guildId,
+			userId: params.userId,
+			channelId: params.channelId,
+			permission: Permissions.MANAGE_ROLES,
+		});
+		if (!canManageRoles) throw new MissingPermissionsError();
+		const guildData = await this.gatewayService.getGuildData({guildId: params.guildId, userId: params.userId});
+		const enforceGuildMfa = await createGuildMfaEnforcer({
+			userRepository: this.userRepository,
+			guildData,
+			userId: params.userId,
+		});
+		enforceGuildMfa(Permissions.MANAGE_ROLES);
+	}
+
 	async setChannelPermissionOverwrite(params: {
 		userId: UserID;
 		channelId: ChannelID;
@@ -618,13 +642,7 @@ export class ChannelOperationsService {
 	}): Promise<void> {
 		const channel = await this.channelRepository.channelData.findUnique(params.channelId);
 		if (!channel?.guildId) throw new UnknownChannelError();
-		const canManageRoles = await this.gatewayService.checkPermission({
-			guildId: channel.guildId,
-			userId: params.userId,
-			channelId: channel.id,
-			permission: Permissions.MANAGE_ROLES,
-		});
-		if (!canManageRoles) throw new MissingPermissionsError();
+		await this.checkOverwritePermission({guildId: channel.guildId, userId: params.userId, channelId: channel.id});
 		const userPermissions = await this.gatewayService.getUserPermissions({
 			guildId: channel.guildId,
 			userId: params.userId,
@@ -691,13 +709,7 @@ export class ChannelOperationsService {
 	}): Promise<void> {
 		const channel = await this.channelRepository.channelData.findUnique(params.channelId);
 		if (!channel?.guildId) throw new UnknownChannelError();
-		const canManageRoles = await this.gatewayService.checkPermission({
-			guildId: channel.guildId,
-			userId: params.userId,
-			channelId: channel.id,
-			permission: Permissions.MANAGE_ROLES,
-		});
-		if (!canManageRoles) throw new MissingPermissionsError();
+		await this.checkOverwritePermission({guildId: channel.guildId, userId: params.userId, channelId: channel.id});
 		const previousPermissionOverwrites = channel.permissionOverwrites;
 		const overwrites = new Map(channel.permissionOverwrites ?? []);
 		const removedRole = overwrites.get(createRoleID(params.overwriteId));
