@@ -14,6 +14,7 @@ import type {IGuildSearchService} from '@app/api/search/IGuildSearchService';
 import type {IReportSearchService} from '@app/api/search/IReportSearchService';
 import type {IUserSearchService} from '@app/api/search/IUserSearchService';
 import type {IUserRepository} from '@app/api/user/IUserRepository';
+import {isDeletionComplete} from '@app/api/user/UserHelpers';
 
 const BATCH_SIZE = 100;
 
@@ -98,7 +99,7 @@ async function warmupUsers(
 		pageState = page.pageState;
 		const users = page.users;
 		if (users.length === 0) continue;
-		await userSearchService.indexUsers(users);
+		await userSearchService.indexUsers(users.filter((user) => !isDeletionComplete(user)));
 		totalIndexed += users.length;
 		logger.debug({count: users.length, total: totalIndexed}, 'Indexed user batch');
 	} while (pageState);

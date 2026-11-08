@@ -214,6 +214,15 @@ export class EntranceSoundService {
 		});
 	}
 
+	/** Account deletion: every uploaded sound (file and row) and every selection of this user. */
+	async deleteAllForUser(userId: UserID): Promise<void> {
+		for (const sound of await this.repository.listSounds(userId)) {
+			await this.delete(userId, sound.soundId);
+		}
+		await this.repository.deleteAllSelectionsForUser(userId);
+		await this.repository.deleteAllSoundsForUser(userId);
+	}
+
 	async listSelections(userId: UserID): Promise<Array<EntranceSoundSelection>> {
 		return this.repository.listSelections(userId);
 	}

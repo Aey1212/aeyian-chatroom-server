@@ -18,8 +18,10 @@ import {createRequestCache} from '@app/api/middleware/RequestCacheMiddleware';
 import {getBillingRepository} from '@app/api/middleware/ServiceRegistry';
 import type {ApplicationRepository} from '@app/api/oauth/repositories/ApplicationRepository';
 import type {OAuth2TokenRepository} from '@app/api/oauth/repositories/OAuth2TokenRepository';
+import type {EntranceSoundService} from '@app/api/user/entrance_sound/EntranceSoundService';
 import type {UserRepository} from '@app/api/user/repositories/UserRepository';
 import {isPendingDeletionBlocked} from '@app/api/user/services/PendingDeletionCoordinator';
+import {deletedUserIdentity, personalFieldsToClear} from '@app/api/user/UserHelpers';
 import type {IUsernameRegistry} from '@app/api/user/UsernameRegistry';
 import type {WorkerTaskName} from '@app/api/worker/WorkerLaneConfig';
 import {ChannelTypes, MessageTypes} from '@fluxer/constants/src/ChannelConstants';
@@ -52,6 +54,7 @@ interface UserDeletionDependencies {
 	applicationRepository: ApplicationRepository;
 	workerService: IWorkerService<WorkerTaskName>;
 	connectionRepository: IConnectionRepository;
+	entranceSoundService: EntranceSoundService;
 }
 
 export async function processUserDeletion(
@@ -76,6 +79,7 @@ export async function processUserDeletion(
 		workerService,
 		connectionRepository,
 		usernameRegistry,
+		entranceSoundService,
 	} = deps;
 	Logger.debug({userId, deletionReasonCode}, 'Starting user account deletion');
 	const scheduledUser = await userRepository.findUnique(userId);
@@ -417,6 +421,12 @@ export async function processUserDeletion(
 		}
 	}
 	await favoriteMemeRepository.deleteAllByUserId(userId);
+	Logger.debug({userId}, 'Deleting entrance sounds');
+	try {
+		await entranceSoundService.deleteAllForUser(userId);
+	} catch (error) {
+		Logger.error({error, userId}, 'Failed to delete entrance sounds');
+	}
 	Logger.debug({userId}, 'Deleting OAuth tokens');
 	await Promise.all([
 		oauth2TokenRepository.deleteAllAccessTokensForUser(userId),
@@ -456,29 +466,11 @@ export async function processUserDeletion(
 	// The account's name stays locked after deletion until an admin releases it.
 	await usernameRegistry.lock(userForAnonymization.username, userId);
 	Logger.debug({userId}, 'Anonymizing user record');
+	// Every personal field still set, not just the ones the old list named (last IP, last active
+	// time, locale, consent timestamps, the fork's profile fields and more). Upstream b01ce726c.
 	const anonymisedUser = await userRepository.anonymizeForDeletion(userForAnonymization, {
-		username: DELETED_USER_USERNAME,
-		global_name: DELETED_USER_GLOBAL_NAME,
-		email: null,
-		email_verified: false,
-		password_hash: null,
-		totp_secret: null,
-		avatar_hash: null,
-		banner_hash: null,
-		bio: null,
-		pronouns: null,
-		accent_color: null,
-		timezone: null,
-		timezone_privacy_flags: ProfileFieldPrivacyFlags.EVERYONE,
-		date_of_birth: null,
-		flags: UserFlags.DELETED,
-		premium_type: null,
-		premium_since: null,
-		premium_until: null,
-		premium_gift_extension_ends_at: null,
-		stripe_customer_id: null,
-		stripe_subscription_id: null,
-		authenticator_types: new Set(),
+		...deletedUserIdentity(),
+		...personalFieldsToClear(userForAnonymization.toRow()),
 	});
 	await userRepository.removePendingDeletion(userId, pendingDeletionAt);
 	await userCacheService.setUserPartialResponseFromUser(anonymisedUser);

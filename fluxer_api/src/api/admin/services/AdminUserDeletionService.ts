@@ -15,8 +15,11 @@ import {ReportStatus} from '@app/api/report/IReportRepository';
 import type {ReportService} from '@app/api/report/ReportService';
 import {getReportSearchService} from '@app/api/SearchFactory';
 import {clearPendingDeletion, reschedulePendingDeletion} from '@app/api/user/services/PendingDeletionCoordinator';
+import {isDeletionComplete} from '@app/api/user/UserHelpers';
+import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
 import {DeletionReasons} from '@fluxer/constants/src/Core';
 import {UserFlags} from '@fluxer/constants/src/UserConstants';
+import {ConflictError} from '@fluxer/errors/src/domains/core/ConflictError';
 import {ReportAlreadyResolvedError} from '@fluxer/errors/src/domains/moderation/ReportAlreadyResolvedError';
 import {UnknownUserError} from '@fluxer/errors/src/domains/user/UnknownUserError';
 import type {ScheduleAccountDeletionRequest} from '@fluxer/schema/src/domains/admin/AdminUserSchemas';
@@ -69,6 +72,12 @@ export class AdminUserDeletionService {
 		const user = await userRepository.findUnique(userId);
 		if (!user) {
 			throw new UnknownUserError();
+		}
+		if (isDeletionComplete(user)) {
+			throw new ConflictError({
+				code: APIErrorCodes.CONFLICT,
+				message: 'This account has already been deleted',
+			});
 		}
 		const daysUntilDeletion = resolveDeletionDays(data.reason_code, data.days_until_deletion);
 		const pendingDeletionAt = new Date();

@@ -9,12 +9,91 @@ import {getCachedDeferredPhoneGateEnabled} from '@app/api/risk/DeferredPhoneGate
 import {
 	DEFERRABLE_PHONE_FLAGS,
 	DEFERRED_PHONE_ON_COMMUNITY_JOIN,
+	DELETED_USER_GLOBAL_NAME,
+	DELETED_USER_USERNAME,
 	PremiumFlags,
+	ProfileFieldPrivacyFlags,
 	SuspiciousActivityFlags,
 	UserFlags,
 } from '@fluxer/constants/src/UserConstants';
 import type {RequiredAction} from '@fluxer/schema/src/domains/user/UserResponseSchemas';
 import {ms} from 'itty-time';
+
+export function isDeletionComplete(user: Pick<User, 'flags' | 'pendingDeletionAt'>): boolean {
+	return (user.flags & UserFlags.DELETED) !== 0n && user.pendingDeletionAt === null;
+}
+
+// Everything personal a user row can hold, cleared when a deletion completes. From upstream
+// Fluxer (b01ce726c); the last five are this fork's own profile fields.
+const FIELDS_CLEARED_ON_DELETION = [
+	'email',
+	'email_bounced',
+	'password_hash',
+	'password_last_changed_at',
+	'totp_secret',
+	'authenticator_types',
+	'avatar_hash',
+	'avatar_color',
+	'banner_hash',
+	'banner_color',
+	'bio',
+	'pronouns',
+	'accent_color',
+	'timezone',
+	'date_of_birth',
+	'locale',
+	'premium_flags',
+	'premium_type',
+	'premium_since',
+	'premium_until',
+	'premium_gift_extension_ends_at',
+	'premium_will_cancel',
+	'premium_billing_cycle',
+	'premium_lifetime_sequence',
+	'premium_grace_ends_at',
+	'stripe_subscription_id',
+	'stripe_customer_id',
+	'has_ever_purchased',
+	'terms_agreed_at',
+	'privacy_agreed_at',
+	'last_active_at',
+	'last_active_ip',
+	'acls',
+	'traits',
+	'first_refund_at',
+	'gift_inventory_server_seq',
+	'gift_inventory_client_seq',
+	'premium_onboarding_dismissed_at',
+	'mention_flags',
+	'last_voice_activity_sharing_change_at',
+	'name_style',
+	'theme_colors',
+	'profile_frame',
+	'avatar_frame',
+	'nameplate',
+] as const satisfies ReadonlyArray<keyof UserRow>;
+
+/** The name and flags a user row takes once its deletion completes. */
+export function deletedUserIdentity() {
+	return {
+		username: DELETED_USER_USERNAME,
+		global_name: DELETED_USER_GLOBAL_NAME,
+		email_verified: false,
+		timezone_privacy_flags: ProfileFieldPrivacyFlags.EVERYONE,
+		flags: UserFlags.DELETED,
+	} satisfies Partial<UserRow>;
+}
+
+/** A patch setting every personal field this row still holds to null. */
+export function personalFieldsToClear(row: UserRow): Partial<UserRow> {
+	const patch: Partial<UserRow> = {};
+	for (const field of FIELDS_CLEARED_ON_DELETION) {
+		const value = row[field];
+		if (!value || (value instanceof Set && value.size === 0) || (Array.isArray(value) && value.length === 0)) continue;
+		patch[field] = null;
+	}
+	return patch;
+}
 
 type ClauseAction = Exclude<RequiredAction, 'REQUIRE_INBOUND_PHONE_VERIFICATION'>;
 type VerificationChannel = 'email' | 'phone';
