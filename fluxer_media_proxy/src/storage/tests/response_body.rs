@@ -8,7 +8,7 @@ use crate::{
         response_body::{
             ByteStream, LocalStreamBufferPool, StreamResponseValidation, exact_byte_stream,
             exact_response_stream, local_reader_stream, read_exact_bytes, read_response_bytes,
-            validate_stream_response,
+            read_response_bytes_up_to, validate_stream_response,
         },
     },
 };
@@ -257,6 +257,23 @@ async fn provider_response_readers_hold_the_declared_length_and_the_byte_budget(
         .await
         .expect_err("truncated response stream");
     assert_eq!(error.kind(), std::io::ErrorKind::UnexpectedEof);
+}
+
+#[tokio::test]
+async fn an_unsized_provider_response_is_read_up_to_its_limit_inside_the_budget() {
+    let budget = ByteBudget::new(1 << 20);
+    let read = read_response_bytes_up_to(provider_response(b"abcdef".to_vec()), 6, &budget)
+        .await
+        .expect("a body within the limit");
+    assert_eq!(read.as_ref(), b"abcdef");
+    assert!(matches!(
+        read_response_bytes_up_to(provider_response(b"abcdefg".to_vec()), 6, &budget).await,
+        Err(StorageError::StreamTooLong)
+    ));
+    assert!(matches!(
+        read_response_bytes_up_to(provider_response(b"a".to_vec()), 6, &ByteBudget::new(0)).await,
+        Err(StorageError::BufferBudgetExhausted)
+    ));
 }
 
 #[tokio::test]
