@@ -38,6 +38,8 @@ const applicationProcessDeletion: WorkerTaskHandler = async (payload, helpers) =
 			return;
 		}
 		const botUser = await userRepository.findUniqueAssert(botUserId);
+		// Upstream Fluxer 5fc503322 (#3936), also for a bot already marked deleted.
+		await userRepository.deleteAllRelationships(botUserId);
 		const replacementAuthorId = await remapAuthorMessagesToDeletedUser({
 			originalAuthorId: botUserId,
 			channelRepository,
