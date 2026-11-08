@@ -237,21 +237,17 @@ async fn attachment_transform(data: &[u8], filename: &str, params: &[(&str, &str
 }
 
 #[tokio::test]
-async fn a_full_size_transform_too_large_to_process_serves_the_original() {
+async fn a_full_size_transform_over_the_output_cap_is_scaled_to_fit() {
     let png = synthetic_png(6145, 4097);
     let response = attachment_transform(&png, "big.png", &[("format", "webp")]).await;
     assert_eq!(StatusCode::OK, response.status());
     assert_eq!(
-        Some("image/png"),
+        Some("image/webp"),
         response
             .headers()
             .get(header::CONTENT_TYPE)
             .and_then(|value| value.to_str().ok())
     );
-    let body = to_bytes(response.into_body(), usize::MAX)
-        .await
-        .expect("body");
-    assert_eq!(png, body);
 }
 
 #[tokio::test]
@@ -304,14 +300,21 @@ async fn a_waiter_releases_its_source_while_the_leader_runs() {
 }
 
 #[tokio::test]
-async fn a_resized_transform_too_large_to_process_still_fails() {
+async fn a_resized_transform_over_the_output_cap_is_scaled_to_fit() {
     let response = attachment_transform(
         &synthetic_png(6145, 4097),
         "big.png",
         &[("format", "webp"), ("width", "6145")],
     )
     .await;
-    assert_eq!(StatusCode::BAD_REQUEST, response.status());
+    assert_eq!(StatusCode::OK, response.status());
+    assert_eq!(
+        Some("image/webp"),
+        response
+            .headers()
+            .get(header::CONTENT_TYPE)
+            .and_then(|value| value.to_str().ok())
+    );
 }
 
 #[tokio::test]

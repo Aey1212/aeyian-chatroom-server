@@ -257,27 +257,24 @@ fn transforms_jxl_within_the_decode_pixel_cap() {
 }
 
 #[test]
-fn refuses_full_size_svg_raster_above_the_static_output_cap() {
+fn full_size_svg_raster_above_the_static_output_cap_is_scaled_to_fit() {
     let svg = br#"<svg xmlns="http://www.w3.org/2000/svg" width="16383" height="16383"></svg>"#;
-    let err = transform_image(
-        svg,
-        &ImageOptions {
-            format: OutputFormat::WebP,
-            ..Default::default()
-        },
-    )
-    .unwrap_err();
-    assert_eq!(MediaError::TooLargeToProcess, err);
-    let err = transform_image(
-        svg,
-        &ImageOptions {
-            width: Some(16384),
-            format: OutputFormat::WebP,
-            ..Default::default()
-        },
-    )
-    .unwrap_err();
-    assert_eq!(MediaError::TooLargeToProcess, err);
+    for width in [None, Some(16384)] {
+        let out = transform_image(
+            svg,
+            &ImageOptions {
+                width,
+                format: OutputFormat::PNG,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let (served_width, served_height) = png_dimensions(&out.bytes).expect("a PNG");
+        assert!(served_width > 0 && served_width == served_height);
+        assert!(
+            served_width as usize * served_height as usize <= constants::MAX_STATIC_OUTPUT_PIXELS
+        );
+    }
 }
 
 #[test]

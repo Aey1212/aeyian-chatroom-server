@@ -475,3 +475,38 @@ fn nsfw_frame_emit_failure_is_reported_instead_of_decoder_eof() {
     assert_eq!(NativeStatus::Unsupported, status);
     assert_eq!(Err(NSFWFrameCopyError::InvalidOutput), frames);
 }
+
+#[test]
+fn full_size_wallpaper_fits_a_small_memory_budget_instead_of_failing() {
+    use crate::{
+        image_quality::ImageQuality,
+        image_transform::{AnimationMode, ImageOptions, ResizeMode},
+        media_process::{MediaLimits, NativeCost, image_transform_cost, transform_image},
+        metrics::transform::TransformMetrics,
+        mime,
+        output_format::OutputFormat,
+        test_fixtures::synthetic_png,
+    };
+    let budget = 240 << 20;
+    let limits = MediaLimits::default_from_config().with_native_memory_budget(budget);
+    let input = synthetic_png(3840, 2160);
+    let options = ImageOptions {
+        width: None,
+        height: None,
+        format: OutputFormat::WebP,
+        quality: ImageQuality::High,
+        animation: AnimationMode::Static,
+        effort_override: None,
+        resize_mode: ResizeMode::Fit,
+        deadline_ms: None,
+    };
+    let NativeCost::Bytes(cost) = image_transform_cost(&input, &options, &limits).unwrap() else {
+        panic!("a still image has a fixed cost");
+    };
+    assert!(cost <= budget);
+    let output = transform_image(&input, &options, &limits, &TransformMetrics::new()).unwrap();
+    let served = mime::sniff(&output.bytes);
+    assert_eq!("image/webp", served.mime);
+    assert!(served.width >= 2400 && served.width < 3840);
+    assert!((served.width * 9).abs_diff(served.height * 16) <= 16);
+}
