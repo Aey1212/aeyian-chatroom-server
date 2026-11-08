@@ -31844,9 +31844,15 @@
 						"description": "The template-local channel ID"
 					},
 					"type": {"type": "number", "description": "The channel type (0 = text, 2 = voice, 4 = category)"},
-					"name": {"description": "The name of the channel", "type": ["string", "null"]},
-					"topic": {"description": "The channel topic", "type": ["string", "null"]},
-					"position": {"type": "number", "description": "The position of the channel"},
+					"name": {
+						"description": "The name of the channel",
+						"anyOf": [{"type": "string", "maxLength": 100}, {"type": "null"}]
+					},
+					"topic": {
+						"description": "The channel topic",
+						"anyOf": [{"type": "string", "maxLength": 1024}, {"type": "null"}]
+					},
+					"position": {"description": "The position of the channel", "$ref": "#/components/schemas/Int32Type"},
 					"parent_id": {
 						"description": "The template-local ID of the parent category",
 						"anyOf": [
@@ -31857,14 +31863,25 @@
 							{"type": "null"}
 						]
 					},
-					"bitrate": {"description": "The bitrate for voice channels", "type": ["number", "null"]},
-					"user_limit": {"description": "The user limit for voice channels", "type": ["number", "null"]},
+					"bitrate": {
+						"description": "The bitrate for voice channels",
+						"anyOf": [{"type": "integer", "minimum": 0, "maximum": 9007199254740991}, {"type": "null"}]
+					},
+					"user_limit": {
+						"description": "The user limit for voice channels",
+						"anyOf": [{"type": "integer", "minimum": 0, "maximum": 9007199254740991}, {"type": "null"}]
+					},
 					"voice_connection_limit": {
 						"description": "The per-user voice connection limit for voice channels",
-						"type": ["number", "null"]
+						"anyOf": [{"type": "integer", "minimum": 1, "maximum": 100}, {"type": "null"}]
 					},
 					"nsfw": {"description": "Whether the channel is NSFW", "type": "boolean"},
-					"rate_limit_per_user": {"description": "Slowmode rate limit in seconds", "type": "number"},
+					"rate_limit_per_user": {
+						"description": "Slowmode rate limit in seconds",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 21600
+					},
 					"permission_overwrites": {
 						"description": "Permission overwrites for this channel",
 						"type": "array",
@@ -31901,7 +31918,10 @@
 						"anyOf": [{"type": "integer", "minimum": 0, "maximum": 9007199254740991}, {"type": "string"}],
 						"description": "The template-local role ID"
 					},
-					"name": {"description": "The name of the role", "type": ["string", "null"]},
+					"name": {
+						"description": "The name of the role",
+						"anyOf": [{"type": "string", "maxLength": 100}, {"type": "null"}]
+					},
 					"permissions": {
 						"description": "The permissions bitfield as a string (legacy)",
 						"anyOf": [{"type": "string"}, {"type": "integer", "minimum": 0, "maximum": 9007199254740991}]
@@ -31910,7 +31930,7 @@
 						"description": "The permissions bitfield as a string (preferred)",
 						"anyOf": [{"type": "string"}, {"type": "integer", "minimum": 0, "maximum": 9007199254740991}]
 					},
-					"color": {"description": "The colour of the role as an integer", "type": "number"},
+					"color": {"description": "The colour of the role as an integer", "$ref": "#/components/schemas/ColorType"},
 					"hoist": {"description": "Whether the role is hoisted", "type": "boolean"},
 					"mentionable": {"description": "Whether the role is mentionable", "type": "boolean"},
 					"unicode_emoji": {"description": "The unicode emoji for the role icon", "type": ["string", "null"]}
