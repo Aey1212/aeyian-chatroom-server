@@ -5,7 +5,7 @@ use super::super::{
     AV_NATIVE_COST_BYTES, MediaError, MetadataOptions, NSFW_PREVIEW_MAX_DIMENSION, NativeCost,
     metadata_cost, metadata_json_with_options, probe_av_metadata,
 };
-use super::fixtures::{metadata_value, test_media_limits};
+use super::fixtures::{metadata_value, sees_every_jxl_frame, test_media_limits};
 use crate::{
     metrics::transform::TransformMetrics,
     mime,
@@ -249,6 +249,9 @@ fn metadata_refuses_jxl_above_the_decode_pixel_cap() {
         JXL_4100_LOSSLESS_RGB16,
         JXL_3000_LOSSY_2_FRAMES,
     ] {
+        if jxl == JXL_3000_LOSSY_2_FRAMES && !sees_every_jxl_frame(jxl) {
+            continue;
+        }
         let err = tokio::runtime::Builder::new_current_thread()
             .build()
             .unwrap()

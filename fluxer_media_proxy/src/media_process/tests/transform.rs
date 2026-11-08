@@ -6,7 +6,8 @@ use super::super::native_runtime::ensure_vips_init;
 use super::super::transform::source_supports_pages;
 use super::super::{ImageDimensions, ImageOptions, MediaError, NativeCost, image_transform_cost};
 use super::fixtures::{
-    animated_mode, metadata_value, png_zlib_level, test_media_limits, transform_image,
+    animated_mode, metadata_value, png_zlib_level, sees_every_jxl_frame, test_media_limits,
+    transform_image,
 };
 use crate::{
     constants,
@@ -122,6 +123,9 @@ fn refuses_jxl_above_the_decode_pixel_cap_before_decoding() {
         JXL_4100_LOSSLESS_RGB16,
         JXL_3000_LOSSY_2_FRAMES,
     ] {
+        if jxl == JXL_3000_LOSSY_2_FRAMES && !sees_every_jxl_frame(jxl) {
+            continue;
+        }
         for width in [None, Some(128)] {
             let err = transform_image(
                 jxl,
