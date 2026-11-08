@@ -90,7 +90,9 @@ pub(in crate::server) async fn relay_put(
         return relay_error(err);
     }
     let timeout_ms = relay_upstream_timeout_ms(&app, content_length);
-    let (body, body_length, streamed, _buffer_reservation) = match content_length {
+    // The spool reservation is held until this handler returns, i.e. until the spooled file has been
+    // uploaded to storage (upstream Fluxer f9b469149, #3878).
+    let (body, body_length, streamed, _buffered_budget, _spooled_budget) = match content_length {
         Some(declared) => {
             let Some(deadline) =
                 tokio::time::Instant::now().checked_add(Duration::from_millis(timeout_ms))
@@ -124,6 +126,7 @@ pub(in crate::server) async fn relay_put(
                         declared,
                         None,
                         Some(reservation),
+                        None,
                     )
                 }
                 None => (
@@ -131,21 +134,31 @@ pub(in crate::server) async fn relay_put(
                     declared,
                     Some(StreamedRelayBody { failure, progress }),
                     None,
+                    None,
                 ),
             }
         }
         None => {
             let body_length_limit = token.mb.min(app.cfg.upload_relay.max_body_bytes);
-            let spooled = match spool_to_temp(
+            // A body without a declared length gets the same deadline as a declared one of the maximum
+            // size, so a slow client cannot hold a spool slot and its disk budget indefinitely.
+            let Some(deadline) = tokio::time::Instant::now().checked_add(Duration::from_millis(
+                relay_upstream_timeout_ms(&app, Some(body_length_limit)),
+            )) else {
+                return relay_error(RelayError::InternalError);
+            };
+            let spool = spool_to_temp(
                 request.into_body(),
                 content_length,
                 body_length_limit,
                 &app.cfg.upload_relay.spool_dir,
                 app.cfg.upload_relay.spool_chunk_bytes,
                 app.cfg.upload_relay.spool_max_total_bytes,
-            )
-            .await
-            {
+            );
+            let Ok(spooled) = tokio::time::timeout_at(deadline, spool).await else {
+                return relay_error(RelayError::ClientUploadFailed);
+            };
+            let spooled = match spooled {
                 Ok(spooled) => spooled,
                 Err(SpoolError::PayloadTooLarge) => {
                     return relay_error(RelayError::PayloadTooLarge);
@@ -161,8 +174,14 @@ pub(in crate::server) async fn relay_put(
                     return relay_error(RelayError::InternalError);
                 }
             };
-            let (file, spooled_length) = spooled.into_parts();
-            (RelayBody::Spooled(file), spooled_length, None, None)
+            let (file, spooled_length, spool_reservation) = spooled.into_parts();
+            (
+                RelayBody::Spooled(file),
+                spooled_length,
+                None,
+                None,
+                Some(spool_reservation),
+            )
         }
     };
     let content_type = resolve_relay_content_type(

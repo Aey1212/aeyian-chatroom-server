@@ -9,7 +9,7 @@ use tokio::{
     io::{AsyncSeekExt, AsyncWriteExt, BufWriter},
 };
 
-use crate::upload_relay::{release_spool_budget, try_reserve_spool_budget};
+use crate::upload_relay::SpoolReservation;
 
 #[derive(Debug, Error)]
 pub enum SpoolError {
@@ -25,22 +25,19 @@ pub enum SpoolError {
     Body(axum::Error),
 }
 
+// Upstream Fluxer f9b469149 (#3878): the spool budget stays reserved for as long as the file is on
+// disk. into_parts hands the reservation to the caller, who keeps it until the upload to storage is
+// done; before, it was released here, so the spool ceiling did not hold while files were uploading.
 #[derive(Debug)]
 pub struct SpooledBody {
-    file: Option<File>,
+    file: File,
     length: u64,
-    budget_reservation: u64,
+    reservation: SpoolReservation,
 }
 
 impl SpooledBody {
-    pub fn into_parts(mut self) -> (File, u64) {
-        let file = self.file.take().expect("SpooledBody already consumed");
-        let length = self.length;
-        if self.budget_reservation > 0 {
-            release_spool_budget(self.budget_reservation);
-            self.budget_reservation = 0;
-        }
-        (file, length)
+    pub fn into_parts(self) -> (File, u64, SpoolReservation) {
+        (self.file, self.length, self.reservation)
     }
 
     pub fn len(&self) -> u64 {
@@ -49,15 +46,6 @@ impl SpooledBody {
 
     pub fn is_empty(&self) -> bool {
         self.length == 0
-    }
-}
-
-impl Drop for SpooledBody {
-    fn drop(&mut self) {
-        if self.budget_reservation > 0 {
-            release_spool_budget(self.budget_reservation);
-            self.budget_reservation = 0;
-        }
     }
 }
 
@@ -74,35 +62,33 @@ pub async fn spool_to_temp(
     {
         return Err(SpoolError::PayloadTooLarge);
     }
-    let budget_reservation = declared_length.unwrap_or(max_body_bytes);
-    if !try_reserve_spool_budget(budget_reservation, spool_total_ceiling) {
-        return Err(SpoolError::BudgetExhausted);
-    }
-    let outcome = spool_body_inner(
+    // A body of unknown length reserves what it writes as it arrives, instead of its whole maximum.
+    let mut reservation =
+        SpoolReservation::try_new(declared_length.unwrap_or(0), spool_total_ceiling)
+            .ok_or(SpoolError::BudgetExhausted)?;
+    let (file, length) = spool_body_inner(
         body,
         declared_length,
         max_body_bytes,
+        spool_total_ceiling,
+        &mut reservation,
         dir,
         write_buffer_bytes,
     )
-    .await;
-    match outcome {
-        Ok((file, length)) => Ok(SpooledBody {
-            file: Some(file),
-            length,
-            budget_reservation,
-        }),
-        Err(err) => {
-            release_spool_budget(budget_reservation);
-            Err(err)
-        }
-    }
+    .await?;
+    Ok(SpooledBody {
+        file,
+        length,
+        reservation,
+    })
 }
 
 async fn spool_body_inner(
     mut body: Body,
     declared_length: Option<u64>,
     max_body_bytes: u64,
+    spool_total_ceiling: u64,
+    reservation: &mut SpoolReservation,
     dir: &Path,
     write_buffer_bytes: usize,
 ) -> Result<(File, u64), SpoolError> {
@@ -120,6 +106,11 @@ async fn spool_body_inner(
         let next = written.saturating_add(chunk.len() as u64);
         if next > max_body_bytes || declared_length.is_some_and(|declared| next > declared) {
             return Err(SpoolError::PayloadTooLarge);
+        }
+        if declared_length.is_none()
+            && !reservation.try_grow(chunk.len() as u64, spool_total_ceiling)
+        {
+            return Err(SpoolError::BudgetExhausted);
         }
         writer.write_all(&chunk).await?;
         written = next;
@@ -185,7 +176,7 @@ mod tests {
         )
         .await
         .unwrap();
-        let (mut file, len) = spooled.into_parts();
+        let (mut file, len, _reservation) = spooled.into_parts();
         assert_eq!(len, payload.len() as u64);
         let mut read_back = Vec::with_capacity(payload.len());
         file.read_to_end(&mut read_back).await.unwrap();
@@ -230,7 +221,7 @@ mod tests {
         let spooled = spool_to_temp(body, None, 4096, dir.path(), 1024, 1 << 30)
             .await
             .unwrap();
-        let (mut file, len) = spooled.into_parts();
+        let (mut file, len, _reservation) = spooled.into_parts();
         assert_eq!(len, payload.len() as u64);
         let mut read_back = Vec::with_capacity(payload.len());
         file.read_to_end(&mut read_back).await.unwrap();
@@ -247,22 +238,65 @@ mod tests {
         assert!(matches!(err, SpoolError::PayloadTooLarge));
     }
 
-    #[tokio::test]
-    async fn concurrent_spools_share_and_release_one_total_budget() {
-        let dir = tempfile::tempdir().unwrap();
-        let held = budgeted_spool(dir.path(), None).await.unwrap();
-        assert_eq!(held.len(), 16);
-        let contended = budgeted_spool(dir.path(), None).await.unwrap_err();
-        assert!(matches!(contended, SpoolError::BudgetExhausted));
-
+    // The spool budget is one process-wide counter shared with the other tests running in parallel.
+    // Like SPOOL_RESERVATION_BYTES above, this holds 600 MiB of a 1000 MiB ceiling: enough to be
+    // refused a second time, while the other tests (a few KiB under a 1 GiB ceiling) still fit.
+    #[test]
+    fn reservations_share_one_total_budget_until_dropped() {
+        let held = SpoolReservation::try_new(SPOOL_RESERVATION_BYTES, SPOOL_CEILING_BYTES)
+            .expect("first reservation");
+        assert!(SpoolReservation::try_new(SPOOL_RESERVATION_BYTES, SPOOL_CEILING_BYTES).is_none());
+        let mut grown =
+            SpoolReservation::try_new(0, SPOOL_CEILING_BYTES).expect("empty reservation");
+        assert!(!grown.try_grow(SPOOL_RESERVATION_BYTES, SPOOL_CEILING_BYTES));
+        assert!(grown.try_grow(1024, SPOOL_CEILING_BYTES));
+        assert_eq!(1024, grown.bytes());
+        drop(grown);
         drop(held);
-        let failed = budgeted_spool(dir.path(), Some(SPOOL_RESERVATION_BYTES))
-            .await
-            .unwrap_err();
-        assert!(matches!(failed, SpoolError::PayloadShortRead));
+        assert!(SpoolReservation::try_new(SPOOL_RESERVATION_BYTES, SPOOL_CEILING_BYTES).is_some());
+    }
 
-        let after_release = budgeted_spool(dir.path(), None).await.unwrap();
-        assert_eq!(after_release.len(), 16);
+    #[test]
+    fn a_refused_reservation_leaves_the_budget_untouched() {
+        let before =
+            SpoolReservation::try_new(1024, SPOOL_CEILING_BYTES).expect("small reservation");
+        assert!(SpoolReservation::try_new(1024, 512).is_none());
+        drop(before);
+        // A wrapped counter would refuse even this small reservation.
+        assert!(SpoolReservation::try_new(1024, SPOOL_CEILING_BYTES).is_some());
+    }
+
+    #[tokio::test]
+    async fn an_unknown_length_spool_reserves_what_it_wrote_and_hands_it_on() {
+        let dir = tempfile::tempdir().unwrap();
+        let spooled = budgeted_spool(dir.path(), None).await.unwrap();
+        let (_file, len, reservation) = spooled.into_parts();
+        assert_eq!(16, len);
+        assert_eq!(16, reservation.bytes());
+    }
+
+    #[tokio::test]
+    async fn a_declared_length_spool_reserves_its_declared_length() {
+        let dir = tempfile::tempdir().unwrap();
+        let spooled = budgeted_spool(dir.path(), Some(16)).await.unwrap();
+        let (_file, _len, reservation) = spooled.into_parts();
+        assert_eq!(16, reservation.bytes());
+    }
+
+    #[tokio::test]
+    async fn an_unknown_length_spool_stops_when_the_budget_runs_out() {
+        let dir = tempfile::tempdir().unwrap();
+        let err = spool_to_temp(
+            Body::from(vec![0u8; 16]),
+            None,
+            1 << 20,
+            dir.path(),
+            1024,
+            8,
+        )
+        .await
+        .unwrap_err();
+        assert!(matches!(err, SpoolError::BudgetExhausted));
     }
 
     #[tokio::test]
@@ -290,7 +324,7 @@ mod tests {
         )
         .await
         .unwrap();
-        let (mut file, len) = exact.into_parts();
+        let (mut file, len, _reservation) = exact.into_parts();
         assert_eq!(len, 5);
         let mut read_back = Vec::new();
         file.read_to_end(&mut read_back).await.unwrap();
