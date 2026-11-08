@@ -477,13 +477,14 @@ fn nsfw_frame_emit_failure_is_reported_instead_of_decoder_eof() {
 }
 
 #[test]
-fn full_size_wallpaper_fits_a_small_memory_budget_instead_of_failing() {
+fn full_size_wallpaper_over_a_small_memory_budget_is_left_to_its_original() {
     use crate::{
         image_quality::ImageQuality,
         image_transform::{AnimationMode, ImageOptions, ResizeMode},
-        media_process::{MediaLimits, NativeCost, image_transform_cost, transform_image},
+        media_process::{
+            MediaError, MediaLimits, NativeCost, image_transform_cost, transform_image,
+        },
         metrics::transform::TransformMetrics,
-        mime,
         output_format::OutputFormat,
         test_fixtures::synthetic_png,
     };
@@ -504,9 +505,9 @@ fn full_size_wallpaper_fits_a_small_memory_budget_instead_of_failing() {
         panic!("a still image has a fixed cost");
     };
     assert!(cost <= budget);
-    let output = transform_image(&input, &options, &limits, &TransformMetrics::new()).unwrap();
-    let served = mime::sniff(&output.bytes);
-    assert_eq!("image/webp", served.mime);
-    assert!(served.width >= 2400 && served.width < 3840);
-    assert!((served.width * 9).abs_diff(served.height * 16) <= 16);
+    // A PNG is shown by every browser, so it is not shrunk to fit: the server serves the original.
+    assert_eq!(
+        Some(MediaError::TooLargeToProcess),
+        transform_image(&input, &options, &limits, &TransformMetrics::new()).err()
+    );
 }

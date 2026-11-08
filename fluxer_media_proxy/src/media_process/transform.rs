@@ -98,8 +98,23 @@ fn admitted_transform_options(
         return Ok(*options);
     }
     let dims = probe_image_dims(media_limits, input)?;
-    let options =
-        &fit_static_output_to_budget(input.len(), sniffed_mime, options, dims, media_limits);
+    let fitted =
+        fit_static_output_to_budget(input.len(), sniffed_mime, options, dims, media_limits);
+    // Fork: shrinking to fit is for formats browsers cannot show (JPEG XL, HEIC, SVG, ...), where
+    // the alternative is no picture. An image browsers can show is refused instead, and the server
+    // answers with its original at full quality.
+    let shrunk = fitted.width != options.width || fitted.height != options.height;
+    if shrunk && mime::is_browser_displayable_image(sniffed_mime) {
+        tracing::info!(
+            mime = sniffed_mime,
+            input_bytes = input.len(),
+            width = dims.width,
+            height = dims.height,
+            "displayable image over the output budget left to its original"
+        );
+        return Err(MediaError::TooLargeToProcess);
+    }
+    let options = &fitted;
     let source_pixels = dims.width as usize * dims.height as usize;
     if source_pixels >= constants::LARGE_SOURCE_LOG_PIXELS {
         tracing::info!(

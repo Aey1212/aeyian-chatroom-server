@@ -60,6 +60,21 @@ pub struct MediaPrefixSniff {
     pub complete: bool,
 }
 
+/// Image formats every current browser shows as they are. When one of these is too large to
+/// resize, or would have to be shrunk to fit the memory budget, the original is served instead.
+pub fn is_browser_displayable_image(mime: &str) -> bool {
+    matches!(
+        mime,
+        "image/jpeg"
+            | "image/png"
+            | "image/apng"
+            | "image/gif"
+            | "image/webp"
+            | "image/avif"
+            | "image/bmp"
+    )
+}
+
 pub fn is_supported_media_mime(mime_type_raw: &str) -> bool {
     let Some(mime_type) = normalize(Some(mime_type_raw)) else {
         return false;

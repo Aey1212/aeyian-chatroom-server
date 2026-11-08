@@ -237,17 +237,21 @@ async fn attachment_transform(data: &[u8], filename: &str, params: &[(&str, &str
 }
 
 #[tokio::test]
-async fn a_full_size_transform_over_the_output_cap_is_scaled_to_fit() {
+async fn a_full_size_displayable_image_over_the_output_cap_serves_the_original() {
     let png = synthetic_png(6145, 4097);
     let response = attachment_transform(&png, "big.png", &[("format", "jpeg")]).await;
     assert_eq!(StatusCode::OK, response.status());
     assert_eq!(
-        Some("image/jpeg"),
+        Some("image/png"),
         response
             .headers()
             .get(header::CONTENT_TYPE)
             .and_then(|value| value.to_str().ok())
     );
+    let body = to_bytes(response.into_body(), usize::MAX)
+        .await
+        .expect("body");
+    assert_eq!(png, body);
 }
 
 #[tokio::test]
@@ -302,21 +306,22 @@ async fn a_waiter_releases_its_source_while_the_leader_runs() {
 }
 
 #[tokio::test]
-async fn a_resized_transform_over_the_output_cap_is_scaled_to_fit() {
-    let response = attachment_transform(
-        &synthetic_png(6145, 4097),
-        "big.png",
-        &[("format", "jpeg"), ("width", "6145")],
-    )
-    .await;
+async fn a_resized_displayable_image_over_the_output_cap_serves_the_original() {
+    let png = synthetic_png(6145, 4097);
+    let response =
+        attachment_transform(&png, "big.png", &[("format", "jpeg"), ("width", "6145")]).await;
     assert_eq!(StatusCode::OK, response.status());
     assert_eq!(
-        Some("image/jpeg"),
+        Some("image/png"),
         response
             .headers()
             .get(header::CONTENT_TYPE)
             .and_then(|value| value.to_str().ok())
     );
+    let body = to_bytes(response.into_body(), usize::MAX)
+        .await
+        .expect("body");
+    assert_eq!(png, body);
 }
 
 #[tokio::test]

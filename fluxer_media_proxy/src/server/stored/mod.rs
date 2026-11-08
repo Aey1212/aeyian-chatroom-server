@@ -227,9 +227,7 @@ struct AssetTransformFailure<'a> {
 fn asset_transform_failure_response(failure: AssetTransformFailure<'_>) -> Response {
     let stored_ct = failure.object.content_type.as_str();
     let sniffed_ct = failure.sniffed_content_type;
-    let src_ct = if !stored_ct.starts_with("image/")
-        && (is_browser_displayable_image(sniffed_ct) || sniffed_ct == "image/avif")
-    {
+    let src_ct = if !stored_ct.starts_with("image/") && is_browser_displayable_image(sniffed_ct) {
         sniffed_ct
     } else {
         stored_ct

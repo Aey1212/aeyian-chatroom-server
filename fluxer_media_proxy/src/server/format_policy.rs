@@ -190,10 +190,7 @@ pub(in crate::server) fn content_type_is_trustworthy(content_type: &str) -> bool
 }
 
 pub(in crate::server) fn is_browser_displayable_image(mime: &str) -> bool {
-    matches!(
-        mime,
-        "image/jpeg" | "image/png" | "image/gif" | "image/webp"
-    )
+    mime::is_browser_displayable_image(mime)
 }
 
 pub(in crate::server) fn is_svg_content_type(content_type: &str) -> bool {

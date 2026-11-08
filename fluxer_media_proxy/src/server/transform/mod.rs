@@ -521,9 +521,9 @@ async fn serve_image_transform(
             requested_download: transform.requested_download,
         });
     }
-    let can_serve_original = ((transform.width.is_none() && transform.height.is_none())
-        || options.is_animated())
-        && is_browser_displayable_image(sniffed.mime);
+    // Fork: an image browsers can show is answered with its original whenever it is too large
+    // to resize, thumbnails included, so a big picture is never replaced by an error.
+    let can_serve_original = is_browser_displayable_image(sniffed.mime);
     let fallback_original = (data.len() <= FALLBACK_ORIGINAL_MAX_HELD_BYTES
         && is_untransformed_fallback_image(sniffed.mime, source_format))
     .then(|| data.clone());
