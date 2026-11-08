@@ -15,6 +15,7 @@ import {
 import type {IGuildMemberSearchService} from '@app/api/search/IGuildMemberSearchService';
 import type {IMessageSearchService} from '@app/api/search/IMessageSearchService';
 import {deleteChannelMessageSearchDocuments} from '@app/api/search/MessageSearchIndexCleanup';
+import {isDeletionComplete} from '@app/api/user/UserHelpers';
 import {getWorkerDependencies} from '@app/api/worker/WorkerContext';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import type {IKVProvider} from '@pkgs/kv_client/src/IKVProvider';
@@ -141,7 +142,7 @@ const refreshUsers: IndexHandler = async (_payload, _helpers, kvClient, progress
 		pageState = page.pageState;
 		const users = page.users;
 		if (users.length === 0) continue;
-		await searchService.indexUsers(users);
+		await searchService.indexUsers(users.filter((user) => !isDeletionComplete(user)));
 		indexedCount += users.length;
 		await reportInProgress(kvClient, progressKey, 'users', indexedCount);
 		Logger.debug({count: users.length, total: indexedCount}, 'Indexed user batch');

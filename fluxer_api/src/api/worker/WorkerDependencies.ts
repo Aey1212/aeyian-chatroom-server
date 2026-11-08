@@ -65,6 +65,7 @@ import {
 	getEmailService,
 	getEmbedService,
 	getEntityAssetService,
+	getEntranceSoundService,
 	getFavoriteMemeRepository,
 	getGuildAuditLogService,
 	getGuildRepository,
@@ -97,6 +98,7 @@ import type {ReadStateRepository} from '@app/api/read_state/ReadStateRepository'
 import type {ReadStateService} from '@app/api/read_state/ReadStateService';
 import type {ReportRepository} from '@app/api/report/ReportRepository';
 import {STRIPE_API_VERSION} from '@app/api/stripe/StripeApiVersion';
+import type {EntranceSoundService} from '@app/api/user/entrance_sound/EntranceSoundService';
 import {PaymentRepository} from '@app/api/user/repositories/PaymentRepository';
 import type {UserRepository} from '@app/api/user/repositories/UserRepository';
 import type {UserContactChangeLogService} from '@app/api/user/services/UserContactChangeLogService';
@@ -133,6 +135,7 @@ export interface WorkerDependencies {
 	adminArchiveRepository: AdminArchiveRepository;
 	voiceRepository: VoiceRepository;
 	connectionRepository: ConnectionRepository;
+	entranceSoundService: EntranceSoundService;
 	connectionService: ConnectionService;
 	cacheService: ICacheService;
 	userCacheService: UserCacheService;
@@ -291,6 +294,7 @@ export async function initializeWorkerDependencies(snowflakeService: ISnowflakeS
 		voiceRepository,
 		connectionRepository,
 		connectionService,
+		entranceSoundService: getEntranceSoundService(),
 		cacheService,
 		userCacheService,
 		storageService,

@@ -62,6 +62,16 @@ class FakeEntranceSoundRepository {
 	}
 
 	async deleteSelectionsForSound(_userId: UserID, _soundId: EntranceSoundID): Promise<void> {}
+
+	selectionsCleared = false;
+
+	async deleteAllSelectionsForUser(_userId: UserID): Promise<void> {
+		this.selectionsCleared = true;
+	}
+
+	async deleteAllSoundsForUser(_userId: UserID): Promise<void> {
+		this.sounds.clear();
+	}
 }
 
 function createService() {
@@ -154,5 +164,19 @@ describe('EntranceSoundService shared object references', () => {
 		expect(deleteObject).toHaveBeenCalledTimes(1);
 		expect(deleteObject).toHaveBeenCalledWith(Config.s3.buckets.cdn, keyFromUrl(lone.url));
 		expect(objects.has(keyFromUrl(other.url))).toBe(true);
+	});
+
+	it('deletes every sound, file and selection when the account is deleted', async () => {
+		const {service, repository, objects} = createService();
+		await service.upload({userId: USER_ID, name: 'first', base64Audio: HALF_SECOND_WAV});
+		await service.upload({userId: USER_ID, name: 'same audio', base64Audio: HALF_SECOND_WAV});
+		await service.upload({userId: USER_ID, name: 'other', base64Audio: OTHER_WAV});
+		expect(objects.size).toBe(2);
+
+		await service.deleteAllForUser(USER_ID);
+
+		expect(objects.size).toBe(0);
+		expect(repository.sounds.size).toBe(0);
+		expect(repository.selectionsCleared).toBe(true);
 	});
 });
