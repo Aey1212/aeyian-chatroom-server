@@ -153,10 +153,18 @@ async fn a_cancelled_transform_leader_still_serves_the_original_image() {
     assert_eq!(asset_source_object().data, response_body(response).await);
 }
 
-#[test]
-fn a_coalescer_timeout_is_never_degraded_to_the_original_image() {
+#[tokio::test]
+async fn a_coalescer_timeout_serves_the_original_without_storing() {
     let response = asset_transform_failure(CoalescerError::RequestTimeout);
-    assert_eq!(StatusCode::GATEWAY_TIMEOUT, response.status());
+    assert_eq!(StatusCode::OK, response.status());
+    assert_eq!(
+        Some("no-store"),
+        response
+            .headers()
+            .get(header::CACHE_CONTROL)
+            .and_then(|value| value.to_str().ok())
+    );
+    assert_eq!(asset_source_object().data, response_body(response).await);
 }
 
 #[tokio::test]

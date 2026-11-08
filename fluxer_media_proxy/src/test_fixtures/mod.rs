@@ -14,8 +14,8 @@ pub use images::{
     JXL_3000_LOSSY_2_FRAMES, JXL_4100_LOSSLESS_RGB16, JXL_4100_LOSSY_ALPHA,
     JXL_4100_LOSSY_RGB_DEPTH, JXL_7000X4000_LOSSY_RGB, animated_gif_fixture, animated_gif_frames,
     apng_header, first_webp_anim_frame_size, gif_frame_delays_cs, gif_loop_count, minimal_gif,
-    png_dimensions, synthetic_bmp, synthetic_png, webp_animation_loop_count, webp_canvas_size,
-    webp_chunk_payloads, webp_with_metadata_chunk,
+    png_dimensions, synthetic_bmp, synthetic_image, synthetic_png, webp_animation_loop_count,
+    webp_canvas_size, webp_chunk_payloads, webp_with_metadata_chunk,
 };
 pub use media::{
     fixture_audio_mp3_with_png_cover_art, fixture_audio_mp4_with_attached_picture,

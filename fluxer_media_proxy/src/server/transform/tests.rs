@@ -239,10 +239,10 @@ async fn attachment_transform(data: &[u8], filename: &str, params: &[(&str, &str
 #[tokio::test]
 async fn a_full_size_transform_over_the_output_cap_is_scaled_to_fit() {
     let png = synthetic_png(6145, 4097);
-    let response = attachment_transform(&png, "big.png", &[("format", "webp")]).await;
+    let response = attachment_transform(&png, "big.png", &[("format", "jpeg")]).await;
     assert_eq!(StatusCode::OK, response.status());
     assert_eq!(
-        Some("image/webp"),
+        Some("image/jpeg"),
         response
             .headers()
             .get(header::CONTENT_TYPE)
@@ -256,7 +256,9 @@ async fn a_waiter_releases_its_source_while_the_leader_runs() {
     let runtime = test_runtime();
     let params = HashMap::from([("format".to_owned(), "webp".to_owned())]);
     let headers = HeaderMap::new();
-    let source = Bytes::from(synthetic_png(48, 48));
+    let mut big = synthetic_png(48, 48);
+    big.resize(FALLBACK_ORIGINAL_MAX_HELD_BYTES + 1, 0);
+    let source = Bytes::from(big);
     let probe = source.clone();
     let (release, released) = tokio::sync::oneshot::channel::<()>();
     let leader =
@@ -304,12 +306,12 @@ async fn a_resized_transform_over_the_output_cap_is_scaled_to_fit() {
     let response = attachment_transform(
         &synthetic_png(6145, 4097),
         "big.png",
-        &[("format", "webp"), ("width", "6145")],
+        &[("format", "jpeg"), ("width", "6145")],
     )
     .await;
     assert_eq!(StatusCode::OK, response.status());
     assert_eq!(
-        Some("image/webp"),
+        Some("image/jpeg"),
         response
             .headers()
             .get(header::CONTENT_TYPE)
@@ -327,10 +329,10 @@ async fn a_full_size_transform_too_large_to_process_never_serves_an_undisplayabl
 #[tokio::test]
 async fn a_full_size_jxl_above_the_static_output_cap_is_downscaled() {
     let response =
-        attachment_transform(JXL_7000X4000_LOSSY_RGB, "big.jxl", &[("format", "webp")]).await;
+        attachment_transform(JXL_7000X4000_LOSSY_RGB, "big.jxl", &[("format", "jpeg")]).await;
     assert_eq!(StatusCode::OK, response.status());
     assert_eq!(
-        Some("image/webp"),
+        Some("image/jpeg"),
         response
             .headers()
             .get(header::CONTENT_TYPE)

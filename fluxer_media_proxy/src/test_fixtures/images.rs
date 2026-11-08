@@ -40,6 +40,10 @@ pub const ANIMATED_WEBP_1024_17_FRAMES: &[u8] = include_bytes!("animated_webp_10
 pub const JPEG_ROTATED_MISMATCHED_SCAN: &[u8] = include_bytes!("jpeg_rotated_mismatched_scan.jpg");
 
 pub fn synthetic_png(width: u32, height: u32) -> Vec<u8> {
+    synthetic_image(width, height, ".png[strip]")
+}
+
+pub fn synthetic_image(width: u32, height: u32, suffix: &str) -> Vec<u8> {
     ensure_vips_init().unwrap();
     let mut pixels = vec![0u8; width as usize * height as usize * 4];
     for y in 0..height {
@@ -62,7 +66,7 @@ pub fn synthetic_png(width: u32, height: u32) -> Vec<u8> {
         )
     };
     let image = unsafe { native::VipsImageHandle::from_raw_owned(image) }.unwrap();
-    let suffix = CString::new(".png[strip]").unwrap();
+    let suffix = CString::new(suffix).unwrap();
     let mut out_ptr: *mut c_void = ptr::null_mut();
     let mut out_size: size_t = 0;
     let rc = unsafe {
