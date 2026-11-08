@@ -16,6 +16,7 @@ import {
 	triggerDeletionWorker,
 	waitForDeletionCompletion,
 } from '@app/api/user/tests/UserTestUtils';
+import {isDeletionComplete} from '@app/api/user/UserHelpers';
 import {AdminACLs} from '@fluxer/constants/src/AdminACLs';
 import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
 import {DeletionReasons} from '@fluxer/constants/src/Core';
@@ -41,7 +42,7 @@ describe('account deletion clears personal data', () => {
 		return result.hits.map((hit) => hit.id);
 	}
 
-	test('a completed deletion leaves no personal field, no search entry and no second deletion', async () => {
+	test('a completed deletion leaves no personal field, no search entry, no second deletion and no cancel', async () => {
 		const account = await createTestAccount(harness);
 		const users = createApiContext().services.users;
 		const userId = createUserID(BigInt(account.userId));
@@ -93,5 +94,11 @@ describe('account deletion clears personal data', () => {
 			.body({reason_code: DeletionReasons.USER_REQUESTED, days_until_deletion: 1})
 			.expect(HTTP_STATUS.CONFLICT, APIErrorCodes.CONFLICT)
 			.execute();
+		await createBuilder(harness, admin.token)
+			.delete(`/admin/users/${account.userId}/deletion`)
+			.expect(HTTP_STATUS.CONFLICT, APIErrorCodes.CONFLICT)
+			.execute();
+		expect(isDeletionComplete(await users.findUniqueAssert(userId))).toBe(true);
+		expect(await searchHits('')).not.toContain(account.userId);
 	});
 });
