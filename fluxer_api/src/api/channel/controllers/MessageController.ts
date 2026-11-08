@@ -8,6 +8,7 @@ import {normalizeMessageRequestPayload} from '@app/api/channel/services/message/
 import {parseMultipartMessageData} from '@app/api/channel/services/message/MessageRequestParser';
 import {DefaultUserOnly, LoginRequired} from '@app/api/middleware/AuthMiddleware';
 import {RateLimitMiddleware} from '@app/api/middleware/RateLimitMiddleware';
+import {isMultipartFormData, MultipartUploadRoute} from '@app/api/middleware/RequestBodyLimitMiddleware';
 import {OpenAPI} from '@app/api/middleware/ResponseTypeMiddleware';
 import {SudoModeMiddleware} from '@app/api/middleware/SudoModeMiddleware';
 import {RateLimitConfigs} from '@app/api/RateLimitConfig';
@@ -156,6 +157,7 @@ export function MessageController(app: HonoApp) {
 	);
 	app.post(
 		'/channels/:channel_id/messages',
+		MultipartUploadRoute(),
 		RateLimitMiddleware(RateLimitConfigs.CHANNEL_MESSAGE_CREATE),
 		LoginRequired,
 		Validator('param', ChannelIdParam),
@@ -176,8 +178,7 @@ export function MessageController(app: HonoApp) {
 			const channelId = createChannelID(ctx.req.valid('param').channel_id);
 			const requestCache = ctx.get('requestCache');
 			const messageRequestService = ctx.get('messageRequestService');
-			const contentType = ctx.req.header('content-type');
-			const validatedData = contentType?.includes('multipart/form-data')
+			const validatedData = isMultipartFormData(ctx.req.header('content-type'))
 				? ((await parseMultipartMessageData(ctx, user, channelId, MessageRequestSchema)) as MessageRequest)
 				: await (async () => {
 						let data: unknown;
@@ -270,6 +271,7 @@ export function MessageController(app: HonoApp) {
 	);
 	app.patch(
 		'/channels/:channel_id/messages/:message_id',
+		MultipartUploadRoute(),
 		RateLimitMiddleware(RateLimitConfigs.CHANNEL_MESSAGE_UPDATE),
 		LoginRequired,
 		Validator('param', ChannelIdMessageIdParam),
@@ -293,8 +295,7 @@ export function MessageController(app: HonoApp) {
 			const messageId = createMessageID(message_id);
 			const requestCache = ctx.get('requestCache');
 			const messageRequestService = ctx.get('messageRequestService');
-			const contentType = ctx.req.header('content-type');
-			const validatedData = contentType?.includes('multipart/form-data')
+			const validatedData = isMultipartFormData(ctx.req.header('content-type'))
 				? ((await parseMultipartMessageData(ctx, user, channelId, MessageUpdateRequestSchema)) as MessageUpdateRequest)
 				: await (async () => {
 						let data: unknown;

@@ -12,6 +12,7 @@ import {
 import {deriveSsoRedirectUri, normalizeAndValidateSsoConfig} from '@app/api/instance/SsoConfigValidation';
 import {requireAdminACL} from '@app/api/middleware/AdminMiddleware';
 import {RateLimitMiddleware} from '@app/api/middleware/RateLimitMiddleware';
+import {RequestBodyLimit} from '@app/api/middleware/RequestBodyLimitMiddleware';
 import {OpenAPI} from '@app/api/middleware/ResponseTypeMiddleware';
 import {getGatewayRolloutConfigPublisher, getInstanceConfigRepository} from '@app/api/middleware/ServiceSingletons';
 import {RateLimitConfigs} from '@app/api/RateLimitConfig';
@@ -189,6 +190,9 @@ function listSuppliedSections(data: InstanceConfigUpdateRequest): string | undef
 		.sort();
 	return sections.length > 0 ? sections.join(',') : undefined;
 }
+
+// BrandingAssetUploadRequest allows a 16,000,000-character base64 image, above the default limit.
+const BRANDING_ASSET_BODY_LIMIT = 16_000_000 + 1024 * 1024;
 
 export function InstanceConfigAdminController(app: HonoApp) {
 	const instanceConfigRepository = getInstanceConfigRepository();
@@ -451,6 +455,7 @@ export function InstanceConfigAdminController(app: HonoApp) {
 	);
 	app.post(
 		'/admin/instance/config/branding-assets',
+		RequestBodyLimit(BRANDING_ASSET_BODY_LIMIT),
 		RateLimitMiddleware(RateLimitConfigs.ADMIN_USER_MODIFY),
 		requireSetupSessionOrAdminACL(AdminACLs.INSTANCE_CONFIG_UPDATE),
 		Validator('json', BrandingAssetUploadRequest),

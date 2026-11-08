@@ -8,6 +8,7 @@ import ContentFilterMiddleware from '@app/api/middleware/ContentFilterMiddleware
 import {GuildAvailabilityMiddleware} from '@app/api/middleware/GuildAvailabilityMiddleware';
 import {IpBanMiddleware} from '@app/api/middleware/IpBanMiddleware';
 import {LocaleMiddleware} from '@app/api/middleware/LocaleMiddleware';
+import {RequestBodyLimitMiddleware} from '@app/api/middleware/RequestBodyLimitMiddleware';
 import {RequestCacheMiddleware} from '@app/api/middleware/RequestCacheMiddleware';
 import {RequireClientIpMiddleware} from '@app/api/middleware/RequireClientIpMiddleware';
 import {ServiceMiddleware} from '@app/api/middleware/ServiceMiddleware';
@@ -77,6 +78,8 @@ export function configureMiddleware(routes: HonoApp, options: MiddlewarePipeline
 		}),
 	);
 	routes.use(ClientErrorAbuseSignalMiddleware);
+	// Before anything reads a body (the content filter parses every POST/PUT/PATCH body).
+	routes.use(RequestBodyLimitMiddleware);
 	routes.use(RequestCacheMiddleware);
 	if (nodeEnv === 'production') {
 		routes.use('*', async (ctx, next) => {
