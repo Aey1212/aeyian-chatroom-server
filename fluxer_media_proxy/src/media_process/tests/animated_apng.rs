@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+use super::super::animated_transform::try_decode_apng;
 use super::super::apng::{png_crc32, rewrite_actl_frame_count};
 use super::super::image_probe::probe_image_dims;
 use super::super::{
@@ -286,6 +287,25 @@ fn animated_apng_encode_stops_at_the_deadline_instead_of_timing_out() {
     assert!(matches!(
         transform_image(&apng, &options(Some(expired_encode_deadline))),
         Err(MediaError::MediaEncodeFailed)
+    ));
+}
+
+#[test]
+fn animated_apng_decode_honours_the_request_deadline() {
+    let fixture_b64 = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAABAAAAAQBPJcTWAAAACGFjVEwAAAACAAAAAPONk3AAAAAaZmNUTAAAAAAAAAAQAAAAEAAAAAAAAAAAAAEABQAAaBqIGAAAAK1JREFUeJxjqGf4hxUxIKF/DH+BiOH/fxAiU4Mcgx0aYkBCtgy2QMRgZwdCg1yDCQMvEL1oMACix00mQCTFwANE/gx8QHSrUwuI0DXsbpkCVJ3IwBDEwADUsLprLkTD2ZoeoOp8OQZgaIEQxG5IiNqCXQARQw5pqJOooCFPj+Fcn96x9gxTBpS49NBk2DwlhBoaaOkHZUOGqYvDnrWJt6kRF6xADUAE1ABEuCIOAPEY5L3Pr8FWAAAAGmZjVEwAAAABAAAAAQAAAAEAAAAAAAAAAAABAAUAAMpQnTkAAAAQZmRBVAAAAAJ4nGOoZ/gHAAJ/AX511aUxAAAAAElFTkSuQmCC";
+    let apng = base64::engine::general_purpose::STANDARD
+        .decode(fixture_b64)
+        .unwrap();
+    let limits = test_media_limits();
+    let pixels = limits.animated_total_pixels();
+    assert!(
+        try_decode_apng(&apng, true, pixels, &limits, None)
+            .unwrap()
+            .is_some()
+    );
+    assert!(matches!(
+        try_decode_apng(&apng, true, pixels, &limits, Some(now_ms() - 1)),
+        Err(MediaError::RequestTimeout)
     ));
 }
 
