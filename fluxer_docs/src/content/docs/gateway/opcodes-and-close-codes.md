@@ -161,6 +161,8 @@ The Gateway sends an exact reason string with every application close.
 | `Invalid shard` | 4010 | The Identify `shard` value is not a valid `[shard_id, shard_count]` pair |
 | `Sharding required` | 4011 | More than 2,500 guilds resolve to one bot session after the shard filter |
 | `Too many sessions` | 4008 | The user already holds 100 live Gateway sessions<sup>2</sup> |
+| `Identify rate limited` | 4008 | The source IP sent more than 300 Identify or Resume commands in the current minute; reconnect after a backoff |
+| `Resume rate limited` | 4008 | The source IP sent more than 300 Identify or Resume commands in the current minute; reconnect after a backoff |
 | `Invalid token` | 4004 | The Identify token is invalid, or the Resume token does not own the named session |
 | `Failed to start session` | 4000 | Session creation returned a failure the Gateway does not classify<sup>3</sup> |
 | `Invalid resume payload` | 4002 | Resume is not an object, or `token` or `session_id` is missing or is not a string, or `seq` is missing or is not an integer |
