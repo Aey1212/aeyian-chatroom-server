@@ -24,5 +24,8 @@ export abstract class IInviteRepository {
 
 	abstract updateInviteUses(code: InviteCode, uses: number, invite: Invite): Promise<void>;
 
+	/** Writes `uses` only if the stored count still equals `invite.uses`; false when someone else got there first. */
+	abstract compareAndSetInviteUses(invite: Invite, uses: number): Promise<boolean>;
+
 	abstract delete(code: InviteCode): Promise<void>;
 }
