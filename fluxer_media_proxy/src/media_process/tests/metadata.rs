@@ -2,8 +2,8 @@
 
 use super::super::placeholder::{encode_thumbhash, optional_thumbhash};
 use super::super::{
-    MediaError, MetadataOptions, NSFW_PREVIEW_MAX_DIMENSION, metadata_json_with_options,
-    probe_av_metadata,
+    AV_NATIVE_COST_BYTES, MediaError, MetadataOptions, NSFW_PREVIEW_MAX_DIMENSION, NativeCost,
+    metadata_cost, metadata_json_with_options, probe_av_metadata,
 };
 use super::fixtures::{metadata_value, test_media_limits};
 use crate::{
@@ -257,4 +257,13 @@ fn metadata_refuses_jxl_above_the_decode_pixel_cap() {
             .unwrap_err()
         });
     assert_eq!(MediaError::InvalidImageDimensions, err);
+}
+
+#[test]
+fn native_cost_of_a_video_is_charged_up_to_the_budget() {
+    let mp4 = fixture_h264_mp4();
+    assert_eq!(
+        NativeCost::UpToBudget(mp4.len() + AV_NATIVE_COST_BYTES),
+        metadata_cost(&mp4, &test_media_limits()).expect("video cost")
+    );
 }

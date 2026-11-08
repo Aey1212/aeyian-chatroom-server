@@ -82,14 +82,12 @@ pub(in crate::server) async fn run_video_transform(
     let deadline = deadline_instant(deadline_ms);
     let media_limits = runtime.limits();
     let transform_metrics = runtime.metrics();
-    let cost_bytes = data
-        .len()
-        .saturating_add(media_process::AV_NATIVE_COST_BYTES);
+    let cost = media_process::av_native_cost(data.len());
     let timed = runtime
         .tasks()
         .run_native(
             deadline,
-            move || Ok(cost_bytes),
+            move || Ok(cost),
             move || {
                 let started = Instant::now();
                 let thumbnail =
