@@ -509,3 +509,28 @@ fn every_iso_bmff_brand_matches_the_old_era_table() {
         assert!(!info.animated, "brand {brand:?} must not be animated");
     }
 }
+
+#[test]
+fn originals_are_served_only_for_formats_every_browser_shows() {
+    for shown in [
+        "image/jpeg",
+        "image/png",
+        "image/apng",
+        "image/gif",
+        "image/webp",
+        "image/avif",
+        "image/bmp",
+    ] {
+        assert!(is_browser_displayable_image(shown), "{shown}");
+    }
+    for not_shown in [
+        "image/jxl",
+        "image/heic",
+        "image/heif",
+        "image/tiff",
+        "image/svg+xml",
+        "video/mp4",
+    ] {
+        assert!(!is_browser_displayable_image(not_shown), "{not_shown}");
+    }
+}

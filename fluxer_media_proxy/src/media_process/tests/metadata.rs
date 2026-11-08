@@ -2,18 +2,20 @@
 
 use super::super::placeholder::{encode_thumbhash, optional_thumbhash};
 use super::super::{
-    MediaError, MetadataOptions, NSFW_PREVIEW_MAX_DIMENSION, metadata_json_with_options,
-    probe_av_metadata,
+    AV_NATIVE_COST_BYTES, MediaError, MetadataOptions, NSFW_PREVIEW_MAX_DIMENSION, NativeCost,
+    metadata_cost, metadata_json_with_options, probe_av_metadata,
 };
-use super::fixtures::{metadata_value, test_media_limits};
+use super::fixtures::{metadata_value, sees_every_jxl_frame, test_media_limits};
 use crate::{
     metrics::transform::TransformMetrics,
     mime,
     nsfw::{NSFWClient, NSFWPolicy},
     test_fixtures::{
-        fixture_audio_mp3_with_png_cover_art, fixture_audio_mp4_with_attached_picture,
-        fixture_audio_only_mp4, fixture_h264_mp4, fixture_mkv_with_png_video_stream,
-        fixture_mp4_with_undecodable_video, synthetic_png, synthetic_wav,
+        JXL_3000_LOSSY_2_FRAMES, JXL_4100_LOSSLESS_RGB16, JXL_4100_LOSSY_ALPHA,
+        JXL_4100_LOSSY_RGB_DEPTH, JXL_7000X4000_LOSSY_RGB, fixture_audio_mp3_with_png_cover_art,
+        fixture_audio_mp4_with_attached_picture, fixture_audio_only_mp4, fixture_h264_mp4,
+        fixture_mkv_with_png_video_stream, fixture_mp4_with_undecodable_video, synthetic_png,
+        synthetic_wav,
     },
 };
 use std::sync::Arc;
@@ -64,6 +66,7 @@ fn metadata_json_returns_unavailable_when_nsfw_service_fails() {
                 MetadataOptions {
                     placeholder: false,
                     nsfw: NSFWPolicy::enabled(0.85).expect("valid threshold"),
+                    deadline_ms: None,
                 },
                 &test_media_limits(),
                 &client,
@@ -236,4 +239,52 @@ fn metadata_succeeds_without_a_placeholder_when_thumbhash_generation_fails() {
     assert_eq!(64, value["width"]);
     assert_eq!(64, value["height"]);
     assert_eq!(None, value.get("placeholder"));
+}
+
+#[test]
+fn metadata_refuses_jxl_above_the_decode_pixel_cap() {
+    for jxl in [
+        JXL_4100_LOSSY_ALPHA,
+        JXL_4100_LOSSY_RGB_DEPTH,
+        JXL_4100_LOSSLESS_RGB16,
+        JXL_3000_LOSSY_2_FRAMES,
+    ] {
+        if jxl == JXL_3000_LOSSY_2_FRAMES && !sees_every_jxl_frame(jxl) {
+            continue;
+        }
+        let err = tokio::runtime::Builder::new_current_thread()
+            .build()
+            .unwrap()
+            .block_on(async {
+                metadata_json_with_options(
+                    jxl,
+                    "big.jxl",
+                    MetadataOptions::default(),
+                    &test_media_limits(),
+                    &NSFWClient::disabled(),
+                    &TransformMetrics::new(),
+                )
+                .await
+                .unwrap_err()
+            });
+        assert_eq!(MediaError::TooLargeToProcess, err);
+    }
+}
+
+#[test]
+fn metadata_admits_8_bit_rgb_jxl_above_the_decode_pixel_cap() {
+    let value = metadata_value(JXL_7000X4000_LOSSY_RGB, "big.jxl");
+    assert_eq!("image/jxl", value["content_type"]);
+    assert_eq!(7000, value["width"]);
+    assert_eq!(4000, value["height"]);
+    assert!(value["placeholder"].as_str().is_some_and(|p| !p.is_empty()));
+}
+
+#[test]
+fn native_cost_of_a_video_is_charged_up_to_the_budget() {
+    let mp4 = fixture_h264_mp4();
+    assert_eq!(
+        NativeCost::UpToBudget(mp4.len() + AV_NATIVE_COST_BYTES),
+        metadata_cost(&mp4, &test_media_limits()).expect("video cost")
+    );
 }

@@ -10,12 +10,13 @@ use super::encoding::{
 };
 use super::image_probe::{
     animated_probe_from_image, load_image, probe_animated, probe_image_dims, try_decode_bmp,
-    validate_jxl_decode_pixels,
 };
 use super::loaded_image::{
     normalize_vips_image_to_uchar, page_height, resize_loaded_image, resize_loaded_image_by_scale,
-    validate_dimensions_u32, validate_vips_image,
+    static_output_pixels, validate_dimensions_u32, validate_jxl_decode_pixels,
+    validate_static_output_pixels, validate_vips_image,
 };
+use super::native_cost::{accumulated_decode_pixels, fit_static_output_to_budget};
 use super::native_runtime::{clear_vips_error, ensure_vips_init, last_vips_error};
 use super::transform_plan::{
     AutoQualitySource, output_is_sdr, resolve_auto_quality, should_transform_animated_webp_direct,
@@ -78,12 +79,102 @@ fn is_heif_source(mime: &str) -> bool {
     matches!(mime, "image/avif" | "image/heic" | "image/heif")
 }
 
-fn heif_source_may_be_a_sequence(sniffed: mime::SniffInfo) -> bool {
+pub(super) fn heif_source_may_be_a_sequence(sniffed: mime::SniffInfo) -> bool {
     match sniffed.mime {
         "image/avif" => sniffed.animated,
         "image/heic" | "image/heif" => true,
         _ => false,
     }
+}
+
+fn admitted_transform_options(
+    input: &[u8],
+    sniffed_mime: &str,
+    options: &ImageOptions,
+    media_limits: &MediaLimits,
+) -> Result<ImageOptions, MediaError> {
+    let animated = options.is_animated();
+    if animated && sniffed_mime != "image/jxl" {
+        return Ok(*options);
+    }
+    let dims = probe_image_dims(media_limits, input)?;
+    let fitted =
+        fit_static_output_to_budget(input.len(), sniffed_mime, options, dims, media_limits);
+    // Fork: shrinking to fit is for formats browsers cannot show (JPEG XL, HEIC, SVG, ...), where
+    // the alternative is no picture. An image browsers can show is refused instead, and the server
+    // answers with its original at full quality.
+    let shrunk = fitted.width != options.width || fitted.height != options.height;
+    if shrunk && mime::is_browser_displayable_image(sniffed_mime) {
+        tracing::info!(
+            mime = sniffed_mime,
+            input_bytes = input.len(),
+            width = dims.width,
+            height = dims.height,
+            "displayable image over the output budget left to its original"
+        );
+        return Err(MediaError::TooLargeToProcess);
+    }
+    let options = &fitted;
+    let source_pixels = dims.width as usize * dims.height as usize;
+    if source_pixels >= constants::LARGE_SOURCE_LOG_PIXELS {
+        tracing::info!(
+            mime = sniffed_mime,
+            input_bytes = input.len(),
+            width = dims.width,
+            height = dims.height,
+            pages = dims.pages,
+            out_width = options.width.unwrap_or(0),
+            out_height = options.height.unwrap_or(0),
+            animated,
+            "large native transform starting"
+        );
+    }
+    let admitted = validate_jxl_decode_pixels(sniffed_mime, dims).and_then(|()| {
+        if animated {
+            Ok(())
+        } else {
+            validate_static_output_pixels(options, dims)
+        }
+    });
+    if admitted.is_err() {
+        tracing::warn!(
+            mime = sniffed_mime,
+            input_bytes = input.len(),
+            width = dims.width,
+            height = dims.height,
+            pages = dims.pages,
+            out_width = options.width.unwrap_or(0),
+            out_height = options.height.unwrap_or(0),
+            animated,
+            "native transform refused by decode cost limits"
+        );
+    }
+    admitted.map(|()| *options)
+}
+
+fn ensure_animated_output_admissible(
+    input: &[u8],
+    options: &ImageOptions,
+    media_limits: &MediaLimits,
+) -> Result<(), MediaError> {
+    let dims = probe_image_dims(media_limits, input)?;
+    if dims.pages <= 1 {
+        return Ok(());
+    }
+    let output_pixels = static_output_pixels(options, dims).saturating_mul(dims.pages as usize);
+    if output_pixels <= constants::MAX_ANIMATED_OUTPUT_PIXELS {
+        return Ok(());
+    }
+    tracing::warn!(
+        input_bytes = input.len(),
+        width = dims.width,
+        height = dims.height,
+        pages = dims.pages,
+        out_width = options.width.unwrap_or(0),
+        out_height = options.height.unwrap_or(0),
+        "animated transform refused by the output work budget"
+    );
+    Err(MediaError::TooLargeToProcess)
 }
 
 pub fn transform_image(
@@ -107,11 +198,8 @@ pub fn transform_image(
     }
     ensure_vips_init()?;
     let sniffed = mime::sniff(input);
-    if sniffed.mime == "image/jxl" {
-        let dims = probe_image_dims(media_limits, input)?;
-        validate_jxl_decode_pixels(input, sniffed.mime, dims)?;
-    }
     let animated = options.is_animated();
+    let options = &admitted_transform_options(input, sniffed.mime, options, media_limits)?;
     let format = effective_transform_format(sniffed.mime, options.format, animated);
     let animated_avif = sniffed.mime == "image/avif" && sniffed.animated;
     let full_canvas_animation = animated
@@ -122,15 +210,31 @@ pub fn transform_image(
         && !options.wants_cover_crop()
         && sniffed.mime == "image/gif"
     {
-        let bytes = if let Some(dims) = gif_resize_dims(sniffed, options) {
-            resize_animated_gif_with_ffmpeg(input, dims, options, media_limits)?
-        } else {
-            input.to_vec()
+        let bytes = match gif_resize_dims(sniffed, options) {
+            Some(dims) => {
+                let frames = probe_animated(media_limits, input)?.map_or(1, |probe| probe.pages);
+                if dims.fits_work_budget(frames) {
+                    resize_animated_gif_with_ffmpeg(input, dims, options, media_limits)?
+                } else {
+                    tracing::info!(
+                        input_bytes = input.len(),
+                        width = dims.width,
+                        height = dims.height,
+                        frames,
+                        "animated gif resize over the work budget, serving the source"
+                    );
+                    input.to_vec()
+                }
+            }
+            None => input.to_vec(),
         };
         return Ok(ProcessedMedia {
             bytes,
             content_type: "image/gif",
         });
+    }
+    if animated {
+        ensure_animated_output_admissible(input, options, media_limits)?;
     }
     if should_transform_animated_webp_direct(sniffed, options, format) {
         validate_dimensions_u32(media_limits, sniffed.width, sniffed.height)?;
@@ -160,10 +264,15 @@ pub fn transform_image(
         }
     }
     let heif_source = is_heif_source(sniffed.mime);
+    let accumulated_pixels = accumulated_decode_pixels(sniffed, media_limits);
     let decoded_animation = if sniffed.mime == "image/apng" {
-        try_decode_apng(input, animated, media_limits)?
-    } else if animated && heif_source_may_be_a_sequence(sniffed) {
-        decode_heif_sequence(input, media_limits)?
+        let max_total_pixels = match accumulated_pixels {
+            Some(pixels) if animated => pixels,
+            _ => media_limits.animated_total_pixels(),
+        };
+        try_decode_apng(input, animated, max_total_pixels, media_limits)?
+    } else if animated && let Some(max_total_pixels) = accumulated_pixels {
+        decode_heif_sequence(input, max_total_pixels, media_limits)?
     } else {
         None
     };
@@ -343,13 +452,9 @@ pub fn transform_image(
     }
 
     let loader_options = if animated && source_supports_pages(sniffed.mime) {
-        if sniffed.mime == "image/jpeg" {
-            "n=-1,access=sequential"
-        } else {
-            "n=-1,access=sequential,fail=true"
-        }
+        "n=-1,access=sequential,fail=true"
     } else if sniffed.mime == "image/jpeg" {
-        "access=sequential"
+        ""
     } else {
         "access=sequential,fail=true"
     };

@@ -42,7 +42,12 @@ pub(in crate::server) fn transform_static_quality_default(
 ) -> ImageQuality {
     if matches!(
         source_ext,
-        Some(AssetExtension::Jpeg | AssetExtension::Heic | AssetExtension::Heif)
+        Some(
+            AssetExtension::Jpeg
+                | AssetExtension::Heic
+                | AssetExtension::Heif
+                | AssetExtension::Jxl
+        )
     ) {
         ImageQuality::High
     } else {
@@ -184,9 +189,24 @@ pub(in crate::server) fn content_type_is_trustworthy(content_type: &str) -> bool
     )
 }
 
+pub(in crate::server) fn is_browser_displayable_image(mime: &str) -> bool {
+    mime::is_browser_displayable_image(mime)
+}
+
 pub(in crate::server) fn is_svg_content_type(content_type: &str) -> bool {
     mime::normalize(Some(content_type))
         .is_some_and(|value| value.eq_ignore_ascii_case("image/svg+xml"))
+}
+
+pub(in crate::server) fn is_untransformed_fallback_image(
+    content_type: &str,
+    source_format: Option<AssetExtension>,
+) -> bool {
+    content_type.starts_with("image/")
+        && content_type != "image/heic"
+        && content_type != "image/heif"
+        && source_format != Some(AssetExtension::Svg)
+        && !is_svg_content_type(content_type)
 }
 
 pub(in crate::server) fn extension_from_mime(content_type: &str) -> Option<AssetExtension> {

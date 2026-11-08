@@ -69,6 +69,20 @@ pub(super) fn png_ihdr_dimensions(ihdr: &[u8]) -> Option<(u32, u32)> {
     ))
 }
 
+pub(super) fn png_zlib_level(bytes: &[u8]) -> Option<u8> {
+    let chunks = parse_png_chunks(bytes).ok()?;
+    let idat = chunks.iter().find(|chunk| chunk.kind == *b"IDAT")?;
+    Some(idat.data.get(1)? >> 6)
+}
+
+/// Whether this libvips reads every frame of an animated JPEG XL. libvips 8.15 (Ubuntu 24.04, the
+/// CI runner) reports one page and then decodes only that frame, so a multi-frame fixture stays
+/// under the single-frame cap there; production (Debian 13, libvips 8.16) and newer see them all.
+pub(super) fn sees_every_jxl_frame(jxl: &[u8]) -> bool {
+    super::super::image_probe::probe_image_dims(&test_media_limits(), jxl)
+        .is_ok_and(|dims| dims.pages > 1)
+}
+
 pub(super) fn test_media_limits() -> MediaLimits {
     MediaLimits::default_from_config()
 }

@@ -171,11 +171,13 @@ fn gif_animation_status(input: &[u8]) -> NativeStatus {
     })
 }
 
-fn probe_animated_status(input: &[u8]) -> (NativeStatus, c_int, c_int, c_int) {
+fn probe_animated_status(input: &[u8]) -> (NativeStatus, c_int, c_int, c_int, c_int) {
     ensure_vips_init().expect("libvips initialises");
     let mut width = c_int::MAX;
     let mut height = c_int::MAX;
     let mut pages = c_int::MAX;
+    let mut bands = c_int::MAX;
+    let mut format = c_int::MAX;
     let status = NativeStatus::from_code(unsafe {
         native::fluxer_vips_probe_animated(
             input.as_ptr().cast(),
@@ -183,10 +185,12 @@ fn probe_animated_status(input: &[u8]) -> (NativeStatus, c_int, c_int, c_int) {
             &mut width,
             &mut height,
             &mut pages,
+            &mut bands,
+            &mut format,
         )
     });
     unsafe { native::fluxer_vips_error_clear() };
-    (status, width, height, pages)
+    (status, width, height, pages, bands)
 }
 
 fn apng_decode_status(input: &[u8]) -> (NativeStatus, *mut native::VipsImage, u32) {
@@ -286,16 +290,18 @@ fn every_remaining_native_validator_zeroes_its_out_params_on_failure() {
             "input {bytes:?}"
         );
 
-        let (status, width, height, pages) = probe_animated_status(&bytes);
+        let (status, width, height, pages, bands) = probe_animated_status(&bytes);
         assert_eq!(decodable, status == NativeStatus::Ok, "input {bytes:?}");
         if decodable {
             assert_eq!(1, width, "input {bytes:?}");
             assert_eq!(1, height, "input {bytes:?}");
             assert_eq!(1, pages, "input {bytes:?}");
+            assert!(bands > 0, "input {bytes:?}");
         } else {
             assert_eq!(0, width, "input {bytes:?}");
             assert_eq!(0, height, "input {bytes:?}");
             assert_eq!(0, pages, "input {bytes:?}");
+            assert_eq!(0, bands, "input {bytes:?}");
         }
 
         let (status, out, num_plays) = apng_decode_status(&bytes);
@@ -468,4 +474,40 @@ fn nsfw_frame_emit_failure_is_reported_instead_of_decoder_eof() {
     let (status, frames) = av_nsfw_extract(&rejected, &timestamps);
     assert_eq!(NativeStatus::Unsupported, status);
     assert_eq!(Err(NSFWFrameCopyError::InvalidOutput), frames);
+}
+
+#[test]
+fn full_size_wallpaper_over_a_small_memory_budget_is_left_to_its_original() {
+    use crate::{
+        image_quality::ImageQuality,
+        image_transform::{AnimationMode, ImageOptions, ResizeMode},
+        media_process::{
+            MediaError, MediaLimits, NativeCost, image_transform_cost, transform_image,
+        },
+        metrics::transform::TransformMetrics,
+        output_format::OutputFormat,
+        test_fixtures::synthetic_png,
+    };
+    let budget = 240 << 20;
+    let limits = MediaLimits::default_from_config().with_native_memory_budget(budget);
+    let input = synthetic_png(3840, 2160);
+    let options = ImageOptions {
+        width: None,
+        height: None,
+        format: OutputFormat::WebP,
+        quality: ImageQuality::High,
+        animation: AnimationMode::Static,
+        effort_override: None,
+        resize_mode: ResizeMode::Fit,
+        deadline_ms: None,
+    };
+    let NativeCost::Bytes(cost) = image_transform_cost(&input, &options, &limits).unwrap() else {
+        panic!("a still image has a fixed cost");
+    };
+    assert!(cost <= budget);
+    // A PNG is shown by every browser, so it is not shrunk to fit: the server serves the original.
+    assert_eq!(
+        Some(MediaError::TooLargeToProcess),
+        transform_image(&input, &options, &limits, &TransformMetrics::new()).err()
+    );
 }

@@ -18,7 +18,8 @@ use crate::{
         attachment_signature,
         format_policy::{
             OriginalImageRequest, default_transform_quality,
-            effective_animated_image_output_format, extension_from_mime, is_svg_content_type,
+            effective_animated_image_output_format, extension_from_mime,
+            is_browser_displayable_image, is_untransformed_fallback_image,
             same_format_loaded_image_request_can_use_original_with_sniff,
         },
         params::{
@@ -35,7 +36,7 @@ use crate::{
             ServeBytesRequest,
             cache::{
                 CachedTransformRequest, cached_transform, cached_transform_hit,
-                coalescer_failure_response,
+                coalescer_error_is_transient, coalescer_failure_response, forbid_storing,
             },
             cache_key::{TransformCacheKeyInput, transform_cache_key},
             execution::{coalesced_work_result, deadline_instant, run_transform},
@@ -195,6 +196,7 @@ pub(in crate::server) async fn serve_asset_image(
                 object,
                 range_header,
                 source_format,
+                sniffed_content_type: sniffed.mime,
                 detail,
             });
         }
@@ -218,25 +220,30 @@ struct AssetTransformFailure<'a> {
     object: storage::Object,
     range_header: Option<&'a str>,
     source_format: AssetExtension,
+    sniffed_content_type: &'static str,
     detail: String,
 }
 
 fn asset_transform_failure_response(failure: AssetTransformFailure<'_>) -> Response {
-    let src_ct = failure.object.content_type.as_str();
-    let src_is_displayable = src_ct.starts_with("image/")
-        && src_ct != "image/avif"
-        && src_ct != "image/heic"
-        && src_ct != "image/heif"
-        && failure.source_format != AssetExtension::Svg
-        && !is_svg_content_type(src_ct);
-    if src_is_displayable && failure.error != CoalescerError::RequestTimeout {
-        return media_response(MediaResponse {
+    let stored_ct = failure.object.content_type.as_str();
+    let sniffed_ct = failure.sniffed_content_type;
+    let src_ct = if !stored_ct.starts_with("image/") && is_browser_displayable_image(sniffed_ct) {
+        sniffed_ct
+    } else {
+        stored_ct
+    };
+    if is_untransformed_fallback_image(src_ct, Some(failure.source_format)) {
+        let mut response = media_response(MediaResponse {
             method: failure.method,
             data: failure.object.data.into(),
-            content_type: &failure.object.content_type,
+            content_type: src_ct,
             range_header: failure.range_header,
             disposition: None,
         });
+        if coalescer_error_is_transient(failure.error) {
+            forbid_storing(&mut response);
+        }
+        return response;
     }
     if let Some(response) =
         coalescer_failure_response(failure.error, "coalescer_timeout_asset_image")

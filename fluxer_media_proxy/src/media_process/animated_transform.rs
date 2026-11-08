@@ -7,6 +7,7 @@ use super::{
     MediaError, native_animated_frame_limit, native_buffer_to_media_bytes, native_status_error,
 };
 use crate::{
+    constants,
     image_transform::ImageOptions,
     media_limits::MediaLimits,
     metrics::transform::TransformMetrics,
@@ -74,6 +75,7 @@ pub(super) fn try_decode_heif_primary_still(
 pub(super) fn try_decode_apng(
     input: &[u8],
     animated: bool,
+    max_total_pixels: usize,
     media_limits: &MediaLimits,
 ) -> Result<Option<DecodedAnimation>, MediaError> {
     let runtime = vips_runtime()?;
@@ -91,7 +93,7 @@ pub(super) fn try_decode_apng(
             } else {
                 1
             },
-            media_limits.animated_total_pixels(),
+            max_total_pixels,
             if animated { 1 } else { 0 },
             &mut num_plays,
         )
@@ -123,6 +125,7 @@ pub(super) fn try_decode_apng(
 
 pub(super) fn decode_heif_sequence(
     input: &[u8],
+    max_total_pixels: usize,
     media_limits: &MediaLimits,
 ) -> Result<Option<DecodedAnimation>, MediaError> {
     let runtime = vips_runtime()?;
@@ -136,7 +139,7 @@ pub(super) fn decode_heif_sequence(
             0,
             &mut raw,
             native_animated_frame_limit(media_limits),
-            media_limits.animated_total_pixels(),
+            max_total_pixels,
             &mut frame_count,
         )
     };
@@ -174,6 +177,15 @@ pub(super) fn decode_heif_sequence(
 pub(super) struct GifResizeDims {
     pub(super) width: c_int,
     pub(super) height: c_int,
+}
+
+impl GifResizeDims {
+    pub(super) fn fits_work_budget(self, frames: c_int) -> bool {
+        (self.width as usize)
+            .saturating_mul(self.height as usize)
+            .saturating_mul(frames.max(1) as usize)
+            <= constants::MAX_ANIMATED_OUTPUT_PIXELS
+    }
 }
 
 pub(super) fn gif_resize_dims(
