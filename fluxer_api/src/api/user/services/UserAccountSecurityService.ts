@@ -28,6 +28,11 @@ interface UserAccountSecurityServiceDeps {
 	userAccountRepository: IUserAccountRepository;
 }
 
+export interface AuthSessionReplacement {
+	token: string;
+	authSessionIdHash: string;
+}
+
 export class UserAccountSecurityService {
 	constructor(private readonly deps: UserAccountSecurityServiceDeps) {}
 
@@ -108,12 +113,13 @@ export class UserAccountSecurityService {
 		user: User;
 		oldAuthSession: AuthSessionModel;
 		request: Request;
-	}): Promise<void> {
-		await AuthSession.replaceCurrentAuthSession(this.deps.apiContext, {
+	}): Promise<AuthSessionReplacement> {
+		const replacement = await AuthSession.replaceCurrentAuthSession(this.deps.apiContext, {
 			user,
 			currentAuthSession: oldAuthSession,
 			request,
 		});
+		return {token: replacement.token, authSessionIdHash: replacement.newAuthSessionIdHash};
 	}
 
 	private async hashNewPassword(newPassword: string): Promise<string> {

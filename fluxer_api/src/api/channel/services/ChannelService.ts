@@ -173,6 +173,8 @@ export class ChannelService {
 			snowflakeService,
 			this.messages.persistence,
 			limitConfigService,
+			voiceRoomStore,
+			liveKitService,
 		);
 		this.calls = new CallService(
 			channelRepository,
