@@ -75,6 +75,7 @@ pub(super) fn try_decode_heif_primary_still(
 pub(super) fn try_decode_apng(
     input: &[u8],
     animated: bool,
+    max_total_pixels: usize,
     media_limits: &MediaLimits,
 ) -> Result<Option<DecodedAnimation>, MediaError> {
     let runtime = vips_runtime()?;
@@ -92,7 +93,7 @@ pub(super) fn try_decode_apng(
             } else {
                 1
             },
-            media_limits.animated_total_pixels(),
+            max_total_pixels,
             if animated { 1 } else { 0 },
             &mut num_plays,
         )
@@ -124,6 +125,7 @@ pub(super) fn try_decode_apng(
 
 pub(super) fn decode_heif_sequence(
     input: &[u8],
+    max_total_pixels: usize,
     media_limits: &MediaLimits,
 ) -> Result<Option<DecodedAnimation>, MediaError> {
     let runtime = vips_runtime()?;
@@ -137,7 +139,7 @@ pub(super) fn decode_heif_sequence(
             0,
             &mut raw,
             native_animated_frame_limit(media_limits),
-            media_limits.animated_total_pixels(),
+            max_total_pixels,
             &mut frame_count,
         )
     };
