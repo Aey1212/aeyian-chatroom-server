@@ -13,6 +13,7 @@ pub struct MediaLimits {
     animated_total_pixels: usize,
     max_media_proxy_bytes: usize,
     max_internal_request_body_bytes: usize,
+    native_memory_budget_bytes: usize,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -66,7 +67,15 @@ impl MediaLimits {
             animated_total_pixels,
             max_media_proxy_bytes,
             max_internal_request_body_bytes,
+            native_memory_budget_bytes: usize::MAX,
         })
+    }
+
+    pub(crate) fn with_native_memory_budget(self, native_memory_budget_bytes: usize) -> Self {
+        Self {
+            native_memory_budget_bytes,
+            ..self
+        }
     }
 
     pub fn default_from_config() -> Self {
@@ -102,6 +111,10 @@ impl MediaLimits {
 
     pub fn max_internal_request_body_bytes(&self) -> usize {
         self.max_internal_request_body_bytes
+    }
+
+    pub fn native_memory_budget_bytes(&self) -> usize {
+        self.native_memory_budget_bytes
     }
 }
 

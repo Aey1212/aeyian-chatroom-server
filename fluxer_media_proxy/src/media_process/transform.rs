@@ -10,13 +10,13 @@ use super::encoding::{
 };
 use super::image_probe::{
     animated_probe_from_image, load_image, probe_animated, probe_image_dims, try_decode_bmp,
-    validate_jxl_decode_pixels,
 };
 use super::loaded_image::{
     normalize_vips_image_to_uchar, page_height, resize_loaded_image, resize_loaded_image_by_scale,
-    static_output_pixels, validate_dimensions_u32, validate_static_output_pixels,
-    validate_vips_image,
+    static_output_pixels, validate_dimensions_u32, validate_jxl_decode_pixels,
+    validate_static_output_pixels, validate_vips_image,
 };
+use super::native_cost::fit_jxl_output;
 use super::native_runtime::{clear_vips_error, ensure_vips_init, last_vips_error};
 use super::transform_plan::{
     AutoQualitySource, output_is_sdr, resolve_auto_quality, should_transform_animated_webp_direct,
@@ -87,17 +87,18 @@ fn heif_source_may_be_a_sequence(sniffed: mime::SniffInfo) -> bool {
     }
 }
 
-fn ensure_decode_cost_admissible(
+fn admitted_transform_options(
     input: &[u8],
     sniffed_mime: &str,
     options: &ImageOptions,
     media_limits: &MediaLimits,
-) -> Result<(), MediaError> {
+) -> Result<ImageOptions, MediaError> {
     let animated = options.is_animated();
     if animated && sniffed_mime != "image/jxl" {
-        return Ok(());
+        return Ok(*options);
     }
     let dims = probe_image_dims(media_limits, input)?;
+    let options = &fit_jxl_output(input.len(), sniffed_mime, options, dims, media_limits);
     let source_pixels = dims.width as usize * dims.height as usize;
     if source_pixels >= constants::LARGE_SOURCE_LOG_PIXELS {
         tracing::info!(
@@ -112,7 +113,7 @@ fn ensure_decode_cost_admissible(
             "large native transform starting"
         );
     }
-    let admitted = validate_jxl_decode_pixels(input, sniffed_mime, dims).and_then(|()| {
+    let admitted = validate_jxl_decode_pixels(sniffed_mime, dims).and_then(|()| {
         if animated {
             Ok(())
         } else {
@@ -132,7 +133,7 @@ fn ensure_decode_cost_admissible(
             "native transform refused by decode cost limits"
         );
     }
-    admitted
+    admitted.map(|()| *options)
 }
 
 fn ensure_animated_output_admissible(
@@ -182,7 +183,7 @@ pub fn transform_image(
     ensure_vips_init()?;
     let sniffed = mime::sniff(input);
     let animated = options.is_animated();
-    ensure_decode_cost_admissible(input, sniffed.mime, options, media_limits)?;
+    let options = &admitted_transform_options(input, sniffed.mime, options, media_limits)?;
     let format = effective_transform_format(sniffed.mime, options.format, animated);
     let animated_avif = sniffed.mime == "image/avif" && sniffed.animated;
     let full_canvas_animation = animated

@@ -56,6 +56,28 @@ pub(crate) fn validate_dimensions_u32(
     Ok(())
 }
 
+pub(crate) fn validate_jxl_decode_pixels(
+    sniffed_mime: &str,
+    dims: ImageDimensions,
+) -> Result<(), MediaError> {
+    if sniffed_mime != "image/jxl" {
+        return Ok(());
+    }
+    let pixels = (dims.width as usize)
+        .saturating_mul(dims.height as usize)
+        .saturating_mul(dims.pages.max(1) as usize);
+    let simple = dims.pages == 1 && matches!(dims.bands, 1 | 3) && dims.eight_bit;
+    let cap = if simple {
+        constants::MAX_JXL_SIMPLE_DECODE_PIXELS
+    } else {
+        constants::MAX_JXL_DECODE_PIXELS
+    };
+    if pixels > cap {
+        return Err(MediaError::TooLargeToProcess);
+    }
+    Ok(())
+}
+
 pub(crate) fn static_output_pixels(options: &ImageOptions, dims: ImageDimensions) -> usize {
     let source_width = dims.width as f64;
     let source_height = dims.height as f64;
