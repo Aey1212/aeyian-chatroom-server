@@ -2,6 +2,7 @@
 
 import {Logger} from '@app/api/Logger';
 import {phraseBlocklistCache} from '@app/api/middleware/PhraseBlocklistCache';
+import {isMultipartUploadRequest} from '@app/api/middleware/RequestBodyLimitMiddleware';
 import {urlBlocklistCache} from '@app/api/middleware/UrlBlocklistCache';
 import {readRequestJsonBody} from '@app/api/utils/RequestJsonBody';
 import {extractUrlCandidates} from '@app/api/utils/UrlNormalizer';
@@ -127,8 +128,9 @@ const ContentFilterMiddleware = createMiddleware(async (ctx, next) => {
 	if (shouldSkipContentFilterPath(path)) {
 		return next();
 	}
-	const contentType = ctx.req.header('content-type') ?? '';
-	if (contentType.includes('multipart/form-data') || contentType.includes('application/x-www-form-urlencoded')) {
+	// Only real file uploads on upload routes skip the JSON filter. A loose substring check let
+	// `application/json; x=multipart/form-data` bodies through unfiltered (upstream 9dc6dfb52).
+	if (isMultipartUploadRequest(ctx)) {
 		return next();
 	}
 	const body = await readRequestJsonBody(ctx.req);

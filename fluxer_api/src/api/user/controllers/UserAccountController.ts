@@ -7,6 +7,7 @@ import type {UsernameChangeRequestRow} from '@app/api/database/types/UserTypes';
 import {DefaultUserOnly, LoginRequired, LoginRequiredAllowSuspicious} from '@app/api/middleware/AuthMiddleware';
 import {requireOAuth2ScopeForBearer} from '@app/api/middleware/OAuth2ScopeMiddleware';
 import {RateLimitMiddleware} from '@app/api/middleware/RateLimitMiddleware';
+import {jsonAssetBodyLimit, RequestBodyLimit} from '@app/api/middleware/RequestBodyLimitMiddleware';
 import {OpenAPI} from '@app/api/middleware/ResponseTypeMiddleware';
 import {getUsernameRegistry} from '@app/api/middleware/ServiceSingletons';
 import {SudoModeMiddleware} from '@app/api/middleware/SudoModeMiddleware';
@@ -102,6 +103,9 @@ function mapUsernameChangeRequest(request: UsernameChangeRequestRow | null): Use
 	};
 }
 
+// Guild settings are small JSON; 4 MB is far above any real request (same as upstream).
+const GUILD_SETTINGS_BODY_LIMIT = 4 * 1024 * 1024;
+
 export function UserAccountController(app: HonoApp) {
 	app.get(
 		'/users/@me',
@@ -132,6 +136,7 @@ export function UserAccountController(app: HonoApp) {
 	);
 	app.patch(
 		'/users/@me',
+		RequestBodyLimit(jsonAssetBodyLimit({avatar: 1, banner: 1})),
 		RateLimitMiddleware(RateLimitConfigs.USER_UPDATE_SELF),
 		LoginRequiredAllowSuspicious,
 		DefaultUserOnly,
@@ -814,6 +819,7 @@ export function UserAccountController(app: HonoApp) {
 	);
 	app.patch(
 		'/users/@me/guilds/@me/settings',
+		RequestBodyLimit(GUILD_SETTINGS_BODY_LIMIT),
 		RateLimitMiddleware(RateLimitConfigs.USER_GUILD_SETTINGS_UPDATE),
 		LoginRequired,
 		DefaultUserOnly,
@@ -839,6 +845,7 @@ export function UserAccountController(app: HonoApp) {
 	);
 	app.patch(
 		'/users/@me/guilds/:guild_id/settings',
+		RequestBodyLimit(GUILD_SETTINGS_BODY_LIMIT),
 		RateLimitMiddleware(RateLimitConfigs.USER_GUILD_SETTINGS_UPDATE),
 		LoginRequired,
 		DefaultUserOnly,
