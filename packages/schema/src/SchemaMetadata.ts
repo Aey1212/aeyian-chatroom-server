@@ -19,6 +19,9 @@ interface SchemaMetadata {
 	bitflagValues?: Array<BitflagEntry>;
 	format?: string;
 	preserveEmptyValues?: boolean;
+	// Upstream Fluxer c77978327 (#3863): a request field holding base64 file bytes, which the content
+	// filter skips by path.
+	base64Binary?: boolean;
 }
 
 export const schemaMetadata = z.registry<SchemaMetadata>();
