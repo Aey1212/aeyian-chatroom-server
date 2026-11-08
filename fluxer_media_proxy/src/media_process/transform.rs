@@ -14,7 +14,7 @@ use super::image_probe::{
 };
 use super::loaded_image::{
     normalize_vips_image_to_uchar, page_height, resize_loaded_image, resize_loaded_image_by_scale,
-    validate_dimensions_u32, validate_vips_image,
+    validate_dimensions_u32, validate_static_output_pixels, validate_vips_image,
 };
 use super::native_runtime::{clear_vips_error, ensure_vips_init, last_vips_error};
 use super::transform_plan::{
@@ -86,6 +86,54 @@ fn heif_source_may_be_a_sequence(sniffed: mime::SniffInfo) -> bool {
     }
 }
 
+fn ensure_decode_cost_admissible(
+    input: &[u8],
+    sniffed_mime: &str,
+    options: &ImageOptions,
+    media_limits: &MediaLimits,
+) -> Result<(), MediaError> {
+    let animated = options.is_animated();
+    if animated && sniffed_mime != "image/jxl" {
+        return Ok(());
+    }
+    let dims = probe_image_dims(media_limits, input)?;
+    let source_pixels = dims.width as usize * dims.height as usize;
+    if source_pixels >= constants::LARGE_SOURCE_LOG_PIXELS {
+        tracing::info!(
+            mime = sniffed_mime,
+            input_bytes = input.len(),
+            width = dims.width,
+            height = dims.height,
+            pages = dims.pages,
+            out_width = options.width.unwrap_or(0),
+            out_height = options.height.unwrap_or(0),
+            animated,
+            "large native transform starting"
+        );
+    }
+    let admitted = validate_jxl_decode_pixels(input, sniffed_mime, dims).and_then(|()| {
+        if animated {
+            Ok(())
+        } else {
+            validate_static_output_pixels(options, dims)
+        }
+    });
+    if admitted.is_err() {
+        tracing::warn!(
+            mime = sniffed_mime,
+            input_bytes = input.len(),
+            width = dims.width,
+            height = dims.height,
+            pages = dims.pages,
+            out_width = options.width.unwrap_or(0),
+            out_height = options.height.unwrap_or(0),
+            animated,
+            "native transform refused by decode cost limits"
+        );
+    }
+    admitted
+}
+
 pub fn transform_image(
     input: &[u8],
     options: &ImageOptions,
@@ -107,11 +155,8 @@ pub fn transform_image(
     }
     ensure_vips_init()?;
     let sniffed = mime::sniff(input);
-    if sniffed.mime == "image/jxl" {
-        let dims = probe_image_dims(media_limits, input)?;
-        validate_jxl_decode_pixels(input, sniffed.mime, dims)?;
-    }
     let animated = options.is_animated();
+    ensure_decode_cost_admissible(input, sniffed.mime, options, media_limits)?;
     let format = effective_transform_format(sniffed.mime, options.format, animated);
     let animated_avif = sniffed.mime == "image/avif" && sniffed.animated;
     let full_canvas_animation = animated

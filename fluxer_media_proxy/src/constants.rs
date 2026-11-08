@@ -15,6 +15,9 @@ pub const MAX_S3_ATTEMPTS: u8 = 3;
 pub const DEFAULT_IMAGE_SIZE: u32 = 128;
 pub const MAX_ANIMATED_FRAMES_DEFAULT: u32 = 20_000;
 pub const MAX_ANIMATED_TOTAL_PIXELS_DEFAULT: usize = 4 * MAX_MEDIA_IMAGE_PIXELS_DEFAULT;
+pub const MAX_STATIC_OUTPUT_PIXELS: usize = 6144 * 4096;
+pub const SVG_RASTER_MAX_DIMENSION: u32 = 4096;
+pub const LARGE_SOURCE_LOG_PIXELS: usize = 4096 * 4096;
 const _: () = assert!(MAX_ANIMATED_FRAMES_DEFAULT >= 20_000);
 // Decoding JPEG XL is costly, so it gets its own budget across all frames: 4096×4096 pixels, or
 // 8192×6144 for a single plain 8-bit grey or RGB frame, the cheapest kind to decode.
