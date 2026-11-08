@@ -213,6 +213,14 @@ export class AdminUserDeletionService {
 		if (!user) {
 			throw new UnknownUserError();
 		}
+		// A completed deletion has already wiped the account; clearing the flag would only turn the
+		// empty row into a live-looking "DeletedUser" that nobody can log into.
+		if (isDeletionComplete(user)) {
+			throw new ConflictError({
+				code: APIErrorCodes.CONFLICT,
+				message: 'This account has already been deleted and cannot be restored',
+			});
+		}
 		const updatedUser = await userRepository.updateDeletionSchedule(user, {
 			flags: user.flags & ~UserFlags.DELETED & ~UserFlags.SELF_DELETED,
 			pending_deletion_at: null,
