@@ -1,7 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {createUserID, type UserID} from '@app/api/BrandedTypes';
-import {BatchBuilder, deleteOneOrMany, fetchMany, fetchOne} from '@app/api/database/CassandraQueryExecution';
+import {
+	BatchBuilder,
+	deleteOneOrMany,
+	fetchMany,
+	fetchManyInChunks,
+	fetchOne,
+} from '@app/api/database/CassandraQueryExecution';
 import {Db, nextVersion} from '@app/api/database/CassandraTypes';
 import {executeVersionedUpdate} from '@app/api/database/CassandraVersionedUpdate';
 import type {NoteRow, RelationshipRow} from '@app/api/database/types/UserTypes';
@@ -27,6 +33,9 @@ const FETCH_RELATIONSHIP_TARGET_TYPES_CQL = Relationships.selectCql({
 });
 const FETCH_RELATIONSHIPS_BY_TARGET_CQL = RelationshipsByTarget.selectCql({
 	where: RelationshipsByTarget.where.eq('target_user_id'),
+});
+const FETCH_RELATIONSHIPS_FROM_SOURCES_TO_TARGET_CQL = Relationships.selectCql({
+	where: [Relationships.where.in('source_user_id', 'source_user_ids'), Relationships.where.eq('target_user_id')],
 });
 const FETCH_RELATIONSHIP_CQL = Relationships.selectCql({
 	where: [
@@ -83,24 +92,21 @@ export class UserRelationshipRepository implements IUserRelationshipRepository {
 			fetchMany<RelationshipRow>(FETCH_RELATIONSHIPS_CQL, {source_user_id: userId}),
 			fetchMany<RelationshipRow>(FETCH_RELATIONSHIPS_BY_TARGET_CQL, {target_user_id: userId}),
 		]);
-		const batch = new BatchBuilder();
-		for (const rel of relationshipsFromUser) {
-			batch.addPrepared(
-				Relationships.deleteByPk({
-					source_user_id: rel.source_user_id,
-					target_user_id: rel.target_user_id,
-					type: rel.type,
-				}),
-			);
-			batch.addPrepared(
-				RelationshipsByTarget.deleteByPk({
-					target_user_id: rel.target_user_id,
-					source_user_id: rel.source_user_id,
-					type: rel.type,
-				}),
-			);
+		// Upstream Fluxer 2c36b3f7d (#3935): an inbound row (someone else's friend link to this user)
+		// whose by-target index row is missing was never found, so it outlived the deletion. The
+		// counterparts' rows pointing at this user are also read straight from the main table.
+		const counterpartIds = [...new Set(relationshipsFromUser.map((rel) => rel.target_user_id))];
+		const reverseRelationships = await fetchManyInChunks<RelationshipRow>(
+			FETCH_RELATIONSHIPS_FROM_SOURCES_TO_TARGET_CQL,
+			counterpartIds,
+			(chunk) => ({source_user_ids: chunk, target_user_id: userId}),
+		);
+		const rowsByKey = new Map<string, RelationshipRow>();
+		for (const rel of [...relationshipsFromUser, ...relationshipsPointingToUser, ...reverseRelationships]) {
+			rowsByKey.set(`${rel.source_user_id}:${rel.target_user_id}:${rel.type}`, rel);
 		}
-		for (const rel of relationshipsPointingToUser) {
+		const batch = new BatchBuilder();
+		for (const rel of rowsByKey.values()) {
 			batch.addPrepared(
 				Relationships.deleteByPk({
 					source_user_id: rel.source_user_id,
