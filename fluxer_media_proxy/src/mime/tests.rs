@@ -228,8 +228,10 @@ fn sniffs_the_literal_heif_ftyp_brand() {
     assert!(!sniff(heif).animated);
 }
 
+// Upstream Fluxer f9b469149 (#3878) bounds the brand scan even inside a fully present box, so a box
+// that declares a huge size cannot make every sniff walk it. Brands past the bound are not seen.
 #[test]
-fn scans_every_compatible_brand_of_a_fully_present_ftyp_box() {
+fn the_brand_scan_stops_at_its_bound_even_inside_a_fully_present_ftyp_box() {
     let compatible_brands = 40;
     let box_size = 16 + compatible_brands * 4;
     let mut ftyp = Vec::new();
@@ -247,7 +249,11 @@ fn scans_every_compatible_brand_of_a_fully_present_ftyp_box() {
     ftyp.extend_from_slice(b"avif");
     assert_eq!(box_size, ftyp.len());
     assert!(box_size - 4 > 128);
-    assert_eq!("image/avif", sniff(&ftyp).mime);
+    assert_eq!("video/mp4", sniff(&ftyp).mime);
+
+    let mut early = ftyp.clone();
+    early[60..64].copy_from_slice(b"avif");
+    assert_eq!("image/avif", sniff(&early).mime);
 
     let mut truncated_box = ftyp.clone();
     truncated_box[0..4].copy_from_slice(&u32::MAX.to_be_bytes());
