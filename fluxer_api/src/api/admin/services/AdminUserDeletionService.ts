@@ -39,6 +39,25 @@ interface AdminUserDeletionServiceDeps {
 const minUserRequestedDeletionDays = 14;
 const minStandardDeletionDays = 60;
 
+// Upstream Fluxer 02c82f003 (#3221): only a deletion for abuse closes the user's pending reports.
+// Any other reason (other, inactivity, child safety, sexual content, ...) leaves them for an admin.
+const reportResolvingDeletionReasons: ReadonlySet<number> = new Set([
+	DeletionReasons.SPAM,
+	DeletionReasons.CHEATING_OR_EXPLOITATION,
+	DeletionReasons.COORDINATED_RAIDING,
+	DeletionReasons.AUTOMATION_OR_SELFBOT,
+	DeletionReasons.SCAM_OR_SOCIAL_ENGINEERING,
+	DeletionReasons.HARASSMENT_OR_BULLYING,
+	DeletionReasons.BAN_EVASION,
+	DeletionReasons.TOKEN_OR_CREDENTIAL_SCAM,
+	DeletionReasons.HATE_SPEECH_OR_EXTREMIST_CONTENT,
+	DeletionReasons.MALICIOUS_LINKS_OR_MALWARE,
+	DeletionReasons.IMPERSONATION_OR_FAKE_IDENTITY,
+]);
+
+// Reports an admin must always read, even when the reported user is deleted for abuse.
+const manuallyResolvedReportCategories: ReadonlySet<string> = new Set(['child_safety', 'underage_user', 'self_harm']);
+
 export function resolveDeletionDays(reasonCode: number, requestedDays: number): number {
 	const minDays =
 		reasonCode === DeletionReasons.USER_REQUESTED ? minUserRequestedDeletionDays : minStandardDeletionDays;
@@ -176,6 +195,8 @@ export class AdminUserDeletionService {
 				auditLogReason,
 				deletionReasonCode: data.reason_code,
 			});
+		}
+		if (reportResolvingDeletionReasons.has(data.reason_code)) {
 			await this.resolvePendingReportsAgainstUser({user, adminUserId});
 		}
 		await updatePropagator.propagateUserUpdate({userId, oldUser: user, updatedUser: updatedUser});
@@ -344,6 +365,7 @@ export class AdminUserDeletionService {
 				);
 				if (hits.length === 0) break;
 				for (const hit of hits) {
+					if (manuallyResolvedReportCategories.has(hit.category)) continue;
 					pendingReportIds.add(hit.id);
 				}
 				offset += hits.length;

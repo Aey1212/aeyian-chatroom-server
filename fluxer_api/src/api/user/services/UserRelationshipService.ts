@@ -3,6 +3,7 @@
 import type {ApiContext} from '@app/api/ApiContext';
 import {requireEmailVerified} from '@app/api/auth/EmailVerificationUtils';
 import type {UserID} from '@app/api/BrandedTypes';
+import {isSyntheticUserId} from '@app/api/constants/Core';
 import type {IGatewayService} from '@app/api/infrastructure/IGatewayService';
 import type {UserCacheService} from '@app/api/infrastructure/UserCacheService';
 import type {LimitConfigService} from '@app/api/limits/LimitConfigService';
@@ -799,6 +800,11 @@ export class UserRelationshipService {
 	private isDeletedUser(user: User | null | undefined): boolean {
 		if (!user) {
 			return false;
+		}
+		// Upstream Fluxer 55ea1dd70 (#3934): the system and deleted-user placeholders are accounts
+		// nobody owns; a friend request to them must be refused like one to a deleted account.
+		if (isSyntheticUserId(user.id)) {
+			return true;
 		}
 		if (user.pendingDeletionAt !== null) {
 			return false;
