@@ -51,3 +51,16 @@ export async function hasPermission(
 ): Promise<boolean> {
 	return await gatewayService.checkPermission(params);
 }
+
+// Upstream Fluxer eedfd9275 (#2867): the bits an overwrite change grants are the newly allowed
+// ones and the newly lifted denies; bits that were already allowed, or are being taken away, grant nothing.
+export function overwriteGrantedBits(
+	before: {allow: bigint; deny: bigint} | null | undefined,
+	after: {allow: bigint; deny: bigint} | null | undefined,
+): bigint {
+	const beforeAllow = before?.allow ?? 0n;
+	const beforeDeny = before?.deny ?? 0n;
+	const afterAllow = after?.allow ?? 0n;
+	const afterDeny = after?.deny ?? 0n;
+	return (afterAllow & ~beforeAllow) | (beforeDeny & ~afterDeny);
+}
