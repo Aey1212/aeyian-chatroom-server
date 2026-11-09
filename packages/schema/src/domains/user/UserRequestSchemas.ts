@@ -25,6 +25,7 @@ import {
 	isValidSyncedPreferencesEncoding,
 	SYNCED_PREFERENCES_MAX_ENCODED_LENGTH,
 } from '@fluxer/schema/src/domains/user/SyncedPreferencesCodec';
+import {withBase64Binary} from '@fluxer/schema/src/primitives/Base64BinaryFields';
 import {isValidSingleUnicodeEmoji} from '@fluxer/schema/src/primitives/EmojiValidators';
 import {base64LengthForBytes, createBase64StringType} from '@fluxer/schema/src/primitives/FileValidators';
 import {LocaleSchema} from '@fluxer/schema/src/primitives/LocaleSchema';
@@ -400,12 +401,14 @@ export const UserSettingsUpdateRequest = z
 		default_share_voice_activity: z
 			.boolean()
 			.describe('Default share_voice_activity applied to new friend relationships'),
-		synced_preferences: z
-			.string()
-			.max(SYNCED_PREFERENCES_MAX_ENCODED_LENGTH)
-			.refine((value) => isValidSyncedPreferencesEncoding(value), {
-				message: ValidationErrorCodes.INVALID_FORMAT,
-			})
+		synced_preferences: withBase64Binary(
+			z
+				.string()
+				.max(SYNCED_PREFERENCES_MAX_ENCODED_LENGTH)
+				.refine((value) => isValidSyncedPreferencesEncoding(value), {
+					message: ValidationErrorCodes.INVALID_FORMAT,
+				}),
+		)
 			.nullish()
 			.describe(
 				'Account-wide client preferences as a base64-encoded protobuf snapshot. Replaces the entire stored snapshot; pass null to clear it.',

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {Config} from '@app/api/Config';
+import {registerRequestBodySchema} from '@app/api/middleware/RequestBodyBinaryFields';
 import type {HonoEnv} from '@app/api/types/HonoEnv';
 import {APIErrorCodes} from '@fluxer/constants/src/ApiErrorCodes';
 import {InternalServerError} from '@fluxer/errors/src/domains/core/InternalServerError';
@@ -167,6 +168,9 @@ export function OpenAPI(
 		metadata = operationIdOrMetadata;
 	}
 	validateOperationId(metadata.operationId);
+	if (metadata.requestSchema) {
+		registerRequestBodySchema(metadata.requestSchema);
+	}
 	const {statusCode, security, tags, bodylessStatusCodes, responseContentType} = metadata;
 	const schema = metadata.responseSchema;
 	const fullMetadata: OpenAPIRouteMetadata = {

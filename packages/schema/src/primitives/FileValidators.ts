@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
+import {withBase64Binary} from '@fluxer/schema/src/primitives/Base64BinaryFields';
 import {
 	normalizeString,
 	withOpenApiType,
@@ -78,7 +79,7 @@ export function base64LengthForBytes(maxBytes: number): number {
 }
 
 export function createBase64StringType(minLength = 1, maxLength = 256) {
-	return withOpenApiType(
+	const schema = withOpenApiType(
 		z
 			.string()
 			.overwrite((value) => {
@@ -105,4 +106,5 @@ export function createBase64StringType(minLength = 1, maxLength = 256) {
 			}),
 		'Base64ImageType',
 	);
+	return withBase64Binary(schema);
 }

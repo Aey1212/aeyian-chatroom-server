@@ -110,7 +110,7 @@ export class TestMediaService extends IMediaService {
 			if (buffer.length === 0) {
 				return null;
 			}
-			const format = this.detectImageFormat(buffer);
+			const format = this.detectImageFormat(buffer) ?? (this.isWav(buffer) ? 'wav' : null);
 			if (!format) {
 				return null;
 			}
@@ -123,6 +123,7 @@ export class TestMediaService extends IMediaService {
 				height: 128,
 				animated: format === 'gif',
 				nsfw: false,
+				...(format === 'wav' ? {duration: this.wavDurationSeconds(buffer) ?? undefined} : {}),
 			};
 		} catch (_error) {
 			return null;
@@ -212,6 +213,19 @@ export class TestMediaService extends IMediaService {
 	private contentTypeForFormat(format: string): string {
 		if (format === 'jpeg') return 'image/jpeg';
 		if (format === 'svg') return 'image/svg+xml';
+		if (format === 'wav') return 'audio/wav';
 		return `image/${format}`;
+	}
+
+	// PCM WAV only, enough for audio upload tests: RIFF....WAVE with the data size at 40.
+	private isWav(buffer: Buffer): boolean {
+		return (
+			buffer.length >= 44 && buffer.toString('latin1', 0, 4) === 'RIFF' && buffer.toString('latin1', 8, 12) === 'WAVE'
+		);
+	}
+
+	private wavDurationSeconds(buffer: Buffer): number | null {
+		const byteRate = buffer.readUInt32LE(28);
+		return byteRate > 0 ? buffer.readUInt32LE(40) / byteRate : null;
 	}
 }
