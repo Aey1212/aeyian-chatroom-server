@@ -225,7 +225,7 @@ fn metadata_blocking(request: MetadataBlockingRequest<'_>) -> Result<PreparedMet
             frame_count: frames_count.max(sniffed.frames),
             input,
             duration_seconds: av_probe.as_ref().and_then(|probe| probe.duration_seconds),
-            deadline_ms: options.deadline_ms,
+            deadline_ms: None,
         })?
     } else {
         None
