@@ -8,6 +8,7 @@ import type {SudoVerificationResult} from '@app/api/auth/services/SudoVerificati
 import type {MfaBackupCode} from '@app/api/models/MfaBackupCode';
 import type {User} from '@app/api/models/User';
 import {mapUserToPrivateResponse} from '@app/api/user/UserMappers';
+import {TotpGenerator} from '@app/api/utils/TotpGenerator';
 import {UserAuthenticatorTypes} from '@fluxer/constants/src/UserConstants';
 import {ValidationErrorCodes} from '@fluxer/constants/src/ValidationErrorCodes';
 import {MfaNotDisabledError} from '@fluxer/errors/src/domains/auth/MfaNotDisabledError';
@@ -41,6 +42,22 @@ function assertSudoVerifiedForMfa(user: User, sudoContext: SudoVerificationResul
 	const identityVerifiedViaPassword = sudoContext.method === 'password';
 	if (!identityVerifiedViaSudo && !identityVerifiedViaPassword) {
 		throw new SudoModeRequiredError(userHasMfa(user), deriveSudoMethods(user));
+	}
+}
+
+async function isValidTotpSetupCode(secret: string, code: string): Promise<boolean> {
+	try {
+		return await new TotpGenerator(secret).validateTotp(code);
+	} catch {
+		return false;
+	}
+}
+
+// Upstream Fluxer 706c41aad (#3146): a wrong setup code is refused before the password prompt, so
+// nobody types their password only to start over, and a wrong code costs no password check.
+export async function assertValidTotpSetupCode(secret: string, code: string): Promise<void> {
+	if (!(await isValidTotpSetupCode(secret, code))) {
+		throw InputValidationError.fromCode('code', ValidationErrorCodes.INVALID_CODE);
 	}
 }
 
