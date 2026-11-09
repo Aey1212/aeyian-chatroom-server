@@ -3,7 +3,6 @@
 use crate::{
     byte_budget::BudgetedBytes,
     constants,
-    image_quality::ImageQuality,
     image_transform::ResizeMode,
     media_process, mime,
     output_format::OutputFormat,
@@ -21,9 +20,7 @@ use crate::{
             media_response,
         },
         state::AppState,
-        transform::execution::{
-            VideoTransformOptions, run_transform, run_video_transform, transform_error_is_timeout,
-        },
+        transform::execution::{run_transform, transform_error_is_timeout},
     },
 };
 use axum::{
@@ -179,23 +176,13 @@ pub(in crate::server) async fn thumbnail_handler(
         Err(err) => return storage_error_response(&req.upload_filename, err),
     };
     let media = if mime::category(&object.content_type) == Some(mime::Category::Video) {
-        let options = VideoTransformOptions {
-            format: OutputFormat::WebP,
-            width: None,
-            height: None,
-            quality: ImageQuality::Auto,
-            deadline_ms: app.media.transforms().transform_deadline_ms(),
-        };
-        match run_video_transform(app.media.transforms(), object.data.clone(), options).await {
+        match media_process::extract_video_thumbnail(
+            &object.data,
+            OutputFormat::WebP,
+            None,
+            &app.media.limits(),
+        ) {
             Ok(media) => media,
-            Err(err) if transform_error_is_timeout(&err) => {
-                return text_with_source(
-                    StatusCode::GATEWAY_TIMEOUT,
-                    "Gateway Timeout",
-                    "video_thumbnail_timeout",
-                    err,
-                );
-            }
             Err(err) => {
                 return text_with_source(
                     StatusCode::BAD_REQUEST,
@@ -267,14 +254,12 @@ pub(in crate::server) async fn frames_handler(
         Ok(input) => input,
         Err(failure) => return failure.into_response(),
     };
-    let options = VideoTransformOptions {
-        format: OutputFormat::JPEG,
-        width: None,
-        height: None,
-        quality: ImageQuality::Auto,
-        deadline_ms: app.media.transforms().transform_deadline_ms(),
-    };
-    match run_video_transform(app.media.transforms(), input.data, options).await {
+    match media_process::extract_video_thumbnail(
+        &input.data,
+        OutputFormat::JPEG,
+        None,
+        &app.media.limits(),
+    ) {
         Ok(frame) => {
             let encoded = general_purpose::STANDARD.encode(frame.bytes);
             json_response(

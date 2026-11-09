@@ -101,9 +101,7 @@ normalize_transferred_guild_state(GuildId, TransferState) ->
             virtual_channel_access_preserve, TransferState, #{}
         ),
         virtual_channel_access_move_pending =>
-            maps:get(virtual_channel_access_move_pending, TransferState, #{}),
-        virtual_channel_access_view_only =>
-            maps:get(virtual_channel_access_view_only, TransferState, #{})
+            maps:get(virtual_channel_access_move_pending, TransferState, #{})
     }.
 
 -spec reply_start_transferred(guild_id(), map(), state()) ->
