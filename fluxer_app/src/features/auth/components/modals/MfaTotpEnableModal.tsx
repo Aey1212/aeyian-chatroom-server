@@ -8,6 +8,7 @@ import {BackupCodesModal} from '@app/features/auth/components/modals/BackupCodes
 import styles from '@app/features/auth/components/modals/MfaTotpEnableModal.module.css';
 import * as MfaUtils from '@app/features/auth/utils/AuthMfaUtils';
 import {CANCEL_DESCRIPTOR, CONTINUE_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
+import {useCustomCssSuspension} from '@app/features/theme/state/CustomCssSuspension';
 import {Button} from '@app/features/ui/button/Button';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {modal} from '@app/features/ui/commands/ModalCommands';
@@ -63,6 +64,7 @@ interface MfaTotpEnableModalProps {
 }
 
 export const MfaTotpEnableModal = observer(({user}: MfaTotpEnableModalProps) => {
+	useCustomCssSuspension();
 	const {i18n} = useLingui();
 	const form = useForm<FormInputs>();
 	const [secret] = useState(() => MfaUtils.generateTotpSecret());

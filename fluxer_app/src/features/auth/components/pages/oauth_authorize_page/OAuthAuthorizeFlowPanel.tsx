@@ -8,6 +8,7 @@ import {OAuthPermissionsStep} from '@app/features/auth/components/pages/oauth_au
 import {OAuthScopesStep} from '@app/features/auth/components/pages/oauth_authorize_page/OAuthScopesStep';
 import {OAuthSuccessState} from '@app/features/auth/components/pages/oauth_authorize_page/OAuthSuccessState';
 import type {AuthorizeFlow} from '@app/features/auth/components/pages/oauth_authorize_page/state/useAuthorizeFlow';
+import {useCustomCssSuspension} from '@app/features/theme/state/CustomCssSuspension';
 import {SteppedCarousel} from '@app/features/ui/stepped_carousel/SteppedCarousel';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
@@ -27,6 +28,9 @@ interface OAuthAuthorizeFlowPanelProps {
 
 export const OAuthAuthorizeFlowPanel: React.FC<OAuthAuthorizeFlowPanelProps> = observer(
 	({flow, onDone, showInlineActions = true}) => {
+		// Upstream Fluxer e58e75067 (#3761) suspends custom CSS in its OAuth dialog; here the dialog and the
+		// full authorize page share this panel, so both screens run without custom CSS.
+		useCustomCssSuspension();
 		const {i18n} = useLingui();
 		if (flow.submitError) {
 			return (

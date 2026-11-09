@@ -3,6 +3,7 @@
 import {Logger} from '@app/features/platform/utils/AppLogger';
 import {clearRemScaleCache} from '@app/features/theme/layout/RemFromPx';
 import type {ThemeLibraryAsset, ThemeLibraryLocalFileReference} from '@app/features/theme/state/ThemeLibrary';
+import {gateThemeCss} from '@app/features/theme/utils/ThemeCssUrlGate';
 import {resolveThemeCssReferences} from '@app/features/theme/utils/ThemeCssUtils';
 import {useEffect} from 'react';
 
@@ -15,6 +16,7 @@ interface CustomThemeStyleOptions {
 	themeLibraryAssets: ReadonlyArray<ThemeLibraryAsset>;
 	themeLibraryLocalFiles: ReadonlyArray<ThemeLibraryLocalFileReference>;
 	themeLibraryRevision: number;
+	mediaEndpoint: string;
 }
 
 export function useCustomThemeStyle({
@@ -23,6 +25,7 @@ export function useCustomThemeStyle({
 	themeLibraryAssets,
 	themeLibraryLocalFiles,
 	themeLibraryRevision,
+	mediaEndpoint,
 }: CustomThemeStyleOptions): void {
 	useEffect(() => {
 		const existing = document.getElementById(STYLE_ELEMENT_ID) as HTMLStyleElement | null;
@@ -54,7 +57,15 @@ export function useCustomThemeStyle({
 					return;
 				}
 				objectUrls = resolved.objectUrls;
-				applyThemeCss(resolved.css);
+				// Upstream Fluxer e58e75067 (#3761): only CSS that passed the URL gate reaches the page.
+				const gated = gateThemeCss(resolved.css, {mediaEndpoint, objectUrls: new Set(resolved.objectUrls)});
+				if (gated.blocked.length > 0) {
+					logger.warn('Custom theme CSS links to files the app does not load', {blocked: gated.blocked});
+				}
+				if (gated.rejected) {
+					logger.error('Custom theme CSS did not settle after filtering and was not applied');
+				}
+				applyThemeCss(gated.css);
 				if (resolved.missingAssetReferences.length > 0 || resolved.missingLocalFileReferences.length > 0) {
 					logger.warn('Custom theme CSS has unresolved file references', {
 						assets: resolved.missingAssetReferences,
@@ -63,8 +74,9 @@ export function useCustomThemeStyle({
 				}
 			})
 			.catch((error) => {
-				logger.error('Failed to resolve custom theme CSS references', error);
-				applyThemeCss(css);
+				// Never fall back to the unfiltered CSS.
+				logger.error('Failed to prepare custom theme CSS; none of it was applied', error);
+				if (!disposed) applyThemeCss('');
 			});
 		if (!existing) {
 			document.head.appendChild(styleElement);
@@ -75,5 +87,12 @@ export function useCustomThemeStyle({
 				URL.revokeObjectURL(objectUrl);
 			}
 		};
-	}, [customThemeCss, enabledThemeCss, themeLibraryAssets, themeLibraryLocalFiles, themeLibraryRevision]);
+	}, [
+		customThemeCss,
+		enabledThemeCss,
+		themeLibraryAssets,
+		themeLibraryLocalFiles,
+		themeLibraryRevision,
+		mediaEndpoint,
+	]);
 }

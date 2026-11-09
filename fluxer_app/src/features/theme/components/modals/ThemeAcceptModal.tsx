@@ -8,6 +8,8 @@ import {useArboriumHighlightedHtml} from '@app/features/code_highlighting/utils/
 import {COPY_CODE_DESCRIPTOR, SOMETHING_WENT_WRONG_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
 import {Logger} from '@app/features/platform/utils/AppLogger';
 import styles from '@app/features/theme/components/modals/ThemeAcceptModal.module.css';
+import {useCustomCssSuspension} from '@app/features/theme/state/CustomCssSuspension';
+import {gateThemeCss} from '@app/features/theme/utils/ThemeCssUrlGate';
 import {buildThemeCssProxyUrl} from '@app/features/theme/utils/ThemeUtils';
 import {Button} from '@app/features/ui/button/Button';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
@@ -17,7 +19,7 @@ import {formatUserSettingsPath} from '@app/features/user/components/settings_uti
 import {msg} from '@lingui/core/macro';
 import {Trans, useLingui} from '@lingui/react/macro';
 import {observer} from 'mobx-react-lite';
-import {useEffect, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 
 const WE_COULDN_T_READ_THIS_THEME_IT_MAY_DESCRIPTOR = msg({
 	message: "We couldn't read this theme. It may be corrupted or invalid.",
@@ -35,6 +37,11 @@ const WE_COULDN_T_APPLY_THIS_THEME_DESCRIPTOR = msg({
 	message: "We couldn't apply this theme.",
 	comment: 'Error message in the theme accept modal.',
 });
+const BLOCKED_FILES_DESCRIPTOR = msg({
+	message: 'This theme links to {count, plural, one {# file} other {# files}} on other sites, which will not load.',
+	comment: 'Shown in the modal that applies a shared theme when the theme points at files the app will not load.',
+});
+const NO_OBJECT_URLS: ReadonlySet<string> = new Set();
 const logger = new Logger('ThemeAcceptModal');
 
 interface ThemeAcceptModalProps {
@@ -43,6 +50,7 @@ interface ThemeAcceptModalProps {
 
 export const ThemeAcceptModal = observer(function ThemeAcceptModal({themeId}: ThemeAcceptModalProps) {
 	const {i18n} = useLingui();
+	useCustomCssSuspension();
 	const themeSettingsPath = formatUserSettingsPath(i18n, 'appearance', 'theme');
 	const [isApplying, setIsApplying] = useState(false);
 	const [css, setCss] = useState<string | null>(null);
@@ -50,6 +58,10 @@ export const ThemeAcceptModal = observer(function ThemeAcceptModal({themeId}: Th
 	const [fetchError, setFetchError] = useState<string | null>(null);
 	const mediaEndpoint = RuntimeConfig.mediaEndpoint;
 	const highlightedCss = useArboriumHighlightedHtml('css', css);
+	const blockedCount = useMemo(() => {
+		if (!css) return 0;
+		return gateThemeCss(css, {mediaEndpoint, objectUrls: NO_OBJECT_URLS}).blocked.length;
+	}, [css, mediaEndpoint]);
 	useEffect(() => {
 		if (!mediaEndpoint) {
 			setCss(null);
@@ -147,6 +159,11 @@ export const ThemeAcceptModal = observer(function ThemeAcceptModal({themeId}: Th
 				<p className={styles.description} data-flx="theme.theme-accept-modal.description">
 					<Trans>This will replace your current custom theme. You can edit it later in {themeSettingsPath}.</Trans>
 				</p>
+				{blockedCount > 0 && (
+					<p className={styles.description} data-flx="theme.theme-accept-modal.blocked-files">
+						{i18n._(BLOCKED_FILES_DESCRIPTOR, {count: blockedCount})}
+					</p>
+				)}
 				<div className={styles.codeContainer} data-flx="theme.theme-accept-modal.code-container">
 					<CopyButton
 						value={css ?? ''}

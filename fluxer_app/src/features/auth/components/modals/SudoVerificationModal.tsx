@@ -8,6 +8,7 @@ import * as WebAuthnUtils from '@app/features/auth/utils/WebAuthnUtils';
 import {PASSWORD_DESCRIPTOR, VERIFY_DESCRIPTOR} from '@app/features/i18n/utils/CommonMessageDescriptors';
 import {http} from '@app/features/platform/transport/RestTransport';
 import {Logger} from '@app/features/platform/utils/AppLogger';
+import {useCustomCssSuspension} from '@app/features/theme/state/CustomCssSuspension';
 import {Button} from '@app/features/ui/button/Button';
 import {Form} from '@app/features/ui/components/form/Form';
 import {Input} from '@app/features/ui/components/form/FormInput';
@@ -67,6 +68,7 @@ const isMacAppIdentifierError = (error: unknown): boolean => {
 	return message.toLowerCase().includes('application identifier');
 };
 const SudoVerificationModal: React.FC = observer(() => {
+	useCustomCssSuspension();
 	const {i18n} = useLingui();
 	const {availableMethods, isVerifying, verificationFailed, rawError, lastUsedMfaMethod} = SudoPrompt;
 	const form = useForm<FormInputs>({defaultValues: {password: '', totp: ''}});

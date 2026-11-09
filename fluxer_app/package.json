@@ -173,6 +173,7 @@
 		"@codemirror/language": "^6.12.4",
 		"@codemirror/state": "^6.7.5",
 		"@codemirror/view": "^6.43.12",
+		"@csstools/css-tokenizer": "4.0.0",
 		"@floating-ui/react": "catalog:",
 		"@floating-ui/react-dom": "catalog:",
 		"@fluxer/constants": "workspace:*",

@@ -74,6 +74,7 @@ export const SecretsSection: React.FC<SecretsSectionProps> = ({
 						value={clientSecret ?? ''}
 						readOnly
 						placeholder={clientSecret ? '•'.repeat(64) : '•'.repeat(64)}
+						sensitive
 						data-flx="user.applications-tab.application-detail.secrets-section.input.text"
 					/>
 					<div
@@ -103,6 +104,7 @@ export const SecretsSection: React.FC<SecretsSectionProps> = ({
 							value={botToken ?? ''}
 							readOnly
 							placeholder={botToken ? '•'.repeat(64) : '•'.repeat(64)}
+							sensitive
 							data-flx="user.applications-tab.application-detail.secrets-section.input.text--2"
 						/>
 						<div

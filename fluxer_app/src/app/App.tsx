@@ -20,6 +20,7 @@ import {usePlatformClasses} from '@app/features/app/hooks/usePlatformClasses';
 import {useServiceWorkerBadge} from '@app/features/app/hooks/useServiceWorkerBadge';
 import {useTabKeyFocusGuard} from '@app/features/app/hooks/useTabKeyFocusGuard';
 import {type LayoutVariant, LayoutVariantProvider} from '@app/features/app/state/LayoutVariantContext';
+import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
 import RuntimeCrash from '@app/features/app/state/RuntimeCrash';
 import {showMyselfTypingHelper} from '@app/features/devtools/utils/ShowMyselfTypingHelper';
 import GatewayConnection from '@app/features/gateway/transport/GatewayConnection';
@@ -35,6 +36,7 @@ import {QUICK_SWITCHER_PORTAL_ID} from '@app/features/search/components/quick_sw
 import {useCustomThemeStyle} from '@app/features/theme/hooks/useCustomThemeStyle';
 import {useRemScaleTracking} from '@app/features/theme/hooks/useRemScaleTracking';
 import {useThemeCssVariables} from '@app/features/theme/hooks/useThemeCssVariables';
+import CustomCssSuspension from '@app/features/theme/state/CustomCssSuspension';
 import Theme from '@app/features/theme/state/Theme';
 import ThemeLibrary from '@app/features/theme/state/ThemeLibrary';
 import {useThemeStudioBroadcast} from '@app/features/theme_studio/state/ThemeStudioBroadcast';
@@ -171,12 +173,15 @@ export const AppWrapper = observer(({children}: AppWrapperProps) => {
 		messageGroupSpacing: Accessibility.getMessageGroupSpacingValue(messageDisplayCompact),
 		hdrDisplayMode: Accessibility.hdrDisplayMode,
 	});
+	// Upstream Fluxer e58e75067 (#3761): no custom CSS while a security dialog or credential field is open.
+	const customCssSuspended = CustomCssSuspension.active;
 	useCustomThemeStyle({
-		enabledThemeCss: ThemeLibrary.activeThemeCss,
-		customThemeCss: Accessibility.customThemeCss,
+		enabledThemeCss: customCssSuspended ? null : ThemeLibrary.activeThemeCss,
+		customThemeCss: customCssSuspended ? null : Accessibility.customThemeCss,
 		themeLibraryAssets: ThemeLibrary.assets,
 		themeLibraryLocalFiles: ThemeLibrary.localFiles,
 		themeLibraryRevision: ThemeLibrary.revision,
+		mediaEndpoint: RuntimeConfig.mediaEndpoint,
 	});
 	return (
 		<LayoutVariantProvider value={layoutVariantContextValue} data-flx="app.app.app-wrapper.layout-variant-provider">
