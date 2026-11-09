@@ -2222,25 +2222,18 @@ mod tests {
         let picture = crate::test_fixtures::synthetic_png(128, 128);
         write_object(&root, "cdn", IMAGE_KEY, &picture);
         write_object(&root, "cdn", "attachments/1/2/vector.svg", VECTOR_IMAGE);
-        let app = dispatch_app(
-            "mp",
-            &root,
-            &[SIGNATURE_ENFORCE, FULL_TRANSFORM_QUEUE].concat(),
-        );
+        // Attachment links are not signed on this instance (signature mode off).
+        let app = dispatch_app("mp", &root, FULL_TRANSFORM_QUEUE);
         let (release, released) = std::sync::mpsc::channel();
         let running = hold_native_slot(&app, released).await;
         let queued = hold_native_slot(&app, std::sync::mpsc::channel().1).await;
 
-        let uri = signed_uri(IMAGE_PATH, IMAGE_KEY, "width=64&height=64");
+        let uri = format!("{IMAGE_PATH}?width=64&height=64");
         let response = dispatch_uri(&app, Method::GET, &uri, &[], None).await;
         assert_untransformed_original(response, "image/png", &picture).await;
 
-        let uri = signed_uri(
-            "/attachments/1/2/vector.svg",
-            "attachments/1/2/vector.svg",
-            "width=64&height=64",
-        );
-        let response = dispatch_uri(&app, Method::GET, &uri, &[], None).await;
+        let uri = "/attachments/1/2/vector.svg?width=64&height=64";
+        let response = dispatch_uri(&app, Method::GET, uri, &[], None).await;
         assert_image_transform_timeout(&response);
 
         drop(queued);
