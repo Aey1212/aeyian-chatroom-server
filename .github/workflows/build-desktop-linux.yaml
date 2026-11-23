@@ -1,0 +1,172 @@
+name: build desktop linux
+
+# Builds the Aeyian Chatline Linux app as an AppImage (x64): the Linux steps of upstream's desktop workflow (removed
+# from this fork in df14f5b68), on Ubuntu 22.04 so the native modules meet the GLIBC_2.35 baseline that
+# electron-builder.config.cjs checks, then a smoke test that starts the AppImage and checks it opens chat.aeyempire.com.
+# Only the AppImage target is built; the config's deb, rpm and tar.gz targets are not.
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: App version (SemVer, e.g. 1.0.2)
+        required: false
+        default: "1.0.2"
+        type: string
+  push:
+    branches:
+      - desktop-appimage
+    paths:
+      - fluxer_desktop/**
+      - .github/workflows/build-desktop-linux.yaml
+      - .github/scripts/linux-smoke-test.mjs
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-linux-${{ github.ref }}-${{ inputs.version || 'push' }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Linux AppImage (x64)
+    runs-on: ubuntu-22.04
+    timeout-minutes: 180
+    env:
+      BUILD_CHANNEL: stable
+      RELEASE_CHANNEL: stable
+      VERSION: ${{ inputs.version || '1.0.2' }}
+      PLATFORM: linux
+      ARCH: x64
+      ELECTRON_ARCH: x64
+    steps:
+      - name: Checkout CI helpers
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          path: _ci
+
+      - name: Checkout source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          path: source
+
+      - name: Set up Rust toolchain (CI helpers)
+        uses: dtolnay/rust-toolchain@02cb101ec7c40f2c49e1d9714d64511d8e1b74de
+        with:
+          toolchain: "1.98.1"
+
+      - name: Set workdir
+        env:
+          SUBST_TARGET: ${{ github.workspace }}/source
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step set_workdir_unix
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: 26
+
+      - name: Set up pnpm
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step setup_pnpm
+
+      - name: Resolve pnpm store path
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step resolve_pnpm_store_unix
+
+      - name: Cache pnpm store
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: ${{ env.PNPM_STORE_PATH }}
+          key: Linux-x64-pnpm-store-${{ hashFiles('source/pnpm-lock.yaml') }}
+          restore-keys: |
+            Linux-x64-pnpm-store-
+
+      - name: Install Linux dependencies
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step install_linux_deps
+
+      - name: Set up Rust toolchain (Linux target)
+        uses: dtolnay/rust-toolchain@02cb101ec7c40f2c49e1d9714d64511d8e1b74de
+        with:
+          toolchain: "1.98.1"
+          targets: x86_64-unknown-linux-gnu
+
+      - name: Install dependencies
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step install_dependencies
+
+      - name: Update version
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step update_version
+
+      - name: Set build channel
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step set_build_channel
+
+      - name: Build Electron main process and native modules
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: >-
+          cargo run --locked --quiet --manifest-path ${{ github.workspace }}/_ci/tools/ci/Cargo.toml -- build-desktop
+          --step build_electron_main
+
+      # Upstream's build_app_linux step builds every Linux target in the config; we want the AppImage only.
+      # The config's afterAllArtifactBuild still runs its AppImage checks (GLIBC_2.35 baseline, no libfuse.so.2).
+      - name: Build AppImage
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: pnpm exec electron-builder --config electron-builder.config.cjs --linux AppImage --x64
+
+      - name: Find the AppImage
+        id: appimage
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        run: |
+          shopt -s nullglob
+          files=(dist-electron/*.AppImage)
+          if [ "${#files[@]}" -ne 1 ]; then echo "Expected one AppImage, found ${#files[@]}: ${files[*]}"; exit 1; fi
+          echo "path=$PWD/${files[0]}" >> "$GITHUB_OUTPUT"
+          ls -l "${files[0]}"
+          sha256sum "${files[0]}" | tee "${files[0]}.sha256"
+
+      - name: Smoke test
+        working-directory: ${{ env.WORKDIR }}/fluxer_desktop
+        env:
+          # The runner may not allow FUSE mounts; the AppImage runtime then unpacks itself to a temp dir and runs.
+          APPIMAGE_EXTRACT_AND_RUN: "1"
+        run: |
+          sudo apt-get install -y --no-install-recommends xvfb
+          chmod +x "${{ steps.appimage.outputs.path }}"
+          mkdir -p smoke
+          xvfb-run -a -s "-screen 0 1280x800x24" \
+            node "${{ github.workspace }}/source/.github/scripts/linux-smoke-test.mjs" \
+            "${{ steps.appimage.outputs.path }}" smoke/app.png
+
+      - name: Upload AppImage
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: aeyian-chatline-linux-x64-appimage-${{ env.VERSION }}
+          path: |
+            ${{ steps.appimage.outputs.path }}
+            ${{ steps.appimage.outputs.path }}.sha256
+          if-no-files-found: error
+
+      - name: Upload smoke test screenshot
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: aeyian-chatline-linux-smoke-${{ env.VERSION }}
+          path: ${{ env.WORKDIR }}/fluxer_desktop/smoke/
+          if-no-files-found: warn
